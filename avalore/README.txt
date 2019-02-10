@@ -1,0 +1,2 @@
+Game folder goes in: C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\game\dota_addons\avalore
+Content folder goes in: C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\content\dota_addons\avalore
