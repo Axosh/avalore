@@ -1,0 +1,35 @@
+.AvaloreNotification
+{
+    width: 100%;
+    height: 100%;
+    flow-children: down;
+}
+
+#AlertMessage
+{
+    flow-children: down;
+    horizontal-align: center;
+    opacity: 0;
+    transform: scaleX(2) scaleY(2);
+    margin-top: 64px;
+    transition-property: transform, opacity;
+    transition-duration: 0.3s;
+    visibility: collapse;
+    border: 0px solid blue;
+}
+
+#AlertMessage_Delivery
+{
+    color: white;
+    horizontal-align: center;
+    text-shadow: 4px 4px 4px #121212;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.test #AlertMessage
+{
+    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+    visibility: visible;
+}

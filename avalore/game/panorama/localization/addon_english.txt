@@ -1,0 +1,17 @@
+"addon"
+{
+	"InstructionTitle"								"Avalore"
+	"InstructionsObjective"							"OBJECTIVE"
+	"InstructionsObjectiveText"						"The team with the most points in 40 minutes."
+	"InstructionsHowToPlay"							"HOW TO PLAY"
+	"InstructionsLines"								"-Team with the most points wins<br>
+													-There are 4 rounds, each presents a unique way to gather points.<br>
+													-Otherwise, points are gain from kills, flag captures, and building destructions."
+
+
+    // -----------------------------
+	// ALERTS
+	// -----------------------------
+	"test"											"test test test"
+	"helloworld"									"hello world"
+}

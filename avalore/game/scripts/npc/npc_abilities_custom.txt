@@ -10,9 +10,11 @@
 	{
 		"precache"
 		{
-			//"particle"  "particles/units/heroes/hero_sandking/sandking_sandstorm_start.vpcf"
+			//"particle"  "particles/units/heroes/hero_sandking/sandking_sandstorm_.vpcf"
+			"particle"  "particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf"
+			"particle"	"particles/hero/sand_king/sandking_sandstorm_aura.vpcf"
 			//"soundfile" "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
-		}"
+		}
 
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -34,6 +36,31 @@
 		"AbilityCastRange"				"0"
 		"AbilityDuration"				"20 25 30 35"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		//"OnSpellStart"
+		//{
+		//	"CreateThinker"
+		//	{
+		//		"ModifierName"	"deadly_fog_thinker"
+		//		"Target" 		"CASTER"
+		//	}"
+		//}"
+
+		//"Modifiers"
+		//{
+		//	"deadly_fog_thinker"
+		//	{
+		//		"OnCreated"
+		//		{
+		//			"AttachEffect"
+		//			{
+		//				"EffectName"        "particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf"
+		//				"EffectAttachType"  "follow_origin"
+		//				"Target"            "TARGET"
+		//			}
+		//		}
+		//	}
+		//}
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -73,7 +100,8 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"sand_storm_radius"		"425 500 575 650"
+				"radius"				"425 500 575 650"
+				//"sand_storm_radius"		"425 500 575 650"
 			}
 			"03"
 			{
@@ -83,7 +111,8 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"sand_storm_damage"		"20 40 60 80"
+				"damage"				"20 40 60 80"
+				//"sand_storm_damage"		"20 40 60 80"
 				"LinkedSpecialBonus"	"special_bonus_unique_davy_jones"
 			}
 			"05"
@@ -91,7 +120,7 @@
 				"var_type"				"FIELD_FLOAT"
 				"fade_delay"			"0.7"
 			}
-		}
+		} // end "AbilitySpecial"
 		
 	} //end: davy_jones_deadly_fog
 
@@ -111,11 +140,11 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
+				"var_type"			"FIELD_INTEGER"
 				"value"				"40"
 			}
 		}
-	}
+	} // end "special_bonus_unique_davy_jones"
 
 	//==========================
     // DAVY_JONES: Lost Souls
