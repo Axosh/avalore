@@ -1,0 +1,14 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/avalore_notification.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/avalore_notification.js" />
+	</scripts>
+	<Panel hittest="false" class="AvaloreNotification">
+		<Panel hittest="false" id="AlertMessage" text="">
+			<Label hittest="false" id="AlertMessage_Delivery" class="TitleFont" text="" html="true" />
+		</Panel>
+	</Panel>
+</root>
