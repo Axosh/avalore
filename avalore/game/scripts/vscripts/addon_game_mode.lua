@@ -4,6 +4,7 @@ Avalore Game Mode
 
 _G.nCOUNTDOWNTIMER = 2401
 _G.Temp = false
+_G.round = 0
 
 ---------------------------------------------------------------------------
 -- CAvaloreGameMode class
@@ -68,7 +69,6 @@ function CAvaloreGameMode:OnThink()
 	print("_G.Temp = " .. tostring(_G.Temp))
 
 	if curr_gametime > 20 and _G.Temp == false then
-		--BroadcastMessage("Test Test Test", 3)
 		local broadcast_obj =
 		{
 			msg = "#Helloworld",
@@ -96,6 +96,15 @@ function CAvaloreGameMode:OnThink()
 		print("koth")
 	elseif curr_gametime > 0 then
 		print("capture")
+		if(_G.round < 1) then
+			_G.round = 1
+			for i = 0,6,1
+			do
+				local vSpawnLoc = Vector(0,0,0) + RandomVector(2000)
+				--npc_dota_wisp_spirit
+				CreateUnitByName( 'npc_avalore_quest_wisp', vSpawnLoc, true, nil, nil, DOTA_TEAM_NEUTRALS )
+			end
+		end
 	end
 	return 1
 end
