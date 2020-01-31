@@ -26,5 +26,9 @@
 		"DOTA_Tooltip_ability_kunkka_torrent_Lore"
 		"DOTA_Tooltip_ability_kunkka_torrent_radius"
 		"DOTA_Tooltip_ability_kunkka_torrent_damage"
+
+		// Objectives
+
+		"npc_avalore_quest_wisp"	"Wisp"
 	}
 }

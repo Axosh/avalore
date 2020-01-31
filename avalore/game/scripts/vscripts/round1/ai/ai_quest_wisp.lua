@@ -19,9 +19,9 @@ EXPORTS.Init = function( self )
 
 	    -- Generate nearby waypoints for this unit
 	    local tWaypoints = {}
-	    local nWaypointsPerRoamNode = 10
-	    local nMinWaypointSearchDistance = 500--0
-	    local nMaxWaypointSearchDistance = 5000--2048
+	    local nWaypointsPerRoamNode = 3--10
+	    local nMinWaypointSearchDistance = 2000--0
+	    local nMaxWaypointSearchDistance = 8000--2048
 
 	    while #tWaypoints < nWaypointsPerRoamNode do
 	    	local vWaypoint = self:GetAbsOrigin() + RandomVector( RandomFloat( nMinWaypointSearchDistance, nMaxWaypointSearchDistance ) )

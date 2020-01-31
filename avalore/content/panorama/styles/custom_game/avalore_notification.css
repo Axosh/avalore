@@ -33,3 +33,10 @@
     transform: scaleX(1) scaleY(1);
     visibility: visible;
 }
+
+.broadcast #AlertMessage
+{
+    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+    visibility: visible;
+}
