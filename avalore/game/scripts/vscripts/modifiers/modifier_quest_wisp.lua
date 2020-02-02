@@ -12,6 +12,7 @@ function modifier_quest_wisp:DeclareFunctions()
     		MODIFIER_PROPERTY_DISABLE_HEALING, 
     		MODIFIER_EVENT_ON_ATTACK_LANDED,
     		DOTA_ABILITY_BEHAVIOR_HIDDEN}
+            --MODIFIER_EVENT_ON_DEATH}
 end
 
 function modifier_quest_wisp:GetAbsoluteNoDamageMagical( params )
@@ -51,4 +52,10 @@ end
 
 --function modifier_quest_wisp:GetModifierMoveSpeed_Limit(params)
 --    return 1000
+--end
+
+--function modifier_quest_wisp:OnDeath(keys)
+    --print("attacker id = " .. keys.attacker.teamID)
+    --print(CAvaloreGameMode)
+    --CAvaloreGameMode:SetTopBarTeamValue (keys.attacker.teamID, 5)
 --end
