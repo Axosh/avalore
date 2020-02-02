@@ -10,6 +10,8 @@ EXPORTS.Init = function( self )
 		vTargetWaypoint = nil,
 	}
 	self:SetContextThink( "init_think", function() 
+
+		--print("Start AI Think")
 		self.aiThink = aiThink
 		--self.CheckIfHasAggro = CheckIfHasAggro
 		--self.ShoutInRadius = ShoutInRadius
@@ -19,14 +21,26 @@ EXPORTS.Init = function( self )
 
 	    -- Generate nearby waypoints for this unit
 	    local tWaypoints = {}
-	    local nWaypointsPerRoamNode = 3--10
-	    local nMinWaypointSearchDistance = 2000--0
-	    local nMaxWaypointSearchDistance = 8000--2048
+	    local nWaypointsPerRoamNode = 10
+	    local nMinWaypointSearchDistance = 1000
+	    local nMaxWaypointSearchDistance = 8000
 
 	    while #tWaypoints < nWaypointsPerRoamNode do
 	    	local vWaypoint = self:GetAbsOrigin() + RandomVector( RandomFloat( nMinWaypointSearchDistance, nMaxWaypointSearchDistance ) )
 	    	if GridNav:CanFindPath( self:GetAbsOrigin(), vWaypoint ) then
 	    		table.insert( tWaypoints, vWaypoint )
+	    		-- reset distance check so they wander pretty broadly
+	    		nMinWaypointSearchDistance = 1000
+	    		nMaxWaypointSearchDistance = 8000
+	    		print("Added Waypoint")
+	    	else
+	    		if nMinWaypointSearchDistance  > 0 then
+	    			nMinWaypointSearchDistance = nMinWaypointSearchDistance - 100
+	    		end
+	    		if nMaxWaypointSearchDistance > 2000 then
+	    			nMaxWaypointSearchDistance = nMaxWaypointSearchDistance - 1000
+	    		end
+	    		print("Tried to create at: " .. tostring(vWaypoint) .. ". New Waypoint Range: " .. nMinWaypointSearchDistance .. " - " .. nMaxWaypointSearchDistance)
 	    	end
 	    end
 	    self.aiState.tWaypoints = tWaypoints
@@ -35,6 +49,7 @@ EXPORTS.Init = function( self )
 end
 
 function aiThink( self )
+	--print("Wisp aiThink()")
     if not self:IsAlive() then
     	return
     end

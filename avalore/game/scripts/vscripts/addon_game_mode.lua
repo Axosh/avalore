@@ -5,6 +5,8 @@ Avalore Game Mode
 _G.nCOUNTDOWNTIMER = 2401
 _G.Temp = false
 _G.round = 0
+_G.GoodScore = 0
+_G.BadScore = 0
 
 ---------------------------------------------------------------------------
 -- CAvaloreGameMode class
@@ -17,7 +19,7 @@ end
 ---------------------------------------------------------------------------
 -- Required .lua files
 ---------------------------------------------------------------------------
---require( "events" )
+require( "events" )
 --require( "items" )
 require( "utility_functions" )
 
@@ -43,17 +45,22 @@ end
 ---------------------------------------------------------------------------
 function CAvaloreGameMode:InitGameMode()
 	print( "Avalore is loaded." )
-	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
+	--GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 1 )
+	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 )
+	ListenToGameEvent("entity_killed", Dynamic_Wrap(CAvaloreGameMode, "OnEntityKilled"), self)
 	_G.nCOUNTDOWNTIMER = 2401
-	print( "CAvaloreGameMode:InitGameMode()" )
 	self.countdownEnabled = true
 	GameRules:SetPreGameTime( 10 )
 	GameRules:SetStrategyTime( 0.0 )
 	GameRules:SetShowcaseTime( 0.0 )
+	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride(true)
+	--GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( true )
+	print( "CAvaloreGameMode:InitGameMode()" )
 end
 
 -- Evaluate the state of the game
 function CAvaloreGameMode:OnThink()
+	print("CAvaloreGameMode:OnThink() - Started")
 	--if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 	--	--print( "Avalore script is running." )
 	--elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
@@ -100,11 +107,19 @@ function CAvaloreGameMode:OnThink()
 			_G.round = 1
 			for i = 0,6,1
 			do
-				local vSpawnLoc = Vector(0,0,0) + RandomVector(2000)
-				--npc_dota_wisp_spirit
+				local vSpawnLoc = nil
+				while vSpawnLoc == nil do
+					vSpawnLoc = Vector(0,0,0) + RandomVector(2000)
+					if (GridNav:CanFindPath(Vector(0,0,0), vSpawnLoc) == false) then
+						print( "Choosing new unit spawnloc.  Bad spawnloc was: " .. tostring( vSpawnLoc ) )
+				        vSpawnLoc = nil
+				    end
+				end
 				CreateUnitByName( 'npc_avalore_quest_wisp', vSpawnLoc, true, nil, nil, DOTA_TEAM_NEUTRALS )
 			end
 		end
 	end
+
+	print("CAvaloreGameMode:OnThink() - Ended")
 	return 1
 end
