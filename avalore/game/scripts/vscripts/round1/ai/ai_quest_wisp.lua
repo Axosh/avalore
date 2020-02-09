@@ -77,9 +77,10 @@ function RoamBetweenWaypoints( self )
     if aiState.vWaypoint == nil then
         aiState.vWaypoint = aiState.tWaypoints[ RandomInt( 1, #aiState.tWaypoints ) ]
         aiState.flNextWaypointTime = gameTime + RandomFloat( 2, 4 )
-    	self:MoveToPositionAggressive( aiState.vWaypoint )
+    	self:MoveToPosition( aiState.vWaypoint )
     end
-   	return RandomFloat( 0.5, 1.0 )
+    return 0.1
+   	--return RandomFloat( 0.5, 1.0 )
 end
 
 return EXPORTS
