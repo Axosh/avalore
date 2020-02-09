@@ -9,6 +9,7 @@
 	<Panel hittest="false" class="AvaloreNotification">
 		<Panel hittest="false" id="AlertMessage" text="">
 			<Label hittest="false" id="AlertMessage_Delivery" class="TitleFont" text="" html="true" />
+			<Label hittest="false" id="AlertMessage_Elaboration" text="" html="true" />
 		</Panel>
 	</Panel>
 </root>

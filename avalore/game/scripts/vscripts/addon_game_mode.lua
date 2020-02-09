@@ -66,10 +66,15 @@ end
 
 -- Evaluate the state of the game
 function CAvaloreGameMode:OnThink()
-	curr_gametime = GameRules:GetGameTime()
+	--grab current time as a float, excluding pregame and negative time
+	curr_gametime = GameRules:GetDOTATime(false, false)--GameRules:GetGameTime()
 	if self.countdownEnabled == true then
 		CountdownTimer()
+		--_G.nCOUNTDOWNTIMER = _G.nCOUNTDOWNTIMER - 1;
+		--print("Countdown = " .. tostring(_G.nCOUNTDOWNTIMER))
 	end
+	--print("Gametime = " .. tostring(curr_gametime))
+	--print("_G.Temp = " .. tostring(_G.Temp))
 
 	if curr_gametime > 20 and _G.Temp == false then
 		_G.Temp = true
@@ -101,6 +106,13 @@ function CAvaloreGameMode:OnThink()
 				end
 				CreateUnitByName( 'npc_avalore_quest_wisp', vSpawnLoc, true, nil, nil, DOTA_TEAM_NEUTRALS )
 			end
+			local broadcast_obj = 
+			{
+				msg = "#Round1",
+				time = 10,
+				elaboration = "#Round1Info"
+			}
+			CustomGameEventManager:Send_ServerToAllClients( "broadcast_message", broadcast_obj )
 		end
 	end
 
