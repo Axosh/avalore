@@ -36,8 +36,6 @@ end
 -- Create the game mode when we activate
 function Activate()
 	CAvaloreGameMode:InitGameMode()
-	--GameRules.Avalore = CAvaloreGameMode()
-	--GameRules.Avalore:InitGameMode()
 end
 
 ---------------------------------------------------------------------------
@@ -54,40 +52,26 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:SetStrategyTime( 0.0 )
 	GameRules:SetShowcaseTime( 0.0 )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride(true)
-	--GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( true )
+	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
 	print( "CAvaloreGameMode:InitGameMode()" )
+
+
+	local score_obj = 
+	{
+		radi_score = 0,
+		dire_score = 0
+	}
+	CustomGameEventManager:Send_ServerToAllClients( "refresh_score", score_obj )
 end
 
 -- Evaluate the state of the game
 function CAvaloreGameMode:OnThink()
-	print("CAvaloreGameMode:OnThink() - Started")
-	--if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-	--	--print( "Avalore script is running." )
-	--elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
-	--	return nil
-	--end
 	curr_gametime = GameRules:GetGameTime()
 	if self.countdownEnabled == true then
 		CountdownTimer()
-		--_G.nCOUNTDOWNTIMER = _G.nCOUNTDOWNTIMER - 1;
-		print("Countdown = " .. tostring(_G.nCOUNTDOWNTIMER))
 	end
-	print("Gametime = " .. tostring(curr_gametime))
-	print("_G.Temp = " .. tostring(_G.Temp))
 
 	if curr_gametime > 20 and _G.Temp == false then
-		local broadcast_obj =
-		{
-			msg = "#Helloworld",
-			time = 5
-		}
-		local test = 
-		{
-			msg = "test"
-		}
-		CustomGameEventManager:Send_ServerToAllClients( "broadcast_message", broadcast_obj )
-		--CustomGameEventManager:Send_ServerToAllClients( "test", test )
-		EmitGlobalSound( "DOTA_Item.Refresher.Activate" )
 		_G.Temp = true
 	end
 	-- game more: wisps
@@ -102,7 +86,7 @@ function CAvaloreGameMode:OnThink()
 	elseif curr_gametime > 600 then 
 		print("koth")
 	elseif curr_gametime > 0 then
-		print("capture")
+		--print("capture")
 		if(_G.round < 1) then
 			_G.round = 1
 			for i = 0,6,1
@@ -120,6 +104,6 @@ function CAvaloreGameMode:OnThink()
 		end
 	end
 
-	print("CAvaloreGameMode:OnThink() - Ended")
+	--print("CAvaloreGameMode:OnThink() - Ended")
 	return 1
 end

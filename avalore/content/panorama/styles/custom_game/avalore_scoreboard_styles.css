@@ -1,0 +1,70 @@
+.CustomHudRoot
+{
+    width: 100%;
+    height: 100%;
+    flow-children: right;
+}
+
+#TopBarScoreboard
+{
+    flow-children: right;
+    horizontal-align: center;
+    margin-top: 5px;
+    visibility: visible;
+}
+
+#RadiantContainer
+{
+    flow-children: right;
+    horizontal-align: center;
+    margin-top: 5px;
+    visibility: visible;
+}
+
+#RadiantPoints
+{
+    opacity: 1;
+    margin-top: 5px;
+    margin-right: 40px;
+    horizontal-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+	text-shadow: 2px 2px 2px #7b612b;
+	color: gradient( linear, 0% 0%, 0% 100%, from( #c88423 ), color-stop( 0.25, #c88423 ), color-stop( 0.5, #fffb84 ), color-stop( 0.75, #c88423 ), to( #9a6717 ) );
+    text-overflow: clip;
+    visibility: visible;
+}
+
+#DireContainer
+{
+    flow-children: right;
+    horizontal-align: center;
+    margin-top: 5px;
+    visibility: visible;
+}
+
+
+#DirePoints
+{
+    opacity: 1;
+    margin-top: 5px;
+    margin-left: 40px;
+    horizontal-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+	text-shadow: 2px 2px 2px #7b612b;
+	color: gradient( linear, 0% 0%, 0% 100%, from( #c88423 ), color-stop( 0.25, #c88423 ), color-stop( 0.5, #fffb84 ), color-stop( 0.75, #c88423 ), to( #9a6717 ) );
+    text-overflow: clip;
+    visibility: visible;
+}
+
+#time_spacer
+{
+
+}

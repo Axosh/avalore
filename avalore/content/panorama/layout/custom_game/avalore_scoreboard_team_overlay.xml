@@ -1,0 +1,25 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/avalore_scoreboard_styles.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/avalore_scoreboard_team_overlay.js" />
+	</scripts>
+
+	<Panel hittest="false" class="CustomHudRoot">
+		<Panel hittest="false" id="TopBarScoreboard">
+			<Panel hittest="false" id="RadiantContainer">
+				<Panel hittest="false" id="RadiantHeroes" />
+				<Label hittest="false" id="RadiantPoints" text="0" html="true" />
+			</Panel>
+			<Panel hittest="false" id="TimeContainer">
+				<Label hittest="false" id="time_spacer" text="        " html="true" />
+			</Panel>
+			<Panel hittest="false" id="DireContainer">
+				<Label hittest="false" id="DirePoints" text="0" html="true" />
+				<Panel hittest="false" id="DireHeroes" />
+			</Panel>
+	    </Panel>
+    </Panel>
+</root>
