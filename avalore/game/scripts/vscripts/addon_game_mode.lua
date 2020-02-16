@@ -22,6 +22,7 @@ end
 require( "events" )
 --require( "items" )
 require( "utility_functions" )
+require( "spawners" )
 
 function Precache( context )
 	--[[
@@ -54,6 +55,7 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride(true)
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
 	print( "CAvaloreGameMode:InitGameMode()" )
+	Spawners:Init()
 
 
 	local score_obj = 
@@ -90,6 +92,15 @@ function CAvaloreGameMode:OnThink()
 		print("boss")
 	elseif curr_gametime > 600 then 
 		print("koth")
+	elseif curr_gametime > 20 then
+		--testing route switching
+		if(_G.round < 2) then
+			print("trying to switch path route")
+			_G.round = 2
+			local start_node = Entities:FindByName(nil, "radiant_path_start")
+			local next_node = Entities:FindByName(nil, "dire_path_mid_recombine")
+			--start_node:InputSetNextPathCorner(next_node)
+		end
 	elseif curr_gametime > 0 then
 		--print("capture")
 		if(_G.round < 1) then
@@ -115,6 +126,13 @@ function CAvaloreGameMode:OnThink()
 			CustomGameEventManager:Send_ServerToAllClients( "broadcast_message", broadcast_obj )
 		end
 	end
+
+	--TEMP
+	print(math.floor(curr_gametime))
+	if(curr_gametime > 0 and math.floor(curr_gametime) % 30 == 0) then
+		Spawners:SpawnLaneCreeps(math.floor(curr_gametime))
+	end
+	--END TEMP
 
 	--print("CAvaloreGameMode:OnThink() - Ended")
 	return 1
