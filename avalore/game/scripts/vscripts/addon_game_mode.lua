@@ -128,7 +128,7 @@ function CAvaloreGameMode:OnThink()
 	end
 
 	--TEMP
-	print(math.floor(curr_gametime))
+	print("GameTime = " .. tostring(curr_gametime) .. ", Eval = " .. tostring(math.floor(curr_gametime) % 30))
 	if(curr_gametime > 0 and math.floor(curr_gametime) % 30 == 0) then
 		Spawners:SpawnLaneCreeps(math.floor(curr_gametime))
 	end
