@@ -36,7 +36,7 @@ function OnBroadcastLocalizedMessage(broadcast_obj)
 
 	//$.Schedule( broadcast_obj.time, ClearAlert );
 	//$.Schedule( broadcast_obj.time, ClearAlert );
-	$.Schedule( 3, ClearAlert );
+	$.Schedule( broadcast_obj.time, ClearAlert );
 }
 
 function ClearAlert()
