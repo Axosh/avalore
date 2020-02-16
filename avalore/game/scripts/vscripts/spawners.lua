@@ -2,9 +2,13 @@ if Spawners == nil then
     Spawners = {}
 end
 
+require("constants")
+
+-- Initialize & Cache a bunch of handles/entities so we can easily grab
+-- a reference to them when working with it later
 function Spawners:Init()
     -- GameTime in seconds to start splitting the middle wave around the center (mostly for debug)
-    Spawners.iSplitTime = 60
+    Spawners.iSplitTime = 60 --Constants.TIME_ROUND_2_START
 
     -- Spawning Handles (Entities)
     Spawners.h_RadiantSpawn_Top     = Entities:FindByName(nil, "spawner_good_top")
@@ -36,7 +40,7 @@ function Spawners:Init()
     -- but they can be updated in other places (e.g. on rax death to change the creep to super/mega)
     -- start the alt routes spawners as nil so they don't spawn until at 10 min they get forced to start up
     Spawners.SpawnConfigs = {}
-    Spawners.SpawnConfigs["Radiant_Top"]   = {Spawner = self.h_RadiantSpawn_Top,   FirstWaypoint = self.h_RadiantInit_Top,      Melee = "npc_dota_creep_goodguys_melee", Ranged = "npc_dota_creep_goodguys_ranged", Siege = "npc_dota_goodguys_siege", Team = DOTA_TEAM_GOODGUYS }
+    Spawners.SpawnConfigs[Constants.KEY_RADIANT_TOP]   = {Spawner = self.h_RadiantSpawn_Top,   FirstWaypoint = self.h_RadiantInit_Top,      Melee = "npc_dota_creep_goodguys_melee", Ranged = "npc_dota_creep_goodguys_ranged", Siege = "npc_dota_goodguys_siege", Team = DOTA_TEAM_GOODGUYS }
     Spawners.SpawnConfigs["Radiant_MidA"]  = {Spawner = self.h_RadiantSpawn_Mid_A, FirstWaypoint = self.h_RadiantInit_Mid_Main, Melee = "npc_dota_creep_goodguys_melee", Ranged = "npc_dota_creep_goodguys_ranged", Siege = "npc_dota_goodguys_siege", Team = DOTA_TEAM_GOODGUYS }
     Spawners.SpawnConfigs["Radiant_MidB"]  = {Spawner = nil,                       FirstWaypoint = self.h_RadiantInit_Mid_AltB, Melee = "npc_dota_creep_goodguys_melee", Ranged = "npc_dota_creep_goodguys_ranged", Siege = "npc_dota_goodguys_siege", Team = DOTA_TEAM_GOODGUYS }
     Spawners.SpawnConfigs["Radiant_Bot"]   = {Spawner = self.h_RadiantSpawn_Bot,   FirstWaypoint = self.h_RadiantInit_Bot,      Melee = "npc_dota_creep_goodguys_melee", Ranged = "npc_dota_creep_goodguys_ranged", Siege = "npc_dota_goodguys_siege", Team = DOTA_TEAM_GOODGUYS }
@@ -132,7 +136,7 @@ end
 -- When Spawners.iSplitTime has elapsed, this is called to split the waves around the middle
 -- pit instead of going through it.
 function Spawners:SplitLanes()
-    print("Starting Lane Split")
+    --print("Starting Lane Split")
     self.SpawnConfigs["Radiant_MidA"].FirstWaypoint = self.h_RadiantInit_Mid_AltA
 
     self.SpawnConfigs["Radiant_MidB"].Spawner       = self.h_RadiantSpawn_Mid_B
@@ -146,14 +150,15 @@ end
 
 -- Loop through the spawn configs and create the creep waves
 function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
-    print("Start Spawning Waves...")
+    --print("GameTime = " .. tostring(iGameTimeSeconds) .. ", \tEval = " .. tostring(math.floor(iGameTimeSeconds) % 30))
+    --print("Start Spawning Waves...")
     if iGameTimeSeconds == self.iSplitTime then
         self:SplitLanes()
     end
 
     for key,value in pairs(self.SpawnConfigs) do
         if value.Spawner ~= nil then
-            print("Spawning for key " .. key .. "with values: " .. tostring(value))
+            --print("Spawning for key " .. key .. " \t\t| At Spawner: " .. value.Spawner:GetName() .. " \t\t| With Goal: " .. value.FirstWaypoint:GetName())
             -- spawn melee creeps
             for i = 1, self:DetermineNumMeleeToSpawn(iGameTimeSeconds, key), 1 do
                 local creep = CreateUnitByName( value.Melee, value.Spawner:GetOrigin(), true, nil, nil, value.Team )
@@ -167,5 +172,5 @@ function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
             end
         end
     end
-    print("End Spawning Waves...")
+    --print("End Spawning Waves...")
 end
