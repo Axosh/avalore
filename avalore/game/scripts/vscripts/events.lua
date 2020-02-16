@@ -5,7 +5,7 @@
 
 --initialized with ListenToGameEvent("entity_killed", Dynamic_Wrap(CustomGameMode, "OnEntityKilled"), self)
 function CAvaloreGameMode:OnEntityKilled(event)
-	print("OnEntityKilled - Started")
+	--print("OnEntityKilled - Started")
 	local killedEntity 		= EntIndexToHScript(event.entindex_killed)
 	local killedTeam 		= killedEntity:GetTeam()
 	local attackerEntity 	= EntIndexToHScript( event.entindex_attacker )
@@ -60,5 +60,5 @@ function CAvaloreGameMode:OnEntityKilled(event)
 		--GameRules:GetGameModeEntity():SetTopBarTeamValue(DOTA_TEAM_GOODGUYS, GetTeamHeroKills(DOTA_TEAM_GOODGUYS))
 	end
 
-	print("OnEntityKilled - Ended")
+	--print("OnEntityKilled - Ended")
 end

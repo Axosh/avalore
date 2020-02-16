@@ -32,7 +32,7 @@ EXPORTS.Init = function( self )
 	    		-- reset distance check so they wander pretty broadly
 	    		nMinWaypointSearchDistance = 1000
 	    		nMaxWaypointSearchDistance = 8000
-	    		print("Added Waypoint")
+	    		--print("Added Waypoint")
 	    	else
 	    		if nMinWaypointSearchDistance  > 0 then
 	    			nMinWaypointSearchDistance = nMinWaypointSearchDistance - 100
@@ -40,7 +40,7 @@ EXPORTS.Init = function( self )
 	    		if nMaxWaypointSearchDistance > 2000 then
 	    			nMaxWaypointSearchDistance = nMaxWaypointSearchDistance - 1000
 	    		end
-	    		print("Tried to create at: " .. tostring(vWaypoint) .. ". New Waypoint Range: " .. nMinWaypointSearchDistance .. " - " .. nMaxWaypointSearchDistance)
+	    		--print("Tried to create at: " .. tostring(vWaypoint) .. ". New Waypoint Range: " .. nMinWaypointSearchDistance .. " - " .. nMaxWaypointSearchDistance)
 	    	end
 	    end
 	    self.aiState.tWaypoints = tWaypoints
