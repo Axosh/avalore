@@ -98,3 +98,8 @@ Constants.KEY_DIRE_SHELFBOT     = "Dire_ShelfBot"
     tower_dire_mid_2
     tower_dire_mid_3
 --]]
+
+--[[
+    OBJECTIVE ENTITIES
+    radiant_outpost // radiant_outpost_trigger
+]]
