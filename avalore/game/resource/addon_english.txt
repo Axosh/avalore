@@ -10,6 +10,7 @@
 		//-----------
 		"npc_dota_hero_kunkka" 									"Davy Jones"
 		"npc_dota_hero_keeper_of_the_light"						"Merlin"
+		"npc_dota_hero_rubick"									"Debuggy Boi"
 
 		// ----------
 		// ABILITIES
