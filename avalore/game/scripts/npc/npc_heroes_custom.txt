@@ -66,4 +66,26 @@
   {
     "override_hero"     "npc_dota_hero_keeper_of_the_light"
   }
+
+  "npc_dota_hero_debugger"
+  {
+    "override_hero"     "npc_dota_hero_rubick"
+    "HeroGlowColor"		"181 8 220"
+
+    "AbilityLayout"     "8"
+    "Ability1"        "furion_teleportation"
+    "Ability2"        "vengefulspirit_magic_missile" 
+    "Ability3"        "antimage_blink"
+    "Ability4"        "batrider_firefly"
+    "Ability5"        ""
+    "Ability6"        "tinker_rearm"
+    "Ability7"        ""
+    "Ability8"        ""
+
+    "MovementSpeed"       "600"                 // Speed.
+    "StatusHealth"        "1000"                 // Base health.
+    "StatusHealthRegen"    "10.0"                 // Health regeneration rate.
+    "StatusMana"           "1000"                   // Base mana.
+    "StatusManaRegen"     "1000.0"                 // Mana regeneration rate.
+  }
 }
