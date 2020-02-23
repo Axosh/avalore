@@ -5,6 +5,8 @@ Avalore Game Mode
 _G.nCOUNTDOWNTIMER = 2401
 _G.Temp = false
 _G.round = 0
+_G.first_loop = true
+--[[
 _G.GoodScore = 0
 _G.BadScore = 0
 
@@ -16,6 +18,7 @@ dire_outpost = nil
 t_dire_outpost = {}
 t_dire_outpost.radiTime = 0
 t_dire_outpost.direTime = 0
+--]]
 
 ---------------------------------------------------------------------------
 -- CAvaloreGameMode class
@@ -32,6 +35,8 @@ require( "events" )
 --require( "items" )
 require( "utility_functions" )
 require( "spawners" )
+require ("constants")
+require("score")
 
 function Precache( context )
 	--[[
@@ -55,8 +60,6 @@ end
 -- Initializer
 ---------------------------------------------------------------------------
 function CAvaloreGameMode:InitGameMode()
-	print( "Avalore is loaded." )
-	--GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 1 )
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 )
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(CAvaloreGameMode, "OnEntityKilled"), self)
 	_G.nCOUNTDOWNTIMER = 2401
@@ -66,155 +69,134 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:SetShowcaseTime( 0.0 )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride(true)
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
-	print( "CAvaloreGameMode:InitGameMode()" )
+	
+	-- Custom Mode Framework Inits
 	Spawners:Init()
+	Score:Init()
+	-- set unselectable so they can't be captured until round2 begins
+	-- also note: force set the team to NOTEAM later on or the engine forces 
+	--            them to begin as radiant and dire owned
+	Score.entities.radi_outpost:AddNewModifier(outpostTest, nil, "modifier_unselectable", {})
+	Score.entities.dire_outpost:AddNewModifier(outpostTest, nil, "modifier_unselectable", {})
 
 
-	local score_obj = 
+	--[[local score_obj = 
 	{
 		radi_score = 0,
 		dire_score = 0
 	}
 	CustomGameEventManager:Send_ServerToAllClients( "refresh_score", score_obj )
-
-
-	--local outpostTest = CreateUnitByName( 'radiant_outpost', Vector(-3904, 3008, 384), true, nil, nil, DOTA_TEAM_NOTEAM )--Entities:FindByName(nil, "radiant_outpost")
-	--outpostTest:AddNewModifier(outpostTest, nil, "modifier_unselectable", {})
-	--temp_outpost = CreateUnitByName( 'radiant_outpost', Vector(-3904, 3008, 394), true, nil, nil, DOTA_TEAM_NOTEAM )
-	--temp_outpost:AddNewModifier(outpostTest, nil, "modifier_unselectable", {})
-
-	radi_outpost = Entities:FindByName(nil, "radiant_outpost")
-	radi_outpost:SetTeam(DOTA_TEAM_NEUTRALS)
-	radi_outpost:AddNewModifier(outpostTest, nil, "modifier_unselectable", {})
-	dire_outpost = Entities:FindByName(nil, "dire_outpost")
-	dire_outpost:SetTeam(DOTA_TEAM_NEUTRALS)
-	dire_outpost:AddNewModifier(outpostTest, nil, "modifier_unselectable", {})
+	--]]
 end
 
 -- Evaluate the state of the game
 function CAvaloreGameMode:OnThink()
 
 	--grab current time as a float, excluding pregame and negative time
-	curr_gametime = GameRules:GetDOTATime(false, false)--GameRules:GetGameTime()
+	curr_gametime = GameRules:GetDOTATime(false, false)
+
 	if self.countdownEnabled == true then
 		CountdownTimer()
 		--_G.nCOUNTDOWNTIMER = _G.nCOUNTDOWNTIMER - 1;
 		--print("Countdown = " .. tostring(_G.nCOUNTDOWNTIMER))
 	end
-	--print("Gametime = " .. tostring(curr_gametime))
-	--print("_G.Temp = " .. tostring(_G.Temp))
 
-	if curr_gametime > 20 and _G.Temp == false then
-		_G.Temp = true
-	end
-	-- game more: wisps
-	--0-600 = wisp
-	--600-1200 = koth
-	--1200-1800 = boss
-	--1800-2400 = waves
-	if curr_gametime > 1800 then
-		print("waves")
-	elseif curr_gametime > 1200 then
-		print("boss")
-	elseif curr_gametime > 600 then 
-		print("koth")
-	--[[elseif curr_gametime > 20 then
-		--testing route switching
-		--if(_G.round < 2) then
-			print("trying to switch path route")
+
+	if curr_gametime > Constants.TIME_ROUND_4_START then
+		if(_G.round < 4) then
+			print("Round 4 Start - Waves")
+			_G.round = 4
+			self:InitRound4()
+		end
+	elseif curr_gametime > Constants.TIME_ROUND_3_START then
+		if(_G.round < 3) then
+			print("Round 3 Start - Boss")
+			_G.round = 3
+			self:InitRound3()
+		end
+	elseif curr_gametime > Constants.TIME_ROUND_2_START then 
+		if(_G.round < 2) then
+			print("Round 2 Start - King of the Hill")
 			_G.round = 2
-			local start_node = Entities:FindByName(nil, "radiant_path_start")
-			local next_node = Entities:FindByName(nil, "dire_path_mid_recombine")
-			--start_node:InputSetNextPathCorner(next_node)
+			self:InitRound2()
 		end
-		--]]
+		Score:UpdateRound2()
+		Score:DebugRound2()
 	elseif curr_gametime > 0 then
-		--print("capture")
+		
+		-- First pass through round events
 		if(_G.round < 1) then
-			--TEMP ==> force debug: set hero to lvl 6
-			local p1_hero = PlayerResource:GetSelectedHeroEntity(0)
-			p1_hero:HeroLevelUp(false)
-			p1_hero:HeroLevelUp(false)
-			p1_hero:HeroLevelUp(false)
-			p1_hero:HeroLevelUp(false)
-			p1_hero:HeroLevelUp(false)
+			print("Round 1 Start - Wisps")
 			_G.round = 1
-			for i = 0,6,1
-			do
-				local vSpawnLoc = nil
-				while vSpawnLoc == nil do
-					vSpawnLoc = Vector(0,0,0) + RandomVector(2000)
-					if (GridNav:CanFindPath(Vector(0,0,0), vSpawnLoc) == false) then
-						--print( "Choosing new unit spawnloc.  Bad spawnloc was: " .. tostring( vSpawnLoc ) )
-				        vSpawnLoc = nil
-				    end
-				end
-				CreateUnitByName( 'npc_avalore_quest_wisp', vSpawnLoc, true, nil, nil, DOTA_TEAM_NEUTRALS )
-			end
-			local broadcast_obj = 
-			{
-				msg = "#Round1",
-				time = 10,
-				elaboration = "#Round1Info"
-			}
-			CustomGameEventManager:Send_ServerToAllClients( "broadcast_message", broadcast_obj )
+			self:InitRound1()
 		end
-
-		-- temp test
-		if(math.floor(curr_gametime) == 5) then
-			print("clearing modifier")
-			dire_outpost:RemoveModifierByName("modifier_unselectable")
-			radi_outpost:RemoveModifierByName("modifier_unselectable")
-			--local outpostTest = Entities:FindByName(nil, "radiant_outpost")
-			--outpostTest:RemoveModifierByName("modifier_unselectable")
-			--temp_outpost:RemoveModifierByName("modifier_unselectable")
-			--temp_outpost:RemoveModifierByName("modifier_invulnerable")
-			--temp_outpost:AddNewModifier(outpostTest, nil, "modifier_capturable", {})
-			--local TempTest = Entities:FindByName(nil, "radiant_outpost")
-			--TempTest:RemoveModifierByName("modifier_invulnerable")
-			--TempTest:AddNewModifier(outpostTest, nil, "modifier_capturable", {})
-
-			--[[print("temp_outpost")
-			for key, value in pairs(temp_outpost:FindAllModifiers()) do
-				print(value:GetName())
-			end
-			print("TempTest")
-			for key, value in pairs(TempTest:FindAllModifiers()) do
-				print(value:GetName())
-			end
-			--]]
-			
-		end
-	elseif curr_gametime == 0 then
-		dire_outpost:SetTeam(DOTA_TEAM_NOTEAM)
-		radi_outpost:SetTeam(DOTA_TEAM_NOTEAM)
+	elseif curr_gametime == 0 and _G.first_loop then
+		self.GameStartInit()
+		_G.first_loop = false
 	end
 
-	if radi_outpost:GetTeam() == DOTA_TEAM_GOODGUYS then
-		t_radi_outpost.radiTime = t_radi_outpost.radiTime + 1
-	elseif radi_outpost:GetTeam() == DOTA_TEAM_BADGUYS then
-		t_radi_outpost.direTime = t_radi_outpost.direTime + 1
+	--TEMP ==> force debug: set hero to lvl 6
+	local p1_hero = PlayerResource:GetSelectedHeroEntity(0)
+	if p1_hero ~= nil and p1_hero:GetLevel() < 6 then
+		p1_hero:HeroLevelUp(false)
+		p1_hero:HeroLevelUp(false)
+		p1_hero:HeroLevelUp(false)
+		p1_hero:HeroLevelUp(false)
+		p1_hero:HeroLevelUp(false)
 	end
 
-	if dire_outpost:GetTeam() == DOTA_TEAM_GOODGUYS then
-		t_dire_outpost.radiTime = t_dire_outpost.radiTime + 1
-	elseif dire_outpost:GetTeam() == DOTA_TEAM_BADGUYS then 
-		t_dire_outpost.direTime = t_dire_outpost.direTime + 1
-	end
-
-	print("R-Outpost RTime = " .. tostring(t_radi_outpost.radiTime))
-	print("R-Outpost DTime = " .. tostring(t_radi_outpost.direTime))
-	print("D-Outpost RTime = " .. tostring(t_dire_outpost.radiTime))
-	print("D-Outpost DTime = " .. tostring(t_dire_outpost.direTime))
-	print("******************************")
-
-	--TEMP
-	--print("GameTime = " .. tostring(curr_gametime) .. ", Eval = " .. tostring(math.floor(curr_gametime) % 30))
+	-- Check for wave spawns on 30s intervals
 	if(curr_gametime > 0 and math.floor(curr_gametime) % 30 == 0) then
 		Spawners:SpawnLaneCreeps(math.floor(curr_gametime))
 	end
-	--END TEMP
 
-	--print("CAvaloreGameMode:OnThink() - Ended")
 	return 1
+end -- end function: CAvaloreGameMode:OnThink()
+
+--[[
+	Certain things need to be initialized on the very first pass through the OnThink
+	(e.g. outposts seem to force-set their team, even if it gets set in Init())
+]]
+function CAvaloreGameMode:GameStartInit()
+	Score.entities.dire_outpost:SetTeam(DOTA_TEAM_NOTEAM)
+	Score.entities.radi_outpost:SetTeam(DOTA_TEAM_NOTEAM)
+end
+
+function CAvaloreGameMode:InitRound1()
+	-- spawn 7 wisps
+	for i = 0,6,1
+	do
+		local vSpawnLoc = nil
+		while vSpawnLoc == nil do
+			vSpawnLoc = Vector(0,0,0) + RandomVector(2000)
+			if (GridNav:CanFindPath(Vector(0,0,0), vSpawnLoc) == false) then
+				--print( "Choosing new unit spawnloc.  Bad spawnloc was: " .. tostring( vSpawnLoc ) )
+				vSpawnLoc = nil
+			end
+		end
+		CreateUnitByName( 'npc_avalore_quest_wisp', vSpawnLoc, true, nil, nil, DOTA_TEAM_NEUTRALS )
+	end
+
+	-- broadcast that round 1 has started and give some instructions
+	local broadcast_obj = 
+	{
+		msg = "#Round1",
+		time = 10,
+		elaboration = "#Round1Info"
+	}
+	CustomGameEventManager:Send_ServerToAllClients( "broadcast_message", broadcast_obj )
+end
+
+function CAvaloreGameMode:InitRound2()
+	print("clearing modifier")
+	Score.entities.dire_outpost:RemoveModifierByName("modifier_unselectable")
+	Score.entities.radi_outpost:RemoveModifierByName("modifier_unselectable")
+end
+
+function CAvaloreGameMode:InitRound3()
+	return 0 -- placeholder
+end
+
+function CAvaloreGameMode:InitRound3()
+	return 0 --placeholder
 end
