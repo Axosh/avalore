@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------------
 -- EVENTS
 ---------------------------------------------------------------------------
-
+require("score")
 
 --initialized with ListenToGameEvent("entity_killed", Dynamic_Wrap(CustomGameMode, "OnEntityKilled"), self)
 function CAvaloreGameMode:OnEntityKilled(event)
@@ -31,18 +31,18 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	-- only update front-end if score changed
 	if objectivePoints > 0 then 
 		if attackerTeam == DOTA_TEAM_GOODGUYS then
-			_G.GoodScore = _G.GoodScore + objectivePoints
+			Score.RadiScore = Score.RadiScore + objectivePoints
 			local score = 
 			{
 				team_id = DOTA_TEAM_GOODGUYS,
-				team_score = _G.GoodScore
+				team_score = Score.RadiScore
 			}
 		elseif attackerTeam == DOTA_TEAM_BADGUYS then
-			_G.BadScore = _G.BadScore + objectivePoints
+			Score.DireScore = Score.DireScore + objectivePoints
 			local score = 
 			{
 				team_id = DOTA_TEAM_BADGUYS,
-				team_score = _G.BadScore
+				team_score = Score.DireScore
 			}
 		end
 
@@ -52,8 +52,8 @@ function CAvaloreGameMode:OnEntityKilled(event)
 
 		local score_obj = 
 		{
-			radi_score = _G.GoodScore,
-			dire_score = _G.BadScore
+			radi_score = Score.RadiScore,
+			dire_score = Score.DireScore
 		}
 		CustomGameEventManager:Send_ServerToAllClients( "refresh_score", score_obj )
 		--GameRules:GetGameModeEntity():SetTopBarTeamValue(DOTA_TEAM_BADGUYS, GetTeamHeroKills(DOTA_TEAM_BADGUYS))
