@@ -67,5 +67,47 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-	}
+	} // "npc_avalore_quest_wisp"
+
+	"npc_avalore_radi_flag_base"
+	{
+		// Script
+		//"vscripts"					"round1/round1_quest.lua"
+
+		//General
+		//"BaseClass"					"prop_static"
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/pedestal/effigy_pedestal_ti5.vmdl"
+		"ModelScale"				"1.0"
+		"Level"						"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"building_unselectable"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+	} // "npc_avalore_radi_flag_base"
+
+	"npc_avalore_dire_flag_base"
+	{
+		// Script
+		//"vscripts"					"round1/round1_quest.lua"
+
+		//General
+		//"BaseClass"					"prop_static"
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/pedestal/effigy_pedestal_ti5_dire.vmdl"
+		"ModelScale"				"1.0"
+		"Level"						"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"building_unselectable"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+	} // "npc_avalore_radi_flag_base"
 }

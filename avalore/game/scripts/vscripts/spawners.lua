@@ -3,6 +3,9 @@ if Spawners == nil then
 end
 
 require("constants")
+--require("debug")
+
+LinkLuaModifier( "modifier_flagbase", "scripts/vscripts/spawners.lua", LUA_MODIFIER_MOTION_NONE )
 
 -- Initialize & Cache a bunch of handles/entities so we can easily grab
 -- a reference to them when working with it later
@@ -63,7 +66,53 @@ function Spawners:Init()
     Spawners.SpawnConfigs[Constants.KEY_DIRE_SHELFTOP]      = {Spawner = self.h_DireSpawn_ShelfTop,     FirstWaypoint = self.h_DireInit_ShelfTop,   Melee = "npc_dota_creep_badguys_melee",   Ranged = "npc_dota_creep_badguys_ranged",  Siege = "npc_dota_badguys_siege", Team = DOTA_TEAM_BADGUYS }
     Spawners.SpawnConfigs[Constants.KEY_DIRE_SHELFBOT]      = {Spawner = self.h_DireSpawn_ShelfBot,     FirstWaypoint = self.h_DireInit_ShelfBot,   Melee = "npc_dota_creep_badguys_melee",   Ranged = "npc_dota_creep_badguys_ranged",  Siege = "npc_dota_badguys_siege", Team = DOTA_TEAM_BADGUYS }
 
+    self:InitFlags()
     print("Spawners Initialized")
+end
+
+modifier_flagbase = class({})
+
+function modifier_flagbase:DeclareFunctions()
+    return {MODIFIER_STATE_UNSELECTABLE,
+            MODIFIER_STATE_INVULNERABLE}
+end
+
+function modifier_flagbase:CheckState()
+	local state = {}
+	if IsServer() then
+        state[MODIFIER_STATE_UNSELECTABLE] = true
+        state[MODIFIER_STATE_INVULNERABLE] = true
+	end
+
+	return state
+end
+
+function Spawners:InitFlags()
+    Spawners.RadiFlagBases = {}
+    Spawners.RadiFlagBases.Top = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_top_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.RadiFlagBases.Mid = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_mid_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.RadiFlagBases.Bot = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_bot_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.RadiFlagBases.TopL = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_top_low_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.RadiFlagBases.BotL = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_bot_low_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS )
+
+    Spawners.DireFlagBases = {}
+    Spawners.DireFlagBases.Top = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_top_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.DireFlagBases.Mid = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_mid_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.DireFlagBases.Bot = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_bot_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.DireFlagBases.TopL = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_top_low_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.DireFlagBases.BotL = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_bot_low_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS )
+
+    for key, value in pairs(Spawners.RadiFlagBases) do
+        value:AddNewModifier(value, nil, "modifier_flagbase", {})
+        value:AddNewModifier(value, nil, "modifier_no_healthbar", {})
+    end
+    for key, value in pairs(Spawners.DireFlagBases) do
+        value:AddNewModifier(value, nil, "modifier_flagbase", {})
+        value:AddNewModifier(value, nil, "modifier_no_healthbar", {})
+    end
+    print("Flags initialized")
+
+    print("Top has " .. Spawners.DireFlagBases.Top:GetModifierCount() .. " modifiers.")
 end
 
 --===================================

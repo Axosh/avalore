@@ -1,0 +1,10 @@
+# Valve Generated Stuff
+*.bin
+*.cfg
+*.soc
+*.tmp
+
+# Compiled
+*.vmat_c
+*.vagrp_c
+*.vmesh_c 
