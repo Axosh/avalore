@@ -3,14 +3,18 @@
 {	
 	"building_unselectable"
 	{
-		"AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"       	 	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		
-		"BaseClass"             "ability_datadriven"
+		"BaseClass"             		"ability_datadriven"
+		"AbilityName"                   "building_unselectable"
+		"IsOnCastBar"                   "0"
+
 		"Modifiers"
 		{
 			"modifier_unselectable"
 			{
-				"Passive" "1"
+				"Passive" 				"1"
+				"IsHidden"              "1"
 				"States"
 				{
 					"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"

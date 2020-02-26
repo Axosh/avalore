@@ -103,3 +103,10 @@ Constants.KEY_DIRE_SHELFBOT     = "Dire_ShelfBot"
     OBJECTIVE ENTITIES
     radiant_outpost // radiant_outpost_trigger
 ]]
+
+
+-- ==================================
+-- MODELS
+-- ==================================
+
+---CONSTANTS.RADI_FLAG_BASE = 
