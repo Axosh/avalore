@@ -112,6 +112,9 @@ function Spawners:InitFlags()
     end
     print("Flags initialized")
 
+    local newItem = CreateItem( "item_avalore_flag_morale_radi", nil , nil )
+    local newItemPhysical = CreateItemOnPositionSync( Spawners.RadiFlagBases.TopL:GetAbsOrigin(), newItem )
+
     print("Top has " .. Spawners.DireFlagBases.Top:GetModifierCount() .. " modifiers.")
 end
 
