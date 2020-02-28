@@ -17,7 +17,7 @@
 		//"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
         "Model"                         "maps/journey_assets/props/teams/banner_journey_dire_small.vmdl"
         //"PingOverrideText"				"Avalore_Chat_Flag_Pinged"
-        //"ScriptFile"                    "components/items/item_soul_of_truth.lua"
+        "ScriptFile"                    "items/item_objective_flag.lua"
         "AbilityTextureName"			"flag"
 
         // Stats
@@ -37,6 +37,14 @@
 		"ItemInitialCharges"			"1"
 		"ItemCastOnPickup"				"0"
 		"ItemKillable"					"0"
+        "OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"items/itemfunctions_generic.lua"
+				"Function"			    "DropItemOnDeath"
+			}
+		}
 
     } // end: "item_avalore_flag_morale_radi"
 
