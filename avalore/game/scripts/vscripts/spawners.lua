@@ -88,34 +88,55 @@ function modifier_flagbase:CheckState()
 end
 
 function Spawners:InitFlags()
+    -- Setup Flag Bases
     Spawners.RadiFlagBases = {}
-    Spawners.RadiFlagBases.Top = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_top_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS )
-    Spawners.RadiFlagBases.Mid = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_mid_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS )
-    Spawners.RadiFlagBases.Bot = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_bot_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS )
-    Spawners.RadiFlagBases.TopL = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_top_low_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS )
-    Spawners.RadiFlagBases.BotL = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_bot_low_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.RadiFlagBases.Top  = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_top_flag"):GetOrigin(),        true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.RadiFlagBases.Mid  = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_mid_flag"):GetOrigin(),        true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.RadiFlagBases.Bot  = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_bot_flag"):GetOrigin(),        true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.RadiFlagBases.TopL = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_top_low_flag"):GetOrigin(),    true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.RadiFlagBases.BotL = CreateUnitByName( "npc_avalore_radi_flag_base", Entities:FindByName(nil, "spawner_radi_bot_low_flag"):GetOrigin(),    true, nil, nil, DOTA_TEAM_GOODGUYS )
 
     Spawners.DireFlagBases = {}
-    Spawners.DireFlagBases.Top = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_top_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS )
-    Spawners.DireFlagBases.Mid = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_mid_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS )
-    Spawners.DireFlagBases.Bot = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_bot_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS )
-    Spawners.DireFlagBases.TopL = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_top_low_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS )
-    Spawners.DireFlagBases.BotL = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_bot_low_flag"):GetOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.DireFlagBases.Top  = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_top_flag"):GetOrigin(),        true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.DireFlagBases.Mid  = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_mid_flag"):GetOrigin(),        true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.DireFlagBases.Bot  = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_bot_flag"):GetOrigin(),        true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.DireFlagBases.TopL = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_top_low_flag"):GetOrigin(),    true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.DireFlagBases.BotL = CreateUnitByName( "npc_avalore_dire_flag_base", Entities:FindByName(nil, "spawner_dire_bot_low_flag"):GetOrigin(),    true, nil, nil, DOTA_TEAM_BADGUYS )
+    
+    --print("TopL = " .. tostring(Spawners.RadiFlagBases.TopL:GetOrigin()))
 
+    --print("model = " .. Entities:FindByName(nil, "radiant_outpost_trigger"):GetModelName())
+    
     for key, value in pairs(Spawners.RadiFlagBases) do
+        -- Make the flag bases invincible and not show health bars
         value:AddNewModifier(value, nil, "modifier_flagbase", {})
         value:AddNewModifier(value, nil, "modifier_no_healthbar", {})
+        --local hFlagTrigger = CreateTrigger(value:GetBoundingMins(), value:GetBoundingMaxs())
+        --local vPos = 
+        --local hFlagTrigger = CreateTriggerRadiusApproximate(value:GetOrigin(), 200)
+        --local hFlagTrigger = SpawnEntityFromTableSynchronous("trigger_dota", {origin = (value:GetOrigin() + Vector(0, 0, 64)), model = Entities:FindByName(nil, "radiant_outpost_trigger"):GetModelName()})
+        --hFlagTrigger:SetEntityName(("trigger_Radi_Flag_" .. key))
+        --hFlagTrigger.OnStartTouch = FlagTrigger_OnStartTouch
+        --hFlagTrigger:RedirectOutput("OnStartTouch", "OnStartTouch", hFlagTrigger)
+        --hFlagTrigger:Enable()
+        --hFlagTrigger:Enable()
+        --print(hFlagTrigger:GetName() .. " is at Origin: " .. tostring(hFlagTrigger:GetOrigin()) .. " || ABS Origin = " .. tostring(hFlagTrigger:GetAbsOrigin()) .. " || Max Bound = " .. tostring(hFlagTrigger:GetBoundingMaxs()) .. " || Min Bound = " .. tostring(hFlagTrigger:GetBoundingMins()))
     end
     for key, value in pairs(Spawners.DireFlagBases) do
+        -- Make the flag bases invincible and not show health bars
         value:AddNewModifier(value, nil, "modifier_flagbase", {})
         value:AddNewModifier(value, nil, "modifier_no_healthbar", {})
     end
-    print("Flags initialized")
+    print("Flags Bases Initialized")
+    --local test = Entities:FindByName(nil, "trigger_Radi_Flag_TopL")
+    --print(test:GetName() .. " is at Origin: " .. tostring(test:GetOrigin()) .. " || ABS Origin = " .. tostring(test:GetAbsOrigin()) .. " || Max Bound = " .. tostring(test:GetBoundingMaxs()) .. " || Min Bound = " .. tostring(test:GetBoundingMins()))
 
-    local newItem = CreateItem( "item_avalore_flag_morale_radi", nil , nil )
-    local newItemPhysical = CreateItemOnPositionSync( Spawners.RadiFlagBases.TopL:GetAbsOrigin(), newItem )
+    -- Spawn Actual Flags
 
-    print("Top has " .. Spawners.DireFlagBases.Top:GetModifierCount() .. " modifiers.")
+    local newItem           = CreateItem( "item_avalore_flag_morale_radi", nil , nil )
+    local newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, "spawner_flag_morale_radi"):GetOrigin(), newItem )
+
+    --print("Top has " .. Spawners.DireFlagBases.Top:GetModifierCount() .. " modifiers.")
 end
 
 --===================================
