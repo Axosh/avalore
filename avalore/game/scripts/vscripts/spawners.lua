@@ -74,7 +74,9 @@ modifier_flagbase = class({})
 
 function modifier_flagbase:DeclareFunctions()
     return {MODIFIER_STATE_UNSELECTABLE,
-            MODIFIER_STATE_INVULNERABLE}
+            MODIFIER_STATE_INVULNERABLE,
+            MODIFIER_PROPERTY_PROVIDES_FOW_POSITION
+            }
 end
 
 function modifier_flagbase:CheckState()
@@ -82,9 +84,14 @@ function modifier_flagbase:CheckState()
 	if IsServer() then
         state[MODIFIER_STATE_UNSELECTABLE] = true
         state[MODIFIER_STATE_INVULNERABLE] = true
+        state[MODIFIER_STATE_INVISIBLE] = false
 	end
 
 	return state
+end
+
+function modifier_flagbase:GetModifierProvidesFOWVision()
+    return 1
 end
 
 function Spawners:InitFlags()
@@ -121,11 +128,13 @@ function Spawners:InitFlags()
         --hFlagTrigger:Enable()
         --hFlagTrigger:Enable()
         --print(hFlagTrigger:GetName() .. " is at Origin: " .. tostring(hFlagTrigger:GetOrigin()) .. " || ABS Origin = " .. tostring(hFlagTrigger:GetAbsOrigin()) .. " || Max Bound = " .. tostring(hFlagTrigger:GetBoundingMaxs()) .. " || Min Bound = " .. tostring(hFlagTrigger:GetBoundingMins()))
+        --value:MakeVisibleToTeam(DOTA_TEAM_BADGUYS, 0.1)
     end
     for key, value in pairs(Spawners.DireFlagBases) do
         -- Make the flag bases invincible and not show health bars
         value:AddNewModifier(value, nil, "modifier_flagbase", {})
         value:AddNewModifier(value, nil, "modifier_no_healthbar", {})
+        --value:MakeVisibleToTeam(DOTA_TEAM_GOODGUYS, 0.1)
     end
     print("Flags Bases Initialized")
     --local test = Entities:FindByName(nil, "trigger_Radi_Flag_TopL")
