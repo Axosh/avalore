@@ -123,6 +123,9 @@ function CAvaloreGameMode:OnThink()
 		Score:UpdateRound2()
 		Score:DebugRound2()
 	elseif curr_gametime > 0 then
+		--temp debug
+		--print("Hero At: " .. tostring(PlayerResource:GetSelectedHeroEntity(0):GetOrigin()))
+		--print("Touching TopL? " .. tostring(Entities:FindByName(nil, "trigger_Radi_Flag_TopL"):IsTouching(PlayerResource:GetSelectedHeroEntity(0))))
 		
 		-- First pass through round events
 		if(_G.round < 1) then
