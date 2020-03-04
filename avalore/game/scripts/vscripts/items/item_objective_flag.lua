@@ -2,17 +2,33 @@ require("constants")
 require("spawners")
 
 -----------------------------------------------------------------------------------------------------------
---	Item Definition
+--	Item Definitions
 -----------------------------------------------------------------------------------------------------------
 item_objective_flag = item_objective_flag or class({})
-item_avalore_flag_morale_radi = item_avalore_flag_morale_radi or class({})
+item_avalore_flag_a = item_avalore_flag_a or class({})
+item_avalore_flag_b = item_avalore_flag_b or class({})
+item_avalore_flag_c = item_avalore_flag_c or class({})
+item_avalore_flag_d = item_avalore_flag_d or class({})
+item_avalore_flag_e = item_avalore_flag_e or class({})
 
 LinkLuaModifier( "modifier_item_flag_carry", "items/item_objective_flag.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_objective_flag:GetIntrinsicModifierName()
     return "modifier_item_flag_carry" end
 
-function item_avalore_flag_morale_radi:GetIntrinsicModifierName()
+function item_avalore_flag_a:GetIntrinsicModifierName()
+    return "modifier_item_flag_carry" end
+
+function item_avalore_flag_b:GetIntrinsicModifierName()
+    return "modifier_item_flag_carry" end
+
+function item_avalore_flag_c:GetIntrinsicModifierName()
+    return "modifier_item_flag_carry" end
+
+function item_avalore_flag_d:GetIntrinsicModifierName()
+    return "modifier_item_flag_carry" end
+
+function item_avalore_flag_e:GetIntrinsicModifierName()
     return "modifier_item_flag_carry" end
 
 
@@ -24,7 +40,23 @@ if modifier_item_flag_carry == nil then modifier_item_flag_carry = class({}) end
 
 function modifier_item_flag_carry:OnCreated(keys)
     if IsServer() then
-        local ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "maps/journey_assets/props/teams/banner_journey_dire_small.vmdl"})
+        local ent_flag = nil
+
+        --local sFlag = HasFlagInInventory(self:GetParent())
+        local sFlag = self:GetAbility():GetName() -- this will be one of the item_avalore_flag_abcde items
+        
+        if sFlag == OBJECTIVE_FLAG_ITEM_A then
+            ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_A})
+        elseif sFlag == OBJECTIVE_FLAG_ITEM_B then
+            ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_B})
+        elseif sFlag == OBJECTIVE_FLAG_ITEM_C then
+            ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_C})
+        elseif sFlag == OBJECTIVE_FLAG_ITEM_D then
+            ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_D})
+            ent_flag:SetRenderColor(148,0,211)
+        elseif sFlag == OBJECTIVE_FLAG_ITEM_E then
+            ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_E})
+        end
 
         ent_flag:FollowEntity(self:GetParent(), false)
         self.entFollow = ent_flag
@@ -121,8 +153,17 @@ function SanitizeLocation(sTriggerLoc)
 end
 
 function HasFlagInInventory(hPlayerHero)
-    if hPlayerHero:HasItemInInventory("item_avalore_flag_morale_radi") then
-        return "item_avalore_flag_morale_radi"
+    if hPlayerHero:HasItemInInventory(OBJECTIVE_FLAG_ITEM_A) then
+        return OBJECTIVE_FLAG_ITEM_A
+    elseif hPlayerHero:HasItemInInventory(OBJECTIVE_FLAG_ITEM_B) then
+        return OBJECTIVE_FLAG_ITEM_B
+    elseif hPlayerHero:HasItemInInventory(OBJECTIVE_FLAG_ITEM_C) then
+        return OBJECTIVE_FLAG_ITEM_C
+    elseif hPlayerHero:HasItemInInventory(OBJECTIVE_FLAG_ITEM_D) then
+        return OBJECTIVE_FLAG_ITEM_D
+    elseif hPlayerHero:HasItemInInventory(OBJECTIVE_FLAG_ITEM_E) then
+        return OBJECTIVE_FLAG_ITEM_E
     end
+
     return nil
 end

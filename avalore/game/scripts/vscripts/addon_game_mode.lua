@@ -47,6 +47,12 @@ function Precache( context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
 
+	PrecacheResource( "model", OBJECTIVE_FLAG_MODEL_A, context )
+	PrecacheResource( "model", OBJECTIVE_FLAG_MODEL_B, context )
+	PrecacheResource( "model", OBJECTIVE_FLAG_MODEL_C, context )
+	PrecacheResource( "model", OBJECTIVE_FLAG_MODEL_D, context )
+	PrecacheResource( "model", OBJECTIVE_FLAG_MODEL_E, context )
+
 	LinkLuaModifier( "modifier_unselectable", "scripts/vscripts/round2/building_outpost.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_capturable", "scripts/vscripts/round2/building_outpost.lua", LUA_MODIFIER_MOTION_NONE )
 end

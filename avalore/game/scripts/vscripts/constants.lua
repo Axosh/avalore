@@ -110,3 +110,43 @@ Constants.KEY_DIRE_SHELFBOT     = "Dire_ShelfBot"
 -- ==================================
 
 ---CONSTANTS.RADI_FLAG_BASE = 
+
+-- ==================================
+-- FLAGS
+-- ==================================
+-- NOTE: These are generic in case they need to change down the line
+--       If these get updated, also do so in npc_items_custom.txt
+
+
+-- Orange Flag ==> Morale (Radiant)
+OBJECTIVE_FLAG_SPAWNER_A    = "spawner_flag_a"
+OBJECTIVE_FLAG_ITEM_A       = "item_avalore_flag_a"
+OBJECTIVE_FLAG_MODEL_A      = "maps/reef_assets/props/teams/banner_radiant_reef.vmdl"
+
+-- Red Flag ==> Morale (Dire)
+OBJECTIVE_FLAG_SPAWNER_B    = "spawner_flag_b"
+OBJECTIVE_FLAG_ITEM_B       = "item_avalore_flag_b"
+OBJECTIVE_FLAG_MODEL_B      = "maps/journey_assets/props/teams/banner_journey_radiant.vmdl"
+
+-- Yellow Flag ==> Agility
+OBJECTIVE_FLAG_SPAWNER_C    = "spawner_flag_c"
+OBJECTIVE_FLAG_ITEM_C       = "item_avalore_flag_c"
+OBJECTIVE_FLAG_MODEL_C      = "maps/journey_assets/props/teams/banner_journey_dire_small.vmdl" 
+
+-- Purple Flag ==> Arcane
+OBJECTIVE_FLAG_SPAWNER_D    = "spawner_flag_d"
+OBJECTIVE_FLAG_ITEM_D       = "item_avalore_flag_d"
+OBJECTIVE_FLAG_MODEL_D      = "maps/reef_assets/props/teams/banner_dire_reef_small.vmdl" 
+
+-- Blue Flag ==> Regrowth
+OBJECTIVE_FLAG_SPAWNER_E    = "spawner_flag_e"
+OBJECTIVE_FLAG_ITEM_E       = "item_avalore_flag_e"
+OBJECTIVE_FLAG_MODEL_E      = "models/props_teams/bannerb_dire.vmdl" 
+
+-- ==================================
+-- SCORE RELATED
+-- ==================================
+
+SCORE_DIVIDEND_KILLS = 1 --ie. 1 kill = 1 point
+SCORE_DIVIDEND_ASSISTS = 10
+SCORE_DIVIDEND_LASTHITS = 100
