@@ -23,7 +23,38 @@ function Score:Init()
     Score.entities.radi_outpost = Entities:FindByName(nil, "radiant_outpost")
     Score.entities.dire_outpost = Entities:FindByName(nil, "dire_outpost")
 
+    -- Flags
+    Score.flags = {}
+    Score.flag.a = {}
+    Score.flag.a.currTeamPossession = DOTA_TEAM_NOTEAM
+    Score.flag.a.inBase = false
+    Score.flag.b = {}
+    Score.flag.b.currTeamPossession = DOTA_TEAM_NOTEAM
+    Score.flag.b.inBase = false
+    Score.flag.c = {}
+    Score.flag.c.currTeamPossession = DOTA_TEAM_NOTEAM
+    Score.flag.c.inBase = false
+    Score.flag.d = {}
+    Score.flag.d.currTeamPossession = DOTA_TEAM_NOTEAM
+    Score.flag.d.inBase = false
+    Score.flag.e = {}
+    Score.flag.e.currTeamPossession = DOTA_TEAM_NOTEAM
+    Score.flag.e.inBase = false
+end
 
+function Score:RecalculateScores()
+    for playerID = 0, DOTA_MAX_PLAYERS do
+        if PlayerResource:IsValidPlayerID(playerID) then
+            if not PlayerResource:IsBroadcaster(playerID) then
+
+                local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+                local tmpScore = 0
+                tmpScore = tmpScore + math.floor(hero:GetKills() / SCORE_DIVIDEND_KILLS)
+                tmpScore = tmpScore + math.floor(hero:GetAssists() / SCORE_DIVIDEND_ASSISTS)
+                tmpScore = tmpScore + math.floor(hero:GetLastHits() / SCORE_DIVIDEND_LASTHITS)
+            end
+        end
+    end
 end
 
 --[[

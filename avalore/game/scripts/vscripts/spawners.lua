@@ -142,8 +142,22 @@ function Spawners:InitFlags()
 
     -- Spawn Actual Flags
 
-    local newItem           = CreateItem( "item_avalore_flag_morale_radi", nil , nil )
-    local newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, "spawner_flag_morale_radi"):GetOrigin(), newItem )
+    local newItem           = CreateItem( OBJECTIVE_FLAG_ITEM_A, nil , nil )
+    local newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_A):GetOrigin(), newItem )
+
+    newItem           = CreateItem( OBJECTIVE_FLAG_ITEM_B, nil , nil )
+    newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_B):GetOrigin(), newItem )
+
+    newItem           = CreateItem( OBJECTIVE_FLAG_ITEM_C, nil , nil )
+    newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_C):GetOrigin(), newItem )
+
+    newItem           = CreateItem( OBJECTIVE_FLAG_ITEM_D, nil , nil )
+    newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_D):GetOrigin(), newItem )
+    --newItemPhysical:GetRenderColor(OBJECTIVE_FLAG_RENDER_D[0], OBJECTIVE_FLAG_RENDER_D[1], OBJECTIVE_FLAG_RENDER_D[2])
+    newItemPhysical:SetRenderColor(148,0,211)
+
+    newItem           = CreateItem( OBJECTIVE_FLAG_ITEM_E, nil , nil )
+    newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_E):GetOrigin(), newItem )
 
     --print("Top has " .. Spawners.DireFlagBases.Top:GetModifierCount() .. " modifiers.")
 end
