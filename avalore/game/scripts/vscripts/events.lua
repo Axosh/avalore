@@ -11,6 +11,8 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	local attackerEntity 	= EntIndexToHScript( event.entindex_attacker )
 	local attackerTeam 		= nil --attackerEntity:GetTeam()
 
+	local refreshScores = false
+
 	if attackerEntity ~= nil then
 		attackerTeam = attackerEntity:GetTeam()
 	end
@@ -18,44 +20,54 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	--Check for bonus points due to quest objective
 	local objectivePoints = 0
 	if killedEntity:GetUnitName() == "npc_avalore_quest_wisp" then
-		objectivePoints = 3
+		--objectivePoints = 3
+		refreshScores = true
+		if attackerTeam == DOTA_TEAM_GOODGUYS then
+			Score.round1.radi_wisp_count = Score.round1.radi_wisp_count + 1
+		elseif attackerTeam == DOTA_TEAM_BADGUYS then
+			Score.round1.dire_wisp_count = Score.round1.dire_wisp_count + 1
+		end
 		--attackerEntity:IncrementKills(999)
 		--attackerEntity:IncrementKills(999)
 		--attackerEntity:IncrementKills(999)
 	end
 	--Hero Kills, excluding denies
 	if killedEntity:IsRealHero() and attackerTeam ~= killedTeam then
-		objectivePoints = 1
+		--objectivePoints = 1
+		refreshScores = true
 	end
 
 	-- only update front-end if score changed
-	if objectivePoints > 0 then 
-		if attackerTeam == DOTA_TEAM_GOODGUYS then
-			Score.RadiScore = Score.RadiScore + objectivePoints
-			local score = 
-			{
-				team_id = DOTA_TEAM_GOODGUYS,
-				team_score = Score.RadiScore
-			}
-		elseif attackerTeam == DOTA_TEAM_BADGUYS then
-			Score.DireScore = Score.DireScore + objectivePoints
-			local score = 
-			{
-				team_id = DOTA_TEAM_BADGUYS,
-				team_score = Score.DireScore
-			}
-		end
+	if refreshScores then
+		Score:RecalculateScores()
+	-- if objectivePoints > 0 then 
+	-- 	if attackerTeam == DOTA_TEAM_GOODGUYS then
+	-- 		Score.RadiScore = Score.RadiScore + objectivePoints
+	-- 		local score = 
+	-- 		{
+	-- 			team_id = DOTA_TEAM_GOODGUYS,
+	-- 			team_score = Score.RadiScore
+	-- 		}
+	-- 	elseif attackerTeam == DOTA_TEAM_BADGUYS then
+	-- 		Score.DireScore = Score.DireScore + objectivePoints
+	-- 		local score = 
+	-- 		{
+	-- 			team_id = DOTA_TEAM_BADGUYS,
+	-- 			team_score = Score.DireScore
+	-- 		}
+	-- 	end
 
 		--print( "radi score = " .. _G.GoodScore)
 		--print( "radi score 2 = " .. GetTeamHeroKills(DOTA_TEAM_GOODGUYS))
 		--print( "dire score = " .. _G.BadScore)
 
-		local score_obj = 
-		{
-			radi_score = Score.RadiScore,
-			dire_score = Score.DireScore
-		}
-		CustomGameEventManager:Send_ServerToAllClients( "refresh_score", score_obj )
+		-- local score_obj = 
+		-- {
+		-- 	radi_score = Score.RadiScore,
+		-- 	dire_score = Score.DireScore
+		-- }
+		-- CustomGameEventManager:Send_ServerToAllClients( "refresh_score", score_obj )
+
 		--GameRules:GetGameModeEntity():SetTopBarTeamValue(DOTA_TEAM_BADGUYS, GetTeamHeroKills(DOTA_TEAM_BADGUYS))
 		--GameRules:GetGameModeEntity():SetTopBarTeamValue(DOTA_TEAM_GOODGUYS, GetTeamHeroKills(DOTA_TEAM_GOODGUYS))
 	end

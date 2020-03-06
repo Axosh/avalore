@@ -1,5 +1,6 @@
 require("constants")
 require("spawners")
+require("score")
 
 -----------------------------------------------------------------------------------------------------------
 --	Item Definitions
@@ -57,6 +58,10 @@ function modifier_item_flag_carry:OnCreated(keys)
         elseif sFlag == OBJECTIVE_FLAG_ITEM_E then
             ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_E})
         end
+
+        -- flag has been picked up, so update status
+        local flag_letter = string.sub(sFlag, -1) -- get the last letter
+        Score.flags[flag_letter].inBase = false
 
         ent_flag:FollowEntity(self:GetParent(), false)
         self.entFollow = ent_flag
@@ -131,6 +136,12 @@ function FlagTrigger_OnStartTouch(trigger)
                     nearestFlagSpawner = Spawners.RadiFlagBases[SanitizeLocation(TriggerEntity:GetName():gsub("%trigger_dire_flag_", ""))]
                 end
                 NPC:DropItemAtPositionImmediate(hItem, nearestFlagSpawner:GetOrigin())
+
+                local flag_letter = string.sub(hItem:GetName(), -1) -- get the last letter
+                Score.flags[flag_letter].currTeamPossession = NPC:GetTeam()
+                Score.flags[flag_letter].inBase = true
+                -- set score
+                Score:RecalculateScores()
             end
         end
 	else
