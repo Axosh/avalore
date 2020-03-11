@@ -68,6 +68,7 @@ end
 function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 )
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(CAvaloreGameMode, "OnEntityKilled"), self)
+	ListenToGameEvent("dota_on_hero_finish_spawn", Dynamic_Wrap(CAvaloreGameMode, "OnHeroFinishSpawn"), self)
 	_G.nCOUNTDOWNTIMER = 2401
 	self.countdownEnabled = true
 	GameRules:SetPreGameTime( 10 )

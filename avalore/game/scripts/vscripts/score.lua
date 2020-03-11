@@ -86,6 +86,44 @@ function Score:Init()
     Score.raxes.dire.midmelee = true
     Score.raxes.dire.botranged = true
     Score.raxes.dire.botmelee = true
+
+    -- build player score tracking 
+    Score.playerStats = {}
+    -- for playerID = 0, DOTA_MAX_PLAYERS do
+    --     print("Id = " .. playerID)
+    --     if PlayerResource:IsValidPlayerID(playerID) then
+    --         print("Valid Player = " .. playerID)
+    --         if not PlayerResource:IsBroadcaster(playerID) then
+    --             print("Player Id Inserted into Table = " .. playerID)
+    --             Score.playerStats[playerID].t1 = 0
+    --             Score.playerStats[playerID].t2 = 0
+    --             Score.playerStats[playerID].t3 = 0
+    --             Score.playerStats[playerID].t4 = 0
+
+    --             Score.playerStats[playerID].rangeRax = 0
+    --             Score.playerStats[playerID].meleeRax = 0
+
+    --             Score.playerStats[playerID].wisps = 0
+
+    --             Score.playerStats[playerID].flag_captures = 0
+    --         end
+    --     end
+    -- end
+end
+
+function Score:InsertPlayerStatsRecord(playerID)
+    Score.playerStats[playerID] = {}
+    Score.playerStats[playerID].t1 = 0
+    Score.playerStats[playerID].t2 = 0
+    Score.playerStats[playerID].t3 = 0
+    Score.playerStats[playerID].t4 = 0
+
+    Score.playerStats[playerID].rangeRax = 0
+    Score.playerStats[playerID].meleeRax = 0
+
+    Score.playerStats[playerID].wisps = 0
+
+    Score.playerStats[playerID].flag_captures = 0
 end
 
 function Score:RecalculateScores()
@@ -164,6 +202,8 @@ function Score:RecalculateScores()
     -- repaint scores
     print( "radi score = " .. tostring(Score.RadiScore))
     print( "dire score = " .. tostring(Score.DireScore))
+
+    DeepPrintTable(Score.playerStats)
 
     local score_obj = 
     {

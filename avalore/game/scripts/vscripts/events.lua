@@ -2,6 +2,7 @@
 -- EVENTS
 ---------------------------------------------------------------------------
 require("score")
+require("utility_functions")
 
 --initialized with ListenToGameEvent("entity_killed", Dynamic_Wrap(CustomGameMode, "OnEntityKilled"), self)
 function CAvaloreGameMode:OnEntityKilled(event)
@@ -27,6 +28,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 		elseif attackerTeam == DOTA_TEAM_BADGUYS then
 			Score.round1.dire_wisp_count = Score.round1.dire_wisp_count + 1
 		end
+		Score.playerStats[attackerEntity:GetPlayerOwnerID()].wisps = Score.playerStats[attackerEntity:GetPlayerOwnerID()].wisps + 1
 		--attackerEntity:IncrementKills(999)
 		--attackerEntity:IncrementKills(999)
 		--attackerEntity:IncrementKills(999)
@@ -73,4 +75,15 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	end
 
 	--print("OnEntityKilled - Ended")
+end
+
+function CAvaloreGameMode:OnHeroFinishSpawn(event)
+	PrintTable(event)
+	local hPlayerHero = EntIndexToHScript( event.heroindex )
+	if hPlayerHero ~= nil and hPlayerHero:IsRealHero() then
+		if hPlayerHero.bFirstSpawnComplete == nil then
+			hPlayerHero.bFirstSpawnComplete = true
+			Score:InsertPlayerStatsRecord(hPlayerHero:GetPlayerOwnerID())
+		end
+	end
 end

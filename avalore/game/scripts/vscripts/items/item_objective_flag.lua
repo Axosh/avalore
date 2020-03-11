@@ -54,7 +54,6 @@ function modifier_item_flag_carry:OnCreated(keys)
             ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_C})
         elseif sFlag == OBJECTIVE_FLAG_ITEM_D then
             ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_D})
-            ent_flag:SetRenderColor(148,0,211)
         elseif sFlag == OBJECTIVE_FLAG_ITEM_E then
             ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_E})
         end
@@ -106,6 +105,9 @@ end
 -- trigger_radi_flag_topl
 --trigger_radi_flag_top
 
+
+-- NOTE: probably need to do some detection here to see if the hero is trying 
+--       to steal or capture the flag
 function FlagTrigger_OnStartTouch(trigger)
     local triggerName = thisEntity:GetName()
 	if trigger.activator ~= nil and trigger.caller ~= nil then
@@ -138,6 +140,11 @@ function FlagTrigger_OnStartTouch(trigger)
                 NPC:DropItemAtPositionImmediate(hItem, nearestFlagSpawner:GetOrigin())
 
                 local flag_letter = string.sub(hItem:GetName(), -1) -- get the last letter
+                --capture the player stats if they actually captured it
+                print("Owner = " .. NPC:GetPlayerOwnerID())
+                if(Score.flags[flag_letter].currTeamPossession ~= NPC:GetTeam()) then
+                    Score.playerStats[NPC:GetPlayerOwnerID()].flag_captures = Score.playerStats[NPC:GetPlayerOwnerID()].flag_captures + 1
+                end
                 Score.flags[flag_letter].currTeamPossession = NPC:GetTeam()
                 Score.flags[flag_letter].inBase = true
                 -- set score
