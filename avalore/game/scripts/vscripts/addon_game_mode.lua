@@ -37,6 +37,7 @@ require( "utility_functions" )
 require( "spawners" )
 require ("constants")
 require("score")
+require("references")
 
 function Precache( context )
 	--[[
@@ -53,8 +54,8 @@ function Precache( context )
 	PrecacheResource( "model", OBJECTIVE_FLAG_MODEL_D, context )
 	PrecacheResource( "model", OBJECTIVE_FLAG_MODEL_E, context )
 
-	LinkLuaModifier( "modifier_unselectable", "scripts/vscripts/round2/building_outpost.lua", LUA_MODIFIER_MOTION_NONE )
-	LinkLuaModifier( "modifier_capturable", "scripts/vscripts/round2/building_outpost.lua", LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_unselectable", MODIFIER_UNSELECTABLE, LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_capturable", MODIFIER_CAPTURABLE, LUA_MODIFIER_MOTION_NONE )
 end
 
 -- Create the game mode when we activate
@@ -108,6 +109,20 @@ function CAvaloreGameMode:OnThink()
 		--print("Countdown = " .. tostring(_G.nCOUNTDOWNTIMER))
 	end
 
+	-- spawn rosh and blockers after wave finishes splitting (DOES NOT WORK)
+	-- if math.floor(curr_gametime)  == 30 then --Constants.TIME_ROUND_2_START then --+ 60 then
+	-- 	print("-----Making blockers------")
+	-- 	local tFowBlockerSpawns = Entities:FindAllByName("spawner_fow_blocker")
+	-- 	local hFowBlocker = nil
+	-- 	for key,value in pairs(tFowBlockerSpawns) do
+	-- 		--hFowBlocker = Entities:CreateByClassname("ent_fow_blocker_node")
+	-- 		--hFowBlocker:SetOrigin(value:GetOrigin())
+	-- 		hFowBlocker = SpawnEntityFromTableSynchronous("ent_fow_blocker_node", {origin = value:GetOrigin()})
+	-- 		--print("Spawner at " .. tostring(value:GetOrigin()) .. " || blocker at " .. tostring(hFowBlocker:GetOrigin()))
+	-- 	end
+		
+	-- end
+
 
 	if curr_gametime > Constants.TIME_ROUND_4_START then
 		if(_G.round < 4) then
@@ -127,8 +142,13 @@ function CAvaloreGameMode:OnThink()
 			_G.round = 2
 			self:InitRound2()
 		end
+		-- spawn boss after creeps have had a minute to finish splitting
+		if math.floor(curr_gametime)  == (Constants.TIME_ROUND_2_START + 60) then
+			CreateUnitByName( "npc_dota_roshan", Entities:FindByName(nil, "spawner_map_center"):GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
+		end
+
 		Score:UpdateRound2()
-		Score:DebugRound2()
+		--Score:DebugRound2()
 	elseif curr_gametime > 0 then
 		--temp debug
 		--print("Hero At: " .. tostring(PlayerResource:GetSelectedHeroEntity(0):GetOrigin()))

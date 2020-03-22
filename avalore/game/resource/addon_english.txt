@@ -32,5 +32,13 @@
 		// Objectives
 
 		"npc_avalore_quest_wisp"	"Wisp"
+
+		// ITEMS
+
+		"DOTA_Tooltip_Ability_item_avalore_flag_a"				"Morale Flag"
+		"DOTA_Tooltip_Ability_item_avalore_flag_b"				"Morale Flag"
+		"DOTA_Tooltip_Ability_item_avalore_flag_c"				"Agility Flag"
+		"DOTA_Tooltip_Ability_item_avalore_flag_d"				"Arcane Flag"
+		"DOTA_Tooltip_Ability_item_avalore_flag_e"				"Regrowth Flag"
 	}
 }

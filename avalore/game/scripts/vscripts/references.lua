@@ -6,4 +6,22 @@
     trudging around files.
 ]]
 
---REQ_
+-- REQUR
+
+-- =========================================
+-- MODIFIERS
+-- =========================================
+
+-- file locations for modifiers to be used in LinkLuaModifier
+-- in the event code gets refactored
+
+MODIFIER_CAPTURABLE     = "scripts/vscripts/modifiers/modifier_capturable.lua"
+MODIFIER_FLAGBASE       = "scripts/vscripts/modifiers/flags/modifier_flagbase.lua"
+MODIFIER_FLAG_MORALE    = "scripts/vscripts/modifiers/flags/modifier_flag_morale.lua"
+MODIFIER_UNSELECTABLE   = "scripts/vscripts/modifiers/modifier_unselectable.lua"
+
+
+-- INTRINSIC MODIFIERS
+-- these are kind of special cases since they are closely
+-- related to a particular object 
+MODIFIER_ITEM_FLAG_CARRY = "items/item_objective_flag.lua"

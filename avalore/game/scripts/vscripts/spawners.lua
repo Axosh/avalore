@@ -3,9 +3,10 @@ if Spawners == nil then
 end
 
 require("constants")
+require("references")
 --require("debug")
 
-LinkLuaModifier( "modifier_flagbase", "scripts/vscripts/spawners.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_flagbase", MODIFIER_FLAGBASE, LUA_MODIFIER_MOTION_NONE )
 
 -- Initialize & Cache a bunch of handles/entities so we can easily grab
 -- a reference to them when working with it later
@@ -68,30 +69,6 @@ function Spawners:Init()
 
     self:InitFlags()
     print("Spawners Initialized")
-end
-
-modifier_flagbase = class({})
-
-function modifier_flagbase:DeclareFunctions()
-    return {MODIFIER_STATE_UNSELECTABLE,
-            MODIFIER_STATE_INVULNERABLE,
-            MODIFIER_PROPERTY_PROVIDES_FOW_POSITION
-            }
-end
-
-function modifier_flagbase:CheckState()
-	local state = {}
-	if IsServer() then
-        state[MODIFIER_STATE_UNSELECTABLE] = true
-        state[MODIFIER_STATE_INVULNERABLE] = true
-        state[MODIFIER_STATE_INVISIBLE] = false
-	end
-
-	return state
-end
-
-function modifier_flagbase:GetModifierProvidesFOWVision()
-    return 1
 end
 
 function Spawners:InitFlags()
