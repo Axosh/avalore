@@ -1,6 +1,7 @@
 require("constants")
 require("spawners")
 require("score")
+require("references")
 
 -----------------------------------------------------------------------------------------------------------
 --	Item Definitions
@@ -12,7 +13,8 @@ item_avalore_flag_c = item_avalore_flag_c or class({})
 item_avalore_flag_d = item_avalore_flag_d or class({})
 item_avalore_flag_e = item_avalore_flag_e or class({})
 
-LinkLuaModifier( "modifier_item_flag_carry", "items/item_objective_flag.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_flag_carry", MODIFIER_ITEM_FLAG_CARRY, LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_flag_morale", MODIFIER_FLAG_MORALE, LUA_MODIFIER_MOTION_NONE )
 
 function item_objective_flag:GetIntrinsicModifierName()
     return "modifier_item_flag_carry" end
@@ -147,6 +149,11 @@ function FlagTrigger_OnStartTouch(trigger)
                 end
                 Score.flags[flag_letter].currTeamPossession = NPC:GetTeam()
                 Score.flags[flag_letter].inBase = true
+
+                hItem:SetTeam(NPC:GetTeam())
+                --hItem:AddNewModifier(hItem, nil, "modifier_flag_morale", {})
+                --NPC:AddNewModifier(hItem, nil, "modifier_flag_morale", {})
+                NPC:AddNewModifier(hItem, "flag_morale_aura", nil, {})
                 -- set score
                 Score:RecalculateScores()
             end
