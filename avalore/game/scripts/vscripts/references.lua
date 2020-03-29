@@ -6,7 +6,14 @@
     trudging around files.
 ]]
 
--- REQUR
+-- =========================================
+-- REQUIRED FILES
+-- =========================================
+
+REQ_CONSTANTS       = "constants"
+--REQ_REFERENCES      = "references"
+REQ_SCORE           = "score"
+REQ_SPAWNERS        = "spawners"
 
 -- =========================================
 -- MODIFIERS

@@ -200,10 +200,10 @@ function Score:RecalculateScores()
     Score.DireScore = Score.DireScore + (Score.round1.dire_wisp_count * SCORE_MULTIPLIER_WISP)
 
     -- repaint scores
-    print( "radi score = " .. tostring(Score.RadiScore))
-    print( "dire score = " .. tostring(Score.DireScore))
+    -- print( "radi score = " .. tostring(Score.RadiScore))
+    -- print( "dire score = " .. tostring(Score.DireScore))
 
-    DeepPrintTable(Score.playerStats)
+    -- DeepPrintTable(Score.playerStats)
 
     local score_obj = 
     {
