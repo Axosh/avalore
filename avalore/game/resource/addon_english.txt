@@ -40,5 +40,23 @@
 		"DOTA_Tooltip_Ability_item_avalore_flag_c"				"Agility Flag"
 		"DOTA_Tooltip_Ability_item_avalore_flag_d"				"Arcane Flag"
 		"DOTA_Tooltip_Ability_item_avalore_flag_e"				"Regrowth Flag"
+
+		// MODIFIERS
+		"DOTA_Tooltip_modifier_item_flag_carry"					"Stolen Flag Debuff"
+		"DOTA_Tooltip_modifier_item_flag_carry_description"		"Certain movement spells and items disabled while carrying a flag"
+
+		"DOTA_Tooltip_modifier_flag_morale"						"Morale Flag Aura"
+		"DOTA_Tooltip_modifier_flag_morale_description"			"Captured Morale Flag is providing bonus armor and damage"
+
+		"DOTA_Tooltip_modifier_flag_arcane"						"Arcane Flag Aura"
+		"DOTA_Tooltip_modifier_flag_arcane_description"			"Captured Arcane Flag is reduced cooldowns and spell amp"
+
+		"DOTA_Tooltip_modifier_flag_agility"					"Agility Flag Aura"
+		"DOTA_Tooltip_modifier_flag_agility_description"	    "Captured Morale Flag is providing bonus attack speed and move speed"
+
+		"DOTA_Tooltip_modifier_flag_regrowth"					"Regrowth Flag Aura"
+		"DOTA_Tooltip_modifier_flag_regrowth_description"		"Captured Morale Flag is providing bonus regen"
+
+
 	}
 }

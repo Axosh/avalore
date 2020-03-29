@@ -117,6 +117,7 @@ Constants.KEY_DIRE_SHELFBOT     = "Dire_ShelfBot"
 -- NOTE: These are generic in case they need to change down the line
 --       If these get updated, also do so in npc_items_custom.txt
 
+OBJECTIVE_FLAG_PARTICLE_CAPTURE = "particles/customgames/capturepoints/cp_wood.vpcf"
 
 -- Orange Flag ==> Morale (Radiant)
 OBJECTIVE_FLAG_SPAWNER_A    = "spawner_flag_a"
@@ -162,3 +163,25 @@ SCORE_MULTIPLIER_RAX_RANGED = 15
 SCORE_MULTIPLIER_WISP = 3
 
 SCORE_MULTIPLIER_FLAG = 15
+
+
+-- ==================================
+-- MODIFIERS
+-- ==================================
+
+-- this is to make it easy to find instances of them by searching the code
+IDENTIFIER_FLAG_A = "a"
+IDENTIFIER_FLAG_B = "b"
+IDENTIFIER_FLAG_C = "c"
+IDENTIFIER_FLAG_D = "d"
+IDENTIFIER_FLAG_E = "e"
+
+-- in: game/../resource/flash3/images
+MODIFIER_FLAG_MORALE_TEXTURE = "morale_aura"
+
+MODIFIER_FLAG_CARRY_NAME = "modifier_item_flag_carry"
+
+MODIFIER_FLAG_MORALE_NAME = "modifier_flag_morale"
+MODIFIER_FLAG_AGILITY_NAME = "modifier_flag_agility"
+MODIFIER_FLAG_ARCANE_NAME = "modifier_flag_arcane"
+MODIFIER_FLAG_REGROWTH_NAME = "modifier_flag_regrowth"

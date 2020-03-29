@@ -35,13 +35,13 @@
 		}
 	}
 
-	"flag_morale_aura"
-	{
-		"BaseClass"										"ability_lua"
-		"AbilityTextureName"			"morale_aura"
-		"ScriptFile"				"modifiers/flags/modifier_flag_morale"
-		"AbilityBehavior"								"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-	}
+	//"flag_morale_aura"
+	//{
+	//	"BaseClass"										"ability_lua"
+	//	"AbilityTextureName"			"morale_aura"
+	//	"ScriptFile"				"modifiers/flags/modifier_flag_morale"
+	//	"AbilityBehavior"								"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+	//}
 
 	"Version"		"1"
 
