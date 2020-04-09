@@ -2,6 +2,7 @@ require("references")
 require(REQ_CONSTANTS)
 require(REQ_SPAWNERS)
 require(REQ_SCORE)
+require(REQ_UTIL)
 
 -----------------------------------------------------------------------------------------------------------
 --	Item Definitions
@@ -15,9 +16,12 @@ item_avalore_flag_e = item_avalore_flag_e or class({})
 
 LinkLuaModifier( MODIFIER_FLAG_CARRY_NAME, MODIFIER_ITEM_FLAG_CARRY, LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( MODIFIER_FLAG_MORALE_NAME, MODIFIER_FLAG_MORALE, LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( MODIFIER_FLAG_AGILITY_NAME, MODIFIER_FLAG_AGILITY, LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( MODIFIER_FLAG_ARCANE_NAME, MODIFIER_FLAG_ARCANE, LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( MODIFIER_FLAG_REGROWTH_NAME, MODIFIER_FLAG_REGROWTH, LUA_MODIFIER_MOTION_NONE )
 
 function item_objective_flag:GetIntrinsicModifierName()
-    return MODIFIER_FLAG_CARRY_NAME end
+     return MODIFIER_FLAG_CARRY_NAME end
 
 function item_avalore_flag_a:GetIntrinsicModifierName()
     return MODIFIER_FLAG_CARRY_NAME end
@@ -41,12 +45,24 @@ function item_avalore_flag_e:GetIntrinsicModifierName()
 
 if modifier_item_flag_carry == nil then modifier_item_flag_carry = class({}) end
 
+function modifier_item_flag_carry:IsHidden() return false end
+function modifier_item_flag_carry:IsDebuff() return true end
+function modifier_item_flag_carry:IsPurgable() return false end
+
 function modifier_item_flag_carry:OnCreated(keys)
+    print("modifier_item_flag_carry:OnCreated()")
     if IsServer() then
         local ent_flag = nil
 
         --local sFlag = HasFlagInInventory(self:GetParent())
         local sFlag = self:GetAbility():GetName() -- this will be one of the item_avalore_flag_abcde items
+
+        local flag_carry_mods = self:GetParent():FindAllModifiersByName(MODIFIER_FLAG_CARRY_NAME)
+        --check to see if they already have a flag (i.e. 2 instances of this modifier since it's already been applied here)
+        -- print("table count = " .. TableCount(flag_carry_mods))
+        -- if TableCount(flag_carry_mods) > 1 then
+        --     PrintTable(flag_carry_mods)
+        -- end
         
         if sFlag == OBJECTIVE_FLAG_ITEM_A then
             ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_A})
@@ -98,6 +114,17 @@ function modifier_item_flag_carry:OnCreated(keys)
     end -- end IsServer()
 end -- end: function modifier_item_flag_carry:OnCreated(keys)
 
+-- function modifier_item_flag_carry:OnRefresh(keys)
+--     print("modifier_item_flag_carry:OnRefresh()")
+--     PrintTable(keys)
+--     local flag_carry_mods = self:GetParent():FindAllModifiersByName(MODIFIER_FLAG_CARRY_NAME)
+--     --check to see if they already have a flag (i.e. 2 instances of this modifier since it's already been applied here)
+--     print("table count = " .. TableCount(flag_carry_mods))
+--     if TableCount(flag_carry_mods) > 1 then
+--         PrintTable(flag_carry_mods)
+--     end
+-- end
+
 function modifier_item_flag_carry:OnDestroy(keys)
     print("OnDestroy for " ..  MODIFIER_FLAG_CARRY_NAME )
     if self.particle ~= nil then
@@ -110,6 +137,10 @@ function modifier_item_flag_carry:OnDestroy(keys)
         self.entFollow:RemoveSelf()
         self.entFollow = nil
     end
+end
+
+function modifier_item_flag_carry:GetTexture()
+    return "naga_siren_ensnare"
 end
 
 -- Triggers

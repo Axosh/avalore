@@ -181,7 +181,12 @@ MODIFIER_FLAG_MORALE_TEXTURE = "morale_aura"
 
 MODIFIER_FLAG_CARRY_NAME = "modifier_item_flag_carry"
 
-MODIFIER_FLAG_MORALE_NAME = "modifier_flag_morale"
-MODIFIER_FLAG_AGILITY_NAME = "modifier_flag_agility"
-MODIFIER_FLAG_ARCANE_NAME = "modifier_flag_arcane"
+MODIFIER_FLAG_MORALE_NAME   = "modifier_flag_morale"
+MODIFIER_FLAG_AGILITY_NAME  = "modifier_flag_agility"
+MODIFIER_FLAG_ARCANE_NAME   = "modifier_flag_arcane"
 MODIFIER_FLAG_REGROWTH_NAME = "modifier_flag_regrowth"
+
+
+-- MESSAGE TYPES 
+MSG_TYPE_NOTIFY = 0
+MSG_TYPE_ERROR = 1

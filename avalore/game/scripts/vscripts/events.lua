@@ -1,6 +1,7 @@
 ---------------------------------------------------------------------------
 -- EVENTS
 ---------------------------------------------------------------------------
+require("constants")
 require("score")
 require("utility_functions")
 
@@ -87,3 +88,53 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 		end
 	end
 end
+
+function CAvaloreGameMode:OnItemPickUp(event)
+	print("OnItemPickup - Start")
+	local item = EntIndexToHScript( event.ItemEntityIndex )
+	local owner = EntIndexToHScript( event.HeroEntityIndex )
+
+	-- can only hold one flag, so check if this is a flag 
+	-- then if they have another; if so, dump the old flag
+	if     event.itemname == OBJECTIVE_FLAG_ITEM_A 
+		or event.itemname == OBJECTIVE_FLAG_ITEM_B 
+		or event.itemname == OBJECTIVE_FLAG_ITEM_C 
+		or event.itemname == OBJECTIVE_FLAG_ITEM_D 
+		or event.itemname == OBJECTIVE_FLAG_ITEM_E then
+
+		local show_message = false
+			
+		if(owner:HasItemInInventory(OBJECTIVE_FLAG_ITEM_A)
+			and event.itemname ~= OBJECTIVE_FLAG_ITEM_A) then
+			owner:DropItemAtPositionImmediate(owner:FindItemInInventory(OBJECTIVE_FLAG_ITEM_A), owner:GetOrigin())
+			show_message = true
+		elseif(owner:HasItemInInventory(OBJECTIVE_FLAG_ITEM_B)
+				and event.itemname ~= OBJECTIVE_FLAG_ITEM_B) then
+			owner:DropItemAtPositionImmediate(owner:FindItemInInventory(OBJECTIVE_FLAG_ITEM_B), owner:GetOrigin())
+			show_message = true
+		elseif(owner:HasItemInInventory(OBJECTIVE_FLAG_ITEM_C)
+				and event.itemname ~= OBJECTIVE_FLAG_ITEM_C) then
+			owner:DropItemAtPositionImmediate(owner:FindItemInInventory(OBJECTIVE_FLAG_ITEM_C), owner:GetOrigin())
+			show_message = true
+		elseif(owner:HasItemInInventory(OBJECTIVE_FLAG_ITEM_D)
+			and event.itemname ~= OBJECTIVE_FLAG_ITEM_D) then
+			owner:DropItemAtPositionImmediate(owner:FindItemInInventory(OBJECTIVE_FLAG_ITEM_D), owner:GetOrigin())
+			show_message = true
+		elseif(owner:HasItemInInventory(OBJECTIVE_FLAG_ITEM_E)
+			and event.itemname ~= OBJECTIVE_FLAG_ITEM_E) then
+			owner:DropItemAtPositionImmediate(owner:FindItemInInventory(OBJECTIVE_FLAG_ITEM_E), owner:GetOrigin())
+			show_message = true
+		end
+
+		if(show_message) then
+			local broadcast_obj = 
+			{
+				msg = "#multi_flag",
+				time = 10,
+				elaboration = "",
+				type = MSG_TYPE_ERROR
+			}
+			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(owner:GetPlayerID()), "broadcast_message", broadcast_obj )
+		end
+	end -- end if-statement: item picked up was flag
+end -- end function: CAvaloreGameMode:OnItemPickUp(event)

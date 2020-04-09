@@ -17,5 +17,8 @@
 
 	// ROUND ALERTS
 	"round1"										"Round 1 Start"
-	"round1info"									"7 Wisps have spawned around the map. Each capture is worth 3 points. Capture the most and your team gets bonus victory points at the end of the round."
+	"round1info"									"7 Wisps have spawned around the map<br />Each capture is worth 3 points<br />Capture the most and your team gets bonus victory points at the end of the round."
+
+	// ERRORS
+	"multi_flag"									"You may only carry one flag at a time"
 }

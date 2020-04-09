@@ -52,10 +52,13 @@
 		"DOTA_Tooltip_modifier_flag_arcane_description"			"Captured Arcane Flag is reduced cooldowns and spell amp"
 
 		"DOTA_Tooltip_modifier_flag_agility"					"Agility Flag Aura"
-		"DOTA_Tooltip_modifier_flag_agility_description"	    "Captured Morale Flag is providing bonus attack speed and move speed"
+		//"DOTA_Tooltip_modifier_flag_agility_description"	    "Captured Agility Flag is providing bonus attack speed and move speed"
+		"DOTA_Tooltip_modifier_flag_agility_description"	    "Captured Agility Flag is providing %MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% attack speed and %MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE%%% move speed"
+		"DOTA_Tooltip_modifier_flag_agility_movment_speed"		"%MOVEMENT SPEED:"
 
 		"DOTA_Tooltip_modifier_flag_regrowth"					"Regrowth Flag Aura"
-		"DOTA_Tooltip_modifier_flag_regrowth_description"		"Captured Morale Flag is providing bonus regen"
+		"DOTA_Tooltip_modifier_flag_regrowth_description"		"Captured Regrowth Flag is providing bonus regen"
+		"DOTA_Tooltip_modifier_flag_regrowth_health_regen"		"+$hp_regen"
 
 
 	}
