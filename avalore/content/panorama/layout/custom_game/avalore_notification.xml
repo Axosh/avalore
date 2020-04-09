@@ -11,5 +11,9 @@
 			<Label hittest="false" id="AlertMessage_Delivery" class="TitleFont" text="" html="true" />
 			<Label hittest="false" id="AlertMessage_Elaboration" text="" html="true" />
 		</Panel>
+		<Panel hittest="false" id="AvaloreErrorMessage" text="">
+			<Label hittest="false" id="AvaloreErrorMessage_Delivery" class="TitleFont" text="" html="true" />
+			<Label hittest="false" id="AvaloreErrorMessage_Elaboration" text="" html="true" />
+		</Panel>
 	</Panel>
 </root>
