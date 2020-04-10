@@ -176,25 +176,42 @@ function FlagTrigger_OnStartTouch(trigger)
             if flag ~= nil then
                 local hItem = NPC:FindItemInInventory(flag)
                 local nearestFlagSpawner = nil
+                local location = nil
                 if string.find(TriggerEntity:GetName(), "radi") then
-                    nearestFlagSpawner = Spawners.RadiFlagBases[SanitizeLocation(TriggerEntity:GetName():gsub("%trigger_radi_flag_", ""))]
+                    location = SanitizeLocation(TriggerEntity:GetName():gsub("%trigger_radi_flag_", ""))
+                    nearestFlagSpawner = Spawners.RadiFlagBases[location]
                 elseif string.find(TriggerEntity:GetName(), "dire") then
-                    nearestFlagSpawner = Spawners.DireFlagBases[SanitizeLocation(TriggerEntity:GetName():gsub("%trigger_dire_flag_", ""))]
+                    location = SanitizeLocation(TriggerEntity:GetName():gsub("%trigger_dire_flag_", ""))
+                    nearestFlagSpawner = Spawners.DireFlagBases[location]
                 end
-                print("At spawner " .. nearestFlagSpawner:GetName())
-                NPC:DropItemAtPositionImmediate(hItem, nearestFlagSpawner:GetOrigin())
+                --print("At spawner " .. nearestFlagSpawner:GetName())
 
                 local flag_letter = string.sub(hItem:GetName(), -1) -- get the last letter
+
+                -- make sure we can put the flag here
+                print("Score.flags")
+                print("===========")
+                for key, value in pairs(Score.flags) do
+                    print(tostring(key) .. " || " .. tostring(value))
+                    print(Score.flags[key].location)
+                    if(Score.flags[key].currTeamPossession == NPC:GetTeam() and Score.flags[key].inBase and Score.flags[key].location == location) then
+                        return
+                    end
+                end
+
                 --capture the player stats if they actually captured it
-                print("Owner = " .. NPC:GetPlayerOwnerID())
+                --print("Owner = " .. NPC:GetPlayerOwnerID())
                 if(Score.flags[flag_letter].currTeamPossession ~= NPC:GetTeam()) then
                     Score.playerStats[NPC:GetPlayerOwnerID()].flag_captures = Score.playerStats[NPC:GetPlayerOwnerID()].flag_captures + 1
                 end
+
+                NPC:DropItemAtPositionImmediate(hItem, nearestFlagSpawner:GetOrigin())
 
                 local mod_name = GetFlagModifierNameFromIdentifier(flag_letter)
 
                 Score.flags[flag_letter].currTeamPossession = NPC:GetTeam()
                 Score.flags[flag_letter].inBase = true
+                Score.flags[flag_letter].location = location
 
                 hItem:SetTeam(NPC:GetTeam())
 

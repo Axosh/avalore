@@ -28,18 +28,23 @@ function Score:Init()
     Score.flags.a = {}
     Score.flags.a.currTeamPossession = DOTA_TEAM_NOTEAM
     Score.flags.a.inBase = false
+    Score.flags.a.location = ""
     Score.flags.b = {}
     Score.flags.b.currTeamPossession = DOTA_TEAM_NOTEAM
     Score.flags.b.inBase = false
+    Score.flags.b.location = ""
     Score.flags.c = {}
     Score.flags.c.currTeamPossession = DOTA_TEAM_NOTEAM
     Score.flags.c.inBase = false
+    Score.flags.c.location = ""
     Score.flags.d = {}
     Score.flags.d.currTeamPossession = DOTA_TEAM_NOTEAM
     Score.flags.d.inBase = false
+    Score.flags.d.location = ""
     Score.flags.e = {}
     Score.flags.e.currTeamPossession = DOTA_TEAM_NOTEAM
     Score.flags.e.inBase = false
+    Score.flags.e.location = ""
 
     -- Towers
     Score.towers = {}
