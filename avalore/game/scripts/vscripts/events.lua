@@ -2,8 +2,11 @@
 -- EVENTS
 ---------------------------------------------------------------------------
 require("constants")
+require("references")
 require("score")
 require("utility_functions")
+
+LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA_MODIFIER_MOTION_NONE )
 
 --initialized with ListenToGameEvent("entity_killed", Dynamic_Wrap(CustomGameMode, "OnEntityKilled"), self)
 function CAvaloreGameMode:OnEntityKilled(event)
@@ -12,6 +15,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	local killedTeam 		= killedEntity:GetTeam()
 	local attackerEntity 	= EntIndexToHScript( event.entindex_attacker )
 	local attackerTeam 		= nil --attackerEntity:GetTeam()
+	local curr_gametime 	= GameRules:GetDOTATime(false, false)
 
 	local refreshScores = false
 
@@ -24,15 +28,60 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	if killedEntity:GetUnitName() == "npc_avalore_quest_wisp" then
 		--objectivePoints = 3
 		refreshScores = true
+		local first_wisp = false
 		if attackerTeam == DOTA_TEAM_GOODGUYS then
+			if Score.round1.radi_wisp_count == 0 then
+				first_wisp = true
+			end
 			Score.round1.radi_wisp_count = Score.round1.radi_wisp_count + 1
 		elseif attackerTeam == DOTA_TEAM_BADGUYS then
+			if Score.round1.dire_wisp_count == 0 then
+				first_wisp = true
+			end
 			Score.round1.dire_wisp_count = Score.round1.dire_wisp_count + 1
 		end
 		Score.playerStats[attackerEntity:GetPlayerOwnerID()].wisps = Score.playerStats[attackerEntity:GetPlayerOwnerID()].wisps + 1
-		--attackerEntity:IncrementKills(999)
-		--attackerEntity:IncrementKills(999)
-		--attackerEntity:IncrementKills(999)
+		-- give everyone the modifier if this is the first wisp capture
+		if first_wisp then
+			for playerID = 0, DOTA_MAX_PLAYERS do
+				if PlayerResource:IsValidPlayerID(playerID) then
+					if not PlayerResource:IsBroadcaster(playerID) then
+						local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+						if hero:GetTeam() == attackerTeam then
+							print("Adding Wisp Aura for Player " .. tostring(playerID) .. " (" .. hero:GetName() .. ")")
+							hero:AddNewModifier(hero, nil, MODIFIER_ROUND1_WISP_REGEN, {})
+						end
+					end -- end IsBroadcaster
+				end -- end IsValidPlayerID
+			end -- end for-loop
+		end
+	end
+
+	-- check for gem drop in round 3
+	if curr_gametime > Constants.TIME_ROUND_3_START then
+		--print("Checking for Gem Drop..")
+		if attackerTeam == DOTA_TEAM_GOODGUYS and not Score.round3.radi_gem_ref then
+			--print("Radiant has not had gem drop || " .. killedEntity:GetUnitLabel() .. " || " .. killedEntity:GetUnitName())
+			--check for ancient creep
+			if IsAncientCreep(killedEntity:GetUnitName()) then
+				print("IS BIG ANCIENT, coordinates are: (" .. tostring(killedEntity:GetOrigin().x) .. ", " .. tostring(killedEntity:GetOrigin().y) .. ")")
+				--check to see if on (roughly) radiant side
+				if killedEntity:GetOrigin().y <= (killedEntity:GetOrigin().x * -1) then
+					local gem = CreateItem( "item_gem", nil , nil )
+					CreateItemOnPositionSync( killedEntity:GetOrigin(), gem )
+					print("Tried to drop gem")
+				end
+			end
+		elseif attackerTeam == DOTA_TEAM_BADGUYS and not Score.round3.dire_gem_ref then
+			--check for ancient creep
+			if IsAncientCreep(killedEntity:GetName()) then
+				--check to see if on (roughly) dire side
+				if killedEntity:GetOrigin().y >= (killedEntity:GetOrigin().x * -1) then
+					Score.round3.dire_gem_ref = CreateItem( "item_gem", nil , nil )
+					CreateItemOnPositionSync( killedEntity:GetOrigin(), Score.round3.radi_gem_ref )
+				end
+			end
+		end
 	end
 	--Hero Kills, excluding denies
 	if killedEntity:IsRealHero() and attackerTeam ~= killedTeam then
@@ -76,6 +125,17 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	end
 
 	--print("OnEntityKilled - Ended")
+end
+
+function IsAncientCreep(creep_name)
+	if (creep_name == "npc_dota_neutral_big_thunder_lizard" or
+		creep_name == "npc_dota_neutral_black_dragon" or
+		creep_name == "npc_dota_neutral_granite_golem" or
+		creep_name == "npc_dota_neutral_prowler_shaman" 
+		) then
+			return true
+		end
+	return false
 end
 
 function CAvaloreGameMode:OnHeroFinishSpawn(event)

@@ -15,7 +15,7 @@ end
 
 Constants.TIME_ROUND_1_START = 0     --00 min
 Constants.TIME_ROUND_2_START = 600   --10 min
-Constants.TIME_ROUND_3_START = 1200  --20 min
+Constants.TIME_ROUND_3_START = 30--1200  --20 min
 Constants.TIME_ROUND_4_START = 1800  --30 min
 
 -- ==================================
@@ -185,6 +185,8 @@ MODIFIER_FLAG_MORALE_NAME   = "modifier_flag_morale"
 MODIFIER_FLAG_AGILITY_NAME  = "modifier_flag_agility"
 MODIFIER_FLAG_ARCANE_NAME   = "modifier_flag_arcane"
 MODIFIER_FLAG_REGROWTH_NAME = "modifier_flag_regrowth"
+
+MODIFIER_ROUND1_WISP_REGEN = "modifier_wisp_regen"
 
 
 -- MESSAGE TYPES 

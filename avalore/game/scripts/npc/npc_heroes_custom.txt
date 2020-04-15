@@ -74,7 +74,7 @@
 
     "AbilityLayout"     "8"
     "Ability1"        "furion_teleportation"
-    "Ability2"        "vengefulspirit_magic_missile" 
+    "Ability2"        "leshrac_diabolic_edict" 
     "Ability3"        "antimage_blink"
     "Ability4"        "batrider_firefly"
     "Ability5"        ""
@@ -86,6 +86,6 @@
     "StatusHealth"        "1000"                 // Base health.
     "StatusHealthRegen"    "10.0"                 // Health regeneration rate.
     "StatusMana"           "1000"                   // Base mana.
-    "StatusManaRegen"     "1000.0"                 // Mana regeneration rate.
+    "StatusManaRegen"     "100.0"                 // Mana regeneration rate.
   }
 }

@@ -31,6 +31,8 @@ MODIFIER_FLAG_REGROWTH    = "scripts/vscripts/modifiers/flags/modifier_flag_regr
 MODIFIER_FLAG_AGILITY    = "scripts/vscripts/modifiers/flags/modifier_flag_agility.lua"
 MODIFIER_UNSELECTABLE   = "scripts/vscripts/modifiers/modifier_unselectable.lua"
 
+REF_MODIFIER_ROUND1_WISP_REGEN = "scripts/vscripts/modifiers/modifier_wisp_regen.lua"
+
 
 -- INTRINSIC MODIFIERS
 -- these are kind of special cases since they are closely

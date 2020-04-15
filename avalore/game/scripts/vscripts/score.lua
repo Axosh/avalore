@@ -18,6 +18,10 @@ function Score:Init()
     Score.round2.dire_outpost = {}
     Score.round2.dire_outpost.radi_time = 0
     Score.round2.dire_outpost.dire_time = 0
+
+    Score.round3 = {}
+    Score.round3.radi_gem_ref = nil
+    Score.round3.dire_gem_ref = nil
     -- cached refs to entities
     Score.entities = {}
     Score.entities.radi_outpost = Entities:FindByName(nil, "radiant_outpost")
@@ -114,6 +118,7 @@ function Score:Init()
     --         end
     --     end
     -- end
+    print("Score Tracking Initialized")
 end
 
 function Score:InsertPlayerStatsRecord(playerID)
