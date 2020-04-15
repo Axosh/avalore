@@ -131,7 +131,7 @@ function Spawners:InitFlags()
     newItem           = CreateItem( OBJECTIVE_FLAG_ITEM_D, nil , nil )
     newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_D):GetOrigin(), newItem )
     --newItemPhysical:GetRenderColor(OBJECTIVE_FLAG_RENDER_D[0], OBJECTIVE_FLAG_RENDER_D[1], OBJECTIVE_FLAG_RENDER_D[2])
-    newItemPhysical:SetRenderColor(148,0,211)
+    --newItemPhysical:SetRenderColor(148,0,211)
 
     newItem           = CreateItem( OBJECTIVE_FLAG_ITEM_E, nil , nil )
     newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_E):GetOrigin(), newItem )
