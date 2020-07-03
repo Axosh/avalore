@@ -110,4 +110,111 @@
 		"Ability4"					""
 
 	} // "npc_avalore_radi_flag_base"
+
+	"npc_avalore_gem_boss"
+	{
+		//General
+		"BaseClass"					"npc_dota_base_additive"
+		"Model"						"models/items/terrorblade/corrupted_form/corrupted_form.vmdl"
+		"ModelScale"				"2.0"
+		"Level"						"20"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"drow_ranger_wave_of_silence"			// Ability 1
+		"Ability2"					"necrolyte_heartstopper_aura"			// Ability 2
+		"Ability3"					"troll_warlord_fervor"			// Ability 3
+		"Ability4"					"terrorblade_sunder"			// Ability 4
+
+		// Armor
+		"ArmorPhysical"				"0"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		  "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			    "0"
+		"AttackDamageMax"			    "1"
+		"AttackRate"				    "2.8"
+		"AttackAnimationPoint"			"0.3"
+		"AttackAcquisitionRange"		"1500"
+		"AttackRange"				    "450"
+		"ProjectileModel"			    "particles\econ\items\alchemist\alchemist_smooth_criminal\alchemist_smooth_criminal_unstable_concoction_projectile"
+		"ProjectileSpeed"			    "0"
+	}
+
+	"npc_avalore_round4_boss"
+	{
+		//General
+		"BaseClass"					"npc_dota_base_additive"
+		"Model"						"models/creeps/nian/nian_journey.vmdl"
+		"ModelScale"				"2.0"
+		"Level"						"20"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"20000"
+		"StatusHealthRegen"			"20.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	}
+
+	"npc_avalore_building_round4_tower"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		//"Model"						"models/items/world/towers/ti10_dire_tower/ti10_dire_tower.vmdl"
+		"Model"						"models/items/world/towers/ti10_dire_tower/ti10_dire_tower_model_editor.vmdl"
+		"Level"						"1"
+		"ModelScale"				"1"
+
+		//"Level"						"1"
+		//"ConsideredHero"			"1"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"
+		"MagicalResistance"			"100"
+        //"AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackRange"                                         "700"       // Range within a target can be attacked.
+		"AttackDamageMin"                                     "100"       // Damage range min.
+		"AttackDamageMax"                                     "120"       // Damage range max.
+		"ProjectileModel"                                     "particles/base_attacks/ranged_tower_bad.vpcf"
+		"ProjectileSpeed"                                     "750"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"150"
+		"HealthBarOffset"			"500"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		//"MovementSpeed"				"120"
+		//"MovementTurnRate"			"0.9"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"
+		"StatusHealthRegen"			"0.0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"
+		"VisionNighttimeRange"		"1400"
+	}
 }

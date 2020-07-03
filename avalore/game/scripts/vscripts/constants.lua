@@ -15,8 +15,8 @@ end
 
 Constants.TIME_ROUND_1_START = 0     --00 min
 Constants.TIME_ROUND_2_START = 600   --10 min
-Constants.TIME_ROUND_3_START = 30--1200  --20 min
-Constants.TIME_ROUND_4_START = 1800  --30 min
+Constants.TIME_ROUND_3_START = 1200  --20 min
+Constants.TIME_ROUND_4_START = 60--1800  --30 min
 
 -- ==================================
 -- SPAWNER KEY NAMES
@@ -132,17 +132,35 @@ OBJECTIVE_FLAG_MODEL_B      = "maps/journey_assets/props/teams/banner_journey_ra
 -- Yellow Flag ==> Agility
 OBJECTIVE_FLAG_SPAWNER_C    = "spawner_flag_c"
 OBJECTIVE_FLAG_ITEM_C       = "item_avalore_flag_c"
-OBJECTIVE_FLAG_MODEL_C      = "maps/journey_assets/props/teams/banner_journey_dire_small.vmdl" 
+OBJECTIVE_FLAG_MODEL_C      = "maps/journey_assets/props/teams/banner_journey_dire_small.vmdl"
 
 -- Purple Flag ==> Arcane
 OBJECTIVE_FLAG_SPAWNER_D    = "spawner_flag_d"
 OBJECTIVE_FLAG_ITEM_D       = "item_avalore_flag_d"
-OBJECTIVE_FLAG_MODEL_D      = "maps/reef_assets/props/teams/banner_dire_reef_small.vmdl" 
+OBJECTIVE_FLAG_MODEL_D      = "maps/reef_assets/props/teams/banner_dire_reef_small.vmdl"
 
 -- Blue Flag ==> Regrowth
 OBJECTIVE_FLAG_SPAWNER_E    = "spawner_flag_e"
 OBJECTIVE_FLAG_ITEM_E       = "item_avalore_flag_e"
-OBJECTIVE_FLAG_MODEL_E      = "models/props_teams/bannerb_dire.vmdl" 
+OBJECTIVE_FLAG_MODEL_E      = "models/props_teams/bannerb_dire.vmdl"
+
+-- ==================================
+-- OTHER OBJECTIVES
+-- ==================================
+
+OBJECTIVE_GEM_ITEM          = "item_gem"
+
+ROUND3_BOSS_UNIT = "npc_avalore_gem_boss"
+
+ROUND4_TOWER_TRIGGERS = {}
+ROUND4_TOWER_TRIGGERS.radi_a = "trigger_radi_round4_tower_a"
+ROUND4_TOWER_TRIGGERS.radi_b = "trigger_radi_round4_tower_b"
+ROUND4_TOWER_TRIGGERS.dire_a = "trigger_dire_round4_tower_a"
+ROUND4_TOWER_TRIGGERS.dire_b = "trigger_dire_round4_tower_b"
+ROUND4_TOWER_UNIT = "npc_avalore_building_round4_tower"
+
+ROUND4_SPAWNER_BOSS = "spawner_map_center"
+ROUND4_BOSS_UNIT = "npc_avalore_round4_boss"
 
 -- ==================================
 -- SCORE RELATED
@@ -163,6 +181,8 @@ SCORE_MULTIPLIER_RAX_RANGED = 15
 SCORE_MULTIPLIER_WISP = 3
 
 SCORE_MULTIPLIER_FLAG = 15
+
+SCORE_MULTIPLIER_BOSS_ROUND3 = 10
 
 
 -- ==================================

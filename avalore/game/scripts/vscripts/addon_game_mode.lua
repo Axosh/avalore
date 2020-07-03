@@ -71,6 +71,11 @@ function CAvaloreGameMode:InitGameMode()
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(CAvaloreGameMode, "OnEntityKilled"), self)
 	ListenToGameEvent("dota_on_hero_finish_spawn", Dynamic_Wrap(CAvaloreGameMode, "OnHeroFinishSpawn"), self)
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAvaloreGameMode, "OnItemPickUp"), self)
+	-- ListenToGameEvent("dota_inventory_item_changed", Dynamic_Wrap(CAvaloreGameMode, "OnItemSlotChanged"), self)
+	-- ListenToGameEvent("inventory_updated", Dynamic_Wrap(CAvaloreGameMode, "OnInventoryUpdated"), self)
+	-- ListenToGameEvent("dota_item_gifted", Dynamic_Wrap(CAvaloreGameMode, "OnItemGifted"), self)
+	-- ListenToGameEvent("dota_inventory_changed", Dynamic_Wrap(CAvaloreGameMode, "OnInventoryChanged"), self)
+	-- ListenToGameEvent( "dota_item_spawned", Dynamic_Wrap( CAvaloreGameMode, "OnItemSpawned" ), self )
 	_G.nCOUNTDOWNTIMER = 2401
 	self.countdownEnabled = true
 	GameRules:SetPreGameTime( 10 )
@@ -256,6 +261,38 @@ function CAvaloreGameMode:InitRound3()
 	return 0 -- placeholder
 end
 
-function CAvaloreGameMode:InitRound3()
-	return 0 --placeholder
+function CAvaloreGameMode:InitRound4()
+	-- round 3 is over, so clear up any gems around (cleanup the boss too if not beat?)
+	if Score.round3.radi_gem_ref ~= nil then
+		-- remove the physical container + the actual item
+		local hContainer = Score.round3.radi_gem_ref:GetContainer()
+		UTIL_Remove(hContainer)
+		UTIL_Remove(Score.round3.radi_gem_ref)
+		UTIL_Remove(Score.round3.radi_gem_drop_ref)
+		print("Removing Radiant Gem")
+		-- TODO: figure out how to remove the physical item if it was picked up and dropped
+	end
+
+	if Score.round3.dire_gem_ref ~= nil then
+		-- remove the physical container + the actual item
+		local hContainer = Score.round3.dire_gem_ref:GetContainer()
+		UTIL_Remove(hContainer)
+		UTIL_Remove(Score.round3.dire_gem_ref)
+		UTIL_Remove(Score.round3.dire_gem_drop_ref)
+		print("Removing Dire Gem")
+		-- TODO: figure out how to remove the physical item if it was picked up and dropped
+	end
+
+	-- INIT Round 4 stuff
+	-- create towers
+	-- TODO: make sure user cannot block them from spawning, or mess with the spawn location
+	for key, value in pairs(ROUND4_TOWER_TRIGGERS) do
+		local tower_trigger = Entities:FindByName(nil, value)
+		local tower_unit = CreateUnitByName( ROUND4_TOWER_UNIT, tower_trigger:GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
+		GridNav:DestroyTreesAroundPoint( tower_unit:GetOrigin(), 500, false )
+	end
+
+	local boss_spawner = Entities:FindByName(nil, ROUND4_SPAWNER_BOSS)
+	CreateUnitByName( ROUND4_BOSS_UNIT, boss_spawner:GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
+
 end

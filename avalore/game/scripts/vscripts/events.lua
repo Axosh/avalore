@@ -58,18 +58,24 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	end
 
 	-- check for gem drop in round 3
-	if curr_gametime > Constants.TIME_ROUND_3_START then
+	if curr_gametime > Constants.TIME_ROUND_3_START and curr_gametime < Constants.TIME_ROUND_4_START then
 		--print("Checking for Gem Drop..")
 		if attackerTeam == DOTA_TEAM_GOODGUYS and not Score.round3.radi_gem_ref then
 			--print("Radiant has not had gem drop || " .. killedEntity:GetUnitLabel() .. " || " .. killedEntity:GetUnitName())
 			--check for ancient creep
 			if IsAncientCreep(killedEntity:GetUnitName()) then
-				print("IS BIG ANCIENT, coordinates are: (" .. tostring(killedEntity:GetOrigin().x) .. ", " .. tostring(killedEntity:GetOrigin().y) .. ")")
+				--print("IS BIG ANCIENT, coordinates are: (" .. tostring(killedEntity:GetOrigin().x) .. ", " .. tostring(killedEntity:GetOrigin().y) .. ")")
 				--check to see if on (roughly) radiant side
 				if killedEntity:GetOrigin().y <= (killedEntity:GetOrigin().x * -1) then
-					local gem = CreateItem( "item_gem", nil , nil )
-					CreateItemOnPositionSync( killedEntity:GetOrigin(), gem )
-					print("Tried to drop gem")
+					Score.round3.radi_gem_ref = CreateItem( OBJECTIVE_GEM_ITEM, nil , nil )
+					Score.round3.radi_gem_drop_ref = CreateItemOnPositionSync( killedEntity:GetOrigin(), Score.round3.radi_gem_ref )
+					--local testEquality = (Score.round3.radi_gem_ref:GetContainer() == Score.round3.radi_gem_drop_ref)
+					--print("Was equal? " .. tostring(testEquality))
+					--local testEquality2 = (Score.round3.radi_gem_ref:GetContainedItem() == Score.round3.radi_gem_drop_ref)
+					--print("Gem Drop Ref")
+					--PrintTable(Score.round3.radi_gem_drop_ref)
+					--print("Gem Parent")
+					
 				end
 			end
 		elseif attackerTeam == DOTA_TEAM_BADGUYS and not Score.round3.dire_gem_ref then
@@ -77,12 +83,21 @@ function CAvaloreGameMode:OnEntityKilled(event)
 			if IsAncientCreep(killedEntity:GetName()) then
 				--check to see if on (roughly) dire side
 				if killedEntity:GetOrigin().y >= (killedEntity:GetOrigin().x * -1) then
-					Score.round3.dire_gem_ref = CreateItem( "item_gem", nil , nil )
-					CreateItemOnPositionSync( killedEntity:GetOrigin(), Score.round3.radi_gem_ref )
+					Score.round3.dire_gem_ref = CreateItem( OBJECTIVE_GEM_ITEM, nil , nil )
+					Score.round3.dire_gem_drop_ref = CreateItemOnPositionSync( killedEntity:GetOrigin(), Score.round3.radi_gem_ref )
 				end
 			end
 		end
 	end
+	if killedEntity:GetUnitName() == "npc_avalore_gem_boss" then
+		refreshScores = true
+		if attackerTeam == DOTA_TEAM_GOODGUYS then
+			Score.round3.radi_boss_kills = Score.round3.radi_boss_kills + 1
+		elseif attackerTeam == DOTA_TEAM_BADGUYS then
+			Score.round3.dire_boss_kills = Score.round3.dire_boss_kills + 1
+		end
+	end
+
 	--Hero Kills, excluding denies
 	if killedEntity:IsRealHero() and attackerTeam ~= killedTeam then
 		--objectivePoints = 1
@@ -198,3 +213,35 @@ function CAvaloreGameMode:OnItemPickUp(event)
 		end
 	end -- end if-statement: item picked up was flag
 end -- end function: CAvaloreGameMode:OnItemPickUp(event)
+
+-- function CAvaloreGameMode:OnItemSlotChanged(event)
+-- 	print("OnItemSlotChanged")
+-- 	PrintTable(event)
+-- end
+
+-- function CAvaloreGameMode:OnInventoryUpdated(event)
+-- 	print("OnInventoryUpdated")
+-- 	PrintTable(event)
+-- end
+
+-- function CAvaloreGameMode:OnItemGifted(event)
+-- 	print("OnItemGifted")
+-- 	PrintTable(event)
+-- end
+
+-- function CAvaloreGameMode:OnInventoryChanged(event)
+-- 	print("OnInventoryChanged")
+-- 	PrintTable(event)
+-- end
+
+-- ---------------------------------------------------------
+-- -- dota_item-spawned
+-- -- * player_id
+-- -- * item_ent_index
+-- ---------------------------------------------------------
+
+-- function CAvaloreGameMode:OnItemSpawned( event )
+-- 	print("OnItemSpawned")
+-- 	PrintTable(event)
+-- 	local item = EntIndexToHScript( event.item_ent_index )
+-- end
