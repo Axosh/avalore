@@ -21,7 +21,11 @@ function Score:Init()
 
     Score.round3 = {}
     Score.round3.radi_gem_ref = nil
+    Score.round3.radi_gem_drop_ref = nil
     Score.round3.dire_gem_ref = nil
+    Score.round3.dire_gem_drop_ref = nil
+    Score.round3.radi_boss_kills = 0;
+    Score.round3.dire_boss_kills = 0;
     -- cached refs to entities
     Score.entities = {}
     Score.entities.radi_outpost = Entities:FindByName(nil, "radiant_outpost")
@@ -208,6 +212,10 @@ function Score:RecalculateScores()
     Score.RadiScore = Score.RadiScore + (Score.round1.radi_wisp_count * SCORE_MULTIPLIER_WISP)
     
     Score.DireScore = Score.DireScore + (Score.round1.dire_wisp_count * SCORE_MULTIPLIER_WISP)
+
+    -- round 3 boss
+    Score.RadiScore = Score.RadiScore + (Score.round3.radi_boss_kills * SCORE_MULTIPLIER_BOSS_ROUND3)
+    Score.DireScore = Score.DireScore + (Score.round3.dire_boss_kills * SCORE_MULTIPLIER_BOSS_ROUND3)
 
     -- repaint scores
     -- print( "radi score = " .. tostring(Score.RadiScore))
