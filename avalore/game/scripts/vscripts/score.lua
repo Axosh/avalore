@@ -138,6 +138,9 @@ function Score:InsertPlayerStatsRecord(playerID)
     Score.playerStats[playerID].wisps = 0
 
     Score.playerStats[playerID].flag_captures = 0
+
+    Score.playerStats[playerID].boss_kills = 0
+    Score.playerStats[playerID].base_kill = 0
 end
 
 function Score:RecalculateScores()
