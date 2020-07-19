@@ -93,7 +93,6 @@ function CAvaloreGameMode:InitGameMode()
 	Score.entities.radi_outpost:AddNewModifier(outpostTest, nil, "modifier_unselectable", {})
 	Score.entities.dire_outpost:AddNewModifier(outpostTest, nil, "modifier_unselectable", {})
 
-
 	--[[local score_obj = 
 	{
 		radi_score = 0,
@@ -215,7 +214,7 @@ function CAvaloreGameMode:InitRound1()
 				vSpawnLoc = nil
 			end
 		end
-		CreateUnitByName( 'npc_avalore_quest_wisp', vSpawnLoc, true, nil, nil, DOTA_TEAM_NEUTRALS )
+		CreateUnitByName( ROUND1_WISP_UNIT, vSpawnLoc, true, nil, nil, DOTA_TEAM_NEUTRALS )
 	end
 
 	-- broadcast that round 1 has started and give some instructions

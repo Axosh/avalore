@@ -16,7 +16,7 @@ end
 Constants.TIME_ROUND_1_START = 0     --00 min
 Constants.TIME_ROUND_2_START = 600   --10 min
 Constants.TIME_ROUND_3_START = 1200  --20 min
-Constants.TIME_ROUND_4_START = 60--1800  --30 min
+Constants.TIME_ROUND_4_START = 1800  --30 min
 
 -- ==================================
 -- SPAWNER KEY NAMES
@@ -148,7 +148,12 @@ OBJECTIVE_FLAG_MODEL_E      = "models/props_teams/bannerb_dire.vmdl"
 -- OTHER OBJECTIVES
 -- ==================================
 
+OBJECTIVE_RADI_BASE = "npc_dota_goodguys_fort"
+OBJECTIVE_DIRE_BASE = "npc_dota_badguys_fort"
+
 OBJECTIVE_GEM_ITEM          = "item_gem"
+
+ROUND1_WISP_UNIT = "npc_avalore_quest_wisp"
 
 ROUND3_BOSS_UNIT = "npc_avalore_gem_boss"
 
