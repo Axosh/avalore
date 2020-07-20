@@ -13,8 +13,8 @@ end
 -- ROUND START TIMES (IN SECONDS)
 -- ==================================
 
-Constants.TIME_ROUND_1_START = 0     --00 min
-Constants.TIME_ROUND_2_START = 600   --10 min
+Constants.TIME_ROUND_1_START = 120--0     --00 min
+Constants.TIME_ROUND_2_START = 0--600   --10 min
 Constants.TIME_ROUND_3_START = 1200  --20 min
 Constants.TIME_ROUND_4_START = 1800  --30 min
 
@@ -171,16 +171,19 @@ ROUND4_BOSS_UNIT = "npc_avalore_round4_boss"
 -- SCORE RELATED
 -- ==================================
 
-SCORE_DIVIDEND_KILLS = 1 --ie. 1 kill = 1 point
-SCORE_DIVIDEND_ASSISTS = 10
+SCORE_DIVIDEND_KILLS    = 1 --ie. 1 kill = 1 point
+SCORE_DIVIDEND_ASSISTS  = 10
 SCORE_DIVIDEND_LASTHITS = 100
 
-SCORE_MULTIPLIER_T1 = 15
-SCORE_MULTIPLIER_T2 = 15
-SCORE_MULTIPLIER_T3 = 15
-SCORE_MULTIPLIER_T4 = 15
+SCORE_DIVIDEND_ROUND2 = 30 -- 30sec intervals = 1 point
+SCORE_MULTIPLIER_ROUND2_OUTPOST = 15
 
-SCORE_MULTIPLIER_RAX_MELEE = 15
+SCORE_MULTIPLIER_T1 = 10
+SCORE_MULTIPLIER_T2 = 10
+SCORE_MULTIPLIER_T3 = 10
+SCORE_MULTIPLIER_T4 = 10
+
+SCORE_MULTIPLIER_RAX_MELEE  = 15
 SCORE_MULTIPLIER_RAX_RANGED = 15
 
 SCORE_MULTIPLIER_WISP = 3
@@ -214,6 +217,13 @@ MODIFIER_FLAG_REGROWTH_NAME = "modifier_flag_regrowth"
 MODIFIER_ROUND1_WISP_REGEN = "modifier_wisp_regen"
 
 
--- MESSAGE TYPES 
+-- ==========================================
+-- MESSAGING RELATED
+-- ==========================================
+
+MESSAGE_EVENT_BROADCAST = "broadcast_message"
+
+-- MESSAGE TYPES
 MSG_TYPE_NOTIFY = 0
 MSG_TYPE_ERROR = 1
+--MSG_TYPE_OBJECTIVE = 2 -- TODO: Implement nice coloring for this

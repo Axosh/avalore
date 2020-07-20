@@ -19,6 +19,13 @@ function Score:Init()
     Score.round2.dire_outpost.radi_time = 0
     Score.round2.dire_outpost.dire_time = 0
 
+    Score.round2.radi = {}
+    Score.round2.radi.time_intervals    = 0 -- 1 pt/30sec
+    Score.round2.radi.outposts_won      = 0
+    Score.round2.dire = {}
+    Score.round2.dire.time_intervals    = 0 -- 1 pt/30sec
+    Score.round2.dire.outposts_won      = 0
+
     Score.round3 = {}
     Score.round3.radi_gem_ref = nil
     Score.round3.radi_gem_drop_ref = nil
@@ -86,21 +93,21 @@ function Score:Init()
     Score.raxes = {}
     Score.raxes.radi = {}
     Score.raxes.dire = {}
-    Score.raxes.radi.topranged = true
-    Score.raxes.radi.topmelee = true
-    Score.raxes.radi.midranged = true
-    Score.raxes.radi.midmelee = true
-    Score.raxes.radi.botranged = true
-    Score.raxes.radi.botmelee = true
+    Score.raxes.radi.topranged  = true
+    Score.raxes.radi.topmelee   = true
+    Score.raxes.radi.midranged  = true
+    Score.raxes.radi.midmelee   = true
+    Score.raxes.radi.botranged  = true
+    Score.raxes.radi.botmelee   = true
 
-    Score.raxes.dire.topranged = true
-    Score.raxes.dire.topmelee = true
-    Score.raxes.dire.midranged = true
-    Score.raxes.dire.midmelee = true
-    Score.raxes.dire.botranged = true
-    Score.raxes.dire.botmelee = true
+    Score.raxes.dire.topranged  = true
+    Score.raxes.dire.topmelee   = true
+    Score.raxes.dire.midranged  = true
+    Score.raxes.dire.midmelee   = true
+    Score.raxes.dire.botranged  = true
+    Score.raxes.dire.botmelee   = true
 
-    -- build player score tracking 
+    -- build player score tracking
     Score.playerStats = {}
     -- for playerID = 0, DOTA_MAX_PLAYERS do
     --     print("Id = " .. playerID)
@@ -196,11 +203,35 @@ function Score:RecalculateScores()
         end
     end
 
-    -- PLACEHOLDER: rax checks
+    -- rax checks
+    for key,value in pairs(Score.raxes.radi) do
+        if value == false then
+            if string.find(key, "melee") then
+                Score.DireScore = Score.DireScore + SCORE_MULTIPLIER_RAX_MELEE
+            elseif string.find(key, "ranged") then
+                Score.DireScore = Score.DireScore + SCORE_MULTIPLIER_RAX_RANGED
+            end
+        end
+    end
+
+    for key,value in pairs(Score.raxes.dire) do
+        if value == false then
+            if string.find(key, "melee") then
+                Score.RadiScore = Score.RadiScore + SCORE_MULTIPLIER_RAX_MELEE
+            elseif string.find(key, "ranged") then
+                Score.RadiScore = Score.RadiScore + SCORE_MULTIPLIER_RAX_RANGED
+            end
+        end
+    end
 
     -- PLACEHOLDER: rosh checks
 
     -- PLACEHOLDER: outposts/king of the hill
+    Score.RadiScore = Score.RadiScore + Score.round2.radi.time_intervals -- 30s intervals
+    Score.RadiScore = Score.RadiScore + (Score.round2.radi.outposts_won * SCORE_MULTIPLIER_ROUND2_OUTPOST)
+
+    Score.DireScore = Score.DireScore + Score.round2.dire.time_intervals -- 30s intervals
+    Score.DireScore = Score.DireScore + (Score.round2.dire.outposts_won * SCORE_MULTIPLIER_ROUND2_OUTPOST)
 
     -- PLACEHOLDER: CTF
     for key, value in pairs(Score.flags) do
@@ -252,7 +283,25 @@ function Score:UpdateRound2()
 		Score.round2.dire_outpost.radi_time = Score.round2.dire_outpost.radi_time + 1
 	elseif Score.entities.dire_outpost:GetTeam() == DOTA_TEAM_BADGUYS then 
 		Score.round2.dire_outpost.dire_time = Score.round2.dire_outpost.dire_time + 1
-	end
+    end
+    
+    -- Set the score for every 30s held
+    local refreshScore = false
+    local totalRadiTime = Score.round2.radi_outpost.radi_time + Score.round2.dire_outpost.radi_time
+    local radiIntervals = math.floor(totalRadiTime/SCORE_DIVIDEND_ROUND2)
+    if Score.round2.radi.time_intervals < radiIntervals then
+        Score.round2.radi.time_intervals = radiIntervals
+        refreshScore = true
+    end
+	local totalDireTime = Score.round2.radi_outpost.dire_time + Score.round2.dire_outpost.dire_time
+    local direIntervals = math.floor(totalDireTime/SCORE_DIVIDEND_ROUND2)
+    if Score.round2.dire.time_intervals < direIntervals then
+        Score.round2.dire.time_intervals = direIntervals
+        refreshScore = true
+    end
+    if refreshScore then
+        Score:RecalculateScores()
+    end
 end
 
 function Score:DebugRound2()
@@ -263,4 +312,33 @@ function Score:DebugRound2()
 	print("D-Outpost RTime = " .. tostring(Score.round2.dire_outpost.radi_time))
 	print("D-Outpost DTime = " .. tostring(Score.round2.dire_outpost.dire_time))
     print("=====================================")
+end
+
+-- Calculate final points from round 2
+function Score:Round2FinalTotals()
+    -- Calculate Points from possession intervals
+    local totalRadiTime = Score.round2.radi_outpost.radi_time + Score.round2.dire_outpost.radi_time
+	Score.round2.radi.time_intervals = math.floor(totalRadiTime/SCORE_DIVIDEND_ROUND2)
+	local totalDireTime = Score.round2.radi_outpost.dire_time + Score.round2.dire_outpost.dire_time
+    Score.round2.dire.time_intervals = math.floor(totalDireTime/SCORE_DIVIDEND_ROUND2)
+    
+    -- Who won the hills (tie = no one gets points)
+    -- Radiant Outpost
+    if Score.round2.radi_outpost.radi_time > Score.round2.radi_outpost.dire_time then
+        Score.round2.radi.outposts_won  = Score.round2.radi.outposts_won + 1
+    elseif Score.round2.radi_outpost.radi_time < Score.round2.radi_outpost.dire_time then
+        Score.round2.dire.outposts_won = Score.round2.dire.outposts_won + 1
+    end
+    -- Dire Outpost
+    if Score.round2.dire_outpost.radi_time > Score.round2.dire_outpost.dire_time then
+        Score.round2.radi.outposts_won  = Score.round2.radi.outposts_won + 1
+    elseif Score.round2.dire_outpost.radi_time < Score.round2.dire_outpost.dire_time then
+        Score.round2.dire.outposts_won = Score.round2.dire.outposts_won + 1
+    end
+
+    -- Make outposts no longer capturable/selectable again
+    Score.entities.radi_outpost:AddNewModifier(outpostTest, nil, "modifier_unselectable", {})
+    Score.entities.dire_outpost:AddNewModifier(outpostTest, nil, "modifier_unselectable", {})
+    Score.entities.radi_outpost:AddNewModifier(outpostTest, nil, "modifier_invulnerable", {})
+	Score.entities.dire_outpost:AddNewModifier(outpostTest, nil, "modifier_invulnerable", {})
 end

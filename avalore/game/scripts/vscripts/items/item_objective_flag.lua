@@ -203,6 +203,15 @@ function FlagTrigger_OnStartTouch(trigger)
                 --print("Owner = " .. NPC:GetPlayerOwnerID())
                 if(Score.flags[flag_letter].currTeamPossession ~= NPC:GetTeam()) then
                     Score.playerStats[NPC:GetPlayerOwnerID()].flag_captures = Score.playerStats[NPC:GetPlayerOwnerID()].flag_captures + 1
+                    -- show a message to all
+                    objectiveMsg = "objective_flag" -- see addon_english.txt (panorama/localization)
+                    local broadcast_obj =
+                    {
+                        msg = objectiveMsg,
+                        time = 10,
+                        elaboration = ""
+                    }
+                    CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
                 end
 
                 NPC:DropItemAtPositionImmediate(hItem, nearestFlagSpawner:GetOrigin())
