@@ -153,7 +153,9 @@ function CAvaloreGameMode:OnThink()
 		end
 
 		Score:UpdateRound2()
-		--Score:DebugRound2()
+		if math.floor(curr_gametime) % 10 == 0 then
+			Score:DebugRound2()
+		end
 	elseif curr_gametime > 0 then
 		--temp debug
 		--print("Hero At: " .. tostring(PlayerResource:GetSelectedHeroEntity(0):GetOrigin()))
@@ -224,7 +226,7 @@ function CAvaloreGameMode:InitRound1()
 		time = 10,
 		elaboration = "#Round1Info"
 	}
-	CustomGameEventManager:Send_ServerToAllClients( "broadcast_message", broadcast_obj )
+	CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
 
 	-- spawn flags ping notification
 	print("Trying to ping flag locations")
@@ -251,16 +253,47 @@ function CAvaloreGameMode:InitRound1()
 end
 
 function CAvaloreGameMode:InitRound2()
+	-- broadcast that round 2 has started and give some instructions
+	local broadcast_obj = 
+	{
+		msg = "#Round2",
+		time = 10,
+		elaboration = "#Round2Info"
+	}
+	CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
 	print("clearing modifier")
 	Score.entities.dire_outpost:RemoveModifierByName("modifier_unselectable")
 	Score.entities.radi_outpost:RemoveModifierByName("modifier_unselectable")
+	Score.entities.dire_outpost:RemoveModifierByName("modifier_invulnerable") -- modifier seems to also make uncapturable
+	Score.entities.radi_outpost:RemoveModifierByName("modifier_invulnerable") -- modifier seems to also make uncapturable
+	-- NOTE: Outposts have another hidden modifier: "modifier_watch_tower"
 end
 
 function CAvaloreGameMode:InitRound3()
-	return 0 -- placeholder
+	-- finish up calculations for round 2
+	Score:Round2FinalTotals()
+	Score:RecalculateScores()
+
+	-- broadcast that round 3 has started and give some instructions
+	local broadcast_obj = 
+	{
+		msg = "#Round3",
+		time = 10,
+		elaboration = "#Round3Info"
+	}
+	CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
 end
 
 function CAvaloreGameMode:InitRound4()
+	-- broadcast that round 4 has started and give some instructions
+	local broadcast_obj = 
+	{
+		msg = "#Round4",
+		time = 10,
+		elaboration = "#Round4Info"
+	}
+	CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
+
 	-- round 3 is over, so clear up any gems around (cleanup the boss too if not beat?)
 	if Score.round3.radi_gem_ref ~= nil then
 		-- remove the physical container + the actual item

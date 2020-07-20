@@ -6,7 +6,8 @@
 	"InstructionsHowToPlay"							"HOW TO PLAY"
 	"InstructionsLines"								"-Team with the most points wins<br>
 													-There are 4 rounds, each presents a unique way to gather points.<br>
-													-Otherwise, points are gain from kills, flag captures, and building destructions."
+													-Otherwise, points are gain from kills, flag captures, and building destructions.<br>
+													-Destroying the other team's Ancient results in instant victory."
 
 
     // -----------------------------
@@ -19,6 +20,22 @@
 	"round1"										"Round 1 Start"
 	"round1info"									"7 Wisps have spawned around the map<br />Each capture is worth 3 points<br />Capture the most and your team gets bonus victory points at the end of the round."
 
+	"round2"										"Round 2 Start"
+	"round2info"									"Outposts have been activated<br />Every 30 seconds held is +1 point<br />Each Outpost held longer than the other team is +15 points"
+
+	"round3"										"Round 3 Start"
+	"round3info"									"Kill Ancient Creeps on your side to find the Gem<br />Bring the Gem to the other side's Island<br />Kill the Gem Keeper for +30 points"
+
+	"round4"										"Round 4 Start"
+	"round4info"									"The Beast has spawned in the center<br />Waves will head towards your base until it is defeated"
+
 	// ERRORS
 	"multi_flag"									"You may only carry one flag at a time"
+
+	// OBJECTIVES
+	"objective_wisp"								"Wisp Captured +3 Points"
+	"objective_flag"								"Flag Captured +15 Points"
+	"objective_tower"								"Tower Destroyed +10 Points"
+	"objective_rax"									"Rax Destroyed +15 Points"
+	"objective_round3_boss"							"Gem Keeper Slain +30 Points"
 }

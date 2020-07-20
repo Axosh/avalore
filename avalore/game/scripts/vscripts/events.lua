@@ -18,13 +18,15 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	local curr_gametime 	= GameRules:GetDOTATime(false, false)
 	local isPlayer 			= attackerEntity:GetPlayerOwnerID() > -1 -- TODO: Test for summons/illu
 	local isDeny			= false
-	local teamString 		= ""
+	local killedTeamString 	= "" -- radi/dire
 	local winnning_team 	= nil -- setting our own variable to update the scores one last time before game ends
+	local objectiveMsg 		= nil -- if set, will broadcast whatever message key is stored in it
 
+	-- used to navigate Score tables
 	if killedTeam == DOTA_TEAM_BADGUYS then
-		teamString = "dire"
+		killedTeamString = "dire"
 	elseif killedTeam == DOTA_TEAM_GOODGUYS then
-		teamString = "radi"
+		killedTeamString = "radi"
 	end
 
 	local refreshScores = false
@@ -50,6 +52,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	if killedEntity:GetUnitName() == ROUND1_WISP_UNIT then
 		--objectivePoints = 3
 		refreshScores = true
+		objectiveMsg = "objective_wisp" -- see addon_english.txt (panorama/localization)
 		local first_wisp = false
 		if attackerTeam == DOTA_TEAM_GOODGUYS then
 			if Score.round1.radi_wisp_count == 0 then
@@ -117,6 +120,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	end
 	if killedEntity:GetUnitName() == ROUND3_BOSS_UNIT then
 		refreshScores = true
+		objectiveMsg = "objective_round3_boss" -- see addon_english.txt (panorama/localization)
 		if attackerTeam == DOTA_TEAM_GOODGUYS then
 			Score.round3.radi_boss_kills = Score.round3.radi_boss_kills + 1
 		elseif attackerTeam == DOTA_TEAM_BADGUYS then
@@ -141,24 +145,25 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	-- ***** TOWER ****
 	if string.find(string.lower(killedEntity:GetUnitName()), "tower") then
 		refreshScores = true
+		objectiveMsg = "objective_tower" -- see addon_english.txt (panorama/localization)
 		print("Tower Killed: " .. killedEntity:GetUnitName())
 		if string.find(killedEntity:GetUnitName(), "1") then
-			Score.towers[teamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "1"] = false
+			Score.towers[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "1"] = false
 			if isPlayer and not isDeny then
 				Score.playerStats[attackerEntity:GetPlayerOwnerID()].t1 = Score.playerStats[attackerEntity:GetPlayerOwnerID()].t1 + 1
 			end
 		elseif string.find(killedEntity:GetUnitName(), "2") then
-			Score.towers[teamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "2"] = false
+			Score.towers[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "2"] = false
 			if isPlayer and not isDeny then
 				Score.playerStats[attackerEntity:GetPlayerOwnerID()].t2 = Score.playerStats[attackerEntity:GetPlayerOwnerID()].t2 + 1
 			end
 		elseif string.find(killedEntity:GetUnitName(), "3") then
-			Score.towers[teamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "3"] = false
+			Score.towers[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "3"] = false
 			if isPlayer and not isDeny then
 				Score.playerStats[attackerEntity:GetPlayerOwnerID()].t3 = Score.playerStats[attackerEntity:GetPlayerOwnerID()].t3 + 1
 			end
 		elseif string.find(killedEntity:GetUnitName(), "4") then
-			Score.towers[teamString]["t4" .. BuildingLaneLocation(killedEntity:GetUnitName())] = false
+			Score.towers[killedTeamString]["t4" .. BuildingLaneLocation(killedEntity:GetUnitName())] = false
 			if isPlayer and not isDeny then
 				Score.playerStats[attackerEntity:GetPlayerOwnerID()].t4 = Score.playerStats[attackerEntity:GetPlayerOwnerID()].t4 + 1
 			end
@@ -168,14 +173,15 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	-- ***** RAX *****
 	if string.find(string.lower(killedEntity:GetUnitName()), "rax") then
 		refreshScores = true
+		objectiveMsg = "objective_rax" -- see addon_english.txt (panorama/localization)
 		print("Rax Killed: " .. killedEntity:GetUnitName())
 		if string.find(killedEntity:GetUnitName(), "melee") then
-			Score.raxes[teamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "melee"] = false
+			Score.raxes[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "melee"] = false
 			if isPlayer and not isDeny then
 				Score.playerStats[attackerEntity:GetPlayerOwnerID()].meleeRax = Score.playerStats[attackerEntity:GetPlayerOwnerID()].meleeRax + 1
 			end
-		elseif string.find(killedEntity:GetUnitName(), "ranged") then
-			Score.raxes[teamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "ranged"] = false
+		elseif string.find(killedEntity:GetUnitName(), "range") then
+			Score.raxes[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "ranged"] = false
 			if isPlayer and not isDeny then
 				Score.playerStats[attackerEntity:GetPlayerOwnerID()].rangeRax = Score.playerStats[attackerEntity:GetPlayerOwnerID()].rangeRax + 1
 			end
@@ -190,6 +196,17 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	elseif killedEntity:GetUnitName() == OBJECTIVE_RADI_BASE then
 		winnning_team = DOTA_TEAM_BADGUYS
 		refreshScores = true
+	end
+
+	-- broadcast some message
+	if objectiveMsg ~= nil then
+		local broadcast_obj =
+		{
+			msg = objectiveMsg,
+			time = 10,
+			elaboration = ""
+		}
+		CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
 	end
 
 	-- only update front-end if score changed
@@ -262,7 +279,7 @@ function IsAncientCreep(creep_name)
 	if (creep_name == "npc_dota_neutral_big_thunder_lizard" or
 		creep_name == "npc_dota_neutral_black_dragon" or
 		creep_name == "npc_dota_neutral_granite_golem" or
-		creep_name == "npc_dota_neutral_prowler_shaman" 
+		creep_name == "npc_dota_neutral_prowler_shaman"
 		) then
 			return true
 		end
