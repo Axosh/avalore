@@ -13,9 +13,9 @@ end
 -- ROUND START TIMES (IN SECONDS)
 -- ==================================
 
-Constants.TIME_ROUND_1_START = 120--0     --00 min
-Constants.TIME_ROUND_2_START = 0--600   --10 min
-Constants.TIME_ROUND_3_START = 1200  --20 min
+Constants.TIME_ROUND_1_START = 1800--0     --00 min
+Constants.TIME_ROUND_2_START = 600   --10 min
+Constants.TIME_ROUND_3_START = 0--1200  --20 min
 Constants.TIME_ROUND_4_START = 1800  --30 min
 
 -- ==================================
@@ -156,6 +156,8 @@ OBJECTIVE_GEM_ITEM          = "item_gem"
 ROUND1_WISP_UNIT = "npc_avalore_quest_wisp"
 
 ROUND3_BOSS_UNIT = "npc_avalore_gem_boss"
+ROUND3_GEM_ACTIVATE_DIRE_SIDE = "trigger_dire_gem_activate" --radi bring theirs here
+ROUND3_GEM_ACTIVATE_RADI_SIDE = "trigger_radi_gem_activate" --dire bring theirs here
 
 ROUND4_TOWER_TRIGGERS = {}
 ROUND4_TOWER_TRIGGERS.radi_a = "trigger_radi_round4_tower_a"
@@ -190,7 +192,7 @@ SCORE_MULTIPLIER_WISP = 3
 
 SCORE_MULTIPLIER_FLAG = 15
 
-SCORE_MULTIPLIER_BOSS_ROUND3 = 10
+SCORE_MULTIPLIER_BOSS_ROUND3 = 30
 
 
 -- ==================================

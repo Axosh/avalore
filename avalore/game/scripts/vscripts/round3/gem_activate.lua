@@ -35,7 +35,20 @@ function GemTrigger_OnStartTouch(trigger)
                 --TODO: create some sort of summoning effect
                 --ParticleManager:CreateParticle("particles/econ/events/ti10/portal/portal_open_good_mesh.vpcf", PATTACH_ABSORIGIN_FOLLOW, thisEntity)
                 GridNav:DestroyTreesAroundPoint( thisEntity:GetOrigin(), 500, false )
-                CreateUnitByName( ROUND3_BOSS_UNIT, thisEntity:GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
+                local keeper = CreateUnitByName( ROUND3_BOSS_UNIT, thisEntity:GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
+                print("Trying to level keeper abilities up. Has ability points: " .. tostring(keeper:GetAbilityPoints())
+                --for ability_key, ability_value in keeper:GetAbilityKeyValues() do
+                for i=0,keeper:GetAbilityCount()-1 do
+                    local ability = keeper:GetAbilityByIndex(i)
+                    local max = 3
+                    if(i == keeper:GetAbilityCount()-1) then -- only upgrade ult 3 times
+                        max = 2
+                    end
+                    for j=0, max do
+                        print("Leveling ability: " .. ability:GetName())
+                        keeper:UpgradeAbility(ability)
+                    end
+                end
             end
         end
     end

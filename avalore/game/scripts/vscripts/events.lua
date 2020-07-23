@@ -87,6 +87,8 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	-- ==========================
 
 	-- check for gem drop in round 3
+	local gem_trigger = nil
+	local gem_broadcast_team = nil
 	if curr_gametime > Constants.TIME_ROUND_3_START and curr_gametime < Constants.TIME_ROUND_4_START then
 		--print("Checking for Gem Drop..")
 		if attackerTeam == DOTA_TEAM_GOODGUYS and not Score.round3.radi_gem_ref then
@@ -104,7 +106,8 @@ function CAvaloreGameMode:OnEntityKilled(event)
 					--print("Gem Drop Ref")
 					--PrintTable(Score.round3.radi_gem_drop_ref)
 					--print("Gem Parent")
-					
+					gem_trigger = Entities:FindByName(nil, ROUND3_GEM_ACTIVATE_DIRE_SIDE)
+					gem_broadcast_team = DOTA_TEAM_GOODGUYS
 				end
 			end
 		elseif attackerTeam == DOTA_TEAM_BADGUYS and not Score.round3.dire_gem_ref then
@@ -114,15 +117,41 @@ function CAvaloreGameMode:OnEntityKilled(event)
 				if killedEntity:GetOrigin().y >= (killedEntity:GetOrigin().x * -1) then
 					Score.round3.dire_gem_ref = CreateItem( OBJECTIVE_GEM_ITEM, nil , nil )
 					Score.round3.dire_gem_drop_ref = CreateItemOnPositionSync( killedEntity:GetOrigin(), Score.round3.radi_gem_ref )
+
+					gem_trigger = Entities:FindByName(nil, ROUND3_GEM_ACTIVATE_RADI_SIDE)
+					gem_broadcast_team = DOTA_TEAM_BADGUYS
 				end
 			end
 		end
 	end
+
+	-- if gem was dropped, broadcast some info about what to do with it
+	if gem_trigger ~= nil then
+		for playerId = 0,19 do
+			local player = PlayerResource:GetPlayer(playerId)
+			if player ~= nil then
+				if player:GetAssignedHero() then
+					if player:GetTeam() == gem_broadcast_team then
+						MinimapEvent(gem_broadcast_team, player:GetAssignedHero(), gem_trigger:GetOrigin().x,  gem_trigger:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
+					end
+				end
+			end
+		end
+		local broadcast_obj =
+		{
+			msg = "objective_round3_part2_intro",
+			time = 10,
+			elaboration = "objective_round3_part2_elaboration"
+		}
+		CustomGameEventManager:Send_ServerToTeam(gem_broadcast_team, MESSAGE_EVENT_BROADCAST, broadcast_obj )
+	end
+
 	if killedEntity:GetUnitName() == ROUND3_BOSS_UNIT then
 		refreshScores = true
 		objectiveMsg = "objective_round3_boss" -- see addon_english.txt (panorama/localization)
 		if attackerTeam == DOTA_TEAM_GOODGUYS then
 			Score.round3.radi_boss_kills = Score.round3.radi_boss_kills + 1
+			-- TODO: augment player stats
 		elseif attackerTeam == DOTA_TEAM_BADGUYS then
 			Score.round3.dire_boss_kills = Score.round3.dire_boss_kills + 1
 		end
