@@ -123,23 +123,58 @@
 		//----------------------------------------------------------------
 		"Ability1"					"drow_ranger_wave_of_silence"			// Ability 1
 		"Ability2"					"necrolyte_heartstopper_aura"			// Ability 2
-		"Ability3"					"troll_warlord_fervor"			// Ability 3
-		"Ability4"					"terrorblade_sunder"			// Ability 4
+		"Ability3"					"troll_warlord_fervor"					// Ability 3
+		"Ability4"					"terrorblade_sunder"					// Ability 4
 
 		// Armor
-		"ArmorPhysical"				"0"			// Physical protection.
+		"ArmorPhysical"				"10"			// Physical protection.
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		  "DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			    "0"
-		"AttackDamageMax"			    "1"
-		"AttackRate"				    "2.8"
+		"AttackCapabilities"		  	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			    "100"
+		"AttackDamageMax"			    "100"
+		"AttackRate"				    "1.5"
 		"AttackAnimationPoint"			"0.3"
 		"AttackAcquisitionRange"		"1500"
-		"AttackRange"				    "450"
+		"AttackRange"				    "550"
 		"ProjectileModel"			    "particles\econ\items\alchemist\alchemist_smooth_criminal\alchemist_smooth_criminal_unstable_concoction_projectile"
 		"ProjectileSpeed"			    "0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70" //???
+		"HealthBarOffset"			"170" //???
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"400"
+		"BountyGoldMin"				"100"
+		"BountyGoldMax"				"100"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"400"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"4000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"10.0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}
 
 	"npc_avalore_round4_boss"
