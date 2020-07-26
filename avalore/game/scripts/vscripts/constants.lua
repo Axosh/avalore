@@ -13,7 +13,7 @@ end
 -- ROUND START TIMES (IN SECONDS)
 -- ==================================
 
-Constants.TIME_ROUND_1_START = 1800--0     --00 min
+Constants.TIME_ROUND_1_START = 1200--0     --00 min
 Constants.TIME_ROUND_2_START = 600   --10 min
 Constants.TIME_ROUND_3_START = 0--1200  --20 min
 Constants.TIME_ROUND_4_START = 1800  --30 min
@@ -143,6 +143,9 @@ OBJECTIVE_FLAG_MODEL_D      = "maps/reef_assets/props/teams/banner_dire_reef_sma
 OBJECTIVE_FLAG_SPAWNER_E    = "spawner_flag_e"
 OBJECTIVE_FLAG_ITEM_E       = "item_avalore_flag_e"
 OBJECTIVE_FLAG_MODEL_E      = "models/props_teams/bannerb_dire.vmdl"
+
+OBJECTIVE_FLAG_SPAWNERS = {OBJECTIVE_FLAG_SPAWNER_A, OBJECTIVE_FLAG_SPAWNER_B, OBJECTIVE_FLAG_SPAWNER_C, OBJECTIVE_FLAG_SPAWNER_D, OBJECTIVE_FLAG_SPAWNER_E}
+
 
 -- ==================================
 -- OTHER OBJECTIVES

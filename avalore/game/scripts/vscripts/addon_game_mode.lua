@@ -39,6 +39,8 @@ require ("constants")
 require("score")
 require("references")
 
+flag_announce_curr = 1
+
 function Precache( context )
 	--[[
 		Precache things we know we'll use.  Possible file types include (but not limited to):
@@ -167,6 +169,24 @@ function CAvaloreGameMode:OnThink()
 			_G.round = 1
 			self:InitRound1()
 		end
+		-- spawn flags ping notification
+		if (flag_announce_curr < 6) then 
+			local flag_temp
+			--print("Trying to ping flag locations")
+			for playerId = 0,19 do
+				local player = PlayerResource:GetPlayer(playerId)
+				if player ~= nil then
+					if player:GetAssignedHero() then
+						if (player:GetTeam() == DOTA_TEAM_GOODGUYS) or (player:GetTeam() == DOTA_TEAM_BADGUYS) then
+							flag_temp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNERS[flag_announce_curr])
+							print(flag_temp:GetName() .. " | (" .. tostring(flag_temp:GetOrigin().x) .. ", " .. tostring(flag_temp:GetOrigin().y) .. ")")
+							MinimapEvent( player:GetTeam(), player:GetAssignedHero(), flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
+						end
+					end
+				end
+			end
+			flag_announce_curr = flag_announce_curr + 1
+		end
 	elseif curr_gametime == 0 and _G.first_loop then
 		self.GameStartInit()
 		_G.first_loop = false
@@ -228,28 +248,43 @@ function CAvaloreGameMode:InitRound1()
 	}
 	CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
 
-	-- spawn flags ping notification
-	print("Trying to ping flag locations")
-	local flag_temp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_A)
-	print(flag_temp:GetName() .. " | (" .. tostring(flag_temp:GetOrigin().x) .. ", " .. tostring(flag_temp:GetOrigin().y) .. ")")
-	MinimapEvent( DOTA_TEAM_GOODGUYS, flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
-	MinimapEvent( DOTA_TEAM_BADGUYS,  flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
-	flag_temp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_B)
-	print(flag_temp:GetName() .. " | (" .. tostring(flag_temp:GetOrigin().x) .. ", " .. tostring(flag_temp:GetOrigin().y) .. ")")
-	MinimapEvent( DOTA_TEAM_GOODGUYS, flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
-	MinimapEvent( DOTA_TEAM_BADGUYS,  flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
-	flag_temp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_C)
-	print(flag_temp:GetName() .. " | (" .. tostring(flag_temp:GetOrigin().x) .. ", " .. tostring(flag_temp:GetOrigin().y) .. ")")
-	MinimapEvent( DOTA_TEAM_GOODGUYS, flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
-	MinimapEvent( DOTA_TEAM_BADGUYS,  flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
-	flag_temp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_D)
-	print(flag_temp:GetName() .. " | (" .. tostring(flag_temp:GetOrigin().x) .. ", " .. tostring(flag_temp:GetOrigin().y) .. ")")
-	MinimapEvent( DOTA_TEAM_GOODGUYS, flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
-	MinimapEvent( DOTA_TEAM_BADGUYS,  flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
-	flag_temp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_E)
-	print(flag_temp:GetName() .. " | (" .. tostring(flag_temp:GetOrigin().x) .. ", " .. tostring(flag_temp:GetOrigin().y) .. ")")
-	MinimapEvent( DOTA_TEAM_GOODGUYS, flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
-    MinimapEvent( DOTA_TEAM_BADGUYS,  flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
+	-- -- spawn flags ping notification
+	-- local flag_temp
+	-- print("Trying to ping flag locations")
+	-- for playerId = 0,19 do
+	-- 	local player = PlayerResource:GetPlayer(playerId)
+	-- 	if player ~= nil then
+	-- 		if player:GetAssignedHero() then
+	-- 			if (player:GetTeam() == DOTA_TEAM_GOODGUYS) or (player:GetTeam() == DOTA_TEAM_BADGUYS) then
+	-- 				for i, spawner in ipairs(OBJECTIVE_FLAG_SPAWNERS) do
+	-- 					flag_temp = Entities:FindByName(nil, spawner)
+	-- 					print(flag_temp:GetName() .. " | (" .. tostring(flag_temp:GetOrigin().x) .. ", " .. tostring(flag_temp:GetOrigin().y) .. ")")
+	-- 					MinimapEvent( player:GetTeam(), player:GetAssignedHero(), flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
+	-- 				end
+	-- 			end
+	-- 		end
+	-- 	end
+	-- end
+	-- local flag_temp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_A)
+	-- print(flag_temp:GetName() .. " | (" .. tostring(flag_temp:GetOrigin().x) .. ", " .. tostring(flag_temp:GetOrigin().y) .. ")")
+	-- MinimapEvent( DOTA_TEAM_GOODGUYS, flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
+	-- MinimapEvent( DOTA_TEAM_BADGUYS,  flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
+	-- flag_temp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_B)
+	-- print(flag_temp:GetName() .. " | (" .. tostring(flag_temp:GetOrigin().x) .. ", " .. tostring(flag_temp:GetOrigin().y) .. ")")
+	-- MinimapEvent( DOTA_TEAM_GOODGUYS, flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
+	-- MinimapEvent( DOTA_TEAM_BADGUYS,  flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
+	-- flag_temp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_C)
+	-- print(flag_temp:GetName() .. " | (" .. tostring(flag_temp:GetOrigin().x) .. ", " .. tostring(flag_temp:GetOrigin().y) .. ")")
+	-- MinimapEvent( DOTA_TEAM_GOODGUYS, flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
+	-- MinimapEvent( DOTA_TEAM_BADGUYS,  flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
+	-- flag_temp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_D)
+	-- print(flag_temp:GetName() .. " | (" .. tostring(flag_temp:GetOrigin().x) .. ", " .. tostring(flag_temp:GetOrigin().y) .. ")")
+	-- MinimapEvent( DOTA_TEAM_GOODGUYS, flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
+	-- MinimapEvent( DOTA_TEAM_BADGUYS,  flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
+	-- flag_temp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_E)
+	-- print(flag_temp:GetName() .. " | (" .. tostring(flag_temp:GetOrigin().x) .. ", " .. tostring(flag_temp:GetOrigin().y) .. ")")
+	-- MinimapEvent( DOTA_TEAM_GOODGUYS, flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
+    -- MinimapEvent( DOTA_TEAM_BADGUYS,  flag_temp, flag_temp:GetOrigin().x, flag_temp:GetOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0 )
 end
 
 function CAvaloreGameMode:InitRound2()
