@@ -143,8 +143,8 @@
 		"AttackAnimationPoint"			"0.3"
 		"AttackAcquisitionRange"		"1500"
 		"AttackRange"				    "550"
-		"ProjectileModel"			    "particles\econ\items\alchemist\alchemist_smooth_criminal\alchemist_smooth_criminal_unstable_concoction_projectile"
-		"ProjectileSpeed"			    "0"
+		"ProjectileModel"			    "particles\econ\items\alchemist\alchemist_smooth_criminal\alchemist_smooth_criminal_unstable_concoction_projectile.vpcf"
+		"ProjectileSpeed"			    "1250"
 
 		// Bounds
 		//----------------------------------------------------------------
