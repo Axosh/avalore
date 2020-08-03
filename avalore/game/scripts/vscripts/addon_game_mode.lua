@@ -205,6 +205,8 @@ function CAvaloreGameMode:OnThink()
 		p1_hero:HeroLevelUp(false)
 		p1_hero:HeroLevelUp(false)
 		p1_hero:HeroLevelUp(false)
+		--DEBUG
+		p1_hero:SetGold(10000, true)
 	end
 
 	-- Check for wave spawns on 30s intervals
