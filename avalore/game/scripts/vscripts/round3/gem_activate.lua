@@ -2,7 +2,7 @@ require("references")
 require(REQ_CONSTANTS)
 require(REQ_SCORE)
 require(REQ_UTIL)
-
+--require("round3/round3_quest")
 
 
 function GemTrigger_OnStartTouch(trigger)
@@ -35,7 +35,8 @@ function GemTrigger_OnStartTouch(trigger)
                 --TODO: create some sort of summoning effect
                 --ParticleManager:CreateParticle("particles/econ/events/ti10/portal/portal_open_good_mesh.vpcf", PATTACH_ABSORIGIN_FOLLOW, thisEntity)
                 GridNav:DestroyTreesAroundPoint( thisEntity:GetOrigin(), 500, true )
-                local keeper = CreateUnitByName( ROUND3_BOSS_UNIT, thisEntity:GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
+                --local keeper = CreateUnitByName( ROUND3_BOSS_UNIT, thisEntity:GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
+                CreateUnitByName( ROUND3_BOSS_UNIT, thisEntity:GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
                 --print("Trying to level keeper abilities up. Has ability points: " .. tostring(keeper:GetAbilityPoints()))
                 --for ability_key, ability_value in keeper:GetAbilityKeyValues() do
                 -- keeper:SetAbilityPoints(15)

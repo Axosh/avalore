@@ -113,6 +113,9 @@
 
 	"npc_avalore_gem_boss"
 	{
+		// Script
+		//"vscripts"					"round3/round3_quest.lua"
+		"vscripts"					"round3/ai/ai_quest_gem_keeper.lua"
 		//General
 		//"BaseClass"					"npc_dota_base_additive"
 		"BaseClass"					"npc_dota_creature"
