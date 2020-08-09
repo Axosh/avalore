@@ -141,7 +141,7 @@
 		"AttackDamageMax"			    "100"
 		"AttackRate"				    "1.5"
 		"AttackAnimationPoint"			"0.3"
-		"AttackAcquisitionRange"		"1500"
+		"AttackAcquisitionRange"		"600"
 		"AttackRange"				    "550"
 		"ProjectileModel"			    "particles\econ\items\alchemist\alchemist_smooth_criminal\alchemist_smooth_criminal_unstable_concoction_projectile.vpcf"
 		"ProjectileSpeed"			    "1250"
@@ -184,18 +184,73 @@
 
 	"npc_avalore_round4_boss"
 	{
+		//Script
+		"vscripts"					"round4/ai/ai_round4_boss.lua"
 		//General
-		"BaseClass"					"npc_dota_base_additive"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/creeps/nian/nian_journey.vmdl"
-		"ModelScale"				"2.0"
+		"ModelScale"				"1.5"
 		"Level"						"20"
+		"ConsideredHero"            "1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		//"Ability1"					"invoker_deafening_blast"			// Ability 1
+		"Ability1"					"huskar_berserkers_blood"			// Ability 1
+		"Ability2"					"lina_dragon_slave"					// Ability 2
+		"Ability3"					"medusa_mystic_snake"				// Ability 3
+		"Ability4"					"skywrath_mage_mystic_flare"		// Ability 4
+		"Ability5"					"sven_great_cleave"
+
+		// Armor
+		"ArmorPhysical"				"20"			// Physical protection.
 
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"20000"
 		"StatusHealthRegen"			"20.0"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
+		"StatusMana"				"8000"
+		"StatusManaRegen"			"100"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		  	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			    "300"
+		"AttackDamageMax"			    "300"
+		"AttackRate"				    "1.5"
+		"AttackAnimationPoint"			"0.3"
+		"AttackAcquisitionRange"		"400"
+		"AttackRange"				    "400"
+		"ProjectileModel"			    "particles/dev/library/base_fire.vpcf"
+		"ProjectileSpeed"			    "1000"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70" //???
+		"HealthBarOffset"			"170" //???
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"400"
+		"BountyGoldMin"				"100"
+		"BountyGoldMax"				"100"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"320"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 	}
 
 	"npc_avalore_building_round4_tower"

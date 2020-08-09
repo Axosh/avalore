@@ -15,6 +15,7 @@ REQ_CONSTANTS       = "constants"
 REQ_SCORE           = "score"
 REQ_SPAWNERS        = "spawners"
 REQ_UTIL            = "utility_functions"
+REQ_AI_SHARED       = "ai_shared"
 
 -- =========================================
 -- MODIFIERS
@@ -30,6 +31,7 @@ MODIFIER_FLAG_ARCANE    = "scripts/vscripts/modifiers/flags/modifier_flag_arcane
 MODIFIER_FLAG_REGROWTH    = "scripts/vscripts/modifiers/flags/modifier_flag_regrowth.lua"
 MODIFIER_FLAG_AGILITY    = "scripts/vscripts/modifiers/flags/modifier_flag_agility.lua"
 MODIFIER_UNSELECTABLE   = "scripts/vscripts/modifiers/modifier_unselectable.lua"
+MODIFIER_INVULN_TOWER_BASED = "scripts/vscripts/modifiers/modifier_invuln_tower_based.lua"
 
 REF_MODIFIER_ROUND1_WISP_REGEN = "scripts/vscripts/modifiers/modifier_wisp_regen.lua"
 

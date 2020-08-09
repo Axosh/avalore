@@ -58,6 +58,7 @@ function Precache( context )
 
 	LinkLuaModifier( "modifier_unselectable", MODIFIER_UNSELECTABLE, LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_capturable", MODIFIER_CAPTURABLE, LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_invuln_tower_based", MODIFIER_INVULN_TOWER_BASED, LUA_MODIFIER_MOTION_NONE )
 end
 
 -- Create the game mode when we activate
@@ -359,9 +360,26 @@ function CAvaloreGameMode:InitRound4()
 		local tower_trigger = Entities:FindByName(nil, value)
 		local tower_unit = CreateUnitByName( ROUND4_TOWER_UNIT, tower_trigger:GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
 		GridNav:DestroyTreesAroundPoint( tower_unit:GetOrigin(), 500, false )
+		local side = ""
+		local tower = ""
+		if string.find(value, "dire") then 
+			side = "dire"
+		else
+			side = "radi"
+		end
+
+		if string.find(value, "tower_a") then
+			tower = "towerA"
+		else
+			tower = "towerB"
+		end
+		Score.round4[side][tower] = tower_unit
+		print("Tower Type = " .. type(tower_unit))
+		PrintTable(tower_unit)
 	end
 
 	local boss_spawner = Entities:FindByName(nil, ROUND4_SPAWNER_BOSS)
-	CreateUnitByName( ROUND4_BOSS_UNIT, boss_spawner:GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
+	Score.round4.boss = CreateUnitByName( ROUND4_BOSS_UNIT, boss_spawner:GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
+	Score.round4.boss:AddNewModifier(nil, nil, "modifier_invuln_tower_based", {})
 
 end
