@@ -33,6 +33,16 @@ function Score:Init()
     Score.round3.dire_gem_drop_ref = nil
     Score.round3.radi_boss_kills = 0;
     Score.round3.dire_boss_kills = 0;
+
+    Score.round4 = {}
+    Score.round4.radi = {}
+    Score.round4.radi.towerA = nil
+    Score.round4.radi.towerB = nil
+    Score.round4.dire = {}
+    Score.round4.dire.towerA = nil
+    Score.round4.dire.towerB = nil
+    Score.round4.boss = nil
+
     -- cached refs to entities
     Score.entities = {}
     Score.entities.radi_outpost = Entities:FindByName(nil, "radiant_outpost")

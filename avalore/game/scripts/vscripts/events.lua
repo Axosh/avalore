@@ -173,28 +173,46 @@ function CAvaloreGameMode:OnEntityKilled(event)
 
 	-- ***** TOWER ****
 	if string.find(string.lower(killedEntity:GetUnitName()), "tower") then
-		refreshScores = true
-		objectiveMsg = "objective_tower" -- see addon_english.txt (panorama/localization)
-		print("Tower Killed: " .. killedEntity:GetUnitName())
-		if string.find(killedEntity:GetUnitName(), "1") then
-			Score.towers[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "1"] = false
-			if isPlayer and not isDeny then
-				Score.playerStats[attackerEntity:GetPlayerOwnerID()].t1 = Score.playerStats[attackerEntity:GetPlayerOwnerID()].t1 + 1
+		-- Round 4 Towers
+		if string.find(string.lower(killedEntity:GetUnitName()), "round4") then
+			local side = ""
+			local tower = ""
+			if string.find(killedEntity:GetUnitName(), "dire") then 
+				side = "dire"
+			else
+				side = "radi"
 			end
-		elseif string.find(killedEntity:GetUnitName(), "2") then
-			Score.towers[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "2"] = false
-			if isPlayer and not isDeny then
-				Score.playerStats[attackerEntity:GetPlayerOwnerID()].t2 = Score.playerStats[attackerEntity:GetPlayerOwnerID()].t2 + 1
+
+			if string.find(killedEntity:GetUnitName(), "tower_a") then
+				tower = "towerA"
+			else
+				tower = "towerB"
 			end
-		elseif string.find(killedEntity:GetUnitName(), "3") then
-			Score.towers[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "3"] = false
-			if isPlayer and not isDeny then
-				Score.playerStats[attackerEntity:GetPlayerOwnerID()].t3 = Score.playerStats[attackerEntity:GetPlayerOwnerID()].t3 + 1
-			end
-		elseif string.find(killedEntity:GetUnitName(), "4") then
-			Score.towers[killedTeamString]["t4" .. BuildingLaneLocation(killedEntity:GetUnitName())] = false
-			if isPlayer and not isDeny then
-				Score.playerStats[attackerEntity:GetPlayerOwnerID()].t4 = Score.playerStats[attackerEntity:GetPlayerOwnerID()].t4 + 1
+			Score.round4[side][tower] = nil -- set to nil so we can bring down the boss shields
+		else
+			refreshScores = true
+			objectiveMsg = "objective_tower" -- see addon_english.txt (panorama/localization)
+			print("Tower Killed: " .. killedEntity:GetUnitName())
+			if string.find(killedEntity:GetUnitName(), "1") then
+				Score.towers[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "1"] = false
+				if isPlayer and not isDeny then
+					Score.playerStats[attackerEntity:GetPlayerOwnerID()].t1 = Score.playerStats[attackerEntity:GetPlayerOwnerID()].t1 + 1
+				end
+			elseif string.find(killedEntity:GetUnitName(), "2") then
+				Score.towers[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "2"] = false
+				if isPlayer and not isDeny then
+					Score.playerStats[attackerEntity:GetPlayerOwnerID()].t2 = Score.playerStats[attackerEntity:GetPlayerOwnerID()].t2 + 1
+				end
+			elseif string.find(killedEntity:GetUnitName(), "3") then
+				Score.towers[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "3"] = false
+				if isPlayer and not isDeny then
+					Score.playerStats[attackerEntity:GetPlayerOwnerID()].t3 = Score.playerStats[attackerEntity:GetPlayerOwnerID()].t3 + 1
+				end
+			elseif string.find(killedEntity:GetUnitName(), "4") then
+				Score.towers[killedTeamString]["t4" .. BuildingLaneLocation(killedEntity:GetUnitName())] = false
+				if isPlayer and not isDeny then
+					Score.playerStats[attackerEntity:GetPlayerOwnerID()].t4 = Score.playerStats[attackerEntity:GetPlayerOwnerID()].t4 + 1
+				end
 			end
 		end
 	end
