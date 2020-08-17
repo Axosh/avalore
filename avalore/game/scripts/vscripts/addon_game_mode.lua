@@ -373,6 +373,7 @@ function CAvaloreGameMode:InitRound4()
 		else
 			tower = "towerB"
 		end
+		tower_unit:SetUnitName(value) -- set the unit name to be used in the unvuln tower modifier
 		Score.round4[side][tower] = tower_unit
 		print("Tower Type = " .. type(tower_unit))
 		PrintTable(tower_unit)

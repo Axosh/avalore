@@ -73,9 +73,9 @@ end
 -- HELPER FUNCTIONS
 function modifier_invuln_tower_based:CanDoDamage(attacker, target)
     if target ~= nil then 
-        print("Target = " .. target:GetUnitName())
+        --print("Target = " .. target:GetUnitName())
         if target ~= self:GetParent() then 
-            print("Target wasn't the boss")
+            --print("Target wasn't the boss")
             return false
         end
     else
@@ -100,13 +100,13 @@ function modifier_invuln_tower_based:CanDoDamage(attacker, target)
 end
 
 function modifier_invuln_tower_based:RadiCanAttack()
-    return (Score.round4.radi.towerA ~= nil 
+    return (Score.round4.radi.towerA == nil 
                 and
-                Score.round4.radi.towerB ~= nil)
+                Score.round4.radi.towerB == nil)
 end
 
 function modifier_invuln_tower_based:DireCanAttack()
-    return (Score.round4.dire.towerA ~= nil 
+    return (Score.round4.dire.towerA == nil 
             and
-            Score.round4.dire.towerB ~= nil)
+            Score.round4.dire.towerB == nil)
 end

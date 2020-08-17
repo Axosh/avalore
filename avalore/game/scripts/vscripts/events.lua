@@ -188,6 +188,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 			else
 				tower = "towerB"
 			end
+			print("Setting " .. side .. " " .. tower .. " to nil")
 			Score.round4[side][tower] = nil -- set to nil so we can bring down the boss shields
 		else
 			refreshScores = true
