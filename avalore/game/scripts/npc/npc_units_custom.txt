@@ -257,11 +257,26 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		//"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		//"BaseClass"					"npc_dota_aghsfort_watch_tower"	// Class of entity of link to.
+		//"BaseClass"					"npc_dota_tower"
+		"BaseClass"					"npc_dota_holdout_tower"
 		//"Model"						"models/items/world/towers/ti10_dire_tower/ti10_dire_tower.vmdl"
-		"Model"						"models/items/world/towers/ti10_dire_tower/ti10_dire_tower_model_editor.vmdl"
+		//"Model"						"models/items/world/towers/ti10_dire_tower/ti10_dire_tower_model_editor.vmdl"
+		//"Model"						"models/props_structures/tower_good.vmdl"
+		"Model"						"models/items/pugna/ward/draining_wight/draining_wight.vmdl"
+		"ModelScale"				"2.0"
 		"Level"						"1"
 		"ModelScale"				"1"
+		//"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
+		"SoundSet"					"Tower.Fire"					// Name of sound set.
+		//"MinimapIcon"				"minimap_miscbuilding"
+		"MinimapIcon"				"minimap_tower90"
+		"MinimapIconSize"			"320"
+		"destroysound"				"Building_DireTower.Destruction"
+		//"destroyfx"					"particles/econ/world/towers/ti10_dire_tower/ti10_dire_tower_destruction.vpcf"
+		//"destroyfx"					"particles/econ/events/battlecup/battle_cup_fall_destroy_a.vpcf"
+		"destroyfx"					"particles/units/heroes/hero_abaddon/abaddon_weapon_destroy.vpcf"
 
 		//"Level"						"1"
 		//"ConsideredHero"			"1"
@@ -276,9 +291,11 @@
 		//----------------------------------------------------------------
 		"AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackRange"                                         "700"       // Range within a target can be attacked.
+		"AttackAnimationPoint"		"0.6"			// Normalized time in animation cycle to attack.
 		"AttackDamageMin"                                     "100"       // Damage range min.
 		"AttackDamageMax"                                     "120"       // Damage range max.
-		"ProjectileModel"                                     "particles/base_attacks/ranged_tower_bad.vpcf"
+		//"ProjectileModel"                                     "particles/base_attacks/ranged_tower_bad.vpcf"
+		"ProjectileModel"					"particles/econ/items/leshrac/leshrac_tormented_staff_retro/leshrac_base_attack_retro_tormented.vpcf"
 		"ProjectileSpeed"                                     "750"
 
 		// Bounds
@@ -290,6 +307,8 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"1.0"
 		//"MovementSpeed"				"120"
 		//"MovementTurnRate"			"0.9"
 
@@ -303,9 +322,12 @@
 		// Team
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		//"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		//"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		//"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		
 		// Vision
 		//----------------------------------------------------------------
