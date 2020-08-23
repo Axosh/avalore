@@ -374,6 +374,10 @@ function CAvaloreGameMode:InitRound4()
 			tower = "towerB"
 		end
 		tower_unit:SetUnitName(value) -- set the unit name to be used in the unvuln tower modifier
+		GridNav:DestroyTreesAroundPoint( tower_trigger:GetOrigin(), 500, false )
+		tower_unit:SetOrigin(tower_trigger:GetOrigin())
+		--tower_unit:SetModel("models/items/world/towers/ti10_dire_tower/ti10_dire_tower.vmdl")
+		--tower_unit:EnableMotion()
 		Score.round4[side][tower] = tower_unit
 		print("Tower Type = " .. type(tower_unit))
 		PrintTable(tower_unit)
