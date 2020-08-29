@@ -6,6 +6,7 @@ function modifier_flag_arcane:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIPLE
 function modifier_flag_arcane:IsHidden() return false end
 function modifier_flag_arcane:IsDebuff() return false end
 function modifier_flag_arcane:IsPurgable() return false end
+function modifier_flag_arcane:RemoveOnDeath() return false end
 
 function modifier_flag_arcane:OnCreated()
     self.caster = self:GetCaster()

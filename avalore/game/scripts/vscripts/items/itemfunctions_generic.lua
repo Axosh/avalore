@@ -1,5 +1,8 @@
 --[[
-    From: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Scripted_Example
+	From: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Scripted_Example
+	
+
+	WARNING: DEPRECATED (FOR NOW)
 ]]
 if itemFunctions == nil then
 	print ( '[ItemFunctions] creating itemFunctions' )

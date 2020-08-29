@@ -6,6 +6,7 @@ function modifier_flag_morale:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIPLE
 function modifier_flag_morale:IsHidden() return false end
 function modifier_flag_morale:IsDebuff() return false end
 function modifier_flag_morale:IsPurgable() return false end
+function modifier_flag_morale:RemoveOnDeath() return false end
 
 function modifier_flag_morale:OnCreated()
     self.caster = self:GetCaster()

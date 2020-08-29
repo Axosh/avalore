@@ -47,6 +47,12 @@ function Spawners:Init()
     Spawners.h_DireInit_ShelfTop            = Entities:FindByName(nil, "dire_path_shelf_top1")
     Spawners.h_DireInit_ShelfBot            = Entities:FindByName(nil, "dire_path_shelf_bot1")
 
+    -- Round 4 Spawners 
+    Spawners.h_Round4_Radi                  = Entities:FindByName(nil, "spawner_round4_radi")
+    Spawners.h_Round4_Dire                  = Entities:FindByName(nil, "spawner_round4_dire")
+    Spawners.h_Waypoint_Radi_Ancient        = Entities:FindByName(nil, "dire_path_end")
+    Spawners.h_Waypoint_Dire_Ancient        = Entities:FindByName(nil, "radiant_path_end")
+
     -- Create Spawn Configs to Loop Through
     -- Key = Location; Value = {Spawner, FirstWaypoint, MeleeCreepToUse, RangedCreepToUse, Siege, Team}
     -- we can then loop through these to spawn on spawn intervals
@@ -247,7 +253,7 @@ end
 -- Loop through the spawn configs and create the creep waves
 function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
     --print("GameTime = " .. tostring(iGameTimeSeconds) .. ", \tEval = " .. tostring(math.floor(iGameTimeSeconds) % 30))
-    --print("Start Spawning Waves...")
+    print("Start Spawning Waves...")
     if iGameTimeSeconds == self.iSplitTime then
         self:SplitLanes()
     end
@@ -275,6 +281,21 @@ function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
                 end
             end
         end
+    end
+
+    --print("Round = " .. tostring(_G.round) .. " || Boss value = " .. tostring(Score.round4.boss))
+    if _G.round == 4 and Score.round4.boss == nil then
+        print("[Spawners] spawning neutral wave")
+        for i = 1, 13, 1 do
+            -- radiant attackers
+            local creep = CreateUnitByName( ROUND4_MELEE_CREEPS, Spawners.h_Round4_Radi:GetOrigin(), true, nil, nil, DOTA_TEAM_CUSTOM_1 )
+            creep:SetInitialGoalEntity(Spawners.h_Waypoint_Radi_Ancient)
+            creep:MoveToPositionAggressive(Spawners.h_Waypoint_Radi_Ancient:GetOrigin())
+            -- dire attackers
+            creep = CreateUnitByName( ROUND4_MELEE_CREEPS, Spawners.h_Round4_Dire:GetOrigin(), true, nil, nil, DOTA_TEAM_CUSTOM_1 )
+            creep:SetInitialGoalEntity(Spawners.h_Waypoint_Dire_Ancient)
+            creep:MoveToPositionAggressive(Spawners.h_Waypoint_Dire_Ancient:GetOrigin())
+        end 
     end
     --print("End Spawning Waves...")
 end

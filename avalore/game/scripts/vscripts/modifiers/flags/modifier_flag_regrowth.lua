@@ -6,6 +6,7 @@ function modifier_flag_regrowth:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIP
 function modifier_flag_regrowth:IsHidden() return false end
 function modifier_flag_regrowth:IsDebuff() return false end
 function modifier_flag_regrowth:IsPurgable() return false end
+function modifier_flag_regrowth:RemoveOnDeath() return false end
 
 function modifier_flag_regrowth:OnCreated()
     self.caster = self:GetCaster()

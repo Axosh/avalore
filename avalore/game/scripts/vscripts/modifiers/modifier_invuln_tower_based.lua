@@ -58,6 +58,8 @@ function modifier_invuln_tower_based:OnAttackLanded(params)
                 print("trying to do particle")
                 self.particle_no_dmg = ParticleManager:CreateParticle("particles/units/heroes/hero_antimage/antimage_spellshield_reflect_energy.vpcf", PATTACH_WORLDORIGIN, self:GetParent())
                 ParticleManager:SetParticleControl(self.particle_no_dmg, 0, self:GetParent():GetAbsOrigin())
+                --ParticleManager:SetParticleControl(self.particle_no_dmg, 1, Vector( 200, 200, 200 ))
+                ParticleManager:ReleaseParticleIndex( self.particle_no_dmg )
             end
             return 1
         end

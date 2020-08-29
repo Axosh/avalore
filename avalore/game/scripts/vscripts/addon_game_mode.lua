@@ -358,7 +358,7 @@ function CAvaloreGameMode:InitRound4()
 	-- TODO: make sure user cannot block them from spawning, or mess with the spawn location
 	for key, value in pairs(ROUND4_TOWER_TRIGGERS) do
 		local tower_trigger = Entities:FindByName(nil, value)
-		local tower_unit = CreateUnitByName( ROUND4_TOWER_UNIT, tower_trigger:GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
+		local tower_unit = CreateUnitByName( ROUND4_TOWER_UNIT, tower_trigger:GetOrigin(),        true, nil, nil, DOTA_TEAM_CUSTOM_1 )
 		GridNav:DestroyTreesAroundPoint( tower_unit:GetOrigin(), 500, false )
 		local side = ""
 		local tower = ""
@@ -384,7 +384,7 @@ function CAvaloreGameMode:InitRound4()
 	end
 
 	local boss_spawner = Entities:FindByName(nil, ROUND4_SPAWNER_BOSS)
-	Score.round4.boss = CreateUnitByName( ROUND4_BOSS_UNIT, boss_spawner:GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
-	Score.round4.boss:AddNewModifier(nil, nil, "modifier_invuln_tower_based", {})
+	Score.round4.boss_handle = CreateUnitByName( ROUND4_BOSS_UNIT, boss_spawner:GetOrigin(),        true, nil, nil, DOTA_TEAM_CUSTOM_1 )
+	Score.round4.boss_handle:AddNewModifier(nil, nil, "modifier_invuln_tower_based", {})
 
 end

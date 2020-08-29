@@ -6,6 +6,7 @@ function modifier_flag_agility:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIPL
 function modifier_flag_agility:IsHidden() return false end
 function modifier_flag_agility:IsDebuff() return false end
 function modifier_flag_agility:IsPurgable() return false end
+function modifier_flag_agility:RemoveOnDeath() return false end
 
 function modifier_flag_agility:OnCreated()
     self.caster = self:GetCaster()
