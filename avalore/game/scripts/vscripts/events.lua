@@ -158,6 +158,21 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	end
 
 	-- ==========================
+	-- ROUND 4 OBJECTIVES
+	-- ==========================
+
+	if killedEntity:GetUnitName() == ROUND4_BOSS_UNIT then
+		refreshScores = true
+		objectiveMsg = "objective_round4_boss" -- see addon_english.txt (panorama/localization)
+		if attackerTeam == DOTA_TEAM_GOODGUYS then
+			Score.round4.boss = DOTA_TEAM_GOODGUYS
+			-- TODO: augment player stats
+		elseif attackerTeam == DOTA_TEAM_BADGUYS then
+			Score.round4.boss = DOTA_TEAM_BADGUYS
+		end
+	end
+
+	-- ==========================
 	-- HERO KILLS
 	-- ==========================
 
@@ -190,6 +205,23 @@ function CAvaloreGameMode:OnEntityKilled(event)
 			end
 			print("Setting " .. side .. " " .. tower .. " to nil")
 			Score.round4[side][tower] = nil -- set to nil so we can bring down the boss shields
+
+			local shieldsDown = nil
+			if Score.round4.radi.towerA == nil and Score.round4.radi.towerB == nil then
+				shieldsDown = DOTA_TEAM_GOODGUYS
+			elseif Score.round4.dire.towerA == nil and Score.round4.dire.towerB == nil then
+				shieldsDown = DOTA_TEAM_BADGUYS
+			end
+
+			if shieldsDown ~= nil then
+				local broadcast_obj =  {
+					msg = "objective_round4_shields_down",
+					time = 10,
+					elaboration = ""
+				}
+				CustomGameEventManager:Send_ServerToTeam(shieldsDown, MESSAGE_EVENT_BROADCAST, broadcast_obj)
+			end
+
 		else
 			refreshScores = true
 			objectiveMsg = "objective_tower" -- see addon_english.txt (panorama/localization)

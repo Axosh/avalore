@@ -42,14 +42,14 @@
 		"IsTempestDoubleClonable"		    "0"
         "ItemDroppable" 				    "1"
         "ItemDeclarations"					"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
-        "OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"items/itemfunctions_generic.lua"
-				"Function"			    "DropItemOnDeath"
-			}
-		}
+        // "OnOwnerDied"
+		// {
+		// 	"RunScript"
+		// 	{
+		// 		"ScriptFile"			"scripts/vscripts/items/itemfunctions_generic.lua"
+		// 		"Function"			    "DropItemOnDeath"
+		// 	}
+		// }
 
     } // end: "item_avalore_flag_a"
 
@@ -91,14 +91,14 @@
 		"IsTempestDoubleClonable"		    "0"
         "ItemDroppable" 				    "1"
         "ItemDeclarations"					"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
-        "OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"items/itemfunctions_generic.lua"
-				"Function"			    "DropItemOnDeath"
-			}
-		}
+        // "OnOwnerDied"
+		// {
+		// 	"RunScript"
+		// 	{
+		// 		"ScriptFile"			"scripts/vscripts/items/itemfunctions_generic.lua"
+		// 		"Function"			    "DropItemOnDeath"
+		// 	}
+		// }
 
     } // end: "item_avalore_flag_b"
 
@@ -140,14 +140,14 @@
 		"IsTempestDoubleClonable"		    "0"
         "ItemDroppable" 				    "1"
         "ItemDeclarations"					"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
-        "OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"items/itemfunctions_generic.lua"
-				"Function"			    "DropItemOnDeath"
-			}
-		}
+        // "OnOwnerDied"
+		// {
+		// 	"RunScript"
+		// 	{
+		// 		"ScriptFile"			"scripts/vscripts/items/itemfunctions_generic.lua"
+		// 		"Function"			    "DropItemOnDeath"
+		// 	}
+		// }
 
     } // end: "item_avalore_flag_c"
 
@@ -189,14 +189,14 @@
 		"IsTempestDoubleClonable"		    "0"
         "ItemDroppable" 				    "1"
         "ItemDeclarations"					"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
-        "OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"items/itemfunctions_generic.lua"
-				"Function"			    "DropItemOnDeath"
-			}
-		}
+        // "OnOwnerDied"
+		// {
+		// 	"RunScript"
+		// 	{
+		// 		"ScriptFile"			"scripts/vscripts/items/itemfunctions_generic.lua"
+		// 		"Function"			    "DropItemOnDeath"
+		// 	}
+		// }
 
     } // end: "item_avalore_flag_d"
 
@@ -238,14 +238,14 @@
 		"IsTempestDoubleClonable"		    "0"
         "ItemDroppable" 				    "1"
         "ItemDeclarations"					"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
-        "OnOwnerDied"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"items/itemfunctions_generic.lua"
-				"Function"			    "DropItemOnDeath"
-			}
-		}
+        // "OnOwnerDied"
+		// {
+		// 	"RunScript"
+		// 	{
+		// 		"ScriptFile"			"scripts/vscripts/items/itemfunctions_generic.lua"
+		// 		"Function"			    "DropItemOnDeath"
+		// 	}
+		// }
 
     } // end: "item_avalore_flag_e"
 

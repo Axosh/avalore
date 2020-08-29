@@ -26,18 +26,67 @@ function item_objective_flag:GetIntrinsicModifierName()
 function item_avalore_flag_a:GetIntrinsicModifierName()
     return MODIFIER_FLAG_CARRY_NAME end
 
+-- Drop currently held flag on death
+function item_avalore_flag_a:OnOwnerDied()
+    print("Flag Owner Died")
+    local flag = HasFlagInInventory(self:GetOwner())
+    if flag ~= nil then
+        local hItem = self:GetOwner():FindItemInInventory(flag)
+        self:GetOwner():DropItemAtPositionImmediate(hItem, self:GetOwner():GetOrigin())
+    end
+end
+
 function item_avalore_flag_b:GetIntrinsicModifierName()
     return MODIFIER_FLAG_CARRY_NAME end
+
+-- Drop currently held flag on death
+function item_avalore_flag_b:OnOwnerDied()
+    print("Flag Owner Died")
+    local flag = HasFlagInInventory(self:GetOwner())
+    if flag ~= nil then
+        local hItem = self:GetOwner():FindItemInInventory(flag)
+        self:GetOwner():DropItemAtPositionImmediate(hItem, self:GetOwner():GetOrigin())
+    end
+end
 
 function item_avalore_flag_c:GetIntrinsicModifierName()
     return MODIFIER_FLAG_CARRY_NAME end
 
+-- Drop currently held flag on death
+function item_avalore_flag_c:OnOwnerDied()
+    print("Flag Owner Died")
+    local flag = HasFlagInInventory(self:GetOwner())
+    if flag ~= nil then
+        local hItem = self:GetOwner():FindItemInInventory(flag)
+        self:GetOwner():DropItemAtPositionImmediate(hItem, self:GetOwner():GetOrigin())
+    end
+end
+
 function item_avalore_flag_d:GetIntrinsicModifierName()
     return MODIFIER_FLAG_CARRY_NAME end
+
+-- Drop currently held flag on death
+function item_avalore_flag_d:OnOwnerDied()
+    print("Flag Owner Died")
+    local flag = HasFlagInInventory(self:GetOwner())
+    if flag ~= nil then
+        local hItem = self:GetOwner():FindItemInInventory(flag)
+        self:GetOwner():DropItemAtPositionImmediate(hItem, self:GetOwner():GetOrigin())
+    end
+end
 
 function item_avalore_flag_e:GetIntrinsicModifierName()
     return MODIFIER_FLAG_CARRY_NAME end
 
+-- Drop currently held flag on death
+function item_avalore_flag_e:OnOwnerDied()
+    print("Flag Owner Died")
+    local flag = HasFlagInInventory(self:GetOwner())
+    if flag ~= nil then
+        local hItem = self:GetOwner():FindItemInInventory(flag)
+        self:GetOwner():DropItemAtPositionImmediate(hItem, self:GetOwner():GetOrigin())
+    end
+end
 
 -----------------------------------------------------------------------------------------------------------
 --	Intrinsic modifier definition

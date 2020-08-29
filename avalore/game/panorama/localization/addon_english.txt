@@ -41,4 +41,7 @@
 
 	"objective_round3_part2_intro"					"The Gem has been found"
 	"objective_round3_part2_elaboration"			"Take it to the opposing team's island<br />to summon the Gem Keeper Boss"
+
+	"objective_round4_boss"							"The Beast Has Been Slain +50 Points"
+	"objective_round4_shields_down"					"The protective towers are down, The Beast is vulnerable"
 }

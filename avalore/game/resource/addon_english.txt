@@ -5,16 +5,16 @@
 	{		
 		"addon_game_name"			"Avalore"
 
-		//-----------
+		//--------------------------------------------------------------------------------
 		// Heroes
-		//-----------
+		//--------------------------------------------------------------------------------
 		"npc_dota_hero_kunkka" 									"Davy Jones"
 		"npc_dota_hero_keeper_of_the_light"						"Merlin"
 		"npc_dota_hero_rubick"									"Debuggy Boi"
 
-		// ----------
+		//--------------------------------------------------------------------------------
 		// ABILITIES
- 		// ----------
+ 		//--------------------------------------------------------------------------------
 
 		// Davy Jones
 		"DOTA_Tooltip_ability_sandking_sand_storm"				"Deadly Fog"
@@ -29,11 +29,20 @@
 		"DOTA_Tooltip_ability_kunkka_torrent_radius"
 		"DOTA_Tooltip_ability_kunkka_torrent_damage"
 
+		//--------------------------------------------------------------------------------
 		// Objectives
+		//--------------------------------------------------------------------------------
 
-		"npc_avalore_quest_wisp"	"Wisp"
+		"npc_avalore_quest_wisp"				"Wisp"
+		"npc_avalore_radi_flag_base"			"Flag Base"
+		"npc_avalore_dire_flag_base"			"Flag Base"
+		"npc_avalore_gem_boss"					"Gem Keeper"
+		"npc_avalore_round4_boss"				"The Beast"
+		"npc_avalore_building_round4_tower"		"Pylon"
 
+		//--------------------------------------------------------------------------------
 		// ITEMS
+		//--------------------------------------------------------------------------------
 
 		"DOTA_Tooltip_Ability_item_avalore_flag_a"				"Morale Flag"
 		"DOTA_Tooltip_Ability_item_avalore_flag_b"				"Morale Flag"
@@ -41,25 +50,43 @@
 		"DOTA_Tooltip_Ability_item_avalore_flag_d"				"Arcane Flag"
 		"DOTA_Tooltip_Ability_item_avalore_flag_e"				"Regrowth Flag"
 
+		//--------------------------------------------------------------------------------
 		// MODIFIERS
+		//--------------------------------------------------------------------------------
+
+		//***************
+		// FLAGS
+		//***************
+
+		// Flags - General
 		"DOTA_Tooltip_modifier_item_flag_carry"					"Stolen Flag Debuff"
 		"DOTA_Tooltip_modifier_item_flag_carry_description"		"Certain movement spells and items disabled while carrying a flag"
 
+		// Flags - Morale
 		"DOTA_Tooltip_modifier_flag_morale"						"Morale Flag Aura"
 		"DOTA_Tooltip_modifier_flag_morale_description"			"Captured Morale Flag is providing bonus armor and damage"
 
+		// Flags - Arcane
 		"DOTA_Tooltip_modifier_flag_arcane"						"Arcane Flag Aura"
 		"DOTA_Tooltip_modifier_flag_arcane_description"			"Captured Arcane Flag is reduced cooldowns and spell amp"
 
+		// Flags - Agility
 		"DOTA_Tooltip_modifier_flag_agility"					"Agility Flag Aura"
 		//"DOTA_Tooltip_modifier_flag_agility_description"	    "Captured Agility Flag is providing bonus attack speed and move speed"
-		"DOTA_Tooltip_modifier_flag_agility_description"	    "Captured Agility Flag is providing %MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%% attack speed and %MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE%%% move speed"
+		"DOTA_Tooltip_modifier_flag_agility_description"	    "Captured Agility Flag is providing %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed and %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE% move speed"
 		"DOTA_Tooltip_modifier_flag_agility_movment_speed"		"%MOVEMENT SPEED:"
 
+		// Flags - Regrowth
 		"DOTA_Tooltip_modifier_flag_regrowth"					"Regrowth Flag Aura"
 		"DOTA_Tooltip_modifier_flag_regrowth_description"		"Captured Regrowth Flag is providing bonus regen"
 		"DOTA_Tooltip_modifier_flag_regrowth_health_regen"		"+$hp_regen"
 
-
+		//***************
+		// FLAGS
+		//***************
+		"DOTA_Tooltip_modifier_wisp_regen"						"Wisp Regen"
+		"DOTA_Tooltip_modifier_wisp_regen_description"			"Providing 0.25 mana regen per captured wisp"
+		"DOTA_Tooltip_modifier_wisp_regen_mana_regen"			"%fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% bonus mana regen."
+		//MODIFIER_PROPERTY_MANA_REGEN_CONSTANT
 	}
 }

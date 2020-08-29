@@ -41,6 +41,7 @@ function Score:Init()
     Score.round4.dire = {}
     Score.round4.dire.towerA = nil
     Score.round4.dire.towerB = nil
+    Score.round4.boss_handle = nil
     Score.round4.boss = nil
 
     -- cached refs to entities
@@ -260,6 +261,16 @@ function Score:RecalculateScores()
     -- round 3 boss
     Score.RadiScore = Score.RadiScore + (Score.round3.radi_boss_kills * SCORE_MULTIPLIER_BOSS_ROUND3)
     Score.DireScore = Score.DireScore + (Score.round3.dire_boss_kills * SCORE_MULTIPLIER_BOSS_ROUND3)
+
+    -- round 4 stuff
+    --Score.RadiScore = Score.RadiScore + Score.round4.radi.towerA
+    if Score.round4.boss ~= nil then
+        if Score.round4.boss == DOTA_TEAM_GOODGUYS then
+            Score.RadiScore = Score.RadiScore + SCORE_MULTIPLIER_BOSS_ROUND4
+        elseif Score.round4.boss == DOTA_TEAM_BADGUYS then
+            Score.DireScore = Score.DireScore + SCORE_MULTIPLIER_BOSS_ROUND4
+        end
+    end
 
     -- repaint scores
     -- print( "radi score = " .. tostring(Score.RadiScore))

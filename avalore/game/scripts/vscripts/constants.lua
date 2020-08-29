@@ -13,10 +13,10 @@ end
 -- ROUND START TIMES (IN SECONDS)
 -- ==================================
 
-Constants.TIME_ROUND_1_START = 1800--0     --00 min
-Constants.TIME_ROUND_2_START = 0--600   --10 min
+Constants.TIME_ROUND_1_START = 0     --00 min
+Constants.TIME_ROUND_2_START = 600   --10 min
 Constants.TIME_ROUND_3_START = 1200  --20 min
-Constants.TIME_ROUND_4_START = 0--1800  --30 min
+Constants.TIME_ROUND_4_START = 1800  --30 min
 
 -- ==================================
 -- SPAWNER KEY NAMES
@@ -171,6 +171,7 @@ ROUND4_TOWER_UNIT = "npc_avalore_building_round4_tower"
 
 ROUND4_SPAWNER_BOSS = "spawner_map_center"
 ROUND4_BOSS_UNIT = "npc_avalore_round4_boss"
+ROUND4_MELEE_CREEPS = "npc_avalore_round4_melee_creep"
 
 -- ==================================
 -- SCORE RELATED
@@ -196,6 +197,8 @@ SCORE_MULTIPLIER_WISP = 3
 SCORE_MULTIPLIER_FLAG = 15
 
 SCORE_MULTIPLIER_BOSS_ROUND3 = 30
+
+SCORE_MULTIPLIER_BOSS_ROUND4 = 50
 
 
 -- ==================================

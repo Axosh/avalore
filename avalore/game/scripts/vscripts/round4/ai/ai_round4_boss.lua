@@ -59,19 +59,19 @@ function Round4BossAIThink( self )
 				end
 			end
 		elseif distanceFromSpawn > thisEntity.MaxIdleDistFromSpawn then
-			print("Round 4 Boss ==> Going Home")
+			--print("Round 4 Boss ==> Going Home")
 			thisEntity.walkingHome = true
 		else
 			return 0.5 -- chill out and idle in the pit
 		end
 	else
-		print("Round 4 Boss ==> Trying to Aggro")
+		--print("Round 4 Boss ==> Trying to Aggro")
 		thisEntity.walkingHome = false
 	end
 
 	-- if we are too far from home spawn, forcibly go back to spawn 
 	if distanceFromSpawn > thisEntity.MaxDistFromSpawn then
-		print("Round 4 Boss ==> Too far, forced home")
+		--print("Round 4 Boss ==> Too far, forced home")
 		thisEntity.walkingHome = true
 	end
     
@@ -88,28 +88,28 @@ function Round4BossAIThink( self )
 			thisEntity.LastTarget = hRandomPlayer
 		end
 		
-		print("Round 4 Boss ==> Targetting ==> " .. hRandomPlayer:GetUnitName())
+		--print("Round 4 Boss ==> Targetting ==> " .. hRandomPlayer:GetUnitName())
 
         --print("Mystic Snake Castable? ==> " .. tostring(hMysticSnake:IsFullyCastable()))
 
         -- CAST SPELLS
         if hMysticFlare:IsCooldownReady() and hMysticFlare:IsFullyCastable() then
-            print("Cast Mystic Flare")
+            --print("Cast Mystic Flare")
             CastMysticFlare(hRandomPlayer)
             return 1
         elseif hDragonSlave:IsCooldownReady() and hDragonSlave:IsFullyCastable() then
-            print("Cast Dragon Slave")
+            --print("Cast Dragon Slave")
             CastDragonSlave(hRandomPlayer)
             return 1
         -- elseif hDefBlast:IsFullyCastable() then
         --     CastDefBlast(hRandomPlayer)
         --     return 1
         elseif hMysticSnake:IsCooldownReady() and hMysticSnake:IsFullyCastable() then
-            print("Cast Mystic Snake")
+            --print("Cast Mystic Snake")
             CastMysticSnake(hRandomPlayer)
 			return 1
 		else
-			print("Issue Attack")
+			--print("Issue Attack")
 			ExecuteOrderFromTable({
 				UnitIndex = thisEntity:entindex(),
 				OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
@@ -117,7 +117,7 @@ function Round4BossAIThink( self )
 			})
         end
 	else
-		print("Round 4 Boss ==> Walking Home")
+		--print("Round 4 Boss ==> Walking Home")
 		if distanceFromSpawn > thisEntity.MaxIdleDistFromSpawn then
 			ExecuteOrderFromTable({
 				UnitIndex = thisEntity:entindex(),
