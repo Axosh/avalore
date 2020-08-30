@@ -85,8 +85,8 @@
 		// FLAGS
 		//***************
 		"DOTA_Tooltip_modifier_wisp_regen"						"Wisp Regen"
-		"DOTA_Tooltip_modifier_wisp_regen_description"			"Providing 0.25 mana regen per captured wisp"
-		"DOTA_Tooltip_modifier_wisp_regen_mana_regen"			"%fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% bonus mana regen."
+		"DOTA_Tooltip_modifier_wisp_regen_description"			"Providing %fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regen (0.25 per captured wisp)"
+		//"DOTA_Tooltip_modifier_wisp_regen_mana_regen"			"%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% bonus mana regen."
 		//MODIFIER_PROPERTY_MANA_REGEN_CONSTANT
 	}
 }

@@ -3,6 +3,7 @@ if Score == nil then
 end
 
 function Score:Init()
+    print("[Score] Init")
     Score.RadiScore = 0
     Score.DireScore = 0
 

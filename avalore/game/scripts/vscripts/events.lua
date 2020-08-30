@@ -39,7 +39,13 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	end
 
 	if attackerEntity:IsRealHero() then
-		print("Killed Entity: " .. killedEntity:GetUnitName())
+		print("[Events] Killed Entity: " .. killedEntity:GetUnitName())
+
+		-- Check if CS triggered score update
+		if attackerEntity:GetLastHits() > 0 and attackerEntity:GetLastHits() % SCORE_DIVIDEND_LASTHITS == 0 then
+			print("[Events] Hit CS Theshold to trigger score update")
+			refreshScores = true
+		end
 	end
 
 	--Check for bonus points due to quest objective
@@ -53,7 +59,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 		--objectivePoints = 3
 		refreshScores = true
 		objectiveMsg = "objective_wisp" -- see addon_english.txt (panorama/localization)
-		local first_wisp = false
+		local first_wisp = true--false
 		if attackerTeam == DOTA_TEAM_GOODGUYS then
 			if Score.round1.radi_wisp_count == 0 then
 				first_wisp = true
@@ -73,7 +79,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 					if not PlayerResource:IsBroadcaster(playerID) then
 						local hero = PlayerResource:GetSelectedHeroEntity(playerID)
 						if hero:GetTeam() == attackerTeam then
-							print("Adding Wisp Aura for Player " .. tostring(playerID) .. " (" .. hero:GetName() .. ")")
+							print("[Events] Adding Wisp Aura for Player " .. tostring(playerID) .. " (" .. hero:GetName() .. ")")
 							hero:AddNewModifier(hero, nil, MODIFIER_ROUND1_WISP_REGEN, {})
 						end
 					end -- end IsBroadcaster
@@ -225,7 +231,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 		else
 			refreshScores = true
 			objectiveMsg = "objective_tower" -- see addon_english.txt (panorama/localization)
-			print("Tower Killed: " .. killedEntity:GetUnitName())
+			print("[Events] Tower Killed: " .. killedEntity:GetUnitName())
 			if string.find(killedEntity:GetUnitName(), "1") then
 				Score.towers[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "1"] = false
 				if isPlayer and not isDeny then
@@ -254,7 +260,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	if string.find(string.lower(killedEntity:GetUnitName()), "rax") then
 		refreshScores = true
 		objectiveMsg = "objective_rax" -- see addon_english.txt (panorama/localization)
-		print("Rax Killed: " .. killedEntity:GetUnitName())
+		print("[Events] Rax Killed: " .. killedEntity:GetUnitName())
 		if string.find(killedEntity:GetUnitName(), "melee") then
 			Score.raxes[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "melee"] = false
 			if isPlayer and not isDeny then
@@ -289,10 +295,14 @@ function CAvaloreGameMode:OnEntityKilled(event)
 		CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
 	end
 
+	--============================
+	-- REFRESH SCORES?
+	--============================
+
 	-- only update front-end if score changed
 	if refreshScores then
 		if winnning_team ~= nil then
-			print("Winning Team = " .. tostring(winnning_team))
+			print("[Events] Winning Team = " .. tostring(winnning_team))
 			if isPlayer and not isDeny then
 				-- this should only ever be 0 or 1
 				Score.playerStats[attackerEntity:GetPlayerOwnerID()].base_kill = 1
