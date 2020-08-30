@@ -7,14 +7,26 @@ modifier_wisp_regen = class({})
 function modifier_wisp_regen:IsHidden() return false end
 function modifier_wisp_regen:IsDebuff() return false end
 function modifier_wisp_regen:IsPurgable() return false end
+function modifier_wisp_regen:RemoveOnDeath() return false end
 
 function modifier_wisp_regen:OnCreated()
     if IsServer() then
-        print("modifier_wisp_regen:OnCreated()")
-        print(self:GetParent():GetName())
+        print("[modifier_wisp_regen] modifier_wisp_regen:OnCreated()")
+        print("[modifier_wisp_regen] " .. self:GetParent():GetName())
         self.team = self:GetParent():GetOwner():GetTeam()
-        print("TeamID = " .. self.team)
+        print("[modifier_wisp_regen] TeamID = " .. self.team)
+        local mana_regen_mult = 0.25
+        if (self.team == DOTA_TEAM_GOODGUYS) then
+            self.mana_regen = (mana_regen_mult * Score.round1.radi_wisp_count)
+        else
+            self.mana_regen = (mana_regen_mult * Score.round1.dire_wisp_count)
+        end
+        print("[modifier_wisp_regen] mana_regen = " .. tostring(self.mana_regen))
     end
+end
+
+function modifier_wisp_regen:OnRefresh()
+    self:OnCreated()
 end
 
 function modifier_wisp_regen:GetTexture()
@@ -23,22 +35,27 @@ end
 
 function modifier_wisp_regen:DeclareFunctions()
     local functs = {
-        DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-        DOTA_ABILITY_BEHAVIOR_PASSIVE,
-        DOTA_ABILITY_BEHAVIOR_AURA,
+        --DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+        --DOTA_ABILITY_BEHAVIOR_PASSIVE,
+        --DOTA_ABILITY_BEHAVIOR_AURA,
         MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     }
     return functs
 end
 
-function modifier_wisp_regen:GetModifierConstantManaRegen()
-    if Score.round1 then
-        --print("modifier_wisp_regen:GetModifierConstantManaRegen()")
-        if(self.team == DOTA_TEAM_GOODGUYS) then
-            --print("Score.round1.radi_wisp_count = " .. tostring(Score.round1.radi_wisp_count))
-            return (0.25 * Score.round1.radi_wisp_count)
-        end
+function modifier_wisp_regen:GetModifierConstantManaRegen(params)
+    print("[modifier_wisp_regen] mana_regen = " .. tostring(self.mana_regen))
+    return self.mana_regen
+    --if Score.round1 then
 
-        return (0.25 * Score.round1.dire_wisp_count)
-    end
+    --print("modifier_wisp_regen:GetModifierConstantManaRegen()")
+    -- if(self.team == DOTA_TEAM_GOODGUYS) then
+    --     --print("[modifier_wisp_regen] Score.round1.radi_wisp_count = " .. tostring(Score.round1.radi_wisp_count))
+    --     return (0.25 * Score.round1.radi_wisp_count)
+    -- end
+
+    -- --print("[modifier_wisp_regen] Score.round1.dire_wisp_count = " .. tostring(Score.round1.dire_wisp_count))
+    -- return (0.25 * Score.round1.dire_wisp_count)
+
+    --end
 end

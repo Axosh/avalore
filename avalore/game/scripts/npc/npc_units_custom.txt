@@ -53,7 +53,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1"		// Base health.
+		"StatusHealth"				"3"		// Base health.
 		"StatusHealthRegen"			"0.0"		// Health regeneration rate.
 
 		// Vision
