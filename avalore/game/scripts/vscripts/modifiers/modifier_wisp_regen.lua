@@ -10,19 +10,25 @@ function modifier_wisp_regen:IsPurgable() return false end
 function modifier_wisp_regen:RemoveOnDeath() return false end
 
 function modifier_wisp_regen:OnCreated()
-    if IsServer() then
-        print("[modifier_wisp_regen] modifier_wisp_regen:OnCreated()")
-        print("[modifier_wisp_regen] " .. self:GetParent():GetName())
-        self.team = self:GetParent():GetOwner():GetTeam()
-        print("[modifier_wisp_regen] TeamID = " .. self.team)
-        local mana_regen_mult = 0.25
-        if (self.team == DOTA_TEAM_GOODGUYS) then
-            self.mana_regen = (mana_regen_mult * Score.round1.radi_wisp_count)
-        else
-            self.mana_regen = (mana_regen_mult * Score.round1.dire_wisp_count)
-        end
-        print("[modifier_wisp_regen] mana_regen = " .. tostring(self.mana_regen))
+    --if IsServer() then
+    print("[modifier_wisp_regen] modifier_wisp_regen:OnCreated()")
+    --print("[modifier_wisp_regen] " .. self:GetParent():GetName())
+    --self.team = self:GetParent():GetOwner():GetTeam()
+    --print("[modifier_wisp_regen] TeamID = " .. self.team)
+    local mana_regen_mult = 0.25
+    if self.mana_regen == nil then
+        self.mana_regen = mana_regen_mult
+    else
+        self.mana_regen = self.mana_regen + mana_regen_mult
     end
+    
+    -- if (self.team == DOTA_TEAM_GOODGUYS) then
+    --     self.mana_regen = (mana_regen_mult * Score.round1.radi_wisp_count)
+    -- elseif (self.team == DOTA_TEAM_BADGUYS) then 
+    --     self.mana_regen = (mana_regen_mult * Score.round1.dire_wisp_count)
+    -- end
+    print("[modifier_wisp_regen] init mana_regen = " .. tostring(self.mana_regen))
+    --end
 end
 
 function modifier_wisp_regen:OnRefresh()
@@ -44,8 +50,10 @@ function modifier_wisp_regen:DeclareFunctions()
 end
 
 function modifier_wisp_regen:GetModifierConstantManaRegen(params)
-    print("[modifier_wisp_regen] mana_regen = " .. tostring(self.mana_regen))
+    --if IsServer() and self.mana_regen ~= nil then
+    --print("[modifier_wisp_regen] mana_regen = " .. tostring(self.mana_regen))
     return self.mana_regen
+    --end
     --if Score.round1 then
 
     --print("modifier_wisp_regen:GetModifierConstantManaRegen()")
