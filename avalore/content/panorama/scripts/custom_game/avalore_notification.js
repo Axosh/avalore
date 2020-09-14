@@ -71,8 +71,46 @@ function ClearAlert()
 	$( "#AvaloreErrorMessage_Elaboration" ).text = "";
 }
 
+function ClearTimer()
+{
+	$.GetContextPanel().SetHasClass( "time_countdown", false );
+	$( "#AlertTimer" ).text = "";
+	$( "#AlertTimer_Text" ).text = "";
+	$( "#AlertTimer_Remaining" ).text = "";
+}
+
+function AlertTimer( data )
+{
+	$.Msg( "Start: AlertTimer" );
+	var remainingText = "";
+	if ( ( data.timer_minute_01 == 0 ) && ( data.timer_second_10 == 1 ) && ( data.timer_second_01 == 0 ) )
+	{
+		$.GetContextPanel().SetHasClass( "time_notification", true );
+		remainingText = "10";
+		//$.GetContextPanel().SetHasClass( "time_countdown", true );
+		$( "#AlertTimer_Text" ).html = true;
+		$( "#AlertTimer_Text" ).text = remainingText;
+		Game.EmitSound("Tutorial.TaskProgress");
+	}
+	if ( ( data.timer_minute_01 == 0 ) && ( data.timer_second_10 == 0 ) && ( data.timer_second_01 <= 9 ) )
+	{
+		$.GetContextPanel().SetHasClass( "time_notification", true );
+		remainingText += data.timer_second_01;
+		$( "#AlertTimer_Text" ).text = remainingText;
+		Game.EmitSound("Tutorial.TaskProgress");
+	}
+	if(data == null || data == undefined || remainingText == "")
+	{
+		$.Schedule( 1, ClearTimer );
+	}
+	else{
+		$.Msg( "remainingText = " + remainingText );
+	}
+}
+
 // wireup string-id to javascript function
 (function () {
 	GameEvents.Subscribe( "test", OnTest );
 	GameEvents.Subscribe( "broadcast_message", OnBroadcastLocalizedMessage );
+	GameEvents.Subscribe( "time_remaining", AlertTimer );
 })();

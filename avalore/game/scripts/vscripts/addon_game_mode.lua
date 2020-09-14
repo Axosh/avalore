@@ -111,11 +111,11 @@ function CAvaloreGameMode:OnThink()
 	--grab current time as a float, excluding pregame and negative time
 	curr_gametime = GameRules:GetDOTATime(false, false)
 
-	if self.countdownEnabled == true then
-		CountdownTimer()
-		--_G.nCOUNTDOWNTIMER = _G.nCOUNTDOWNTIMER - 1;
-		--print("Countdown = " .. tostring(_G.nCOUNTDOWNTIMER))
-	end
+	-- if self.countdownEnabled == true then
+	-- 	CountdownTimer()
+	-- 	--_G.nCOUNTDOWNTIMER = _G.nCOUNTDOWNTIMER - 1;
+	-- 	--print("Countdown = " .. tostring(_G.nCOUNTDOWNTIMER))
+	-- end
 
 	-- spawn rosh and blockers after wave finishes splitting (DOES NOT WORK)
 	-- if math.floor(curr_gametime)  == 30 then --Constants.TIME_ROUND_2_START then --+ 60 then
@@ -191,6 +191,14 @@ function CAvaloreGameMode:OnThink()
 	elseif curr_gametime == 0 and _G.first_loop then
 		self.GameStartInit()
 		_G.first_loop = false
+	end
+	--10 sec warning
+	if(curr_gametime > 0) then
+		local time_in_curr_round = curr_gametime - ((_G.round - 1) * 600)
+		print("Time in Curr Round = " .. tostring(time_in_curr_round))
+		--if (time_in_curr_round < 11) then
+			CountdownTimer(math.floor(time_in_curr_round))
+		--end
 	end
 
 	--TEMP ==> force debug: set hero to lvl 6
