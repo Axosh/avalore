@@ -1,12 +1,16 @@
 <root>
 	<styles>
-		<include src="file://{resources}/styles/dotastyles.css" />
+		<!--<include src="file://{resources}/styles/dotastyles.css" />-->
 		<include src="file://{resources}/styles/custom_game/avalore_notification.css" />
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/avalore_notification.js" />
 	</scripts>
 	<Panel hittest="false" class="AvaloreNotification">
+		<Panel hittest="false" id="AlertTimer" text="">
+			<Label hittest="false" id="AlertTimer_Text" class="TitleFont" text=""  html="true" />
+			<Label hittest="false" id="AlertTimer_Remaining" class="TitleFont" text="#Remaining" html="true" />
+		</Panel>
 		<Panel hittest="false" id="AlertMessage" text="">
 			<Label hittest="false" id="AlertMessage_Delivery" class="TitleFont" text="" html="true" />
 			<Label hittest="false" id="AlertMessage_Elaboration" text="" html="true" />

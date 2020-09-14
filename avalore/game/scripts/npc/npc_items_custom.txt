@@ -249,4 +249,59 @@
 
     } // end: "item_avalore_flag_e"
 
+	// *****************
+    // Summoning Gem
+    // *****************
+    "item_avalore_summoning_gem"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"						"item_lua"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        //"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		//"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+        "Model"                         "models/items/legion_commander/lc_immortal_head_ti7/lc_ti7_immortal_gem.vmdl"
+        //"PingOverrideText"				"Avalore_Chat_Flag_Pinged"
+        //"ScriptFile"                    "items/item_objective_flag.lua"
+        "AbilityTextureName"			"summoning_gem"
+
+        // Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+
+        // Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemPurchasable"				    "0"
+		//"ItemShopTags"					"consumable"
+		//"ItemQuality"					    "consumable"
+		"ItemStackable"					    "0"
+		"ItemShareability"				    "ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					    "0"
+		"ItemCastOnPickup"				    "0"
+        "ItemQuality"						"epic"
+		"ItemKillable"					    "0"
+        "ItemPurchasable"					"0"
+		"ItemSellable"						"0"
+        "AllowedInBackpack"				    "0"
+		"IsTempestDoubleClonable"		    "0"
+        "ItemDroppable" 				    "1"
+        "ItemDeclarations"					"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
+         "OnOwnerDied"
+		 {
+		 	"RunScript"
+		 	{
+		 		"ScriptFile"			"scripts/vscripts/items/itemfunctions_generic.lua"
+		 		"Function"			    "DropItemOnDeath"
+		 	}
+		 }
+
+		// Sound
+		//-------------------------------------------------------------------------------------------------------------			
+		"UIPickupSound"					"Item.PickUpGemShop"
+		"UIDropSound"					"Item.DropGemShop"
+		"WorldDropSound"				"Item.DropGemWorld"
+
+    } // end: "item_avalore_summoning_gem"
+
 }
