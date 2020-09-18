@@ -260,10 +260,11 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         //"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		//"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-        "Model"                         "models/items/legion_commander/lc_immortal_head_ti7/lc_ti7_immortal_gem.vmdl"
+        //"Model"                         "models/items/legion_commander/lc_immortal_head_ti7/lc_ti7_immortal_gem.vmdl"
+		"Model"                         "models/items/meepo/diggers_divining_rod/diggers_divining_rod_gem_saphire.vmdl"
         //"PingOverrideText"				"Avalore_Chat_Flag_Pinged"
         //"ScriptFile"                    "items/item_objective_flag.lua"
-        "AbilityTextureName"			"summoning_gem"
+        "AbilityTextureName"			"summoning_gem2"
 
         // Stats
 		//-------------------------------------------------------------------------------------------------------------
