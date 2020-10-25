@@ -195,10 +195,10 @@ function CAvaloreGameMode:OnThink()
 	--10 sec warning
 	if(curr_gametime > 0) then
 		local time_in_curr_round = curr_gametime - ((_G.round - 1) * 600)
-		print("Time in Curr Round = " .. tostring(time_in_curr_round))
-		--if (time_in_curr_round < 11) then
-			CountdownTimer(math.floor(time_in_curr_round))
-		--end
+		--print("Time in Curr Round = " .. tostring(time_in_curr_round))
+		if (time_in_curr_round < 11) then
+			--CountdownTimer(math.floor(time_in_curr_round))
+		end
 	end
 
 	--TEMP ==> force debug: set hero to lvl 6

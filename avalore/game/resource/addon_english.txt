@@ -17,11 +17,11 @@
  		//--------------------------------------------------------------------------------
 
 		// Davy Jones
-		"DOTA_Tooltip_ability_sandking_sand_storm"				"Deadly Fog"
-		"DOTA_Tooltip_ability_sandking_sand_storm_Description"	"Invisibility\nAoE Damage"
-		"DOTA_Tooltip_ability_sandking_sand_storm_Lore" 		"A thick and deadly localized fog masks Davy Jones from his enemies."
-		"DOTA_Tooltip_ability_sandking_sand_storm_radius"		"FOG RADIUS:"
-		"DOTA_Tooltip_ability_sandking_sand_storm_damage"		"DAMAGE:"
+		"DOTA_Tooltip_Ability_ability_deadly_fog"						"Deadly Fog"
+		"DOTA_Tooltip_Ability_ability_deadly_fog_Description"			"Invisibility\nAoE Damage"
+		"DOTA_Tooltip_Ability_ability_deadly_fog_Lore" 					"A thick and deadly localized fog masks Davy Jones from his enemies."
+		"DOTA_Tooltip_Ability_ability_deadly_fog_radius"				"FOG RADIUS:"
+		"DOTA_Tooltip_Ability_ability_deadly_fog_damage"				"DAMAGE:"
 
 		"DOTA_Tooltip_ability_kunkka_torrent"					"Whirlpool"
 		"DOTA_Tooltip_ability_kunkka_torrent_Description"

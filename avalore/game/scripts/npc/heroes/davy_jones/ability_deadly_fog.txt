@@ -1,0 +1,72 @@
+"DOTAAbilities"
+{
+    "ability_deadly_fog"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"						"ability_lua"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        //"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        //"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"				"1"
+        "AbilityTextureName"			"viper_viper_strike"
+        "MaxLevel"						"4"
+        "ScriptFile"				    "heroes/davy_jones/ability_deadly_fog.lua"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"				"525 560 595 630"		
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"				"36 18 10 6"
+        //"AbilityChannelTime"			"50"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"				"80 40 20 0"
+
+        // Precache
+        //-------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+           "soundfile"					"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
+           //"soundfile"					"soundevents/imba_soundevents.vsndevts"
+           "particle"					"particles/units/heroes/hero_visage/visage_grave_chill_fog.vpcf"
+        }
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "damage"				"40 80 110 130"
+                //"LinkedSpecialBonus"	"special_bonus_imba_sand_king_2"
+            }
+            "02"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "radius"				"500 550 600 650"
+            }
+            "03"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "invis_extend_time"		"1.0 1.15 1.3 1.45"
+            }
+            "04"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "damage_interval"		"0.5"
+            }
+            "05"
+            {
+                "var_type"				"FIELD_INTEGER"
+				"duration"				"20"
+            }
+        }
+    }
+}
