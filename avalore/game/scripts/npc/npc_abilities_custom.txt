@@ -1,4 +1,7 @@
 // Dota Heroes File
+
+#base "heroes/davy_jones/ability_deadly_fog.txt"
+
 "DOTAAbilities"
 {	
 	"building_unselectable"
@@ -48,123 +51,123 @@
 	// ========================
 	// DAVY_JONES: Deadly Fog
 	// ========================
-	"davy_jones_deadly_fog"
-	{
-		"precache"
-		{
-			//"particle"  "particles/units/heroes/hero_sandking/sandking_sandstorm_.vpcf"
-			"particle"  "particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf"
-			"particle"	"particles/hero/sand_king/sandking_sandstorm_aura.vpcf"
-			//"soundfile" "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
-		}
+	// "davy_jones_deadly_fog"
+	// {
+	// 	"precache"
+	// 	{
+	// 		//"particle"  "particles/units/heroes/hero_sandking/sandking_sandstorm_.vpcf"
+	// 		"particle"  "particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf"
+	// 		"particle"	"particles/hero/sand_king/sandking_sandstorm_aura.vpcf"
+	// 		//"soundfile" "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
+	// 	}
 
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"             		"ability_datadriven"
-		"AbilityTextureName"			"sandking_sand_storm"
-		"AbilityBehavior"        		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"//"DOTA_ABILITY_BEHAVIOR_AOE"
-		//"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"  		"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilitySound"					"Ability.SandKing_SandStorm.start"
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"BaseClass"             		"ability_datadriven"
+	// 	"AbilityTextureName"			"sandking_sand_storm"
+	// 	"AbilityBehavior"        		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"//"DOTA_ABILITY_BEHAVIOR_AOE"
+	// 	//"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	// 	"AbilityUnitDamageType"  		"DAMAGE_TYPE_MAGICAL"
+	// 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	// 	"AbilitySound"					"Ability.SandKing_SandStorm.start"
 
-		"RequiredLevel"					"0"
-		"MaxLevel" 						"4"
-		"LevelsBetweenUpgrades"			"3"
-		"FightRecapLevel"				"1"
+	// 	"RequiredLevel"					"0"
+	// 	"MaxLevel" 						"4"
+	// 	"LevelsBetweenUpgrades"			"3"
+	// 	"FightRecapLevel"				"1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityDuration"				"20 25 30 35"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+	// 	// Casting
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCastRange"				"0"
+	// 	"AbilityDuration"				"20 25 30 35"
+	// 	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 
-		//"OnSpellStart"
-		//{
-		//	"CreateThinker"
-		//	{
-		//		"ModifierName"	"deadly_fog_thinker"
-		//		"Target" 		"CASTER"
-		//	}"
-		//}"
+	// 	//"OnSpellStart"
+	// 	//{
+	// 	//	"CreateThinker"
+	// 	//	{
+	// 	//		"ModifierName"	"deadly_fog_thinker"
+	// 	//		"Target" 		"CASTER"
+	// 	//	}"
+	// 	//}"
 
-		//"Modifiers"
-		//{
-		//	"deadly_fog_thinker"
-		//	{
-		//		"OnCreated"
-		//		{
-		//			"AttachEffect"
-		//			{
-		//				"EffectName"        "particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf"
-		//				"EffectAttachType"  "follow_origin"
-		//				"Target"            "TARGET"
-		//			}
-		//		}
-		//	}
-		//}
+	// 	//"Modifiers"
+	// 	//{
+	// 	//	"deadly_fog_thinker"
+	// 	//	{
+	// 	//		"OnCreated"
+	// 	//		{
+	// 	//			"AttachEffect"
+	// 	//			{
+	// 	//				"EffectName"        "particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf"
+	// 	//				"EffectAttachType"  "follow_origin"
+	// 	//				"Target"            "TARGET"
+	// 	//			}
+	// 	//		}
+	// 	//	}
+	// 	//}
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40 34 28 22"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+	// 	// Time		
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"AbilityCooldown"				"40 34 28 22"
+	// 	"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60"
+	// 	// Cost
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"AbilityManaCost"				"60"
 
-		// Ability Actions
-		//-------------------------------------------------------------------------------------------------------------
-		//"OnSpellStart"
-		//{
-			//"FireEffect"
-			//{
-			//	"EffectName"		"particles/units/heroes/hero_sandking/sandking_sandstorm_start.vpcf"
-			//	"EffectAttachType"	"attach_origin"
-			//}
+	// 	// Ability Actions
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	//"OnSpellStart"
+	// 	//{
+	// 		//"FireEffect"
+	// 		//{
+	// 		//	"EffectName"		"particles/units/heroes/hero_sandking/sandking_sandstorm_start.vpcf"
+	// 		//	"EffectAttachType"	"attach_origin"
+	// 		//}
 
-			//"FireSound"
-			//{
-			//	"EffectName"	"hero_sandking.SandStorm"
-			//	"Target" 		"CASTER"
-			//}"
-		//}
+	// 		//"FireSound"
+	// 		//{
+	// 		//	"EffectName"	"hero_sandking.SandStorm"
+	// 		//	"Target" 		"CASTER"
+	// 		//}"
+	// 	//}
 		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_tick_rate"		"0.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"425 500 575 650"
-				//"sand_storm_radius"		"425 500 575 650"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"AbilityDuration"		"20 25 30 35"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"20 40 60 80"
-				//"sand_storm_damage"		"20 40 60 80"
-				"LinkedSpecialBonus"	"special_bonus_unique_davy_jones"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fade_delay"			"0.7"
-			}
-		} // end "AbilitySpecial"
+	// 	// Special
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"AbilitySpecial"
+	// 	{
+	// 		"01"
+	// 		{
+	// 			"var_type"				"FIELD_FLOAT"
+	// 			"damage_tick_rate"		"0.5"
+	// 		}
+	// 		"02"
+	// 		{
+	// 			"var_type"				"FIELD_INTEGER"
+	// 			"radius"				"425 500 575 650"
+	// 			//"sand_storm_radius"		"425 500 575 650"
+	// 		}
+	// 		"03"
+	// 		{
+	// 			"var_type"				"FIELD_FLOAT"
+	// 			"AbilityDuration"		"20 25 30 35"
+	// 		}
+	// 		"04"
+	// 		{
+	// 			"var_type"				"FIELD_INTEGER"
+	// 			"damage"				"20 40 60 80"
+	// 			//"sand_storm_damage"		"20 40 60 80"
+	// 			"LinkedSpecialBonus"	"special_bonus_unique_davy_jones"
+	// 		}
+	// 		"05"
+	// 		{
+	// 			"var_type"				"FIELD_FLOAT"
+	// 			"fade_delay"			"0.7"
+	// 		}
+	// 	} // end "AbilitySpecial"
 		
-	} //end: davy_jones_deadly_fog
+	// } //end: davy_jones_deadly_fog
 
 	//=================================================================================================================
 	// Ability: Special Bonus

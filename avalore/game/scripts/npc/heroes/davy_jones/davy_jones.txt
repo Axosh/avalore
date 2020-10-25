@@ -1,0 +1,83 @@
+"DOTAHeroes" 
+{
+    //=================================================================================================================
+    // HERO: Davy Jones
+    //=================================================================================================================
+    "npc_dota_hero_davy_jones"
+    {
+        "AbilityLayout"     "6"
+        "override_hero"     "npc_dota_hero_kunkka"
+        //"BaseClass"         "npc_dota_hero_kunkka"
+        //"BaseClass"         "npc_dota_creature"
+        "BaseClass"         "npc_dota_hero"
+        "Model"             "models/heroes/kunkka/kunkka.vmdl"
+        "SoundSet"          "0" 
+        "Ability1"        "ability_deadly_fog"
+        "Ability2"        "kunkka_torrent" 
+        "Ability3"        "nevermore_necromastery"
+        "Ability4"         ""
+        //"Ability4"		  "death_prophet_exorcism"
+        //"Ability4"        "davy_jones_lost_souls"
+        "Ability5"        ""
+        "Ability6"        "death_prophet_exorcism"
+        "Ability7"        ""
+        "Ability8"        ""
+        "Ability9"        ""
+        "Ability10"       ""
+        "Ability11"       ""
+        "Ability12"       ""
+        "Ability13"       ""
+        "Ability14"       ""
+        "Ability15"       ""
+        "Ability16"       ""
+
+        "ArmorPhysical"             "5"                 // Physical protection.
+        "MagicalResistance"         "0"                 // Magical protection (percentage).
+
+        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"           "50"                   // Damage range min.
+        "AttackDamageMax"           "50"                   // Damage range max.
+
+        //"AttributePrimary"        "DOTA_ATTRIBUTE_STRENGTH"
+        "AttributeBaseStrength"     "0"                   // Base strength
+        "AttributeStrengthGain"     "0"                   // Strength bonus per level.
+        "AttributeBaseIntelligence" "0"                   // Base intelligence
+        "AttributeIntelligenceGain" "0"                   // Intelligence bonus per level.
+        "AttributeBaseAgility"      "0"                   // Base agility
+        "AttributeAgilityGain"      "0"                   // Agility bonus per level.
+
+        //"BountyXP"          "0"                 // Experience earn.
+        //"BountyGoldMin"       "0"                   // Gold earned min.
+        //"BountyGoldMax"       "0"                   // Gold earned max.
+
+        //"BoundsHullName"      "DOTA_HULL_SIZE_HERO"
+        //"RingRadius"        "70"
+
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"             "360"                   // Speed.
+        "MovementTurnRate"          "1.0"                   // Turning rate.
+
+        "StatusHealth"              "1000"                  // Base health.
+        "StatusHealthRegen"         "0.0"                   // Health regeneration rate.
+        "StatusMana"                "400"                   // Base mana.
+        "StatusManaRegen"           "100.0"                 // Mana regeneration rate.
+
+        "VisionDaytimeRange"        "1800"                  // Range of vision at night time.
+        "VisionNighttimeRange"      "1800"                  // Range of vision at night time.
+
+        "Creature"
+        {
+            "AttachWearables"
+            {
+                "Wearable1" { "ItemDef" "6781" } // Medallion of the Divine Anchor
+                "Wearable2" { "ItemDef" "9340" } // Coat of Seaborne Reprisal
+                "Wearable3" { "ItemDef" "5469" } // Admiral's Salty Shawl
+                "Wearable4" { "ItemDef" "9344" } // Claw of Seaborne Reprisal
+                "Wearable5" { "ItemDef" "12291" } // Leviathan Whale Blade of Eminent Revival
+                "Wearable6" { "ItemDef" "14966" } // Waterlogged Kunkka Shoes
+                "Wearable7" { "ItemDef" "9343" } // Image of Seaborne Reprisal xx
+                "Wearable8" { "ItemDef" "9346" } // Folds of Seaborne Reprisal
+            }
+        }
+    }
+}
