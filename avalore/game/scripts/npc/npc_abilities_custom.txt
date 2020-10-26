@@ -1,6 +1,7 @@
 // Dota Heroes File
 
 #base "heroes/davy_jones/ability_deadly_fog.txt"
+#base "heroes/davy_jones/ability_whirlpool.txt"
 
 "DOTAAbilities"
 {	

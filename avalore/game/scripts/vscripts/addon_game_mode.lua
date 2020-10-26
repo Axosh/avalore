@@ -38,6 +38,7 @@ require( "spawners" )
 require ("constants")
 require("score")
 require("references")
+require('libraries/player')
 
 flag_announce_curr = 1
 

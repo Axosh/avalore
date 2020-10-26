@@ -17,6 +17,10 @@ REQ_SPAWNERS        = "spawners"
 REQ_UTIL            = "utility_functions"
 REQ_AI_SHARED       = "ai_shared"
 
+-- Abilites
+REQ_ABILITY_AOEDAMAGE = "scripts/vscripts/shared/abilities/aoe_damage"
+
+
 -- =========================================
 -- MODIFIERS
 -- =========================================

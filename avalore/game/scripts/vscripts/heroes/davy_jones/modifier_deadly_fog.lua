@@ -1,3 +1,6 @@
+require("references")
+require(REQ_ABILITY_AOEDAMAGE)
+
 modifier_deadly_fog = class({})
 
 function modifier_deadly_fog:DeclareFunctions()
@@ -68,29 +71,11 @@ end
 
 function modifier_deadly_fog:OnIntervalThink()
     if IsServer() then
-        -- find enemies to damage
-        local enemies = FindUnitsInRadius(self.caster:GetTeamNumber(),
-                                          self.caster:GetAbsOrigin(),
-                                          nil,
-                                          self.radius,
-                                          DOTA_UNIT_TARGET_TEAM_ENEMY,
-                                          DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-                                          DOTA_UNIT_TARGET_FLAG_NONE,
-                                          FIND_ANY_ORDER,
-                                          false)
-
-        -- loop through enemies to damage
-        for _,enemy in pairs(enemies) do
-            -- Deal damage
-            local damageTable = {   victim = enemy,
-                                    attacker = self.caster,
-                                    damage = self.damage,
-                                    damage_type = DAMAGE_TYPE_MAGICAL,
-                                    ability = self.ability
-                                }
-
-            ApplyDamage(damageTable)
-        end
+        AOEMagicDamage( self.caster,
+                        self.ability,
+                        self.caster:GetAbsOrigin(),
+                        self.radius,
+                        self.damage)
     end
 end
 
