@@ -13,7 +13,7 @@
         "Model"             "models/heroes/kunkka/kunkka.vmdl"
         "SoundSet"          "0" 
         "Ability1"        "ability_deadly_fog"
-        "Ability2"        "kunkka_torrent" 
+        "Ability2"        "ability_whirlpool" //"kunkka_torrent" 
         "Ability3"        "nevermore_necromastery"
         "Ability4"         ""
         //"Ability4"		  "death_prophet_exorcism"

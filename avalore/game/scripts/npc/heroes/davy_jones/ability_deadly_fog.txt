@@ -34,7 +34,7 @@
         {
            "soundfile"					"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
            //"soundfile"					"soundevents/imba_soundevents.vsndevts"
-           "particle"					"particles/units/heroes/hero_visage/visage_grave_chill_fog.vpcf"
+           "particle"					"particles/econ/items/necrolyte/necro_ti9_immortal/necro_ti9_immortal_shroud.vpcf"
         }
 
         // Special
