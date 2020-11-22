@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+    "ability_lost_souls"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					"ability_lua"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"		"lost_souls"
+		"ScriptFile"				"heroes/davy_jones/ability_lost_souls.lua"
+
+        // Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_nevermore/nevermore_necro_souls.vpcf"
+			"particle"				"particles/hero/nevermore/nevermore_soul_projectile.vpcf"
+			"particle"				"particles/units/heroes/hero_nevermore/nevermore_souls_hero_effect.vpcf"
+			"particle"				"particles/hero/nevermore/nevermore_necromastery_heal_1.vpcf"
+			"particle"				"particles/hero/nevermore/nevermore_necromastery_heal_2.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+			"soundfile"				"soundevents/voscripts/game_sounds_vo_nevermore.vsndevts"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"creep_kill_soul_count"			"1"
+			}
+
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"hero_kill_soul_count"			"6"
+			}
+
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_per_soul"				"1 2 3 4"
+			}
+
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"max_souls"						"18 24 30 36"
+			}
+
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"soul_projectile_speed"			"1500"
+			}
+
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"souls_lost_on_death_pct"		"50"
+			}
+		}
+    }
+}
