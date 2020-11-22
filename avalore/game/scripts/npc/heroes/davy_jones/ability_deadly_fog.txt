@@ -11,7 +11,7 @@
         "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
         "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
         "FightRecapLevel"				"1"
-        "AbilityTextureName"			"viper_viper_strike"
+        "AbilityTextureName"			"deadly_fog"
         "MaxLevel"						"4"
         "ScriptFile"				    "heroes/davy_jones/ability_deadly_fog.lua"
 

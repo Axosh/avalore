@@ -75,7 +75,7 @@ end
 modifier_ability_whirlpool_pull = modifier_ability_whirlpool_pull or class({})
 
 function modifier_ability_whirlpool_pull:IsDebuff()		                return true end
-function modifier_ability_whirlpool_pull:IsHidden() 		            return true end
+function modifier_ability_whirlpool_pull:IsHidden() 		            return false end
 function modifier_ability_whirlpool_pull:IsPurgable() 		            return false end
 function modifier_ability_whirlpool_pull:IsPurgeException()             return false end
 function modifier_ability_whirlpool_pull:RemoveOnDeath()	            return false end
@@ -93,6 +93,9 @@ end
 
 function modifier_ability_whirlpool_pull:OnIntervalThink()
     local ability = self:GetAbility()
+	if not ability:IsInAbilityPhase() then
+		self:Destroy()
+	end
 	if ability.thinker then
 		local distance = CalcDistanceBetweenEntityOBB(ability.thinker, self:GetParent())
 		if distance > self.pull_radius then
@@ -103,7 +106,7 @@ function modifier_ability_whirlpool_pull:OnIntervalThink()
 end
 
 function modifier_ability_whirlpool_pull:HorizontalMotion(unit, time)
-	self.pull_distance =  75 / (1.0 / FrameTime())
+	self.pull_distance =  400 / (1.0 / FrameTime())
 	local thinker = self:GetAbility().thinker
 	local pos = unit:GetAbsOrigin()
 	if thinker and not thinker:IsNull() then
