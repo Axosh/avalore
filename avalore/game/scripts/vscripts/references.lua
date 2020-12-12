@@ -20,6 +20,10 @@ REQ_AI_SHARED       = "ai_shared"
 -- Abilites
 REQ_ABILITY_AOEDAMAGE = "scripts/vscripts/shared/abilities/aoe_damage"
 
+-- Libraries
+REQ_LIB_TIMERS = "scripts/vscripts/libraries/timers"
+REQ_LIB_PHYSICS = "scripts/vscripts/libraries/physics"
+
 
 -- =========================================
 -- MODIFIERS

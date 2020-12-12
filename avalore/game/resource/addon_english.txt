@@ -16,18 +16,46 @@
 		// ABILITIES
  		//--------------------------------------------------------------------------------
 
-		// Davy Jones
+		// ===== Davy Jones =====
+		// Deadly Fog - Ability + Modifiers
 		"DOTA_Tooltip_Ability_ability_deadly_fog"						"Deadly Fog"
 		"DOTA_Tooltip_Ability_ability_deadly_fog_Description"			"Invisibility\nAoE Damage"
 		"DOTA_Tooltip_Ability_ability_deadly_fog_Lore" 					"A thick and deadly localized fog masks Davy Jones from his enemies."
 		"DOTA_Tooltip_Ability_ability_deadly_fog_radius"				"FOG RADIUS:"
 		"DOTA_Tooltip_Ability_ability_deadly_fog_damage"				"DAMAGE:"
 
-		"DOTA_Tooltip_ability_kunkka_torrent"					"Whirlpool"
-		"DOTA_Tooltip_ability_kunkka_torrent_Description"
-		"DOTA_Tooltip_ability_kunkka_torrent_Lore"
-		"DOTA_Tooltip_ability_kunkka_torrent_radius"
-		"DOTA_Tooltip_ability_kunkka_torrent_damage"
+		"DOTA_Tooltip_modifier_deadly_fog_invis"						"Deadly Fog Invisibility"
+		"DOTA_Tooltip_modifier_deadly_fog_invis_Description"			"Invisible after a 3 second delay (reset by attacking)"
+
+		"DOTA_Tooltip_modifier_deadly_fog"								"Deadly Fog Damage"
+		"DOTA_Tooltip_modifier_deadly_fog_Description"					"Dealing damage in an AOE"
+
+		// Whirlpool - Ability + Modifiers
+		"DOTA_Tooltip_Ability_ability_whirlpool"						"Whirlpool"
+		"DOTA_Tooltip_Ability_ability_whirlpool_Description"			"Creates a whirlpool that sucks enemies towards the center with increasing pull"
+		"DOTA_Tooltip_Ability_ability_whirlpool_Lore"					"lore"
+		"DOTA_Tooltip_Ability_ability_whirlpool_radius"					"radius"
+		"DOTA_Tooltip_Ability_ability_whirlpool_damage"					"damage"
+
+		"DOTA_Tooltip_modifier_ability_whirlpool_pull"					"Whirlpool"
+		"DOTA_Tooltip_modifier_ability_whirlpool_pull_Description"		"Being sucked into a whirlpool!"
+
+		// Lost Souls - Ability + Modifiers
+		"DOTA_Tooltip_Ability_ability_lost_souls"						"Lost Souls"
+		"DOTA_Tooltip_Ability_ability_lost_souls_Description"			"For every kill, gains one soul for his ghost crew granting additional damage and affecting his ultimate"
+		"DOTA_Tooltip_Ability_ability_lost_souls_Lore"					"lore"
+		"DOTA_Tooltip_Ability_ability_lost_souls_radius"				"radius"
+		"DOTA_Tooltip_Ability_ability_lost_souls_damage"				"damage"
+
+		"DOTA_Tooltip_modifier_lost_souls"								"Lost Souls"
+		"DOTA_Tooltip_modifier_lost_souls_Description"					"Gaining damage per stack and unleashing the same number of ghosts when the Flying Dutchman is summoned"
+
+		// Flying Dutchman - Ability
+		"DOTA_Tooltip_Ability_ability_flying_dutchman"					"Flying Dutchman"
+		"DOTA_Tooltip_Ability_ability_flying_dutchman_Description"		"Summons his ghostly vessel, the Flying Dutchman. For every stack of Lost Souls, a ghostly crewman will appear and fight"
+		"DOTA_Tooltip_Ability_ability_flying_dutchman_Lore"				"lore"
+		"DOTA_Tooltip_Ability_ability_flying_dutchman_radius"			"radius"
+		"DOTA_Tooltip_Ability_ability_flying_dutchman_damage"			"damage"
 
 		//--------------------------------------------------------------------------------
 		// Objectives
