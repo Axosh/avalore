@@ -397,3 +397,4 @@ function CAvaloreGameMode:InitRound4()
 	Score.round4.boss_handle:AddNewModifier(nil, nil, "modifier_invuln_tower_based", {})
 
 end
+

@@ -1,0 +1,71 @@
+"DOTAUnits" //or DOTAHeroes
+{
+  //=================================================================================================================
+  // HERO: Sohei
+  //=================================================================================================================
+  "npc_dota_hero_robin_hood"
+  {
+    //"BaseClass"                 "npc_dota_hero_windrunner"
+    "override_hero"             "npc_dota_hero_windrunner"
+    "Model"                     "models/heroes/windrunner/windrunner.vmdl"
+    //"SoundSet"                  ""
+    //"GameSoundsFile"            ""
+    //"particle_folder"           ""
+
+    "BotImplemented"            "0"
+
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementTurnRate"          "1.5"
+    "MovementSpeed"             "320"
+
+    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"           "31"
+    "AttackDamageMax"           "33"
+    "AttackRange"               "600"
+    "AttackRate"                "1.7"
+    "BaseAttackSpeed"           "100"
+    "AttackAnimationPoint"      "0.33"
+    "ArmorPhysical"             "5"
+    "MagicalResistance"         "25"
+
+    "StatusHealthRegen"         "3.25"
+    "StatusHealth"              "200"
+    "StatusManaRegen"           "0.0"
+    "StatusMana"                "75"
+
+    "AttributePrimary"          "DOTA_ATTRIBUTE_AGILITY"
+    "AttributeBaseStrength"     "23"
+    "AttributeStrengthGain"     "4.5"
+    "AttributeBaseAgility"      "18"
+    "AttributeAgilityGain"      "1.5"
+    "AttributeBaseIntelligence" "15"
+    "AttributeIntelligenceGain" "1.5"
+
+    "Ability1"                  "ability_jack_of_all_trades"//"ability_rich_poor"
+    "Ability2"                  ""//"ability_swashbuckle"
+    "Ability3"                  ""//"ability_trick_shot"
+    "Ability4"                  ""//"ability_grapple"
+    "Ability5"                  ""
+    "Ability6"                  ""
+
+    "Ability10"                 ""                    
+    "Ability11"                 ""   
+
+    "Ability12"                 ""
+    "Ability13"                 ""    
+
+    "Ability14"                 ""
+    "Ability15"                 ""
+
+    "Ability16"                 ""        
+    "Ability17"                 ""        
+
+    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+    "HasInventory"              "1"
+
+    "VisionDaytimeRange"        "1800"                            // Range of vision during day light.
+    "VisionNighttimeRange"      "1200"                            // Range of vision at night time.
+  }
+}

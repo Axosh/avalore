@@ -1,0 +1,38 @@
+"DOTAAbilities"
+{
+    "ability_jack_of_all_trades"
+    {
+        "BaseClass"						"ability_lua"
+        "ScriptFile"					"heroes/robin_hood/ability_jack_of_all_trades.lua"
+        "AbilityTextureName"			"jack_of_all_trades"
+        "FightRecapLevel"				"1"
+        "MaxLevel"						"4"
+        "AbilitySound"					"Hero_TrollWarlord.BerserkersRage.Toggle"
+
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+        // Ability Casting
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCastPoint"				"0.2"
+
+        // Special
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+            "01"
+            {
+                "var_type"				    "FIELD_INTEGER"
+			    "melee_bonus_move_speed"	"15 20 25 30"
+            }
+            "02"
+            {
+                "var_type"				    "FIELD_INTEGER"
+			    "ranged_bonus_range"		"50 100 150 200"
+            }
+        }
+    }
+}

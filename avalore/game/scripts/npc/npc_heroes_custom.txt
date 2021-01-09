@@ -3,6 +3,7 @@
 // the specified key-value combinations.  Use override_hero <hero_to_override> for this.
 
 #base "heroes/davy_jones/davy_jones.txt"
+#base "heroes/robin_hood/robin_hood.txt"
 
 "DOTAHeroes"
 {
