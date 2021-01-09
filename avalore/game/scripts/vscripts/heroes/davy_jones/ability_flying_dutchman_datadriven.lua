@@ -15,7 +15,41 @@ function ExorcismStart( event )
 	local duration = ability:GetLevelSpecialValueFor( "duration", ability:GetLevel() - 1 )
 	local spirits = ability:GetLevelSpecialValueFor( "spirits", ability:GetLevel() - 1 )
 	local delay_between_spirits = ability:GetLevelSpecialValueFor( "delay_between_spirits", ability:GetLevel() - 1 )
-	local unit_name = "lost_souls_ghost"--"models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_frost.vmdl"--"npc_dummy_unit"
+    local unit_name = "lost_souls_ghost"--"models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_frost.vmdl"--"npc_dummy_unit"
+
+    --caster:AddNewModifier(caster, self, modifier_deadly_fog,        {duration = self:GetSpecialValueFor("duration")})
+    
+    --local ent_ship = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/props_structures/ship_broken001.vmdl"})
+    --local ent_ship = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/kunkka/ghostship_sim.vmdl", DefaultAnim = "ghostship_sim_start_anim"})
+    local ent_ship = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/kunkka/ghostship_sim.vmdl"})
+    --local ent_ship = CreateUnitByName("npc_dummy_unit", Vector(0, 0, 0), false, nil, nil, caster:GetTeam())
+    --ent_ship:SetModel("models/props_structures/ship_broken001.vmdl")
+    --ent_ship:SetOriginalModel("models/props_structures/ship_broken001.vmdl")
+    --ent_ship:SetLocalOrigin(Vector(0,100,0))
+    ent_ship:FollowEntity(caster, false)
+    print("Local Origin = " .. tostring(ent_ship:GetLocalOrigin()))
+    ent_ship:SetAbsScale(2.0)
+    caster.ent_ship = ent_ship
+
+    if caster.ship_particle == nil then
+        --caster.ship_particle = ParticleManager:CreateParticle("particles/econ/items/kunkka/kunkka_immortal/kunkka_immortal_ghost_ship_ripple.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+        caster.ship_particle = ParticleManager:CreateParticle("particles/econ/items/kunkka/kunkka_immortal/kunkka_immortal_ghost_ship_front.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+        ParticleManager:SetParticleControl(caster.ship_particle, 0, Vector(0, 0, 0))
+        ParticleManager:SetParticleControlEnt(caster.ship_particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
+	    ParticleManager:SetParticleControlEnt(caster.ship_particle, 2, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
+        ParticleManager:SetParticleControlEnt(caster.ship_particle, 3, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
+    end
+
+    -- if caster.ship_particle == nil then
+    --     print("Trying to create ship particles")
+    --     caster.ship_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_kunkka/kunkka_ghost_ship_model.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    --     print("Attached at index: " .. tostring(caster.ship_particle))
+    --     --ParticleManager:SetParticleControl(caster.ship_particle, 0, Vector(0, 0, 0))
+    --     ParticleManager:SetParticleControlEnt(caster.ship_particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
+	--     ParticleManager:SetParticleControlEnt(caster.ship_particle, 2, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
+	--     ParticleManager:SetParticleControlEnt(caster.ship_particle, 3, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
+    --     ParticleManager:SetParticleAlwaysSimulate(caster.ship_particle)
+    -- end
 
 	-- Initialize the table to keep track of all spirits
 	ability.spirits = {}
@@ -348,7 +382,17 @@ end
 function ExorcismEnd( event )
 	local caster = event.caster
 	local ability = event.ability
-	local targets = ability.spirits
+    local targets = ability.spirits
+    
+    if caster.ent_ship ~= nil then
+        caster.ent_ship:RemoveSelf()
+        caster.ent_ship = nil
+    end
+    if caster.ship_particle ~= nil then
+		ParticleManager:DestroyParticle(caster.ship_particle, false)
+		ParticleManager:ReleaseParticleIndex(caster.ship_particle)
+		caster.ship_particle = nil
+    end
 
 	print("Exorcism End")
 	caster:StopSound("Hero_DeathProphet.Exorcism")
@@ -375,7 +419,17 @@ end
 function ExorcismDeath( event )
 	local caster = event.caster
 	local ability = event.ability
-	local targets = ability.spirits or {}
+    local targets = ability.spirits or {}
+    
+    if caster.ent_ship ~= nil then
+        caster.ent_ship:RemoveSelf()
+        caster.ent_ship = nil
+    end
+    if caster.ship_particle ~= nil then
+		ParticleManager:DestroyParticle(caster.ship_particle, false)
+		ParticleManager:ReleaseParticleIndex(caster.ship_particle)
+		caster.ship_particle = nil
+    end
 
 	print("Exorcism Death")
 	caster:StopSound("Hero_DeathProphet.Exorcism")

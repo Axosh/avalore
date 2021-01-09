@@ -26,7 +26,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"				"0.5"
         "AbilityCooldown"               "145"
-        //"AbilityDuration"				"10"
+        "AbilityDuration"				"30"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
         {
            "soundfile"					"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
            //"soundfile"					"soundevents/imba_soundevents.vsndevts"
-           "particle"					"particles/econ/items/necrolyte/necro_ti9_immortal/necro_ti9_immortal_shroud.vpcf"
+           //"particle"					"particles/econ/items/necrolyte/necro_ti9_immortal/necro_ti9_immortal_shroud.vpcf"
         }
 
         // Special
@@ -126,7 +126,8 @@
 			{
 				"ModifierName"	"modifier_exorcism"
 				"Target" 		"CASTER"
-				"Duration"		"%AbilityDuration"
+                "Duration"		"%duration"
+				//"Duration"		"%AbilityDuration"
 			}
 	
 			"FireSound"
@@ -211,19 +212,19 @@
 						}
 					}
 	
-					"AttachEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_death_prophet/death_prophet_spirit_model.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-						"ControlPointEntities"
-						{
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-						}
-					}
+					// "AttachEffect"
+					// {
+					// 	"EffectName"        "particles/units/heroes/hero_death_prophet/death_prophet_spirit_model.vpcf"
+					// 	"EffectAttachType"  "follow_origin"
+					// 	"Target"            "TARGET"
+					// 	"ControlPointEntities"
+					// 	{
+					// 		"TARGET"	"attach_origin"
+					// 		"TARGET"	"attach_origin"
+					// 		"TARGET"	"attach_origin"
+					// 		"TARGET"	"attach_origin"
+					// 	}
+					// }
 				}
 		
 				"States"

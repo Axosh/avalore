@@ -5,6 +5,7 @@ require("constants")
 require("references")
 require("score")
 require("utility_functions")
+require(REQ_LIB_COSMETICS)
 
 LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA_MODIFIER_MOTION_NONE )
 
@@ -384,6 +385,7 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 			hPlayerHero.bFirstSpawnComplete = true
 			Score:InsertPlayerStatsRecord(hPlayerHero:GetPlayerOwnerID())
 		end
+		CAvaloreGameMode:InitCosmetics(hPlayerHero)
 	end
 end
 
@@ -468,3 +470,86 @@ end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 -- 	PrintTable(event)
 -- 	local item = EntIndexToHScript( event.item_ent_index )
 -- end
+
+
+-- hero = EntIndexToHScript( event.heroindex )
+function CAvaloreGameMode:InitCosmetics(unit)
+	local hero = PlayerResource:GetSelectedHeroEntity(0)
+	--local hero = PlayerResource:GetPlayer( hPlayerHero:GetPlayerOwnerID() ):GetAssignedHero()
+	CAvaloreGameMode:RemoveAll(hero)
+	CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_HEAD )
+	CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_BODY_HEAD )
+	--if()
+	--CAvaloreGameMode:InitDavyJones(hero)
+	CAvaloreGameMode:InitRobinHood(hero)
+end
+
+function CAvaloreGameMode:RemoveAll( unit )
+	if unit and CosmeticLib:_Identify( unit ) then
+		-- Start force replacing
+		for slot_name, handle_table in pairs( unit._cosmeticlib_wearables_slots ) do
+			CosmeticLib:_Replace( handle_table, "-1" )
+		end
+		return
+	end
+	
+	print( "[CosmeticLib:Remove] Error: Invalid input." )
+end
+
+function CAvaloreGameMode:InitDavyJones(unit)
+	--Medallion of the Divine Anchor
+	local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/medallion_of_the_divine_anchor/medallion_of_the_divine_anchor.vmdl"})
+	SomeModel:FollowEntity(unit, true)
+	-- Coat of Seaborne Reprisal
+	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/vengeful_ghost_captain_shoulder/vengeful_ghost_captain_shoulder.vmdl"})
+	SomeModel:FollowEntity(unit, true)
+	--Admiral's Salty Shawl
+	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/arm_lev_admiral_shawl/arm_lev_admiral_shawl.vmdl"})
+	SomeModel:FollowEntity(unit, true)
+	--Leviathan Whale Blade of Eminent Revival
+	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/whaleblade/ti8_kunkka_whaleblade.vmdl"})
+	SomeModel:FollowEntity(unit, true)
+	--Waterlogged Kunkka Shoes
+	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/kunkka_shoes/kunkka_shoes.vmdl"})
+	SomeModel:FollowEntity(unit, true)
+	--Image of Seaborne Reprisal xx
+	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/vengeful_ghost_captain_head/vengeful_ghost_captain_head.vmdl"})
+	SomeModel:FollowEntity(unit, true)
+	--Folds of Seaborne Reprisal
+	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/vengeful_ghost_captain_back/vengeful_ghost_captain_back.vmdl"})
+	SomeModel:FollowEntity(unit, true)
+	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/vengeful_ghost_captain_gloves/vengeful_ghost_captain_gloves.vmdl"})
+	SomeModel:FollowEntity(unit, true)
+
+	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_MISC, 6781 ) --Medallion of the Divine Anchor
+	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_SHOULDER, 9340 ) --Coat of Seaborne Reprisal
+	-- --CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_BACK, 5469 ) --Admiral's Salty Shawl
+	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_GLOVES, 9344 ) --Claw of Seaborne Reprisal
+	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_WEAPON, 12291 ) --Leviathan Whale Blade of Eminent Revival
+	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_LEGS, 14966 ) --Waterlogged Kunkka Shoes
+	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_BODY_HEAD, 9343 ) --Image of Seaborne Reprisal xx
+	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_BACK, 9346 ) --Folds of Seaborne Reprisal
+end
+
+function CAvaloreGameMode:InitRobinHood(unit)
+	-- Sparrowhawk Cape (DOTA_LOADOUT_TYPE_BACK)
+	local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/sparrowhawk_cape/sparrowhawk_cape.vmdl"})
+	SomeModel:FollowEntity(unit, true)
+
+	-- Longbow of the Roving Pathfinder (DOTA_LOADOUT_TYPE_WEAPON)
+	local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"})
+	SomeModel:FollowEntity(unit, true)
+	unit.weapon_model = SomeModel
+
+	-- Quiver of the Northern Wind
+	local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/quiver_of_the_northern_wind/quiver_of_the_northern_wind.vmdl"})
+	SomeModel:FollowEntity(unit, true)
+
+	-- Tricorn of the Roving Pathfinder
+	local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_hat_v2/the_swift_pathfinder_swift_pathfinders_hat_v2.vmdl"})
+	SomeModel:FollowEntity(unit, true)
+
+	-- Mantle of the Roving Pathfinder
+	local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_coat/the_swift_pathfinder_swift_pathfinders_coat.vmdl"})
+	SomeModel:FollowEntity(unit, true)
+end

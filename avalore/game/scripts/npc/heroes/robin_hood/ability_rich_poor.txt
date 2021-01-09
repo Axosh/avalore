@@ -1,0 +1,43 @@
+"DOTAAbilities"
+{
+    "ability_rich_poor"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					"ability_lua"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"		"rich_poor"
+        "ScriptFile"				"heroes/robin_hood/ability_rich_poor.lua"
+
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+        "MaxLevel"						"4"
+        
+        // Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+		    "soundfile"   "soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+		    "particle"	"particles/units/heroes/hero_bounty_hunter/bounty_hunter_jinda_slow.vpcf"
+		    "particle"	"particles/units/heroes/hero_bounty_hunter/status_effect_bounty_hunter_jinda_slow.vpcf"
+        }
+        
+         // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"				"20 15 10 5"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "gold_steal"            "10 20 30 40"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "escape_time"           "1.5 2.0 2.5 3.0"
+            }
+        }
+    }
+}

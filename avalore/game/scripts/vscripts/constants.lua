@@ -2,6 +2,8 @@ if Constants == nil then
     Constants = {}
 end
 
+MELEE_ATTACK_RANGE = 150
+
 --[[ 
     Definitions for a bunch of keys used throughout so the values
     can be controlled from one central location and updated (or 

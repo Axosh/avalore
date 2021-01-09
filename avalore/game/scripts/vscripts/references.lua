@@ -23,6 +23,7 @@ REQ_ABILITY_AOEDAMAGE = "scripts/vscripts/shared/abilities/aoe_damage"
 -- Libraries
 REQ_LIB_TIMERS = "scripts/vscripts/libraries/timers"
 REQ_LIB_PHYSICS = "scripts/vscripts/libraries/physics"
+REQ_LIB_COSMETICS = "scripts/vscripts/libraries/cosmetics"
 
 
 -- =========================================
