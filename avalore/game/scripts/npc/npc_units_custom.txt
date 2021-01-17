@@ -477,4 +477,10 @@
 		//----------------------------------------------------------------
 		"AttackDesire" "1.5" // How much bots want to attack them vs other non-hero things
 	}
+
+	"wearable_dummy"
+	{
+		"BaseClass"					"npc_dota_base_additive"
+	}
+
 }

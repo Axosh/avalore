@@ -14,9 +14,9 @@ end
 
 function modifier_deadly_fog_invis:GetModifierInvisibilityLevel()
     if self:GetStackCount() == 0 then
-        return 1
+        return 1 -- invis
     else
-        return 0
+        return 0 -- visible
     end
 end
 

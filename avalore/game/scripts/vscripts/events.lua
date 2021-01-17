@@ -6,7 +6,9 @@ require("references")
 require("score")
 require("utility_functions")
 require(REQ_LIB_COSMETICS)
+--require("scripts/vscripts/modifiers/modifier_wearable")
 
+LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA_MODIFIER_MOTION_NONE )
 
 --initialized with ListenToGameEvent("entity_killed", Dynamic_Wrap(CustomGameMode, "OnEntityKilled"), self)
@@ -474,14 +476,18 @@ end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 
 -- hero = EntIndexToHScript( event.heroindex )
 function CAvaloreGameMode:InitCosmetics(unit)
-	local hero = PlayerResource:GetSelectedHeroEntity(0)
+	local playernum = 0
+	local hero = PlayerResource:GetSelectedHeroEntity(playernum)
 	--local hero = PlayerResource:GetPlayer( hPlayerHero:GetPlayerOwnerID() ):GetAssignedHero()
 	CAvaloreGameMode:RemoveAll(hero)
 	CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_HEAD )
 	CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_BODY_HEAD )
 	--if()
 	--CAvaloreGameMode:InitDavyJones(hero)
-	CAvaloreGameMode:InitRobinHood(hero)
+	if CAvaloreGameMode.player_cosmetics == nil then
+		CAvaloreGameMode.player_cosmetics = {}
+	end
+	CAvaloreGameMode:InitRobinHood(hero,playernum)
 end
 
 function CAvaloreGameMode:RemoveAll( unit )
@@ -531,25 +537,69 @@ function CAvaloreGameMode:InitDavyJones(unit)
 	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_BACK, 9346 ) --Folds of Seaborne Reprisal
 end
 
-function CAvaloreGameMode:InitRobinHood(unit)
+function CAvaloreGameMode:InitRobinHood(unit_temp, playernum)
+	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	local robin_hood_cosmetics = {}
+	robin_hood_cosmetics[0] = "models/items/windrunner/sparrowhawk_cape/sparrowhawk_cape.vmdl"
+	robin_hood_cosmetics[1] = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"
+	robin_hood_cosmetics[2] = "models/items/windrunner/quiver_of_the_northern_wind/quiver_of_the_northern_wind.vmdl"
+	robin_hood_cosmetics[3] = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_hat_v2/the_swift_pathfinder_swift_pathfinders_hat_v2.vmdl"
+	robin_hood_cosmetics[4] = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_coat/the_swift_pathfinder_swift_pathfinders_coat.vmdl"
+	
+	for k,wearable in pairs(robin_hood_cosmetics) do
+		print("Creating Cosmetic " .. wearable)
+		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+		cosmetic:SetOwner(unit)
+		cosmetic:FollowEntity(unit, true)
+		if wearable == "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl" then
+			unit_temp.weapon_model = cosmetic
+			print("Set Initial weapon_model")
+		end
+	end
+end
+
+function CAvaloreGameMode:InitRobinHood_old(unit, playernum)
+	CAvaloreGameMode.player_cosmetics[playernum] = {}
+	local hero = PlayerResource:GetPlayer(playernum):GetAssignedHero()
 	-- Sparrowhawk Cape (DOTA_LOADOUT_TYPE_BACK)
 	local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/sparrowhawk_cape/sparrowhawk_cape.vmdl"})
 	SomeModel:FollowEntity(unit, true)
+	SomeModel:AddNewModifier(nil, nil, "modifier_wearable", {})
+	CAvaloreGameMode.player_cosmetics[playernum][DOTA_LOADOUT_TYPE_BACK] = SomeModel
 
 	-- Longbow of the Roving Pathfinder (DOTA_LOADOUT_TYPE_WEAPON)
 	local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"})
 	SomeModel:FollowEntity(unit, true)
 	unit.weapon_model = SomeModel
+	--table.insert(unit.cosmetics, SomeModel)
 
 	-- Quiver of the Northern Wind
 	local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/quiver_of_the_northern_wind/quiver_of_the_northern_wind.vmdl"})
 	SomeModel:FollowEntity(unit, true)
+	CAvaloreGameMode.player_cosmetics[playernum][DOTA_LOADOUT_TYPE_SHOULDER] = SomeModel
 
 	-- Tricorn of the Roving Pathfinder
 	local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_hat_v2/the_swift_pathfinder_swift_pathfinders_hat_v2.vmdl"})
 	SomeModel:FollowEntity(unit, true)
+	CAvaloreGameMode.player_cosmetics[playernum][DOTA_LOADOUT_TYPE_HEAD] = SomeModel
 
 	-- Mantle of the Roving Pathfinder
 	local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_coat/the_swift_pathfinder_swift_pathfinders_coat.vmdl"})
 	SomeModel:FollowEntity(unit, true)
+	CAvaloreGameMode.player_cosmetics[playernum][DOTA_LOADOUT_TYPE_ARMOR] = SomeModel
+
+
+	-- print("Print player_cosmetics")
+	-- for key,value in pairs(CAvaloreGameMode.player_cosmetics) do
+	-- 	print(tostring(key))
+	-- end
+
+	-- print("Print player_cosmetics[playernum]")
+	-- for key,value in pairs(CAvaloreGameMode.player_cosmetics[playernum]) do
+	-- 	print(tostring(key))
+	-- end
 end

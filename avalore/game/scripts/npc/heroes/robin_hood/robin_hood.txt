@@ -41,8 +41,8 @@
     "AttributeBaseIntelligence" "15"
     "AttributeIntelligenceGain" "1.5"
 
-    "Ability1"                  "ability_jack_of_all_trades"//"ability_rich_poor"
-    "Ability2"                  ""//"ability_swashbuckle"
+    "Ability1"                  "ability_jack_of_all_trades"
+    "Ability2"                  "ability_rich_poor"//""//"ability_swashbuckle"
     "Ability3"                  ""//"ability_trick_shot"
     "Ability4"                  ""//"ability_grapple"
     "Ability5"                  ""

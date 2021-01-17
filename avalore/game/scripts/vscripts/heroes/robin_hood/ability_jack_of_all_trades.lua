@@ -4,10 +4,12 @@ if IsServer() then
     require(REQ_LIB_COSMETICS)
 end
 
+
 ability_jack_of_all_trades = ability_jack_of_all_trades or class({})
 
 LinkLuaModifier("modifier_jack_of_all_trades_ranged", "heroes/robin_hood/ability_jack_of_all_trades.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jack_of_all_trades_melee",  "heroes/robin_hood/ability_jack_of_all_trades.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
 
 function ability_jack_of_all_trades:ProcsMagicStick()
     return false
@@ -102,10 +104,19 @@ function modifier_jack_of_all_trades_ranged:OnCreated(kv)
         --CosmeticLib:RemoveFromSlot(self:GetParent(), DOTA_LOADOUT_TYPE_WEAPON)
         self:GetParent().weapon_model:RemoveSelf()
         self:GetParent().weapon_model = nil
+        local unit = self:GetParent()
         -- Longbow of the Roving Pathfinder (DOTA_LOADOUT_TYPE_WEAPON)
-        local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"})
-        SomeModel:FollowEntity(self:GetParent(), true)
-        self:GetParent().weapon_model = SomeModel
+        --local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"})
+        --SomeModel:FollowEntity(self:GetParent(), true)
+        local wearable = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"
+        local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+        cosmetic:FollowEntity(unit, true)
+        cosmetic:SetOwner(unit)
+        self:GetParent().weapon_model = cosmetic
     end
 end
 
@@ -163,8 +174,8 @@ function modifier_jack_of_all_trades_melee:OnCreated(kv)
         -- No-Guard the Courageous Edge (DOTA_LOADOUT_TYPE_WEAPON) -- Juggernaut Weapon
         --local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/juggernaut/brave_sword.vmdl"})
 
-        local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl"})
-        SomeModel:SetLocalScale(0.75)
+        --local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl"})
+        --SomeModel:SetLocalScale(0.75)
 
         -- print ("========[BEFORE]=========")
         -- print("Forward Vector = " .. DebugVector(SomeModel:GetForwardVector()))
@@ -176,12 +187,22 @@ function modifier_jack_of_all_trades_melee:OnCreated(kv)
         -- print("Forward Vector = " .. DebugVector(SomeModel:GetForwardVector()))
         -- print("Local Origin = " .. DebugVector(SomeModel:GetLocalOrigin()))
         -- print ("=========================")
-        SomeModel:FollowEntity(self:GetParent(), true)
+        --SomeModel:FollowEntity(self:GetParent(), true)
         -- print ("========[FOLLOW]=========")
         -- print("Forward Vector = " .. DebugVector(SomeModel:GetForwardVector()))
         -- print("Local Origin = " .. DebugVector(SomeModel:GetLocalOrigin()))
         -- print ("=========================")
-        self:GetParent().weapon_model = SomeModel
+        local unit = self:GetParent()
+        local wearable = "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl"
+        local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+        cosmetic:FollowEntity(unit, true)
+        cosmetic:SetOwner(unit)
+        self:GetParent().weapon_model = cosmetic
+        --self:GetParent().weapon_model = SomeModel
     end
 end
 
@@ -203,8 +224,8 @@ function modifier_jack_of_all_trades_melee:OnAttackLanded(kv)
             ParticleManager:SetParticleControl( effect_cast, 1, caster:GetOrigin() )
             ParticleManager:SetParticleControlForward( effect_cast, 1, -caster:GetForwardVector() )
             ParticleManager:ReleaseParticleIndex( effect_cast )
-            --EmitSoundOn( "Hero_Juggernaut.Attack", self:GetParent() )
-            EmitSoundOn( "sounds/weapons/hero/shared/impacts/heavy_sword_impact4.vsnd", self:GetParent() )
+            EmitSoundOn( "Hero_Juggernaut.Attack", self:GetParent() )
+            --EmitSoundOn( "sounds/weapons/hero/shared/impacts/heavy_sword_impact4.vsnd", self:GetParent() )
         end
     end
 end
