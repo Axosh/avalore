@@ -60,6 +60,7 @@ function Precache( context )
 	LinkLuaModifier( "modifier_unselectable", MODIFIER_UNSELECTABLE, LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_capturable", MODIFIER_CAPTURABLE, LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_invuln_tower_based", MODIFIER_INVULN_TOWER_BASED, LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
 end
 
 -- Create the game mode when we activate

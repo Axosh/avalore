@@ -5,12 +5,12 @@
         // General
 		//-------------------------------------------------------------------------------------------------------------
         "BaseClass"					"ability_lua"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"		"rich_poor"
+        "AbilityType"				"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		//"AbilityTextureName"		"rich_poor"
         "ScriptFile"				"heroes/robin_hood/ability_rich_poor.lua"
 
-        "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+        "FightRecapLevel"				"1"
         "MaxLevel"						"4"
         
         // Precache
@@ -21,10 +21,16 @@
 		    "particle"	"particles/units/heroes/hero_bounty_hunter/bounty_hunter_jinda_slow.vpcf"
 		    "particle"	"particles/units/heroes/hero_bounty_hunter/status_effect_bounty_hunter_jinda_slow.vpcf"
         }
+
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
         
          // Time
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"				"20 15 10 5"
+        //"AbilityCooldown"				"20 15 10 5"
 
         "AbilitySpecial"
         {
@@ -37,6 +43,11 @@
             {
                 "var_type"              "FIELD_FLOAT"
                 "escape_time"           "1.5 2.0 2.5 3.0"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "virtual_cooldown"      "20 15 10 5"
             }
         }
     }
