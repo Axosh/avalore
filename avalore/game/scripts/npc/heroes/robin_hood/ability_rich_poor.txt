@@ -6,7 +6,7 @@
 		//-------------------------------------------------------------------------------------------------------------
         "BaseClass"					"ability_lua"
         "AbilityType"				"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		//"AbilityTextureName"		"rich_poor"
         "ScriptFile"				"heroes/robin_hood/ability_rich_poor.lua"
 

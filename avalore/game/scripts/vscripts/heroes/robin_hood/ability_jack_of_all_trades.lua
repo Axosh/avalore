@@ -25,6 +25,7 @@ end
 
 -- TODO: make sure this runs immediately when upgraded
 function ability_jack_of_all_trades:OnToggle()
+    local caster = self:GetCaster()
     -- remove old modifier
     if self.modifier then
         self.modifier:Destroy()
@@ -36,11 +37,22 @@ function ability_jack_of_all_trades:OnToggle()
                                                         self,
                                                         "modifier_jack_of_all_trades_melee",
                                                         {})
+        local spell_slot1 = self:GetCaster():GetAbilityByIndex(1):GetAbilityName() -- 0 indexed
+        local curr_level_slot1 = caster:FindAbilityByName(spell_slot1):GetLevel()
+        print("Spell Slot 1 = " .. tostring(spell_slot1) .. " || CurrLevel = " .. tostring(curr_level_slot1))
+        caster:SwapAbilities(spell_slot1, "ability_rich_poor", false, true)
+        self:GetCaster():GetAbilityByIndex(1):SetLevel(curr_level_slot1)
     else
         self.modifier = self:GetCaster():AddNewModifier(self:GetCaster(),
                                                         self,
                                                         "modifier_jack_of_all_trades_ranged",
                                                         {})
+        local spell_slot1 = self:GetCaster():GetAbilityByIndex(1):GetAbilityName()
+        local modifier = self:GetCaster():GetAbilityByIndex(1):GetIntrinsicModifierName()
+        caster:RemoveModifierByName(modifier) -- remove lingering modifier
+        local curr_level_slot1 = caster:FindAbilityByName(spell_slot1):GetLevel()
+        caster:SwapAbilities(spell_slot1, "windrunner_shackleshot", false, true)
+        self:GetCaster():GetAbilityByIndex(1):SetLevel(curr_level_slot1)
     end
 end
 

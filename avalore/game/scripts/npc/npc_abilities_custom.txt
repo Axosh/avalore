@@ -7,6 +7,7 @@
 
 #base "heroes/robin_hood/ability_jack_of_all_trades.txt"
 #base "heroes/robin_hood/ability_rich_poor.txt"
+#base "heroes/robin_hood/ability_swashbuckle.txt"
 
 "DOTAAbilities"
 {	

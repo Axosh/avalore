@@ -389,6 +389,12 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 		end
 		CAvaloreGameMode:InitCosmetics(hPlayerHero)
 	end
+
+	-- print("[CAvaloreGameMode:OnHeroFinishSpawn] hero name: " .. hPlayerHero:GetUnitName())
+	-- if hPlayerHero:GetUnitName() == "npc_dota_hero_windrunner" then -- robin_hood
+	-- 	local ability_name = hPlayerHero:GetAbilityByIndex(10):GetAbilityName()
+	-- 	hPlayerHero:SwapAbilities(ability_name, ability_name, false, false)
+	-- end
 end
 
 function CAvaloreGameMode:OnItemPickUp(event)

@@ -25,6 +25,8 @@ REQ_LIB_TIMERS = "scripts/vscripts/libraries/timers"
 REQ_LIB_PHYSICS = "scripts/vscripts/libraries/physics"
 REQ_LIB_COSMETICS = "scripts/vscripts/libraries/cosmetics"
 
+REQ_LIB_PLAYERS = "scripts/vscripts/players"
+
 
 -- =========================================
 -- MODIFIERS
