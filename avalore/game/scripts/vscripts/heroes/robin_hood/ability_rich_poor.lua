@@ -1,3 +1,6 @@
+require("references")
+require(REQ_LIB_PLAYERS)
+
 ability_rich_poor = ability_rich_poor or class({})
 
 LinkLuaModifier( "modifier_rich_poor", "heroes/robin_hood/ability_rich_poor", LUA_MODIFIER_MOTION_NONE )
@@ -72,10 +75,20 @@ function modifier_rich_poor:GetModifierProcAttack_Feedback( kv )
         end
 
         if self:GetAbility():IsCooldownReady() then
-            -- TODO: change who gets gold based on toggle state
-            self:GetParent():ModifyGold(self.gold_steal, true, 0)
-            print("Stealing Gold! " .. tostring(self.gold_steal))
-            -- TODO: reduce target's gold by same amount (or as much as possible regarding negatives)
+            -- only trigger gold steal on heroes
+            if kv.target:IsRealHero() then
+                -- steal for self
+                if (self:GetAbility():GetToggleState()) then 
+                    print("Gave gold to self: "  .. tostring(self.gold_steal) .. "g")
+                    self:GetParent():ModifyGold(self.gold_steal, true, 0)
+                else
+                    print("Gave gold to lowest networth ally: "  .. tostring(self.gold_steal) .. "g")
+                    local lowest_net_teammate = LowestNetworthPlayer(self:GetParent():GetTeam())
+                    local hero = PlayerResource:GetSelectedHeroEntity(lowest_net_teammate)
+                    hero:ModifyGold(self.gold_steal, true, 0)
+                end
+                kv.target:ModifyGold(-self.gold_steal, true, 0)
+            end
 
 
             -- STEAL EFFECT

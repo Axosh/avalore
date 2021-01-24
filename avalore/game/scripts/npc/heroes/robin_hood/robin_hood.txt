@@ -41,14 +41,15 @@
     "AttributeBaseIntelligence" "15"
     "AttributeIntelligenceGain" "1.5"
 
+    "AbilityLayout"             "4"
     "Ability1"                  "ability_jack_of_all_trades"
-    "Ability2"                  "ability_rich_poor"//""//"ability_swashbuckle"
-    "Ability3"                  ""//"ability_trick_shot"
-    "Ability4"                  ""//"ability_grapple"
+    "Ability2"                  "windrunner_shackleshot"//"ability_rich_poor"//""//"ability_swashbuckle"
+    "Ability3"                  "pangolier_swashbuckle"//"ability_trick_shot"
+    "Ability4"                  "shredder_timber_chain"//"ability_grapple"
     "Ability5"                  ""
     "Ability6"                  ""
 
-    "Ability10"                 ""                    
+    "Ability10"                 "ability_rich_poor"                    
     "Ability11"                 ""   
 
     "Ability12"                 ""
