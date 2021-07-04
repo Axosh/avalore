@@ -39,6 +39,7 @@ require ("constants")
 require("score")
 require("references")
 require('libraries/player')
+require("libraries/vector_target")
 
 flag_announce_curr = 1
 
@@ -61,6 +62,7 @@ function Precache( context )
 	LinkLuaModifier( "modifier_capturable", MODIFIER_CAPTURABLE, LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_invuln_tower_based", MODIFIER_INVULN_TOWER_BASED, LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_knockback", "scripts/vscripts/modifiers/modifier_knockback.lua", LUA_MODIFIER_MOTION_BOTH )
 end
 
 -- Create the game mode when we activate
