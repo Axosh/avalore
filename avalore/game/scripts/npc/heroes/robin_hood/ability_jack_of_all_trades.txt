@@ -4,7 +4,8 @@
     {
         "BaseClass"						"ability_lua"
         "ScriptFile"					"heroes/robin_hood/ability_jack_of_all_trades.lua"
-        "AbilityTextureName"			"jack_of_all_trades"
+        "AbilityTextureName"			"jack_of_all_trades_ranged"
+        //"AbilityTextureName"			"jack_of_all_trades"
         "FightRecapLevel"				"1"
         "MaxLevel"						"4"
         "AbilitySound"					"Hero_TrollWarlord.BerserkersRage.Toggle"
