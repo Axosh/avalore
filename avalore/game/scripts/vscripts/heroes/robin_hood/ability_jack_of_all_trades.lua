@@ -56,6 +56,14 @@ function ability_jack_of_all_trades:OnToggle()
     end
 end
 
+-- function ability_jack_of_all_trades:GetCastRange(vLocation, hTarget)
+--     if self:GetToggleState() then
+--         return MELEE_ATTACK_RANGE
+--     else
+--         return 600
+--     end
+-- end
+
 function ability_jack_of_all_trades:OnUpgrade()
 	if self.modifier then
 		self.modifier:ForceRefresh()
@@ -104,6 +112,7 @@ function modifier_jack_of_all_trades_ranged:GetModifierAttackRangeBonus()
 end
 
 function modifier_jack_of_all_trades_ranged:OnCreated(kv)
+    --print("[modifier_jack_of_all_trades_ranged] Started OnCreated")
     if IsServer() then
         self.bonus_range   = self:GetAbility():GetSpecialValueFor("ranged_bonus_range")
         self.bonus_ms = 0
@@ -175,6 +184,7 @@ function modifier_jack_of_all_trades_melee:GetModifierAttackRangeBonus()
 end
 
 function modifier_jack_of_all_trades_melee:OnCreated(kv)
+    --print("[modifier_jack_of_all_trades_melee] Started OnCreated")
     if IsServer() then
         self.bonus_ms   = self:GetAbility():GetSpecialValueFor("melee_bonus_move_speed")
         self.range      = MELEE_ATTACK_RANGE
