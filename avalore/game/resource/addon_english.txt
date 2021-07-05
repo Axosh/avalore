@@ -1,3 +1,4 @@
+// Also See: resource/English/heroes
 "lang"
 {
 	"Language"		"English"
@@ -57,13 +58,6 @@
 		"DOTA_Tooltip_Ability_ability_flying_dutchman_Lore"				"lore"
 		"DOTA_Tooltip_Ability_ability_flying_dutchman_radius"			"radius"
 		"DOTA_Tooltip_Ability_ability_flying_dutchman_damage"			"damage"
-
-		// ===== ROBIN HOOD =====
-		"DOTA_Tooltip_Ability_ability_jack_of_all_trades"				"Jack of All Trades"
-
-		"DOTA_Tooltip_Ability_ability_rich_poor"						"Steal From the Rich/Give to the Poor"
-
-		"DOTA_Tooltip_Ability_ability_swashbuckle"						"Swashbuckle"
 
 
 

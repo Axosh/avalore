@@ -16,7 +16,7 @@ end
 -- INIT
 -- ==================================================
 function modifier_swashbuckle:OnCreated( kv )
-	print("Created modifier_swashbuckle")
+	--print("[modifier_swashbuckle] Started OnCreated")
 	-- references
 	self.range = self:GetAbility():GetSpecialValueFor( "range" )
 	self.speed = self:GetAbility():GetSpecialValueFor( "dash_speed" )

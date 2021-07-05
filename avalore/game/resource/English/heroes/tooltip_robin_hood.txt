@@ -1,0 +1,11 @@
+// ===== ROBIN HOOD =====
+"DOTA_Tooltip_Ability_ability_jack_of_all_trades"				        "Jack of All Trades"
+//"DOTA_Tooltip_Ability_ability_jack_of_all_trades_Description"	        "Toggle between Ranged and Melee\nRANGED: 600 range\nMELEE: 150 range, +"
+"DOTA_Tooltip_Ability_ability_jack_of_all_trades_Description"	        "Toggle between Ranged and Melee weapons. Melee grants additional move speed."
+"DOTA_Tooltip_Ability_ability_jack_of_all_trades_melee_bonus_move_speed" "MOVEMENT SPEED:"
+"DOTA_Tooltip_Ability_ability_jack_of_all_trades_ranged_bonus_range"    "Attack RANGE:"
+"DOTA_Tooltip_Ability_ability_jack_of_all_trades_Lore"			        "Robin Hood was highly skilled in both Archery and Swordsmanship"
+
+"DOTA_Tooltip_Ability_ability_rich_poor"						        "Steal From the Rich/Give to the Poor"
+
+"DOTA_Tooltip_Ability_ability_swashbuckle"						        "Swashbuckle"

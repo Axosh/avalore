@@ -1,6 +1,7 @@
+--require("scripts/vscripts/modifiers/modifier_knockback")
 ability_swashbuckle = ability_swashbuckle or class({})
 
-LinkLuaModifier( "modifier_knockback", "scripts/vscripts/modifiers/modifier_knockback.lua", LUA_MODIFIER_MOTION_BOTH )
+LinkLuaModifier( "modifier_knockback_avalore", "scripts/vscripts/modifiers/modifier_knockback_avalore", LUA_MODIFIER_MOTION_BOTH )
 LinkLuaModifier( "modifier_swashbuckle", "heroes/robin_hood/modifier_swashbuckle.lua", LUA_MODIFIER_MOTION_NONE )
 
 -- ==================================================
@@ -42,7 +43,7 @@ function ability_swashbuckle:OnSpellStart()
 	local knockback = caster:AddNewModifier(
 		self:GetCaster(), -- player source
 		self, -- ability source
-		"modifier_knockback", -- modifier name
+		"modifier_knockback_avalore", -- modifier name
 		{
 			direction_x = vector.x,
 			direction_y = vector.y,
@@ -52,11 +53,15 @@ function ability_swashbuckle:OnSpellStart()
 			IsFlail = false,
 		} -- kv
 	)
-    print("Knockback made? " .. knockback:GetName())
+    --knockback:Test()
+    --print("[ability_swashbuckle] Knockback made? " .. knockback:GetName())
 	local callback = function( bInterrupted )
+        --print("[ability_swashbuckle] Creating Callback Function")
 		-- stop effects
 		ParticleManager:DestroyParticle( effects, false )
 		ParticleManager:ReleaseParticleIndex( effects )
+
+        --print("[ability_swashbuckle] Cleaned Up Particles")
 
 		if bInterrupted then return end
 
@@ -73,6 +78,8 @@ function ability_swashbuckle:OnSpellStart()
 		)
 		
 	end
+    --print("[ability_swashbuckle] Callback? " .. callback)
+    --print("[ability_swashbuckle] Knockback still exists? " .. knockback:GetName())
 	knockback:SetEndCallback( callback )
 end
 
