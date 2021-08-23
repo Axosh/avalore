@@ -1,0 +1,60 @@
+"DOTAAbilities"
+{
+    "ability_marksmanship"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					"ability_lua"
+        "AbilityType"				"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityTextureName"		"marksmanship"
+        "ScriptFile"				"heroes/robin_hood/ability_marksmanship.lua"
+        "FightRecapLevel"				"1"
+        "MaxLevel"						"4"
+
+        // Precache
+		//-------------------------------------------------------------------------------------------------------------
+        "precache"
+		{
+			"particle"	"particles/units/heroes/hero_ursa/ursa_fury_swipes.vpcf"
+			"particle"	"particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
+		}
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bonus_reset_time"				"20"
+			}
+			"02"
+			{
+				"var_type"				        "FIELD_INTEGER"
+			    "max_stacks"			        "6"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_per_stack"				"5 10 15 20"
+			}
+		}
+    }
+}
