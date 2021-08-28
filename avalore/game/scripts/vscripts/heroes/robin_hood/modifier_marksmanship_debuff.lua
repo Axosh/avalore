@@ -25,7 +25,7 @@ end
 --------------------------------------------------------------------------------
 -- Graphics & Animations
 function modifier_marksmanship_debuff:GetEffectName()
-	return "particles/units/heroes/hero_ursa/ursa_fury_swipes_debuff.vpcf"
+	return "particles/units/heroes/hero_hoodwink/hoodwink_sharpshooter_debuff.vpcf"
 end
 
 function modifier_marksmanship_debuff:GetEffectAttachType()

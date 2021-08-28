@@ -1,5 +1,6 @@
 
 ability_grappling_hook = ability_grappling_hook or class({})
+LinkLuaModifier( "modifier_grappling_hook", "heroes/robin_hood/modifier_grappling_hook.lua", LUA_MODIFIER_MOTION_HORIZONTAL )
 
 function ability_grappling_hook:OnSpellStart()
     local caster = self:GetCaster()
@@ -52,8 +53,8 @@ function ability_grappling_hook:OnSpellStart()
 end
 --------------------------------------------------------------------------------
 -- Projectile
-timbersaw_timber_chain_lua.projectiles = {}
-function timbersaw_timber_chain_lua:OnProjectileThinkHandle( handle )
+ability_grappling_hook.projectiles = {}
+function ability_grappling_hook:OnProjectileThinkHandle( handle )
 	-- get data
 	local ExtraData = self.projectiles[ handle ]
 	local location = ProjectileManager:GetLinearProjectileLocation( handle )
@@ -68,7 +69,7 @@ function timbersaw_timber_chain_lua:OnProjectileThinkHandle( handle )
 		self:GetCaster():AddNewModifier(
 			self:GetCaster(), -- player source
 			self, -- ability source
-			"modifier_timbersaw_timber_chain_lua", -- modifier name
+			"modifier_grappling_hook", -- modifier name
 			{
 				point_x = point.x,
 				point_y = point.y,
@@ -131,7 +132,7 @@ function ability_grappling_hook:PlayEffects( point, speed, duration )
 	return effect_cast
 end
 
-function timbersaw_timber_chain_lua:ModifyEffects1( effect )
+function ability_grappling_hook:ModifyEffects1( effect )
 	-- retract
 	ParticleManager:SetParticleControlEnt(
 		effect,
@@ -149,7 +150,7 @@ function timbersaw_timber_chain_lua:ModifyEffects1( effect )
 	EmitSoundOn( sound_cast, self:GetCaster() )
 end
 
-function timbersaw_timber_chain_lua:ModifyEffects2( effect, point )
+function ability_grappling_hook:ModifyEffects2( effect, point )
 	-- set particle location
 	ParticleManager:SetParticleControl( effect, 1, point )
 

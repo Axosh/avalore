@@ -51,7 +51,7 @@ function ability_jack_of_all_trades:OnToggle()
         local modifier = self:GetCaster():GetAbilityByIndex(1):GetIntrinsicModifierName()
         caster:RemoveModifierByName(modifier) -- remove lingering modifier
         local curr_level_slot1 = caster:FindAbilityByName(spell_slot1):GetLevel()
-        caster:SwapAbilities(spell_slot1, "windrunner_shackleshot", false, true)
+        caster:SwapAbilities(spell_slot1, "ability_avalore_marksmanship", false, true)
         self:GetCaster():GetAbilityByIndex(1):SetLevel(curr_level_slot1)
     end
 end
