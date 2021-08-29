@@ -59,14 +59,20 @@
 		"DOTA_Tooltip_Ability_ability_flying_dutchman_damage"			"damage"
 
 		// ===== ROBIN HOOD ====
-		"DOTA_Tooltip_Ability_ability_rich_poor"						        "Steal From the Rich/Give to the Poor"
+		"DOTA_Tooltip_Ability_ability_jack_of_all_trades"				"Jack of All Trades"
+		"DOTA_Tooltip_modifier_jack_of_all_trades_melee"				"Swordsman"
+		"DOTA_Tooltip_modifier_jack_of_all_trades_ranged"				"Archer"
 
-		"DOTA_Tooltip_Ability_ability_swashbuckle"						        "Swashbuckle"
+		"DOTA_Tooltip_Ability_ability_rich_poor"						"Steal From the Rich/Give to the Poor"
 
-		"DOTA_Tooltip_Ability_ability_avalore_grappling_hook"                           "Grappling Hook"
+		"DOTA_Tooltip_Ability_ability_swashbuckle"						"Swashbuckle"
+
+		"DOTA_Tooltip_Ability_ability_avalore_grappling_hook"           "Grappling Hook"
 
 		"DOTA_Tooltip_Ability_ability_avalore_marksmanship"             "Marksmanship"
-		"DOTA_Tooltip_modifier_avalore_marksmanship"					"Marksmanship Debuff"
+		"DOTA_Tooltip_Ability_ability_avalore_marksmanship_Description"	"Robin Hood hits an opponent in the exact same spot, each time inflicting bonus damage."
+		"DOTA_Tooltip_Ability_ability_avalore_marksmanship_Lore"		"Robin Hood was a reknowned marksman, once splitting an arrow in a tournament. \nStory: Robin Hood and the Golden Arrow"
+		"DOTA_Tooltip_modifier_avalore_marksmanship"					"Marksmanship Buff"
 		"DOTA_Tooltip_modifier_marksmanship_debuff"						"Marksmanship Debuff"
 
 

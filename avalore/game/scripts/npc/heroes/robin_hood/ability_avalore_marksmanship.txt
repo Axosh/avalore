@@ -16,7 +16,7 @@
         "precache"
 		{
 			//"particle"	"particles/units/heroes/hero_ursa/ursa_fury_swipes.vpcf"
-			"particle"	"particles/units/heroes/hero_hoodwink/hoodwink_sharpshooter_debuff.vpcf"
+			"particle"	"particles/neutral_fx/prowler_shaman_stomp_debuff_shield.vpcf"
 		}
         // Ability General
 		//-------------------------------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"bonus_reset_time"				"20"
+				"bonus_reset_time"				"5"
 			}
 			"02"
 			{

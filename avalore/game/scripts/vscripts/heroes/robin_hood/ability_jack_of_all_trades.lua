@@ -38,6 +38,8 @@ function ability_jack_of_all_trades:OnToggle()
                                                         "modifier_jack_of_all_trades_melee",
                                                         {})
         local spell_slot1 = self:GetCaster():GetAbilityByIndex(1):GetAbilityName() -- 0 indexed
+        local modifier = self:GetCaster():GetAbilityByIndex(1):GetIntrinsicModifierName()
+        caster:RemoveModifierByName(modifier) -- remove lingering modifier (Marksmanship)
         local curr_level_slot1 = caster:FindAbilityByName(spell_slot1):GetLevel()
         print("Spell Slot 1 = " .. tostring(spell_slot1) .. " || CurrLevel = " .. tostring(curr_level_slot1))
         caster:SwapAbilities(spell_slot1, "ability_rich_poor", false, true)

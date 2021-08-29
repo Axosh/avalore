@@ -93,8 +93,10 @@ function modifier_avalore_marksmanship:GetModifierProcAttack_BonusDamage_Physica
 				stack = 1
 			end
 		else
-			-- increase stack
-			modifier:IncrementStackCount()
+			-- increase stack unless already maxed
+			if modifier:GetStackCount() < self.max_stacks then
+				modifier:IncrementStackCount()
+			end
 			modifier:ForceRefresh()
 
 			-- get stack number
