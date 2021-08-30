@@ -33,6 +33,7 @@ function ability_jack_of_all_trades:OnToggle()
     end
     -- melee form when toggled on
     if self:GetToggleState() then
+        -- Melee Mode
         self.modifier = self:GetCaster():AddNewModifier(self:GetCaster(),
                                                         self,
                                                         "modifier_jack_of_all_trades_melee",
@@ -44,7 +45,10 @@ function ability_jack_of_all_trades:OnToggle()
         print("Spell Slot 1 = " .. tostring(spell_slot1) .. " || CurrLevel = " .. tostring(curr_level_slot1))
         caster:SwapAbilities(spell_slot1, "ability_rich_poor", false, true)
         self:GetCaster():GetAbilityByIndex(1):SetLevel(curr_level_slot1)
+
+        SwapSpells(self, 2, "ability_swashbuckle")
     else
+        -- Ranged Mode
         self.modifier = self:GetCaster():AddNewModifier(self:GetCaster(),
                                                         self,
                                                         "modifier_jack_of_all_trades_ranged",
@@ -55,7 +59,30 @@ function ability_jack_of_all_trades:OnToggle()
         local curr_level_slot1 = caster:FindAbilityByName(spell_slot1):GetLevel()
         caster:SwapAbilities(spell_slot1, "ability_avalore_marksmanship", false, true)
         self:GetCaster():GetAbilityByIndex(1):SetLevel(curr_level_slot1)
+
+        SwapSpells(self, 2, "ability_shackleshot")
     end
+end
+
+-- ===================================================================================================
+-- swaps spells, keeping the level the same
+-- *******************************************************
+-- *******************************************************
+-- abilityRef (handle): reference to the ability ("self")
+-- slotNum (int):       numerical 0-indexed spell slot to swap out
+-- newSpell (str):      internal name of spell to replace it with
+-- ===================================================================================================
+function SwapSpells(abilityRef, slotNum, newSpell)
+    local caster = abilityRef:GetCaster()
+    local spell_slot = abilityRef:GetCaster():GetAbilityByIndex(slotNum):GetAbilityName()
+    local modifier = abilityRef:GetCaster():GetAbilityByIndex(slotNum):GetIntrinsicModifierName()
+    if modifier then
+        caster:RemoveModifierByName(modifier) -- remove lingering modifier
+    end
+
+    local curr_slot_level = caster:FindAbilityByName(spell_slot):GetLevel()
+    caster:SwapAbilities(spell_slot, newSpell, false, true)
+    abilityRef:GetCaster():GetAbilityByIndex(slotNum):SetLevel(curr_slot_level)
 end
 
 -- function ability_jack_of_all_trades:GetCastRange(vLocation, hTarget)

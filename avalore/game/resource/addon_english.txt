@@ -75,6 +75,8 @@
 		"DOTA_Tooltip_modifier_avalore_marksmanship"					"Marksmanship Buff"
 		"DOTA_Tooltip_modifier_marksmanship_debuff"						"Marksmanship Debuff"
 
+		"DOTA_Tooltip_Ability_ability_shackleshot"             			"Shackleshot"
+
 
 
 		//--------------------------------------------------------------------------------

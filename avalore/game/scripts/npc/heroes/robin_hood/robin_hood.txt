@@ -50,7 +50,7 @@
     "Ability6"                  ""
 
     "Ability10"                 "ability_rich_poor"                    
-    "Ability11"                 ""   
+    "Ability11"                 "ability_shackleshot"   
 
     "Ability12"                 ""
     "Ability13"                 ""    

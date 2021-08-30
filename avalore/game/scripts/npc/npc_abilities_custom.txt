@@ -10,6 +10,7 @@
 #base "heroes/robin_hood/ability_swashbuckle.txt"
 #base "heroes/robin_hood/ability_grappling_hook.txt"
 #base "heroes/robin_hood/ability_avalore_marksmanship.txt"
+#base "heroes/robin_hood/ability_shackleshot.txt"
 
 "DOTAAbilities"
 {	
