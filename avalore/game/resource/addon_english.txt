@@ -77,6 +77,8 @@
 
 		"DOTA_Tooltip_Ability_ability_shackleshot"             			"Shackleshot"
 
+		"DOTA_Tooltip_Ability_ability_grappling_hook"             		"Grappling Hook"
+
 
 
 		//--------------------------------------------------------------------------------

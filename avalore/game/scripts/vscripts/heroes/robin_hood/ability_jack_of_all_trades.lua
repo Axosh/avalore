@@ -33,6 +33,7 @@ function ability_jack_of_all_trades:OnToggle()
     end
     -- melee form when toggled on
     if self:GetToggleState() then
+        print("melee form")
         -- Melee Mode
         self.modifier = self:GetCaster():AddNewModifier(self:GetCaster(),
                                                         self,
@@ -48,6 +49,7 @@ function ability_jack_of_all_trades:OnToggle()
 
         SwapSpells(self, 2, "ability_swashbuckle")
     else
+        print("ranged form")
         -- Ranged Mode
         self.modifier = self:GetCaster():AddNewModifier(self:GetCaster(),
                                                         self,

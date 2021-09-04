@@ -1,9 +1,14 @@
-ability_shackleshot_lua = class({})
+ability_shackleshot = class({})
 LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
+
+-- function ability_shackleshot:GetAbilityTextureName()	
+-- 	return "avalore_shackleshot"
+-- end
 
 --------------------------------------------------------------------------------
 -- Ability Start
-function ability_shackleshot_lua:OnSpellStart()
+function ability_shackleshot:OnSpellStart()
+	print("ability_shackleshot:OnSpellStart()")
 	-- unit identifier
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
@@ -13,7 +18,8 @@ function ability_shackleshot_lua:OnSpellStart()
 	local projectile_speed = self:GetSpecialValueFor( "arrow_speed" )
 
 	-- store cast location
-	local location = caster:GetOrigin()
+	--local location = caster:GetOrigin()
+	local location = caster:GetAbsOrigin()
 
 	-- create projectile
 	local info = {
@@ -39,7 +45,7 @@ function ability_shackleshot_lua:OnSpellStart()
 end
 --------------------------------------------------------------------------------
 -- Projectile
-function ability_shackleshot_lua:OnProjectileHit_ExtraData( target, location, ExtraData )
+function ability_shackleshot:OnProjectileHit_ExtraData( target, location, ExtraData )
 	if not target then return end
 
 	-- cancel if linken
@@ -70,6 +76,8 @@ function ability_shackleshot_lua:OnProjectileHit_ExtraData( target, location, Ex
 		FIND_CLOSEST,	-- int, order filter
 		false	-- bool, can grow cache
 	)
+
+	print("Got " .. tostring(#(enemies)) .. " possible enemies to target")
 
 	for _,enemy in pairs(enemies) do
 		-- ensure it is not the target herself
@@ -146,7 +154,7 @@ function ability_shackleshot_lua:OnProjectileHit_ExtraData( target, location, Ex
 end
 
 --------------------------------------------------------------------------------
-function ability_shackleshot_lua:PlayEffects1( target1, target2, duration )
+function ability_shackleshot:PlayEffects1( target1, target2, duration )
 	-- Get Resources
 	local particle_cast = "particles/units/heroes/hero_windrunner/windrunner_shackleshot_pair.vpcf"
 	local sound_cast = "Hero_Windrunner.ShackleshotBind"
@@ -172,7 +180,7 @@ function ability_shackleshot_lua:PlayEffects1( target1, target2, duration )
 	EmitSoundOn( sound_target, target2 )
 end
 
-function ability_shackleshot_lua:PlayEffects2( target, tree, duration )
+function ability_shackleshot:PlayEffects2( target, tree, duration )
 	-- Get Resources
 	local particle_cast = "particles/units/heroes/hero_windrunner/windrunner_shackleshot_pair_tree.vpcf"
 	local sound_cast = "Hero_Windrunner.ShackleshotBind"
@@ -189,7 +197,7 @@ function ability_shackleshot_lua:PlayEffects2( target, tree, duration )
 	EmitSoundOn( sound_target, target )
 end
 
-function ability_shackleshot_lua:PlayEffects3( target, point )
+function ability_shackleshot:PlayEffects3( target, point )
 	-- Get Resources
 	local particle_cast = "particles/units/heroes/hero_windrunner/windrunner_shackleshot_single.vpcf"
 	local sound_cast = "Hero_Windrunner.ShackleshotStun"
