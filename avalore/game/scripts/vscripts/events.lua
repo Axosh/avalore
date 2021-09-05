@@ -11,6 +11,9 @@ require(REQ_LIB_COSMETICS)
 LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA_MODIFIER_MOTION_NONE )
 
+-- Faction Stuff
+LinkLuaModifier("modifier_faction_forest",     "modifiers/faction/modifier_faction_forest.lua",       LUA_MODIFIER_MOTION_NONE)
+
 --initialized with ListenToGameEvent("entity_killed", Dynamic_Wrap(CustomGameMode, "OnEntityKilled"), self)
 function CAvaloreGameMode:OnEntityKilled(event)
 	--print("OnEntityKilled - Started")
@@ -545,6 +548,7 @@ end
 
 function CAvaloreGameMode:InitRobinHood(unit_temp, playernum)
 	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	unit:AddNewModifier(unit, nil, "modifier_faction_forest", nil)
 	local robin_hood_cosmetics = {}
 	robin_hood_cosmetics[0] = "models/items/windrunner/sparrowhawk_cape/sparrowhawk_cape.vmdl"
 	robin_hood_cosmetics[1] = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"
