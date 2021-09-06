@@ -65,7 +65,6 @@ function modifier_deadly_fog_invis:OnAbilityFullyCast(keys)
         local caster = keys.unit
         -- Only apply if the parent is the one attacking
         if self.parent == caster then
-            --print("[modifier_deadly_fog_invis] OnAttack")
             self:SetStackCount(3)
         end
     end

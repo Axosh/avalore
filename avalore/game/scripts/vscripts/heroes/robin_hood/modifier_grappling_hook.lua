@@ -147,7 +147,7 @@ function modifier_grappling_hook:UpdateHorizontalMotion( me, dt )
 	-- destroy if reached target
 	if (self.point-origin):Length2D()<self.proximity then
 		-- destroy tree
-		GridNav:DestroyTreesAroundPoint( self:GetParent():GetOrigin(), 20, true )
+		--GridNav:DestroyTreesAroundPoint( self:GetParent():GetOrigin(), 20, true )
 
 		-- set position
 		self:GetParent():SetOrigin( self.point )

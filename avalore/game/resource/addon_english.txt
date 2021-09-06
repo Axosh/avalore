@@ -6,6 +6,15 @@
 		"addon_game_name"			"Avalore"
 
 		//--------------------------------------------------------------------------------
+		// Factions
+		//--------------------------------------------------------------------------------
+		"DOTA_Tooltip_modifier_faction_forest"					"Forest Faction"
+		"DOTA_Tooltip_modifier_faction_forest_description"		"Faction Bonus - Fade to invisibility when around trees"
+
+		"DOTA_Tooltip_modifier_faction_forest_fade"				"Forest Fade"
+		"DOTA_Tooltip_modifier_faction_forest_fade_description"	"Fade to invisibility when around trees"
+
+		//--------------------------------------------------------------------------------
 		// Heroes
 		//--------------------------------------------------------------------------------
 		"npc_dota_hero_kunkka" 									"Davy Jones"
@@ -78,6 +87,7 @@
 		"DOTA_Tooltip_Ability_ability_shackleshot"             			"Shackleshot"
 
 		"DOTA_Tooltip_Ability_ability_grappling_hook"             		"Grappling Hook"
+		"DOTA_Tooltip_Ability_ability_grappling_hook_description"       "Fires a grappling hook that can latch on to trees and buildings"
 
 
 

@@ -1,6 +1,6 @@
 modifier_faction_forest_fade = class ({})
 
-function modifier_faction_forest:GetTexture()
+function modifier_faction_forest_fade:GetTexture()
     return "modifier_faction_forest_fade"
 end
 
@@ -36,9 +36,20 @@ function modifier_faction_forest_fade:CheckState()
 end
 
 function modifier_faction_forest_fade:OnCreated(kv)
-    self.cooldown = kv.cooldown
-	local particle = ParticleManager:CreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf", PATTACH_ABSORIGIN, self:GetParent())
-    ParticleManager:ReleaseParticleIndex(particle)
+    if not IsServer() then return end
+    if kv.isCosmetic then
+        -- if we're a cosmetic, try to keep up with the stack count on the hero (particularly because Robin Hood can change cosmetics)
+        if self:GetCaster():GetOwnerEntity():FindModifierByName(self:GetName()) then
+            self.cooldown = self:GetCaster():GetOwnerEntity():FindModifierByName(self:GetName()):GetStackCount()
+        else
+            self.cooldown = self:GetCaster():GetOwnerEntity():FindModifierByName("modifier_faction_forest"):GetStackCount()
+        end
+    else
+        self.cooldown = 5 - self:GetParent():FindModifierByName("modifier_faction_forest"):GetStackCount()
+    end
+    
+	--local particle = ParticleManager:CreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+    --ParticleManager:ReleaseParticleIndex(particle)
     self:SetStackCount(self.cooldown)
     self:StartIntervalThink( 1 )
 end
@@ -56,12 +67,26 @@ function modifier_faction_forest_fade:OnAttack(keys)
 end
 
 -- break on spell cast
-function modifier_deadly_fog_invis:OnAbilityFullyCast(keys)
+function modifier_faction_forest_fade:OnAbilityFullyCast(keys)
     if not IsServer() then return end
 
     local caster = keys.unit
     -- Only apply if the parent is the one attacking
-    if self.GetParent() == caster then
+    if self:GetParent() == caster then
         self:SetStackCount(self.cooldown)
     end
+end
+
+function modifier_faction_forest_fade:OnIntervalThink()
+    if not IsServer() then return end
+
+    local stacks = self:GetStackCount()
+    if stacks > 0 then
+        self:SetStackCount(stacks - 1)
+        if (stacks - 1 ) == 0 then
+            local particle = ParticleManager:CreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+            ParticleManager:ReleaseParticleIndex(particle)
+        end
+    end
+    
 end

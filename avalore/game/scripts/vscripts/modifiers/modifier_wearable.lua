@@ -1,6 +1,7 @@
 AVALORE_INVISIBLE_MODIFIERS = {
     "modifier_deadly_fog_invis",
-    "modifier_rogueish_escape"
+    "modifier_rogueish_escape",
+	"modifier_faction_forest_fade"
 }
 
 --LinkLuaModifier( "modifier_rogueish_escape", "heroes/robin_hood/ability_rich_poor", LUA_MODIFIER_MOTION_NONE )
@@ -62,8 +63,8 @@ function modifier_wearable:OnIntervalThink()
 			end
 		else
 			if not cosmetic:HasModifier(v) then
-				print("Adding Modifier " .. tostring(v) .. " to " .. cosmetic:GetName())
-				cosmetic:AddNewModifier(cosmetic, nil, v, {})
+				print("Adding Modifier " .. tostring(v) .. " to " .. cosmetic:GetName() .. " for " .. hero:GetName())
+				cosmetic:AddNewModifier(cosmetic, nil, v, {isCosmetic = true})
 				break -- remove this break if you want to add multiple modifiers at the same time
 			end
 		end

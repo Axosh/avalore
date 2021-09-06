@@ -51,6 +51,18 @@ function ability_grappling_hook:OnSpellStart()
 	}
 	self.projectiles[ projectile ] = ExtraData
 end
+
+local function concatArray(a, b)
+	local mergedArray = {}
+	local n=0
+	for k,v in ipairs(a) do n=n+1 ; mergedArray[n] = v end
+	for k,v in ipairs(b) do n=n+1 ; mergedArray[n] = v end
+	return mergedArray
+	-- local result = {table.unpack(a)}
+	-- table.move(b, 1, #b, #result + 1, result)
+	-- return result
+end
+
 --------------------------------------------------------------------------------
 -- Projectile
 ability_grappling_hook.projectiles = {}
@@ -61,9 +73,27 @@ function ability_grappling_hook:OnProjectileThinkHandle( handle )
 
 	-- search for tree
 	local trees = GridNav:GetAllTreesAroundPoint( location, ExtraData.radius, false )
+	
+	-- find nearby structures
+	local buildings = FindUnitsInRadius(
+		self:GetCaster():GetTeamNumber(),	-- int, your team number
+		location, --target:GetOrigin(),	-- point, center point
+		nil,	-- handle, cacheUnit. (not known)
+		ExtraData.radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
+		DOTA_UNIT_TARGET_TEAM_BOTH,	-- int, team filter
+		DOTA_UNIT_TARGET_BUILDING,	-- int, type filter
+		DOTA_UNIT_TARGET_FLAG_INVULNERABLE, --0,	-- int, flag filter
+		FIND_CLOSEST,	-- int, order filter
+		false	-- bool, can grow cache
+	)
 
-	if #trees>0 then
-		local point = trees[1]:GetOrigin()
+	local trees_buildings = concatArray(trees, buildings)
+
+	--if #trees>0 then
+	if #trees_buildings > 0 then
+		print("Grapple Target: " .. trees_buildings[1]:GetName())
+		--local point = trees[1]:GetOrigin()
+		local point = trees_buildings[1]:GetOrigin()
 
 		-- snag
 		self:GetCaster():AddNewModifier(
@@ -108,6 +138,7 @@ end
 function ability_grappling_hook:PlayEffects( point, speed, duration )
 	-- Get Resources
 	local particle_cast = "particles/units/heroes/hero_shredder/shredder_timberchain.vpcf"
+	--local particle_cast = "particles/units/heroes/hero_windrunner/windrunner_spell_powershot_trail_rubick.vpcf"
 	local sound_cast = "Hero_Shredder.TimberChain.Cast"
 
 	-- Create Particle
