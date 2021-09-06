@@ -14,6 +14,9 @@
 		"DOTA_Tooltip_modifier_faction_forest_fade"				"Forest Fade"
 		"DOTA_Tooltip_modifier_faction_forest_fade_description"	"Fade to invisibility when around trees"
 
+		"DOTA_Tooltip_modifier_faction_water"					"Water Faction"
+		"DOTA_Tooltip_modifier_faction_water_description"		"Faction Bonus - Extra %MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE% movespeed in the water"
+
 		//--------------------------------------------------------------------------------
 		// Heroes
 		//--------------------------------------------------------------------------------

@@ -13,6 +13,7 @@ LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA
 
 -- Faction Stuff
 LinkLuaModifier("modifier_faction_forest",     "modifiers/faction/modifier_faction_forest.lua",       LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faction_water",      "modifiers/faction/modifier_faction_water.lua",        LUA_MODIFIER_MOTION_NONE)
 
 --initialized with ListenToGameEvent("entity_killed", Dynamic_Wrap(CustomGameMode, "OnEntityKilled"), self)
 function CAvaloreGameMode:OnEntityKilled(event)
@@ -496,7 +497,15 @@ function CAvaloreGameMode:InitCosmetics(unit)
 	if CAvaloreGameMode.player_cosmetics == nil then
 		CAvaloreGameMode.player_cosmetics = {}
 	end
-	CAvaloreGameMode:InitRobinHood(hero,playernum)
+
+	local hero_name = PlayerResource:GetSelectedHeroName(playernum)
+	print("Cosmetics Init for: " .. hero_name)
+
+	if hero_name == "npc_dota_hero_davy_jones" or hero_name == "npc_dota_hero_kunkka" then
+		CAvaloreGameMode:InitDavyJones(hero)
+	elseif hero_name == "npc_dota_hero_robin_hood" or hero_name == "npc_dota_hero_windrunner" then
+		CAvaloreGameMode:InitRobinHood(hero,playernum)
+	end
 end
 
 function CAvaloreGameMode:RemoveAll( unit )
@@ -512,6 +521,7 @@ function CAvaloreGameMode:RemoveAll( unit )
 end
 
 function CAvaloreGameMode:InitDavyJones(unit)
+	unit:AddNewModifier(unit, nil, "modifier_faction_water", nil)
 	--Medallion of the Divine Anchor
 	local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/medallion_of_the_divine_anchor/medallion_of_the_divine_anchor.vmdl"})
 	SomeModel:FollowEntity(unit, true)

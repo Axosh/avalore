@@ -60,10 +60,11 @@ function modifier_faction_forest:RefreshFactionStacks(faction_team, modifier)
         if PlayerResource:IsValidPlayerID(playerID) then
             if not PlayerResource:IsBroadcaster(playerID) then
                 local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-                if hero:GetTeam() == player_team then
+                if hero:GetTeam() == faction_team then
                     -- if instance of modifier on team
                     if (hero:FindModifierByName(modifier:GetName())) then
-                        faction_heroes[stack_count] = hero --store ref to hero so we can update later
+                        --faction_heroes[stack_count] = hero --store ref to hero so we can update later
+                        table.insert(faction_heroes, hero)
                         -- max of 3 stacks
                         if stack_count < 3 then
                             stack_count = stack_count + 1
