@@ -43,6 +43,19 @@ function CAvaloreGameMode:OnEntityKilled(event)
 		if attackerTeam == killedTeam then
 			isDeny = true
 		end
+
+		-- if Radiant/Dire killed a unit, then add to shared gold (ignore things killed by neuts)
+		if not isPlayer then
+			if attackerTeam == DOTA_TEAM_GOODGUYS then
+				Score.RadiSharedGoldCurr  =  Score.RadiSharedGoldCurr  + killedEntity:GetGoldBounty()
+				Score.RadiSharedGoldTotal =  Score.RadiSharedGoldTotal + killedEntity:GetGoldBounty()
+				print("Radiant Shared Gold = " .. tostring(Score.RadiSharedGoldCurr) .. "g")
+			elseif attackerTeam == DOTA_TEAM_BADGUYS then
+				Score.DireSharedGoldCurr  =  Score.DireSharedGoldCurr  + killedEntity:GetGoldBounty()
+				Score.DireSharedGoldTotal =  Score.DireSharedGoldTotal + killedEntity:GetGoldBounty()
+				print("Dire Shared Gold = " .. tostring(Score.DireSharedGoldCurr) .. "g")
+			end
+		end
 	end
 
 	if attackerEntity:IsRealHero() then
@@ -353,6 +366,17 @@ function CAvaloreGameMode:OnEntityKilled(event)
 		--GameRules:GetGameModeEntity():SetTopBarTeamValue(DOTA_TEAM_BADGUYS, GetTeamHeroKills(DOTA_TEAM_BADGUYS))
 		--GameRules:GetGameModeEntity():SetTopBarTeamValue(DOTA_TEAM_GOODGUYS, GetTeamHeroKills(DOTA_TEAM_GOODGUYS))
 	end
+	
+	--DEBUG GOLD
+	-- print("<<<<< DEBUG GOLD >>>>>")
+	-- for playerID = 0, DOTA_MAX_PLAYERS do
+	-- 	if PlayerResource:IsValidPlayerID(playerID) then
+	-- 		if not PlayerResource:IsBroadcaster(playerID) then
+	-- 			local gold = PlayerResource:GetGold(playerID)
+	-- 			print("PID " .. tostring(playerID) .. ": " .. tostring(gold) .. "g")
+	-- 		end -- end IsBroadcaster
+	-- 	end -- end IsValidPlayerID
+	-- end -- end for-loop
 
 	--print("OnEntityKilled - Ended")
 end
@@ -502,6 +526,7 @@ function CAvaloreGameMode:InitCosmetics(unit)
 	print("Cosmetics Init for: " .. hero_name)
 
 	if hero_name == "npc_dota_hero_davy_jones" or hero_name == "npc_dota_hero_kunkka" then
+		CosmeticLib:ReplaceDefault( hero, "npc_dota_hero_kunkka" )
 		CAvaloreGameMode:InitDavyJones(hero)
 	elseif hero_name == "npc_dota_hero_robin_hood" or hero_name == "npc_dota_hero_windrunner" then
 		CAvaloreGameMode:InitRobinHood(hero,playernum)

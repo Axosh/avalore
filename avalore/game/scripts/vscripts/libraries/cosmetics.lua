@@ -528,8 +528,19 @@ function CosmeticLib:_Replace( handle_table, new_item_id )
 	-- Still cannot attach it properly
 	if item[ "visual" ] and item[ "visual" ][ "attached_particlesystem0" ] then
 		local wearable = handle_table[ "handle" ]
+		if new_item_id == -1 then
+			if wearable:GetClassname() == "dota_item_wearable" then
+				if wearable:GetModelName() == target_model then
+					wearable:RemoveEffects(EF_NODRAW)
+					return
+				end
+			end
+		end
 		local counter = 0
 		local particle_name = item[ "visual" ][ "attached_particlesystem0" ]
+		-- if new_item_id == -1 then
+		-- 	ParticleManager:ReleaseParticleIndex(particle_name)
+		-- end
 	end
 end
 

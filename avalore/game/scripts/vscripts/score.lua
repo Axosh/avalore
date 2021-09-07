@@ -7,8 +7,10 @@ function Score:Init()
     Score.RadiScore = 0
     Score.DireScore = 0
 
-    Score.RadiSharedGold = 0
-    Score.DireSharedGold = 0
+    Score.RadiSharedGoldCurr = 0
+    Score.RadiSharedGoldTotal = 0
+    Score.DireSharedGoldCurr = 0
+    Score.DireSharedGoldTotal = 0
 
     Score.round1 = {}
     Score.round1.radi_wisp_count = 0
