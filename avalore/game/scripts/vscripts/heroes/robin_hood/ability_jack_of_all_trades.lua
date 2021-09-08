@@ -10,6 +10,7 @@ ability_jack_of_all_trades = ability_jack_of_all_trades or class({})
 LinkLuaModifier("modifier_jack_of_all_trades_ranged", "heroes/robin_hood/ability_jack_of_all_trades.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jack_of_all_trades_melee",  "heroes/robin_hood/ability_jack_of_all_trades.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_wearable_temp_invis", "scripts/vscripts/modifiers/modifier_wearable_temp_invis", LUA_MODIFIER_MOTION_NONE )
 
 function ability_jack_of_all_trades:ProcsMagicStick()
     return false
@@ -162,8 +163,10 @@ function modifier_jack_of_all_trades_ranged:OnCreated(kv)
         --SomeModel:FollowEntity(self:GetParent(), true)
         local wearable = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"
         local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+        --local cosmetic = CreateUnitByNameAsync("wearable_dummy", unit:GetAbsOrigin(), false, unit, nil, unit:GetTeam(), nil)
 		cosmetic:SetOriginalModel(wearable)
 		cosmetic:SetModel(wearable)
+        cosmetic:AddNewModifier(cosmetic, nil, "modifier_wearable_temp_invis", {isCosmetic = true})
 		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
 		cosmetic:SetParent(unit, nil)
         cosmetic:FollowEntity(unit, true)
@@ -247,9 +250,14 @@ function modifier_jack_of_all_trades_melee:OnCreated(kv)
         -- print ("=========================")
         local unit = self:GetParent()
         local wearable = "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl"
+
+        
+
         local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+        --local cosmetic = CreateUnitByNameAsync("wearable_dummy", unit:GetAbsOrigin(), false, unit, nil, unit:GetTeam(), nil)
 		cosmetic:SetOriginalModel(wearable)
 		cosmetic:SetModel(wearable)
+        cosmetic:AddNewModifier(cosmetic, nil, "modifier_wearable_temp_invis", {isCosmetic = true})
 		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
 		cosmetic:SetParent(unit, nil)
         cosmetic:FollowEntity(unit, true)

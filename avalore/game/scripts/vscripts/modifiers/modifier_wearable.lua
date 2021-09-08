@@ -1,4 +1,5 @@
 AVALORE_INVISIBLE_MODIFIERS = {
+	"modifier_wearable_temp_invis",
     "modifier_deadly_fog_invis",
     "modifier_rogueish_escape",
 	"modifier_faction_forest_fade"
@@ -28,6 +29,11 @@ function modifier_wearable:IsHidden() return true end
 function modifier_wearable:OnCreated()
 	print("Created a modifier_wearable")
 	if not IsServer() then return end
+
+	-- spawn in as invis so that it doesn't accidentally draw when its not supposed to
+	-- (mostly applicable for Robin Hood because they can swap cosmetics as a skill)
+	-- local cosmetic = self:GetParent()
+	-- cosmetic:AddNewModifier(cosmetic, nil, "modifier_wearable_temp_invis", {isCosmetic = true})
 
 	self:StartIntervalThink(FrameTime())
 	self.render_color = nil
