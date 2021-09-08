@@ -12,6 +12,7 @@
 ============================================Init Functions==========================================================
 ====================================================================================================================
 ]]
+require("utility_functions")
 
 if CosmeticLib == nil then
 	print( '[CosmeticLib] Creating Cosmetics Manager' )
@@ -472,6 +473,10 @@ function CosmeticLib:RemoveFromSlot( unit, slot_name )
 	if unit and slot_name and CosmeticLib:_Identify( unit ) then
 		if unit._cosmeticlib_wearables_slots[ slot_name ] then
 			CosmeticLib:_Replace( unit._cosmeticlib_wearables_slots[ slot_name ], "-1" )
+			if unit._cosmeticlib_wearables_slots[ slot_name ].particle then
+				print("Found Particle")
+				ParticleManager:DestroyParticle(unit._cosmeticlib_wearables_slots[ slot_name ].particle, false)
+			end
 		end
 		return
 	end
@@ -479,9 +484,33 @@ function CosmeticLib:RemoveFromSlot( unit, slot_name )
 	print( "[CosmeticLib:Remove] Error: Invalid input." )
 end
 
+function CosmeticLib:RemoveParticles(player)
+	local hero = player:GetAssignedHero()
+	if hero and hero:IsRealHero() then
+		if CosmeticLib:_Identify( hero )then
+			print( "[CosmeticLib] Current cosmetics: " )
+			for item_slot, handle_table in pairs( hero._cosmeticlib_wearables_slots ) do
+				print( "[CosmeticLib] Item ID: " .. handle_table[ "item_id" ] .. "\tSlot: " .. item_slot )
+				wearable = handle_table["handle"]
+				print(wearable:GetModelName())
+				--wearable:RemoveEffects(EF_NODRAW)
+				wearable:RemoveSelf()
+			end
+		end
+	end
+end
+
 -- Remove all
 function CosmeticLib:RemoveAll( unit )
 	if unit and CosmeticLib:_Identify( unit ) then
+		-- local wearable = unit:FirstMoveChild()
+		-- while wearable do
+		-- 	print("Wearable " .. wearable["item_id"] )
+		-- 	print(wearable:GetModelName())
+		-- 	wearable:RemoveEffects(EF_NODRAW)
+		-- 	wearable = wearable:NextMovePeer()
+		-- end
+
 		-- Start force replacing
 		for slot_name, handle_table in pairs( unit._cosmeticlib_wearables_slots ) do
 			CosmeticLib:_Replace( handle_table, "-1" )
@@ -520,6 +549,8 @@ end
 -- Replace cosmetic
 -- This should never be called alone
 function CosmeticLib:_Replace( handle_table, new_item_id )
+	print("CosmeticLib:_Replace( handle_table, new_item_id )")
+	--PrintTable(handle_table)
 	local item = CosmeticLib._AllItemsByID[ "" .. new_item_id ]
 	handle_table[ "handle" ]:SetModel( item[ "model_player" ] )
 	handle_table[ "item_id" ] = new_item_id
@@ -528,9 +559,13 @@ function CosmeticLib:_Replace( handle_table, new_item_id )
 	-- Still cannot attach it properly
 	if item[ "visual" ] and item[ "visual" ][ "attached_particlesystem0" ] then
 		local wearable = handle_table[ "handle" ]
+		-- TEST - remove particles
 		if new_item_id == -1 then
+			print("Remove Particles Test")
 			if wearable:GetClassname() == "dota_item_wearable" then
-				if wearable:GetModelName() == target_model then
+				--if wearable:GetModelName() == target_model then
+				if wearable:GetModelName() == item[ "model_player" ] then
+					print("Remove Effects")
 					wearable:RemoveEffects(EF_NODRAW)
 					return
 				end

@@ -512,10 +512,39 @@ end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 function CAvaloreGameMode:InitCosmetics(unit)
 	local playernum = 0
 	local hero = PlayerResource:GetSelectedHeroEntity(playernum)
+	-- -- Test - remove effects
+	-- for sSlotName, hWear in pairs(unit.Slots) do
+	-- 	if hWear["model"] then
+	-- 		hWear["model"]:AddEffects(EF_NODRAW)
+	-- 	end
+	-- 	for p_name, p in pairs(hWear["particles"]) do
+	-- 		if p ~= false then
+	-- 			ParticleManager:DestroyParticle(p, true)
+	-- 			ParticleManager:ReleaseParticleIndex(p)
+	-- 		end
+	-- 		if hUnit["prismatic_particles"] and hUnit["prismatic_particles"][p_name] then
+	-- 			hUnit["prismatic_particles"][p_name].hidden = true
+	-- 		end
+	-- 	end
+	-- 	if hWear["additional_wearable"] then
+	-- 		for _, prop in pairs(hWear["additional_wearable"]) do
+	-- 			if prop and IsValidEntity(prop) then
+	-- 				prop:AddEffects(EF_NODRAW)
+	-- 			end
+	-- 		end
+	-- 	end
+	-- end
 	--local hero = PlayerResource:GetPlayer( hPlayerHero:GetPlayerOwnerID() ):GetAssignedHero()
-	CAvaloreGameMode:RemoveAll(hero)
+	--CosmeticLib:PrintItemsFromPlayer(PlayerResource:GetPlayer(0))
+	CosmeticLib:RemoveParticles(PlayerResource:GetPlayer(0))
+	--CAvaloreGameMode:RemoveAll(hero)
 	CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_HEAD )
 	CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_BODY_HEAD )
+	CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_SHOULDER )
+
+	--local selected_item = CosmeticLib._AllItemsByID[ "" .. CosmeticID ]
+	--print(">>>>><<<<<")
+	--CosmeticLib:PrintItemsFromPlayer(PlayerResource:GetPlayer(0))
 	--if()
 	--CAvaloreGameMode:InitDavyJones(hero)
 	if CAvaloreGameMode.player_cosmetics == nil then
@@ -526,7 +555,7 @@ function CAvaloreGameMode:InitCosmetics(unit)
 	print("Cosmetics Init for: " .. hero_name)
 
 	if hero_name == "npc_dota_hero_davy_jones" or hero_name == "npc_dota_hero_kunkka" then
-		CosmeticLib:ReplaceDefault( hero, "npc_dota_hero_kunkka" )
+		--CosmeticLib:ReplaceDefault( hero, "npc_dota_hero_kunkka" )
 		CAvaloreGameMode:InitDavyJones(hero)
 	elseif hero_name == "npc_dota_hero_robin_hood" or hero_name == "npc_dota_hero_windrunner" then
 		CAvaloreGameMode:InitRobinHood(hero,playernum)
@@ -565,6 +594,7 @@ function CAvaloreGameMode:InitDavyJones(unit)
 	--Image of Seaborne Reprisal xx
 	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/vengeful_ghost_captain_head/vengeful_ghost_captain_head.vmdl"})
 	SomeModel:FollowEntity(unit, true)
+	--SomeModel:SetParent(unit, "PATTACH_ABSORIGIN_FOLLOW")
 	--Folds of Seaborne Reprisal
 	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/vengeful_ghost_captain_back/vengeful_ghost_captain_back.vmdl"})
 	SomeModel:FollowEntity(unit, true)
