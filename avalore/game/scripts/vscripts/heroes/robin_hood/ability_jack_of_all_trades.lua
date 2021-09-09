@@ -154,25 +154,33 @@ function modifier_jack_of_all_trades_ranged:OnCreated(kv)
         --print("[modifier_jack_of_all_trades_ranged] printing DOTA_UNIT_CAP_RANGED_ATTACK ==> " .. tostring(DOTA_UNIT_CAP_RANGED_ATTACK))
         self:GetParent():SetAttackCapability( DOTA_UNIT_CAP_RANGED_ATTACK )
 
+        -- Drawing the cosmetic/wearable is all handled in modifier_wearable
+
+        --self:GetParent().weapon_model:RemoveEffects(EF_NODRAW)
+        -- self:GetParent().weapon_model:RemoveEffects(EF_NODRAW)
+        -- self:GetParent().weapon_model_alt:AddEffects(EF_NODRAW)
+        
         --CosmeticLib:RemoveFromSlot(self:GetParent(), DOTA_LOADOUT_TYPE_WEAPON)
-        self:GetParent().weapon_model:RemoveSelf()
-        self:GetParent().weapon_model = nil
-        local unit = self:GetParent()
-        -- Longbow of the Roving Pathfinder (DOTA_LOADOUT_TYPE_WEAPON)
-        --local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"})
-        --SomeModel:FollowEntity(self:GetParent(), true)
-        local wearable = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"
-        local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
-        --local cosmetic = CreateUnitByNameAsync("wearable_dummy", unit:GetAbsOrigin(), false, unit, nil, unit:GetTeam(), nil)
-		cosmetic:SetOriginalModel(wearable)
-		cosmetic:SetModel(wearable)
-        cosmetic:AddNewModifier(cosmetic, nil, "modifier_wearable_temp_invis", {isCosmetic = true})
-		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
-		cosmetic:SetParent(unit, nil)
-        cosmetic:FollowEntity(unit, true)
-        cosmetic:SetOwner(unit)
-        self:GetParent().weapon_model = cosmetic
+        -- self:GetParent().weapon_model:RemoveSelf()
+        -- self:GetParent().weapon_model = nil
+        -- local unit = self:GetParent()
+        -- -- Longbow of the Roving Pathfinder (DOTA_LOADOUT_TYPE_WEAPON)
+        -- --local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"})
+        -- --SomeModel:FollowEntity(self:GetParent(), true)
+        -- local wearable = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"
+        -- local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+        -- --local cosmetic = CreateUnitByNameAsync("wearable_dummy", unit:GetAbsOrigin(), false, unit, nil, unit:GetTeam(), nil)
+		-- cosmetic:SetOriginalModel(wearable)
+		-- cosmetic:SetModel(wearable)
+        -- cosmetic:AddNewModifier(cosmetic, nil, "modifier_wearable_temp_invis", {isCosmetic = true})
+		-- cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		-- cosmetic:SetParent(unit, nil)
+        -- cosmetic:FollowEntity(unit, true)
+        -- cosmetic:SetOwner(unit)
+        -- self:GetParent().weapon_model = cosmetic
     end
+    
+
 end
 
 
@@ -224,9 +232,14 @@ function modifier_jack_of_all_trades_melee:OnCreated(kv)
         self.range      = MELEE_ATTACK_RANGE
         self:GetParent():SetAttackCapability( DOTA_UNIT_CAP_MELEE_ATTACK )
 
+        -- Drawing the cosmetic/wearable is all handled in modifier_wearable
+
+        -- self:GetParent().weapon_model:AddEffects(EF_NODRAW)
+        -- self:GetParent().weapon_model_alt:RemoveEffects(EF_NODRAW)
+
         --CosmeticLib:RemoveFromSlot(self:GetParent(), DOTA_LOADOUT_TYPE_WEAPON)
-        self:GetParent().weapon_model:RemoveSelf()
-        self:GetParent().weapon_model = nil
+        -- self:GetParent().weapon_model:RemoveSelf()
+        -- self:GetParent().weapon_model = nil
         -- No-Guard the Courageous Edge (DOTA_LOADOUT_TYPE_WEAPON) -- Juggernaut Weapon
         --local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/juggernaut/brave_sword.vmdl"})
 
@@ -248,21 +261,21 @@ function modifier_jack_of_all_trades_melee:OnCreated(kv)
         -- print("Forward Vector = " .. DebugVector(SomeModel:GetForwardVector()))
         -- print("Local Origin = " .. DebugVector(SomeModel:GetLocalOrigin()))
         -- print ("=========================")
-        local unit = self:GetParent()
-        local wearable = "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl"
+        -- local unit = self:GetParent()
+        -- local wearable = "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl"
 
         
 
-        local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
-        --local cosmetic = CreateUnitByNameAsync("wearable_dummy", unit:GetAbsOrigin(), false, unit, nil, unit:GetTeam(), nil)
-		cosmetic:SetOriginalModel(wearable)
-		cosmetic:SetModel(wearable)
-        cosmetic:AddNewModifier(cosmetic, nil, "modifier_wearable_temp_invis", {isCosmetic = true})
-		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
-		cosmetic:SetParent(unit, nil)
-        cosmetic:FollowEntity(unit, true)
-        cosmetic:SetOwner(unit)
-        self:GetParent().weapon_model = cosmetic
+        -- local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+        -- --local cosmetic = CreateUnitByNameAsync("wearable_dummy", unit:GetAbsOrigin(), false, unit, nil, unit:GetTeam(), nil)
+		-- cosmetic:SetOriginalModel(wearable)
+		-- cosmetic:SetModel(wearable)
+        -- cosmetic:AddNewModifier(cosmetic, nil, "modifier_wearable_temp_invis", {isCosmetic = true})
+		-- cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		-- cosmetic:SetParent(unit, nil)
+        -- cosmetic:FollowEntity(unit, true)
+        -- cosmetic:SetOwner(unit)
+        -- self:GetParent().weapon_model = cosmetic
         --self:GetParent().weapon_model = SomeModel
     end
 end

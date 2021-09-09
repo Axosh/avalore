@@ -620,6 +620,7 @@ function CAvaloreGameMode:InitRobinHood(unit_temp, playernum)
 	robin_hood_cosmetics[2] = "models/items/windrunner/quiver_of_the_northern_wind/quiver_of_the_northern_wind.vmdl"
 	robin_hood_cosmetics[3] = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_hat_v2/the_swift_pathfinder_swift_pathfinders_hat_v2.vmdl"
 	robin_hood_cosmetics[4] = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_coat/the_swift_pathfinder_swift_pathfinders_coat.vmdl"
+	robin_hood_cosmetics[5] = "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl"
 	
 	for k,wearable in pairs(robin_hood_cosmetics) do
 		print("Creating Cosmetic " .. wearable)
@@ -634,7 +635,13 @@ function CAvaloreGameMode:InitRobinHood(unit_temp, playernum)
 			unit_temp.weapon_model = cosmetic
 			print("Set Initial weapon_model")
 		end
+		if wearable == "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl" then
+			cosmetic:AddEffects(EF_NODRAW) -- start out invis
+			unit_temp.weapon_model_alt = cosmetic
+
+		end
 	end
+	
 end
 
 function CAvaloreGameMode:InitRobinHood_old(unit, playernum)

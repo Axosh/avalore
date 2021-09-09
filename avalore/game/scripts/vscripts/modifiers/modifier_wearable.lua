@@ -102,5 +102,19 @@ function modifier_wearable:OnIntervalThink()
 		cosmetic:AddNoDraw()
 	else
 		cosmetic:RemoveNoDraw()
+		-- For Robin-Hood since they can swap weapons
+		if hero:GetName() == "npc_dota_hero_windrunner" then --or hero:GetName() == "npc_dota_hero_robin_hood" then
+			if cosmetic:GetModelName() == "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl" then
+				if hero:HasModifier("modifier_jack_of_all_trades_melee")  then
+					cosmetic:AddNoDraw()
+				end
+			-- if we get here they either are in ranged form, or don't have the ability learned yet
+			elseif cosmetic:GetModelName() == "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl" then
+				if not hero:HasModifier("modifier_jack_of_all_trades_melee") then
+					cosmetic:AddNoDraw()
+				end
+			end
+		end
 	end
+
 end
