@@ -1,3 +1,7 @@
+// Buildings
+
+#base "buildings/mercenary_camp.txt"
+
 // Dota Heroes File
 
 #base "heroes/davy_jones/ability_deadly_fog.txt"

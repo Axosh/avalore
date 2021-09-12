@@ -40,6 +40,7 @@ require("score")
 require("references")
 require('libraries/player')
 require("libraries/vector_target")
+require('buildings/hire_queue')
 
 flag_announce_curr = 1
 
@@ -99,6 +100,28 @@ function CAvaloreGameMode:InitGameMode()
 	--            them to begin as radiant and dire owned
 	Score.entities.radi_outpost:AddNewModifier(outpostTest, nil, "modifier_unselectable", {})
 	Score.entities.dire_outpost:AddNewModifier(outpostTest, nil, "modifier_unselectable", {})
+
+	-- Spawn Merc Camps
+	local merc_camp = CreateUnitByName( "mercenary_camp", Vector(-7232, -5888, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
+	--merc_camp:SetForwardVector(Vector(-1, 0, 0)) -- have door face right
+	--local ancient_r = Entities:FindByName(nil, "npc_dota_goodguys_fort")
+	--print("Ancient's owner " .. ancient_r:GetOwnerEntity():)
+
+	--PlayerResource:SetUnitShareMaskForPlayer(nPlayerID, nOtherPlayerID, nFlag, bState)
+	merc_camp:SetControllableByPlayer(0, false)
+	--merc_camp:IsSharedWithTeammates
+
+	-- for playerID = 0, DOTA_MAX_PLAYERS do
+    --     if PlayerResource:IsValidPlayerID(playerID) then
+    --         if not PlayerResource:IsBroadcaster(playerID) then
+	-- 			local hero = PlayerResource:GetPlayer(playerID):GetAssignedHero()
+    --             if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+	-- 				print("Sharing with playerID " .. tostring(playerID))
+	-- 				merc_camp:SetControllableByPlayer(playerID, true)
+	-- 			end
+	-- 		end
+	-- 	end
+	-- end
 
 	--[[local score_obj = 
 	{

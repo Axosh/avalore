@@ -1,0 +1,37 @@
+"DOTAAbilities"
+{
+    "merc_train_melee_creep"
+    {
+        "BaseClass"             		"ability_datadriven"
+        "AbilityTextureName"			"faction/mercenary/melee"
+        "MaxLevel" 						"1"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"   
+
+        "AbilityGoldCost"				"75"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "gold_cost"				"75"
+            }
+        }
+
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"	"buildings/hire_queue.lua"
+                "Function"		"Enqueue"
+            }
+
+            // "RunScript"
+            // {
+            // 	"ScriptFile"	"buildings/merc_camp.lua"
+            // 	"Function"		"UpgradeAbilities"
+            // }
+        }
+    }
+}
