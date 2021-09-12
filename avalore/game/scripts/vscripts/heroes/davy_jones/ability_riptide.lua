@@ -6,14 +6,14 @@ LinkLuaModifier( "modifier_knockback_avalore", "scripts/vscripts/modifiers/modif
 -- ==================================================
 -- Ability Phase Start
 -- ==================================================
--- function ability_riptide:OnAbilityPhaseInterrupted()
+function ability_riptide:OnAbilityPhaseInterrupted()
 
--- end
--- function ability_riptide:OnAbilityPhaseStart()
--- 	-- Vector targeting
--- 	if not self:CheckVectorTargetPosition() then return false end
--- 	return true -- if success
--- end
+end
+function ability_riptide:OnAbilityPhaseStart()
+	-- Vector targeting
+	if not self:CheckVectorTargetPosition() then return false end
+	return true -- if success
+end
 
 -- ==================================================
 -- Ability Start
@@ -21,26 +21,31 @@ LinkLuaModifier( "modifier_knockback_avalore", "scripts/vscripts/modifiers/modif
 function ability_riptide:OnSpellStart()
 	-- unit identifier
 	local caster = self:GetCaster()
-	local targets = self:GetVectorTargetPosition()
+	local target = self:GetVectorTargetPosition()
     local point = self:GetCursorPosition()
 
     local name = "particles/units/heroes/hero_tidehunter/tidehunter_gush_upgrade.vpcf"
-    local speed = self:GetSpecialValueFor("speed")
-	local radius = self:GetSpecialValueFor("aoe")
-    local range = 700 --temp value for testing --self:GetCastRange( point, target )
+    local speed = self:GetSpecialValueFor("projectile_speed")
+	local radius = self:GetSpecialValueFor("projectile_aoe")
+    local range = self:GetSpecialValueFor("cast_range") --self:GetCastRange( point, target )
 
-    local direction = targets.direction
+    --local direction = target.direction
+    -- Testing - use caster location
+    -- local projectile_distance = self:GetCastRange( point, nil )
+	-- local projectile_direction = point-caster:GetOrigin()
+	-- projectile_direction.z = 0
+	-- projectile_direction = projectile_direction:Normalized()
 
-    local vector = (targets.init_pos-caster:GetOrigin())
-	local dist = vector:Length2D()
-	vector.z = 0
-	vector = vector:Normalized()
+    -- local vector = (targets.init_pos - point)
+	-- --local dist = vector:Length2D()
+	-- vector.z = 0
+	-- vector = vector:Normalized()
 
     -- create linear projectile
     local info = {
         Source = caster,
         Ability = self,
-        vSpawnOrigin = caster:GetAbsOrigin(),
+        vSpawnOrigin = target.init_pos, --caster:GetAbsOrigin(), --vector, 
     
         bDeleteOnHit = false,
     
@@ -52,7 +57,17 @@ function ability_riptide:OnSpellStart()
         fDistance = range,
         fStartRadius = radius,
         fEndRadius = radius,
-        vVelocity = direction * speed,
+        vVelocity = target.direction * speed,
+        --vVelocity = projectile_direction * speed,
+        --vVelocity = direction * speed,
+
+        ExtraData = {
+            --x = caster:GetOrigin().x,
+			--y = caster:GetOrigin().y,
+			 x = target.init_pos.x,
+			 y = target.init_pos.y
+            --vec = vector
+		}
     }
     ProjectileManager:CreateLinearProjectile( info )
 
@@ -70,7 +85,55 @@ function ability_riptide:OnProjectileHit_ExtraData( target, location, data )
 
     local vision = 200
 	local duration = 2
+    local max_dist = self:GetSpecialValueFor( "knockback_distance_max" )
 
 		-- provide vision
 	AddFOWViewer( self:GetCaster():GetTeamNumber(), target:GetOrigin(), vision, duration, true )
+
+    -- local vector = data.vec --target:GetOrigin()-Vector(data.x,data.y,0)
+    -- vector.z = 0
+    -- distance = (1-distance/self:GetCastRange( Vector(0,0,0), nil ))*max_dist
+	-- if max_dist<0 then distance = 0 end
+	-- vector = vector:Normalized()
+
+    local vec = target:GetOrigin()-Vector(data.x,data.y,0)
+	vec.z = 0
+	local distance = vec:Length2D()
+	distance = (1-distance/self:GetCastRange( Vector(0,0,0), nil ))*max_dist
+	if max_dist<0 then distance = 0 end
+	--vector = vec:Normalized()
+
+    -- apply knockback
+	target:AddNewModifier(
+		self:GetCaster(), -- player source
+		self, -- ability source
+		"modifier_knockback_avalore", -- modifier name
+		{
+			duration = duration,
+			distance = distance,
+			direction_x = vec.x,
+			direction_y = vec.y,
+		} -- kv
+	)
+
+    -- play effects
+	self:PlayEffects( target )
+end
+
+function ability_riptide:PlayEffects( target )
+	-- Get Resources
+	local particle_cast = "particles/units/heroes/hero_tidehunter/tidehunter_gush_splash.vpcf"
+
+	-- Create Particle
+	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+	ParticleManager:SetParticleControlEnt(
+		effect_cast,
+		3,
+		target,
+		PATTACH_ABSORIGIN_FOLLOW,
+		"attach_hitloc",
+		Vector(0,0,0), -- unknown
+		true -- unknown, true
+	)
+	ParticleManager:ReleaseParticleIndex( effect_cast )
 end

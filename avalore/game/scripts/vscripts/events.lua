@@ -576,39 +576,26 @@ end
 
 function CAvaloreGameMode:InitDavyJones(unit)
 	unit:AddNewModifier(unit, nil, "modifier_faction_water", nil)
-	--Medallion of the Divine Anchor
-	local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/medallion_of_the_divine_anchor/medallion_of_the_divine_anchor.vmdl"})
-	SomeModel:FollowEntity(unit, true)
-	-- Coat of Seaborne Reprisal
-	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/vengeful_ghost_captain_shoulder/vengeful_ghost_captain_shoulder.vmdl"})
-	SomeModel:FollowEntity(unit, true)
-	--Admiral's Salty Shawl
-	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/arm_lev_admiral_shawl/arm_lev_admiral_shawl.vmdl"})
-	SomeModel:FollowEntity(unit, true)
-	--Leviathan Whale Blade of Eminent Revival
-	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/whaleblade/ti8_kunkka_whaleblade.vmdl"})
-	SomeModel:FollowEntity(unit, true)
-	--Waterlogged Kunkka Shoes
-	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/kunkka_shoes/kunkka_shoes.vmdl"})
-	SomeModel:FollowEntity(unit, true)
-	--Image of Seaborne Reprisal xx
-	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/vengeful_ghost_captain_head/vengeful_ghost_captain_head.vmdl"})
-	SomeModel:FollowEntity(unit, true)
-	--SomeModel:SetParent(unit, "PATTACH_ABSORIGIN_FOLLOW")
-	--Folds of Seaborne Reprisal
-	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/vengeful_ghost_captain_back/vengeful_ghost_captain_back.vmdl"})
-	SomeModel:FollowEntity(unit, true)
-	SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/vengeful_ghost_captain_gloves/vengeful_ghost_captain_gloves.vmdl"})
-	SomeModel:FollowEntity(unit, true)
-
-	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_MISC, 6781 ) --Medallion of the Divine Anchor
-	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_SHOULDER, 9340 ) --Coat of Seaborne Reprisal
-	-- --CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_BACK, 5469 ) --Admiral's Salty Shawl
-	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_GLOVES, 9344 ) --Claw of Seaborne Reprisal
-	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_WEAPON, 12291 ) --Leviathan Whale Blade of Eminent Revival
-	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_LEGS, 14966 ) --Waterlogged Kunkka Shoes
-	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_BODY_HEAD, 9343 ) --Image of Seaborne Reprisal xx
-	-- CosmeticLib:ReplaceWithSlotName( unit, DOTA_LOADOUT_TYPE_BACK, 9346 ) --Folds of Seaborne Reprisal
+	local davy_jones_cosmetics = {}
+	davy_jones_cosmetics[0] = "models/items/kunkka/medallion_of_the_divine_anchor/medallion_of_the_divine_anchor.vmdl"
+	davy_jones_cosmetics[1] = "models/items/kunkka/vengeful_ghost_captain_shoulder/vengeful_ghost_captain_shoulder.vmdl"
+	davy_jones_cosmetics[2] = "models/items/kunkka/arm_lev_admiral_shawl/arm_lev_admiral_shawl.vmdl"
+	davy_jones_cosmetics[3] = "models/items/kunkka/whaleblade/ti8_kunkka_whaleblade.vmdl"
+	davy_jones_cosmetics[4] = "models/items/kunkka/kunkka_shoes/kunkka_shoes.vmdl"
+	davy_jones_cosmetics[5] = "models/items/kunkka/vengeful_ghost_captain_head/vengeful_ghost_captain_head.vmdl"
+	davy_jones_cosmetics[6] = "models/items/kunkka/vengeful_ghost_captain_back/vengeful_ghost_captain_back.vmdl"
+	davy_jones_cosmetics[7] = "models/items/kunkka/vengeful_ghost_captain_gloves/vengeful_ghost_captain_gloves.vmdl"
+	
+	for k,wearable in pairs(davy_jones_cosmetics) do
+		print("Creating Cosmetic " .. wearable)
+		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+		cosmetic:SetOwner(unit)
+		cosmetic:FollowEntity(unit, true)
+	end
 end
 
 function CAvaloreGameMode:InitRobinHood(unit_temp, playernum)

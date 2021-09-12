@@ -13,7 +13,7 @@
         "Model"             "models/heroes/kunkka/kunkka.vmdl"
         "SoundSet"          "0" 
         "Ability1"        "ability_deadly_fog"
-        "Ability2"        "ability_whirlpool" //"kunkka_torrent" 
+        "Ability2"        "ability_riptide" //"ability_whirlpool" //"kunkka_torrent" 
         "Ability3"        "ability_lost_souls"
         "Ability4"        "ability_flying_dutchman"
         //"Ability4"		  "death_prophet_exorcism"

@@ -74,6 +74,12 @@ function modifier_wearable:OnIntervalThink()
 				break -- remove this break if you want to add multiple modifiers at the same time
 			end
 		end
+		-- monitor stacks since a lot of those are used for tracking countdowns to invis
+		if hero:HasModifier(v) and cosmetic:HasModifier(v) then
+			if hero:FindModifierByName(v):GetStackCount() ~= cosmetic:FindModifierByName(v) then
+				cosmetic:FindModifierByName(v):SetStackCount(hero:FindModifierByName(v):GetStackCount())
+			end
+		end
 	end
 
 	-- for _, v in pairs(IMBA_NODRAW_MODIFIERS) do
