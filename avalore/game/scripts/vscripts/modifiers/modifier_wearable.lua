@@ -27,7 +27,7 @@ function modifier_wearable:IsPurgeException() return false end
 function modifier_wearable:IsHidden() return true end
 
 function modifier_wearable:OnCreated()
-	print("Created a modifier_wearable")
+	--print("Created a modifier_wearable")
 	if not IsServer() then return end
 
 	-- spawn in as invis so that it doesn't accidentally draw when its not supposed to

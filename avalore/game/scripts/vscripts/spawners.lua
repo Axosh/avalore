@@ -73,6 +73,8 @@ function Spawners:Init()
     Spawners.SpawnConfigs[Constants.KEY_DIRE_SHELFTOP]      = {Spawner = self.h_DireSpawn_ShelfTop,     FirstWaypoint = self.h_DireInit_ShelfTop,   Melee = "npc_dota_creep_badguys_melee",   Ranged = "npc_dota_creep_badguys_ranged",  Siege = "npc_dota_badguys_siege", Team = DOTA_TEAM_BADGUYS }
     Spawners.SpawnConfigs[Constants.KEY_DIRE_SHELFBOT]      = {Spawner = self.h_DireSpawn_ShelfBot,     FirstWaypoint = self.h_DireInit_ShelfBot,   Melee = "npc_dota_creep_badguys_melee",   Ranged = "npc_dota_creep_badguys_ranged",  Siege = "npc_dota_badguys_siege", Team = DOTA_TEAM_BADGUYS }
 
+    Spawners.MercQueue = {}
+
     self:InitFlags()
     print("Spawners Initialized")
 end

@@ -1,37 +1,50 @@
-"DOTAAbilities"
-{
-    "merc_train_melee_creep"
-    {
-        "BaseClass"             		"ability_datadriven"
-        "AbilityTextureName"			"faction/mercenary/melee"
-        "MaxLevel" 						"1"
+// "DOTAAbilities"
+// {
+//     "merc_train_melee_creep"
+//     {
+//         //"BaseClass"             		"ability_datadriven"
+//         "BaseClass"						"ability_lua"
+//         //"AbilityTextureName"			"factions/mercenary/melee"
+//         "AbilityTextureName"			"hire_melee_merc"
+//         "MaxLevel" 						"1"
 
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"   
+//         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"   
 
-        "AbilityGoldCost"				"75"
+//         "AbilityGoldCost"				"75"
+//         "ScriptFile"                    "buildings/hire_queue.lua"
 
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "gold_cost"				"75"
-            }
-        }
+//         "AbilitySpecial"
+//         {
+//             "01"
+//             {
+//                 "var_type"				"FIELD_INTEGER"
+//                 "gold_cost"				"75"
+//             }
+//             "02"
+//             {
+//                 "var_type"              "FIELD_STRING"
+//                 "unit_radi"             "npc_dota_creep_goodguys_melee"
+//             }
+//             "03"
+//             {
+//                 "var_type"              "FIELD_STRING"
+//                 "unit_dire"             "npc_dota_creep_badguys_melee"
+//             }
+//         }
 
-        "OnSpellStart"
-        {
-            "RunScript"
-            {
-                "ScriptFile"	"buildings/hire_queue.lua"
-                "Function"		"Enqueue"
-            }
+//         // "OnSpellStart"
+//         // {
+//         //     "RunScript"
+//         //     {
+//         //         "ScriptFile"	"buildings/hire_queue.lua"
+//         //         "Function"		"Enqueue"
+//         //     }
 
-            // "RunScript"
-            // {
-            // 	"ScriptFile"	"buildings/merc_camp.lua"
-            // 	"Function"		"UpgradeAbilities"
-            // }
-        }
-    }
-}
+//         //     // "RunScript"
+//         //     // {
+//         //     // 	"ScriptFile"	"buildings/merc_camp.lua"
+//         //     // 	"Function"		"UpgradeAbilities"
+//         //     // }
+//         // }
+//     }
+// }

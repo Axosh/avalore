@@ -30,6 +30,7 @@
 		//--------------------------------------------------------------------------------
 
 		"mercenary_camp"										"Mercenary Camp"
+		"DOTA_Tooltip_Ability_avalore_merc_train_melee_creep"	"Hire Melee Troop"
 
 		//--------------------------------------------------------------------------------
 		// ABILITIES

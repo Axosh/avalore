@@ -102,13 +102,18 @@ function CAvaloreGameMode:InitGameMode()
 	Score.entities.dire_outpost:AddNewModifier(outpostTest, nil, "modifier_unselectable", {})
 
 	-- Spawn Merc Camps
-	local merc_camp = CreateUnitByName( "mercenary_camp", Vector(-7232, -5888, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
+	--local merc_camp = CreateUnitByName( "mercenary_camp", Vector(-7232, -5888, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
+	
 	--merc_camp:SetForwardVector(Vector(-1, 0, 0)) -- have door face right
 	--local ancient_r = Entities:FindByName(nil, "npc_dota_goodguys_fort")
 	--print("Ancient's owner " .. ancient_r:GetOwnerEntity():)
 
 	--PlayerResource:SetUnitShareMaskForPlayer(nPlayerID, nOtherPlayerID, nFlag, bState)
-	merc_camp:SetControllableByPlayer(0, false)
+
+	-- local merc_camp = CreateUnitByName( "mercenary_camp", Vector(-7232, -5888, 256), true, nil, PlayerResource:GetPlayer(0), DOTA_TEAM_GOODGUYS )
+	-- merc_camp:SetOwner(PlayerResource:GetPlayer(0))
+	-- merc_camp:SetControllableByPlayer(0, false)
+	-- merc_camp.lane = Constants.KEY_RADIANT_TOP
 	--merc_camp:IsSharedWithTeammates
 
 	-- for playerID = 0, DOTA_MAX_PLAYERS do
@@ -131,6 +136,8 @@ function CAvaloreGameMode:InitGameMode()
 	CustomGameEventManager:Send_ServerToAllClients( "refresh_score", score_obj )
 	--]]
 end
+
+local temp = false
 
 -- Evaluate the state of the game
 function CAvaloreGameMode:OnThink()
@@ -243,6 +250,19 @@ function CAvaloreGameMode:OnThink()
 		p1_hero:HeroLevelUp(false)
 		--DEBUG
 		p1_hero:SetGold(10000, true)
+	end
+
+	if p1_hero and not temp then
+		temp = true
+		local merc_camp = CreateUnitByName( "mercenary_camp", Vector(-7232, -5888, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
+		merc_camp:SetOwner(PlayerResource:GetPlayer(0))
+		merc_camp:SetTeam(DOTA_TEAM_GOODGUYS)
+		merc_camp:SetControllableByPlayer(0, false)
+		merc_camp.lane = Constants.KEY_RADIANT_TOP
+
+		print(PlayerResource:GetPlayer(0):GetAssignedHero():GetEntityHandle())
+
+		--PlayerResource:AreUnitsSharedWithPlayerID(merc_camp:GetOwnerEntity(), PlayerResource:GetPlayer(0))
 	end
 
 	-- Check for wave spawns on 30s intervals

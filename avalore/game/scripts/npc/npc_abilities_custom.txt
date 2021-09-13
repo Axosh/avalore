@@ -206,19 +206,75 @@
 		}
 	} // end "special_bonus_unique_davy_jones"
 
-	//==========================
-    // DAVY_JONES: Lost Souls
-    //===========================
-    "davy_jones_lost_souls"
+	// //==========================
+    // // DAVY_JONES: Lost Souls
+    // //===========================
+    // "davy_jones_lost_souls"
+    // {
+    // 	// General
+    // 	// ------------------------------------------------------------
+    // 	"BaseClass"                 "ability_datadriven"
+    // 	"AbilityTextureName"      	"death_prophet_exorcism"
+    // 	"AbilityBehavior"       	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    // 	"AbilityType"         		"DOTA_ABILITY_TYPE_ULTIMATE"
+    // 	"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
+    // 	//"MaxLevel"             		"6"
+    // 	//"AbilitySound"          "Hero_DeathProphet.Exorcism.Cast"
+    // } // davy_jones_lost_souls
+
+	"avalore_merc_train_melee_creep"
     {
-    	// General
-    	// ------------------------------------------------------------
-    	"BaseClass"                 "ability_datadriven"
-    	"AbilityTextureName"      	"death_prophet_exorcism"
-    	"AbilityBehavior"       	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    	"AbilityType"         		"DOTA_ABILITY_TYPE_ULTIMATE"
-    	"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
-    	//"MaxLevel"             		"6"
-    	//"AbilitySound"          "Hero_DeathProphet.Exorcism.Cast"
-    } // davy_jones_lost_souls
+        //"BaseClass"             		"ability_datadriven"
+        "BaseClass"						"ability_lua"
+		"ScriptFile"                    "buildings/hire_queue.lua"
+        //"AbilityTextureName"			"factions/mercenary/melee"
+        "AbilityTextureName"			"hire_melee_merc"
+        "MaxLevel" 						"1"
+		"FightRecapLevel"				"1"
+
+		//"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET" // | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"   
+		"AbilitySharedWithTeammates"			"1"
+
+        //"AbilityGoldCost"				"75"
+        
+
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityCastRange"				"0"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "gold_cost"				"75"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_STRING"
+                "unit_radi"             "npc_dota_creep_goodguys_melee"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_STRING"
+                "unit_dire"             "npc_dota_creep_badguys_melee"
+            }
+        }
+
+        // "OnSpellStart"
+        // {
+        //     "RunScript"
+        //     {
+        //         "ScriptFile"	"buildings/hire_queue.lua"
+        //         "Function"		"Enqueue"
+        //     }
+
+        //     // "RunScript"
+        //     // {
+        //     // 	"ScriptFile"	"buildings/merc_camp.lua"
+        //     // 	"Function"		"UpgradeAbilities"
+        //     // }
+        // }
+    }
 } //DOTAAbilities

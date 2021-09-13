@@ -488,11 +488,11 @@ function CosmeticLib:RemoveParticles(player)
 	local hero = player:GetAssignedHero()
 	if hero and hero:IsRealHero() then
 		if CosmeticLib:_Identify( hero )then
-			print( "[CosmeticLib] Current cosmetics: " )
+			--print( "[CosmeticLib] Current cosmetics: " )
 			for item_slot, handle_table in pairs( hero._cosmeticlib_wearables_slots ) do
-				print( "[CosmeticLib] Item ID: " .. handle_table[ "item_id" ] .. "\tSlot: " .. item_slot )
+				--print( "[CosmeticLib] Item ID: " .. handle_table[ "item_id" ] .. "\tSlot: " .. item_slot )
 				wearable = handle_table["handle"]
-				print(wearable:GetModelName())
+				--print(wearable:GetModelName())
 				--wearable:RemoveEffects(EF_NODRAW)
 				wearable:RemoveSelf()
 			end

@@ -49,11 +49,11 @@ function CAvaloreGameMode:OnEntityKilled(event)
 			if attackerTeam == DOTA_TEAM_GOODGUYS then
 				Score.RadiSharedGoldCurr  =  Score.RadiSharedGoldCurr  + killedEntity:GetGoldBounty()
 				Score.RadiSharedGoldTotal =  Score.RadiSharedGoldTotal + killedEntity:GetGoldBounty()
-				print("Radiant Shared Gold = " .. tostring(Score.RadiSharedGoldCurr) .. "g")
+				--print("Radiant Shared Gold = " .. tostring(Score.RadiSharedGoldCurr) .. "g")
 			elseif attackerTeam == DOTA_TEAM_BADGUYS then
 				Score.DireSharedGoldCurr  =  Score.DireSharedGoldCurr  + killedEntity:GetGoldBounty()
 				Score.DireSharedGoldTotal =  Score.DireSharedGoldTotal + killedEntity:GetGoldBounty()
-				print("Dire Shared Gold = " .. tostring(Score.DireSharedGoldCurr) .. "g")
+				--print("Dire Shared Gold = " .. tostring(Score.DireSharedGoldCurr) .. "g")
 			end
 		end
 	end
@@ -552,7 +552,7 @@ function CAvaloreGameMode:InitCosmetics(unit)
 	end
 
 	local hero_name = PlayerResource:GetSelectedHeroName(playernum)
-	print("Cosmetics Init for: " .. hero_name)
+	--print("Cosmetics Init for: " .. hero_name)
 
 	if hero_name == "npc_dota_hero_davy_jones" or hero_name == "npc_dota_hero_kunkka" then
 		--CosmeticLib:ReplaceDefault( hero, "npc_dota_hero_kunkka" )
@@ -587,7 +587,7 @@ function CAvaloreGameMode:InitDavyJones(unit)
 	davy_jones_cosmetics[7] = "models/items/kunkka/vengeful_ghost_captain_gloves/vengeful_ghost_captain_gloves.vmdl"
 	
 	for k,wearable in pairs(davy_jones_cosmetics) do
-		print("Creating Cosmetic " .. wearable)
+		--print("Creating Cosmetic " .. wearable)
 		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
 		cosmetic:SetOriginalModel(wearable)
 		cosmetic:SetModel(wearable)
@@ -610,7 +610,7 @@ function CAvaloreGameMode:InitRobinHood(unit_temp, playernum)
 	robin_hood_cosmetics[5] = "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl"
 	
 	for k,wearable in pairs(robin_hood_cosmetics) do
-		print("Creating Cosmetic " .. wearable)
+		--print("Creating Cosmetic " .. wearable)
 		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
 		cosmetic:SetOriginalModel(wearable)
 		cosmetic:SetModel(wearable)
@@ -620,7 +620,7 @@ function CAvaloreGameMode:InitRobinHood(unit_temp, playernum)
 		cosmetic:FollowEntity(unit, true)
 		if wearable == "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl" then
 			unit_temp.weapon_model = cosmetic
-			print("Set Initial weapon_model")
+			--print("Set Initial weapon_model")
 		end
 		if wearable == "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl" then
 			cosmetic:AddEffects(EF_NODRAW) -- start out invis
