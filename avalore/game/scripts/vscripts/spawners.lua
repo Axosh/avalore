@@ -74,6 +74,13 @@ function Spawners:Init()
     Spawners.SpawnConfigs[Constants.KEY_DIRE_SHELFBOT]      = {Spawner = self.h_DireSpawn_ShelfBot,     FirstWaypoint = self.h_DireInit_ShelfBot,   Melee = "npc_dota_creep_badguys_melee",   Ranged = "npc_dota_creep_badguys_ranged",  Siege = "npc_dota_badguys_siege", Team = DOTA_TEAM_BADGUYS }
 
     Spawners.MercQueue = {}
+    Spawners.MercQueue[DOTA_TEAM_GOODGUYS] = {}
+    Spawners.MercQueue[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_TOP] = {}
+    Spawners.MercQueue[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_BOT] = {}
+    Spawners.MercQueue[DOTA_TEAM_BADGUYS] = {}
+    Spawners.MercQueue[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP] = {}
+    Spawners.MercQueue[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT] = {}
+
 
     self:InitFlags()
     print("Spawners Initialized")
@@ -273,6 +280,9 @@ function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
                 -- spawn melee creeps
                 for i = 1, self:DetermineNumMeleeToSpawn(iGameTimeSeconds, key), 1 do
                     local creep = CreateUnitByName( value.Melee, value.Spawner:GetOrigin(), true, nil, nil, value.Team )
+                    -- if value.Team == DOTA_TEAM_GOODGUYS then
+                    --     creep:SetModel("models/creeps/lane_creeps/creep_radiant_melee/radiant_melee.vmdl")
+                    -- end
                     creep:SetInitialGoalEntity(value.FirstWaypoint)
                 end
 
@@ -281,6 +291,19 @@ function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
                     local creep = CreateUnitByName( value.Ranged, value.Spawner:GetOrigin(), true, nil, nil, value.Team )
                     creep:SetInitialGoalEntity(value.FirstWaypoint)
                 end
+
+                -- spawn mercs
+                local merc_queue = Spawners.MercQueue[value.Team][key]
+                if merc_queue then 
+                    print("Looping over MercQueue for " .. tostring(key))
+                    while table.getn(merc_queue) > 0 do
+                        local merc_unit = table.remove(merc_queue)
+                        print("Popped off unit in queue: " .. merc_unit)
+                        local creep = CreateUnitByName( merc_unit, value.Spawner:GetOrigin(), true, nil, nil, value.Team )
+                        creep:SetInitialGoalEntity(value.FirstWaypoint)
+                    end
+                end
+
             end
         end
     end

@@ -576,4 +576,9 @@
 		"ArmorType"					"fortified"
 	}
 
+	// // OVERRIDE
+	// "npc_dota_creep_goodguys_melee"
+	// {
+	// 	"Model"			"models/creeps/lane_creeps/creep_radiant_melee/radiant_melee.vmdl"
+	// }
 }

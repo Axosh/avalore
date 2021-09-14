@@ -255,7 +255,7 @@ function CAvaloreGameMode:OnThink()
 	if p1_hero and not temp then
 		temp = true
 		local merc_camp = CreateUnitByName( "mercenary_camp", Vector(-7232, -5888, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
-		merc_camp:SetOwner(PlayerResource:GetPlayer(0))
+		--merc_camp:SetOwner(PlayerResource:GetPlayer(0))
 		merc_camp:SetTeam(DOTA_TEAM_GOODGUYS)
 		merc_camp:SetControllableByPlayer(0, false)
 		merc_camp.lane = Constants.KEY_RADIANT_TOP

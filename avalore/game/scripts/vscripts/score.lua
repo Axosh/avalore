@@ -7,6 +7,8 @@ function Score:Init()
     Score.RadiScore = 0
     Score.DireScore = 0
 
+    --Score[DOTA_TEAM_GOODGUYS] = {}
+
     Score.RadiSharedGoldCurr = 0
     Score.RadiSharedGoldTotal = 0
     Score.DireSharedGoldCurr = 0

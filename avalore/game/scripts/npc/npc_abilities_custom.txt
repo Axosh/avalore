@@ -250,16 +250,16 @@
                 "var_type"				"FIELD_INTEGER"
                 "gold_cost"				"75"
             }
-            "02"
-            {
-                "var_type"              "FIELD_STRING"
-                "unit_radi"             "npc_dota_creep_goodguys_melee"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_STRING"
-                "unit_dire"             "npc_dota_creep_badguys_melee"
-            }
+            // "02"
+            // {
+            //     "var_type"              "FIELD_STRING"
+            //     "unit_radi"             "npc_dota_creep_goodguys_melee"
+            // }
+            // "03"
+            // {
+            //     "var_type"              "FIELD_STRING"
+            //     "unit_dire"             "npc_dota_creep_badguys_melee"
+            // }
         }
 
         // "OnSpellStart"
