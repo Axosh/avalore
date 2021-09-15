@@ -169,6 +169,17 @@ function Score:InsertPlayerStatsRecord(playerID)
     Score.playerStats[playerID].base_kill = 0
 end
 
+function Score:GetPlayerStats(playerID)
+    if Score.playerStats[playerID] then
+        return Score.playerStats[playerID]
+    end
+    return nil
+end
+
+function Score:GetPlayerStatsTable()
+    return Score.playerStats
+end
+
 function Score:RecalculateScores()
     Score.RadiScore = 0
     Score.DireScore = 0

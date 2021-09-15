@@ -6,6 +6,7 @@ require("references")
 require("score")
 require("utility_functions")
 require(REQ_LIB_COSMETICS)
+require(REQ_SPAWNERS)
 --require("scripts/vscripts/modifiers/modifier_wearable")
 
 LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
@@ -407,15 +408,32 @@ function IsAncientCreep(creep_name)
 	return false
 end
 
+-- "dota_on_hero_finish_spawn"
+-- 	{
+-- 		"heroindex"		"int"
+-- 		"hero"			"string"
+-- 	}
 function CAvaloreGameMode:OnHeroFinishSpawn(event)
+	print("==== OnHeroFinishSpawn ====")
 	PrintTable(event)
 	local hPlayerHero = EntIndexToHScript( event.heroindex )
 	if hPlayerHero ~= nil and hPlayerHero:IsRealHero() then
 		if hPlayerHero.bFirstSpawnComplete == nil then
+			-- init score tracking
 			hPlayerHero.bFirstSpawnComplete = true
 			Score:InsertPlayerStatsRecord(hPlayerHero:GetPlayerOwnerID())
 		end
+		-- Init cosmetics
 		CAvaloreGameMode:InitCosmetics(hPlayerHero)
+
+		-- Init shared control of Merc Camps
+		print("---- Give Shared Control to Merc Camps ----")
+		print("Player Team: " .. tostring(hPlayerHero:GetTeam()))
+		PrintTable(Spawners.MercCamps[hPlayerHero:GetTeam()])
+		for key, value in pairs(Spawners.MercCamps[hPlayerHero:GetTeam()]) do
+			print("Giving Player " .. tostring(hPlayerHero:GetPlayerOwnerID()) .. " shared control of " .. tostring(key))
+			value:SetControllableByPlayer(0, false)
+		end
 	end
 
 	-- print("[CAvaloreGameMode:OnHeroFinishSpawn] hero name: " .. hPlayerHero:GetUnitName())

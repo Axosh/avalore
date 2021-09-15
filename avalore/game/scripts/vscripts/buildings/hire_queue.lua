@@ -73,19 +73,27 @@ function avalore_merc_train_melee_creep:OnSpellStart()
 
     --local lane = self:GetOwner().lane
     local lane = ""
-    if self:GetOwner():GetAbsOrigin().x < 0 then
-        if self:GetOwner():GetTeam() == DOTA_TEAM_BADGUYS then
-            lane = Constants.KEY_DIRE_TOP
-        else
-            lane = Constants.KEY_RADIANT_TOP
-        end
-    else
-        if self:GetOwner():GetTeam() == DOTA_TEAM_BADGUYS then
-            lane = Constants.KEY_DIRE_BOT
-        else
-            lane = Constants.KEY_RADIANT_BOT
+    print("==== FIND LANE OF QUEUE ====")
+    print("Owner: " .. tostring(self:GetOwner()))
+    for key, value in pairs(Spawners.MercCamps[self:GetOwner():GetTeam()]) do
+        print("Value: " .. tostring(value))
+        if self:GetOwner() == value then
+            lane = key
         end
     end
+    -- if self:GetOwner():GetAbsOrigin().x < 0 then
+    --     if self:GetOwner():GetTeam() == DOTA_TEAM_BADGUYS then
+    --         lane = Constants.KEY_DIRE_TOP
+    --     else
+    --         lane = Constants.KEY_RADIANT_TOP
+    --     end
+    -- else
+    --     if self:GetOwner():GetTeam() == DOTA_TEAM_BADGUYS then
+    --         lane = Constants.KEY_DIRE_BOT
+    --     else
+    --         lane = Constants.KEY_RADIANT_BOT
+    --     end
+    -- end
 
     -- if not Spawners.MercQueue[lane] then
     --     Spawners.MercQueue[lane] = {}

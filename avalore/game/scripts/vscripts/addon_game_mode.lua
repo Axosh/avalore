@@ -79,6 +79,7 @@ function CAvaloreGameMode:InitGameMode()
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(CAvaloreGameMode, "OnEntityKilled"), self)
 	ListenToGameEvent("dota_on_hero_finish_spawn", Dynamic_Wrap(CAvaloreGameMode, "OnHeroFinishSpawn"), self)
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAvaloreGameMode, "OnItemPickUp"), self)
+	--ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(CAvaloreGameMode, "OnPlayerFirstSpawn"), self)
 	-- ListenToGameEvent("dota_inventory_item_changed", Dynamic_Wrap(CAvaloreGameMode, "OnItemSlotChanged"), self)
 	-- ListenToGameEvent("inventory_updated", Dynamic_Wrap(CAvaloreGameMode, "OnInventoryUpdated"), self)
 	-- ListenToGameEvent("dota_item_gifted", Dynamic_Wrap(CAvaloreGameMode, "OnItemGifted"), self)
@@ -252,18 +253,18 @@ function CAvaloreGameMode:OnThink()
 		p1_hero:SetGold(10000, true)
 	end
 
-	if p1_hero and not temp then
-		temp = true
-		local merc_camp = CreateUnitByName( "mercenary_camp", Vector(-7232, -5888, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
-		--merc_camp:SetOwner(PlayerResource:GetPlayer(0))
-		merc_camp:SetTeam(DOTA_TEAM_GOODGUYS)
-		merc_camp:SetControllableByPlayer(0, false)
-		merc_camp.lane = Constants.KEY_RADIANT_TOP
+	-- if p1_hero and not temp then
+	-- 	temp = true
+	-- 	local merc_camp = CreateUnitByName( "mercenary_camp", Vector(-7232, -5888, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
+	-- 	--merc_camp:SetOwner(PlayerResource:GetPlayer(0))
+	-- 	merc_camp:SetTeam(DOTA_TEAM_GOODGUYS)
+	-- 	merc_camp:SetControllableByPlayer(0, false)
+	-- 	merc_camp.lane = Constants.KEY_RADIANT_TOP
 
-		print(PlayerResource:GetPlayer(0):GetAssignedHero():GetEntityHandle())
+	-- 	print(PlayerResource:GetPlayer(0):GetAssignedHero():GetEntityHandle())
 
-		--PlayerResource:AreUnitsSharedWithPlayerID(merc_camp:GetOwnerEntity(), PlayerResource:GetPlayer(0))
-	end
+	-- 	--PlayerResource:AreUnitsSharedWithPlayerID(merc_camp:GetOwnerEntity(), PlayerResource:GetPlayer(0))
+	-- end
 
 	-- Check for wave spawns on 30s intervals
 	if(curr_gametime > 0 and math.floor(curr_gametime) % 30 == 0) then
@@ -281,6 +282,23 @@ function CAvaloreGameMode:GameStartInit()
 	Score.entities.dire_outpost:SetTeam(DOTA_TEAM_NOTEAM)
 	Score.entities.radi_outpost:SetTeam(DOTA_TEAM_NOTEAM)
 end
+
+-- "dota_player_pick_hero"
+-- 	{
+-- 		"player"	"short"	
+-- 		"heroindex"	"short"
+-- 		"hero"		"string"
+-- 	}
+-- function CAvaloreGameMode:OnPlayerFirstSpawn()
+-- 	if #(Score:GetPlayerStatsTable()) == 0 then
+-- 	-- 	local MercCampSpawn
+-- 	-- print("Setting up Merc Camps")
+-- 	-- local merc_camp = CreateUnitByName( "mercenary_camp", Vector(-7232, -5888, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
+-- 	-- --merc_camp:SetOwner(PlayerResource:GetPlayer(0))
+-- 	-- merc_camp:SetTeam(DOTA_TEAM_GOODGUYS)
+-- 	-- merc_camp:SetControllableByPlayer(0, false)
+-- 	-- merc_camp.lane = Constants.KEY_RADIANT_TOP
+-- end
 
 function CAvaloreGameMode:InitRound1()
 	-- spawn 7 wisps

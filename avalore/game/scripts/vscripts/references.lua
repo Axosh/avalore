@@ -37,6 +37,7 @@ REQ_LIB_PLAYERS = "scripts/vscripts/players"
 
 MODIFIER_CAPTURABLE     = "scripts/vscripts/modifiers/modifier_capturable.lua"
 MODIFIER_FLAGBASE       = "scripts/vscripts/modifiers/flags/modifier_flagbase.lua"
+MODIFIER_SHOWS_THROUGH_FOW       = "scripts/vscripts/modifiers/modifier_shows_through_fog.lua"
 MODIFIER_FLAG_MORALE    = "scripts/vscripts/modifiers/flags/modifier_flag_morale.lua"
 MODIFIER_FLAG_ARCANE    = "scripts/vscripts/modifiers/flags/modifier_flag_arcane.lua"
 MODIFIER_FLAG_REGROWTH    = "scripts/vscripts/modifiers/flags/modifier_flag_regrowth.lua"

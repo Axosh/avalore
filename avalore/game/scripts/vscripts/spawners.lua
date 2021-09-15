@@ -7,6 +7,8 @@ require("references")
 --require("debug")
 
 LinkLuaModifier( "modifier_flagbase", MODIFIER_FLAGBASE, LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_shows_through_fog", MODIFIER_SHOWS_THROUGH_FOW, LUA_MODIFIER_MOTION_NONE )
+
 
 -- Initialize & Cache a bunch of handles/entities so we can easily grab
 -- a reference to them when working with it later
@@ -80,6 +82,25 @@ function Spawners:Init()
     Spawners.MercQueue[DOTA_TEAM_BADGUYS] = {}
     Spawners.MercQueue[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP] = {}
     Spawners.MercQueue[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT] = {}
+
+    print("Spawning Merc Camps")
+    Spawners.MercCamps = {}
+    Spawners.MercCamps[DOTA_TEAM_GOODGUYS] = {}
+    Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_TOP] = CreateUnitByName( "mercenary_camp", Vector(-7232, -5888, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
+    -- no rotation needed here
+    Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_BOT] = CreateUnitByName( "mercenary_camp", Vector(-5888, -7232, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_BOT]:SetForwardVector(Vector(0,1,0)) -- face towards top of map
+    for key, value in pairs(Spawners.MercCamps[DOTA_TEAM_GOODGUYS]) do
+        value:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
+    end
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS] = {}
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP] = CreateUnitByName( "mercenary_camp", Vector(7232, 5888, 256), true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP]:SetForwardVector(Vector(-1,0,0)) -- face bottom of map
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT] = CreateUnitByName( "mercenary_camp", Vector(5888, 7232, 256), true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT]:SetForwardVector(Vector(0,-1,0)) -- face the left of the map
+    for key, value in pairs(Spawners.MercCamps[DOTA_TEAM_BADGUYS]) do
+        value:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
+    end
 
 
     self:InitFlags()
