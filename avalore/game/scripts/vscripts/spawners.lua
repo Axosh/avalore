@@ -4,6 +4,7 @@ end
 
 require("constants")
 require("references")
+require("scripts/vscripts/libraries/map_and_nav")
 --require("debug")
 
 LinkLuaModifier( "modifier_flagbase", MODIFIER_FLAGBASE, LUA_MODIFIER_MOTION_NONE )
@@ -300,6 +301,7 @@ function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
             if (not string.find(key, "Shelf")) or bSendShelf then
                 -- spawn melee creeps
                 for i = 1, self:DetermineNumMeleeToSpawn(iGameTimeSeconds, key), 1 do
+                    --local creep_ver = self:GetCreepVersionSuffix("melee", value.Team, key)
                     local creep = CreateUnitByName( value.Melee, value.Spawner:GetOrigin(), true, nil, nil, value.Team )
                     -- if value.Team == DOTA_TEAM_GOODGUYS then
                     --     creep:SetModel("models/creeps/lane_creeps/creep_radiant_melee/radiant_melee.vmdl")
@@ -344,4 +346,100 @@ function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
         end 
     end
     --print("End Spawning Waves...")
+end
+
+-- ========================================================
+-- Deteremines which suffix "_super", "_mega" to append
+-- to fetch the right lane creep to spawn.
+-- Super = when you kill the other team's rax (both req
+--         for siege)
+-- Mega = when you kill ALL the other team's raxes
+-- Note: Shelf creeps are tethered to the adjacent Top/Bot
+--       rax.
+-- ========================================================
+-- creep_type: melee/ranged/siege
+-- team: DOTA_TEAM_GOODGUYS/DOTA_TEAM_BADGUYS
+-- lane: KEY_RADIANT_TOP, KEY_RADIANT_BOT, etc.
+-- ========================================================
+-- Spawners:GetCreepVersionSuffix(creep_type, team, lane)
+--     local return_suffix = ""
+--     local opposingTeam = ""
+--     if team == DOTA_TEAM_BADGUYS then
+--         opposingTeam = DOTA_TEAM_GOODGUYS
+--     else
+--         opposingTeam = DOTA_TEAM_BADGUYS
+--     end
+
+--     lane_id = BuildingLaneLocation(string.lower(lane))
+
+--     -- check super
+--     if creep_type ~= "siege" then
+--         if not Score.raxes[opposingTeam][lane_id][creep_type] then
+--             return_suffix = "_super"
+--         end
+--     else
+--         if (not Score.raxes[opposingTeam][lane_id]["melee"]) and (not not Score.raxes[opposingTeam][lane_id]["melee"])
+--             return_suffix = "_super"
+--         end
+--     end
+
+--     -- if we're super, check for mega
+--     if return_suffix == "_super" then
+
+-- ========================================================
+-- Appends suffix "_super" to lane
+-- Super = when you kill the other team's rax (both req
+--         for siege)
+-- Mega = when you kill ALL the other team's raxes
+-- Note: Shelf creeps are tethered to the adjacent Top/Bot
+--       rax.
+-- ========================================================
+-- creep_type: Melee/Ranged/Siege
+-- team: DOTA_TEAM_GOODGUYS/DOTA_TEAM_BADGUYS
+-- lane: KEY_RADIANT_TOP, KEY_RADIANT_BOT, etc.
+-- ========================================================
+function Spawners:UpgradeToSuper(team, lane_id, creep_type)
+    local team_name = "Radiant"
+    if team == DOTA_TEAM_BADGUYS then
+        team_name = "Dire"
+    end
+
+    local configs = {}
+
+    print("Upgrading " .. team_name .. lane_id .. " lane creeps to Super")
+
+    if lane_id == "top" then
+        configs = {team_name .. "_Top", team_name .. "_ShelfTop"}
+    elseif lane_id == "bot" then 
+        configs = {team_name .. "_Bot", team_name .. "_ShelfBot"}
+    elseif lane_id == "mid" then
+        configs = {team_name .. "_MidA", team_name .. "_MidB"}
+        -- -- if lanes have already been split, we need to also update those
+        -- if Spawners.SpawnConfigs[team_name .. "_MidB"].Spawner then
+        --     table.insert(configs, team_name .. "_MidB")
+        -- end
+    end
+
+    
+    for key, value in pairs(configs) do
+        Spawners.SpawnConfigs[value][creep_type] = (Spawners.SpawnConfigs[value][creep_type] .. "_super")
+    end
+end
+
+function Spawners:UpgradeToMega(team)
+    local team_name = "Radiant"
+    if team == DOTA_TEAM_BADGUYS then
+        team_name = "Dire"
+    end
+
+    print("Upgrading " .. team_name .. " creeps to Mega")
+
+    local creep_types = {"Melee", "Ranged", "Siege"}
+
+    local configs = {team_name .. "_Top", team_name .. "_ShelfTop", team_name .. "_Bot", team_name .. "_ShelfBot", team_name .. "_MidA", team_name .. "_MidB"}
+    for key, lane_config in pairs(configs) do
+        for key2, creep_type in pairs(creep_types) do
+            Spawners.SpawnConfigs[lane_config][creep_type] = (Spawners.SpawnConfigs[lane_config][creep_type] .. "_mega")
+        end
+    end
 end

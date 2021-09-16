@@ -1,5 +1,7 @@
 #base "buildings/buildings.txt"
-#base "units/lane_creeps.txt"
+#base "units/lane_creeps_melee.txt"
+#base "units/lane_creeps_ranged.txt"
+#base "units/lane_creeps_siege.txt"
 
 // Units File
 "DOTAUnits"

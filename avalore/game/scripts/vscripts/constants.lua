@@ -38,6 +38,10 @@ Constants.KEY_DIRE_BOT          = "Dire_Bot"
 Constants.KEY_DIRE_SHELFTOP     = "Dire_ShelfTop"
 Constants.KEY_DIRE_SHELFBOT     = "Dire_ShelfBot"
 
+-- used for locations, not spawning
+-- Constants.KEY_RADIANT_MID       = "Radiant_Mid"
+-- Constants.KEY_DIRE_MID          = "Dire_Mid"
+
 --[[
     RADIANT BASE ENTITIES
     rax_ranged_radiant_mid

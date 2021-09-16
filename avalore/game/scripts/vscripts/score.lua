@@ -1,3 +1,5 @@
+require("constants")
+
 if Score == nil then
     Score = {}
 end
@@ -6,6 +8,10 @@ function Score:Init()
     print("[Score] Init")
     Score.RadiScore = 0
     Score.DireScore = 0
+
+    -- track kills by NPCs
+    Score[DOTA_TEAM_BADGUYS] = {Kills = 0}
+    Score[DOTA_TEAM_GOODGUYS] = {Kills = 0}
 
     --Score[DOTA_TEAM_GOODGUYS] = {}
 
@@ -109,22 +115,35 @@ function Score:Init()
     Score.towers.dire.t4bot = true
 
     -- Raxes
+    -- Note: Tracks whether or not that rax is alive
     Score.raxes = {}
-    Score.raxes.radi = {}
-    Score.raxes.dire = {}
-    Score.raxes.radi.topranged  = true
-    Score.raxes.radi.topmelee   = true
-    Score.raxes.radi.midranged  = true
-    Score.raxes.radi.midmelee   = true
-    Score.raxes.radi.botranged  = true
-    Score.raxes.radi.botmelee   = true
+    Score.raxes[DOTA_TEAM_GOODGUYS] = {}
+    Score.raxes[DOTA_TEAM_GOODGUYS]["top"] = {ranged  = true, melee   = true}
+    Score.raxes[DOTA_TEAM_GOODGUYS]["mid"] = {ranged  = true, melee   = true}
+    Score.raxes[DOTA_TEAM_GOODGUYS]["bot"] = {ranged  = true, melee   = true}
+    Score.raxes[DOTA_TEAM_GOODGUYS]["super_lanes"] = 0
 
-    Score.raxes.dire.topranged  = true
-    Score.raxes.dire.topmelee   = true
-    Score.raxes.dire.midranged  = true
-    Score.raxes.dire.midmelee   = true
-    Score.raxes.dire.botranged  = true
-    Score.raxes.dire.botmelee   = true
+    Score.raxes[DOTA_TEAM_BADGUYS] = {}
+    Score.raxes[DOTA_TEAM_BADGUYS]["top"] = {ranged  = true, melee   = true}
+    Score.raxes[DOTA_TEAM_BADGUYS]["mid"] = {ranged  = true, melee   = true}
+    Score.raxes[DOTA_TEAM_BADGUYS]["bot"] = {ranged  = true, melee   = true}
+    Score.raxes[DOTA_TEAM_BADGUYS]["super_lanes"] = 0
+    -- Score.raxes = {}
+    -- Score.raxes.radi = {}
+    -- Score.raxes.dire = {}
+    -- Score.raxes.radi.topranged  = true
+    -- Score.raxes.radi.topmelee   = true
+    -- Score.raxes.radi.midranged  = true
+    -- Score.raxes.radi.midmelee   = true
+    -- Score.raxes.radi.botranged  = true
+    -- Score.raxes.radi.botmelee   = true
+
+    -- Score.raxes.dire.topranged  = true
+    -- Score.raxes.dire.topmelee   = true
+    -- Score.raxes.dire.midranged  = true
+    -- Score.raxes.dire.midmelee   = true
+    -- Score.raxes.dire.botranged  = true
+    -- Score.raxes.dire.botmelee   = true
 
     -- build player score tracking
     Score.playerStats = {}
@@ -203,6 +222,11 @@ function Score:RecalculateScores()
         end
     end
 
+    -- kills by NPC Team
+    Score.RadiScore = Score.RadiScore + (Score[DOTA_TEAM_GOODGUYS].Kills / SCORE_DIVIDEND_KILLS)
+    Score.DireScore = Score.DireScore + (Score[DOTA_TEAM_BADGUYS].Kills / SCORE_DIVIDEND_KILLS)
+
+
     -- check radiant tower status (and give points to dire accordingly)
     for key,value in pairs(Score.towers.radi) do
         if value == false then
@@ -234,21 +258,23 @@ function Score:RecalculateScores()
     end
 
     -- rax checks
-    for key,value in pairs(Score.raxes.radi) do
-        if value == false then
-            if string.find(key, "melee") then
-                Score.DireScore = Score.DireScore + SCORE_MULTIPLIER_RAX_MELEE
-            elseif string.find(key, "ranged") then
+    for lane,rax_table in pairs(Score.raxes[DOTA_TEAM_GOODGUYS]) do
+        print(tostring(lane) .. ": ")
+        PrintTable(rax_table)
+        if lane ~= "super_lanes" then
+            if not rax_table["melee"] then 
+                    Score.DireScore = Score.DireScore + SCORE_MULTIPLIER_RAX_MELEE
+            elseif not rax_table["ranged"] then
                 Score.DireScore = Score.DireScore + SCORE_MULTIPLIER_RAX_RANGED
             end
         end
     end
 
-    for key,value in pairs(Score.raxes.dire) do
-        if value == false then
-            if string.find(key, "melee") then
+    for lane,rax_table in pairs(Score.raxes[DOTA_TEAM_BADGUYS]) do
+        if lane ~= "super_lanes" then
+            if not rax_table["melee"] then 
                 Score.RadiScore = Score.RadiScore + SCORE_MULTIPLIER_RAX_MELEE
-            elseif string.find(key, "ranged") then
+            elseif not rax_table["ranged"] then
                 Score.RadiScore = Score.RadiScore + SCORE_MULTIPLIER_RAX_RANGED
             end
         end

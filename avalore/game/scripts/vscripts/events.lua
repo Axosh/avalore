@@ -5,6 +5,7 @@ require("constants")
 require("references")
 require("score")
 require("utility_functions")
+require("scripts/vscripts/libraries/map_and_nav")
 require(REQ_LIB_COSMETICS)
 require(REQ_SPAWNERS)
 --require("scripts/vscripts/modifiers/modifier_wearable")
@@ -56,8 +57,17 @@ function CAvaloreGameMode:OnEntityKilled(event)
 				Score.DireSharedGoldTotal =  Score.DireSharedGoldTotal + killedEntity:GetGoldBounty()
 				--print("Dire Shared Gold = " .. tostring(Score.DireSharedGoldCurr) .. "g")
 			end
+
+			-- check if team-associated NPCs killed a hero
+			if killedEntity:IsRealHero() then
+				-- filter out neutral kills
+				if attackerTeam == DOTA_TEAM_GOODGUYS or attackerTeam == DOTA_TEAM_BADGUYS then
+					Score[attackerTeam].Kills = Score[attackerTeam].Kills + 1
+				end
+			end
 		end
 	end
+
 
 	if attackerEntity:IsRealHero() then
 		print("[Events] Killed Entity: " .. killedEntity:GetUnitName())
@@ -281,18 +291,44 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	if string.find(string.lower(killedEntity:GetUnitName()), "rax") then
 		refreshScores = true
 		objectiveMsg = "objective_rax" -- see addon_english.txt (panorama/localization)
+		local scoring_team = DOTA_TEAM_BADGUYS
+		if (killedTeam == DOTA_TEAM_BADGUYS) then
+			scoring_team = DOTA_TEAM_GOODGUYS
+		end
+		local lane_id = BuildingLaneLocation(killedEntity:GetUnitName())
+
 		print("[Events] Rax Killed: " .. killedEntity:GetUnitName())
 		if string.find(killedEntity:GetUnitName(), "melee") then
-			Score.raxes[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "melee"] = false
+			Score.raxes[killedTeam][lane_id]["melee"] = false
+			-- update to super
+			Spawners:UpgradeToSuper(scoring_team, lane_id, "Melee")
+			--Spawners.raxes[scoring_team][lane_id]["melee"] = (Spawners.raxes[scoring_team][lane_id]["melee"] .. "_super")
 			if isPlayer and not isDeny then
 				Score.playerStats[attackerEntity:GetPlayerOwnerID()].meleeRax = Score.playerStats[attackerEntity:GetPlayerOwnerID()].meleeRax + 1
 			end
 		elseif string.find(killedEntity:GetUnitName(), "range") then
-			Score.raxes[killedTeamString][BuildingLaneLocation(killedEntity:GetUnitName()) .. "ranged"] = false
+			Score.raxes[killedTeam][lane_id]["ranged"] = false
+			-- update to super
+			Spawners:UpgradeToSuper(scoring_team, lane_id, "Ranged")
+			--Spawners.raxes[scoring_team][lane_id]["ranged"] = (Spawners.raxes[scoring_team][lane_id]["ranged"] .. "_super")
 			if isPlayer and not isDeny then
 				Score.playerStats[attackerEntity:GetPlayerOwnerID()].rangeRax = Score.playerStats[attackerEntity:GetPlayerOwnerID()].rangeRax + 1
 			end
 		end
+
+		-- check for super siege
+		if (not Score.raxes[killedTeam][lane_id]["melee"]) and (not Score.raxes[killedTeam][lane_id]["ranged"]) then
+			Spawners:UpgradeToSuper(scoring_team, lane_id, "Siege")
+			--Spawners.raxes[scoring_team][lane_id]["siege"] = (Spawners.raxes[scoring_team][lane_id]["siege"] .. "_super")
+			Score.raxes[killedTeam]["super_lanes"] = Score.raxes[killedTeam]["super_lanes"] + 1
+			-- check for mega
+			if Score.raxes[killedTeam]["super_lanes"] == 3 then
+				Spawners:UpgradeToMega(scoring_team)
+			end
+
+		end
+
+		
 	end
 	--end
 
@@ -380,21 +416,6 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	-- end -- end for-loop
 
 	--print("OnEntityKilled - Ended")
-end
-
-function BuildingLaneLocation(building_unit_name)
-	local result = ""
-	
-	-- check top/bot first since there are more of those (tier4s)
-	if string.find(building_unit_name, "top") then
-		result = "top"
-	elseif string.find(building_unit_name, "bot") then
-		result = "bot"
-	elseif string.find(building_unit_name, "mid") then
-		result = "mid"
-	end
-
-	return result
 end
 
 function IsAncientCreep(creep_name)
