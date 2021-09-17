@@ -26,11 +26,61 @@
 		"npc_dota_hero_windrunner"								"Robin Hood"
 
 		//--------------------------------------------------------------------------------
+		// Units
+		//--------------------------------------------------------------------------------
+
+		// ==== Lane Creeps ====
+
+		// Melee
+		"npc_avalore_creep_melee_radi"		"Melee Creep"
+		"npc_avalore_creep_melee_dire"		"Melee Creep"
+
+		"npc_avalore_creep_melee_radi_super"	"Super Melee Creep"
+		"npc_avalore_creep_melee_dire_super"	"Super Melee Creep"
+
+		"npc_avalore_creep_melee_radi_super_mega"	"Mega Melee Creep"
+		"npc_avalore_creep_melee_dire_super_mega"	"Mega Melee Creep"
+
+		// Ranged
+		"npc_avalore_creep_ranged_radi"			"Ranged Creep"
+		"npc_avalore_creep_ranged_dire"			"Ranged Creep"
+
+		"npc_avalore_creep_ranged_radi_super"			"Super Ranged Creep"
+		"npc_avalore_creep_ranged_dire_super"			"Super Ranged Creep"
+
+		"npc_avalore_creep_ranged_radi_super_mega"			"Mega Ranged Creep"
+		"npc_avalore_creep_ranged_dire_super_mega"			"Mega Ranged Creep"
+
+		// Siege
+		"npc_avalore_siege_radi"				"Siege Creep"
+		"npc_avalore_siege_dire"				"Siege Creep"
+
+		"npc_avalore_siege_radi_super"				"Super Siege Creep"
+		"npc_avalore_siege_dire_super"				"Super Siege Creep"
+
+		"npc_avalore_siege_radi_super_mega"				"Mega Siege Creep"
+		"npc_avalore_siege_dire_super_mega"				"Mega Siege Creep"
+
+		// ==== Merc Creeps ====
+
+		"npc_avalore_merc_melee_radi"		"Melee Mercenary"
+		"npc_avalore_merc_melee_dire"		"Melee Mercenary"
+
+		"npc_avalore_merc_ranged_radi"		"Ranged Mercenary"
+		"npc_avalore_merc_ranged_dire"		"Ranged Mercenary"
+
+		"npc_avalore_merc_hulk_radi"		"Hulk Mercenary"
+		"npc_avalore_merc_hulk_dire"		"Hulk Mercenary"
+
+		//--------------------------------------------------------------------------------
 		// BUILDINGS
 		//--------------------------------------------------------------------------------
 
-		"mercenary_camp"										"Mercenary Camp"
-		"DOTA_Tooltip_Ability_avalore_merc_train_melee_creep"	"Hire Melee Troop"
+		"mercenary_camp"													"Mercenary Camp"
+		"DOTA_Tooltip_Ability_avalore_merc_train_melee_creep"				"Hire Melee Mercenary Troop"
+		"DOTA_Tooltip_Ability_avalore_merc_train_ranged_creep"				"Hire Ranged Mercenary Troop"
+		"DOTA_Tooltip_Ability_avalore_merc_train_hulk_creep"				"Hire Hulk Mercenary Troop"
+		"DOTA_Tooltip_Ability_avalore_merc_train_hulk_creep_Description"	"Hulks are melee siege units"
 
 		//--------------------------------------------------------------------------------
 		// ABILITIES
