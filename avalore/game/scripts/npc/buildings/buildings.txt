@@ -29,7 +29,7 @@
 		"Ability1"					"avalore_merc_train_melee_creep"
 		"Ability2"					"avalore_merc_train_ranged_creep"
 		"Ability3"					"avalore_merc_train_hulk_creep"
-		// "Ability4"					"avalore_hire_merc_1"
+		"Ability4"					"avalore_merc_train_flying_creep"
 		// "Ability5"					"avalore_hire_merc_2"
 		// "Ability6"					"avalore_hire_merc_3"
 		

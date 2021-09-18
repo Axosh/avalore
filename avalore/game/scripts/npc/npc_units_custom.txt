@@ -5,6 +5,7 @@
 #base "units/merc_melee.txt"
 #base "units/merc_ranged.txt"
 #base "units/merc_hulk.txt"
+#base "units/merc_flying.txt"
 
 // Units File
 "DOTAUnits"

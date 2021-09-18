@@ -195,6 +195,8 @@ function modifier_jack_of_all_trades_melee:DeclareFunctions()
 		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
         MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND,
+        MODIFIER_EVENT_ON_ATTACK,
+        MODIFIER_EVENT_ON_ATTACK_START,
         MODIFIER_EVENT_ON_ATTACK_LANDED
 	}
 
@@ -217,6 +219,9 @@ function modifier_jack_of_all_trades_melee:RemoveOnDeath()
 	return false
 end
 
+-- hopefully uses animation for shackleshot which kind of looks like she's swinging a sword
+--function modifier_jack_of_all_trades_melee:GetOverrideAnimation() return ACT_DOTA_CAST_ABILITY_1 end
+
 function modifier_jack_of_all_trades_melee:GetModifierMoveSpeedBonus_Constant()
 	return self.bonus_ms
 end
@@ -231,6 +236,9 @@ function modifier_jack_of_all_trades_melee:OnCreated(kv)
         self.bonus_ms   = self:GetAbility():GetSpecialValueFor("melee_bonus_move_speed")
         self.range      = MELEE_ATTACK_RANGE
         self:GetParent():SetAttackCapability( DOTA_UNIT_CAP_MELEE_ATTACK )
+
+        -- self:OnIntervalThink()
+	    -- self:StartIntervalThink(FrameTime())
 
         -- Drawing the cosmetic/wearable is all handled in modifier_wearable
 
@@ -280,6 +288,53 @@ function modifier_jack_of_all_trades_melee:OnCreated(kv)
     end
 end
 
+-- function modifier_jack_of_all_trades_melee:OnIntervalThink()
+--     print("OnThink: " .. self:GetParent():GetSequence())
+--     if self:GetParent():IsIdle() then
+--         -- if self:GetParent():GetSequence() ~= "portrait" then
+--         --     self:GetCaster():StopAnimation()
+--         --     --self:GetParent():SetSequence("portrait")
+--         -- end
+--         self:GetCaster():RemoveGesture(ACT_DOTA_IDLE)
+--         self:GetCaster():RemoveGesture(ACT_DOTA_IDLE_RARE)
+--         self:GetCaster():StartGesture(ACT_DOTA_RELAX_LOOP)
+--     end
+-- end
+
+function modifier_jack_of_all_trades_melee:OnAttackStart(keys)
+    if not IsServer () then return end
+    --print("OnAttackStart")
+    --PrintTable(keys)
+    if keys.attacker == self:GetParent() then
+        print("OnAttackStart - Active Seq: " .. self:GetCaster():GetSequence())
+        --self:GetCaster():RemoveGesture(ACT_DOTA_ATTACK)
+        --self:GetCaster():StopAnimation()
+        local caster = self:GetCaster()
+        self:GetCaster():RemoveGesture(ACT_DOTA_ATTACK)
+        self:GetCaster():RemoveGesture(ACT_DOTA_ATTACK2)
+        self:GetCaster():RemoveGesture(ACT_DOTA_ATTACK_EVENT)
+        self:GetCaster():StopAnimation()
+        caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_1, self:GetParent():GetAttacksPerSecond()) -- shackleshot? since it looks like a sword swing
+    end
+end
+
+function modifier_jack_of_all_trades_melee:OnAttack(keys)
+    if not IsServer () then return end
+    --print("OnAttack: " .. tostring)
+    if keys.attacker == self:GetParent() then
+        print("OnAttack - Active Seq: " .. self:GetCaster():GetSequence())
+        local caster = self:GetCaster()
+        --DoEntFire( button, "SetAnimation", "ancient_trigger001_down", 0, self, self )
+        self:GetCaster():RemoveGesture(ACT_DOTA_ATTACK)
+        self:GetCaster():RemoveGesture(ACT_DOTA_ATTACK2)
+        self:GetCaster():RemoveGesture(ACT_DOTA_ATTACK_EVENT)
+        --self:GetCaster():StopAnimation()
+        --caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_1, self:GetParent():GetAttacksPerSecond()) -- shackleshot? since it looks like a sword swing
+        --caster:SetSequence("sparrowhawk_shackleshot_anim")
+        --caster:SequenceDuration
+    end
+end
+
 function modifier_jack_of_all_trades_melee:OnAttackLanded(kv)
     if IsServer () then
         if kv.attacker == self:GetParent() then
@@ -301,6 +356,7 @@ function modifier_jack_of_all_trades_melee:OnAttackLanded(kv)
             EmitSoundOn( "Hero_Juggernaut.Attack", self:GetParent() )
             --EmitSoundOn( "sounds/weapons/hero/shared/impacts/heavy_sword_impact4.vsnd", self:GetParent() )
         end
+        --self:GetCaster():RemoveGesture(ACT_DOTA_CAST_ABILITY_1)
     end
 end
 

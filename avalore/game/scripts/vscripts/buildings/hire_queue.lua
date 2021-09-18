@@ -13,7 +13,7 @@ function HireUnit(unit, team, gold_cost, merc_camp_building)
 
     -- check that they have enough gold and append correct unit to spawn
     if team == DOTA_TEAM_GOODGUYS then
-        if not (Score.RadiSharedGoldCurr > gold_cost) then
+        if not (Score.RadiSharedGoldCurr >= gold_cost) then
             print("[HireQueue:OnSpellStart()] Not enough gold")
             -- local broadcast_obj = 
 			-- {
@@ -27,7 +27,7 @@ function HireUnit(unit, team, gold_cost, merc_camp_building)
         end
         unit = unit .. "radi"
     else
-        if not (Score.DireSharedGoldCurr > gold_cost) then
+        if not (Score.DireSharedGoldCurr >= gold_cost) then
             print("[HireQueue:OnSpellStart()] Not enough gold")
             -- local broadcast_obj = 
 			-- {
@@ -114,6 +114,26 @@ function avalore_merc_train_hulk_creep:OnSpellStart()
     local team = caster:GetTeam()
     local gold_cost = self:GetSpecialValueFor("gold_cost")
     local unit = "npc_avalore_merc_hulk_"
+
+   HireUnit(unit, team, gold_cost, self:GetOwner())
+end
+
+-- ==================================================================
+-- TRAIN Flying
+-- ==================================================================
+
+avalore_merc_train_flying_creep = class({})
+
+function avalore_merc_train_flying_creep:OnSpellStart()
+    if not IsServer() then return end
+    
+    local caster = self:GetCaster()
+    -- if caster then
+    --     print(caster:GetPlayer())
+    -- end
+    local team = caster:GetTeam()
+    local gold_cost = self:GetSpecialValueFor("gold_cost")
+    local unit = "npc_avalore_merc_flying_"
 
    HireUnit(unit, team, gold_cost, self:GetOwner())
 end
