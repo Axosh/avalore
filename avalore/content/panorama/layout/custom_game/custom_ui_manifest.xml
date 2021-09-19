@@ -11,5 +11,6 @@
 	<Panel>
 		<CustomUIElement type="HudTopBar" 			layoutfile="file://{resources}/layout/custom_game/avalore_scoreboard_team_overlay.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/avalore_notification.xml" />
+		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/avalore_hire_queue.xml" />
 	</Panel>
 </root>

@@ -1,0 +1,61 @@
+.HireQueueContainer
+{
+    opacity: 1;
+    margin-right: 5px;
+    margin-bottom: 450px;
+    
+    vertical-align: bottom;
+    font-weight: bold;
+    font-size: 18px;
+    min-width: 30px;
+    color: white;
+    background-color: rgb(87, 87, 87);
+    text-overflow: clip;
+    visibility: visible;
+    flow-children: down;
+    box-shadow: 1px 1px 1px 1px black;
+    text-shadow: 2px 2px 2px #000000;
+}
+
+.TeamGoldContainer
+{
+    flow-children: right;
+    visibility: visible;
+    vertical-align: bottom;
+    padding-left: 5px;
+    padding-bottom: 0px;
+}
+
+/* #GoldDisplay
+{
+    
+} */
+
+.HireQueue_Top
+{
+    background-color: rgb(0, 0, 0);
+    visibility: visible;
+}
+
+.HireQueue_Top #TopQueueIcon
+{
+    background-image: url("file://{images}/ui/top_hire_queue.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.HireQueue_Bot #BotQueueIcon
+{
+    background-image: url("file://{images}/ui/bot_hire_queue.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+#SharedGold
+{
+    margin-left: 10px;
+    color: gradient( linear, 0% 0%, 0% 100%, from( #caec4e ), color-stop( 0.25, #f3b736 ), color-stop( 0.5, #fffb84 ), color-stop( 0.75, #c88423 ), to( #9a6717 ) );
+    text-shadow: 2px 2px 2px #7b612b;
+}

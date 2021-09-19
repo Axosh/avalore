@@ -1,0 +1,20 @@
+<root>
+	<styles>
+        <include src="file://{resources}/styles/custom_game/avalore_hire_queue.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/avalore_hire_queue.js" />
+    </scripts>
+    <Panel class="HireQueueContainer">
+        <Panel id="GoldDisplay" class="TeamGoldContainer">
+            <Label id="TeamGold" text="Team Gold" />
+            <Label id="SharedGold" text="0" />
+        </Panel>
+        <Panel class="HireQueue_Top">
+            <Label id="TopQueueIcon" text="" />
+        </Panel>
+        <Panel class="HireQueue_Bot">
+            <Label id="BotQueueIcon" text="" />
+        </Panel>
+    </Panel>
+</root>

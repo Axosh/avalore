@@ -48,14 +48,17 @@ function CAvaloreGameMode:OnEntityKilled(event)
 
 		-- if Radiant/Dire killed a unit, then add to shared gold (ignore things killed by neuts)
 		if not isPlayer then
+			local new_gold = 0
 			if attackerTeam == DOTA_TEAM_GOODGUYS then
 				Score.RadiSharedGoldCurr  =  Score.RadiSharedGoldCurr  + killedEntity:GetGoldBounty()
 				Score.RadiSharedGoldTotal =  Score.RadiSharedGoldTotal + killedEntity:GetGoldBounty()
 				--print("Radiant Shared Gold = " .. tostring(Score.RadiSharedGoldCurr) .. "g")
+				new_gold = Score.RadiSharedGoldCurr
 			elseif attackerTeam == DOTA_TEAM_BADGUYS then
 				Score.DireSharedGoldCurr  =  Score.DireSharedGoldCurr  + killedEntity:GetGoldBounty()
 				Score.DireSharedGoldTotal =  Score.DireSharedGoldTotal + killedEntity:GetGoldBounty()
 				--print("Dire Shared Gold = " .. tostring(Score.DireSharedGoldCurr) .. "g")
+				new_gold = Score.DireSharedGoldCurr
 			end
 
 			-- check if team-associated NPCs killed a hero
@@ -63,8 +66,16 @@ function CAvaloreGameMode:OnEntityKilled(event)
 				-- filter out neutral kills
 				if attackerTeam == DOTA_TEAM_GOODGUYS or attackerTeam == DOTA_TEAM_BADGUYS then
 					Score[attackerTeam].Kills = Score[attackerTeam].Kills + 1
+					refreshScores = true
 				end
 			end
+
+			local team_gold = 
+			{
+				gold = new_gold
+			}
+			CustomGameEventManager:Send_ServerToTeam(attackerTeam, "stringEventName", team_gold)
+			--CustomGameEventManager:Send_ServerToAllClients( "refresh_score", score_obj )
 		end
 	end
 
