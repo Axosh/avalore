@@ -74,7 +74,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 			{
 				gold = new_gold
 			}
-			CustomGameEventManager:Send_ServerToTeam(attackerTeam, "stringEventName", team_gold)
+			CustomGameEventManager:Send_ServerToTeam(attackerTeam, "update_team_gold", team_gold)
 			--CustomGameEventManager:Send_ServerToAllClients( "refresh_score", score_obj )
 		end
 	end
