@@ -31,10 +31,11 @@
     
 } */
 
-.HireQueue_Top
+.HireQueue_Top, .HireQueue_Bot
 {
     background-color: rgb(0, 0, 0);
     visibility: visible;
+    flow-children: right;
 }
 
 .HireQueue_Top #TopQueueIcon

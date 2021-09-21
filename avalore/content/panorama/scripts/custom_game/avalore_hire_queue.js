@@ -47,10 +47,17 @@ function GetQueuePanel(location) {
 //     queue_panel.BCreateChildren(`<Label id='MercQueueItem' class='.${queue_obj.img}' />`);
 // }
 function AddToQueue(queue_obj) {
-        if (GetLocationString(queue_obj.loc) == "Top")
-            $("#HireQueue_Top").BCreateChildren(`<Label id='MercQueueItem' class='.${queue_obj.img}' />`);
-        else
-            $("#HireQueue_Bot").BCreateChildren(`<Label id='MercQueueItem' class='.${queue_obj.img}' />`);
+        if (GetLocationString(queue_obj.loc) == "Top") {
+            var queue_item = $.CreatePanel("Label", $("#HireQueue_Top"), "MercQueueItem");
+            queue_item.AddClass(`${queue_obj.img}`);
+            //$("#HireQueue_Top").BCreateChildren(`<Label id='MercQueueItem' class='.${queue_obj.img}' />`);
+            //$("#HireQueue_Top").BCreateChildren(`<Label id='MercQueueItem' class='.${queue_obj.img}' />`);
+        }
+        else {
+            var queue_item = $.CreatePanel("Label", $("#HireQueue_Bot"), "MercQueueItem");
+            queue_item.AddClass(`${queue_obj.img}`);
+            //$("#HireQueue_Bot").BCreateChildren(`<Label id='MercQueueItem' class='.${queue_obj.img}' />`);
+        }
     }
 
 // ========================================================
@@ -64,7 +71,8 @@ function ClearQueue(queue_obj) {
     var queue_panel = GetQueuePanel(queue_obj.loc);
     queue_panel.RemoveAndDeleteChildren();
     // add back in the anchor
-    queue_panel.BCreateChildren(`<Label id='${GetLocationString(queue_obj.loc)}QueueIcon' />`);
+    //queue_panel.BCreateChildren(`<Label id='${GetLocationString(queue_obj.loc)}QueueIcon' />`);
+    var queue = $.CreatePanel("Label", queue_panel, `${GetLocationString(queue_obj.loc)}QueueIcon`);
 }
 
 // wireup string-id to javascript function
