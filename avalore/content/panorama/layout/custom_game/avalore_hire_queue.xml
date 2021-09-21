@@ -10,10 +10,10 @@
             <Label id="TeamGold" text="Team Gold" />
             <Label id="SharedGold" text="0" />
         </Panel>
-        <Panel class="HireQueue_Top">
+        <Panel id="HireQueue_Top" class="HireQueue_Top">
             <Label id="TopQueueIcon" text="" />
         </Panel>
-        <Panel class="HireQueue_Bot">
+        <Panel id="HireQueue_Bot" class="HireQueue_Bot">
             <Label id="BotQueueIcon" text="" />
         </Panel>
     </Panel>

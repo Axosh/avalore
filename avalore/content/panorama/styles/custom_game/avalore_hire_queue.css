@@ -59,3 +59,36 @@
     color: gradient( linear, 0% 0%, 0% 100%, from( #caec4e ), color-stop( 0.25, #f3b736 ), color-stop( 0.5, #fffb84 ), color-stop( 0.75, #c88423 ), to( #9a6717 ) );
     text-shadow: 2px 2px 2px #7b612b;
 }
+
+/* Merc Icons */
+.npc_avalore_merc_flying_dire, .npc_avalore_merc_flying_radi
+{
+    background-image: url("file://{images}/ui/flying.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.npc_avalore_merc_hulk_dire, .npc_avalore_merc_hulk_radi
+{
+    background-image: url("file://{images}/ui/hulk.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.npc_avalore_merc_melee_dire, .npc_avalore_merc_melee_radi
+{
+    background-image: url("file://{images}/ui/melee.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.npc_avalore_merc_ranged_dire, .npc_avalore_merc_ranged_radi
+{
+    background-image: url("file://{images}/ui/ranged.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+}

@@ -325,6 +325,9 @@ function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
                         local creep = CreateUnitByName( merc_unit, value.Spawner:GetOrigin(), true, nil, nil, value.Team )
                         creep:SetInitialGoalEntity(value.FirstWaypoint)
                     end
+                    local queue_obj = {loc = key};
+                    print("Clearing Hire Queue " .. key)
+                    CustomGameEventManager:Send_ServerToTeam(value.Team, "clear_hire_queue", queue_obj)
                 end
 
             end

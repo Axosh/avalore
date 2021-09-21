@@ -10,7 +10,7 @@ hire_queue = class({})
 -- ==================================================================
 
 function HireUnit(unit, team, gold_cost, merc_camp_building)
-
+    local team_gold = {}
     -- check that they have enough gold and append correct unit to spawn
     if team == DOTA_TEAM_GOODGUYS then
         if not (Score.RadiSharedGoldCurr >= gold_cost) then
@@ -24,6 +24,9 @@ function HireUnit(unit, team, gold_cost, merc_camp_building)
 			-- }
 			-- CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(caster:GetPlayerID()), "broadcast_message", broadcast_obj )
             return
+        else
+            Score.RadiSharedGoldCurr = Score.RadiSharedGoldCurr - gold_cost
+            team_gold.gold = Score.RadiSharedGoldCurr
         end
         unit = unit .. "radi"
     else
@@ -38,9 +41,14 @@ function HireUnit(unit, team, gold_cost, merc_camp_building)
 			-- }
 			-- CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(caster:GetPlayerID()), "broadcast_message", broadcast_obj )
             return
+        else
+            Score.DireSharedGoldCurr = Score.DireSharedGoldCurr - gold_cost
+            team_gold.gold = Score.DireSharedGoldCurr
         end
         unit = unit .. "dire"
     end
+
+    CustomGameEventManager:Send_ServerToTeam(team, "update_team_gold", team_gold)
 
     local lane = ""
     --print("==== FIND LANE OF QUEUE ====")
@@ -54,6 +62,10 @@ function HireUnit(unit, team, gold_cost, merc_camp_building)
 
     print("Queueing up a " .. unit .. " in lane " .. lane)
     table.insert(Spawners.MercQueue[team][lane], unit)
+    local queue_obj = {}
+    queue_obj.img = unit
+    queue_obj.loc = lane
+    CustomGameEventManager:Send_ServerToTeam(team, "add_to_hire_queue", queue_obj)
 
     PrintTable(Spawners.MercQueue[team][lane])
 end
