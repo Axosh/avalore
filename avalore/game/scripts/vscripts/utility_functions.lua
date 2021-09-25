@@ -1,5 +1,7 @@
 --[[ Utility Functions ]]
 
+--require "os"
+
 
 ---------------------------------------------------------------------------
 -- Broadcast messages to screen
@@ -58,8 +60,9 @@ function ShuffledList( orig_list )
 	return result
 end
 
+-- apparently can't use os on game servers (probably exploitable)
 --https://stackoverflow.com/questions/35572435/how-do-you-do-the-fisher-yates-shuffle-in-lua
-math.randomseed(os.time()) -- so that the results are always different
+--math.randomseed(os.time()) -- so that the results are always different
 function FYShuffle( tInput )
     local tReturn = {}
     for i = #tInput, 1, -1 do

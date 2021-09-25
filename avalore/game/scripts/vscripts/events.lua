@@ -609,6 +609,8 @@ function CAvaloreGameMode:InitCosmetics(unit)
 		CAvaloreGameMode:InitDavyJones(hero)
 	elseif hero_name == "npc_dota_hero_robin_hood" or hero_name == "npc_dota_hero_windrunner" then
 		CAvaloreGameMode:InitRobinHood(hero,playernum)
+	elseif hero_name == "avalore_hero_dionysus" or hero_name == "npc_dota_hero_brewmaster" then
+		CAvaloreGameMode:InitDionysus(hero, playernum)
 	end
 end
 
@@ -681,6 +683,28 @@ function CAvaloreGameMode:InitRobinHood(unit_temp, playernum)
 		end
 	end
 	
+end
+
+function CAvaloreGameMode:InitDionysus(hero, playernum)
+	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	--unit:AddNewModifier(unit, nil, "modifier_faction_forest", nil)
+	local dionysus_cosmetics = {}
+	dionysus_cosmetics[0] = "models/items/brewmaster/barrel_vice.vmdl"
+	dionysus_cosmetics[1] = "models/items/brewmaster/coffeemaster_weapon/coffeemaster_weapon.vmdl"
+	dionysus_cosmetics[2] = "models/items/brewmaster/honorable_brawler_shoulder/honorable_brawler_shoulder.vmdl"
+	dionysus_cosmetics[3] = "models/items/brewmaster/honorable_brawler_arms/honorable_brawler_arms.vmdl"
+	dionysus_cosmetics[4] = "models/items/brewmaster/honorable_brawler_back/honorable_brawler_back.vmdl"
+
+	for k,wearable in pairs(dionysus_cosmetics) do
+		--print("Creating Cosmetic " .. wearable)
+		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+		cosmetic:SetOwner(unit)
+		cosmetic:FollowEntity(unit, true)
+	end
 end
 
 function CAvaloreGameMode:InitRobinHood_old(unit, playernum)

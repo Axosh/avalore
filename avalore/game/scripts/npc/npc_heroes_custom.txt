@@ -4,6 +4,7 @@
 
 #base "heroes/davy_jones/davy_jones.txt"
 #base "heroes/robin_hood/robin_hood.txt"
+#base "heroes/dionysus/dionysus.txt"
 
 "DOTAHeroes"
 {

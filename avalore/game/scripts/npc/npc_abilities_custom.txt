@@ -20,6 +20,8 @@
 #base "heroes/robin_hood/ability_avalore_marksmanship.txt"
 #base "heroes/robin_hood/ability_shackleshot.txt"
 
+#base "heroes/dionysus/ability_over_indulge.txt"
+
 "DOTAAbilities"
 {	
 	"building_unselectable"
