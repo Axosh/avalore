@@ -74,8 +74,26 @@ function modifier_drunk:OnAttackStart(kv)
 
         if next_attack == self.MISS then
             self.miss_chance = 1
+            print("About to MISS")
+            -- overhead damage info
+            SendOverheadEventMessage(
+                nil,
+                OVERHEAD_ALERT_MISS,
+                kv.attacker,
+                0,
+                nil
+            )
         elseif next_attack == self.REDUCED then
             self.percent_dmg = 100 - self.reduction
+            print("REDUCED%")
+            SendOverheadEventMessage(
+                    nil, 
+                    OVERHEAD_ALERT_OUTGOING_DAMAGE, 
+                    self:GetParent(), 
+                    (kv.damage * self.percent_dmg), 
+                    nil)
+        else
+            print("Normal attack")
         end
 
         if not next(self.attack_queue) then
@@ -99,6 +117,8 @@ function modifier_drunk:GetModifierTotalDamageOutgoing_Percentage(kv)
     if kv.attacker == self:GetParent() then
         if self.percent_dmg < 100 then
             self:GetParent():EmitSound("Hero_BrewMaster.CinderBrew.SelfAttack")
+            self.reduced_dmg_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_cinder_brew_self_attack.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+            ParticleManager:ReleaseParticleIndex(self.reduced_dmg_particle)
             local result = self.percent_dmg
             self.percent_dmg = 100
             return result

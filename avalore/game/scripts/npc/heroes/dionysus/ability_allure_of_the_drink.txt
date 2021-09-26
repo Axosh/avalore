@@ -1,0 +1,97 @@
+"DOTAAbilities"
+{
+    "ability_allure_of_the_drink"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/dionysus/ability_allure_of_the_drink.lua"
+		"AbilityTextureName"            "allure_of_the_drink"
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"				// Vanilla is "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"		// Vanilla is "DOTA_UNIT_TARGET_FLAG_NONE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		//"HasScepterUpgrade"             "1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500 525 550 575"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityChannelTime"			"1.6 1.9 2.2 2.5"	// Logic in Lua to deal with status resistance
+		"AbilityCooldown"				"24 22 20 18"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 130 140 150"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"1.4 1.7 2.0 2.3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"destination"			"32 38 44 50"
+				"LinkedSpecialBonus"	"special_bonus_imba_lich_10"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range_tooltip" "500 525 550 575"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"soul_consumption_duration"		"75"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"retaliatory_chains_dmg_pct"	"50 60 70 80"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"sacrifice_mana_pct"	"40 55 70 85"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"sacrifice_health_pct"	"20 30 40 50"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cold_front_stacks"	"2"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"creep_channel_reduction"	"50"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mana_drain"		"10 15 20 25"
+			}
+			"11"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aoe_scepter"		"400"
+				"RequiresScepter"		"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+	}
+}
