@@ -32,7 +32,7 @@ function ability_allure_of_the_drink:OnSpellStart()
 
     self.target:EmitSound("Hero_Lich.SinisterGaze.Target")
 
-    self.target:AddNewModifier(self:GetCaster(), self, "modifier_imba_lich_sinister_gaze", {duration = self:GetChannelTime()})
+    self.target:AddNewModifier(self:GetCaster(), self, "modifier_allure_of_the_drink", {duration = self:GetChannelTime()})
     self.target:AddNewModifier(self:GetCaster(), nil, "modifier_truesight", {duration = self:GetChannelTime()})
 
 end

@@ -92,6 +92,6 @@
 				"RequiresScepter"		"1"
 			}
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastAnimation"		"ACT_DOTA_MEDUSA_STONE_GAZE" //"ACT_DOTA_CAST_ABILITY_2"
 	}
 }
