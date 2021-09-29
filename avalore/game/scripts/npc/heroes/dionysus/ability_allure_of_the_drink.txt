@@ -23,7 +23,7 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		//"AbilityChannelTime"			"1.6 1.9 2.2 2.5"	// Logic in Lua to deal with status resistance
+		"AbilityChannelTime"			"1.6 1.9 2.2 2.5"
 		"AbilityCooldown"				"24 22 20 18"
 		
 		// Cost
