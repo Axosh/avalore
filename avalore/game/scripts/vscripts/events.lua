@@ -16,6 +16,7 @@ LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA
 -- Faction Stuff
 LinkLuaModifier("modifier_faction_forest",     "modifiers/faction/modifier_faction_forest.lua",       LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_water",      "modifiers/faction/modifier_faction_water.lua",        LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faction_olympians",      "modifiers/faction/modifier_faction_olympians.lua",    LUA_MODIFIER_MOTION_NONE)
 
 --initialized with ListenToGameEvent("entity_killed", Dynamic_Wrap(CustomGameMode, "OnEntityKilled"), self)
 function CAvaloreGameMode:OnEntityKilled(event)
@@ -687,7 +688,7 @@ end
 
 function CAvaloreGameMode:InitDionysus(hero, playernum)
 	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
-	--unit:AddNewModifier(unit, nil, "modifier_faction_forest", nil)
+	unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
 	local dionysus_cosmetics = {}
 	dionysus_cosmetics[0] = "models/items/brewmaster/barrel_vice.vmdl"
 	dionysus_cosmetics[1] = "models/items/brewmaster/coffeemaster_weapon/coffeemaster_weapon.vmdl"

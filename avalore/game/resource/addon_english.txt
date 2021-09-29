@@ -17,6 +17,9 @@
 		"DOTA_Tooltip_modifier_faction_water"					"Water Faction"
 		"DOTA_Tooltip_modifier_faction_water_description"		"Faction Bonus - Extra %MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE% movespeed in the water"
 
+		"DOTA_Tooltip_modifier_faction_olympians"				"Olympians Faction"
+		"DOTA_Tooltip_modifier_faction_olympians_description"	"Faction Bonus - Ichor of the Gods - Bonus HP Regen, and Return Damage"
+
 		//--------------------------------------------------------------------------------
 		// Heroes
 		//--------------------------------------------------------------------------------
