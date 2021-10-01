@@ -11,7 +11,8 @@ end
 
 function modifier_faction_olympians:DeclareFunctions()
 	return {
-        MODIFIER_EVENT_ON_ATTACKED,
+        --MODIFIER_EVENT_ON_ATTACKED,
+        MODIFIER_EVENT_ON_TAKEDAMAGE,
         MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
     }
 end
@@ -20,6 +21,11 @@ function modifier_faction_olympians:OnCreated( kv )
 	-- references
 	self.base_return_dmg = 10
 	self.base_hp_regen = 2
+
+    if not IsServer() then return end
+    local player_team = self:GetCaster():GetTeamNumber()
+    -- find how many allied heroes are part of this alliance
+    self:RefreshFactionStacks(player_team, self)
 end
 
 function modifier_faction_olympians:RefreshFactionStacks(faction_team, modifier)
@@ -52,7 +58,8 @@ function modifier_faction_olympians:RefreshFactionStacks(faction_team, modifier)
     end
 end
 
-function modifier_faction_olympians:OnAttacked( kv )
+--function modifier_faction_olympians:OnAttacked( kv )
+function modifier_faction_olympians:OnTakeDamage( kv )
 	if IsServer() then
 		-- doesn't work on illusions or when broken
 		if self:GetParent():IsIllusion() or self:GetParent():PassivesDisabled() then
@@ -67,17 +74,41 @@ function modifier_faction_olympians:OnAttacked( kv )
 
 		local caster = self:GetCaster()
 		local parent = self:GetParent()
-		local ability = self:GetAbility()
+		--local ability = self:GetAbility()
 		local attacker = kv.attacker
 		local target = kv.unit
-		local particle_return = "particles/econ/items/lifestealer/ls_ti10_immortal/ls_ti10_immortal_infest_gold_groundfollow_bloodvertical.vpcf"
+		--local particle_return = "particles/econ/items/lifestealer/ls_ti10_immortal/ls_ti10_immortal_infest_gold_groundfollow_bloodvertical.vpcf"
+        local particle_return = "particles/econ/items/lifestealer/ls_ti10_immortal/ls_ti10_immortal_infest_gold_radial_burst_blood.vpcf"
+
+        --if target and target:GetName() == "npc_dota_hero_brewmaster" then
+        -- if attacker and target then
+        -- --if kv.unit == self:GetParent() then
+        --    print("Attacker: " .. attacker:GetName()) 
+        --    print("Attacker Team: " .. tostring(attacker:GetTeamNumber()))
+        --    print("Our Team: " .. tostring(parent:GetTeamNumber()))
+        --    print("Target: " .. target:GetName())
+        --    print("Parent: " .. parent:GetName())
+        -- end
 
 		-- only return on units attacking
-		if attacker:GetTeamNumber() ~= parent:GetTeamNumber() and parent == target and not attacker:IsOther() then
+		if attacker:GetTeamNumber() ~= parent:GetTeamNumber() and parent == target then --and not attacker:IsOther() then
+            print("Return Damage: " .. tostring(damage))
+
 			-- particles
-			local particle_return_fx = ParticleManager:CreateParticle(particle_return, PATTACH_ABSORIGIN, parent)
-			ParticleManager:SetParticleControlEnt(particle_return_fx, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
-			ParticleManager:SetParticleControlEnt(particle_return_fx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
+			local particle_return_fx = ParticleManager:CreateParticle(particle_return, PATTACH_ABSORIGIN_FOLLOW, parent)
+			--ParticleManager:SetParticleControlEnt(particle_return_fx, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+			--ParticleManager:SetParticleControlEnt(particle_return_fx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
+            --ParticleManager:SetParticleControl(particle_return_fx, 0, Vector(0, 0, 0))
+            ParticleManager:SetParticleControl(particle_return_fx, 2, Vector(300, 300, 300))
+            ParticleManager:SetParticleControlEnt(
+                particle_return_fx,
+                3,
+                self:GetParent(),
+                PATTACH_ABSORIGIN_FOLLOW,
+                nil,
+                self:GetParent():GetOrigin(), -- unknown
+                true -- unknown, true
+            )
 			ParticleManager:ReleaseParticleIndex(particle_return_fx)
 			
 			-- Apply damage on attacker
@@ -87,7 +118,7 @@ function modifier_faction_olympians:OnAttacked( kv )
 				damage = damage,
 				damage_type = DAMAGE_TYPE_PHYSICAL,
 				damage_flags = DOTA_DAMAGE_FLAG_REFLECTION,
-				ability = ability
+				ability = nil
 			})
 		end
 
