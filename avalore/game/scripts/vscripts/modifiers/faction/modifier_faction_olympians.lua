@@ -54,31 +54,47 @@ end
 
 function modifier_faction_olympians:OnAttacked( kv )
 	if IsServer() then
+		-- doesn't work on illusions or when broken
 		if self:GetParent():IsIllusion() or self:GetParent():PassivesDisabled() then
 			return
 		end
-		if kv.unit==self:GetParent() or self:FlagExist( kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION ) then
-			return
-		end
+		-- if kv.unit==self:GetParent() or self:FlagExist( kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION ) then
+		-- 	return
+		-- end
 
 		-- get damage
 		local damage = (self.base_return_dmg * self:GetStackCount())
 
-		-- Apply Damage
-		local damageTable = {
-			victim          = kv.attacker,
-			attacker        = self:GetParent(),
-			damage          = damage,
-			damage_type     = DAMAGE_TYPE_PHYSICAL,
-			damage_flags    = DOTA_DAMAGE_FLAG_REFLECTION,
-			ability         = self:GetAbility(), --Optional.
-		}
-		ApplyDamage(damageTable)
+		local caster = self:GetCaster()
+		local parent = self:GetParent()
+		local ability = self:GetAbility()
+		local attacker = kv.attacker
+		local target = kv.unit
+		local particle_return = "particles/econ/items/lifestealer/ls_ti10_immortal/ls_ti10_immortal_infest_gold_groundfollow_bloodvertical.vpcf"
+
+		-- only return on units attacking
+		if attacker:GetTeamNumber() ~= parent:GetTeamNumber() and parent == target and not attacker:IsOther() then
+			-- particles
+			local particle_return_fx = ParticleManager:CreateParticle(particle_return, PATTACH_ABSORIGIN, parent)
+			ParticleManager:SetParticleControlEnt(particle_return_fx, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(particle_return_fx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
+			ParticleManager:ReleaseParticleIndex(particle_return_fx)
+			
+			-- Apply damage on attacker
+			ApplyDamage({
+				victim = attacker,
+				attacker = parent,
+				damage = damage,
+				damage_type = DAMAGE_TYPE_PHYSICAL,
+				damage_flags = DOTA_DAMAGE_FLAG_REFLECTION,
+				ability = ability
+			})
+		end
 
 		-- Play effects
-		if kv.attacker:IsConsideredHero() then
-			self:PlayEffects( kv.attacker )
-		end
+		-- if kv.attacker:IsConsideredHero() then
+		-- 	self:PlayEffects( kv.attacker )
+		-- end
 	end
 end
 
@@ -88,38 +104,38 @@ function modifier_faction_olympians:GetModifierConstantHealthRegen()
 end
 
 -- Helper: Flag operations
-function modifier_faction_olympians:FlagExist(a,b)--Bitwise Exist
-	local p,c,d=1,0,b
-	while a>0 and b>0 do
-		local ra,rb=a%2,b%2
-		if ra+rb>1 then c=c+p end
-		a,b,p=(a-ra)/2,(b-rb)/2,p*2
-	end
-	return c==d
-end
+-- function modifier_faction_olympians:FlagExist(a,b)--Bitwise Exist
+-- 	local p,c,d=1,0,b
+-- 	while a>0 and b>0 do
+-- 		local ra,rb=a%2,b%2
+-- 		if ra+rb>1 then c=c+p end
+-- 		a,b,p=(a-ra)/2,(b-rb)/2,p*2
+-- 	end
+-- 	return c==d
+-- end
 
-function modifier_faction_olympians:PlayEffects( target )
-	--local particle_cast = "particles/units/heroes/hero_centaur/centaur_return.vpcf"
-    local particle_cast = "particles/econ/items/lifestealer/ls_ti10_immortal/ls_ti10_immortal_infest_gold_groundfollow_bloodvertical.vpcf"
-    --"particles/econ/items/lifestealer/ls_ti10_immortal/ls_ti10_immortal_infest_gold_radial_burst_blood.vpcf"
+-- function modifier_faction_olympians:PlayEffects( target )
+-- 	--local particle_cast = "particles/units/heroes/hero_centaur/centaur_return.vpcf"
+--     local particle_cast = "particles/econ/items/lifestealer/ls_ti10_immortal/ls_ti10_immortal_infest_gold_groundfollow_bloodvertical.vpcf"
+--     --"particles/econ/items/lifestealer/ls_ti10_immortal/ls_ti10_immortal_infest_gold_radial_burst_blood.vpcf"
 
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
-	ParticleManager:SetParticleControlEnt(
-		effect_cast,
-		0,
-		self:GetParent(),
-		PATTACH_POINT_FOLLOW,
-		"attach_hitloc",
-		self:GetParent():GetOrigin(), -- unknown
-		true -- unknown, true
-	)
-	ParticleManager:SetParticleControlEnt(
-		effect_cast,
-		1,
-		target,
-		PATTACH_POINT_FOLLOW,
-		"attach_hitloc",
-		target:GetOrigin(), -- unknown
-		true -- unknown, true
-	)
-end
+-- 	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+-- 	ParticleManager:SetParticleControlEnt(
+-- 		effect_cast,
+-- 		0,
+-- 		self:GetParent(),
+-- 		PATTACH_POINT_FOLLOW,
+-- 		"attach_hitloc",
+-- 		self:GetParent():GetOrigin(), -- unknown
+-- 		true -- unknown, true
+-- 	)
+-- 	ParticleManager:SetParticleControlEnt(
+-- 		effect_cast,
+-- 		1,
+-- 		target,
+-- 		PATTACH_POINT_FOLLOW,
+-- 		"attach_hitloc",
+-- 		target:GetOrigin(), -- unknown
+-- 		true -- unknown, true
+-- 	)
+-- end
