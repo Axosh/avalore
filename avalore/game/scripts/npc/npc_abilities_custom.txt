@@ -22,6 +22,7 @@
 
 #base "heroes/dionysus/ability_over_indulge.txt"
 #base "heroes/dionysus/ability_allure_of_the_drink.txt"
+#base "heroes/dionysus/ability_maenadic_fervor.txt"
 
 "DOTAAbilities"
 {	

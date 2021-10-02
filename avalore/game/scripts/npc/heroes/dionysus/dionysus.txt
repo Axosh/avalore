@@ -14,7 +14,7 @@
 		"AbilityLayout"     "4"
 		"Ability1"					"ability_over_indulge"			// Ability 1.
 		"Ability2"					"ability_allure_of_the_drink"			// Ability 2.
-		"Ability3"					""			// Ability 3.
+		"Ability3"					"ability_maenadic_fervor"			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
