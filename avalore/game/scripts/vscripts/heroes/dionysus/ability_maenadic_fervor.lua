@@ -26,6 +26,10 @@ function ability_maenadic_fervor:OnSpellStart()
     else
         local duration_dominate = self:GetSpecialValueFor("duration_maenad")
 
+        if self:IsAICreep(target) then
+            target = self:ControlAICreep(target)
+        end
+
         -- possess the creep unit
 		target:AddNewModifier(
 			caster, -- player source
@@ -51,4 +55,30 @@ function ability_maenadic_fervor:OnSpellStart()
     end
 
 	
+end
+
+-- ======================================================================
+-- Helper Functions to deal with creeps that have AI
+-- (i.e. lane/merc creeps)
+-- ======================================================================
+function ability_maenadic_fervor:IsAICreep(target)
+    return (    string.find(target:GetUnitName(), "npc_avalore_creep")
+            or  string.find(target:GetUnitName(), "npc_avalore_siege")
+            or  string.find(target:GetUnitName(), "npc_avalore_merc"))
+end
+
+function ability_maenadic_fervor:ControlAICreep(target)
+    local lane_creep_name = target:GetUnitName()
+			
+    local new_lane_creep = CreateUnitByName(target:GetUnitName(), target:GetAbsOrigin(), false, self:GetCaster(), self:GetCaster(), self:GetCaster():GetTeamNumber())
+    -- Copy the relevant stats over to the creep
+    new_lane_creep:SetBaseMaxHealth(target:GetMaxHealth())
+    new_lane_creep:SetHealth(target:GetHealth())
+    new_lane_creep:SetBaseDamageMin(target:GetBaseDamageMin())
+    new_lane_creep:SetBaseDamageMax(target:GetBaseDamageMax())
+    new_lane_creep:SetMinimumGoldBounty(target:GetGoldBounty())
+    new_lane_creep:SetMaximumGoldBounty(target:GetGoldBounty())			
+    target:AddNoDraw()
+    target:ForceKill(false)
+    return new_lane_creep
 end

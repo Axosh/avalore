@@ -78,7 +78,8 @@ function modifier_faction_olympians:OnTakeDamage( kv )
 		local attacker = kv.attacker
 		local target = kv.unit
 		--local particle_return = "particles/econ/items/lifestealer/ls_ti10_immortal/ls_ti10_immortal_infest_gold_groundfollow_bloodvertical.vpcf"
-        local particle_return = "particles/econ/items/lifestealer/ls_ti10_immortal/ls_ti10_immortal_infest_gold_radial_burst_blood.vpcf"
+        --local particle_return = "particles/econ/items/lifestealer/ls_ti10_immortal/ls_ti10_immortal_infest_gold_radial_burst_blood.vpcf"
+        local particle_return = "particles/econ/items/storm_spirit/strom_spirit_ti8/gold_storm_spirit_ti8_overload_active_i.vpcf"
 
         --if target and target:GetName() == "npc_dota_hero_brewmaster" then
         -- if attacker and target then
@@ -99,7 +100,7 @@ function modifier_faction_olympians:OnTakeDamage( kv )
 			--ParticleManager:SetParticleControlEnt(particle_return_fx, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
 			--ParticleManager:SetParticleControlEnt(particle_return_fx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
             --ParticleManager:SetParticleControl(particle_return_fx, 0, Vector(0, 0, 0))
-            ParticleManager:SetParticleControl(particle_return_fx, 2, Vector(300, 300, 300))
+            ParticleManager:SetParticleControl(particle_return_fx, 2, Vector(150, 150, 150))
             ParticleManager:SetParticleControlEnt(
                 particle_return_fx,
                 3,

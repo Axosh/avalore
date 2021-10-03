@@ -14,9 +14,9 @@ function modifier_maenad:OnCreated( kv )
 		local caster = self:GetCaster()
 
 		-- set controllable
-		parent:SetTeam( caster:GetTeamNumber() )
-		parent:SetOwner( caster )
-		parent:SetControllableByPlayer( caster:GetPlayerOwnerID(), true )
+        parent:SetTeam( caster:GetTeamNumber() )
+        parent:SetOwner( caster )
+        parent:SetControllableByPlayer( caster:GetPlayerOwnerID(), true )
 	end
 end
 
@@ -33,3 +33,4 @@ function modifier_maenad:CheckState()
 
 	return state
 end
+
