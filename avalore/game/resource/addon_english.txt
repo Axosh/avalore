@@ -153,6 +153,18 @@
 		"DOTA_Tooltip_Ability_ability_grappling_hook"             		"Grappling Hook"
 		"DOTA_Tooltip_Ability_ability_grappling_hook_description"       "Fires a grappling hook that can latch on to trees and buildings"
 
+		// ===== DIONYSUS ====
+
+		"DOTA_Tooltip_Ability_ability_over_indulge"						"Over Indulge"
+		"DOTA_Tooltip_Ability_ability_over_indulge_Description"			"Douse an area with alcohol. Affected enemies will have a 33% chance to do a normal attack, 33% chance do deal half-damage, 33% chance to miss entirely"
+		"DOTA_Tooltip_Ability_ability_over_indulge_duration"			"duration"
+		"DOTA_Tooltip_Ability_ability_over_indulge_radius"				"radius"
+
+		"DOTA_Tooltip_Ability_ability_allure_of_the_drink"				"Allure of the Drink"
+		"DOTA_Tooltip_Ability_ability_allure_of_the_drink_Description"	"Dionysus locks eyes with a target, cajoling them towards him with the promise of intoxicating wine"
+
+		"DOTA_Tooltip_Ability_ability_maenadic_fervor"					"Maenadic Fervor"
+		"DOTA_Tooltip_Ability_ability_maenadic_fervor_Description"		"Bestows a state of manic ecstasy on the target increasing both incoming and outgoing damage as well as attack speed"
 
 
 		//--------------------------------------------------------------------------------
