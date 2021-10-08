@@ -38,7 +38,8 @@ function modifier_maenadic_frenzy_debuff:OnIntervalThink()
         local next_target = self:FindClosestAllyToAttack()
         if next_target then
             self.attack_target = next_target;
-            (self.parent):SetForceAttackTargetAlly(next_target)
+            (self.parent):FaceTowards(next_target:GetAbsOrigin());
+            (self.parent):SetForceAttackTargetAlly(next_target);
         else
             (self.parent):Stop()
         end

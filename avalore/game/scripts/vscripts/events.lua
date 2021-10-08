@@ -613,6 +613,41 @@ function CAvaloreGameMode:InitCosmetics(unit)
 	elseif hero_name == "avalore_hero_dionysus" or hero_name == "npc_dota_hero_brewmaster" then
 		CAvaloreGameMode:InitDionysus(hero, playernum)
 	end
+
+	-- populate inventory with placeholders
+	local misc1 = hero:AddItemByName("item_slot_misc1")
+	misc1:SetDroppable(true)
+	for slot=0,8 do
+		local item = hero:GetItemInSlot(slot)
+		if item then
+			print("Slot " .. tostring(slot) .. " => " .. item:GetName())
+		end
+	end
+	hero:SwapItems(0,6)
+	for slot=0,8 do
+		local item = hero:GetItemInSlot(slot)
+		if item then
+			print("Slot " .. tostring(slot) .. " => " .. item:GetName())
+		end
+	end
+	local misc2 = hero:AddItemByName("item_slot_misc2")
+	hero:SwapItems(0,7)
+	local misc3 = hero:AddItemByName("item_slot_misc3")
+	hero:SwapItems(0,8)
+
+	hero:AddItemByName("item_slot_head")
+	hero:AddItemByName("item_slot_chest")
+	hero:AddItemByName("item_slot_back")
+	hero:AddItemByName("item_slot_hands")
+	hero:AddItemByName("item_slot_feet")
+	hero:AddItemByName("item_slot_trinket")
+
+	misc1:SetDroppable(false)
+	misc2:SetDroppable(false)
+	misc3:SetDroppable(false)
+	-- hero:AddItemByName("item_slot_misc1")
+	-- hero:AddItemByName("item_slot_misc2")
+	-- hero:AddItemByName("item_slot_misc3")
 end
 
 function CAvaloreGameMode:RemoveAll( unit )

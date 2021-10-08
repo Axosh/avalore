@@ -7,7 +7,7 @@
         "ID"                                                  "3000"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                      "item_datadriven"            
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                  "base_slots/head"
+        "AbilityTextureName"                                  "base_slots/slot_head"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@
         "ID"                                                  "3001"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                      "item_datadriven"            
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                  "base_slots/chest"
+        "AbilityTextureName"                                  "base_slots/slot_chest"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +49,7 @@
         "ID"                                                  "3002"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                      "item_datadriven"            
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                  "base_slots/back"
+        "AbilityTextureName"                                  "base_slots/slot_back"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -70,7 +70,7 @@
         "ID"                                                  "3003"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                      "item_datadriven"            
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                  "base_slots/hands"
+        "AbilityTextureName"                                  "base_slots/slot_hands"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -91,7 +91,7 @@
         "ID"                                                  "3004"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                      "item_datadriven"            
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                  "base_slots/feet"
+        "AbilityTextureName"                                  "base_slots/slot_feet"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -112,7 +112,7 @@
         "ID"                                                  "3005"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                      "item_datadriven"            
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                  "base_slots/trinket"
+        "AbilityTextureName"                                  "base_slots/slot_trinket"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -133,18 +133,19 @@
         "ID"                                                  "3006"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                      "item_datadriven"            
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                  "base_slots/misc1"
+        "AbilityTextureName"                                  "base_slots/slot_misc1"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemKillable"					"0"
 		"ItemSellable"					"0"
 		"ItemPurchasable"				"0"
-		"ItemDroppable"					"0"
+		//"ItemDroppable"					"0"
         "ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemStackable"					"0"
 		"ItemPermanent"					"1"
         "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+        "AllowedInBackpack"				"1"
     }
 
     "item_slot_misc2"
@@ -154,18 +155,19 @@
         "ID"                                                  "3007"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                      "item_datadriven"            
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                  "base_slots/misc2"
+        "AbilityTextureName"                                  "base_slots/slot_misc2"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemKillable"					"0"
 		"ItemSellable"					"0"
 		"ItemPurchasable"				"0"
-		"ItemDroppable"					"0"
+		//"ItemDroppable"					"0"
         "ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemStackable"					"0"
 		"ItemPermanent"					"1"
         "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+        "AllowedInBackpack"				"1"
     }
 
     "item_slot_misc3"
@@ -175,17 +177,18 @@
         "ID"                                                  "3008"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                      "item_datadriven"            
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                  "base_slots/misc3"
+        "AbilityTextureName"                                  "base_slots/slot_misc3"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemKillable"					"0"
 		"ItemSellable"					"0"
 		"ItemPurchasable"				"0"
-		"ItemDroppable"					"0"
+		//"ItemDroppable"					"0"
         "ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemStackable"					"0"
 		"ItemPermanent"					"1"
         "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+        "AllowedInBackpack"				"1"
     }
 }

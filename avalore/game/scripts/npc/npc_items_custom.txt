@@ -1,4 +1,5 @@
 #base "items/item_leather_boots.txt"
+#base "items/_item_base.txt"
 
 "DOTAAbilities"
 {
