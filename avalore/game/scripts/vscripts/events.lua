@@ -476,6 +476,13 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 	-- end
 end
 
+-- https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Engine_Events
+-- dota_item_picked_up
+-- 	* itemname ( string )
+-- 	* PlayerID ( short )
+-- 	* ItemEntityIndex( short )
+-- 	* HeroEntityIndex( short )
+-- 
 function CAvaloreGameMode:OnItemPickUp(event)
 	print("OnItemPickup - Start")
 	local item = EntIndexToHScript( event.ItemEntityIndex )
@@ -524,7 +531,37 @@ function CAvaloreGameMode:OnItemPickUp(event)
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(owner:GetPlayerID()), "broadcast_message", broadcast_obj )
 		end
 	end -- end if-statement: item picked up was flag
+
+	
 end -- end function: CAvaloreGameMode:OnItemPickUp(event)
+
+-- https://moddota.com/api/#!/events/dota_inventory_item_added
+-- dota_inventory_item_added
+-- * item_slot: short
+-- * inventory_player_id: PlayerID
+-- * itemname: string
+-- * item_entindex: EntityIndex
+-- * inventory_parent_entindex: EntityIndex
+-- * is_courier: bool
+function CAvaloreGameMode:OnItemAdded(event)
+	local item = EntIndexToHScript( event.item_entindex )
+	local owner = EntIndexToHScript( event.inventory_parent_entindex )
+
+	if item:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_FEET then
+		if owner:HasItemInInventory("item_slot_feet") then
+			local foot_slot
+			for slot=0,8 do
+				if owner:GetItemInSlot(slot):GetName() == "item_slot_feet" then
+					foot_slot = owner:GetItemInSlot(slot)
+					owner:SwapItems(item:GetItemSlot(), foot_slot:GetItemSlot())
+					owner:RemoveItem(foot_slot)
+				end
+			end
+			
+		end
+	
+	end
+end
 
 -- function CAvaloreGameMode:OnItemSlotChanged(event)
 -- 	print("OnItemSlotChanged")

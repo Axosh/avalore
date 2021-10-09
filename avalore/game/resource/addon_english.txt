@@ -190,6 +190,22 @@
 
 		"DOTA_Tooltip_Ability_item_avalore_summoning_gem"		"Summoning Gem"
 
+
+		// Item Slots
+		"DOTA_Tooltip_Ability_item_slot_head"					"Head Slot"
+		"DOTA_Tooltip_Ability_item_slot_chest"					"Chest Slot"
+		"DOTA_Tooltip_Ability_item_slot_back"					"Back Slot"
+		"DOTA_Tooltip_Ability_item_slot_hands"					"Hands Slot"
+		"DOTA_Tooltip_Ability_item_slot_feet"					"Feet Slot"
+		"DOTA_Tooltip_Ability_item_slot_trinket"				"Trinket Slot"
+		"DOTA_Tooltip_Ability_item_slot_misc1"					"Extra Slot"
+		"DOTA_Tooltip_Ability_item_slot_misc2"					"Extra Slot"
+		"DOTA_Tooltip_Ability_item_slot_misc3"					"Extra Slot"
+
+		// Base Materials
+		"DOTA_Tooltip_Ability_item_sandals"						"Caster's Sandals"
+		"DOTA_Tooltip_Ability_item_leather_boots"				"Leather Boots"
+
 		//--------------------------------------------------------------------------------
 		// MODIFIERS
 		//--------------------------------------------------------------------------------
