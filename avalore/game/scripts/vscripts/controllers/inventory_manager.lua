@@ -1,6 +1,10 @@
 require("constants")
 require("references")
 
+if InventoryManager == nil then
+    InventoryManager = {}
+end
+
 -- https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Engine_Events
 -- dota_item_picked_up
 -- 	* itemname ( string )

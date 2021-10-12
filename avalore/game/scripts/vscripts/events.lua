@@ -8,6 +8,8 @@ require("utility_functions")
 require("scripts/vscripts/libraries/map_and_nav")
 require(REQ_LIB_COSMETICS)
 require(REQ_SPAWNERS)
+require(REQ_CTRL_INV_MNGR)
+require(REQ_CLASS_INV)
 --require("scripts/vscripts/modifiers/modifier_wearable")
 
 LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
@@ -459,6 +461,7 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 		-- Init cosmetics
 		CAvaloreGameMode:InitCosmetics(hPlayerHero)
 		-- init inventory
+		InventoryManager[hPlayerHero:GetPlayerOwnerID()] = Inventory:Create(hPlayerHero:GetPlayerOwnerID())
 
 		-- Init shared control of Merc Camps
 		print("---- Give Shared Control to Merc Camps ----")

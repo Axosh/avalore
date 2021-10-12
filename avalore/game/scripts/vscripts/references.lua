@@ -27,6 +27,10 @@ REQ_LIB_COSMETICS = "scripts/vscripts/libraries/cosmetics"
 
 REQ_LIB_PLAYERS = "scripts/vscripts/players"
 
+-- Controllers
+REQ_CTRL_INV_MNGR = "scripts/vscripts/controllers/inventory_manager"
+REQ_CLASS_INV = "scripts/vscripts/classes/inventory"
+
 
 -- =========================================
 -- MODIFIERS
