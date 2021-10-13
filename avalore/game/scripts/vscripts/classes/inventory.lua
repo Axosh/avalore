@@ -1,29 +1,37 @@
 require("constants")
 Inventory = class({})
 
-function Inventory:Create(playerID)
+-- create a new instance / default constructor
+function Inventory:Create()
+    return self
+end
+
+-- fill everything out after we've got the instance
+-- otherwise the lookup in inventory_manager will point
+-- to a null
+function Inventory:Init(playerID)
     -- convenience
     self.playerId = playerID
     self.hero = PlayerResource:GetSelectedHeroEntity(playerID)
 
     self.slots = {}
-    local misc1 = self.hero:AddItemByName("item_slot_misc1")
-	misc1:SetDroppable(true)
-    self.hero:SwapItems(0,6) -- put in 1st backpack slot
+    local misc1 = (self.hero):AddItemByName("item_slot_misc1")
+	misc1:SetDroppable(true);
+    (self.hero):SwapItems(0,6); -- put in 1st backpack slot
     self.slots[AVALORE_ITEM_SLOT_MISC1] = misc1
-    local misc2 = self.hero:AddItemByName("item_slot_misc2")
-	self.hero:SwapItems(0,7)
+    local misc2 = (self.hero):AddItemByName("item_slot_misc2");
+	(self.hero):SwapItems(0,7)
     self.slots[AVALORE_ITEM_SLOT_MISC2] = misc2
-	local misc3 = self.hero:AddItemByName("item_slot_misc3")
-	self.hero:SwapItems(0,8)
+	local misc3 = (self.hero):AddItemByName("item_slot_misc3");
+	(self.hero):SwapItems(0,8)
     self.slots[AVALORE_ITEM_SLOT_MISC3] = misc3
 
-    self.slots[AVALORE_ITEM_SLOT_HEAD]      = self.hero:AddItemByName("item_slot_head")
-    self.slots[AVALORE_ITEM_SLOT_CHEST]     = self.hero:AddItemByName("item_slot_chest")
-    self.slots[AVALORE_ITEM_SLOT_BACK]      = self.hero:AddItemByName("item_slot_back")
-    self.slots[AVALORE_ITEM_SLOT_HANDS]     = self.hero:AddItemByName("item_slot_hands")
-    self.slots[AVALORE_ITEM_SLOT_FEET]      = self.hero:AddItemByName("item_slot_feet")
-    self.slots[AVALORE_ITEM_SLOT_TRINKET]   = self.hero:AddItemByName("item_slot_trinket")
+    self.slots[AVALORE_ITEM_SLOT_HEAD]      = (self.hero):AddItemByName("item_slot_head")
+    self.slots[AVALORE_ITEM_SLOT_CHEST]     = (self.hero):AddItemByName("item_slot_chest")
+    self.slots[AVALORE_ITEM_SLOT_BACK]      = (self.hero):AddItemByName("item_slot_back")
+    self.slots[AVALORE_ITEM_SLOT_HANDS]     = (self.hero):AddItemByName("item_slot_hands")
+    self.slots[AVALORE_ITEM_SLOT_FEET]      = (self.hero):AddItemByName("item_slot_feet")
+    self.slots[AVALORE_ITEM_SLOT_TRINKET]   = (self.hero):AddItemByName("item_slot_trinket")
 
     misc1:SetDroppable(false)
 	misc2:SetDroppable(false)
@@ -41,9 +49,14 @@ function Inventory:GetHero()
 end
 
 function Inventory:Add(item)
+    --print("Adding Item: " .. item:GetName())
+    --print("Find result - " .. tostring(string.find("item_slot", item:GetName())))
+    -- if we're adding the item slot dummy, just skip
+    if item:GetName():find("item_slot") then return end
+
     local item_slot = item:GetSpecialValueFor("item_slot")
     -- if slot is empty, just swap it out
-    if string.find("item_slot", (self.slots[item_slot]):GetName()) then
+    if ((self.slots[item_slot]):GetName()):find("item_slot") then
         self.hero:SwapItems(item:GetItemSlot(), self.slots[item_slot]:GetItemSlot())
         self.hero:RemoveItem(self.slots[item_slot])
         self.slots[item_slot] = item

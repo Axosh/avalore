@@ -1,6 +1,8 @@
 require("constants")
 require("references")
+require(REQ_UTIL)
 
+-- Initialized in: CAvaloreGameMode:OnHeroFinishSpawn(event)
 if InventoryManager == nil then
     InventoryManager = {}
 end
@@ -77,18 +79,21 @@ function CAvaloreGameMode:OnItemAdded(event)
 	local item = EntIndexToHScript( event.item_entindex )
 	local owner = EntIndexToHScript( event.inventory_parent_entindex )
 
-	if item:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_FEET then
-		if owner:HasItemInInventory("item_slot_feet") then
-			local foot_slot
-			for slot=0,8 do
-				if owner:GetItemInSlot(slot):GetName() == "item_slot_feet" then
-					foot_slot = owner:GetItemInSlot(slot)
-					owner:SwapItems(item:GetItemSlot(), foot_slot:GetItemSlot())
-					owner:RemoveItem(foot_slot)
-				end
-			end
+    local inventory = InventoryManager[event.inventory_player_id]
+    inventory:Add(item)
+
+	-- if item:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_FEET then
+	-- 	if owner:HasItemInInventory("item_slot_feet") then
+	-- 		local foot_slot
+	-- 		for slot=0,8 do
+	-- 			if owner:GetItemInSlot(slot):GetName() == "item_slot_feet" then
+	-- 				foot_slot = owner:GetItemInSlot(slot)
+	-- 				owner:SwapItems(item:GetItemSlot(), foot_slot:GetItemSlot())
+	-- 				owner:RemoveItem(foot_slot)
+	-- 			end
+	-- 		end
 			
-		end
+	-- 	end
 	
-	end
+	-- end
 end

@@ -461,7 +461,10 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 		-- Init cosmetics
 		CAvaloreGameMode:InitCosmetics(hPlayerHero)
 		-- init inventory
-		InventoryManager[hPlayerHero:GetPlayerOwnerID()] = Inventory:Create(hPlayerHero:GetPlayerOwnerID())
+		--InventoryManager[hPlayerHero:GetPlayerOwnerID()] = Inventory:Create(hPlayerHero:GetPlayerOwnerID())
+		print("Creating Inventory for Player: " .. tostring(hPlayerHero:GetPlayerOwnerID()))
+		InventoryManager[hPlayerHero:GetPlayerOwnerID()] = Inventory:Create()
+		InventoryManager[hPlayerHero:GetPlayerOwnerID()]:Init(hPlayerHero:GetPlayerOwnerID())
 
 		-- Init shared control of Merc Camps
 		print("---- Give Shared Control to Merc Camps ----")
