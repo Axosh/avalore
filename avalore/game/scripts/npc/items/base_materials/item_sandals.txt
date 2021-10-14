@@ -37,10 +37,15 @@
         {
             "01"
             {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "4" //FEET
+            }
+            "02"
+            {
                 "var_type"                                        "FIELD_INTEGER"
                 "bonus_movement_speed"                            "40"
             }
-            "02"
+            "03"
             {
                 "var_type"          "FIELD_INTEGER"
                 "bonus_mana_regen"       "1.25"

@@ -106,8 +106,15 @@ end
 ----removed: bool
 function CAvaloreGameMode:OnInventoryChanged(event)
     local item = EntIndexToHScript( event.item_entindex )
-    local inventory = InventoryManager[event.inventory_player_id]
+    local inventory = InventoryManager[event.player_id]
     if (event.removed) then
         inventory:Remove(item)
     end
+end
+
+-- https://moddota.com/api/#!/events/dota_courier_transfer_item#item_entindex
+-- dota_courier_transfer_item
+---- item_entindex: EntityIndex
+function CAvaloreGameMode:TransferItem(event)
+    print("Transfer Item")
 end
