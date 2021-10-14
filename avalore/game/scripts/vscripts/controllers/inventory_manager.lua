@@ -77,7 +77,7 @@ end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 -- * is_courier: bool
 function CAvaloreGameMode:OnItemAdded(event)
 	local item = EntIndexToHScript( event.item_entindex )
-	local owner = EntIndexToHScript( event.inventory_parent_entindex )
+	--local owner = EntIndexToHScript( event.inventory_parent_entindex )
 
     local inventory = InventoryManager[event.inventory_player_id]
     inventory:Add(item)
@@ -96,4 +96,18 @@ function CAvaloreGameMode:OnItemAdded(event)
 	-- 	end
 	
 	-- end
+end
+
+-- https://moddota.com/api/#!/events/dota_hero_inventory_item_change
+--dota_hero_inventory_item_change
+----player_id: int
+----hero_entindex: EntityIndex
+----item_entindex: EntityIndex
+----removed: bool
+function CAvaloreGameMode:OnInventoryChanged(event)
+    local item = EntIndexToHScript( event.item_entindex )
+    local inventory = InventoryManager[event.inventory_player_id]
+    if (event.removed) then
+        inventory:Remove(item)
+    end
 end
