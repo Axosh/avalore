@@ -15,7 +15,7 @@ end
 -- 	* HeroEntityIndex( short )
 -- 
 function CAvaloreGameMode:OnItemPickUp(event)
-	print("OnItemPickup - Start")
+	print("CAvaloreGameMode:OnItemPickUp(event)")
 	local item = EntIndexToHScript( event.ItemEntityIndex )
 	local owner = EntIndexToHScript( event.HeroEntityIndex )
 
@@ -76,6 +76,7 @@ end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 -- * inventory_parent_entindex: EntityIndex
 -- * is_courier: bool
 function CAvaloreGameMode:OnItemAdded(event)
+    print("CAvaloreGameMode:OnItemAdded(event)")
 	local item = EntIndexToHScript( event.item_entindex )
 	--local owner = EntIndexToHScript( event.inventory_parent_entindex )
 
@@ -105,10 +106,23 @@ end
 ----item_entindex: EntityIndex
 ----removed: bool
 function CAvaloreGameMode:OnInventoryChanged(event)
+    print("CAvaloreGameMode:OnInventoryChanged(event)")
     local item = EntIndexToHScript( event.item_entindex )
+    print("Item: " .. item:GetName())
+    print("Item Slot: " .. item:GetItemSlot())
     local inventory = InventoryManager[event.player_id]
     if (event.removed) then
         inventory:Remove(item)
+    end
+    print("===== DEBUG INVENTORY =====")
+    local owner = EntIndexToHScript( event.hero_entindex )
+    for slot_num=0,20 do
+        local item_name = "nil"
+        if (owner:GetItemInSlot(slot_num)) then
+            item_name = owner:GetItemInSlot(slot_num):GetName()
+        end
+
+        print("[" .. tostring(slot_num) .. "] = " .. item_name)
     end
 end
 
@@ -117,4 +131,53 @@ end
 ---- item_entindex: EntityIndex
 function CAvaloreGameMode:TransferItem(event)
     print("Transfer Item")
+end
+
+-- dota_action_item
+-- * itemdef: short
+function CAvaloreGameMode:ActionItem(event)
+    print("CAvaloreGameMode:ActionItem(event)")
+end
+
+-- dota_inventory_player_got_item
+-- * itemname: string
+function CAvaloreGameMode:PlayerGotItem(event)
+    print("CAvaloreGameMode:PlayerGotItem(event)")
+end
+
+-- dota_item_drag_begin
+function CAvaloreGameMode:ItemDragBegin(event)
+    print("CAvaloreGameMode:ItemDragBegin(event)")
+end
+
+-- dota_item_drag_end
+function CAvaloreGameMode:ItemDragEnd(event)
+    print("CAvaloreGameMode:ItemDragEnd(event)")
+end
+
+-- inventory_updated
+-- * itemdef: short
+-- * itemid: long
+function CAvaloreGameMode:InventoryUpdated(event)
+    print("CAvaloreGameMode:InventoryUpdated(event)")
+end
+
+function CAvaloreGameMode:InventoryItemChanged(event)
+    print("CAvaloreGameMode:InventoryItemChanged(event)")
+end
+
+function CAvaloreGameMode:ItemCombined(event)
+    print("CAvaloreGameMode:ItemCombined(event)")
+end
+
+function CAvaloreGameMode:InventoryChanged(event)
+    print("CAvaloreGameMode:InventoryChanged(event)")
+end
+
+function CAvaloreGameMode:InventoryChangedQueryUnit(event)
+    print("CAvaloreGameMode:InventoryChangedQueryUnit(event)")
+end
+
+function CAvaloreGameMode:InventoryChangedQueryUnit(event)
+    print("CAvaloreGameMode:ItemGifted(event)")
 end

@@ -77,14 +77,16 @@ function Inventory:Add(item)
         -- if the item is no longer in the stash (9-14 or -1?), then the swap succeeded
         -- and is now in our inventory. If it didn't, then we weren't able to grab it
         -- because we were too far away;
-        if not (item:GetItemSlot() == -1 or (item:GetItemSlot() > 8 and item:GetItemSlot() < 15))  then
+        --if not (item:GetItemSlot() == -1 or (item:GetItemSlot() > 8 and item:GetItemSlot() < 15))  then
             print("Item is now in slot: " .. tostring(item:GetItemSlot()))
+            print("Dummy is now in slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
+            print("Item in Dummy's Old Slot: " .. self.hero:GetItemInSlot(slot_backup):GetName())
             self.hero:RemoveItem(self.slots[item_slot])
             self.slots[item_slot] = item
-        else
-            print("Couldn't Put in Inventory, at slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
+        --else
+            --print("Couldn't Put in Inventory, at slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
         --     self.slots[item_slot]:slot
-        end
+        --end
         
     end
     -- TODO: Other cases
