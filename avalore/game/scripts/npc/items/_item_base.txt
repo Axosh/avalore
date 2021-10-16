@@ -126,14 +126,16 @@
         "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
     }
 
-    "item_slot_misc1"
+    //"item_slot_misc1"
+    "item_slot_misc"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                                                  "3006"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                      "item_datadriven"            
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                  "base_slots/slot_misc1"
+        //"AbilityTextureName"                                  "base_slots/slot_misc1"
+        "AbilityTextureName"                                  "base_slots/slot_misc"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -148,47 +150,47 @@
         "AllowedInBackpack"				"1"
     }
 
-    "item_slot_misc2"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                                                  "3007"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
-        "BaseClass"						                      "item_datadriven"            
-        "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                  "base_slots/slot_misc2"
+    // "item_slot_misc2"
+    // {
+    //     // General
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ID"                                                  "3007"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+    //     "BaseClass"						                      "item_datadriven"            
+    //     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    //     "AbilityTextureName"                                  "base_slots/slot_misc2"
 
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemKillable"					"0"
-		"ItemSellable"					"0"
-		"ItemPurchasable"				"0"
-		//"ItemDroppable"					"0"
-        "ItemShareability"				"ITEM_NOT_SHAREABLE"
-		"ItemStackable"					"0"
-		"ItemPermanent"					"1"
-        "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
-        "AllowedInBackpack"				"1"
-    }
+    //     // Item Info
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ItemKillable"					"0"
+	// 	"ItemSellable"					"0"
+	// 	"ItemPurchasable"				"0"
+	// 	//"ItemDroppable"					"0"
+    //     "ItemShareability"				"ITEM_NOT_SHAREABLE"
+	// 	"ItemStackable"					"0"
+	// 	"ItemPermanent"					"1"
+    //     "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+    //     "AllowedInBackpack"				"1"
+    // }
 
-    "item_slot_misc3"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                                                  "3008"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
-        "BaseClass"						                      "item_datadriven"            
-        "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"                                  "base_slots/slot_misc3"
+    // "item_slot_misc3"
+    // {
+    //     // General
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ID"                                                  "3008"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+    //     "BaseClass"						                      "item_datadriven"            
+    //     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    //     "AbilityTextureName"                                  "base_slots/slot_misc3"
 
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemKillable"					"0"
-		"ItemSellable"					"0"
-		"ItemPurchasable"				"0"
-		//"ItemDroppable"					"0"
-        "ItemShareability"				"ITEM_NOT_SHAREABLE"
-		"ItemStackable"					"0"
-		"ItemPermanent"					"1"
-        "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
-        "AllowedInBackpack"				"1"
-    }
+    //     // Item Info
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ItemKillable"					"0"
+	// 	"ItemSellable"					"0"
+	// 	"ItemPurchasable"				"0"
+	// 	//"ItemDroppable"					"0"
+    //     "ItemShareability"				"ITEM_NOT_SHAREABLE"
+	// 	"ItemStackable"					"0"
+	// 	"ItemPermanent"					"1"
+    //     "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+    //     "AllowedInBackpack"				"1"
+    // }
 }

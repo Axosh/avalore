@@ -114,23 +114,23 @@ function CAvaloreGameMode:OnInventoryChanged(event)
     if (event.removed) then
         inventory:Remove(item)
     end
-    print("===== DEBUG INVENTORY =====")
-    local owner = EntIndexToHScript( event.hero_entindex )
-    for slot_num=0,20 do
-        local item_name = "nil"
-        if (owner:GetItemInSlot(slot_num)) then
-            item_name = owner:GetItemInSlot(slot_num):GetName()
-        end
+    -- print("===== DEBUG INVENTORY =====")
+    -- local owner = EntIndexToHScript( event.hero_entindex )
+    -- for slot_num=0,20 do
+    --     local item_name = "nil"
+    --     if (owner:GetItemInSlot(slot_num)) then
+    --         item_name = owner:GetItemInSlot(slot_num):GetName()
+    --     end
 
-        print("[" .. tostring(slot_num) .. "] = " .. item_name)
-    end
+    --     print("[" .. tostring(slot_num) .. "] = " .. item_name)
+    -- end
 end
 
 -- https://moddota.com/api/#!/events/dota_courier_transfer_item#item_entindex
 -- dota_courier_transfer_item
 ---- item_entindex: EntityIndex
 function CAvaloreGameMode:TransferItem(event)
-    print("Transfer Item")
+    print("CAvaloreGameMode:TransferItem(event)")
 end
 
 -- dota_action_item
@@ -166,10 +166,6 @@ function CAvaloreGameMode:InventoryItemChanged(event)
     print("CAvaloreGameMode:InventoryItemChanged(event)")
 end
 
-function CAvaloreGameMode:ItemCombined(event)
-    print("CAvaloreGameMode:ItemCombined(event)")
-end
-
 function CAvaloreGameMode:InventoryChanged(event)
     print("CAvaloreGameMode:InventoryChanged(event)")
 end
@@ -180,4 +176,15 @@ end
 
 function CAvaloreGameMode:InventoryChangedQueryUnit(event)
     print("CAvaloreGameMode:ItemGifted(event)")
+end
+
+--dota_item_combined
+-- * PlayerID: PlayerID
+-- * itemname: string
+-- * itemcost: short
+function CAvaloreGameMode:ItemCombined(event)
+	print("CAvaloreGameMode:ItemCombined(event)")
+	--local owner = EntIndexToHScript( event.PlayerID )
+    local inventory = InventoryManager[event.PlayerID]
+	inventory:Combine(event.itemname)
 end

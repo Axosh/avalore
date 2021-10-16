@@ -1,47 +1,47 @@
 "DOTAItems"
 {
-    "item_recipe_leather_boots"
+    "item_recipe_steel"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3010"
+		"ID"							"3015"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/leather_boots_rect"
+        "AbilityTextureName" 			"base_materials/steel"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"500"
+		"ItemCost"						"200"
 		"ItemShopTags"					""
 
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_leather_boots"
+		"ItemResult"					"item_steel"
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                                            "item_slot_feet"
+            "01"                                            "item_slot_misc"
         }
 	}
 
-    "item_leather_boots"
+    "item_steel"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                                                "3011"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                                                "3016"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                    "item_datadriven"            
         "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "Model"                                             "models/props_gameplay/boots_of_speed.vmdl"
-        "AbilityTextureName"                                "base_materials/leather_boots_rect"
+        "Model"                                             "models/props_gameplay/red_box.vmdl"
+        "AbilityTextureName"                                "base_materials/steel"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                                          "500"
-        "ItemShopTags"                                      "move_speed;armor"
+        "ItemCost"                                          "200"
+        "ItemShopTags"                                      "armor"
         "ItemQuality"                                       "component"
-        "ItemAliases"                                       "boots;lb;leather"
+        "ItemAliases"                                       "steel"
 
         "ItemKillable"					                    "1"
 		"ItemSellable"					                    "1"
@@ -54,7 +54,6 @@
         "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
 		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
-        //"ItemSlot"                                          "feet"
 
         "SideShop"                                          "0"
         "SecretShop"					                    "0"
@@ -66,14 +65,9 @@
             "01"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "item_slot"                                 "4" //FEET
+                "item_slot"                                 "30" //misc
             }
             "02"
-            {
-                "var_type"                                  "FIELD_INTEGER"
-                "bonus_movement_speed"                      "50"
-            }
-            "03"
             {
                 "var_type"                                  "FIELD_INTEGER"
                 "bonus_armor"                               "2"

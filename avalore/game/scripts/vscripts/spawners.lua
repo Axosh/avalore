@@ -318,15 +318,15 @@ function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
                 -- spawn mercs
                 local merc_queue = Spawners.MercQueue[value.Team][key]
                 if merc_queue then 
-                    print("Looping over MercQueue for " .. tostring(key))
+                    --print("Looping over MercQueue for " .. tostring(key))
                     while table.getn(merc_queue) > 0 do
                         local merc_unit = table.remove(merc_queue)
-                        print("Popped off unit in queue: " .. merc_unit)
+                        --print("Popped off unit in queue: " .. merc_unit)
                         local creep = CreateUnitByName( merc_unit, value.Spawner:GetOrigin(), true, nil, nil, value.Team )
                         creep:SetInitialGoalEntity(value.FirstWaypoint)
                     end
                     local queue_obj = {loc = key};
-                    print("Clearing Hire Queue " .. key)
+                    --print("Clearing Hire Queue " .. key)
                     CustomGameEventManager:Send_ServerToTeam(value.Team, "clear_hire_queue", queue_obj)
                 end
 
@@ -336,7 +336,7 @@ function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
 
     --print("Round = " .. tostring(_G.round) .. " || Boss value = " .. tostring(Score.round4.boss))
     if _G.round == 4 and Score.round4.boss == nil then
-        print("[Spawners] spawning neutral wave")
+        --print("[Spawners] spawning neutral wave")
         for i = 1, 13, 1 do
             -- radiant attackers
             local creep = CreateUnitByName( ROUND4_MELEE_CREEPS, Spawners.h_Round4_Radi:GetOrigin(), true, nil, nil, DOTA_TEAM_CUSTOM_1 )

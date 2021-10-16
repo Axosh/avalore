@@ -14,7 +14,7 @@
     }
     "misc"
 	{
- 
+		"item"				"item_steel"
 	}	
  
 	// Level 1 - Green Recipes
