@@ -61,6 +61,11 @@ function CAvaloreGameMode:OnItemPickUp(event)
 			}
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(owner:GetPlayerID()), "broadcast_message", broadcast_obj )
 		end
+
+	else
+		-- probably a dropped item so we need to handle it with the dummy slots
+		local inventory = InventoryManager[event.PlayerID]
+    	inventory:PickUp(item)
 	end -- end if-statement: item picked up was flag
 
 	
@@ -114,6 +119,13 @@ function CAvaloreGameMode:OnInventoryChanged(event)
     if (event.removed) then
         inventory:Remove(item)
     end
+
+	if item:IsInBackpack() then
+		print("Moved to Backpack")
+		item:SetCanBeUsedOutOfInventory(true)
+	else
+		item:SetCanBeUsedOutOfInventory(false)
+	end
     -- print("===== DEBUG INVENTORY =====")
     -- local owner = EntIndexToHScript( event.hero_entindex )
     -- for slot_num=0,20 do

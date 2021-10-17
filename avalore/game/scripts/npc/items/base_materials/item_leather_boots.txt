@@ -22,7 +22,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                                            "item_slot_feet"
+            "01"                        "item_slot_feet"
         }
 	}
 
@@ -30,18 +30,19 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                                                "3011"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
-        "BaseClass"						                    "item_datadriven"            
-        "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "Model"                                             "models/props_gameplay/boots_of_speed.vmdl"
-        "AbilityTextureName"                                "base_materials/leather_boots_rect"
+        "ID"                            "3011"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						"item_lua"            
+        "ScriptFile"                    "items/shop/base_materials/item_leather_boots.lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"                         "models/props_gameplay/boots_of_speed.vmdl"
+        "AbilityTextureName"            "base_materials/leather_boots_rect"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                                          "500"
-        "ItemShopTags"                                      "move_speed;armor"
-        "ItemQuality"                                       "component"
-        "ItemAliases"                                       "boots;lb;leather"
+        "ItemCost"                      "0"
+        "ItemShopTags"                  "move_speed;armor"
+        "ItemQuality"                   "component"
+        "ItemAliases"                   "boots;lb;leather"
 
         "ItemKillable"					                    "1"
 		"ItemSellable"					                    "1"

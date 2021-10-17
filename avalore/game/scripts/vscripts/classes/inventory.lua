@@ -63,6 +63,8 @@ function Inventory:Add(item)
     -- if we're adding the item slot dummy, just skip
     if item:GetName():find("item_slot") then return end
 
+    --item:SetCanBeUsedOutOfInventory(true) -- temp test
+
     -- add here for now, let combine sort it out ==> this doesn't work with new
     -- recipe focused system
     --table.insert(self.slots[AVALORE_ITEM_SLOT_TEMP], item)
@@ -96,6 +98,39 @@ function Inventory:Add(item)
         
     -- end
     -- -- TODO: Other cases
+end
+
+function Inventory:PickUp(item)
+    print("Inventory:PickUp(item) > " .. item:GetName())
+    
+    local item_slot = item:GetSpecialValueFor("item_slot")
+    
+    -- we shouldn't be hitting this, but just in case
+    if item_slot == nil then
+        item_slot = AVALORE_ITEM_SLOT_MISC
+    end
+
+    print("Item Added to Slot: " .. tostring(item:GetItemSlot()))
+
+    -- if slot is empty, just swap it out
+    if ((self.slots[item_slot]):GetName()):find("item_slot") then
+        local slot_backup = self.slots[item_slot]:GetItemSlot()
+        self.hero:SwapItems(item:GetItemSlot(), self.slots[item_slot]:GetItemSlot())
+        -- if the item is no longer in the stash (9-14 or -1?), then the swap succeeded
+        -- and is now in our inventory. If it didn't, then we weren't able to grab it
+        -- because we were too far away;
+        --if not (item:GetItemSlot() == -1 or (item:GetItemSlot() > 8 and item:GetItemSlot() < 15))  then
+            print("Item is now in slot: " .. tostring(item:GetItemSlot()))
+            print("Dummy is now in slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
+            print("Item in Dummy's Old Slot: " .. self.hero:GetItemInSlot(slot_backup):GetName())
+            self.hero:RemoveItem(self.slots[item_slot])
+            self.slots[item_slot] = item
+        --else
+            --print("Couldn't Put in Inventory, at slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
+        --     self.slots[item_slot]:slot
+        --end
+        
+    end
 end
 
 function Inventory:Remove(item)
