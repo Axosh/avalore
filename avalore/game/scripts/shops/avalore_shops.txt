@@ -11,6 +11,7 @@
     {
         "item"              "item_leather_boots"
         "item"              "item_sandals"
+		"item"              "item_adventurers_cloak"
     }
     "misc"
 	{

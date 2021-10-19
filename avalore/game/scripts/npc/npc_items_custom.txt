@@ -1,6 +1,7 @@
 #base "items/_item_base.txt"
 #base "items/base_materials/item_leather_boots.txt"
 #base "items/base_materials/item_sandals.txt"
+#base "items/base_materials/item_adventurers_cloak.txt"
 #base "items/components/item_steel.txt"
 
 "DOTAAbilities"
