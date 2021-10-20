@@ -44,6 +44,7 @@ end
 
 function modifier_item_leather_boots:OnCreated(event)
     self.item_ability = self:GetAbility()
+    print(self:GetAbility():GetName())
     self.bonus_move_speed = self.item_ability:GetSpecialValueFor("bonus_movement_speed")
     self.bonus_armor = self.item_ability:GetSpecialValueFor("bonus_armor")
 end

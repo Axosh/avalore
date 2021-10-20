@@ -12,13 +12,16 @@ require(REQ_CTRL_INV_MNGR)
 require(REQ_CLASS_INV)
 --require("scripts/vscripts/modifiers/modifier_wearable")
 
-LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_inventory_manager", "scripts/vscripts/modifiers/modifier_inventory_manager", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA_MODIFIER_MOTION_NONE )
 
 -- Faction Stuff
 LinkLuaModifier("modifier_faction_forest",     "modifiers/faction/modifier_faction_forest.lua",       LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_water",      "modifiers/faction/modifier_faction_water.lua",        LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_olympians",      "modifiers/faction/modifier_faction_olympians.lua",    LUA_MODIFIER_MOTION_NONE)
+
+-- Inventory Debug
+LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
 
 --initialized with ListenToGameEvent("entity_killed", Dynamic_Wrap(CustomGameMode, "OnEntityKilled"), self)
 function CAvaloreGameMode:OnEntityKilled(event)
@@ -574,6 +577,8 @@ function CAvaloreGameMode:InitCosmetics(unit)
 	elseif hero_name == "avalore_hero_dionysus" or hero_name == "npc_dota_hero_brewmaster" then
 		CAvaloreGameMode:InitDionysus(hero, playernum)
 	end
+
+	hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
 
 	-- -- populate inventory with placeholders
 	-- local misc1 = hero:AddItemByName("item_slot_misc1")
