@@ -27,9 +27,9 @@ end
 -- ====================================
 -- INTRINSIC MOD
 -- ====================================
-modifier_item_leather_boots = class({})
+modifier_item_leather_boots = modifier_item_leather_boots or class({})
 
-function modifier_item_leather_boots:IsHidden() return true end
+function modifier_item_leather_boots:IsHidden() return false end
 function modifier_item_leather_boots:IsDebuff() return false end
 function modifier_item_leather_boots:IsPurgable() return false end
 function modifier_item_leather_boots:RemoveOnDeath() return false end
@@ -44,7 +44,7 @@ end
 
 function modifier_item_leather_boots:OnCreated(event)
     self.item_ability = self:GetAbility()
-    print(self:GetAbility():GetName())
+    print("modifier_item_leather_boots:OnCreated >> " .. self:GetAbility():GetName())
     self.bonus_move_speed = self.item_ability:GetSpecialValueFor("bonus_movement_speed")
     self.bonus_armor = self.item_ability:GetSpecialValueFor("bonus_armor")
 end

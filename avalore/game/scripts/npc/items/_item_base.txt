@@ -19,6 +19,17 @@
 		"ItemStackable"					"0"
 		"ItemPermanent"					"1"
         "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "0" //HEAD
+            }
+        }
     }
 
     "item_slot_chest"
@@ -40,6 +51,17 @@
 		"ItemStackable"					"0"
 		"ItemPermanent"					"1"
         "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "1" //CHEST
+            }
+        }
     }
 
     "item_slot_back"
@@ -61,6 +83,17 @@
 		"ItemStackable"					"0"
 		"ItemPermanent"					"1"
         "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "2" //BACK
+            }
+        }
     }
 
     "item_slot_hands"
@@ -82,6 +115,17 @@
 		"ItemStackable"					"0"
 		"ItemPermanent"					"1"
         "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "3" //HANDS
+            }
+        }
     }
 
     "item_slot_feet"
@@ -103,6 +147,17 @@
 		"ItemStackable"					"0"
 		"ItemPermanent"					"1"
         "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "4" //FEET
+            }
+        }
     }
 
     "item_slot_trinket"
@@ -124,6 +179,17 @@
 		"ItemStackable"					"0"
 		"ItemPermanent"					"1"
         "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "5" //TRINKET
+            }
+        }
     }
 
     //"item_slot_misc1"
@@ -148,6 +214,17 @@
 		"ItemPermanent"					"1"
         "ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
         "AllowedInBackpack"				"1"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "30" //MISC
+            }
+        }
     }
 
     // "item_slot_misc2"

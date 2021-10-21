@@ -216,6 +216,10 @@
 		"DOTA_Tooltip_Ability_item_adventurers_cloak_bonus_agi"				"+$agi"
 		"DOTA_Tooltip_Ability_item_adventurers_cloak_bonus_int"				"+$int"
 
+		// Components
+		"DOTA_Tooltip_Ability_item_steel"									"Steel"
+		"DOTA_Tooltip_Ability_item_steel_bonus_armor"						"+$armor"
+
 
 		//--------------------------------------------------------------------------------
 		// MODIFIERS
