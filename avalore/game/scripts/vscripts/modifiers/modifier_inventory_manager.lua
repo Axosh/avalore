@@ -73,6 +73,9 @@ function modifier_inventory_manager:OnIntervalThink()
         if item then
             --print("modifier_inventory_manager > Found Item in Backpack: " .. item:GetName())
             local intr_mod = item:GetIntrinsicModifierName()
+            -- if intr_mod then
+            --     print("Intrinsic Mod: " .. intr_mod)
+            -- end
             if intr_mod and not hero:FindModifierByName(intr_mod) then
                 print("modifier_inventory_manager > Adding (" .. item:GetName() .. ", " .. intr_mod .. ")")
                 --hero:AddNewModifier(self, item, intr_mod, {})

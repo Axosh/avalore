@@ -12,7 +12,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						            "200"
+		"ItemCost"						    "200"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -31,7 +31,8 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                                                "3016"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
-        "BaseClass"						                    "item_datadriven"            
+        "BaseClass"						                    "item_lua"            
+        "ScriptFile"                                        "items/shop/components/item_steel.lua"
         "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                                             "models/props_gameplay/red_box.vmdl"
         "AbilityTextureName"                                "base_materials/steel"

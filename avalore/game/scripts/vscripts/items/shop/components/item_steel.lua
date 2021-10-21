@@ -11,7 +11,7 @@ end
 -- ====================================
 modifier_item_steel = class({})
 
-function modifier_item_steel:IsHidden() return false end
+function modifier_item_steel:IsHidden() return true end
 function modifier_item_steel:IsDebuff() return false end
 function modifier_item_steel:IsPurgable() return false end
 function modifier_item_steel:RemoveOnDeath() return false end
