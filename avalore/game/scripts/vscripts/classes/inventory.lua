@@ -56,6 +56,7 @@ function Inventory:GetHero()
     return self.hero
 end
 
+-- seems like item pickups come from here too so guess we'll have to handle it
 function Inventory:Add(item)
     if not IsServer() then return end
     print("Adding Item: " .. item:GetName())
@@ -69,34 +70,47 @@ function Inventory:Add(item)
     -- recipe focused system
     --table.insert(self.slots[AVALORE_ITEM_SLOT_TEMP], item)
 
-    -- local item_slot = item:GetSpecialValueFor("item_slot")
+    local item_slot = item:GetSpecialValueFor("item_slot")
 
-    -- -- we shouldn't be hitting this, but just in case
-    -- if item_slot == nil then
-    --     item_slot = AVALORE_ITEM_SLOT_MISC
-    -- end
+    -- we shouldn't be hitting this, but just in case
+    if item_slot == nil then
+        item_slot = AVALORE_ITEM_SLOT_MISC
+    end
 
     -- print("Item Added to Slot: " .. tostring(item:GetItemSlot()))
 
-    -- -- if slot is empty, just swap it out
-    -- if ((self.slots[item_slot]):GetName()):find("item_slot") then
-    --     local slot_backup = self.slots[item_slot]:GetItemSlot()
-    --     self.hero:SwapItems(item:GetItemSlot(), self.slots[item_slot]:GetItemSlot())
-    --     -- if the item is no longer in the stash (9-14 or -1?), then the swap succeeded
-    --     -- and is now in our inventory. If it didn't, then we weren't able to grab it
-    --     -- because we were too far away;
-    --     --if not (item:GetItemSlot() == -1 or (item:GetItemSlot() > 8 and item:GetItemSlot() < 15))  then
-    --         print("Item is now in slot: " .. tostring(item:GetItemSlot()))
-    --         print("Dummy is now in slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
-    --         print("Item in Dummy's Old Slot: " .. self.hero:GetItemInSlot(slot_backup):GetName())
-    --         self.hero:RemoveItem(self.slots[item_slot])
-    --         self.slots[item_slot] = item
-    --     --else
-    --         --print("Couldn't Put in Inventory, at slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
-    --     --     self.slots[item_slot]:slot
-    --     --end
+    -- handle misc/backpack
+    if item_slot == AVALORE_ITEM_SLOT_MISC then
+        -- find an empty slot
+        local placed = false
+        for misc_slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
+            if not placed and self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]:GetName() == "item_slot_misc" then
+                self.hero:SwapItems(item:GetItemSlot(), self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]:GetItemSlot())
+                self.hero:RemoveItem(self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot])
+                self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot] = item
+                placed = true
+                break
+            end
+        end
+    -- if slot is empty, just swap it out
+    elseif ((self.slots[item_slot]):GetName()):find("item_slot") then
+        --local slot_backup = self.slots[item_slot]:GetItemSlot()
+        self.hero:SwapItems(item:GetItemSlot(), self.slots[item_slot]:GetItemSlot())
+        -- if the item is no longer in the stash (9-14 or -1?), then the swap succeeded
+        -- and is now in our inventory. If it didn't, then we weren't able to grab it
+        -- because we were too far away;
+        --if not (item:GetItemSlot() == -1 or (item:GetItemSlot() > 8 and item:GetItemSlot() < 15))  then
+            --print("Item is now in slot: " .. tostring(item:GetItemSlot()))
+            --print("Dummy is now in slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
+            --print("Item in Dummy's Old Slot: " .. self.hero:GetItemInSlot(slot_backup):GetName())
+            self.hero:RemoveItem(self.slots[item_slot])
+            self.slots[item_slot] = item
+        --else
+            --print("Couldn't Put in Inventory, at slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
+        --     self.slots[item_slot]:slot
+        --end
         
-    -- end
+    end
     -- -- TODO: Other cases
 end
 
@@ -166,7 +180,7 @@ function Inventory:Remove(item)
     elseif item_slot == AVALORE_ITEM_SLOT_TRINKET and (self.slots[AVALORE_ITEM_SLOT_TRINKET] == nil or (self.slots[AVALORE_ITEM_SLOT_TRINKET]):GetName() ~= "item_slot_trinket") then
         self.slots[AVALORE_ITEM_SLOT_TRINKET]   = (self.hero):AddItemByName("item_slot_trinket")
     elseif item_slot == AVALORE_ITEM_SLOT_MISC then
-        print("RemoveFromMisc")
+        --print("RemoveFromMisc")
         self:RemoveFromMisc(item)
     end
     
@@ -230,8 +244,10 @@ function Inventory:Combine(item_name)
             -- make the Avalore inventory aware
             if item_slot == AVALORE_ITEM_SLOT_MISC then
                 self:AddToMisc(item)
+                return
             else
                 self.slots[item_slot] = item
+                return
             end
         end
     end
@@ -241,10 +257,10 @@ function Inventory:AddToMisc(item)
     print("Inventory:AddToMisc(item) >> " .. item:GetName())
     for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
         -- find empty slot
-        --if self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetName() == "item_slot_misc" then
+        if self.slots[AVALORE_ITEM_SLOT_MISC][slot] == nil or self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetName() == "item_slot_misc" then
 
         -- since we're using recipes, the item should already have combined in that slot
-        if self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetName() == item:GetName() then
+        --if self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetName() == item:GetName() then
             self.slots[AVALORE_ITEM_SLOT_MISC][slot] = item
             return
         end
@@ -264,7 +280,7 @@ function Inventory:RemoveFromMisc(item)
                     if owner:GetItemInSlot(tmp_slot) == nil then
                         print("Found empty inventory slot: " .. tostring(tmp_slot))
                         owner:SwapItems(tmp_slot, self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetItemSlot())
-                        break
+                        return
                     end
                 end
             end

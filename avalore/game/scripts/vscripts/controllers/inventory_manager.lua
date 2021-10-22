@@ -120,12 +120,13 @@ function CAvaloreGameMode:OnInventoryChanged(event)
         inventory:Remove(item)
     end
 
-	if item:IsInBackpack() then
-		print("Moved to Backpack")
-		item:SetCanBeUsedOutOfInventory(true)
-	else
-		item:SetCanBeUsedOutOfInventory(false)
-	end
+	-- handling this with the modifier now
+	-- if item:IsInBackpack() then
+	-- 	print("Moved to Backpack")
+	-- 	item:SetCanBeUsedOutOfInventory(true)
+	-- else
+	-- 	item:SetCanBeUsedOutOfInventory(false)
+	-- end
 
 end
 

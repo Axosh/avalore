@@ -22,6 +22,28 @@ function modifier_inventory_manager:OnIntervalThink()
     --print("modifier_inventory_manager:OnIntervalThink()")
     local hero = self:GetParent()
     if hero == nil then return end
+
+    -- check for dummy items wrongly placed in the stash (need to fix this upstream some time)
+    for stash_slot=9,14 do
+        local item = hero:GetItemInSlot(stash_slot)
+        -- if item then
+        --     print("[" .. tostring(stash_slot) .. "][" .. item:GetName() .. "]")
+        -- end
+        if item and string.find(item:GetName(), "item_slot") then
+            print("Found dummy item in stash [" .. tostring(stash_slot) .. "][" .. item:GetName() .. "]" )
+            -- find the item slot that's nil
+            for item_slot=0,8 do
+                local inv_item = hero:GetItemInSlot(item_slot)
+                if not inv_item then
+                    print("Trying to Move to Slot: " .. tostring(item_slot))
+                    local droppable = item:IsDroppable()
+                    item:SetDroppable(true)
+                    hero:SwapItems(stash_slot, item_slot)
+                    item:SetDroppable(droppable)
+                end
+            end
+        end
+    end
     
     -- check to see if anything that is in the backpack shouldn't be there
     for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
