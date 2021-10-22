@@ -229,21 +229,27 @@ function Inventory:Combine(item_name)
             end
             -- make the Avalore inventory aware
             if item_slot == AVALORE_ITEM_SLOT_MISC then
-                self:AddToMisc(value)
+                self:AddToMisc(item)
             else
-                self.slots[item_slot] = value
+                self.slots[item_slot] = item
             end
         end
     end
 end
 
 function Inventory:AddToMisc(item)
+    print("Inventory:AddToMisc(item) >> " .. item:GetName())
     for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
         -- find empty slot
-        if self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetName() == "item_slot_misc" then
+        --if self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetName() == "item_slot_misc" then
+
+        -- since we're using recipes, the item should already have combined in that slot
+        if self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetName() == item:GetName() then
             self.slots[AVALORE_ITEM_SLOT_MISC][slot] = item
+            return
         end
     end
+    print("Failed to Add to Misc")
 end
 
 function Inventory:RemoveFromMisc(item)

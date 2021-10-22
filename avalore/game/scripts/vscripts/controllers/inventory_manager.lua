@@ -126,17 +126,43 @@ function CAvaloreGameMode:OnInventoryChanged(event)
 	else
 		item:SetCanBeUsedOutOfInventory(false)
 	end
-    -- print("===== DEBUG INVENTORY =====")
-    -- local owner = EntIndexToHScript( event.hero_entindex )
-    -- for slot_num=0,20 do
-    --     local item_name = "nil"
-    --     if (owner:GetItemInSlot(slot_num)) then
-    --         item_name = owner:GetItemInSlot(slot_num):GetName()
-    --     end
 
-    --     print("[" .. tostring(slot_num) .. "] = " .. item_name)
-    -- end
 end
+
+function InventoryManager:DebugDotaSlots(hero)
+    print("===== DEBUG DOTA INVENTORY =====")
+    --local owner = EntIndexToHScript( event.hero_entindex )
+    for slot_num=0,20 do
+        local item_name = "nil"
+        if (hero:GetItemInSlot(slot_num)) then
+            item_name = hero:GetItemInSlot(slot_num):GetName()
+        end
+
+        print("[" .. tostring(slot_num) .. "] = " .. item_name)
+    end
+end
+
+function InventoryManager:DebugAvaloreSlots(player_id)
+    print("===== DEBUG AVALORE INVENTORY =====")
+    local inventory = InventoryManager[player_id]
+    for slot_num=AVALORE_ITEM_SLOT_HEAD,AVALORE_ITEM_SLOT_TRINKET do
+        local item_name = "nil"
+        if (inventory.slots[slot_num]) then
+            item_name = inventory.slots[slot_num]:GetName()
+        end
+
+        print("[" .. tostring(slot_num) .. "] = " .. item_name)
+    end
+	for misc_slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
+		local item_name = "nil"
+        if (inventory.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]) then
+            item_name = inventory.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]:GetName()
+        end
+
+        print("[" .. tostring(misc_slot) .. "] = " .. item_name)
+	end
+end
+
 
 -- https://moddota.com/api/#!/events/dota_courier_transfer_item#item_entindex
 -- dota_courier_transfer_item

@@ -41,6 +41,7 @@ require("references")
 require('libraries/player')
 require("libraries/vector_target")
 require('buildings/hire_queue')
+require("avalore_debug")
 
 flag_announce_curr = 1
 
@@ -77,7 +78,10 @@ end
 function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 )
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(CAvaloreGameMode, "OnEntityKilled"), self)
+
 	ListenToGameEvent("dota_on_hero_finish_spawn", Dynamic_Wrap(CAvaloreGameMode, "OnHeroFinishSpawn"), self)
+
+	-- ITEM STUFF
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAvaloreGameMode, "OnItemPickUp"), self)
 	ListenToGameEvent("dota_inventory_item_added", Dynamic_Wrap(CAvaloreGameMode, "OnItemAdded"), self)
 	ListenToGameEvent("dota_hero_inventory_item_change", Dynamic_Wrap(CAvaloreGameMode, "OnInventoryChanged"), self)
@@ -92,6 +96,9 @@ function CAvaloreGameMode:InitGameMode()
 	ListenToGameEvent("dota_inventory_changed", Dynamic_Wrap(CAvaloreGameMode, "InventoryChanged"), self)
 	ListenToGameEvent("dota_inventory_changed_query_unit", Dynamic_Wrap(CAvaloreGameMode, "InventoryChangedQueryUnit"), self)
 	ListenToGameEvent("dota_item_gifted", Dynamic_Wrap(CAvaloreGameMode, "ItemGifted"), self)
+	
+	-- PLAYER CHAT
+	ListenToGameEvent("player_chat", Dynamic_Wrap(CAvaloreGameMode, "ProcessPlayerMessage"), self)
 	--ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(CAvaloreGameMode, "OnPlayerFirstSpawn"), self)
 	-- ListenToGameEvent("dota_inventory_item_changed", Dynamic_Wrap(CAvaloreGameMode, "OnItemSlotChanged"), self)
 	-- ListenToGameEvent("inventory_updated", Dynamic_Wrap(CAvaloreGameMode, "OnInventoryUpdated"), self)
