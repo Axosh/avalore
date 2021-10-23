@@ -81,12 +81,21 @@ end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 -- * inventory_parent_entindex: EntityIndex
 -- * is_courier: bool
 function CAvaloreGameMode:OnItemAdded(event)
-    print("CAvaloreGameMode:OnItemAdded(event)")
+	if not IsServer() then return end
 	local item = EntIndexToHScript( event.item_entindex )
 	--local owner = EntIndexToHScript( event.inventory_parent_entindex )
 
-    local inventory = InventoryManager[event.inventory_player_id]
-    inventory:Add(item)
+	-- don't worry about recipes
+	if item then
+		if (string.find(item:GetName(), "item_recipe")) then return end
+		print("CAvaloreGameMode:OnItemAdded(event)")
+		print("Item: " .. item:GetName())
+    	print("Item Slot: " .. item:GetItemSlot())
+		
+
+		local inventory = InventoryManager[event.inventory_player_id]
+		inventory:Add(item)
+	end
 
 	-- if item:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_FEET then
 	-- 	if owner:HasItemInInventory("item_slot_feet") then
@@ -111,12 +120,15 @@ end
 ----item_entindex: EntityIndex
 ----removed: bool
 function CAvaloreGameMode:OnInventoryChanged(event)
+	if not IsServer() then return end
     print("CAvaloreGameMode:OnInventoryChanged(event)")
     local item = EntIndexToHScript( event.item_entindex )
     print("Item: " .. item:GetName())
     print("Item Slot: " .. item:GetItemSlot())
     local inventory = InventoryManager[event.player_id]
-    if (event.removed) then
+	-- removed seems to happen twice, once while it's in the slot and once
+	-- after when it has an index of -1, calling it twice creates issues
+    if (event.removed and item:GetItemSlot() > -1) then
         inventory:Remove(item)
     end
 
@@ -217,6 +229,8 @@ function CAvaloreGameMode:InventoryChangedQueryUnit(event)
     print("CAvaloreGameMode:ItemGifted(event)")
 end
 
+-- going to comment this out for now, seems as though "Added" gets
+-- called already for this
 --dota_item_combined
 -- * PlayerID: PlayerID
 -- * itemname: string
@@ -226,4 +240,24 @@ function CAvaloreGameMode:ItemCombined(event)
 	--local owner = EntIndexToHScript( event.PlayerID )
     local inventory = InventoryManager[event.PlayerID]
 	inventory:Combine(event.itemname)
+end
+
+-- dota_item_purchased
+-- * PlayerID: PlayerID
+-- * itemname: string
+-- * itemcost: short
+function CAvaloreGameMode:ItemPurchased(event)
+	if not IsServer() then return end
+	print("CAvaloreGameMode:ItemPurchased(event) >> " .. itemname)
+	-- local item = EntIndexToHScript( event.item_entindex )
+	-- if item then
+	-- 	if (string.find(item:GetName(), "item_recipe")) then return end
+	-- 	print("CAvaloreGameMode:OnItemAdded(event)")
+	-- 	print("Item: " .. item:GetName())
+    -- 	print("Item Slot: " .. item:GetItemSlot())
+		
+
+	-- 	local inventory = InventoryManager[event.inventory_player_id]
+	-- 	inventory:Add(item)
+	-- end
 end

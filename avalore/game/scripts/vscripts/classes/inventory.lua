@@ -254,6 +254,12 @@ function Inventory:Combine(item_name)
 end
 
 function Inventory:AddToMisc(item)
+    -- make sure we haven't already added this (dota's inventory system is whack and calls things twice)
+    for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
+        if self.slots[AVALORE_ITEM_SLOT_MISC][slot] and self.slots[AVALORE_ITEM_SLOT_MISC][slot] == item then
+            return
+        end
+    end
     print("Inventory:AddToMisc(item) >> " .. item:GetName())
     for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
         -- find empty slot
@@ -272,18 +278,25 @@ function Inventory:RemoveFromMisc(item)
     for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
         if self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetName() == item:GetName() then
             self.slots[AVALORE_ITEM_SLOT_MISC][slot]   = (self.hero):AddItemByName("item_slot_misc")
+            self.slots[AVALORE_ITEM_SLOT_MISC][slot]:SetSellable(false)
+            self.slots[AVALORE_ITEM_SLOT_MISC][slot]:SetDroppable(false)
+            self.slots[AVALORE_ITEM_SLOT_MISC][slot]:SetItemState(1) -- ready?
+            print("Added item_slot_misc to " .. tostring(slot))
+            print("IsSellable? " .. tostring(self.slots[AVALORE_ITEM_SLOT_MISC][slot]:IsSellable()))
             -- move to inventory if in stash
             if self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetItemSlot() > AVALORE_ITEM_SLOT_MISC3 then
+                local droppable = self.slots[AVALORE_ITEM_SLOT_MISC][slot]:IsDroppable()
                 self.slots[AVALORE_ITEM_SLOT_MISC][slot]:SetDroppable(true)
                 local owner = self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetOwner()
                 for tmp_slot=0,AVALORE_ITEM_SLOT_TRINKET do
                     if owner:GetItemInSlot(tmp_slot) == nil then
                         print("Found empty inventory slot: " .. tostring(tmp_slot))
                         owner:SwapItems(tmp_slot, self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetItemSlot())
-                        return
                     end
                 end
+                self.slots[AVALORE_ITEM_SLOT_MISC][slot]:SetDroppable(droppable)
             end
+            return
         end
     end
 end
