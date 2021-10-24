@@ -96,6 +96,7 @@ function CAvaloreGameMode:InitGameMode()
 	ListenToGameEvent("dota_inventory_changed", Dynamic_Wrap(CAvaloreGameMode, "InventoryChanged"), self)
 	ListenToGameEvent("dota_inventory_changed_query_unit", Dynamic_Wrap(CAvaloreGameMode, "InventoryChangedQueryUnit"), self)
 	ListenToGameEvent("dota_item_gifted", Dynamic_Wrap(CAvaloreGameMode, "ItemGifted"), self)
+	ListenToGameEvent("dota_item_purchased", Dynamic_Wrap(CAvaloreGameMode, "ItemPurchased"), self)
 	
 	-- PLAYER CHAT
 	ListenToGameEvent("player_chat", Dynamic_Wrap(CAvaloreGameMode, "ProcessPlayerMessage"), self)
@@ -112,6 +113,9 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:SetShowcaseTime( 0.0 )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride(true)
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
+	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
+	GameRules:GetGameModeEntity():SetCustomBackpackCooldownPercent(1.0) -- no punishment
+	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(0.0) -- no cooldown
 	
 	-- Custom Mode Framework Inits
 	Spawners:Init()

@@ -248,7 +248,7 @@ end
 -- * itemcost: short
 function CAvaloreGameMode:ItemPurchased(event)
 	if not IsServer() then return end
-	print("CAvaloreGameMode:ItemPurchased(event) >> " .. itemname)
+	print("CAvaloreGameMode:ItemPurchased(event) >> " .. event.itemname)
 	-- local item = EntIndexToHScript( event.item_entindex )
 	-- if item then
 	-- 	if (string.find(item:GetName(), "item_recipe")) then return end
