@@ -59,6 +59,20 @@ end
 -- seems like item pickups come from here too so guess we'll have to handle it
 function Inventory:Add(item)
     if not IsServer() then return end
+
+    -- make sure we haven't added it already (dota's inventory system is whack)
+    for dota_slot=0,8 do
+        if self.hero:GetItemInSlot(dota_slot) == item then
+            return
+        else
+            if dota_slot < AVALORE_ITEM_SLOT_MISC1 and self.slots[dota_slot] == item then
+                return
+            elseif self.slots[AVALORE_ITEM_SLOT_MISC][dota_slot] == item then
+                return
+            end
+        end
+    end
+
     print("Adding Item: " .. item:GetName())
     --print("Find result - " .. tostring(string.find("item_slot", item:GetName())))
     -- if we're adding the item slot dummy, just skip
@@ -116,6 +130,19 @@ end
 
 function Inventory:PickUp(item)
     print("Inventory:PickUp(item) > " .. item:GetName())
+
+    -- make sure we haven't added it already (dota's inventory system is whack)
+    for dota_slot=0,8 do
+        if self.hero:GetItemInSlot(dota_slot) == item then
+            return
+        else
+            if dota_slot < AVALORE_ITEM_SLOT_MISC1 and self.slots[dota_slot] == item then
+                return
+            elseif self.slots[AVALORE_ITEM_SLOT_MISC][dota_slot] == item then
+                return
+            end
+        end
+    end
     
     local item_slot = item:GetSpecialValueFor("item_slot")
     

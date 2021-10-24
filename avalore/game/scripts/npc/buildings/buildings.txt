@@ -11,7 +11,8 @@
 		"ModelScale"				".75"
 		"Level"						"20"
 		"HealthBarOffset"			"140"
-		"HasInventory"				"1"
+		//"HasInventory"				"1"
+		"HasInventory"				"0"	// eventually we'll probably need one when we implement demi-hero purchasing
 		"ConsideredHero"			"1"
 
 		//"RenderTeamColor"			"1"

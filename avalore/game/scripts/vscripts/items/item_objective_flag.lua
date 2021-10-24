@@ -26,6 +26,10 @@ function item_objective_flag:GetIntrinsicModifierName()
 function item_avalore_flag_a:GetIntrinsicModifierName()
     return MODIFIER_FLAG_CARRY_NAME end
 
+function item_avalore_flag_a:CanUnitPickUp(unit)
+    return unit:IsHero()
+end
+
 -- Drop currently held flag on death
 function item_avalore_flag_a:OnOwnerDied()
     print("Flag Owner Died")
@@ -38,6 +42,10 @@ end
 
 function item_avalore_flag_b:GetIntrinsicModifierName()
     return MODIFIER_FLAG_CARRY_NAME end
+
+function item_avalore_flag_b:CanUnitPickUp(unit)
+    return unit:IsHero()
+end
 
 -- Drop currently held flag on death
 function item_avalore_flag_b:OnOwnerDied()
@@ -52,6 +60,10 @@ end
 function item_avalore_flag_c:GetIntrinsicModifierName()
     return MODIFIER_FLAG_CARRY_NAME end
 
+function item_avalore_flag_c:CanUnitPickUp(unit)
+    return unit:IsHero()
+end
+
 -- Drop currently held flag on death
 function item_avalore_flag_c:OnOwnerDied()
     print("Flag Owner Died")
@@ -65,6 +77,10 @@ end
 function item_avalore_flag_d:GetIntrinsicModifierName()
     return MODIFIER_FLAG_CARRY_NAME end
 
+function item_avalore_flag_d:CanUnitPickUp(unit)
+    return unit:IsHero()
+end
+
 -- Drop currently held flag on death
 function item_avalore_flag_d:OnOwnerDied()
     print("Flag Owner Died")
@@ -77,6 +93,10 @@ end
 
 function item_avalore_flag_e:GetIntrinsicModifierName()
     return MODIFIER_FLAG_CARRY_NAME end
+
+function item_avalore_flag_e:CanUnitPickUp(unit)
+    return unit:IsHero()
+end
 
 -- Drop currently held flag on death
 function item_avalore_flag_e:OnOwnerDied()

@@ -17,7 +17,14 @@ end
 function CAvaloreGameMode:OnItemPickUp(event)
 	print("CAvaloreGameMode:OnItemPickUp(event)")
 	local item = EntIndexToHScript( event.ItemEntityIndex )
-	local owner = EntIndexToHScript( event.HeroEntityIndex )
+	local owner;
+	if event.HeroEntityIndex then
+		owner = EntIndexToHScript( event.HeroEntityIndex )
+	else
+		-- if no hero index, then it's a courier or something
+		return
+		--owner = nil
+	end
 
 	-- can only hold one flag, so check if this is a flag 
 	-- then if they have another; if so, dump the old flag
@@ -61,11 +68,11 @@ function CAvaloreGameMode:OnItemPickUp(event)
 			}
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(owner:GetPlayerID()), "broadcast_message", broadcast_obj )
 		end
-
-	else
-		-- probably a dropped item so we need to handle it with the dummy slots
-		local inventory = InventoryManager[event.PlayerID]
-    	inventory:PickUp(item)
+	-- temporarily commenting this out since it seems added gets claled twice
+	-- else
+	-- 	-- probably a dropped item so we need to handle it with the dummy slots
+	-- 	local inventory = InventoryManager[event.PlayerID]
+    -- 	inventory:PickUp(item)
 	end -- end if-statement: item picked up was flag
 
 	
@@ -79,22 +86,41 @@ end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 -- * itemname: string
 -- * item_entindex: EntityIndex
 -- * inventory_parent_entindex: EntityIndex
--- * is_courier: bool
+-- * is_courier: bool ==> NOTE: idk what this tracks, because it seems to ALWAYS BE TRUE
 function CAvaloreGameMode:OnItemAdded(event)
 	if not IsServer() then return end
+	PrintTable(event)
 	local item = EntIndexToHScript( event.item_entindex )
-	--local owner = EntIndexToHScript( event.inventory_parent_entindex )
+	local owner = EntIndexToHScript( event.inventory_parent_entindex )
+	print("Inventory Owner: " .. owner:GetName())
 
 	-- don't worry about recipes
 	if item then
 		if (string.find(item:GetName(), "item_recipe")) then return end
+
 		print("CAvaloreGameMode:OnItemAdded(event)")
 		print("Item: " .. item:GetName())
     	print("Item Slot: " .. item:GetItemSlot())
 		
 
 		local inventory = InventoryManager[event.inventory_player_id]
-		inventory:Add(item)
+
+		-- this actually triggers when hero adds something to anything with slots (building, bear, courier, etc.)
+		-- also check this isn't an attempt to add the slot back (seems to keep the courier tag for some reason)
+		--if event.is_courier and not string.find(item:GetName(), "item_slot") then
+		if string.find(owner:GetName(), "courier") and not string.find(item:GetName(), "item_slot") then
+			--print("Added to Courier") -- idk 
+			 -- if they don't have an inventory, then it's not a hero
+			 
+			if inventory then
+				inventory:Remove(item) -- hero gave to something else, need to update
+			end
+		else
+			-- weird situations like giving items to buildings
+			if inventory then
+				inventory:Add(item)
+			end
+		end
 	end
 
 	-- if item:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_FEET then
@@ -130,6 +156,10 @@ function CAvaloreGameMode:OnInventoryChanged(event)
 	-- after when it has an index of -1, calling it twice creates issues
     if (event.removed and item:GetItemSlot() > -1) then
         inventory:Remove(item)
+	elseif item:GetContainer() then
+		print("OnInventoryChanged >> Dropped")
+		-- if the item has a container, that means it was dropped and now has a physical form
+		inventory:Remove(item)
     end
 
 	-- handling this with the modifier now
@@ -178,10 +208,21 @@ end
 
 
 -- https://moddota.com/api/#!/events/dota_courier_transfer_item#item_entindex
+-- Fires ONLY when courier transfers to player
 -- dota_courier_transfer_item
+---- courier_entindex: EntityIndex
 ---- item_entindex: EntityIndex
+---- hero_entindex: EntityIndex
 function CAvaloreGameMode:TransferItem(event)
     print("CAvaloreGameMode:TransferItem(event)")
+	local item = EntIndexToHScript(event.item_entindex)
+	-- if it's a recipe it should combine ok on its own
+	if not string.find(item:GetName(), "recipe") then
+		local hero = EntIndexToHScript(event.hero_entindex)
+		local inventory = InventoryManager[hero:GetPlayerID()]
+		inventory:Add(item)
+	end
+	--PrintTable(event)
 end
 
 -- dota_action_item
