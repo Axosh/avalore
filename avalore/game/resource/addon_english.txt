@@ -166,6 +166,8 @@
 		"DOTA_Tooltip_Ability_ability_maenadic_fervor"					"Maenadic Fervor"
 		"DOTA_Tooltip_Ability_ability_maenadic_fervor_Description"		"Bestows a state of manic ecstasy on the target increasing both incoming and outgoing damage as well as attack speed"
 
+		"DOTA_Tooltip_Ability_ability_maenadic_frenzy"					"Maenadic Frenzy"
+
 
 		//--------------------------------------------------------------------------------
 		// Objectives

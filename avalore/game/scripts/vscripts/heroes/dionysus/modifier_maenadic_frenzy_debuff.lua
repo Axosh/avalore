@@ -74,3 +74,9 @@ function modifier_maenadic_frenzy_debuff:FindClosestAllyToAttack()
 
 	return target
 end
+
+function modifier_maenadic_frenzy_debuff:OnDestroy()
+    if not IsServer() then return end
+	
+	(self.parent):SetForceAttackTargetAlly(nil)
+end
