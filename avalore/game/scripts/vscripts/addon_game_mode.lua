@@ -81,7 +81,7 @@ function CAvaloreGameMode:InitGameMode()
 
 	ListenToGameEvent("dota_on_hero_finish_spawn", Dynamic_Wrap(CAvaloreGameMode, "OnHeroFinishSpawn"), self)
 
-	-- ITEM STUFF
+	-- ITEM STUFF (see: inventory_manager.lua and inventory.lua)
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAvaloreGameMode, "OnItemPickUp"), self)
 	ListenToGameEvent("dota_inventory_item_added", Dynamic_Wrap(CAvaloreGameMode, "OnItemAdded"), self)
 	ListenToGameEvent("dota_hero_inventory_item_change", Dynamic_Wrap(CAvaloreGameMode, "OnInventoryChanged"), self)
@@ -98,7 +98,7 @@ function CAvaloreGameMode:InitGameMode()
 	ListenToGameEvent("dota_item_gifted", Dynamic_Wrap(CAvaloreGameMode, "ItemGifted"), self)
 	ListenToGameEvent("dota_item_purchased", Dynamic_Wrap(CAvaloreGameMode, "ItemPurchased"), self)
 	
-	-- PLAYER CHAT
+	-- PLAYER CHAT (see avalore_debug.lua)
 	ListenToGameEvent("player_chat", Dynamic_Wrap(CAvaloreGameMode, "ProcessPlayerMessage"), self)
 	--ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(CAvaloreGameMode, "OnPlayerFirstSpawn"), self)
 	-- ListenToGameEvent("dota_inventory_item_changed", Dynamic_Wrap(CAvaloreGameMode, "OnItemSlotChanged"), self)

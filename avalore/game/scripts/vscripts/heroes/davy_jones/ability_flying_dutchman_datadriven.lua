@@ -13,7 +13,13 @@ function ExorcismStart( event )
 	local playerID = caster:GetPlayerID()
 	local radius = ability:GetLevelSpecialValueFor( "radius", ability:GetLevel() - 1 )
 	local duration = ability:GetLevelSpecialValueFor( "duration", ability:GetLevel() - 1 )
-	local spirits = ability:GetLevelSpecialValueFor( "spirits", ability:GetLevel() - 1 )
+	--local spirits = ability:GetLevelSpecialValueFor( "spirits", ability:GetLevel() - 1 )
+	-- get initial amount of spirits to dispatch based on number souls acquired
+	local modifier_lost_souls = caster:FindModifierByName("modifier_lost_souls")
+	local spirits = 0
+	if modifier_lost_souls then
+		spirits = modifier_lost_souls:GetStackCount()
+	end
 	local delay_between_spirits = ability:GetLevelSpecialValueFor( "delay_between_spirits", ability:GetLevel() - 1 )
     local unit_name = "lost_souls_ghost"--"models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_frost.vmdl"--"npc_dummy_unit"
 
@@ -297,7 +303,7 @@ function ExorcismPhysics( event )
 						ApplyDamage(damage_table)
 
 						-- Calculate how much physical damage was dealt
-						local targetArmor = unit.current_target:GetPhysicalArmorValue()
+						local targetArmor = unit.current_target:GetPhysicalArmorValue(false)
 						local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 						local damagePostReduction = spirit_damage * (1 - damageReduction)
 
