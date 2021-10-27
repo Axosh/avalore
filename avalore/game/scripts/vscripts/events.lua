@@ -576,6 +576,8 @@ function CAvaloreGameMode:InitCosmetics(unit)
 		CAvaloreGameMode:InitRobinHood(hero,playernum)
 	elseif hero_name == "avalore_hero_dionysus" or hero_name == "npc_dota_hero_brewmaster" then
 		CAvaloreGameMode:InitDionysus(hero, playernum)
+	elseif hero_name == "npc_avalore_hero_zeus" or hero_name == "npc_dota_hero_zuus" then
+		CAvaloreGameMode:InitZeus(hero, playernum)
 	end
 
 	hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
@@ -698,6 +700,28 @@ function CAvaloreGameMode:InitDionysus(hero, playernum)
 	dionysus_cosmetics[4] = "models/items/brewmaster/honorable_brawler_back/honorable_brawler_back.vmdl"
 
 	for k,wearable in pairs(dionysus_cosmetics) do
+		--print("Creating Cosmetic " .. wearable)
+		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+		cosmetic:SetOwner(unit)
+		cosmetic:FollowEntity(unit, true)
+	end
+end
+
+function CAvaloreGameMode:InitZeus(hero, playernum)
+	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
+	local zeus_cosmetics = {}
+	--zeus_cosmetics[0] = "models/heroes/pedestal/mesh/effigy_zeus_arcana.vmdl"
+	zeus_cosmetics[0] = "models/heroes/zeus/zeus_hair_arcana.vmdl"
+	zeus_cosmetics[1] = "models/items/zeus/zeus_ti8_immortal_arms/zeus_ti8_immortal_arms.vmdl"
+	zeus_cosmetics[2] = "models/heroes/zeus/zeus_belt.vmdl"
+	zeus_cosmetics[3] = "models/items/zeus/lightning_weapon/mesh/zeus_lightning_weapon_model.vmdl"
+
+	for k,wearable in pairs(zeus_cosmetics) do
 		--print("Creating Cosmetic " .. wearable)
 		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
 		cosmetic:SetOriginalModel(wearable)

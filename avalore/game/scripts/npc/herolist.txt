@@ -115,6 +115,6 @@
   "npc_dota_hero_winter_wyvern"       "0"
   "npc_dota_hero_wisp"                "0"
   "npc_dota_hero_witch_doctor"        "0"
-  "npc_dota_hero_zuus"                "0"
+  "npc_dota_hero_zuus"                          "1"
   //"npc_dota_hero_davy_jones"                  "1"
 }
