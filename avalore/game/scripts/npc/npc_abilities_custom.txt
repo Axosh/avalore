@@ -25,6 +25,8 @@
 #base "heroes/dionysus/ability_maenadic_fervor.txt"
 #base "heroes/dionysus/ability_maenadic_frenzy.txt"
 
+#base "heroes/zeus/ability_lightning_bolt.txt"
+
 "DOTAAbilities"
 {	
 	"building_unselectable"
