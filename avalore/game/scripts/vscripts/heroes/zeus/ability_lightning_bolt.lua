@@ -1,6 +1,6 @@
 ability_lightning_bolt = class({})
 
-LinkLuaModifier("modifier_lightnign_true_sight", "heroes/zeus/modifier_lightnign_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_lightning_true_sight", "heroes/zeus/modifier_lightning_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_lightning_bolt",       "heroes/zeus/modifier_lightning_bolt.lua",       LUA_MODIFIER_MOTION_NONE)
 
 function ability_lightning_bolt:OnAbilityPhaseStart()
@@ -128,7 +128,7 @@ function ability_lightning_bolt:LightningBolt(caster, ability, target, target_po
 
     -- Add dummy to provide us with truesight aura
     local dummy_unit = CreateUnitByName("npc_dummy_unit", Vector(target_point.x, target_point.y, 0), false, nil, nil, caster:GetTeam())
-    local true_sight = dummy_unit:AddNewModifier(caster, ability, "modifier_lightnign_true_sight", {duration = sight_duration})
+    local true_sight = dummy_unit:AddNewModifier(caster, ability, "modifier_lightning_true_sight", {duration = sight_duration})
     true_sight:SetStackCount(true_sight_radius)
     dummy_unit:SetDayTimeVisionRange(sight_radius_day)
     dummy_unit:SetNightTimeVisionRange(sight_radius_night)

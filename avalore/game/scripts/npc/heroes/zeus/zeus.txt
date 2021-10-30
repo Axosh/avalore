@@ -23,6 +23,7 @@
 		//"Ability6"					""			// Ability 6 - Extra.
 		// "Ability7"					""			// Ability 7 - Extra.
 		// "Ability8"					""			// Ability 8 - Extra.
+        "Ability10"                 "ability_eagle_cancel"
         
         // Movement
 		//----------------------------------------------------------------

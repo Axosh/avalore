@@ -148,3 +148,19 @@ function PrintTable( t, indent )
 		end
 	end
 end
+
+
+-- SPELLS
+
+function SwapSpells(abilityRef, slotNum, newSpell)
+    local caster = abilityRef:GetCaster()
+    local spell_slot = abilityRef:GetCaster():GetAbilityByIndex(slotNum):GetAbilityName()
+    local modifier = abilityRef:GetCaster():GetAbilityByIndex(slotNum):GetIntrinsicModifierName()
+    if modifier then
+        caster:RemoveModifierByName(modifier) -- remove lingering modifier
+    end
+
+    local curr_slot_level = caster:FindAbilityByName(spell_slot):GetLevel()
+    caster:SwapAbilities(spell_slot, newSpell, false, true)
+    abilityRef:GetCaster():GetAbilityByIndex(slotNum):SetLevel(curr_slot_level)
+end

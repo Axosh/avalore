@@ -4,6 +4,7 @@ require(REQ_LIB_TIMERS)
 ability_shapeshift = class({})
 
 LinkLuaModifier("modifier_shapeshift_eagle", "heroes/zeus/modifier_shapeshift_eagle.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_avalore_hex",     "modifiers/base_spell/modifier_avalore_hex.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- function ability_shapeshift:OnUpgrade()
 -- 	if self:GetCaster():HasAbility("ability_shapeshift") then
@@ -30,8 +31,12 @@ function ability_shapeshift:OnSpellStart()
 			if target:IsIllusion() and not Custom_bIsStrongIllusion(self.parent) then
 				target:Kill(target, self:GetCaster())
 			else
-                print("TODO")
-                --target:AddNewModifier(self:GetCaster(), self, "modifier_avalore_hex", {duration = self:GetSpecialValueFor("duration_enemy")})
+                target:AddNewModifier(self:GetCaster(), self, "modifier_avalore_hex",
+                                        {
+                                            duration = self:GetSpecialValueFor("duration_enemy"),
+                                            texture = "zeus/modifier_shapeshift_wolf",
+                                            model = "models/items/beastmaster/boar/fotw_wolf/fotw_wolf.vmdl"
+                                        });
             end
         end
     -- transform if cast on self
@@ -51,13 +56,20 @@ function ability_shapeshift:OnSpellStart()
         ParticleManager:SetParticleControl(particle_cast_fx, 3 , caster:GetAbsOrigin())
         ParticleManager:ReleaseParticleIndex(particle_cast_fx)
 
-        -- disable during transform
+        -- disable casting/movement during transform
         --caster:AddNewModifier(caster, ability, "modifier_transform_stun", {duration = transformation_time})
 
         -- trigger the transformation buff after the Timer expires
         Timers:CreateTimer(transformation_time, function()
             caster:AddNewModifier(caster, self, "modifier_shapeshift_eagle", {duration = duration})
         end)
+
+        -- disable other spells + change ability to cancel transform, preserve levels/upgrades
+        local spell_slot1 = self:GetCaster():GetAbilityByIndex(1):GetAbilityName() -- 0-indexed
+        caster:SwapAbilities(spell_slot1, "ability_eagle_cancel", false, true)
+        local curr_level_slot1 = caster:FindAbilityByName(spell_slot1):GetLevel()
+        self:GetCaster():GetAbilityByIndex(1):SetLevel(curr_level_slot1)
+        SwapSpells(self, 1, "ability_eagle_cancel")
     end
 
     

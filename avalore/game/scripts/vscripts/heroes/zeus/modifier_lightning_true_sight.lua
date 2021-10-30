@@ -1,4 +1,4 @@
-modifier_lightnign_true_sight = class({})
+modifier_lightning_true_sight = class({})
 
 function modifier_lightning_true_sight:IsAura() return true end
 function modifier_lightning_true_sight:IsHidden() return true end

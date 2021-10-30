@@ -27,6 +27,7 @@
 
 #base "heroes/zeus/ability_lightning_bolt.txt"
 #base "heroes/zeus/ability_shapeshift.txt"
+#base "heroes/zeus/ability_eagle_cancel.txt"
 
 "DOTAAbilities"
 {	

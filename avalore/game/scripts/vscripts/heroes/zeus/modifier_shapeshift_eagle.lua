@@ -1,3 +1,6 @@
+require("references")
+require(REQ_UTIL)
+
 modifier_shapeshift_eagle = class({})
 
 function modifier_shapeshift_eagle:IsAura() return true end
@@ -17,7 +20,10 @@ function modifier_shapeshift_eagle:DeclareFunctions()
 end
 
 function modifier_shapeshift_eagle:CheckState()
-	return {    [MODIFIER_STATE_FLYING] = true  }
+	return {    [MODIFIER_STATE_FLYING] = true,
+                [MODIFIER_STATE_DISARMED] = true,
+                [MODIFIER_STATE_MUTED] = true
+            }
 end
 
 function modifier_shapeshift_eagle:GetModifierModelChange()
@@ -25,8 +31,20 @@ function modifier_shapeshift_eagle:GetModifierModelChange()
 end
 
 function modifier_shapeshift_eagle:OnCreated()
+    if not IsServer() then return end
+
     self.movespeed = self:GetAbility():GetSpecialValueFor("speed_self")
     self.vision = self:GetAbility():GetSpecialValueFor("vision")
+
+    -- for slot=0,10 do
+    --     if self:GetCaster():GetAbilityByIndex(slot) then
+    --         print("Slot " .. tostring(slot) .. " = " .. self:GetCaster():GetAbilityByIndex(slot):GetName())
+    --     end
+    -- end
+
+    self:GetCaster():GetAbilityByIndex(0):SetHidden(true)
+    self:GetCaster():GetAbilityByIndex(2):SetHidden(true)
+    self:GetCaster():GetAbilityByIndex(5):SetHidden(true) --ults go here in layout 4
 end
 
 function modifier_shapeshift_eagle:GetModifierMoveSpeed_AbsoluteMin()
@@ -48,6 +66,18 @@ function modifier_shapeshift_eagle:OnDestroy()
     local particle_revert_fx = ParticleManager:CreateParticle(particle_revert, PATTACH_ABSORIGIN, self:GetCaster())
     ParticleManager:SetParticleControl(particle_revert_fx, 0, self:GetCaster():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle_revert_fx, 3, self:GetCaster():GetAbsOrigin())
+
+    -- give back the normal spell
+    local spell_slot1 = self:GetCaster():GetAbilityByIndex(1):GetAbilityName() -- 0-indexed
+    self:GetCaster():SwapAbilities(spell_slot1, "ability_shapeshift", false, true)
+    local curr_level_slot1 = self:GetCaster():FindAbilityByName(spell_slot1):GetLevel()
+    self:GetCaster():GetAbilityByIndex(1):SetLevel(curr_level_slot1)
+    SwapSpells(self, 1, "ability_shapeshift")
+
+    -- reveal other spells
+    self:GetCaster():GetAbilityByIndex(0):SetHidden(false)
+    self:GetCaster():GetAbilityByIndex(2):SetHidden(false)
+    self:GetCaster():GetAbilityByIndex(5):SetHidden(false)
 end
 
 function modifier_shapeshift_eagle:GetActivityTranslationModifiers()
