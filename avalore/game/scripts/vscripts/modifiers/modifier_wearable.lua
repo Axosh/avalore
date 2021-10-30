@@ -104,7 +104,7 @@ function modifier_wearable:OnIntervalThink()
 	-- 	end
 	-- end
 
-	if hero:IsOutOfGame() or hero:IsHexed() then
+	if hero:IsOutOfGame() or hero:IsHexed() or hero:HasModifier("modifier_shapeshift_eagle") then
 		cosmetic:AddNoDraw()
 	else
 		cosmetic:RemoveNoDraw()

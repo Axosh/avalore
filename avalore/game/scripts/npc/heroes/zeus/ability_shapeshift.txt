@@ -1,0 +1,71 @@
+"DOTAAbilities"
+{
+    "ability_shapeshift"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"                    "heroes/zeus/ability_shapeshift.lua"
+
+        "AbilityTextureName"            "zeus/shapeshift"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"				"2"
+
+        // Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"              "500 500 500 500"
+		"AbilityCastPoint"              "0.4 0.4 0.4 0.4"
+
+        // Damage.
+		//-------------------------------------------------------------------------------------------------------------
+
+        // Time     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"               "40 35 30 25"
+
+        // Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"70 110 150 190"
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration_self"				"40.0 40.0 40.0 40.0"
+			}
+            "02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration_enemy"			"1.0 1.5 2.0 2.5"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed_self"				"400 450 500 550"
+			}
+            "04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed_enemy"				"100"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"vision"		            "750 800 850 900"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"transformation_time"		"0.1"
+			}			
+		}
+    }
+}
