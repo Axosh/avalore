@@ -1,0 +1,75 @@
+"DOTAAbilities"
+{
+    "ability_summon_storm"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"                    "heroes/zeus/ability_summon_storm.lua"
+
+        "AbilityTextureName"            "zeus/summon_storm"
+        "AbilitySound"                  "Hero_Zuus.Cloud.Cast"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL" 
+        //"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
+        //"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        //"AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"				"1"
+
+        // Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"              "0"
+		"AbilityCastPoint"              "0.2 0.2 0.2 0.2"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
+
+        // Time     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"               "60 50 40 30"
+
+        // Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"               "150 200 250 300"
+
+        // Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"   "0.2"   // just a ministun
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"cloud_duration"        "25"
+			}
+			"02"
+			{
+				"var_type"              "FIELD_FLOAT"
+				"cloud_bolt_interval"   "3.0"
+			}
+			"03"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"cloud_radius"          "450"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"melee_hero_attack"		"4"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ranged_hero_attack"	"8"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"non_hero_attack"		"16"
+			}
+		}
+    }
+}
