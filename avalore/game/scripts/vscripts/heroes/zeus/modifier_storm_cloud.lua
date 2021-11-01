@@ -1,4 +1,7 @@
+require("scripts/vscripts/heroes/zeus/ability_lightning_bolt")
 modifier_storm_cloud = class({})
+
+STORM_CLOUD_PARTICLE_KEY = 1
 
 function modifier_storm_cloud:IsHidden() return true end
 
@@ -30,27 +33,32 @@ function modifier_storm_cloud:OnCreated(keys)
 		
 		-- Initialize counter to equal that of the interval so Nimbus can immediately strike targets upon spawn
 		self.counter = self.cloud_bolt_interval
+        self.cloud_counter = 0
 
         local particles = {}
         --particles[0] = "particles/units/heroes/hero_zeus/zeus_cloud_overhead.vpcf" -- NOTE: doesn't move
         --particles[1] = "particles/units/heroes/hero_zeus/zeus_cloud_overhead_core.vpcf" -- NOTE: doesn't move
         particles[0] = "particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_basher_manaburn_impact_lightning_gold.vpcf"
         --particles[1] = "particles/econ/courier/courier_ti10/courier_flying_dire_ti10_cloud.vpcf"
-        particles[1] = "particles/econ/items/dark_willow/dark_willow_immortal_2021/dw_2021_willow_wisp_spell_debuff_cloud.vpcf"
+        --particles[1] = "particles/econ/items/dark_willow/dark_willow_immortal_2021/dw_2021_willow_wisp_spell_debuff_cloud.vpcf"
+        particles[STORM_CLOUD_PARTICLE_KEY] = "particles/econ/items/monkey_king/arcana/monkey_arcana_cloud.vpcf"
         particles[2] = "particles/units/heroes/hero_zeus/zeus_cloud_ground_edge.vpcf"
         particles[3] = "particles/units/heroes/hero_zeus/zeus_cloud_ground_glow.vpcf"
         particles[4] = "particles/units/heroes/hero_zeus/zeus_cloud_ground_haze.vpcf"
         particles[5] = "particles/units/heroes/hero_zeus/zeus_cloud_ground_sparks.vpcf"
-        particles[6] = "particles/econ/events/spring_2021/radiance_owner_spring_2021_rings_proj.vpcf"
+        --particles[6] = "particles/econ/events/spring_2021/radiance_owner_spring_2021_rings_proj.vpcf"
+        --particles[6] = "particles/econ/events/spring_2021/cyclone_spring2021_ground_b.vpcf"
+
+        self.storm_cloud_particle = {}
 
         for k,particle in pairs(particles) do
-            self.zuus_nimbus_particle = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+            self.storm_cloud_particle[k] = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
             -- Position of ground effect
-            ParticleManager:SetParticleControl(self.zuus_nimbus_particle, 0, Vector(target_point.x, target_point.y, 450))
+            ParticleManager:SetParticleControl(self.storm_cloud_particle[k], 0, Vector(target_point.x, target_point.y, 450))
             -- Radius of ground effect
-            ParticleManager:SetParticleControl(self.zuus_nimbus_particle, 1, Vector(self.cloud_radius, 0, 0))
+            ParticleManager:SetParticleControl(self.storm_cloud_particle[k], 1, Vector(self.cloud_radius, 0, 0))
             -- Position of cloud 
-            ParticleManager:SetParticleControl(self.zuus_nimbus_particle, 2, Vector(target_point.x, target_point.y, target_point.z + 450))	
+            ParticleManager:SetParticleControl(self.storm_cloud_particle[k], 2, Vector(target_point.x, target_point.y, target_point.z + 450))	
         end
 
 		-- Create nimbus cloud particle
@@ -105,14 +113,23 @@ function modifier_storm_cloud:OnIntervalThink()
 
 			for _,unit in pairs(nearby_enemy_units) do
 				if unit:IsAlive() then
-					ability_lightning_bolt:CastLightningBolt(self:GetCaster(), self.lightning_bolt, unit, unit:GetAbsOrigin(), self:GetParent())
+					ability_lightning_bolt:LightningBolt(self:GetCaster(), self.lightning_bolt, unit, unit:GetAbsOrigin(), self:GetParent())
 					-- Abort when we find something to hit
 					self.counter = 0
 					break
 				end
-			end
+			end            
 		end
+
+        if self.cloud_counter > 5.0 then
+            --  refresh the storm cloud particle because it expires every 5sec or so
+            local temp_cloud_particle = ParticleManager:CreateParticle(ParticleManager:GetParticleReplacement("particles/econ/items/monkey_king/arcana/monkey_arcana_cloud.vpcf", self:GetParent()), PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+            ParticleManager:DestroyParticle(self.storm_cloud_particle[STORM_CLOUD_PARTICLE_KEY], false)
+            self.storm_cloud_particle[STORM_CLOUD_PARTICLE_KEY] = temp_cloud_particle
+            self.cloud_counter = 0
+        end
 		
+        self.cloud_counter = self.cloud_counter + FrameTime()
 		self.counter = self.counter + FrameTime()
 	end
 end
@@ -149,7 +166,9 @@ end
 function modifier_storm_cloud:OnRemoved()
 	if IsServer() then
 		-- Cleanup particle
-		ParticleManager:DestroyParticle(self.zuus_nimbus_particle, false)
+        for k,particle in pairs(self.storm_cloud_particle) do
+		    ParticleManager:DestroyParticle(self.storm_cloud_particle[k], false)
+        end
 		local caster = self:GetCaster()
 		local nimbusRemaining = false
 

@@ -44,10 +44,10 @@ function ability_lightning_bolt:LightningBolt(caster, ability, target, target_po
     local pierce_spellimmunity 	= false
     local z_pos 				= 2000
 
-    if nimbus then
-        nimbus:EmitSound("Hero_Zuus.LightningBolt")
+    if storm_cloud then
+        storm_cloud:EmitSound("Hero_Zuus.LightningBolt")
     else
-        caster:EmitSound("Hero_Zuus.LightningBolt")
+        storm_cloud:EmitSound("Hero_Zuus.LightningBolt")
     end
 
     AddFOWViewer(caster:GetTeam(), target_point, true_sight_radius, sight_duration, false)
