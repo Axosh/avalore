@@ -29,6 +29,7 @@
 #base "heroes/zeus/ability_shapeshift.txt"
 #base "heroes/zeus/ability_eagle_cancel.txt"
 #base "heroes/zeus/ability_summon_storm.txt"
+#base "heroes/zeus/ability_thunder_gods_wrath.txt"
 
 "DOTAAbilities"
 {	

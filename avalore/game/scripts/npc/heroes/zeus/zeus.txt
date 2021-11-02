@@ -18,12 +18,14 @@
 		"Ability1"					"ability_lightning_bolt"
 		"Ability2"					"ability_shapeshift"
 		"Ability3"					"ability_summon_storm"
-		//"Ability4"					"ability_maenadic_frenzy"			// Ability 4.
+		//"Ability4"					""			// Ability 4.
 		//"Ability5"					""			// Ability 5.
-		//"Ability6"					""			// Ability 6 - Extra.
-		// "Ability7"					""			// Ability 7 - Extra.
+		"Ability6"					"ability_thunder_gods_wrath"			// Ability 6 - Extra.
+		 "Ability7"					"ability_eagle_cancel"			// Ability 7 - Extra.
 		// "Ability8"					""			// Ability 8 - Extra.
-        "Ability10"                 "ability_eagle_cancel"
+
+        //10-17 => Talents
+        //"Ability10"                 ""
         
         // Movement
 		//----------------------------------------------------------------
@@ -33,7 +35,8 @@
 
         // Attack
 		//----------------------------------------------------------------
-        "ProjectileModel"           "models/items/zeus/lightning_weapon/zuus_lightning_weapon.vmdl"
+        //"ProjectileModel"           "models/items/zeus/lightning_weapon/zuus_lightning_weapon.vmdl"
+        //"ProjectileModel"           "particles/units/heroes/hero_razor/razor_static_link_projectile_b.vpcf"
         "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageMin"           "31"
         "AttackDamageMax"           "33"
@@ -56,7 +59,7 @@
 
         // Attributes
 		//----------------------------------------------------------------
-        "AttributePrimary"          "DOTA_ATTRIBUTE_AGILITY"
+        "AttributePrimary"          "DOTA_ATTRIBUTE_INTELLECT"
         "AttributeBaseStrength"     "23"
         "AttributeStrengthGain"     "4.5"
         "AttributeBaseAgility"      "18"
