@@ -28,6 +28,7 @@
 		"npc_dota_hero_rubick"									"Debuggy Boi"
 		"npc_dota_hero_windrunner"								"Robin Hood"
 		"npc_dota_hero_brewmaster"								"Dionysus"
+		"npc_dota_hero_viper"									"Quetzalcoatl"
 
 		//--------------------------------------------------------------------------------
 		// Units

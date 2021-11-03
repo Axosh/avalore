@@ -578,6 +578,8 @@ function CAvaloreGameMode:InitCosmetics(unit)
 		CAvaloreGameMode:InitDionysus(hero, playernum)
 	elseif hero_name == "npc_avalore_hero_zeus" or hero_name == "npc_dota_hero_zuus" then
 		CAvaloreGameMode:InitZeus(hero, playernum)
+	elseif hero_name == "npc_avalore_hero_quetzalcoatl" or hero_name == "npc_dota_hero_viper" then
+		CAvaloreGameMode:InitQuetalcoatl(hero, playernum)
 	end
 
 	hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
@@ -722,6 +724,27 @@ function CAvaloreGameMode:InitZeus(hero, playernum)
 	zeus_cosmetics[3] = "models/items/zeus/lightning_weapon/mesh/zeus_lightning_weapon_model.vmdl"
 
 	for k,wearable in pairs(zeus_cosmetics) do
+		--print("Creating Cosmetic " .. wearable)
+		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+		cosmetic:SetOwner(unit)
+		cosmetic:FollowEntity(unit, true)
+	end
+end
+
+function CAvaloreGameMode:InitQuetalcoatl(hero, playernum)
+	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	--unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
+	local quetzalcoatl_cosmetics = {}
+	quetzalcoatl_cosmetics[0] = "models/items/viper/blight_wyrm_back/blight_wyrm_back.vmdl"
+	quetzalcoatl_cosmetics[1] = "models/items/viper/spring2021_king_of_corrupted_nest_head/spring2021_king_of_corrupted_nest_head.vmdl"
+	quetzalcoatl_cosmetics[2] = "models/items/viper/viper_immortal_head_ti7/viper_immortal_head_ti7.vmdl"
+	quetzalcoatl_cosmetics[3] ="models/items/viper/viper_beetle_tail/viper_beetle_tail.vmdl"
+	
+	for k,wearable in pairs(quetzalcoatl_cosmetics) do
 		--print("Creating Cosmetic " .. wearable)
 		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
 		cosmetic:SetOriginalModel(wearable)
