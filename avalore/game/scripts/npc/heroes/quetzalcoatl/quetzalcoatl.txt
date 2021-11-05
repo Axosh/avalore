@@ -7,7 +7,7 @@
     {
          // General
 		//----------------------------------------------------------------
-        "override_hero"             "npc_dota_hero_zuus"
+        "override_hero"             "npc_dota_hero_viper"
         "Model"                     "models/heroes/viper/viper.vmdl"
         "ModelScale"                "1.0"
         "BotImplemented"            "0"
@@ -16,7 +16,7 @@
 		//----------------------------------------------------------------
 		"AbilityLayout"     "4"
 
-        //"Ability1"					""
+        "Ability1"					"ability_fertile_winds"
 		//"Ability2"					""
 		//"Ability3"					""
 		//"Ability4"					""			

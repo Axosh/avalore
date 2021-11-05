@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{
+    "ability_fertile_winds"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"                    "heroes/quetzalcoatl/ability_fertile_winds.lua"
+
+        "AbilityTextureName"            "quetzalcoatl/fertile_winds"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_Phoenix.IcarusDive.Cast"
+
+        "FightRecapLevel"				"1"
+        "MaxLevel"						"4"
+
+        // Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"36 34 32 30"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+
+        // Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+            "soundfile"					"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dash_length"			"900"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dash_width"			"500"
+			}
+            "03"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "tree_duration"         "3.0 4.0 5.0 6.0"
+            }
+            "04"
+            {
+                "var_type"				"FIELD_FLOAT"
+				"heal_interval"	        "0.5"
+            }
+            "05"
+            {
+                "var_type"				"FIELD_INTEGER"
+				"heal_per_second"		"10 30 50 70"
+            }
+            "06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"dash_duration"			"2.0"
+			}
+            "07"
+            {
+                "var_type"				"FIELD_INTEGER"
+				"heal_radius"			"300"
+            }
+            "08"
+            {
+                "var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"450"
+            }
+        }
+    }
+}
