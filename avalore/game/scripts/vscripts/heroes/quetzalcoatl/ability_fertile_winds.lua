@@ -67,6 +67,7 @@ function ability_fertile_winds:OnSpellStart(kv)
                 local unit = CreateUnitByName('npc_dummy_unit', spawn_location, false, caster, caster, caster:GetTeamNumber())
                 unit:AddNewModifier(caster, self, "modifier_fertile_winds_heal", {duration = treeDuration })
                 unit:AddNewModifier(caster, self, "modifier_unselectable", {duration = treeDuration })
+                unit:AddNewModifier(caster, self, "modifier_no_healthbar", {duration = treeDuration })
                 --tree:AddNewModifier(caster, self, "modifier_fertile_winds_heal", nil)
                 self.heal_tree_counter = 3
             else
@@ -105,8 +106,14 @@ function ability_fertile_winds:OnSpellStart(kv)
 
     -- Swap sub ability
 	-- local sub_ability_name	= "ability_fertile_winds_cancel"
-	-- local main_ability_name	= ability:GetAbilityName()
+	-- local main_ability_name	= self:GetAbilityName()
 	-- caster:SwapAbilities( main_ability_name, sub_ability_name, false, true )
+    local ability_slot = 0 -- 0-indexed
+    local spell_in_slot = self:GetCaster():GetAbilityByIndex(ability_slot):GetAbilityName() 
+    self:GetCaster():SwapAbilities(spell_in_slot, "ability_fertile_winds_cancel", false, true)
+    local curr_level_slot1 = self:GetCaster():FindAbilityByName(spell_in_slot):GetLevel()
+    self:GetCaster():GetAbilityByIndex(ability_slot):SetLevel(curr_level_slot1)
+    SwapSpells(self, ability_slot, "ability_fertile_winds_cancel")
 end
 
 function ability_fertile_winds:OnProjectileHit(target, position)

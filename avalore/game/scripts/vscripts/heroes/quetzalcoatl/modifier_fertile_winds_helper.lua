@@ -29,6 +29,19 @@ function modifier_fertile_winds_helper:OnDestroy()
 
     local caster    = self:GetCaster()
 	local point     = caster:GetAbsOrigin()
-	local ability   = self:GetAbility()
-    local radius    = ability:GetSpecialValueFor("stop_radius")
+	--local ability   = self:GetAbility()
+
+    -- local sub_ability_name	= "ability_fertile_winds"
+	-- local main_ability_name	= "ability_fertile_winds_cancel"
+	-- caster:SwapAbilities( main_ability_name, sub_ability_name, false, true )
+	local ability_slot = 0 -- 0-indexed
+    local spell_in_slot = self:GetCaster():GetAbilityByIndex(ability_slot):GetAbilityName() 
+    self:GetCaster():SwapAbilities(spell_in_slot, "ability_fertile_winds", false, true)
+    local curr_level_slot1 = self:GetCaster():FindAbilityByName(spell_in_slot):GetLevel()
+    self:GetCaster():GetAbilityByIndex(ability_slot):SetLevel(curr_level_slot1)
+    SwapSpells(self, ability_slot, "ability_fertile_winds")
+
+    -- Anti-stuck
+    FindClearSpaceForUnit(caster, point, true)
+	GridNav:DestroyTreesAroundPoint(point, 80, true) -- find clear space doesn't seem to work all that well
 end

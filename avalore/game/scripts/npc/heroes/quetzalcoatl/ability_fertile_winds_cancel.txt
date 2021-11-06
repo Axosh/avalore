@@ -1,0 +1,22 @@
+"DOTAAbilities"
+{
+    "ability_fertile_winds_cancel"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"                    "heroes/quetzalcoatl/ability_fertile_winds_cancel.lua"
+
+        "AbilityTextureName"            "quetzalcoatl/fertile_winds_cancel"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+        // Ability Casting
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCastPoint"				"0.2"
+
+        // Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+    }
+}

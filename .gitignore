@@ -17,3 +17,6 @@
 *.vxml_c
 *.vcss_c
 *.vmdl_c
+
+# Scans
+/.scannerwork

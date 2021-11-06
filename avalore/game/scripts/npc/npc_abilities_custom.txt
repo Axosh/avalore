@@ -32,6 +32,7 @@
 #base "heroes/zeus/ability_thunder_gods_wrath.txt"
 
 #base "heroes/quetzalcoatl/ability_fertile_winds.txt"
+#base "heroes/quetzalcoatl/ability_fertile_winds_cancel.txt"
 
 "DOTAAbilities"
 {	

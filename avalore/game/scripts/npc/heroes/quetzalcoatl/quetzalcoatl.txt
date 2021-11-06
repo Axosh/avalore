@@ -22,7 +22,7 @@
 		//"Ability4"					""			
 		//"Ability5"					""			
 		//"Ability6"					""			
-		//"Ability7"					""			
+		"Ability7"					"ability_fertile_winds_cancel"			
 		//"Ability8"					""			
 
         // Movement
