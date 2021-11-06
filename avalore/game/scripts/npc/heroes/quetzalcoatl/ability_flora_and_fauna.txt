@@ -1,0 +1,68 @@
+"DOTAAbilities"
+{
+    "ability_flora_and_fauna"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"                    "heroes/quetzalcoatl/ability_flora_and_fauna.lua"
+
+        "AbilityTextureName"            "quetzalcoatl/flora_and_fauna"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+        "AbilitySound"					"Hero_Weaver.Swarm.Cast"
+
+        // Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		"AbilityCastRange"				"3000"
+		"AbilityCooldown"				"26 24 22 20"
+		"AbilityManaCost"				"100 110 120 130"
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"120 160 200 240"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"count"				"12 12 12 12"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"1.0 1.5 2.0 2.5"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"100 100 100 100"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"600 600 600 600"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spawn_radius"		"300 300 300 300"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"travel_time"		"5"
+			}
+
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+    }
+}

@@ -33,6 +33,7 @@
 
 #base "heroes/quetzalcoatl/ability_fertile_winds.txt"
 #base "heroes/quetzalcoatl/ability_fertile_winds_cancel.txt"
+#base "heroes/quetzalcoatl/ability_flora_and_fauna.txt"
 
 "DOTAAbilities"
 {	

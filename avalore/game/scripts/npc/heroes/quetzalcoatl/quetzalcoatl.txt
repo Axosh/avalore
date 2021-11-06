@@ -17,7 +17,7 @@
 		"AbilityLayout"     "4"
 
         "Ability1"					"ability_fertile_winds"
-		//"Ability2"					""
+		"Ability2"					"ability_flora_and_fauna"
 		//"Ability3"					""
 		//"Ability4"					""			
 		//"Ability5"					""			
