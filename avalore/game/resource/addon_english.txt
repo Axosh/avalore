@@ -190,6 +190,18 @@
 		"DOTA_Tooltip_Ability_ability_calmecac_patronage"				"Calmecac Patronage"
 		"DOTA_Tooltip_Ability_ability_calmecac_patronage_Lore"			"Quetzalcoatl was also a god of learning and wisdom. He was venerated in the calmecac (school for Aztec nobility)."
 
+		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing"				"Quetzalcoatl's Blessing"
+		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_description"	"Sacrifice a portion of your MAX HP to give an allied hero a short-lasting BUFF, massively increasing their INT and giving a MAGIC AMP. If the ally dies while buffed, they will have their RESPAWN TIME REDUCED by a PERCENTAGE."
+		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_self_dmg_percent" "%MAX HP SACRIFICED:"
+		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_buff_duration"		"DURATION:"
+		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_int_bonus"		"BONUS INT:"
+		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_magic_amp"		"%MAGIC AMP:"
+		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_respawn_reduction_percent"	"%RESPAWN REDUCTION:"
+		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_Lore"			"Quetzalcoatl was a bringer of culture, bestowing gifts and wisdom to his people. In one story, he goes to the underworld to fetch the bones he would use to create mankind, using his own blood to do so."
+
+		"DOTA_Tooltip_modifier_quetzalcoatls_blessing"						"Quetzalcoatl's Blessing"
+		"DOTA_Tooltip_modifier_quetzalcoatls_blessing_description"			"Receiving +%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% Bonus INT, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% Magic Amplification. If killed with this buff, receive -%dMODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE%%% Respawn Timer Reduction."
+
 
 
 

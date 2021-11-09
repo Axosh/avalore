@@ -43,5 +43,5 @@ function modifier_fertile_winds_helper:OnDestroy()
 
     -- Anti-stuck
     FindClearSpaceForUnit(caster, point, true)
-	GridNav:DestroyTreesAroundPoint(point, 128, true) -- find clear space doesn't seem to work all that well
+	GridNav:DestroyTreesAroundPoint(point, 150, true) -- find clear space doesn't seem to work all that well
 end

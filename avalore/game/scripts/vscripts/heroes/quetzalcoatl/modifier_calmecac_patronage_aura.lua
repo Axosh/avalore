@@ -1,6 +1,6 @@
 modifier_calmecac_patronage_aura = class({})
 
-function modifier_calmecac_patronage_aura:IsHidden() return true end
+function modifier_calmecac_patronage_aura:IsHidden() return false end
 function modifier_calmecac_patronage_aura:IsDebuff() return false end
 function modifier_calmecac_patronage_aura:IsPurgable() return false end
 

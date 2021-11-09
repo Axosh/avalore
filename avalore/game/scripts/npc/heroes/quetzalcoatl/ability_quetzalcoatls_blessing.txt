@@ -47,17 +47,18 @@
             "03"
             {
                 "var_type"			         "FIELD_FLOAT"
-                "respawn_reduction_percent"  "-30 -40 -50"
+                "respawn_reduction_percent"  "30 40 50"
             }
             "04"
             {
                 "var_type"			         "FIELD_FLOAT"
-                "buff_duration"             "5.0"
+                "buff_duration"             "50.0"
+                //"buff_duration"             "5.0"
             }
             "05"
             {
                 "var_type"			         "FIELD_FLOAT"
-                "self_dmg_percent"           ""
+                "self_dmg_percent"           "70 60 50"
             }
         }
     }
