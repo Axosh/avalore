@@ -177,6 +177,21 @@
 		"DOTA_Tooltip_Ability_ability_shapeshift_Note0"					"Instantly destroys illusions."
 		"DOTA_Tooltip_Ability_ability_shapeshift_Lore"					"Zeus took many animal forms, notably an Eagle, Bull, and Swan. He also sometimes transformed mortals, for instance turning Lycaon into a wolf as a punishment."
 
+		// ===== QUETZALCOATL =====
+		"DOTA_Tooltip_Ability_ability_fertile_winds"					"Fertile Winds"
+		"DOTA_Tooltip_Ability_ability_fertile_winds_Lore"				"Quetzalcoatl was a god of wind and fertility, bringing the rain that grew life-giving crops."
+
+		"DOTA_Tooltip_Ability_ability_fertile_winds_cancel"				"Fertile Winds (Cancel Flight)"
+		"DOTA_Tooltip_Ability_ability_fertile_winds_cancel_Lore"		"Quetzalcoatl was a god of wind and fertility, bringing the rain that grew life-giving crops."
+
+		"DOTA_Tooltip_Ability_ability_flora_and_fauna"					"Flora and Fauna"
+		"DOTA_Tooltip_Ability_ability_flora_and_fauna_Lore"				"In one story, Quetzalcoatl spawns a bat from a rock which then bit a fertility goddess. From the wound burst flowers."
+
+		"DOTA_Tooltip_Ability_ability_calmecac_patronage"				"Calmecac Patronage"
+		"DOTA_Tooltip_Ability_ability_calmecac_patronage_Lore"			"Quetzalcoatl was also a god of learning and wisdom. He was venerated in the calmecac (school for Aztec nobility)."
+
+
+
 
 		//--------------------------------------------------------------------------------
 		// Objectives

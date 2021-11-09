@@ -14,6 +14,7 @@ function modifier_calmecac_patronage_aura_effect:OnCreated( kv )
 end
 
 function modifier_calmecac_patronage_aura_effect:OnRefresh( kv )
+	self.int_bonus = self:GetAbility():GetSpecialValueFor("int_bonus")
 	-- might implement this later as a talent
 	-- self.regen_self = self:GetAbility():GetSpecialValueFor( "mana_regen_self" ) -- special value
 	-- self.regen_ally = self:GetAbility():GetSpecialValueFor( "mana_regen" ) -- special value

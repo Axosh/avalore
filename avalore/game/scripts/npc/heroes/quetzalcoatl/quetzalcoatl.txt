@@ -21,7 +21,7 @@
 		"Ability3"					"ability_calmecac_patronage"
 		//"Ability4"					""			
 		//"Ability5"					""			
-		//"Ability6"					""			
+		"Ability6"					"ability_quetzalcoatls_blessing"			
 		"Ability7"					"ability_fertile_winds_cancel"			
 		//"Ability8"					""			
 

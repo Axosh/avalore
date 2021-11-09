@@ -35,6 +35,7 @@
 #base "heroes/quetzalcoatl/ability_fertile_winds_cancel.txt"
 #base "heroes/quetzalcoatl/ability_flora_and_fauna.txt"
 #base "heroes/quetzalcoatl/ability_calmecac_patronage.txt"
+#base "heroes/quetzalcoatl/ability_quetzalcoatls_blessing.txt"
 
 "DOTAAbilities"
 {	
