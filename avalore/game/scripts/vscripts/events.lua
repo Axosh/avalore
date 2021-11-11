@@ -580,6 +580,8 @@ function CAvaloreGameMode:InitCosmetics(unit)
 		CAvaloreGameMode:InitZeus(hero, playernum)
 	elseif hero_name == "npc_avalore_hero_quetzalcoatl" or hero_name == "npc_dota_hero_viper" then
 		CAvaloreGameMode:InitQuetalcoatl(hero, playernum)
+	elseif hero_name == "npc_avalore_hero_gilgamesh" or hero_name == "npc_dota_hero_lone_druid" then
+		CAvaloreGameMode:InitGilgamesh(hero, playernum)
 	end
 
 	hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
@@ -745,6 +747,32 @@ function CAvaloreGameMode:InitQuetalcoatl(hero, playernum)
 	quetzalcoatl_cosmetics[3] ="models/items/viper/viper_beetle_tail/viper_beetle_tail.vmdl"
 	
 	for k,wearable in pairs(quetzalcoatl_cosmetics) do
+		--print("Creating Cosmetic " .. wearable)
+		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+		cosmetic:SetOwner(unit)
+		cosmetic:FollowEntity(unit, true)
+	end
+end
+
+function CAvaloreGameMode:InitGilgamesh(hero, playernum)
+	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	--unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
+	local gilgamesh_cosmetics = {}
+	gilgamesh_cosmetics[0] = "models/items/beastmaster/beast_heart_marauder_belt/beast_heart_marauder_belt.vmdl"
+	gilgamesh_cosmetics[1] = "models/items/beastmaster/chimeras_anger_head/chimeras_anger_head.vmdl"
+	--gilgamesh_cosmetics[1] = "models/items/axe/undefeated_general_head/undefeated_general_head.vmdl"
+	gilgamesh_cosmetics[2] = "models/items/beastmaster/bm_2021_immortal/bm_2021_single_axe.vmdl"
+	--gilgamesh_cosmetics[2] ="models/heroes/beastmaster/bmaxe.vmdl"
+	gilgamesh_cosmetics[3] = "models/items/beastmaster/fotw_shoulders/fotw_shoulders.vmdl"
+	gilgamesh_cosmetics[4] = "models/items/beastmaster/ti9_cache_bm_chieftain_of_the_primal_tribes_arms/ti9_cache_bm_chieftain_of_the_primal_tribes_arms.vmdl"
+	--gilgamesh_cosmetics[5] = "models/items/beastmaster/ram_karroch/ram_karroch.vmdl"
+	gilgamesh_cosmetics[5] = "models/items/beastmaster/red_talon_shoulder/red_talon_shoulder.vmdl"
+	
+	for k,wearable in pairs(gilgamesh_cosmetics) do
 		--print("Creating Cosmetic " .. wearable)
 		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
 		cosmetic:SetOriginalModel(wearable)

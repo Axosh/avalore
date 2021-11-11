@@ -1,32 +1,29 @@
 "DOTAUnits"
 {
-    //=================================================================================================================
-    // HERO: Zeus
-    //=================================================================================================================
-    "npc_avalore_hero_zeus"
+    "npc_avalore_hero_gilgamesh"
     {
         // General
 		//----------------------------------------------------------------
-        "override_hero"             "npc_dota_hero_zuus"
-        "Model"                     "models/heroes/zeus/zeus_arcana.vmdl"
-        "ModelScale"				"1.25"
+        "override_hero"             "npc_dota_hero_lone_druid"
+        "Model"                     "models/heroes/beastmaster/beastmaster.vmdl"
+        "ModelScale"				"1.15"
         "BotImplemented"            "0"
 
         // Abilities
 		//----------------------------------------------------------------
 		"AbilityLayout"     "4"
-		"Ability1"					"ability_lightning_bolt"
-		"Ability2"					"ability_shapeshift"
-		"Ability3"					"ability_summon_storm"
+		//"Ability1"					""
+		//"Ability2"					""
+		//"Ability3"					""
 		//"Ability4"					""			// Ability 4.
 		//"Ability5"					""			// Ability 5.
-		"Ability6"					"ability_thunder_gods_wrath"			// Ability 6 - Extra.
-		 "Ability7"					"ability_eagle_cancel"			// Ability 7 - Extra.
+		//"Ability6"					""			// Ability 6 - Extra.
+		//"Ability7"					""			// Ability 7 - Extra.
 		// "Ability8"					""			// Ability 8 - Extra.
 
         //10-17 => Talents
         //"Ability10"                 ""
-        
+
         // Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
@@ -35,12 +32,10 @@
 
         // Attack
 		//----------------------------------------------------------------
-        //"ProjectileModel"           "models/items/zeus/lightning_weapon/zuus_lightning_weapon.vmdl"
-        //"ProjectileModel"           "particles/units/heroes/hero_razor/razor_static_link_projectile_b.vpcf"
-        "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
-        "AttackDamageMin"           "35"
-        "AttackDamageMax"           "35"
-        "AttackRange"               "600"
+        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"           "50"
+        "AttackDamageMax"           "50"
+        "AttackRange"               "150"
         "AttackRate"                "1.7"
         "BaseAttackSpeed"           "100"
         "AttackAnimationPoint"      "0.33"
@@ -59,7 +54,7 @@
 
         // Attributes
 		//----------------------------------------------------------------
-        "AttributePrimary"          "DOTA_ATTRIBUTE_INTELLECT"
+        "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
         "AttributeBaseStrength"     "23"
         "AttributeStrengthGain"     "4.5"
         "AttributeBaseAgility"      "18"
@@ -69,10 +64,9 @@
 
         // Bounds
 		//----------------------------------------------------------------
-		// "BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
-		// "RingRadius"				"45"
         "BoundsHullName"            "DOTA_HULL_SIZE_HERO"
         "RingRadius"                "70"
-		"HealthBarOffset"			"300"   // how high above the center of the model to display the healthbar
+        "HealthBarOffset"			"300"
+
     }
 }
