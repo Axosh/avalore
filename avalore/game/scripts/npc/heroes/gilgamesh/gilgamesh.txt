@@ -6,18 +6,18 @@
 		//----------------------------------------------------------------
         "override_hero"             "npc_dota_hero_lone_druid"
         "Model"                     "models/heroes/beastmaster/beastmaster.vmdl"
-        "ModelScale"				"1.15"
+        "ModelScale"				"1.00"
         "BotImplemented"            "0"
 
         // Abilities
 		//----------------------------------------------------------------
 		"AbilityLayout"     "4"
-		//"Ability1"					""
-		//"Ability2"					""
-		//"Ability3"					""
-		//"Ability4"					""			// Ability 4.
-		//"Ability5"					""			// Ability 5.
-		//"Ability6"					""			// Ability 6 - Extra.
+		"Ability1"					"ability_befriend_enkidu"
+		"Ability2"					"ability_gilgamesh_grapple"
+		"Ability3"					""
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""			// Ability 6 - Extra.
 		//"Ability7"					""			// Ability 7 - Extra.
 		// "Ability8"					""			// Ability 8 - Extra.
 

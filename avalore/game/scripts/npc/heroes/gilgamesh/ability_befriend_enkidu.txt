@@ -1,0 +1,33 @@
+"DOTAAbilities"
+{
+    "ability_befriend_enkidu"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"                    "heroes/gilgamesh/ability_befriend_enkidu.lua"
+
+        "AbilityTextureName"            "gilgamesh/befriend_enkidu"
+
+        "FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"        	    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "LevelsBetweenUpgrades"		    "2"
+
+        // Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+        // Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"120"
+
+        // Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"
+    }
+}

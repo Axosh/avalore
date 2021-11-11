@@ -9,6 +9,8 @@
 
 #base "heroes/zeus/avalore_unit_storm_cloud.txt"
 
+#base "heroes/gilgamesh/enkidu.txt"
+
 // Units File
 "DOTAUnits"
 {

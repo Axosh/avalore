@@ -29,6 +29,12 @@
 		"npc_dota_hero_windrunner"								"Robin Hood"
 		"npc_dota_hero_brewmaster"								"Dionysus"
 		"npc_dota_hero_viper"									"Quetzalcoatl"
+		"npc_dota_hero_lone_druid"								"Gilgamesh"
+		"npc_avalore_enkidu1"									"Enkidu"
+		"npc_avalore_enkidu2"									"Enkidu"
+		"npc_avalore_enkidu3"									"Enkidu"
+		"npc_avalore_enkidu4"									"Enkidu"
+
 
 		//--------------------------------------------------------------------------------
 		// Units

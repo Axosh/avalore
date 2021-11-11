@@ -1,0 +1,378 @@
+"DOTAUnits"
+{
+    "npc_avalore_enkidu1"
+    {
+        // General
+        //----------------------------------------------------------------
+        "BaseClass"                 "npc_dota_lone_druid_bear"
+        "Model"						"models/items/lone_druid/bear/tarzan_and_kingkong_spirit/tarzan_and_kingkong_spirit.vmdl"	// Model.
+		"ModelScale"				"0.8"
+        "UnitLabel"					"enkidu"
+        "SoundSet"					"LoneDruid_SpiritBear"					// Name of sound set.
+        "MinimapIcon"				"minimap_siege"
+        "MinimapIconSize"				"350"
+        "Level"						    "1"
+		"CanBeDominated"				"0"
+        "ConsideredHero"			"1"
+        "HasInventory"				"0"
+
+        // Abilities
+		//----------------------------------------------------------------
+        "Ability1"					""			// Ability 1.
+		"Ability2"					""			// Ability 2.
+		"Ability3"					""			// Ability 3.
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""			// Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+        // Movement
+		//----------------------------------------------------------------
+        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"320"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+        // Armor
+		//----------------------------------------------------------------
+        "ArmorPhysical"				"4"			// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+        // Status
+		//----------------------------------------------------------------
+        "StatusHealthRegen"         "2.0"
+        "StatusHealth"              "800"
+        "StatusManaRegen"           "2.0"
+        "StatusMana"                "400"
+
+        // Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Attack
+		//----------------------------------------------------------------
+        "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"50"		// Damage range min.
+		"AttackDamageMax"			"50"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.5"		// Speed of attack.
+		//"AttackAnimationPoint"		"0.7"		// Normalized time in animation cycle to attack.
+        "AttackAnimationPoint"		"0.467"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
+		"AttackRange"				"150"		// Range within a target can be attacked.
+		"ProjectileModel"			"" // Particle system model for projectile.
+		"ProjectileSpeed"			""		// Speed of projectile.
+
+        // Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"0"			// Base strength
+		"AttributeStrengthGain"		"0"			// Strength bonus per level.
+		"AttributeBaseIntelligence"	"0"			// Base intelligence
+		"AttributeIntelligenceGain"	"0"			// Intelligence bonus per level.
+		"AttributeBaseAgility"		"0"			// Base agility
+		"AttributeAgilityGain"		"0"			// Agility bonus per level.
+
+        // Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"300"		// Experience earn.
+		"BountyGoldMin"				"300"		// Gold earned min.
+		"BountyGoldMax"				"300"		// Gold earned max.
+
+        // Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"			// Hull type used for navigation/locomotion.
+		"RingRadius"				"45"
+		"HealthBarOffset"			"150"
+    }
+
+    "npc_avalore_enkidu2"
+    {
+        // General
+        //----------------------------------------------------------------
+        "BaseClass"                 "npc_dota_lone_druid_bear"
+        "Model"						"models/items/lone_druid/bear/tarzan_and_kingkong_spirit/tarzan_and_kingkong_spirit.vmdl"	// Model.
+		"ModelScale"				"0.8"
+        "UnitLabel"					"enkidu"
+        "SoundSet"					"LoneDruid_SpiritBear"					// Name of sound set.
+        "MinimapIcon"				"minimap_siege"
+        "MinimapIconSize"				"350"
+        "Level"						    "2"
+		"CanBeDominated"				"0"
+        "ConsideredHero"			"1"
+        "HasInventory"				"0"
+
+        // Abilities
+		//----------------------------------------------------------------
+        "Ability1"					""			// Ability 1.
+		"Ability2"					""			// Ability 2.
+		"Ability3"					""			// Ability 3.
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""			// Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+        // Armor
+		//----------------------------------------------------------------
+        "ArmorPhysical"				"5"			// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+        // Movement
+		//----------------------------------------------------------------
+        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"330"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+        // Status
+		//----------------------------------------------------------------
+        "StatusHealthRegen"         "2.0"
+        "StatusHealth"              "1000"
+        "StatusManaRegen"           "2.0"
+        "StatusMana"                "500"
+
+        // Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Attack
+		//----------------------------------------------------------------
+        "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"60"		// Damage range min.
+		"AttackDamageMax"			"60"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.5"		// Speed of attack.
+		//"AttackAnimationPoint"		"0.7"		// Normalized time in animation cycle to attack.
+        "AttackAnimationPoint"		"0.467"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
+		"AttackRange"				"150"		// Range within a target can be attacked.
+		"ProjectileModel"			"" // Particle system model for projectile.
+		"ProjectileSpeed"			""		// Speed of projectile.
+
+        // Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"0"			// Base strength
+		"AttributeStrengthGain"		"0"			// Strength bonus per level.
+		"AttributeBaseIntelligence"	"0"			// Base intelligence
+		"AttributeIntelligenceGain"	"0"			// Intelligence bonus per level.
+		"AttributeBaseAgility"		"0"			// Base agility
+		"AttributeAgilityGain"		"0"			// Agility bonus per level.
+
+        // Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"300"		// Experience earn.
+		"BountyGoldMin"				"300"		// Gold earned min.
+		"BountyGoldMax"				"300"		// Gold earned max.
+
+        // Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"			// Hull type used for navigation/locomotion.
+		"RingRadius"				"45"
+		"HealthBarOffset"			"150"
+    }
+
+    "npc_avalore_enkidu3"
+    {
+        // General
+        //----------------------------------------------------------------
+        "BaseClass"                 "npc_dota_lone_druid_bear"
+        "Model"						"models/items/lone_druid/true_form/tarzan_and_kingkong_trueform/tarzan_and_kingkong_trueform.vmdl"	// Model.
+		"ModelScale"				"0.8"
+        "UnitLabel"					"enkidu"
+        "SoundSet"					"LoneDruid_SpiritBear"					// Name of sound set.
+        "MinimapIcon"				"minimap_siege"
+        "MinimapIconSize"				"350"
+        "Level"						    "3"
+		"CanBeDominated"				"0"
+        "ConsideredHero"			"1"
+        "HasInventory"				"1"
+
+        // Abilities
+		//----------------------------------------------------------------
+        "Ability1"					""			// Ability 1.
+		"Ability2"					"ability_gilgamesh_grapple"			// Ability 2.
+		"Ability3"					""			// Ability 3.
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""			// Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+        // Armor
+		//----------------------------------------------------------------
+        "ArmorPhysical"				"6"			// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+        // Movement
+		//----------------------------------------------------------------
+        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"340"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+        // Status
+		//----------------------------------------------------------------
+        "StatusHealthRegen"         "3.0"
+        "StatusHealth"              "1200"
+        "StatusManaRegen"           "2.0"
+        "StatusMana"                "600"
+
+        // Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Attack
+		//----------------------------------------------------------------
+        "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"70"		// Damage range min.
+		"AttackDamageMax"			"70"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.5"		// Speed of attack.
+		//"AttackAnimationPoint"		"0.7"		// Normalized time in animation cycle to attack.
+        "AttackAnimationPoint"		"0.467"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
+		"AttackRange"				"150"		// Range within a target can be attacked.
+		"ProjectileModel"			"" // Particle system model for projectile.
+		"ProjectileSpeed"			""		// Speed of projectile.
+
+        // Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"0"			// Base strength
+		"AttributeStrengthGain"		"0"			// Strength bonus per level.
+		"AttributeBaseIntelligence"	"0"			// Base intelligence
+		"AttributeIntelligenceGain"	"0"			// Intelligence bonus per level.
+		"AttributeBaseAgility"		"0"			// Base agility
+		"AttributeAgilityGain"		"0"			// Agility bonus per level.
+
+        // Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"300"		// Experience earn.
+		"BountyGoldMin"				"300"		// Gold earned min.
+		"BountyGoldMax"				"300"		// Gold earned max.
+
+        // Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"			// Hull type used for navigation/locomotion.
+		"RingRadius"				"45"
+		"HealthBarOffset"			"150"
+    }
+
+    "npc_avalore_enkidu4"
+    {
+        // General
+        //----------------------------------------------------------------
+        "BaseClass"                 "npc_dota_lone_druid_bear"
+        "Model"						"models/items/lone_druid/true_form/tarzan_and_kingkong_trueform/tarzan_and_kingkong_trueform.vmdl"	// Model.
+		"ModelScale"				"0.8"
+        "UnitLabel"					"enkidu"
+        "SoundSet"					"LoneDruid_SpiritBear"					// Name of sound set.
+        "MinimapIcon"				"minimap_siege"
+        "MinimapIconSize"				"350"
+        "Level"						    "4"
+		"CanBeDominated"				"0"
+        "ConsideredHero"			"1"
+        "HasInventory"				"1"
+
+        // Abilities
+		//----------------------------------------------------------------
+        "Ability1"					""			// Ability 1.
+		"Ability2"					"ability_gilgamesh_grapple"			// Ability 2.
+		"Ability3"					""			// Ability 3.
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""			// Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+        // Armor
+		//----------------------------------------------------------------
+        "ArmorPhysical"				"7"			// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+        // Movement
+		//----------------------------------------------------------------
+        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"350"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+        // Status
+		//----------------------------------------------------------------
+        "StatusHealthRegen"         "3.0"
+        "StatusHealth"              "1400"
+        "StatusManaRegen"           "3.0"
+        "StatusMana"                "700"
+
+        // Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Attack
+		//----------------------------------------------------------------
+        "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"80"		// Damage range min.
+		"AttackDamageMax"			"80"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.5"		// Speed of attack.
+		//"AttackAnimationPoint"		"0.7"		// Normalized time in animation cycle to attack.
+        "AttackAnimationPoint"		"0.467"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
+		"AttackRange"				"150"		// Range within a target can be attacked.
+		"ProjectileModel"			"" // Particle system model for projectile.
+		"ProjectileSpeed"			""		// Speed of projectile.
+
+        // Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"0"			// Base strength
+		"AttributeStrengthGain"		"0"			// Strength bonus per level.
+		"AttributeBaseIntelligence"	"0"			// Base intelligence
+		"AttributeIntelligenceGain"	"0"			// Intelligence bonus per level.
+		"AttributeBaseAgility"		"0"			// Base agility
+		"AttributeAgilityGain"		"0"			// Agility bonus per level.
+
+        // Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"300"		// Experience earn.
+		"BountyGoldMin"				"300"		// Gold earned min.
+		"BountyGoldMax"				"300"		// Gold earned max.
+
+        // Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"			// Hull type used for navigation/locomotion.
+		"RingRadius"				"45"
+		"HealthBarOffset"			"150"
+    }
+}

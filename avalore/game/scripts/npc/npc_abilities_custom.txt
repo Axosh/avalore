@@ -37,6 +37,9 @@
 #base "heroes/quetzalcoatl/ability_calmecac_patronage.txt"
 #base "heroes/quetzalcoatl/ability_quetzalcoatls_blessing.txt"
 
+#base "heroes/gilgamesh/ability_befriend_enkidu.txt"
+#base "heroes/gilgamesh/ability_gilgamesh_grapple.txt"
+
 "DOTAAbilities"
 {	
 	"building_unselectable"
