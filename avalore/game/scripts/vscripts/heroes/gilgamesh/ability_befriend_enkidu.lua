@@ -1,11 +1,16 @@
 ability_befriend_enkidu = ability_befriend_enkidu or class({})
 
+LinkLuaModifier( "modifier_gilgameshs_sorrow", "scripts/vscripts/heroes/gilgamesh/modifier_gilgameshs_sorrow.lua", LUA_MODIFIER_MOTION_NONE )
+
 function ability_befriend_enkidu:OnSpellStart()
     if not IsServer() then return end
 
     print("ability_befriend_enkidu:OnSpellStart()")
     -- Spawn Unit
     self.enkidu = self:SummonEnkidu()
+
+    -- start tracking whether enkidu is alive
+    self:GetCaster():AddNewModifier(nil, nil, "modifier_gilgameshs_sorrow", {enkidu_ref = self.enkidu})
 end
 
 function ability_befriend_enkidu:OnUpgrade()
@@ -20,6 +25,9 @@ function ability_befriend_enkidu:OnUpgrade()
         UTIL_RemoveImmediate(self.enkidu)
         print("After: (" .. tostring(curr_location_vector.x) .. ", " .. tostring(curr_location_vector.y) .. ", " .. tostring(curr_location_vector.z) .. ")")
         self.enkidu = self:SummonEnkidu(curr_location_vector)
+
+        -- refresh to keep track of enkidu unit
+        self:GetCaster():AddNewModifier(nil, nil, "modifier_gilgameshs_sorrow", {enkidu_ref = self.enkidu})
     end
 end
 
