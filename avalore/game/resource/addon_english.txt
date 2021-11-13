@@ -209,6 +209,14 @@
 		"DOTA_Tooltip_modifier_quetzalcoatls_blessing_description"			"Receiving +%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% Bonus INT, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% Magic Amplification. If killed with this buff, receive -%dMODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE%%% Respawn Timer Reduction."
 
 
+		// ===== GILGAMESH ===== //
+		"DOTA_Tooltip_Ability_ability_befriend_enkidu"						"Befriend Enkidu"
+
+		"DOTA_Tooltip_Ability_ability_grapple"								"Grapple"
+
+		"DOTA_Tooltip_Ability_ability_erect_wall"							"Erect Wall"
+
+
 
 
 		//--------------------------------------------------------------------------------
