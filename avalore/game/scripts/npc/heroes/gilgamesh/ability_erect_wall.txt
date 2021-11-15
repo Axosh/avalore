@@ -1,0 +1,72 @@
+"DOTAAbilities"
+{
+    "ability_erect_wall"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"                    "heroes/gilgamesh/ability_erect_wall.lua"
+
+        "AbilityTextureName"            "gilgamesh/erect_wall"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "FightRecapLevel"				"1"
+        "MaxLevel"						"4"
+        "LevelsBetweenUpgrades"		    "2"
+
+        // Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.2"
+
+        // Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18 17 16 15"
+		"AbilityManaCost"				"125 140 155 170"
+
+        // Damage
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"110 160 210 260"
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"8.0"
+			}			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"    				"1400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fissure_radius"		"225"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.0 1.25 1.5 1.75"
+			}	
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"width"					"1400"
+			}			
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vector_target"			"1"
+			}
+		}
+    }
+}

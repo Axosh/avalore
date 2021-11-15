@@ -1,5 +1,8 @@
 ability_erect_wall = ability_erect_wall or class({})
 
+LinkLuaModifier( "modifier_erect_wall_thinker", "scripts/vscripts/heroes/gilgamesh/modifier_erect_wall_thinker.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
+
 function ability_erect_wall:OnSpellStart()
     if not IsServer() then return end
 
@@ -9,6 +12,8 @@ function ability_erect_wall:OnSpellStart()
     local duration      = self:GetSpecialValueFor("duration")
     local radius        = self:GetSpecialValueFor("radius")
     local stun_duration = self:GetSpecialValueFor("stun_duration")
+	--local distance 		= self:GetCastRange()
+	local distance 		= self:GetSpecialValueFor("width")
 
     local block_width   = 24
     local block_delta   = 8.25
@@ -28,14 +33,14 @@ function ability_erect_wall:OnSpellStart()
 	for i=1,blocks do
 		local block_vec = caster:GetOrigin() + direction*block_pos
 		local blocker = CreateModifierThinker(
-			caster, -- player source
-			self, -- ability source
-			"modifier_erect_wall_thinker", -- modifier name
-			{ duration = duration }, -- kv
-			block_vec,
-			caster:GetTeamNumber(),
-			true
-		)
+												caster, -- player source
+												self, -- ability source
+												"modifier_erect_wall_thinker", -- modifier name
+												{ duration = duration }, -- kv
+												block_vec,
+												caster:GetTeamNumber(),
+												true
+											)
 		blocker:SetHullRadius( block_width )
 		block_pos = block_pos + block_spacing
 	end
@@ -78,7 +83,7 @@ function ability_erect_wall:OnSpellStart()
 			unit:AddNewModifier(
 				caster, -- player source
 				self, -- ability source
-				"modifier_generic_stunned_lua", -- modifier name
+				"modifier_avalore_stunned", -- modifier name
 				{ duration = stun_duration } -- kv
 			)
 		end
@@ -86,4 +91,26 @@ function ability_erect_wall:OnSpellStart()
 
 	-- Effects
 	self:PlayEffects( start_pos, end_pos, duration )
+end
+
+
+function ability_erect_wall:PlayEffects( start_pos, end_pos, duration )
+	-- Get Resources
+	local particle_cast = "particles/econ/items/earthshaker/earthshaker_gravelmaw/earthshaker_fissure_gravelmaw.vpcf"
+	local sound_cast = "Hero_EarthShaker.Fissure"
+
+	-- generate data
+	local caster = self:GetCaster()
+
+	-- Create Particle
+	-- local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, caster )
+	local effect_cast = assert(loadfile("lua_abilities/rubick_spell_steal_lua/rubick_spell_steal_lua_arcana"))(self, particle_cast, PATTACH_WORLDORIGIN, caster )
+	ParticleManager:SetParticleControl( effect_cast, 0, start_pos )
+	ParticleManager:SetParticleControl( effect_cast, 1, end_pos )
+	ParticleManager:SetParticleControl( effect_cast, 2, Vector( duration, 0, 0 ) )
+	ParticleManager:ReleaseParticleIndex( effect_cast )
+
+	-- Create Sound
+	EmitSoundOnLocationWithCaster( start_pos, sound_cast, caster )
+	EmitSoundOnLocationWithCaster( end_pos, sound_cast, caster )
 end
