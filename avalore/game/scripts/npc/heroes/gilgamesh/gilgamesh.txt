@@ -14,7 +14,7 @@
 		"AbilityLayout"     "4"
 		"Ability1"					"ability_befriend_enkidu"
 		"Ability2"					"ability_gilgamesh_grapple"
-		"Ability3"					""
+		"Ability3"					"ability_erect_wall"
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.

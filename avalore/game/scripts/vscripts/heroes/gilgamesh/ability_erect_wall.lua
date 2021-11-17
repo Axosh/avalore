@@ -8,6 +8,8 @@ function ability_erect_wall:OnSpellStart()
 
     local caster         = self:GetCaster()
     local vector_targets = self:GetVectorTargetPosition()
+	--local point = self:GetCursorPosition()
+	
 
     local duration      = self:GetSpecialValueFor("duration")
     local radius        = self:GetSpecialValueFor("radius")
@@ -19,7 +21,8 @@ function ability_erect_wall:OnSpellStart()
     local block_delta   = 8.25
 
     -- wall vector
-    local direction = point-vector_targets.init_pos
+    --local direction = point-vector_targets.init_pos
+	local direction = vector_targets.direction --vector_targets.end_pos - vector_targets.init_pos
 	direction.z = 0
 	direction = direction:Normalized()
 	local wall_vector = direction * distance
@@ -103,8 +106,8 @@ function ability_erect_wall:PlayEffects( start_pos, end_pos, duration )
 	local caster = self:GetCaster()
 
 	-- Create Particle
-	-- local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, caster )
-	local effect_cast = assert(loadfile("lua_abilities/rubick_spell_steal_lua/rubick_spell_steal_lua_arcana"))(self, particle_cast, PATTACH_WORLDORIGIN, caster )
+	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, caster )
+	--local effect_cast = assert(loadfile("lua_abilities/rubick_spell_steal_lua/rubick_spell_steal_lua_arcana"))(self, particle_cast, PATTACH_WORLDORIGIN, caster )
 	ParticleManager:SetParticleControl( effect_cast, 0, start_pos )
 	ParticleManager:SetParticleControl( effect_cast, 1, end_pos )
 	ParticleManager:SetParticleControl( effect_cast, 2, Vector( duration, 0, 0 ) )
