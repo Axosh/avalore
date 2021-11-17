@@ -31,10 +31,12 @@ function ability_erect_wall:OnSpellStart()
 	local block_spacing = (block_delta+2*block_width)
 	local blocks = distance/block_spacing
 	local block_pos = caster:GetHullRadius() + block_delta + block_width
-	local start_pos = caster:GetOrigin() + direction*block_pos
+	--local start_pos = caster:GetOrigin() + direction*block_pos
+	local start_pos = vector_targets.init_pos + direction*block_pos
 
 	for i=1,blocks do
-		local block_vec = caster:GetOrigin() + direction*block_pos
+		--local block_vec = caster:GetOrigin() + direction*block_pos
+		local block_vec = vector_targets.init_pos + direction*block_pos
 		local blocker = CreateModifierThinker(
 												caster, -- player source
 												self, -- ability source
