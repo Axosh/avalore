@@ -211,10 +211,13 @@
 
 		// ===== GILGAMESH ===== //
 		"DOTA_Tooltip_Ability_ability_befriend_enkidu"						"Befriend Enkidu"
+		"DOTA_Tooltip_Ability_ability_befriend_enkidu_Lore"					"Early on in the myth, Gilgamesh and Enkidu become best of friends. Over time, Enkidu becomes more human and less animal. When he dies, Gilgamesh is grief stricken."
 
 		"DOTA_Tooltip_Ability_ability_grapple"								"Grapple"
+		"DOTA_Tooltip_Ability_ability_grapple_Lore"							"Gilgamesh and Enkidu wrestle and grapple in their initial bout. Later on, Enkidu holds the Bull of Heaven while Gilgamesh slays it."
 
 		"DOTA_Tooltip_Ability_ability_erect_wall"							"Erect Wall"
+		"DOTA_Tooltip_Ability_ability_erect_wall_Lore"						"Gilgamesh, King of Uruk and a skilled builder, surrounded the city with glorious walls"
 
 
 

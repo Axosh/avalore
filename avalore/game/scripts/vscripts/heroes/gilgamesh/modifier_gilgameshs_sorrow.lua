@@ -2,7 +2,8 @@ modifier_gilgameshs_sorrow = class({})
 
 -- hide if we don't have an active count-down timer
 function modifier_gilgameshs_sorrow:IsHidden()
-    return self:GetStackCount() == 6
+    return false -- for testing
+    --return self:GetStackCount() == 6
 end
 function modifier_gilgameshs_sorrow:IsPurgable()	return false end
 function modifier_gilgameshs_sorrow:RemoveOnDeath() return false end
@@ -12,10 +13,18 @@ function modifier_gilgameshs_sorrow:GetAttributes() return MODIFIER_ATTRIBUTE_MU
 function modifier_gilgameshs_sorrow:OnCreated(kv)
     if not IsServer() then return end
 
+    print("Added: modifier_gilgameshs_sorrow")
+
     self.enkidu_ref = kv.enkidu_ref
     self.debuffed = false
     self:SetStackCount(6)
     self:StartIntervalThink(1)
+end
+
+function modifier_gilgameshs_sorrow:UpdateEnkiduRef(enk_ref)
+    self.enkidu_ref = enk_ref
+    self.debuffed = false
+    self:SetStackCount(6)
 end
 
 function modifier_gilgameshs_sorrow:OnIntervalThink()

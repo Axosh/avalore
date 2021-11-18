@@ -9,8 +9,15 @@ function ability_befriend_enkidu:OnSpellStart()
     -- Spawn Unit
     self.enkidu = self:SummonEnkidu()
 
+    print("ability_befriend_enkidu:OnSpellStart()")
+
     -- start tracking whether enkidu is alive
-    self:GetCaster():AddNewModifier(nil, nil, "modifier_gilgameshs_sorrow", {enkidu_ref = self.enkidu})
+    if not self.sorrow_debuff then
+        self.sorrow_debuff = self:GetCaster():AddNewModifier(nil, nil, "modifier_gilgameshs_sorrow", {enkidu_ref = self.enkidu})
+    else
+        -- update enkidu ref
+        (self.sorrow_debuff):UpdateEnkiduRef(self.enkidu)
+    end
 end
 
 function ability_befriend_enkidu:OnUpgrade()
@@ -27,7 +34,12 @@ function ability_befriend_enkidu:OnUpgrade()
         self.enkidu = self:SummonEnkidu(curr_location_vector)
 
         -- refresh to keep track of enkidu unit
-        self:GetCaster():AddNewModifier(nil, nil, "modifier_gilgameshs_sorrow", {enkidu_ref = self.enkidu})
+        if not self.sorrow_debuff then
+            self.sorrow_debuff = self:GetCaster():AddNewModifier(nil, nil, "modifier_gilgameshs_sorrow", {enkidu_ref = self.enkidu})
+        else
+            -- update enkidu ref
+            (self.sorrow_debuff):UpdateEnkiduRef(self.enkidu)
+        end
     end
 end
 
