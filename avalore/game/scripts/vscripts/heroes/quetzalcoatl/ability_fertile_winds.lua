@@ -1,4 +1,5 @@
 require("references")
+require(REQ_LIB_TIMERS)
 
 ability_fertile_winds = ability_fertile_winds or class({})
 
@@ -61,7 +62,9 @@ function ability_fertile_winds:OnSpellStart(kv)
         if elapsedTime > 0.2 and elapsedTime < (dashDuration - 0.2) and self.tree_spawn_counter == 0 then
             local spawn_location = caster:GetAbsOrigin() + caster:GetRightVector() * 32
             --local tree = CreateTempTreeWithModel(caster:GetAbsOrigin() + caster:GetRightVector() * 32, treeDuration, "models/props_tree/dire_tree005.vmdl")
-            CreateTempTreeWithModel(spawn_location, treeDuration, "models/props_tree/dire_tree005.vmdl")
+            --Timers:CreateTimer(0.2, function()
+                CreateTempTreeWithModel(spawn_location, treeDuration, "models/props_tree/dire_tree005.vmdl")
+            --end)
             self.tree_spawn_counter = 3
             if self.heal_tree_counter == 0 then
                 local unit = CreateUnitByName('npc_dummy_unit', spawn_location, false, caster, caster, caster:GetTeamNumber())
@@ -80,14 +83,7 @@ function ability_fertile_winds:OnSpellStart(kv)
 		-- 	caster:RemoveModifierByName("modifier_imba_phoenix_icarus_dive_dash_dummy")
 		-- end
 
-		-- check for interrupted
-		if not caster:HasModifier( dummy_modifier ) then
-			ParticleManager:DestroyParticle(pfx, false)
-			ParticleManager:ReleaseParticleIndex(pfx)
-            ParticleManager:DestroyParticle(pfx2, false)
-			ParticleManager:ReleaseParticleIndex(pfx2)
-			return nil
-		end
+		
 
 		-- Calculate potision
 		local theta = -2 * math.pi * progress
@@ -100,6 +96,15 @@ function ability_fertile_winds:OnSpellStart(kv)
 		pos = GetGroundPosition( pos, caster )
 		caster:SetAbsOrigin( pos )
 		caster:SetAngles( casterAngles.x, yaw, casterAngles.z )
+
+        -- check for interrupted => do it after moving to help prevent getting stuck in trees
+		if not caster:HasModifier( dummy_modifier ) then
+			ParticleManager:DestroyParticle(pfx, false)
+			ParticleManager:ReleaseParticleIndex(pfx)
+            ParticleManager:DestroyParticle(pfx2, false)
+			ParticleManager:ReleaseParticleIndex(pfx2)
+			return nil
+		end
 
 		return 0.03
 	end, 0 )
