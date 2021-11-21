@@ -27,9 +27,9 @@ function ability_befriend_enkidu:OnUpgrade()
     if self.enkidu and self.enkidu:IsAlive() then
         -- remove the old model without drawing
         local curr_location_vector = Vector(self.enkidu:GetAbsOrigin().x, self.enkidu:GetAbsOrigin().y, self.enkidu:GetAbsOrigin().z)
-        print("Before: (" .. tostring(curr_location_vector.x) .. ", " .. tostring(curr_location_vector.y) .. ", " .. tostring(curr_location_vector.z) .. ")")
+        --print("Before: (" .. tostring(curr_location_vector.x) .. ", " .. tostring(curr_location_vector.y) .. ", " .. tostring(curr_location_vector.z) .. ")")
         UTIL_RemoveImmediate(self.enkidu)
-        print("After: (" .. tostring(curr_location_vector.x) .. ", " .. tostring(curr_location_vector.y) .. ", " .. tostring(curr_location_vector.z) .. ")")
+        --print("After: (" .. tostring(curr_location_vector.x) .. ", " .. tostring(curr_location_vector.y) .. ", " .. tostring(curr_location_vector.z) .. ")")
         self.enkidu = self:SummonEnkidu(curr_location_vector)
 
         -- refresh to keep track of enkidu unit
@@ -43,13 +43,19 @@ function ability_befriend_enkidu:OnUpgrade()
     end
 end
 
+function ability_befriend_enkidu:GetEnkiduRef()
+    if not IsServer() then return end
+
+    return self.enkidu
+end
+
 -- TODO: decide if we want to keep modifiers/hp/mana consistent
 function ability_befriend_enkidu:SummonEnkidu(vector_location)
     if not IsServer() then return end
 
     local spawn_location_vector = self:GetCaster():GetAbsOrigin()
     if vector_location ~= nil then
-        print("using vector_location")
+        --print("using vector_location")
         spawn_location_vector  = vector_location
     end
 
@@ -61,6 +67,11 @@ function ability_befriend_enkidu:SummonEnkidu(vector_location)
                                     self:GetCaster(),
                                     self:GetCaster(),
                                     self:GetCaster():GetTeam())
+
+    -- sync the Grapple Ability
+    if enkidu_level > 2 and self:GetCaster():GetAbilityByIndex(1):GetLevel() > 0 then
+        unit:GetAbilityByIndex(0):SetLevel(self:GetCaster():GetAbilityByIndex(1):GetLevel())
+    end
 
     -- Spawn Effects
     --particles/units/heroes/hero_lone_druid/lone_druid_bear_spawn.vpcf
@@ -74,6 +85,6 @@ function ability_befriend_enkidu:SummonEnkidu(vector_location)
     -- give control
     unit:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
 
-    print("Enk Ref => " .. tostring(unit))
+    --print("Enk Ref => " .. tostring(unit))
     return unit
 end

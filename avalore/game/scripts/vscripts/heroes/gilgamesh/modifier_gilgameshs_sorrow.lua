@@ -19,10 +19,10 @@ function modifier_gilgameshs_sorrow:OnCreated(kv)
     print("Added: modifier_gilgameshs_sorrow")
 
     self.enkidu_ref = kv.enkidu_ref
-    if self.enkidu_ref ~= nil then
-        print(tostring(self.enkidu_ref))
-        print(tostring(self.enkidu_ref:IsAlive()))
-    end
+    -- if self.enkidu_ref ~= nil then
+    --     print(tostring(self.enkidu_ref))
+    --     print(tostring(self.enkidu_ref:IsAlive()))
+    -- end
     self.debuffed = false
     self:SetStackCount(6)
     self:StartIntervalThink(1)
@@ -31,10 +31,10 @@ end
 function modifier_gilgameshs_sorrow:UpdateEnkiduRef(enk_ref)
     print("modifier_gilgameshs_sorrow:UpdateEnkiduRef(enk_ref)")
     self.enkidu_ref = enk_ref
-    if self.enkidu_ref ~= nil then
-        print(tostring(self.enkidu_ref))
-        print(tostring(self.enkidu_ref:IsAlive()))
-    end
+    -- if self.enkidu_ref ~= nil then
+    --     print(tostring(self.enkidu_ref))
+    --     print(tostring(self.enkidu_ref:IsAlive()))
+    -- end
     self.debuffed = false
     self:SetStackCount(6)
 end
@@ -42,10 +42,10 @@ end
 function modifier_gilgameshs_sorrow:OnIntervalThink()
     if not IsServer() then return end
 
-    if self.enkidu_ref ~= nil then
-        print(tostring(self.enkidu_ref))
-        print(tostring(self.enkidu_ref:IsAlive()))
-    end
+    -- if self.enkidu_ref ~= nil then
+    --     print(tostring(self.enkidu_ref))
+    --     print(tostring(self.enkidu_ref:IsAlive()))
+    -- end
 
     -- check if enkidu is dead
     if not (self.enkidu_ref and self.enkidu_ref:IsAlive()) then

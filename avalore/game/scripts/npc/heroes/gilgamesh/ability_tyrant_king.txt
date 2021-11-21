@@ -4,7 +4,7 @@
     {
         "BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/gilgamesh/ability_tyrant_king.lua"
-        "AbilityTextureName"			"tyrant_king"
+        "AbilityTextureName"			"gilgamesh/tyrant_king"
 		"FightRecapLevel"				"2"
 		"MaxLevel"						"3"
 

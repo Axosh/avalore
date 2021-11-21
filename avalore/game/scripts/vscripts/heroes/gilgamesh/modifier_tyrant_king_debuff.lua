@@ -17,5 +17,19 @@ function modifier_tyrant_king_debuff:DeclareFunctions()
 end
 
 function modifier_tyrant_king_debuff:GetModifierDamageOutgoing_Percentage()
-    return (self.leech_percent * -1)
+    return ((self.leech_percent * 100) * -1)
 end
+
+-- ================================================================================
+-- NOTE: This approach crashes localhost
+-- ================================================================================
+-- function modifier_tyrant_king_debuff:DeclareFunctions()
+--     return {
+--         MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE
+--     }
+-- end
+
+-- function modifier_tyrant_king_debuff:GetModifierBaseAttack_BonusDamage()
+--     return (self:GetParent():GetAttackDamage() * (self.leech_percent * -1))
+-- end
+-- ================================================================================

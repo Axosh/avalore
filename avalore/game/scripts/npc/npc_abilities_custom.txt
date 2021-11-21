@@ -40,6 +40,7 @@
 #base "heroes/gilgamesh/ability_befriend_enkidu.txt"
 #base "heroes/gilgamesh/ability_gilgamesh_grapple.txt"
 #base "heroes/gilgamesh/ability_erect_wall.txt"
+#base "heroes/gilgamesh/ability_tyrant_king.txt"
 
 "DOTAAbilities"
 {	

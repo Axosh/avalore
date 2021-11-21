@@ -29,6 +29,34 @@ function ability_gilgamesh_grapple:OnSpellStart()
     end
 end
 
+function ability_gilgamesh_grapple:OnUpgrade()
+    if not IsServer() then return end
+
+    print("ability_gilgamesh_grapple:OnUpgrade()")
+
+    -- sync Grapple Level if Gilgamesh upgraded (since both have ref to the ability)
+    -- (not sure if force leveling triggers OnUpgrade)
+    if self:GetOwner():GetUnitLabel() == "enkidu" then
+        return
+    end
+
+    local enk_ability = self:GetOwner():GetAbilityByIndex(0)
+    local enk_ref = enk_ability:GetEnkiduRef()
+    if enk_ref:GetLevel() > 2 then
+        enk_ref:GetAbilityByIndex(0):SetLevel(self:GetLevel())
+    end
+
+    -- units = Entities:FindAllByName("enkidu")
+
+    -- -- units = self:GetCaster():GetAdditionalOwnedUnits()
+    -- for _,unit in pairs(units) do
+    --     print(unit:GetName())
+    --     if unit:GetUnitLabel() == "enkidu" and unit:GetLevel() > 2 then --and unit:GetOwner() == self:GetOwner() then
+    --         unit:GetAbilityByIndex(0):SetLevel(self:GetLevel())
+    --     end
+    -- end
+end
+
 function ability_gilgamesh_grapple:OnChannelFinish(bool_interrupted)
     if not IsServer() then return end
 
