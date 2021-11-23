@@ -6,6 +6,7 @@ ability_fertile_winds = ability_fertile_winds or class({})
 LinkLuaModifier( "modifier_fertile_winds_helper", "scripts/vscripts/heroes/quetzalcoatl/modifier_fertile_winds_helper", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_fertile_winds_heal", "scripts/vscripts/heroes/quetzalcoatl/modifier_fertile_winds_heal", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_unselectable", MODIFIER_UNSELECTABLE, LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_avalore_destroy_trees", "scripts/vscripts/modifiers/base_spell/modifier_avalore_destroy_trees.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_fertile_winds:OnSpellStart(kv)
     if not IsServer() then return end
@@ -103,6 +104,11 @@ function ability_fertile_winds:OnSpellStart(kv)
 			ParticleManager:ReleaseParticleIndex(pfx)
             ParticleManager:DestroyParticle(pfx2, false)
 			ParticleManager:ReleaseParticleIndex(pfx2)
+            
+            -- give a temporary tree clearing mod so they don't get stuck
+            caster:AddNewModifier(caster, self, "modifier_avalore_destroy_trees", { duration = 1.0 })
+            
+
 			return nil
 		end
 

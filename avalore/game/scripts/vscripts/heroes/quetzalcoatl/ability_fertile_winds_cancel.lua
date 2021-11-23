@@ -20,5 +20,5 @@ function ability_fertile_winds_cancel:OnSpellStart()
 
     -- just remove the modifier, the helper's OnDestroy knows how to swap the normal spell back in
     self:GetCaster():RemoveModifierByName("modifier_fertile_winds_helper")
-    GridNav:DestroyTreesAroundPoint(self:GetCaster():GetAbsOrigin(), 128, true) -- try to make sure he doesn't get stuck in a tree
+    --GridNav:DestroyTreesAroundPoint(self:GetCaster():GetAbsOrigin(), 128, true) -- try to make sure he doesn't get stuck in a tree
 end

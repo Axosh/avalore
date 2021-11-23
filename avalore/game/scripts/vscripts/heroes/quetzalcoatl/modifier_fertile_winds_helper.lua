@@ -42,6 +42,6 @@ function modifier_fertile_winds_helper:OnDestroy()
     SwapSpells(self, ability_slot, "ability_fertile_winds")
 
     -- Anti-stuck
-    FindClearSpaceForUnit(caster, point, true)
-	GridNav:DestroyTreesAroundPoint(point, 150, true) -- find clear space doesn't seem to work all that well
+    --FindClearSpaceForUnit(caster, point, true)
+	--GridNav:DestroyTreesAroundPoint(point, 150, true) -- find clear space doesn't seem to work all that well
 end
