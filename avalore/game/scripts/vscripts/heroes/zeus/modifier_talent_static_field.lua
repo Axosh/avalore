@@ -6,6 +6,10 @@ function modifier_talent_static_field:IsHidden() return true end
 
 function modifier_talent_static_field:OnAbilityExecuted(kv)
     if not IsServer() then return end
+    print("modifier_talent_static_field:OnAbilityExecuted(kv)")
+
+    if not self:GetCaster():HasTalent("talent_static_field") then return end
+    print("modifier_talent_static_field:OnAbilityExecuted(kv) -- Has Talent")
 
     local caster = self:GetCaster()
     if kv.unit == caster and not kv.ability:IsItem() then

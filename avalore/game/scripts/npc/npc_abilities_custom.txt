@@ -30,6 +30,7 @@
 #base "heroes/zeus/ability_eagle_cancel.txt"
 #base "heroes/zeus/ability_summon_storm.txt"
 #base "heroes/zeus/ability_thunder_gods_wrath.txt"
+#base "heroes/zeus/talent_static_field.txt"
 
 #base "heroes/quetzalcoatl/ability_fertile_winds.txt"
 #base "heroes/quetzalcoatl/ability_fertile_winds_cancel.txt"

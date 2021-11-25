@@ -48,7 +48,7 @@ function ability_lightning_bolt:LightningBolt(caster, ability, target, target_po
     if storm_cloud then
         storm_cloud:EmitSound("Hero_Zuus.LightningBolt")
     else
-        storm_cloud:EmitSound("Hero_Zuus.LightningBolt")
+        caster:EmitSound("Hero_Zuus.LightningBolt")
     end
 
     AddFOWViewer(caster:GetTeam(), target_point, true_sight_radius, sight_duration, false)
@@ -155,4 +155,5 @@ function ability_lightning_bolt:LightningBolt(caster, ability, target, target_po
 
         ApplyDamage(damage_table)
     end
+    ParticleManager:ReleaseParticleIndex( particle )
 end

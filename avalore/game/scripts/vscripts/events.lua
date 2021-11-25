@@ -20,6 +20,9 @@ LinkLuaModifier("modifier_faction_forest",     "modifiers/faction/modifier_facti
 LinkLuaModifier("modifier_faction_water",      "modifiers/faction/modifier_faction_water.lua",        LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_olympians",      "modifiers/faction/modifier_faction_olympians.lua",    LUA_MODIFIER_MOTION_NONE)
 
+-- Talents that can be activated later
+LinkLuaModifier("modifier_talent_static_field",       "heroes/zeus/modifier_talent_static_field.lua",       LUA_MODIFIER_MOTION_NONE)
+
 -- Inventory Debug
 LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
 
@@ -718,6 +721,7 @@ end
 function CAvaloreGameMode:InitZeus(hero, playernum)
 	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
 	unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
+	unit:AddNewModifier(unit, nil, "modifier_talent_static_field", nil)
 	local zeus_cosmetics = {}
 	--zeus_cosmetics[0] = "models/heroes/pedestal/mesh/effigy_zeus_arcana.vmdl"
 	zeus_cosmetics[0] = "models/heroes/zeus/zeus_hair_arcana.vmdl"

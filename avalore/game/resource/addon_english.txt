@@ -183,6 +183,11 @@
 		"DOTA_Tooltip_Ability_ability_shapeshift_Note0"					"Instantly destroys illusions."
 		"DOTA_Tooltip_Ability_ability_shapeshift_Lore"					"Zeus took many animal forms, notably an Eagle, Bull, and Swan. He also sometimes transformed mortals, for instance turning Lycaon into a wolf as a punishment."
 
+		// -- Talents
+		"DOTA_Tooltip_Ability_talent_static_field"						"Static Field"
+		"DOTA_Tooltip_Ability_talent_static_field_description"			"On Casting an Electrical Spell, Zeus emits a 900 radius field that deals 8% of a Unit's Current HP if they're in range."
+
+
 		// ===== QUETZALCOATL =====
 		"DOTA_Tooltip_Ability_ability_fertile_winds"					"Fertile Winds"
 		"DOTA_Tooltip_Ability_ability_fertile_winds_Lore"				"Quetzalcoatl was a god of wind and fertility, bringing the rain that grew life-giving crops."
