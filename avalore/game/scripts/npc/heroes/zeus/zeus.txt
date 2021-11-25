@@ -25,7 +25,7 @@
 		// "Ability8"					""			// Ability 8 - Extra.
 
         //10-17 => Talents
-        //"Ability10"                 ""
+        "Ability10"                 "modifier_talent_static_field"
         
         // Movement
 		//----------------------------------------------------------------

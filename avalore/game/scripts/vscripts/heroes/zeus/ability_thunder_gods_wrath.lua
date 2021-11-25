@@ -1,5 +1,7 @@
 ability_thunder_gods_wrath = class({})
 
+LinkLuaModifier("modifier_talent_static_field",       "heroes/zeus/modifier_talent_static_field.lua",       LUA_MODIFIER_MOTION_NONE)
+
 function ability_thunder_gods_wrath:OnAbilityPhaseStart()
 	self:GetCaster():EmitSound("Hero_Zuus.GodsWrath.PreCast")
 

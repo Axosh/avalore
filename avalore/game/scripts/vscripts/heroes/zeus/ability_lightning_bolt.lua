@@ -2,6 +2,7 @@ ability_lightning_bolt = class({})
 
 LinkLuaModifier("modifier_lightning_true_sight", "heroes/zeus/modifier_lightning_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_lightning_bolt",       "heroes/zeus/modifier_lightning_bolt.lua",       LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_static_field",       "heroes/zeus/modifier_talent_static_field.lua",       LUA_MODIFIER_MOTION_NONE)
 
 function ability_lightning_bolt:OnAbilityPhaseStart()
     self:GetCaster():EmitSound("Hero_Zuus.LightningBolt.Cast")

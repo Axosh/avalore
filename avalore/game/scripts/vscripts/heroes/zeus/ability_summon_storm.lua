@@ -1,6 +1,7 @@
 ability_summon_storm = class({})
 
 LinkLuaModifier("modifier_storm_cloud", "heroes/zeus/modifier_storm_cloud.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_static_field",       "heroes/zeus/modifier_talent_static_field.lua",       LUA_MODIFIER_MOTION_NONE)
 
 function ability_summon_storm:GetAOERadius()
 	return self:GetSpecialValueFor("cloud_radius")

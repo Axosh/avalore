@@ -1,0 +1,34 @@
+"DOTAAbilities"
+{
+    "talent_static_field"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbility"
+		{
+            "01"    "ability_lightning_bolt"
+            "02"    "ability_summon_storm"
+            "03"    "ability_thunder_gods_wrath"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                      "FIELD_FLOAT"
+				"radius"				        "900"
+			}
+			"02"
+			{
+				"var_type"                      "FIELD_FLOAT"
+				"damage_health_pct"				"8"
+			}
+		}
+    }
+}
