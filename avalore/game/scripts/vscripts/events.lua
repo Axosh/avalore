@@ -719,9 +719,13 @@ function CAvaloreGameMode:InitDionysus(hero, playernum)
 end
 
 function CAvaloreGameMode:InitZeus(hero, playernum)
+	--print("Ability Index 10: " .. hero:GetAbilityByIndex(10):GetName())
 	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
 	unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
-	unit:AddNewModifier(unit, nil, "modifier_talent_static_field", nil)
+
+	local talent_static_field = hero:GetAbilityByName("talent_static_field")
+	print("Found Static Field - " .. talent_static_field:GetName())
+	unit:AddNewModifier(unit, talent_static_field, "modifier_talent_static_field", nil)
 	local zeus_cosmetics = {}
 	--zeus_cosmetics[0] = "models/heroes/pedestal/mesh/effigy_zeus_arcana.vmdl"
 	zeus_cosmetics[0] = "models/heroes/zeus/zeus_hair_arcana.vmdl"

@@ -42,6 +42,7 @@ require('libraries/player')
 require("libraries/vector_target")
 require('buildings/hire_queue')
 require("avalore_debug")
+require('hero_extension')
 
 flag_announce_curr = 1
 
