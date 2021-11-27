@@ -31,10 +31,20 @@ function modifier_shapeshift_eagle:GetModifierModelChange()
 end
 
 function modifier_shapeshift_eagle:OnCreated()
-    if not IsServer() then return end
+    --if not IsServer() then return end
 
     self.movespeed = self:GetAbility():GetSpecialValueFor("speed_self")
     self.vision = self:GetAbility():GetSpecialValueFor("vision")
+
+    print(self:GetCaster():GetName())
+
+    if self:GetCaster():HasTalent("talent_ride_the_stormwinds") then
+    --if self:GetCaster():FindAbilityByName("talent_ride_the_stormwinds") then
+        self.movespeed = self.movespeed + self:GetCaster():GetAbilityByName("talent_ride_the_stormwinds"):GetSpecialValueFor("bonus_speed")
+        self.vision = self.vision + self:GetCaster():GetAbilityByName("talent_ride_the_stormwinds"):GetSpecialValueFor("bonus_vision")
+    end
+
+    print("MS = " .. tostring(self.movespeed))
 
     -- for slot=0,10 do
     --     if self:GetCaster():GetAbilityByIndex(slot) then
@@ -42,12 +52,14 @@ function modifier_shapeshift_eagle:OnCreated()
     --     end
     -- end
 
+    if not IsServer() then return end
+
     self:GetCaster():GetAbilityByIndex(0):SetHidden(true)
     self:GetCaster():GetAbilityByIndex(2):SetHidden(true)
     self:GetCaster():GetAbilityByIndex(5):SetHidden(true) --ults go here in layout 4
 end
 
-function modifier_shapeshift_eagle:GetModifierMoveSpeed_AbsoluteMin()
+function modifier_shapeshift_eagle:GetModifierMoveSpeedOverride()
     return self.movespeed
 end
 

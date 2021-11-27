@@ -49,7 +49,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"speed_self"				"400 450 500 550"
+				"speed_self"				"350 400 450 500"
 			}
             "04"
 			{

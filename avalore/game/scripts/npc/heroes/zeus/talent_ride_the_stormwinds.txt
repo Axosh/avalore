@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+    "talent_ride_the_stormwinds"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbility"
+		{
+            "01"    "ability_shapeshift"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"bonus_speed"		    "50"
+			}
+			"02"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"bonus_vision"           "500"
+			}
+		}
+    }
+}

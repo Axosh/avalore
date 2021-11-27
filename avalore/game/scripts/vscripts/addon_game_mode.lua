@@ -43,6 +43,7 @@ require("libraries/vector_target")
 require('buildings/hire_queue')
 require("avalore_debug")
 require('hero_extension')
+require('addon_init') -- client-side code/extension
 
 flag_announce_curr = 1
 

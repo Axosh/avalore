@@ -180,6 +180,7 @@
 		"DOTA_Tooltip_Ability_ability_shapeshift_Description"			"<b>When cast on self:</b> turn into an eagle with flying movement and bonus vision. Can be cancelled any time.\n<b>When cast on enemy:</b> <font color=\"#ffa500\">Hexes</font> target into a wolf"
 		"DOTA_Tooltip_Ability_ability_shapeshift_duration_self"			"DURATION (SELF):"
 		"DOTA_Tooltip_Ability_ability_shapeshift_duration_enemy"		"DURATION (ENEMY):"
+		//"DOTA_Tooltip_Ability_ability_shapeshift_mov
 		"DOTA_Tooltip_Ability_ability_shapeshift_Note0"					"Instantly destroys illusions."
 		"DOTA_Tooltip_Ability_ability_shapeshift_Lore"					"Zeus took many animal forms, notably an Eagle, Bull, and Swan. He also sometimes transformed mortals, for instance turning Lycaon into a wolf as a punishment."
 
@@ -189,6 +190,9 @@
 
 		"DOTA_Tooltip_Ability_talent_chain_lightning"					"Chain Lightning"
 		"DOTA_Tooltip_Ability_talent_chain_lightning_description"		"Adds chain lightning to Lightning Bolt. Hops to a target in 500 range 5/7/9/15 times dealing 75/100/125/150 magic damage"
+
+		"DOTA_Tooltip_Ability_talent_ride_the_stormwinds"				"Ride the Stormwinds"
+		"DOTA_Tooltip_Ability_talent_ride_the_stormwinds_description"		"While shapeshifted to an Eagle, gains a bonus +50 Movespeed and +500 Vision"
 
 
 		// ===== QUETZALCOATL =====
