@@ -26,6 +26,7 @@
 
         //10-17 => Talents
         "Ability10"                 "talent_static_field"
+        "Ability11"                 "talent_chain_lightning"
         
         // Movement
 		//----------------------------------------------------------------

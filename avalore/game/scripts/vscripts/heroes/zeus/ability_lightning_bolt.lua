@@ -3,6 +3,7 @@ ability_lightning_bolt = class({})
 LinkLuaModifier("modifier_lightning_true_sight", "heroes/zeus/modifier_lightning_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_lightning_bolt",       "heroes/zeus/modifier_lightning_bolt.lua",       LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_talent_static_field",       "heroes/zeus/modifier_talent_static_field.lua",       LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_chain_lightning",       "heroes/zeus/modifier_talent_chain_lightning.lua",       LUA_MODIFIER_MOTION_NONE)
 
 function ability_lightning_bolt:OnAbilityPhaseStart()
     self:GetCaster():EmitSound("Hero_Zuus.LightningBolt.Cast")
@@ -136,6 +137,21 @@ function ability_lightning_bolt:LightningBolt(caster, ability, target, target_po
 
     dummy_unit:AddNewModifier(caster, ability, "modifier_lightning_bolt", {})
     --dummy_unit:AddNewModifier(caster, nil, "modifier_kill", {duration = sight_duration + 1})
+
+    -- if they chose chain lightning, add that to the spell
+    if caster:HasTalent("talent_chain_lightning") and (target == nil or not target:TriggerSpellAbsorb(ability))  then
+        local head_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning_head.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+		ParticleManager:SetParticleControlEnt(head_particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(head_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		-- No reason for this CP besides that I like colours
+		ParticleManager:SetParticleControl(head_particle, 62, Vector(2, 0, 2))
+
+		ParticleManager:ReleaseParticleIndex(head_particle)
+		
+		caster:AddNewModifier(caster, ability, "modifier_talent_chain_lightning", {
+			starting_unit_entindex	= target:entindex()
+		})
+    end
 
     if target ~= nil and target:GetTeam() ~= caster:GetTeam() then
             

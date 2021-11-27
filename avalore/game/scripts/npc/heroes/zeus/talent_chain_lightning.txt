@@ -1,0 +1,42 @@
+"DOTAAbilities"
+{
+    "talent_chain_lightning"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbility"
+		{
+            "01"    "ability_lightning_bolt"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"jump_damage"		    "75 100 125 150"
+			}
+			"02"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"radius"                "500"
+			}
+			"03"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"jump_count"            "5 7 9 15"
+			}
+			"04"
+			{
+				"var_type"              "FIELD_FLOAT"
+				"jump_delay"            "0.25"
+			}
+		}
+    }
+}
