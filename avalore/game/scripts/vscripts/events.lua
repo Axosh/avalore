@@ -833,3 +833,33 @@ function CAvaloreGameMode:InitRobinHood_old(unit, playernum)
 	-- 	print(tostring(key))
 	-- end
 end
+
+-- =================================
+-- TALENTS
+-- =================================
+
+-- event: dota_player_learned_ability
+-- > PlayerID: PlayerID
+-- > player: short
+-- > abilityname: string
+function CAvaloreGameMode:OnPlayerLearnedAbility(event)
+	--print("CAvaloreGameMode:OnPlayerLearnedAbility(event)")
+	-- local player = EntIndexToHScript(event.player)
+	-- local hero = player:GetAssignedHero()
+	-- local abilityname = event.abilityname
+
+	-- print(abilityname)
+	-- print(hero:GetName())
+	-- print(tostring(abilityname:find("talent")))
+
+	-- if abilityname:find("talent") == 1 then
+	-- 	print("Adding modifier: " .. "modifier_" .. abilityname)
+	-- 	local modif = hero:AddNewModifier(hero, nil, "modifier_" .. abilityname, {})
+	-- 	print()
+	-- end
+
+	-- print("===== Debug Modifiers =====")
+	-- for _,mod in pairs(hero:FindAllModifiers()) do
+	-- 	print(mod:GetName())
+	--end
+end

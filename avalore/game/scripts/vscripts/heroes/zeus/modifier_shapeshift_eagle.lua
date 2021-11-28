@@ -21,6 +21,7 @@ end
 
 function modifier_shapeshift_eagle:CheckState()
 	return {    [MODIFIER_STATE_FLYING] = true,
+                [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
                 [MODIFIER_STATE_DISARMED] = true,
                 [MODIFIER_STATE_MUTED] = true
             }
@@ -40,8 +41,8 @@ function modifier_shapeshift_eagle:OnCreated()
 
     if self:GetCaster():HasTalent("talent_ride_the_stormwinds") then
     --if self:GetCaster():FindAbilityByName("talent_ride_the_stormwinds") then
-        self.movespeed = self.movespeed + self:GetCaster():GetAbilityByName("talent_ride_the_stormwinds"):GetSpecialValueFor("bonus_speed")
-        self.vision = self.vision + self:GetCaster():GetAbilityByName("talent_ride_the_stormwinds"):GetSpecialValueFor("bonus_vision")
+        self.movespeed = self.movespeed + self:GetCaster():FindAbilityByName("talent_ride_the_stormwinds"):GetTalentSpecialValueFor("bonus_speed")
+        self.vision = self.vision + self:GetCaster():FindAbilityByName("talent_ride_the_stormwinds"):GetTalentSpecialValueFor("bonus_vision")
     end
 
     print("MS = " .. tostring(self.movespeed))

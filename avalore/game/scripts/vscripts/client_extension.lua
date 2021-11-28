@@ -6,10 +6,27 @@
 -- load all values for later use
 local AbilityKV = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
 
+-- function C_DOTA_BaseNPC:HasTalent(talentName)
+-- 	if self and not self:IsNull() and self:HasAbility(talentName) then
+-- 		if self:FindAbilityByName(talentName):GetLevel() > 0 then return true end
+-- 	end
+
+-- 	return false
+-- end
+
+-- function C_DOTA_BaseNPC:HasTalent(talentName)
+--     print("Checking Client-Side Talent: " .. talentName)
+-- 	if self:HasModifier("modifier_"..talentName) then
+--         print("Hero has the talent")
+-- 		return true 
+-- 	end
+
+-- 	return false
+-- end
 
 function C_DOTA_BaseNPC:HasTalent(talentName)
-	if self:HasModifier("modifier_"..talentName) then
-		return true 
+	if self and self:FindAbilityByName(talentName):GetLevel() > 0 then
+        return true
 	end
 
 	return false
@@ -29,6 +46,7 @@ function C_DOTA_BaseNPC:FindTalentValue(talentName, key)
 end
 
 function C_DOTABaseAbility:GetTalentSpecialValueFor(value)
+    print("Checking Client-Side Talent Value")
 	local base = self:GetSpecialValueFor(value)
 	local talentName
 	local kv = AbilityKV[self:GetName()]

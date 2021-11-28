@@ -29,5 +29,10 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
         InventoryManager:DebugDotaSlots(hero)
     elseif input == "debug avalore inv" then
         InventoryManager:DebugAvaloreSlots(event.playerid)
+    elseif input == "debug modifiers" then
+        print("===== Debug Modifiers =====")
+        for _,mod in pairs(hero:FindAllModifiers()) do
+            print(mod:GetName())
+        end
     end
 end

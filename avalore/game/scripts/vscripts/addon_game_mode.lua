@@ -102,6 +102,10 @@ function CAvaloreGameMode:InitGameMode()
 	
 	-- PLAYER CHAT (see avalore_debug.lua)
 	ListenToGameEvent("player_chat", Dynamic_Wrap(CAvaloreGameMode, "ProcessPlayerMessage"), self)
+
+	-- ABILITIES & TALENTS
+	ListenToGameEvent('dota_player_learned_ability', Dynamic_Wrap(CAvaloreGameMode, 'OnPlayerLearnedAbility'), self)
+
 	--ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(CAvaloreGameMode, "OnPlayerFirstSpawn"), self)
 	-- ListenToGameEvent("dota_inventory_item_changed", Dynamic_Wrap(CAvaloreGameMode, "OnItemSlotChanged"), self)
 	-- ListenToGameEvent("inventory_updated", Dynamic_Wrap(CAvaloreGameMode, "OnInventoryUpdated"), self)
