@@ -31,9 +31,13 @@ function ability_shapeshift:OnSpellStart()
 			if target:IsIllusion() and not Custom_bIsStrongIllusion(self.parent) then
 				target:Kill(target, self:GetCaster())
 			else
+                local duration_enemy = self:GetSpecialValueFor("duration_enemy")
+                if self:GetCaster():HasTalent("talent_shapeshift_enemy_duration") then
+                    duration_enemy = duration_enemy + self:GetCaster():FindAbilityByName("talent_shapeshift_enemy_duration"):GetTalentSpecialValueFor("bonus_duration_enemy")
+                end
                 target:AddNewModifier(self:GetCaster(), self, "modifier_avalore_hex",
                                         {
-                                            duration = self:GetSpecialValueFor("duration_enemy"),
+                                            duration = duration_enemy,
                                             texture = "zeus/modifier_shapeshift_wolf",
                                             model = "models/items/beastmaster/boar/fotw_wolf/fotw_wolf.vmdl"
                                         });

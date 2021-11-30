@@ -33,6 +33,7 @@
 #base "heroes/zeus/talent_static_field.txt"
 #base "heroes/zeus/talent_chain_lightning.txt"
 #base "heroes/zeus/talent_ride_the_stormwinds.txt"
+#base "heroes/zeus/talent_shapeshift_enemy_duration.txt"
 
 #base "heroes/quetzalcoatl/ability_fertile_winds.txt"
 #base "heroes/quetzalcoatl/ability_fertile_winds_cancel.txt"
