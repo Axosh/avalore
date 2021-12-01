@@ -585,6 +585,8 @@ function CAvaloreGameMode:InitCosmetics(unit)
 		CAvaloreGameMode:InitQuetalcoatl(hero, playernum)
 	elseif hero_name == "npc_avalore_hero_gilgamesh" or hero_name == "npc_dota_hero_lone_druid" then
 		CAvaloreGameMode:InitGilgamesh(hero, playernum)
+	elseif hero_name == "npc_dota_hero_pecos_bill" or hero_name == "npc_dota_hero_sniper" then
+		CAvaloreGameMode:InitPecosBill(hero, playernum)
 	end
 
 	hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
@@ -781,6 +783,30 @@ function CAvaloreGameMode:InitGilgamesh(hero, playernum)
 	gilgamesh_cosmetics[5] = "models/items/beastmaster/red_talon_shoulder/red_talon_shoulder.vmdl"
 	
 	for k,wearable in pairs(gilgamesh_cosmetics) do
+		--print("Creating Cosmetic " .. wearable)
+		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+		cosmetic:SetOwner(unit)
+		cosmetic:FollowEntity(unit, true)
+	end
+end
+
+function CAvaloreGameMode:InitPecosBill(hero, playernum)
+	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	--unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
+	local pecos_bill_cosmetics = {}
+	pecos_bill_cosmetics[0] = "models/items/sniper/the_marksman_arms/the_marksman_arms.vmdl"
+	pecos_bill_cosmetics[1] = "models/items/sniper/wildwest_head/wildwest_head.vmdl"
+	pecos_bill_cosmetics[2] = "models/items/sniper/wildwest_shoulders/wildwest_shoulders.vmdl"
+	pecos_bill_cosmetics[3] = "models/items/sniper/wildwest_back/wildwest_back.vmdl"
+	pecos_bill_cosmetics[4] = "models/items/sniper/wildwest_weapon/wildwest_weapon.vmdl"
+	pecos_bill_cosmetics[5] = "models/items/sniper/wildwest_arms/wildwest_arms.vmdl"
+	
+	
+	for k,wearable in pairs(pecos_bill_cosmetics) do
 		--print("Creating Cosmetic " .. wearable)
 		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
 		cosmetic:SetOriginalModel(wearable)

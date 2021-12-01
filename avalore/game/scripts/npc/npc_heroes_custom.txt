@@ -8,6 +8,7 @@
 #base "heroes/quetzalcoatl/quetzalcoatl.txt"
 #base "heroes/zeus/zeus.txt"
 #base "heroes/gilgamesh/gilgamesh.txt"
+#base "heroes/pecos_bill/pecos_bill.txt"
 
 "DOTAHeroes"
 {

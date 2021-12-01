@@ -194,7 +194,7 @@
 		"DOTA_Tooltip_Ability_talent_ride_the_stormwinds"				"Ride the Stormwinds"
 		"DOTA_Tooltip_Ability_talent_ride_the_stormwinds_description"		"While shapeshifted to an Eagle, gains a bonus +50 Movespeed and +500 Vision"
 
-		"DOTA_Tooltip_Ability_talent_shapeshift_enemy_duration"				"+1 second Shapeshift Duration (Enemy)"
+		"DOTA_Tooltip_Ability_talent_shapeshift_enemy_duration"				"+{s:bonus_duration_enemy} seconds Shapeshift Duration (Enemy)"
 		//"DOTA_Tooltip_Ability_talent_shapeshift_enemy_duration_description" ""
 
 
