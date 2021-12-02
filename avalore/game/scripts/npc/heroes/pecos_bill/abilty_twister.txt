@@ -1,0 +1,7 @@
+"DOTAAbilities"
+{
+    "ability_twister"
+    {
+        
+    }
+}
