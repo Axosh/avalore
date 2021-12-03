@@ -46,6 +46,8 @@
 #base "heroes/gilgamesh/ability_erect_wall.txt"
 #base "heroes/gilgamesh/ability_tyrant_king.txt"
 
+#base "heroes/pecos_bill/ability_coyote_howl.txt"
+
 "DOTAAbilities"
 {	
 	"building_unselectable"

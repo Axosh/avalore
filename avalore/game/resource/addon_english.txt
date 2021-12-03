@@ -34,6 +34,7 @@
 		"npc_avalore_enkidu2"									"Enkidu"
 		"npc_avalore_enkidu3"									"Enkidu"
 		"npc_avalore_enkidu4"									"Enkidu"
+		"npc_dota_hero_sniper"									"Pecos Bill"
 
 
 		//--------------------------------------------------------------------------------
@@ -246,6 +247,11 @@
 		"DOTA_Tooltip_modifier_tyrant_king_debuff_description"				"Giving a percent of attack damage to Gilgamesh"
 
 
+		// ===== PECOS BILL ===== //
+		"DOTA_Tooltip_Ability_ability_coyote_howl"							"Coyote Howl"
+		"DOTA_Tooltip_Ability_ability_coyote_howl_Lore"						"Pecos Bill was raised by coyotes and in some renditions of the tale, used a coyote howl to tame horses"
+		"DOTA_Tooltip_modifier_coyote_howl_fear"							"Coyote Howl"
+		"DOTA_Tooltip_modifier_coyote_howl_fear_description"				"Reduced Armor"
 
 
 		//--------------------------------------------------------------------------------
