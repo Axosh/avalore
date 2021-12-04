@@ -47,6 +47,7 @@
 #base "heroes/gilgamesh/ability_tyrant_king.txt"
 
 #base "heroes/pecos_bill/ability_coyote_howl.txt"
+#base "heroes/pecos_bill/ability_ride_a_twister.txt"
 
 "DOTAAbilities"
 {	
