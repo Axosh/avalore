@@ -34,6 +34,9 @@ function modifier_ride_a_twister:OnCreated()
 
     if not IsServer() then return end
 
+    --local dummy = CreateModifierThinker(self:GetCaster(), self,	nil, {}, self:GetCaster():GetAbsOrigin(), self:GetCaster():GetTeamNumber(),	false)
+    local offset_vector = Vector(0, 0, 0)
+
     if self.particles == nil then
         self.particles = {}
         --particles/econ/items/invoker/invoker_ti6/invoker_tornado_ti6_base_leaves.vpcf
@@ -42,28 +45,28 @@ function modifier_ride_a_twister:OnCreated()
         self.particles[0] = ParticleManager:CreateParticle("particles/econ/items/juggernaut/jugg_ti8_sword/juggernaut_blade_fury_abyssal_cyclone_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         --ParticleManager:SetParticleControl(self.particles[0], 0, self:GetCaster():GetAbsOrigin())
         ParticleManager:SetParticleControl(self.particles[0], 5, Vector(self.radius, 0, 0))
-		ParticleManager:SetParticleControlEnt(self.particles[0], 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(self.particles[0], 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin() - offset_vector, true)
 
         --self.particles[1] = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_tornado_funnel_detail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         self.particles[1] = ParticleManager:CreateParticle("particles/econ/events/fall_major_2016/cyclone_fm06_leaves.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         ParticleManager:SetParticleControl(self.particles[1], 5, Vector(self.radius, 0, 0))
         --ParticleManager:SetParticleControl(self.particles[1], 0, self:GetCaster():GetAbsOrigin())
-		ParticleManager:SetParticleControlEnt(self.particles[1], 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(self.particles[1], 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin() - offset_vector, true)
 
         self.particles[2] = ParticleManager:CreateParticle("particles/econ/events/fall_major_2016/cyclone_fm06_dust.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         ParticleManager:SetParticleControl(self.particles[2], 5, Vector(self.radius, 0, 0))
-		ParticleManager:SetParticleControlEnt(self.particles[2], 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(self.particles[2], 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin() - offset_vector, true)
 
         self.particles[3] = ParticleManager:CreateParticle("particles/items_fx/cyclone_c.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         --ParticleManager:SetParticleControl(self.particles[3], 0, self:GetCaster():GetAbsOrigin())
         ParticleManager:SetParticleControl(self.particles[3], 5, Vector(self.radius, 0, 0))
-		ParticleManager:SetParticleControlEnt(self.particles[3], 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(self.particles[3], 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin() - offset_vector, true)
 
         --self.particles[4] = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_cyclone.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         self.particles[4] = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_e.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         --ParticleManager:SetParticleControl(self.particles[4], 0, self:GetCaster():GetAbsOrigin())
         ParticleManager:SetParticleControl(self.particles[4], 5, Vector(self.radius, 0, 0))
-		ParticleManager:SetParticleControlEnt(self.particles[4], 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(self.particles[4], 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin() - offset_vector, true)
     end
 
     self:StartIntervalThink( self.damage_interval )
@@ -81,6 +84,8 @@ end
 
 function modifier_ride_a_twister:OnIntervalThink()
     if IsServer() then
+        PrintVector(self.caster:GetAbsOrigin(), "  Curr")
+
         AOEMagicDamage( self.caster,
                         self.ability,
                         self.caster:GetAbsOrigin(),

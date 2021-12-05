@@ -1,0 +1,63 @@
+"DOTAAbilities"
+{
+    "ability_wrangle"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"                    "heroes/pecos_bill/ability_wrangle.lua"
+
+        "AbilityTextureName"            "pecos_bill/wrangle"
+
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+        // Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.2"
+
+        // Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"14"
+		"AbilityManaCost"				"90 100 110 120"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"		    "350"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"debuff_duration"		"1.5 2.0 2.5 3.0"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectile_speed"	"1000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"total_damage"		"90 180 270 360"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"animation_rate"	"0.3"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"visual_height"		"50"
+			}
+		}
+    }
+}

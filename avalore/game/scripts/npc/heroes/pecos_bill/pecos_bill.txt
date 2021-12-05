@@ -38,7 +38,7 @@
         "AbilityLayout"             "4"
 
         "Ability1"                  "ability_coyote_howl"
-        "Ability2"                  ""
+        "Ability2"                  "ability_wrangle"
         "Ability3"                  ""
         "Ability4"                  ""
         "Ability5"                  ""

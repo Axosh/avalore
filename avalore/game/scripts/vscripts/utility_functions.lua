@@ -149,6 +149,10 @@ function PrintTable( t, indent )
 	end
 end
 
+function PrintVector(vect, msg)
+    print(msg .. " | (" .. tostring(vect.x) .. ", " .. tostring(vect.y) .. ", " .. tostring(vect.z) .. ")")
+end
+
 
 -- SPELLS
 
