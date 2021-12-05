@@ -42,7 +42,8 @@
             "02"
             {
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"20"
+                "duration"				"100"
+				//"duration"				"20"
 			}
             // i.e. blocks every 5th, 4th.. source of damage
             "03"
@@ -53,7 +54,8 @@
             "04"
             {
                 "var_type"              "FIELD_INTEGER"
-                "radius"                "600"
+                "radius"                "350"
+                //"radius"                "600"
             }
             "05"
             {

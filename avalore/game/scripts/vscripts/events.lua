@@ -804,6 +804,7 @@ function CAvaloreGameMode:InitPecosBill(hero, playernum)
 	pecos_bill_cosmetics[3] = "models/items/sniper/wildwest_back/wildwest_back.vmdl"
 	pecos_bill_cosmetics[4] = "models/items/sniper/wildwest_weapon/wildwest_weapon.vmdl"
 	pecos_bill_cosmetics[5] = "models/items/sniper/wildwest_arms/wildwest_arms.vmdl"
+	pecos_bill_cosmetics[6] = "models/items/sniper/mlg_hunters_origin_shoulder/mlg_hunters_origin_shoulder.vmdl"
 	
 	
 	for k,wearable in pairs(pecos_bill_cosmetics) do
