@@ -1,7 +1,7 @@
 ability_wrangle = class({})
 
 LinkLuaModifier("modifier_wrangle_thinker", "heroes/pecos_bill/modifier_wrangle_thinker.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_wrangle_debuff",  "heroes/pecos_bill/modifier_wrangle_debuff.lua",  LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_wrangle_debuff",  "heroes/pecos_bill/modifier_wrangle_debuff.lua",  LUA_MODIFIER_MOTION_HORIZONTAL )
 
 function ability_wrangle:Precache(context)
     PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_hoodwink.vsndevts", context )

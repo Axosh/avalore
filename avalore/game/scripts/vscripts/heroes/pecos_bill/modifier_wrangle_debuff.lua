@@ -6,6 +6,7 @@ function modifier_wrangle_debuff:IsStunDebuff() return true end
 function modifier_wrangle_debuff:IsPurgable() return true end
 
 function modifier_wrangle_debuff:OnCreated(kv)
+    if not IsServer() then return end
     self.parent = self:GetParent()
 
 	-- references
@@ -16,13 +17,13 @@ function modifier_wrangle_debuff:OnCreated(kv)
 	self.speed = 900
 	self.interval = 0.1
 
-	if not IsServer() then return end
+--	if not IsServer() then return end
 
-	self.center = kv.center  --EntIndexToHScript( kv.center )
+	self.center = kv.center:GetAbsOrigin()  --EntIndexToHScript( kv.center )
 
 	-- apply motion controller
 	if not self:ApplyHorizontalMotionController() then
-		-- self:Destroy()
+		self:Destroy()
 		return
 	end
 
@@ -67,6 +68,7 @@ function modifier_wrangle_debuff:CheckState()
 end
 
 function modifier_wrangle_debuff:UpdateHorizontalMotion( me, dt )
+    if not IsServer() then return end
 	-- get data
 	local origin = me:GetOrigin()
 	local dir = self.center-origin
@@ -89,6 +91,7 @@ function modifier_wrangle_debuff:UpdateHorizontalMotion( me, dt )
 end
 
 function modifier_wrangle_debuff:OnHorizontalMotionInterrupted()
+    if not IsServer() then return end
 	self:GetParent():RemoveHorizontalMotionController( self )
 end
 
