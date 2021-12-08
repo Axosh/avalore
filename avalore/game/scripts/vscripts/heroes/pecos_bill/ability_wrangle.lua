@@ -20,6 +20,7 @@ function ability_wrangle:GetAOERadius()
 end
 
 function ability_wrangle:OnSpellStart()
+    if not IsServer() then return end
     -- unit identifier
     local caster = self:GetCaster()
     local point = self:GetCursorPosition()
@@ -37,6 +38,7 @@ function ability_wrangle:OnSpellStart()
         "modifier_wrangle_thinker", -- modifier name
         {
             duration = delay,
+            location = point
         }, -- kv
         point,
         caster:GetTeamNumber(),

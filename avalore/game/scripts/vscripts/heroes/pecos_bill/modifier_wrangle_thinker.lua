@@ -17,7 +17,7 @@ function modifier_wrangle_thinker:OnCreated( kv )
 
 	if not IsServer() then return end
 
-	self.location           = self:GetParent():GetOrigin()
+	self.location           = kv.location --self:GetParent():GetOrigin()
 	self.abilityDamageType  = self:GetAbility():GetAbilityDamageType()
 
 	self:PlayEffects1()
@@ -33,8 +33,10 @@ end
 function modifier_wrangle_thinker:OnDestroy()
 	if not IsServer() then return end
 
+	--PrintVector(self.location, "Destroy - Location")
+
 	-- vision
-	AddFOWViewer( self.caster:GetTeamNumber(), self.location, self.radius, self.duration, false )
+	--AddFOWViewer( self.caster:GetTeamNumber(), self.location, self.radius, self.duration, false )
 
 	-- find enemies
 	local enemies = FindUnitsInRadius(

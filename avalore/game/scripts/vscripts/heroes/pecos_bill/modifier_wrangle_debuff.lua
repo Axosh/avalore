@@ -19,7 +19,8 @@ function modifier_wrangle_debuff:OnCreated(kv)
 
 --	if not IsServer() then return end
 
-	self.center = kv.center:GetAbsOrigin()  --EntIndexToHScript( kv.center )
+	self.center = kv.center --:GetAbsOrigin()  --EntIndexToHScript( kv.center )
+    --PrintVector(self.center, "Center")
 
 	-- apply motion controller
 	if not self:ApplyHorizontalMotionController() then
@@ -70,8 +71,9 @@ end
 function modifier_wrangle_debuff:UpdateHorizontalMotion( me, dt )
     if not IsServer() then return end
 	-- get data
+    --PrintVector(me:GetOrigin(), "Origin")
 	local origin = me:GetOrigin()
-	local dir = self.center-origin
+	local dir = (self.center-origin)
 	local dist = dir:Length2D()
 	dir.z = 0
 	dir = dir:Normalized()
