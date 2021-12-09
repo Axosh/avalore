@@ -17,7 +17,14 @@ function modifier_wrangle_thinker:OnCreated( kv )
 
 	if not IsServer() then return end
 
-	self.location           = kv.location --self:GetParent():GetOrigin()
+	-- print("Debug KV")
+	-- if kv then
+	-- 	PrintTable(kv)
+	-- end
+
+	PrintVector(self:GetParent():GetOrigin(), "Modifier Origin")
+
+	self.location           = self:GetParent():GetOrigin() --kv.location --self:GetParent():GetOrigin()
 	self.abilityDamageType  = self:GetAbility():GetAbilityDamageType()
 
 	self:PlayEffects1()
@@ -33,7 +40,7 @@ end
 function modifier_wrangle_thinker:OnDestroy()
 	if not IsServer() then return end
 
-	--PrintVector(self.location, "Destroy - Location")
+	PrintVector(self.location, "Destroy - Location")
 
 	-- vision
 	--AddFOWViewer( self.caster:GetTeamNumber(), self.location, self.radius, self.duration, false )
@@ -97,7 +104,9 @@ function modifier_wrangle_thinker:OnDestroy()
 			"modifier_wrangle_debuff", -- modifier name
 			{
 				duration = self.duration,
-                center = self.location
+                center_x = self.location.x, -- can't pass object in, break into components
+				center_y = self.location.y,
+				center_z = self.location.z,
 				--tree = mytree:entindex(),
 			} -- kv
 		)

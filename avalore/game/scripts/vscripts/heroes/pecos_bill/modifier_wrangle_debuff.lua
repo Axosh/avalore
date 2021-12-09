@@ -19,7 +19,12 @@ function modifier_wrangle_debuff:OnCreated(kv)
 
 --	if not IsServer() then return end
 
-	self.center = kv.center --:GetAbsOrigin()  --EntIndexToHScript( kv.center )
+	--PrintTable(kv)
+
+	self.center = Vector(kv.center_x, kv.center_y, kv.center_z)
+	self.phase = 1
+
+	--self.center = kv.center --:GetAbsOrigin()  --EntIndexToHScript( kv.center )
     --PrintVector(self.center, "Center")
 
 	-- apply motion controller
@@ -80,16 +85,21 @@ function modifier_wrangle_debuff:UpdateHorizontalMotion( me, dt )
 
 	-- check if close
 	if dist<self.distance then
-		self:GetParent():RemoveHorizontalMotionController( self )
+		--self:GetParent():RemoveHorizontalMotionController( self )
 
 		self:PlayEffects2( dir )
+		self.phase = 2
 
 		return
 	end
 
 	-- move closer to center
-	local target = dir * self.speed*dt
-	me:SetOrigin( origin + target )
+	if self.phase == 1 then
+		local target = dir * self.speed*dt
+		me:SetOrigin( origin + target )
+	else
+		
+	end
 end
 
 function modifier_wrangle_debuff:OnHorizontalMotionInterrupted()
@@ -98,6 +108,7 @@ function modifier_wrangle_debuff:OnHorizontalMotionInterrupted()
 end
 
 function modifier_wrangle_debuff:PlayEffects1()
+	if not IsServer() then return end
 	-- Get Resources
 	local particle_cast = "particles/units/heroes/hero_hoodwink/hoodwink_bushwhack_target.vpcf"
 	local sound_cast = "Hero_Hoodwink.Bushwhack.Target"

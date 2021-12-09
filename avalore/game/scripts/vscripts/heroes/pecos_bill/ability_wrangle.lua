@@ -25,6 +25,8 @@ function ability_wrangle:OnSpellStart()
     local caster = self:GetCaster()
     local point = self:GetCursorPosition()
 
+    PrintVector(point, "Point")
+
     -- load data
     local projectile_speed = self:GetSpecialValueFor( "projectile_speed" )
 
@@ -38,7 +40,7 @@ function ability_wrangle:OnSpellStart()
         "modifier_wrangle_thinker", -- modifier name
         {
             duration = delay,
-            location = point
+            --location = point
         }, -- kv
         point,
         caster:GetTeamNumber(),
