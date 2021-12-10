@@ -165,4 +165,38 @@ function modifier_wrangle_thinker:PlayEffects2( success )
 	-- Create Sound
 	StopSoundOn( sound_cast, self.caster )
 	EmitSoundOnLocationWithCaster( self.location, sound_location, self.caster )
+
+
+	-- show return snake particles
+	--particle_cast = "particles/units/heroes/hero_medusa/medusa_mystic_snake_projectile.vpcf"
+	-- particle_cast =  "particles/econ/items/medusa/medusa_ti10_immortal_tail/medusa_ti10_mystic_snake_cast_body.vpcf"
+	-- effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN,  self.caster )
+	-- ParticleManager:SetParticleControl( effect_cast, 1, self.caster:GetOrigin() )
+	-- ParticleManager:SetParticleControl( effect_cast, 0, self:GetParent():GetOrigin() )
+	-- ParticleManager:SetParticleControl( effect_cast, 2, Vector( self.speed, 0, 0 ) )
+
+	-- -- buff particle
+	-- self:AddParticle(
+	-- 	effect_cast,
+	-- 	false, -- bDestroyImmediately
+	-- 	false, -- bStatusEffect
+	-- 	-1, -- iPriority
+	-- 	false, -- bHeroEffect
+	-- 	false -- bOverheadEffect
+	--)
+	self:GetCaster():EmitSound("Hero_Medusa.MysticSnake.Return")
+		
+	local particle_snake = ParticleManager:CreateParticle("particles/units/heroes/hero_medusa/medusa_mystic_snake_projectile_return.vpcf", PATTACH_POINT_FOLLOW, self.caster)
+	ParticleManager:SetParticleControlEnt(particle_snake, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
+	ParticleManager:SetParticleControl(particle_snake, 1, self.caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(particle_snake, 2, Vector(self.speed, 0, 0))
+
+	-- self:AddParticle(
+	-- 	particle_snake,
+	-- 	false, -- bDestroyImmediately
+	-- 	false, -- bStatusEffect
+	-- 	-1, -- iPriority
+	-- 	false, -- bHeroEffect
+	-- 	false -- bOverheadEffect
+	-- )
 end

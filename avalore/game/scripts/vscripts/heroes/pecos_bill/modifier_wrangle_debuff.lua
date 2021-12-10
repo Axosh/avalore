@@ -84,11 +84,12 @@ function modifier_wrangle_debuff:UpdateHorizontalMotion( me, dt )
 	dir = dir:Normalized()
 
 	-- check if close
-	if dist<self.distance then
+	if self.phase == 1 and dist<self.distance then
 		--self:GetParent():RemoveHorizontalMotionController( self )
 
 		self:PlayEffects2( dir )
 		self.phase = 2
+		self.speed = 400
 
 		return
 	end
@@ -98,7 +99,13 @@ function modifier_wrangle_debuff:UpdateHorizontalMotion( me, dt )
 		local target = dir * self.speed*dt
 		me:SetOrigin( origin + target )
 	else
-		
+		local caster_loc = self:GetCaster():GetOrigin()
+		dir = (caster_loc-origin)
+		dist = 128 --dir:Length2D()
+		dir.z = 0
+		dir = dir:Normalized()
+		local target = dir * self.speed*dt
+		me:SetOrigin( origin + target )
 	end
 end
 
@@ -117,7 +124,8 @@ function modifier_wrangle_debuff:PlayEffects1()
 
 	-- Create Particle
 	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self.parent )
-	ParticleManager:SetParticleControl( effect_cast, 15, self.center )
+	--ParticleManager:SetParticleControl( effect_cast, 15, self.center )
+	ParticleManager:SetParticleControl( effect_cast, 15, self.parent:GetAbsOrigin() )
 
 	-- buff particle
 	self:AddParticle(
