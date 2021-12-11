@@ -49,6 +49,7 @@
 #base "heroes/pecos_bill/ability_coyote_howl.txt"
 #base "heroes/pecos_bill/ability_ride_a_twister.txt"
 #base "heroes/pecos_bill/ability_wrangle.txt"
+#base "heroes/pecos_bill/ability_gunslinger.txt"
 
 "DOTAAbilities"
 {	
