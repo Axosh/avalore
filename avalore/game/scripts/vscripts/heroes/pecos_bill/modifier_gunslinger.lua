@@ -20,7 +20,7 @@ function modifier_gunslinger:OnCreated(kv)
 	self.records = {}
 
 	-- play Effects & Sound
-	self:PlayEffects()
+	--self:PlayEffects()
 	local sound_cast = "Hero_Snapfire.ExplosiveShells.Cast"
 	EmitSoundOn( sound_cast, self:GetParent() )
 end
@@ -56,7 +56,7 @@ end
 
 function modifier_gunslinger:DeclareFunctions()
 	local funcs = {
-		-- MODIFIER_EVENT_ON_ATTACK,
+		 MODIFIER_EVENT_ON_ATTACK,
 		-- MODIFIER_EVENT_ON_ATTACK_LANDED,
 		-- MODIFIER_EVENT_ON_ATTACK_RECORD_DESTROY,
 
@@ -68,6 +68,15 @@ function modifier_gunslinger:DeclareFunctions()
 	}
 
 	return funcs
+end
+
+function modifier_gunslinger:OnAttack(kv)
+	if kv.attacker~=self:GetParent() then return end
+	if self:GetStackCount()<=0 then return end
+
+	if self:GetStackCount()>0 then
+		self:DecrementStackCount()
+	end
 end
 
 -- function modifier_gunslinger:GetModifierProjectileName()
