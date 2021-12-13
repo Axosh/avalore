@@ -72,7 +72,9 @@ end
 
 function modifier_gunslinger:OnAttack(kv)
 	if kv.attacker~=self:GetParent() then return end
-	if self:GetStackCount()<=0 then return end
+	if self:GetStackCount()<=1 then
+		self:Destroy()
+	end
 
 	if self:GetStackCount()>0 then
 		self:DecrementStackCount()

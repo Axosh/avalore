@@ -253,6 +253,15 @@
 		"DOTA_Tooltip_modifier_coyote_howl_fear"							"Coyote Howl"
 		"DOTA_Tooltip_modifier_coyote_howl_fear_description"				"Reduced Armor"
 
+		"DOTA_Tooltip_Ability_ability_gunslinger"							"Gunslinger"
+		"DOTA_Tooltip_Ability_ability_gunslinger_Lore"						"Pecos Bill is attributed with the creation of the six-shooter, and in wooing Slue-Foot Sue, he shot all the stars from the sky except one which became the 'Lone Star'."
+
+		"DOTA_Tooltip_Ability_ability_wrangle"								"Wrangle"
+		"DOTA_Tooltip_Ability_ability_wrangle_Lore"							"Pecos Bill invented calf roping and had a lasso, which was a rattlesnake named Shake."
+
+		"DOTA_Tooltip_Ability_ability_ride_a_twister"						"Ride a Twister"
+		"DOTA_Tooltip_Ability_ability_ride_a_twister_Lore"					"He was an outstanding rider and could ride anything. The only cowboy able to ride 'Widow-Maker' (an unbreakable horse), as well as lassoing a tornado and riding it"
+
 
 		//--------------------------------------------------------------------------------
 		// Objectives
