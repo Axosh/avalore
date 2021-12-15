@@ -587,6 +587,8 @@ function CAvaloreGameMode:InitCosmetics(unit)
 		CAvaloreGameMode:InitGilgamesh(hero, playernum)
 	elseif hero_name == "npc_dota_hero_pecos_bill" or hero_name == "npc_dota_hero_sniper" then
 		CAvaloreGameMode:InitPecosBill(hero, playernum)
+	elseif hero_name == "npc_avalore_hero_sun_wukong" or hero_name == "npc_dota_hero_monkey_king" then
+		CAvaloreGameMode:InitSunWukong(hero, playernum)
 	end
 
 	hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
@@ -808,6 +810,27 @@ function CAvaloreGameMode:InitPecosBill(hero, playernum)
 	
 	
 	for k,wearable in pairs(pecos_bill_cosmetics) do
+		--print("Creating Cosmetic " .. wearable)
+		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+		cosmetic:SetOwner(unit)
+		cosmetic:FollowEntity(unit, true)
+	end
+end
+
+function CAvaloreGameMode:InitSunWukong(hero, playernum)
+	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	--unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
+	local sun_wukong_cosmetics = {}
+	sun_wukong_cosmetics[0] = "models/items/monkey_king/monkey_king_arcana_head/mesh/monkey_king_arcana.vmdl"
+	sun_wukong_cosmetics[1] = "models/items/monkey_king/mk_ti9_immortal_armor/mk_ti9_immortal_armor.vmdl"
+	sun_wukong_cosmetics[2] = "models/heroes/monkey_king/monkey_king_base_weapon.vmdl"
+	sun_wukong_cosmetics[3] = "models/items/monkey_king/mk_ti9_immortal_shoulder/mk_ti9_immortal_shoulder.vmdl"
+	
+	for k,wearable in pairs(sun_wukong_cosmetics) do
 		--print("Creating Cosmetic " .. wearable)
 		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
 		cosmetic:SetOriginalModel(wearable)
