@@ -51,6 +51,8 @@
 #base "heroes/pecos_bill/ability_wrangle.txt"
 #base "heroes/pecos_bill/ability_gunslinger.txt"
 
+#base "heroes/sun_wukong/ability_immortality.txt"
+
 "DOTAAbilities"
 {	
 	"building_unselectable"

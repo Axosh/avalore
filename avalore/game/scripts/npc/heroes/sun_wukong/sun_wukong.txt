@@ -17,7 +17,7 @@
 		"Ability3"					""
 		//"Ability4"					""			// Ability 4.
 		//"Ability5"					""			// Ability 5.
-		"Ability6"					""			// Ability 6 - Extra.
+		"Ability6"					"ability_immortality"			// Ability 6 - Extra.
 		"Ability7"					""			// Ability 7 - Extra.
 		// "Ability8"					""			// Ability 8 - Extra.
 
