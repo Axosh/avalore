@@ -4,6 +4,13 @@ function modifier_wukong_immortality:IsHidden() return true end
 
 function modifier_wukong_immortality:OnCreated(kv)
     self.rez_time = self:GetAbility():GetSpecialValueFor("rez_time")
+    self.caster = self:GetCaster()
+
+    if IsServer() then
+		self.can_die = false
+
+		self:StartIntervalThink(FrameTime())
+	end
 end
 
 function modifier_wukong_immortality:OnRefresh(kv)
@@ -13,17 +20,63 @@ end
 function modifier_wukong_immortality:OnDestroy(kv)
 end
 
+function modifier_wukong_immortality:OnIntervalThink()
+    if not self.ability or self.ability:IsNull() then self:Destroy() return end
+
+    -- If caster has sufficent mana and the ability is ready, apply
+	--if (self.ability:IsOwnersManaEnough()) and (self.ability:IsCooldownReady()) and (not self.caster:HasModifier("modifier_item_imba_aegis")) then
+    if (self.ability:IsOwnersManaEnough()) and (self.ability:IsCooldownReady()) then
+        self.can_die = false
+    else
+        self.can_die = true
+    end
+end
+
 function modifier_wukong_immortality:DeclareFunctions()
 	return  {
-                MODIFIER_PROPERTY_REINCARNATION
+                MODIFIER_PROPERTY_REINCARNATION,
+                --MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
+                MODIFIER_EVENT_ON_DEATH
             }
 end
 
-function modifier_wukong_immortality:Reincarnate()
-    self:GetAbility():UseResources(true, false, true)
+function modifier_wukong_immortality:ReincarnateTime()
+    if not IsServer() then return end
 
-    self:PlayEffects()
+    if not self.can_die and self.caster:IsRealHero() then
+        return self.rez_time
+    end
+
+    return nil
 end
+
+-- function modifier_wukong_immortality:GetActivityTranslationModifiers()
+-- 	if self.reincarnation_death then
+-- 		return "reincarnate"
+-- 	end
+
+-- 	return nil
+-- end
+
+
+-- function modifier_wukong_immortality:Reincarnate()
+--     self:GetAbility():UseResources(true, false, true)
+
+--     self:PlayEffects()
+-- end
+
+function modifier_wukong_immortality:OnDeath(keys)
+	if IsServer() then
+		local unit = keys.unit
+		local reincarnate = keys.reincarnate
+
+        if self:GetParent() == unit then
+            self:GetAbility():UseResources(true, false, true)
+            self:PlayEffects()
+        end
+    end
+end
+
 
 function modifier_wukong_immortality:PlayEffects()
 	-- get resources

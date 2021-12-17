@@ -3,7 +3,7 @@
     "ability_immortality"
     {
         "BaseClass"						"ability_lua"
-		"ScriptFile"					"lua_abilities/wraith_king_reincarnation_lua/wraith_king_reincarnation_lua"
+		"ScriptFile"					"heroes/sun_wukong/ability_immortality.lua"
 		"AbilityTextureName"			"sun_wukong/wukong_immortality"
 		"FightRecapLevel"				"2"
 		"MaxLevel"						"3"
