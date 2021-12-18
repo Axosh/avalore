@@ -52,6 +52,7 @@
 #base "heroes/pecos_bill/ability_gunslinger.txt"
 
 #base "heroes/sun_wukong/ability_immortality.txt"
+#base "heroes/sun_wukong/ability_ruyi_jingu_bang.txt"
 
 "DOTAAbilities"
 {	

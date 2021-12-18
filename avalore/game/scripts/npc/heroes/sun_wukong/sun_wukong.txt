@@ -12,7 +12,7 @@
         // Abilities
 		//----------------------------------------------------------------
 		"AbilityLayout"             "4"
-		"Ability1"					""
+		"Ability1"					"ability_ruyi_jingu_bang"
 		"Ability2"					""
 		"Ability3"					""
 		//"Ability4"					""			// Ability 4.

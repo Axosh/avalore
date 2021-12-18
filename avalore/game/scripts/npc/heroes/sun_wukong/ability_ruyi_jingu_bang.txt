@@ -1,0 +1,70 @@
+"DOTAAbilities"
+{
+    "ability_ruyi_jingu_bang"
+    {
+        "BaseClass"						"ability_lua"
+        "ScriptFile"					"heroes/sun_wukong/ability_ruyi_jingu_bang.lua"
+
+        "AbilityTextureName"            "sun_wukong/jingu_slam"
+
+        "FightRecapLevel"				"1"
+        "MaxLevel"						"4"
+
+        //"AbilitySound"					"Hero_TrollWarlord.BerserkersRage.Toggle"
+
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+        // Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700 800 900 1000"
+		"AbilityCastPoint"				"0.3"
+		//"AbilityDuration"				"2.0 2.0 2.0 2.0"
+
+        // Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30 28 26 24"
+		"AbilityManaCost"				"40 60 80 100"
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+            {
+                "var_type"				"FIELD_INTEGER"
+				"vector_target"			"1"		
+            }
+            "02"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "vault_max_distance"    "700 800 900 1000"
+            }
+            "03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"vault_speed"			"1300.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"vault_acceleration"	"6000.0"
+			}
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "vault_impact_dmg"      "200 250 300 350"
+            }
+            "06"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "vault_impact_radius"   "375"
+            }
+        }
+    }
+}

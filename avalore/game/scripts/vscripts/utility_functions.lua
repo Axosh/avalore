@@ -150,7 +150,11 @@ function PrintTable( t, indent )
 end
 
 function PrintVector(vect, msg)
-    print(msg .. " | (" .. tostring(vect.x) .. ", " .. tostring(vect.y) .. ", " .. tostring(vect.z) .. ")")
+    if vect == nil then
+        print(msg .. " | Vector is nil!")
+    else
+        print(msg .. " | (" .. tostring(vect.x) .. ", " .. tostring(vect.y) .. ", " .. tostring(vect.z) .. ")")
+    end
 end
 
 
