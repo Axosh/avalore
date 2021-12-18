@@ -5,3 +5,7 @@ LinkLuaModifier("modifier_wukong_immortality", "heroes/sun_wukong/modifier_wukon
 function ability_immortality:GetIntrinsicModifierName()
     return "modifier_wukong_immortality"
 end
+
+function ability_immortality:GetBehavior()
+    return DOTA_ABILITY_BEHAVIOR_PASSIVE
+end
