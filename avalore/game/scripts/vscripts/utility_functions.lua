@@ -192,3 +192,45 @@ function GetCastRangeIncrease( unit )
 
 	return cast_range_increase
 end
+
+
+-- ================================================
+-- Vectors
+-- ================================================
+
+-- angle (in degrees) between two normalized vectors
+function AngleBetween2DVectors(vect_a, vect_b)
+    -- print("ATAN2 VECT_A = " .. math.atan2(vect_a.y, vect_a.x))
+    -- print("ATAN2 VECT_B = " .. math.atan2(vect_b.y, vect_b.x))
+    -- print("Difference Vector Angle = " .. tostring(math.atan2(vect_b.y - vect_a.y, vect_b.x - vect_a.x)))
+    local radians = math.atan2(vect_a.y, vect_a.x) - math.atan2(vect_b.y, vect_b.x)
+    local abs_radians = math.abs(radians) -- remove negative if applicable
+    return (math.deg(abs_radians)) -- convert radians to degrees and return
+end
+
+-- -----------------------------------------------------------------------------------
+-- The idea here is to map the vector targetting a player drags
+-- to a direction that can be used (similar to the way the chat wheel works)
+-- So to diagram this out with the normalized "forward vector" being (0, 1, 0):
+-- -----------------------------------------------------------------------------------
+-- 7 0 1
+-- 6 * 2
+-- 5 4 3
+-- -----------------------------------------------------------------------------------
+-- so a 90 degree angle would correspond to octant "2"
+-- -----------------------------------------------------------------------------------
+function MapAngleToOctant(angle)
+    --print("Vector Angle = " .. tostring(angle))
+    local angle_normalized = angle/45 -- 45-degree chunks of the 360-degrees of a circle ==> 8ths
+    angle_normalized = math.floor(angle_normalized)
+    -- in case 360 (not sure if this is a concern since we're taking the floor)
+    if angle_normalized == 8 then
+        angle_normalized = 7
+    end
+
+    return angle_normalized
+end
+
+function OctantBetween2DVectors(vect_a, vect_b)
+    return MapAngleToOctant(AngleBetween2DVectors(vect_a, vect_b))
+end

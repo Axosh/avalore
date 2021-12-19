@@ -31,10 +31,13 @@ function ability_ruyi_jingu_bang:OnSpellStart()
     -- facing same direction? (idk if best way to do it)
     print("Vector Y = " .. tostring(direction.y))
     print("Facing Y = " .. tostring(dir_facing.y))
-    if (direction.y > 0 and dir_facing.y > 0) or (direction.y == dir_facing.y) or (direction.y < 0 and dir_facing.y < 0) then
-        -- slam logic
-        print("TODO: SLam Logic")
-    else
+    local octant = OctantBetween2DVectors(dir_facing, direction)
+    print("octant = " .. tostring(octant))
+    -- if (direction.y > 0 and dir_facing.y > 0) or (direction.y == dir_facing.y) or (direction.y < 0 and dir_facing.y < 0) then
+    --     -- slam logic
+    --     print("TODO: SLam Logic")
+    -- else
+    if octant > 2 and octant < 6 then
         -- vault logic
         local vault_dir = Vector(direction.x * -1, direction.y * -1, direction.z)
         PrintVector((vault_dir * self:GetSpecialValueFor("vault_max_distance")), "Vector to Add")
@@ -62,5 +65,7 @@ function ability_ruyi_jingu_bang:OnSpellStart()
         --     modifier_movement_handler.target_point_y = target_point.y
         --     modifier_movement_handler.target_point_z = target_point.z
         -- end
+    else
+        -- slam logic
     end
 end
