@@ -106,7 +106,13 @@ function modifier_jingu_vault:OnRemoved()
     self.caster:RemoveGesture(ACT_DOTA_GENERIC_CHANNEL_1)
     FindClearSpaceForUnit(self.caster, self.caster:GetAbsOrigin(), false)
 
+    self.EndCallback()
+
 	-- if IsServer() then
 	-- 	self.caster:SetUnitOnClearGround()
 	-- end
+end
+
+function modifier_jingu_vault:SetEndCallback( func )
+	self.EndCallback = func
 end

@@ -234,3 +234,19 @@ end
 function OctantBetween2DVectors(vect_a, vect_b)
     return MapAngleToOctant(AngleBetween2DVectors(vect_a, vect_b))
 end
+
+-- normalizes a vector's length to an intensity value to scale the
+-- distance of a spell, etc.
+-- Also See: vector_target.lua
+function TargetingVectorIntensity(target_vect)
+    local xDist = target_vect.end_pos.x - target_vect.init_pos.x
+    local yDist = target_vect.end_pos.y - target_vect.init_pos.y
+    local len = math.sqrt((xDist ^ 2) + (yDist ^ 2))
+    print("Raw Len = " .. tostring(len))
+    local intensity = len/500
+    if intensity > 1 then
+        intensity = 1
+    end
+    print("Intensity = " .. tostring(intensity))
+    return intensity
+end

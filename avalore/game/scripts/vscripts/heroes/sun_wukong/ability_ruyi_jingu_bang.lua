@@ -38,10 +38,13 @@ function ability_ruyi_jingu_bang:OnSpellStart()
     --     print("TODO: SLam Logic")
     -- else
     if octant > 2 and octant < 6 then
-        -- vault logic
+        -- vault logic (vector pulled away from facing direction)
         local vault_dir = Vector(direction.x * -1, direction.y * -1, direction.z)
-        PrintVector((vault_dir * self:GetSpecialValueFor("vault_max_distance")), "Vector to Add")
-        local target_point = caster:GetAbsOrigin() + (vault_dir * self:GetSpecialValueFor("vault_max_distance"))
+        --local vault_dir = Vector(math.floor(direction.x * -10)/10, math.floor(direction.y * -10)/10, direction.z)
+        PrintVector(vault_dir, "Vault Dir")
+        local intensity = TargetingVectorIntensity(target)
+        PrintVector((vault_dir * intensity * self:GetSpecialValueFor("vault_max_distance")), "Vector to Add")
+        local target_point = caster:GetAbsOrigin() + (vault_dir * intensity *  self:GetSpecialValueFor("vault_max_distance"))
 
         --caster:StartGesture(ACT_DOTA_MK_SPRING_SOAR)
         --caster:StartGesture(ACT_DOTA_MK_STRIKE)
@@ -51,12 +54,51 @@ function ability_ruyi_jingu_bang:OnSpellStart()
 
         -- Start moving
 	    --local modifier_movement_handler = caster:AddNewModifier(caster, self, "modifier_jingu_vault", 
-        caster:AddNewModifier(caster, self, "modifier_jingu_vault",
+        local mod_vault = caster:AddNewModifier(caster, self, "modifier_jingu_vault",
         {
             target_point_x = target_point.x,
             target_point_y = target_point.y,
             target_point_z = target_point.z
         })
+
+        local radius = self:GetSpecialValueFor("vault_impact_radius")
+        local damage = self:GetSpecialValueFor("vault_impact_dmg")
+
+        -- apply AoE damage after vaulting is finished
+        local callback = function()
+            -- find units
+            local enemies = FindUnitsInRadius(
+                caster:GetTeamNumber(),	-- int, your team number
+                caster:GetOrigin(),	-- point, center point
+                nil,	-- handle, cacheUnit. (not known)
+                radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
+                DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
+                DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
+                0,	-- int, flag filter
+                0,	-- int, order filter
+                false	-- bool, can grow cache
+            )
+
+            -- precache damage
+            local damageTable = {
+                -- victim = target,
+                attacker = caster,
+                damage = damage,
+                damage_type = self:GetAbilityDamageType(),
+                ability = self, --Optional.
+            }
+
+            for _,enemy in pairs(enemies) do
+                -- damage
+                damageTable.victim = enemy
+                ApplyDamage(damageTable)
+            end
+
+            -- play effects
+            self:PlayEffects( caster:GetAbsOrigin(), radius )
+        end
+
+        mod_vault:SetEndCallback(callback)
 
         -- -- Assign the target location in the modifier
         -- if modifier_movement_handler then
@@ -68,4 +110,22 @@ function ability_ruyi_jingu_bang:OnSpellStart()
     else
         -- slam logic
     end
+end
+
+function ability_ruyi_jingu_bang:PlayEffects( point, radius )
+	-- Get Resources
+	local particle_cast = "particles/units/heroes/hero_monkey_king/monkey_king_spring.vpcf"
+	local sound_cast = "Hero_MonkeyKing.Spring.Impact"
+
+	-- Get Data
+	local caster = self:GetCaster()
+
+	-- Create Particle
+	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, caster )
+	ParticleManager:SetParticleControl( effect_cast, 0, point )
+	ParticleManager:SetParticleControl( effect_cast, 1, Vector( radius, radius, radius ) )
+	ParticleManager:ReleaseParticleIndex( effect_cast )
+
+	-- Create Sound
+	EmitSoundOnLocationWithCaster( point, sound_cast, caster )
 end
