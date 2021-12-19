@@ -44,6 +44,7 @@ require('buildings/hire_queue')
 require("avalore_debug")
 require('hero_extension')
 require('addon_init') -- client-side code/extension
+require('filters')
 
 flag_announce_curr = 1
 
@@ -122,6 +123,8 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 	GameRules:GetGameModeEntity():SetCustomBackpackCooldownPercent(1.0) -- no punishment
 	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(0.0) -- no cooldown
+
+	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAvaloreGameMode, "OrderFilter"), self)
 	
 	-- Custom Mode Framework Inits
 	Spawners:Init()
@@ -167,6 +170,10 @@ function CAvaloreGameMode:InitGameMode()
 	CustomGameEventManager:Send_ServerToAllClients( "refresh_score", score_obj )
 	--]]
 end
+
+-- function CAvaloreGameMode:OnAllPlayersLoaded()
+	
+-- end
 
 local temp = false
 

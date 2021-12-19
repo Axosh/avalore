@@ -27,13 +27,16 @@ function modifier_jingu_vault:OnCreated(kv)
     self.caster:FaceTowards(self.target_point)
 
     -- Wait one frame to get the target point from the ability's OnSpellStart, then calculate distance
-    Timers:CreateTimer(FrameTime(), function()
+    --Timers:CreateTimer(FrameTime(), function()
+    Timers:CreateTimer(0.4, function()
         self.distance = (self.caster:GetAbsOrigin() - self.target_point):Length2D()
         self.vault_time = self.distance / self.vault_speed
 
         self.direction = (self.target_point - self.caster:GetAbsOrigin()):Normalized()
 
         self.frametime = FrameTime()
+        self.caster:RemoveGesture(ACT_DOTA_GENERIC_CHANNEL_1)
+        self.caster:StartGesture(ACT_DOTA_MK_SPRING_SOAR)
         self:StartIntervalThink(self.frametime)
     end)
 end
@@ -89,6 +92,7 @@ function modifier_jingu_vault:HorizontalMotion(me, dt)
         self.caster:SetAbsOrigin(new_location)
     else
         self.caster:RemoveGesture(ACT_DOTA_MK_SPRING_SOAR)
+        --self.caster:RemoveGesture(ACT_DOTA_CAST_ABILITY_1 )
         self.caster:StartGesture(ACT_DOTA_MK_SPRING_END)
         self:Destroy()
     end
@@ -97,7 +101,9 @@ end
 function modifier_jingu_vault:OnRemoved()
     if not IsServer() then return end
     self.caster:RemoveGesture(ACT_DOTA_MK_SPRING_SOAR)
+    self.caster:RemoveGesture(ACT_DOTA_MK_STRIKE )
     self.caster:RemoveGesture(ACT_DOTA_MK_SPRING_END)
+    self.caster:RemoveGesture(ACT_DOTA_GENERIC_CHANNEL_1)
     FindClearSpaceForUnit(self.caster, self.caster:GetAbsOrigin(), false)
 
 	-- if IsServer() then

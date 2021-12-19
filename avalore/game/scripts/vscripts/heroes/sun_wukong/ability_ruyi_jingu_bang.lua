@@ -1,6 +1,8 @@
 ability_ruyi_jingu_bang = class({})
 
 LinkLuaModifier("modifier_jingu_vault",       "heroes/sun_wukong/modifier_jingu_vault.lua",       LUA_MODIFIER_MOTION_NONE)
+-- Note: this gets handled in filters
+LinkLuaModifier( "modifier_ignore_cast_direction", "scripts/vscripts/modifiers/modifier_ignore_cast_direction.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_ruyi_jingu_bang:OnAbilityPhaseInterrupted()
 end
@@ -12,15 +14,17 @@ function ability_ruyi_jingu_bang:OnAbilityPhaseStart()
 end
 
 function ability_ruyi_jingu_bang:OnSpellStart()
+    local dir_facing = self:GetCaster():GetForwardVector():Normalized() -- get this asap
     local caster = self:GetCaster()
 	local target = self:GetVectorTargetPosition()
     local point = self:GetCursorPosition()
 
+    --caster:Stop() -- try to prevent turning around (doesn't work)
+
     -- determine if we're vaulting or slammin'
     -- check if vector direction is same or opposite of the way the unit is facing
     local direction = target.direction:Normalized()
-    local dir_facing = self:GetCaster():GetForwardVector():Normalized()
-
+    
     PrintVector(target.direction, "Target Direction")
     PrintVector(target.direction:Normalized(), "Target Direction (Normalized)")
 
@@ -36,7 +40,10 @@ function ability_ruyi_jingu_bang:OnSpellStart()
         PrintVector((vault_dir * self:GetSpecialValueFor("vault_max_distance")), "Vector to Add")
         local target_point = caster:GetAbsOrigin() + (vault_dir * self:GetSpecialValueFor("vault_max_distance"))
 
-        caster:StartGesture(ACT_DOTA_MK_SPRING_SOAR)
+        --caster:StartGesture(ACT_DOTA_MK_SPRING_SOAR)
+        --caster:StartGesture(ACT_DOTA_MK_STRIKE)
+        caster:StartGesture(ACT_DOTA_GENERIC_CHANNEL_1  )
+        --caster:StartGestureWithPlaybackRate(ACT_DOTA_MK_STRIKE, 2.0)
         --caster:FaceTowards(target_point)
 
         -- Start moving
