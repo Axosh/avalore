@@ -1,3 +1,6 @@
+require("references")
+require(REQ_LIB_TIMERS)
+
 ability_ruyi_jingu_bang = class({})
 
 LinkLuaModifier("modifier_jingu_vault",       "heroes/sun_wukong/modifier_jingu_vault.lua",       LUA_MODIFIER_MOTION_NONE)
@@ -109,6 +112,51 @@ function ability_ruyi_jingu_bang:OnSpellStart()
         -- end
     else
         -- slam logic
+        local slam_speed = 1300.0 --TODO: make these special vals
+        local slam_radius = 150
+        --local slam_time = 1.0
+        local distance = (caster:GetAbsOrigin() - target.end_pos):Length2D()
+        local dir = (target.end_pos - caster:GetAbsOrigin()):Normalized()
+
+        
+        -- Add particle effect
+        caster:FaceTowards(target.end_pos)
+        Timers:CreateTimer(0.2,function ()
+            local p1 = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_strike.vpcf",PATTACH_ABSORIGIN,caster)
+            ParticleManager:SetParticleControlForward(p1,0,target.direction)
+            ParticleManager:SetParticleControl(p1, 1, target.end_pos)
+        end)
+        caster:StartGesture(ACT_DOTA_MK_STRIKE  )
+        -- local particle_fx = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_strike_cast.vpcf", PATTACH_WORLDORIGIN, caster)
+        -- ParticleManager:SetParticleControlForward(particle_fx, 0, target.direction)
+        -- local particle_fx = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_strike.vpcf", PATTACH_WORLDORIGIN, caster)
+        -- ParticleManager:SetParticleControl(particle_fx, 0, caster:GetAbsOrigin())
+        -- -- ParticleManager:SetParticleControlEnt(particle_fx, 1, caster, PATTACH_POINT_FOLLOW, "attach_weapon_bot", caster:GetAbsOrigin(), true)
+        -- -- ParticleManager:SetParticleControlEnt(particle_fx, 2, caster, PATTACH_POINT_FOLLOW, "attach_weapon_top", caster:GetAbsOrigin(), true)
+        -- -- ParticleManager:ReleaseParticleIndex(particle_fx)
+        -- --ParticleManager:SetParticleControlEnt(particle_fx, 1, target.end_pos, PATTACH_POINT_FOLLOW, "attach_weapon_bot", caster:GetAbsOrigin(), true)
+        -- ParticleManager:SetParticleControl(particle_fx, 1, target.end_pos)
+        -- ParticleManager:SetParticleControl(particle_fx, 2, target.end_pos)
+        -- --ParticleManager:SetParticleControlEnt(particle_fx, 2, target.end_pos, PATTACH_POINT_FOLLOW, "attach_weapon_top", caster:GetAbsOrigin(), true)
+        -- ParticleManager:ReleaseParticleIndex(particle_fx)
+        -- -- ParticleManager:SetParticleControl(particle_fx, 0, caster:GetAbsOrigin())
+        -- --ParticleManager:SetParticleControl(particle_fx, 1, target.end_pos)
+        
+        -- Projectile information
+        local proejctile = {Ability = self,         
+                            vSpawnOrigin = caster:GetAbsOrigin(),
+                            fDistance = distance,
+                            fStartRadius = slam_radius,
+                            fEndRadius = slam_radius,
+                            Source = caster,
+                            bHasFrontalCone = false,
+                            bReplaceExisting = false,
+                            iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,                          
+                            iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,                           
+                            bDeleteOnHit = false,
+                            vVelocity = dir * slam_speed * Vector(1, 1, 0),
+                            bProvidesVision = false,
+                        }
     end
 end
 
