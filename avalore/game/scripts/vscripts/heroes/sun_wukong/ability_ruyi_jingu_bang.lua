@@ -157,7 +157,35 @@ function ability_ruyi_jingu_bang:OnSpellStart()
                             vVelocity = dir * slam_speed * Vector(1, 1, 0),
                             bProvidesVision = false,
                         }
+
+        ProjectileManager:CreateLinearProjectile(proejctile) 
     end
+end
+
+function ability_ruyi_jingu_bang:OnProjectileHit(target, location)
+    if not target then
+		return nil
+	end
+
+	-- If the target is spell immune, do nothing
+	if target:IsMagicImmune() then
+		return nil
+	end
+
+	-- Ability properties
+	local caster = self:GetCaster()
+	local ability = self
+    local damage = ability:GetSpecialValueFor("vault_impact_dmg")
+
+    -- Deal damage
+	local damageTable = {victim = target,
+                        attacker = caster, 
+                        damage = damage,
+                        damage_type = DAMAGE_TYPE_MAGICAL,
+                        ability = ability
+    }
+
+    ApplyDamage(damageTable)  
 end
 
 function ability_ruyi_jingu_bang:PlayEffects( point, radius )
