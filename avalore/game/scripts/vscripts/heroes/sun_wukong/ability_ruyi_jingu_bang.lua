@@ -6,6 +6,7 @@ ability_ruyi_jingu_bang = class({})
 LinkLuaModifier("modifier_jingu_vault",       "heroes/sun_wukong/modifier_jingu_vault.lua",       LUA_MODIFIER_MOTION_NONE)
 -- Note: this gets handled in filters
 LinkLuaModifier( "modifier_ignore_cast_direction", "scripts/vscripts/modifiers/modifier_ignore_cast_direction.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
 
 function ability_ruyi_jingu_bang:OnAbilityPhaseInterrupted()
 end
@@ -214,6 +215,14 @@ function ability_ruyi_jingu_bang:OnProjectileHit_ExtraData(target, location, dat
                         damage_type = DAMAGE_TYPE_MAGICAL,
                         ability = ability
     }
+
+    -- stun
+    target:AddNewModifier(
+        caster, -- player source
+        self, -- ability source
+        "modifier_avalore_stunned", -- modifier name
+        { duration = data.scaled_stun } -- kv
+    )
 
     ApplyDamage(damageTable)  
 end
