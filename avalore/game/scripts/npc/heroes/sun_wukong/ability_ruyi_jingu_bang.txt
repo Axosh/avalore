@@ -67,6 +67,31 @@
                 "var_type"              "FIELD_INTEGER"
                 "vault_impact_radius"   "375"
             }
+            "07"
+            {
+                "var_type"				"FIELD_FLOAT"
+				"slam_speed"			"1300.0"
+            }
+            "08"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "slam_radius"           "150"
+            }
+            "09"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "slam_max_distance"     "1100"
+            }
+            "10"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "slam_max_stun"         "2.0"
+            }
+            "11"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "slam_max_damage"       "100 200 300 400"
+            }
         }
     }
 }

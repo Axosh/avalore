@@ -112,19 +112,43 @@ function ability_ruyi_jingu_bang:OnSpellStart()
         -- end
     else
         -- slam logic
-        local slam_speed = 1300.0 --TODO: make these special vals
-        local slam_radius = 150
+        local slam_speed = self:GetSpecialValueFor("slam_speed")
+        local slam_radius = self:GetSpecialValueFor("slam_radius")
+        local slam_max_dist = self:GetSpecialValueFor("slam_max_distance")
+        local slam_max_damage = self:GetSpecialValueFor("slam_max_damage")
+        local slam_max_stun = self:GetSpecialValueFor("slam_max_stun")
+        print("Max Dist = " .. tostring(slam_max_dist))
         --local slam_time = 1.0
         local distance = (caster:GetAbsOrigin() - target.end_pos):Length2D()
         local dir = (target.end_pos - caster:GetAbsOrigin()):Normalized()
+        local end_point = target.end_pos
+
+        if distance > slam_max_dist then
+            distance = slam_max_dist
+            end_point = ResolveEndPoint(caster:GetAbsOrigin(), dir, slam_max_dist)
+            PrintVector(caster:GetAbsOrigin(), "Start Point")
+            PrintVector(end_point, "New End Point")
+        end
+
+        local scale = distance/slam_max_dist
+        -- invert it and buffer it
+        scale = 1 - scale
+        if scale < 0.3 then
+            scale = 0.3
+        elseif scale > 0.8 then
+            scale = 1.0
+        end
+
 
         
         -- Add particle effect
+        -- TODO: have the polearm scale with the distance
         caster:FaceTowards(target.end_pos)
         Timers:CreateTimer(0.2,function ()
             local p1 = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_strike.vpcf",PATTACH_ABSORIGIN,caster)
             ParticleManager:SetParticleControlForward(p1,0,target.direction)
-            ParticleManager:SetParticleControl(p1, 1, target.end_pos)
+            ParticleManager:SetParticleControl(p1, 1, end_point)
+            ParticleManager:SetParticleControl(p1, 2, end_point)
         end)
         caster:StartGesture(ACT_DOTA_MK_STRIKE  )
         -- local particle_fx = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_strike_cast.vpcf", PATTACH_WORLDORIGIN, caster)
@@ -143,7 +167,7 @@ function ability_ruyi_jingu_bang:OnSpellStart()
         -- --ParticleManager:SetParticleControl(particle_fx, 1, target.end_pos)
         
         -- Projectile information
-        local proejctile = {Ability = self,         
+        local projectile = {Ability = self,         
                             vSpawnOrigin = caster:GetAbsOrigin(),
                             fDistance = distance,
                             fStartRadius = slam_radius,
@@ -156,13 +180,18 @@ function ability_ruyi_jingu_bang:OnSpellStart()
                             bDeleteOnHit = false,
                             vVelocity = dir * slam_speed * Vector(1, 1, 0),
                             bProvidesVision = false,
+                            ExtraData =
+                            {
+                                scaled_damage = (slam_max_damage * scale),
+                                scaled_stun = (slam_max_stun * scale)
+                            }
                         }
 
-        ProjectileManager:CreateLinearProjectile(proejctile) 
+        ProjectileManager:CreateLinearProjectile(projectile)
     end
 end
 
-function ability_ruyi_jingu_bang:OnProjectileHit(target, location)
+function ability_ruyi_jingu_bang:OnProjectileHit_ExtraData(target, location, data)
     if not target then
 		return nil
 	end
@@ -175,7 +204,8 @@ function ability_ruyi_jingu_bang:OnProjectileHit(target, location)
 	-- Ability properties
 	local caster = self:GetCaster()
 	local ability = self
-    local damage = ability:GetSpecialValueFor("vault_impact_dmg")
+    --local damage = ability:GetSpecialValueFor("vault_impact_dmg")
+    local damage = data.scaled_damage
 
     -- Deal damage
 	local damageTable = {victim = target,

@@ -250,3 +250,10 @@ function TargetingVectorIntensity(target_vect)
     print("Intensity = " .. tostring(intensity))
     return intensity
 end
+
+-- starting at a point,
+function ResolveEndPoint(starting_point, vector_dir, distance)
+    PrintVector(vector_dir:Normalized(), "Dir Vector")
+    local add_vect = vector_dir:Normalized() * distance
+    return starting_point + add_vect
+end
