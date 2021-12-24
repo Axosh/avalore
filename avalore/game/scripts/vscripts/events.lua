@@ -829,10 +829,15 @@ function CAvaloreGameMode:InitSunWukong(hero, playernum)
 
 	--unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
 	local sun_wukong_cosmetics = {}
-	sun_wukong_cosmetics[0] = "models/items/monkey_king/monkey_king_arcana_head/mesh/monkey_king_arcana.vmdl"
+	sun_wukong_cosmetics[0] = "models/items/siren/luminous_warrior_head/luminous_warrior_head.vmdl"
+	--sun_wukong_cosmetics[0] = "models/items/monkey_king/monkey_king_arcana_head/mesh/monkey_king_arcana.vmdl"
 	sun_wukong_cosmetics[1] = "models/items/monkey_king/mk_ti9_immortal_armor/mk_ti9_immortal_armor.vmdl"
 	sun_wukong_cosmetics[2] = "models/heroes/monkey_king/monkey_king_base_weapon.vmdl"
 	sun_wukong_cosmetics[3] = "models/items/monkey_king/mk_ti9_immortal_shoulder/mk_ti9_immortal_shoulder.vmdl"
+
+	--transformations
+	--sun_wukong_cosmetics[4] = "models/items/siren/tail_of_the_slithereen_knight/tail_of_the_slithereen_knight.vmdl"
+	sun_wukong_cosmetics[4] = "models/items/siren/naga_ti8_immortal_tail/naga_ti8_immortal_tail.vmdl"
 	
 	for k,wearable in pairs(sun_wukong_cosmetics) do
 		--print("Creating Cosmetic " .. wearable)

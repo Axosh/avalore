@@ -8,7 +8,7 @@
 		"ScriptFile"					"heroes/sun_wukong/ability_shen_wai_shen_fa.lua"
 		"AbilityTextureName"			"sun_wukong/shen_wai_shen_fa"
 		
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET" // | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilitySound"					"Hero_Terrorblade.ConjureImage"
 
 		// Casting

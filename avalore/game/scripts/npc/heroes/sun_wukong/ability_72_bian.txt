@@ -1,0 +1,89 @@
+"DOTAAbilities"
+{
+    "ability_72_bian"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"					"heroes/sun_wukong/72_bian.lua"
+
+        "AbilityTextureName"			"sun_wukong/72_bian"
+
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+
+        // Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"              "500 500 500 500"
+		"AbilityCastPoint"              "0.4 0.4 0.4 0.4"
+
+        // Damage.
+		//-------------------------------------------------------------------------------------------------------------
+
+        // Time     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"               "40 35 30 25"
+
+        // Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"70 110 150 190"
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+            "01"
+            {
+                "var_type"				    "FIELD_INTEGER"
+				"vector_target"			    "1"		
+            }
+            "02"
+            {
+                "var_type"					"FIELD_INTEGER"
+				"speed_bird_abs"			"325 350 375 400"
+            }
+            "03"
+            {
+                "var_type"					"FIELD_INTEGER"
+				"speed_fish_rel"			"10 20 30 40"
+            }
+            "04"
+            {
+                "var_type"					"FIELD_INTEGER"
+				"speed_boar_rel"			"10 20 30 40"
+            }
+            "05"
+            {
+                "var_type"					"FIELD_INTEGER"
+				"speed_tree_abs"			"150"
+            }
+            "06"
+            {
+                "var_type"					"FIELD_INTEGER"
+				"vision"		            "500 550 600 650"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "fade_time"                 "1.5"
+            }
+            "08"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "disjoint_time"             "0.2"
+            }
+            "09"
+            {
+                "var_type"					"FIELD_INTEGER"
+				"boar_hp_bonus"		        "100 200 300 400"
+            }
+            "10"
+            {
+                "var_type"					"FIELD_INTEGER"
+				"boar_maim"		            "10 15 20 25"
+            }
+        }
+    }
+}
