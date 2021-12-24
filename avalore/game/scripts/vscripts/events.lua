@@ -822,7 +822,11 @@ function CAvaloreGameMode:InitPecosBill(hero, playernum)
 end
 
 function CAvaloreGameMode:InitSunWukong(hero, playernum)
-	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	local unit = hero
+	if unit == nil and playernum ~= nil then
+		unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	end
+
 	--unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
 	local sun_wukong_cosmetics = {}
 	sun_wukong_cosmetics[0] = "models/items/monkey_king/monkey_king_arcana_head/mesh/monkey_king_arcana.vmdl"
@@ -839,6 +843,9 @@ function CAvaloreGameMode:InitSunWukong(hero, playernum)
 		cosmetic:SetParent(unit, nil)
 		cosmetic:SetOwner(unit)
 		cosmetic:FollowEntity(unit, true)
+		-- if unit:IsIllusion() then
+		-- 	cosmetic:AddNewModifier(nil, nil, "modifier_illusion", {}) -- built-in modifier to dota
+		-- end
 	end
 end
 

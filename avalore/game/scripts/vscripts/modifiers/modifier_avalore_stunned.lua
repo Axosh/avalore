@@ -1,5 +1,9 @@
 modifier_avalore_stunned = class({})
 
+function modifier_avalore_stunned:GetTexture()
+	return "generic/stunned"
+end
+
 --------------------------------------------------------------------------------
 -- Classifications
 function modifier_avalore_stunned:IsDebuff()

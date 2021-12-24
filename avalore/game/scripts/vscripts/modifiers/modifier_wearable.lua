@@ -37,12 +37,26 @@ function modifier_wearable:OnCreated()
 
 	self:StartIntervalThink(FrameTime())
 	self.render_color = nil
+	--self.illusion = self:GetParent():GetOwnerEntity():IsIllusion()
 end
 
 function modifier_wearable:OnIntervalThink()
 	local cosmetic = self:GetParent()
 	local hero = cosmetic:GetOwnerEntity()
+
+	if hero then
+		self.illusion = hero:IsIllusion()
+	end
+
+	-- if hero:IsIllusion() then
+	-- 	cosmetic:SetRenderColor(0,0,220)
+	-- end
+
 	if hero == nil then return end
+
+	-- if self.illusion and not hero:IsAlive() then
+	-- 	cosmetic:AddNoDraw() -- if it was an illusion (poofs) don't draw the cosmetic until its garbage collected
+	-- end
 
 	--print("Cosmetic " .. cosmetic:GetName() .. " is thinking")
 

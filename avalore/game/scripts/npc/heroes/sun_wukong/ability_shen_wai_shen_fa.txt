@@ -1,0 +1,58 @@
+"DOTAAbilities"	
+{
+    "ability_shen_wai_shen_fa"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/sun_wukong/ability_shen_wai_shen_fa.lua"
+		"AbilityTextureName"			"sun_wukong/shen_wai_shen_fa"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilitySound"					"Hero_Terrorblade.ConjureImage"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.15"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"16 16 16 16"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"70 75 80 85"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"illusion_duration"					"34.0 34.0 34.0 34.0"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"illusion_outgoing_damage"			"-70.0 -60.0 -50.0 -40.0"		 
+			}
+			"03"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"illusion_outgoing_tooltip"			"40.0 50.0 60.0 70.0"
+			}
+			"04"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"illusion_incoming_damage"			"220.0 220.0 220.0 220.0"
+			}
+			"05"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"illusion_incoming_damage_total_tooltip"			"320.0 320.0 320.0 320.0"
+			}	
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+    }
+}
