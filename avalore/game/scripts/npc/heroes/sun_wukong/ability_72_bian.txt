@@ -72,7 +72,7 @@
             "08"
             {
                 "var_type"                  "FIELD_FLOAT"
-                "disjoint_time"             "0.2"
+                "transformation_time"       "0.1"
             }
             "09"
             {

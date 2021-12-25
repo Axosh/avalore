@@ -235,6 +235,34 @@ function OctantBetween2DVectors(vect_a, vect_b)
     return MapAngleToOctant(AngleBetween2DVectors(vect_a, vect_b))
 end
 
+
+-- -----------------------------------------------------------------------------------
+-- Map a vector targetting to a quadrant that's divided up as an "X"
+-- -----------------------------------------------------------------------------------
+-- \ 0 /
+-- 3 X 1
+-- / 2 \
+-- -----------------------------------------------------------------------------------
+-- so a 90 degree angle would correspond to quadrant "1"
+-- -----------------------------------------------------------------------------------
+function MapAngleToXSlice(angle)
+
+    if angle >= 45 and angle < 135 then
+        return 1
+    elseif angle >= 135 and angle < 225 then
+        return 2
+    elseif angle >= 225 and angle < 315 then
+        return 3
+    else
+        return 0
+    end
+end
+
+function XQuadrantBetween2DVectors(vect_a, vect_b)
+    return MapAngleToXSlice(AngleBetween2DVectors(vect_a, vect_b))
+end
+
+
 -- normalizes a vector's length to an intensity value to scale the
 -- distance of a spell, etc.
 -- Also See: vector_target.lua
