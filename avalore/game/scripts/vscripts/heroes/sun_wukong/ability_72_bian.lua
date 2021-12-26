@@ -1,5 +1,8 @@
 ability_72_bian = class({})
 
+LinkLuaModifier("modifier_72_bian_fish",       "heroes/sun_wukong/modifier_72_bian_fish.lua",       LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_water_fade",       "modifiers/shared/modifier_water_fade.lua",       LUA_MODIFIER_MOTION_NONE)
+
 function ability_72_bian:OnAbilityPhaseInterrupted()
 end
 
@@ -35,13 +38,18 @@ function ability_72_bian:OnSpellStart()
 
     if quadrant == 0 then
         -- bird form
+        print("Bird Form")
         caster:EmitSound("Hero_Beastmaster.Call.Hawk")
     elseif quadrant == 1 then
         -- boar form
+        print("Boar Form")
     elseif quadrant == 2 then
         -- tree form
+        print("Tree Form")
     else
         -- fish form
+        print("Fish Form")
+        modifier_transformation = "modifier_72_bian_fish"
     end
 
     -- trigger the transformation buff after the Timer expires

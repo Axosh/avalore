@@ -11,6 +11,9 @@ end
 
 function modifier_72_bian_fish:OnCreated()
     self.speed_change = self:GetAbility():GetSpecialValueFor("speed_fish_rel")
+
+    if not IsServer() then return end
+    self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_water_fade", {})
 end
 
 function modifier_72_bian_fish:DeclareFunctions()
@@ -20,6 +23,14 @@ function modifier_72_bian_fish:DeclareFunctions()
 
 	return funcs
 end
+
+-- function modifier_72_bian_fish:CheckState()
+-- 	local state = {
+-- 	    [MODIFIER_STATE_NO_UNIT_COLLISION] = (self:GetParent():GetAbsOrigin().z <=0.5),
+-- 	}
+
+-- 	return state
+-- end
 
 function modifier_72_bian_fish:GetModifierMoveSpeedBonus_Percentage()
     -- speed amp in water

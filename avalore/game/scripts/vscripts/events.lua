@@ -829,8 +829,8 @@ function CAvaloreGameMode:InitSunWukong(hero, playernum)
 
 	--unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
 	local sun_wukong_cosmetics = {}
-	sun_wukong_cosmetics[0] = "models/items/siren/luminous_warrior_head/luminous_warrior_head.vmdl"
-	--sun_wukong_cosmetics[0] = "models/items/monkey_king/monkey_king_arcana_head/mesh/monkey_king_arcana.vmdl"
+	--sun_wukong_cosmetics[0] = "models/items/siren/luminous_warrior_head/luminous_warrior_head.vmdl"
+	sun_wukong_cosmetics[0] = "models/items/monkey_king/monkey_king_arcana_head/mesh/monkey_king_arcana.vmdl"
 	sun_wukong_cosmetics[1] = "models/items/monkey_king/mk_ti9_immortal_armor/mk_ti9_immortal_armor.vmdl"
 	sun_wukong_cosmetics[2] = "models/heroes/monkey_king/monkey_king_base_weapon.vmdl"
 	sun_wukong_cosmetics[3] = "models/items/monkey_king/mk_ti9_immortal_shoulder/mk_ti9_immortal_shoulder.vmdl"
@@ -838,9 +838,10 @@ function CAvaloreGameMode:InitSunWukong(hero, playernum)
 	--transformations
 	--sun_wukong_cosmetics[4] = "models/items/siren/tail_of_the_slithereen_knight/tail_of_the_slithereen_knight.vmdl"
 	sun_wukong_cosmetics[4] = "models/items/siren/naga_ti8_immortal_tail/naga_ti8_immortal_tail.vmdl"
+	sun_wukong_cosmetics[5] = "models/items/siren/luminous_warrior_head/luminous_warrior_head.vmdl"
 	
 	for k,wearable in pairs(sun_wukong_cosmetics) do
-		--print("Creating Cosmetic " .. wearable)
+		print("Creating Cosmetic [" .. tostring(k) .. "] => " .. wearable)
 		local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
 		cosmetic:SetOriginalModel(wearable)
 		cosmetic:SetModel(wearable)
@@ -848,6 +849,12 @@ function CAvaloreGameMode:InitSunWukong(hero, playernum)
 		cosmetic:SetParent(unit, nil)
 		cosmetic:SetOwner(unit)
 		cosmetic:FollowEntity(unit, true)
+		
+		if k > 3 then
+			print("No Draw added to: " .. cosmetic:GetModelName())
+			cosmetic:AddNoDraw()
+			--cosmetic:AddEffects(EF_NODRAW) -- start out invis
+		end
 		-- if unit:IsIllusion() then
 		-- 	cosmetic:AddNewModifier(nil, nil, "modifier_illusion", {}) -- built-in modifier to dota
 		-- end

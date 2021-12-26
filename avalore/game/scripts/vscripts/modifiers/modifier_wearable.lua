@@ -2,7 +2,8 @@ AVALORE_INVISIBLE_MODIFIERS = {
 	"modifier_wearable_temp_invis",
     "modifier_deadly_fog_invis",
     "modifier_rogueish_escape",
-	"modifier_faction_forest_fade"
+	"modifier_faction_forest_fade",
+	"modifier_water_fade"
 }
 
 --LinkLuaModifier( "modifier_rogueish_escape", "heroes/robin_hood/ability_rich_poor", LUA_MODIFIER_MOTION_NONE )
@@ -132,6 +133,24 @@ function modifier_wearable:OnIntervalThink()
 			elseif cosmetic:GetModelName() == "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl" then
 				if not hero:HasModifier("modifier_jack_of_all_trades_melee") then
 					cosmetic:AddNoDraw()
+				end
+			end
+		elseif hero:GetName() == "npc_dota_hero_monkey_king" then
+			if hero:HasModifier("modifier_72_bian_fish") then
+				if (cosmetic:GetModelName() == "models/items/siren/naga_ti8_immortal_tail/naga_ti8_immortal_tail.vmdl"
+					or cosmetic:GetModelName() == "models/items/siren/luminous_warrior_head/luminous_warrior_head.vmdl" 
+					or cosmetic:GetModelName() == "models/heroes/monkey_king/monkey_king_base_weapon.vmdl") then
+						cosmetic:RemoveNoDraw()
+				else
+					cosmetic:AddNoDraw()
+				end
+			else
+				if (cosmetic:GetModelName() == "models/items/siren/naga_ti8_immortal_tail/naga_ti8_immortal_tail.vmdl"
+					or cosmetic:GetModelName() == "models/items/siren/luminous_warrior_head/luminous_warrior_head.vmdl") then
+						cosmetic:AddNoDraw()
+						--print("MK Cosmetic ==> " .. cosmetic:GetModelName())
+				else
+					cosmetic:RemoveNoDraw()
 				end
 			end
 		end
