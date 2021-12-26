@@ -93,6 +93,8 @@ function modifier_water_fade:OnIntervalThink()
             local particle = ParticleManager:CreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf", PATTACH_ABSORIGIN, self:GetParent())
             ParticleManager:ReleaseParticleIndex(particle)
         end
+    elseif self:GetParent():GetAbsOrigin().z > 0.5 then
+        self:SetStackCount(self.cooldown)
     else
 
     end
