@@ -2,6 +2,7 @@ ability_72_bian = class({})
 
 LinkLuaModifier("modifier_72_bian_fish",       "heroes/sun_wukong/modifier_72_bian_fish.lua",       LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_72_bian_boar",       "heroes/sun_wukong/modifier_72_bian_boar.lua",       LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_72_bian_bird",       "heroes/sun_wukong/modifier_72_bian_bird.lua",       LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_water_fade",       "modifiers/shared/modifier_water_fade.lua",       LUA_MODIFIER_MOTION_NONE)
 
 function ability_72_bian:OnAbilityPhaseInterrupted()
@@ -41,6 +42,7 @@ function ability_72_bian:OnSpellStart()
         -- bird form
         print("Bird Form")
         caster:EmitSound("Hero_Beastmaster.Call.Hawk")
+        modifier_transformation = "modifier_72_bian_bird"
     elseif quadrant == 1 then
         -- boar form
         print("Boar Form")
