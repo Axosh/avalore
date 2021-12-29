@@ -3,6 +3,7 @@ ability_72_bian = class({})
 LinkLuaModifier("modifier_72_bian_fish",       "heroes/sun_wukong/modifier_72_bian_fish.lua",       LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_72_bian_boar",       "heroes/sun_wukong/modifier_72_bian_boar.lua",       LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_72_bian_bird",       "heroes/sun_wukong/modifier_72_bian_bird.lua",       LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_72_bian_tree",       "heroes/sun_wukong/modifier_72_bian_tree.lua",       LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_water_fade",       "modifiers/shared/modifier_water_fade.lua",       LUA_MODIFIER_MOTION_NONE)
 
 function ability_72_bian:OnAbilityPhaseInterrupted()
@@ -39,19 +40,20 @@ function ability_72_bian:OnSpellStart()
     local modifier_transformation = ""
 
     if quadrant == 0 then
-        -- bird form
+        -- bird form (UP)
         print("Bird Form")
         caster:EmitSound("Hero_Beastmaster.Call.Hawk")
         modifier_transformation = "modifier_72_bian_bird"
     elseif quadrant == 1 then
-        -- boar form
+        -- boar form (RIGHT)
         print("Boar Form")
         modifier_transformation = "modifier_72_bian_boar"
     elseif quadrant == 2 then
-        -- tree form
+        -- tree form (DOWN)
         print("Tree Form")
+        modifier_transformation = "modifier_72_bian_tree"
     else
-        -- fish form
+        -- fish form (LEFT)
         print("Fish Form")
         modifier_transformation = "modifier_72_bian_fish"
     end
@@ -60,4 +62,11 @@ function ability_72_bian:OnSpellStart()
     Timers:CreateTimer(transformation_time, function()
         caster:AddNewModifier(caster, self, modifier_transformation, {})
     end)
+
+    -- disable uncastable spells while transformed + change ability to cancel transform, preserve levels/upgrades
+    local spell_slot2 = self:GetCaster():GetAbilityByIndex(2):GetAbilityName() -- 0-indexed
+    caster:SwapAbilities(spell_slot2, "ability_72_bian_cancel", false, true)
+    local curr_level_slot2 = caster:FindAbilityByName(spell_slot2):GetLevel()
+    self:GetCaster():GetAbilityByIndex(2):SetLevel(curr_level_slot2)
+    SwapSpells(self, 2, "ability_72_bian_cancel")
 end

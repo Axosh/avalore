@@ -1,0 +1,22 @@
+"DOTAAbilities"
+{
+    "ability_72_bian_cancel"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"                    "heroes/sun_wukong/ability_72_bian_cancel.lua"
+
+        "AbilityTextureName"            "sun_wukong/monkey_form"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+        // Ability Casting
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCastPoint"				"0.2"
+
+        // Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+    }
+}

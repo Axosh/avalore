@@ -55,6 +55,7 @@
 #base "heroes/sun_wukong/ability_ruyi_jingu_bang.txt"
 #base "heroes/sun_wukong/ability_shen_wai_shen_fa.txt"
 #base "heroes/sun_wukong/ability_72_bian.txt"
+#base "heroes/sun_wukong/ability_72_bian_cancel.txt"
 
 "DOTAAbilities"
 {	

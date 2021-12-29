@@ -69,12 +69,12 @@ end
 function modifier_wukong_immortality:OnDeath(kv)
 	if not IsServer() then return end
 
-    print("modifier_wukong_immortality:OnDeath(kv)")
+    --print("modifier_wukong_immortality:OnDeath(kv)")
 
     local unit = kv.unit
     local reincarnate = kv.reincarnate
 
-    print("reincarnate = " .. tostring(reincarnate))
+    --print("reincarnate = " .. tostring(reincarnate))
 
     -- TODO: add in aegis-check or whatever else is needed
     if reincarnate then

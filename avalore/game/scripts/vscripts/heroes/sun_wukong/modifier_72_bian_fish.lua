@@ -51,3 +51,7 @@ end
 function modifier_72_bian_fish:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
 end
+
+function modifier_72_bian_fish:OnDestroy()
+    self:GetCaster():RemoveModifierByName("modifier_water_fade")
+end

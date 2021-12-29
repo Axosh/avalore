@@ -32,6 +32,13 @@ function ability_shen_wai_shen_fa:OnSpellStart()
                     false, --scramble position
                     true) --find clear space
 
+    local transformation_modifiers = {
+        "modifier_72_bian_fish",
+        "modifier_72_bian_bird",
+        "modifier_72_bian_tree",
+        "modifier_72_bian_boar"
+    }
+
 	if illusions then
 		for _, illusion in pairs(illusions) do
 			-- Vanilla modifier to give the illusions that Terrorblade illusion texture
@@ -40,10 +47,14 @@ function ability_shen_wai_shen_fa:OnSpellStart()
             CAvaloreGameMode:InitSunWukong(illusion, nil)
 
 			illusion:StartGesture(ACT_DOTA_CAST_ABILITY_3_END)
-
-            if self:GetCaster():HasModifier("modifier_72_bian_fish") then
-                illusion:AddNewModifier(self:GetCaster(), self, "modifier_72_bian_fish", {})
+            
+            for _,mod in pairs(transformation_modifiers) do
+                if self:GetCaster():HasModifier(mod) then
+                    illusion:AddNewModifier(self:GetCaster(), self, mod, {})
+                end
             end
+
+            
             --illusion:AddNewModifier(nil, nil, "modifier_illusion", {}) -- built-in modifier to dota
 		end
 	end
