@@ -25,6 +25,8 @@ function modifier_72_bian_tree:OnCreated()
     --self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_water_fade", {})
     local rand = RandomInt(0, 5)
     self.tree_model = random_tree_table[rand]
+
+    self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_forest_fade", {})
 end
 
 function modifier_72_bian_tree:DeclareFunctions()
@@ -43,7 +45,7 @@ end
 
 
 
-function modifier_72_bian_tree:GetModifierMoveSpeedBonus_Percentage()
+function modifier_72_bian_tree:GetModifierMoveSpeedOverride()
     return 150
 end
 
@@ -54,4 +56,8 @@ end
 
 function modifier_72_bian_tree:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_72_bian_tree:OnDestroy()
+    self:GetCaster():RemoveModifierByName("modifier_forest_fade")
 end
