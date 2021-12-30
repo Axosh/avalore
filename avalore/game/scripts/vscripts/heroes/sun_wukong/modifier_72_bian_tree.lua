@@ -27,6 +27,7 @@ function modifier_72_bian_tree:OnCreated()
     self.tree_model = random_tree_table[rand]
 
     self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_forest_fade", {})
+    self:GetParent():GetAbilityByName("ability_ruyi_jingu_bang"):SetHidden(true)
 end
 
 function modifier_72_bian_tree:DeclareFunctions()
@@ -59,5 +60,7 @@ function modifier_72_bian_tree:GetEffectAttachType()
 end
 
 function modifier_72_bian_tree:OnDestroy()
+    if not IsServer() then return end
     self:GetCaster():RemoveModifierByName("modifier_forest_fade")
+    self:GetParent():GetAbilityByName("ability_ruyi_jingu_bang"):SetHidden(false)
 end

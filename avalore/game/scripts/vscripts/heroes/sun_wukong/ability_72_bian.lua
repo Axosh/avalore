@@ -1,11 +1,12 @@
 ability_72_bian = class({})
 
-LinkLuaModifier("modifier_72_bian_fish",       "heroes/sun_wukong/modifier_72_bian_fish.lua",       LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_72_bian_boar",       "heroes/sun_wukong/modifier_72_bian_boar.lua",       LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_72_bian_bird",       "heroes/sun_wukong/modifier_72_bian_bird.lua",       LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_72_bian_tree",       "heroes/sun_wukong/modifier_72_bian_tree.lua",       LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_water_fade",       "modifiers/shared/modifier_water_fade.lua",       LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_forest_fade",       "modifiers/shared/modifier_forest_fade.lua",       LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_72_bian_fish",    "heroes/sun_wukong/modifier_72_bian_fish.lua",  LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_72_bian_boar",    "heroes/sun_wukong/modifier_72_bian_boar.lua",  LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_72_bian_bird",    "heroes/sun_wukong/modifier_72_bian_bird.lua",  LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_72_bian_tree",    "heroes/sun_wukong/modifier_72_bian_tree.lua",  LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_water_fade",      "modifiers/shared/modifier_water_fade.lua",     LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_forest_fade",     "modifiers/shared/modifier_forest_fade.lua",    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boar_gore",       "heroes/sun_wukong/modifier_boar_gore.lua",     LUA_MODIFIER_MOTION_NONE)
 
 function ability_72_bian:OnAbilityPhaseInterrupted()
 end

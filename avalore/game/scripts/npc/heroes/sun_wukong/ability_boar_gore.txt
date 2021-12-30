@@ -1,0 +1,42 @@
+"DOTAAbilities"
+{
+    "ability_boar_gore"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"						"ability_lua"
+        "ScriptFile"				    "heroes/sun_wukong/ability_boar_gore.lua"
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+        "FightRecapLevel"				"1"
+        "AbilityTextureName"			"sun_wukong/boar_gore"
+        "MaxLevel"						"4"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+
+            "01"
+            {
+                "var_type"					"FIELD_INTEGER"
+                "gore_movespeed_slow"		"5 10 15 20"
+            }
+            // "02"
+            // {
+            //     "var_type"					"FIELD_INTEGER"
+            //     "attackspeed_slow"			"15 35 60 90"
+            // }
+            "02"
+            {
+                "var_type"					"FIELD_FLOAT"
+                "duration"					"3.0"
+            }
+        }
+    }
+}
