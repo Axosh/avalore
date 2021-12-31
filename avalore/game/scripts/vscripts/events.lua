@@ -589,6 +589,9 @@ function CAvaloreGameMode:InitCosmetics(unit)
 		CAvaloreGameMode:InitPecosBill(hero, playernum)
 	elseif hero_name == "npc_avalore_hero_sun_wukong" or hero_name == "npc_dota_hero_monkey_king" then
 		CAvaloreGameMode:InitSunWukong(hero, playernum)
+	--elseif hero_name == "npc_avalore_hero_thor" or hero_name == "npc_dota_hero_sven" then
+elseif hero_name == "npc_avalore_hero_thor" or hero_name == "npc_dota_hero_dawnbreaker" then
+		CAvaloreGameMode:InitThor(hero, playernum)
 	end
 
 	hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
@@ -857,6 +860,127 @@ function CAvaloreGameMode:InitSunWukong(hero, playernum)
 		end
 		-- if unit:IsIllusion() then
 		-- 	cosmetic:AddNewModifier(nil, nil, "modifier_illusion", {}) -- built-in modifier to dota
+		-- end
+	end
+end
+
+function CAvaloreGameMode:InitThor(hero, playernum)
+	local unit = hero
+	if unit == nil and playernum ~= nil then
+		unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	end
+	local HEAD = 2
+	local HAT = 4
+
+	local thor_cosmetics = {}
+	thor_cosmetics[0] = "models/heroes/dawnbreaker/dawnbreaker_weapon.vmdl"
+	thor_cosmetics[1] = "models/items/dawnbreaker/first_light_armor/first_light_armor.vmdl"
+	--thor_cosmetics[2] = "models/items/tuskarr/harmful_iron_fist_head/harmful_iron_fist_head.vmdl"
+	--thor_cosmetics[2] = "models/items/omniknight/winged_helmet/winged_helmet.vmdl"
+	--thor_cosmetics[2] = "models/items/omniknight/helmet_winged.vmdl"
+	--thor_cosmetics[2] = "models/items/omniknight/thunderwraths_helm/thunderwraths_helm.vmdl"
+	--thor_cosmetics[2] = "models/items/omniknight/light_helmet/light_helmet.vmdl"
+	--thor_cosmetics[HEAD] = "models/heroes/legion_commander/legion_commander_head.vmdl"
+	thor_cosmetics[2] = "models/items/dawnbreaker/first_light_head/first_light_head.vmdl"
+	--thor_cosmetics[HAT] = "models/items/legion_commander/immortalspride_head/immortalspride_head.vmdl"
+	--thor_cosmetics[3] = "models/items/omniknight/cape_hierophant.vmdl"
+	thor_cosmetics[3] = "models/heroes/dawnbreaker/dawnbreaker_arms.vmdl"
+	--thor_cosmetics[4] = "models/items/legion_commander/valkyrie_shoulder/valkyrie_shoulder.vmdl"
+	--thor_cosmetics[4] = "models/items/phantom_assassin/valkyries_shade_shoulder/valkyries_shade_shoulder.vmdl"
+	--thor_cosmetics[4] = "models/items/sven/the_watcher_of_the_north_shoulder/the_watcher_of_the_north_shoulder.vmdl"
+	--thor_cosmetics[4] = "models/items/crystal_maiden/frosty_valkyrie_shoulder/frosty_valkyrie_shoulder.vmdl"
+	thor_cosmetics[4] = "models/items/omniknight/omni_fall20_immortal_shoulders/omni_fall20_immortal_shoulders.vmdl"
+
+	local wearables = {}
+	for k,wearable in pairs(thor_cosmetics) do
+		--print("Creating Cosmetic " .. wearable)
+		wearables[k] = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		local cosmetic = wearables[k]
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+		cosmetic:SetOwner(unit)
+		cosmetic:FollowEntity(unit, true)
+		-- if k == HEAD then
+		-- 	cosmetic:FollowEntity(unit, true)
+		-- -- elseif k == HAT then
+		-- -- 	cosmetic:FollowEntity(wearables[HEAD], true)
+		-- else
+		-- 	cosmetic:FollowEntity(unit, true)
+		-- end
+	end
+end
+
+function CAvaloreGameMode:InitThor_old(hero, playernum)
+	local unit = hero
+	if unit == nil and playernum ~= nil then
+		unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	end
+	local HEAD = 0
+	local HELM = 1
+	local HAMMER = 2
+	local HANDS = 3
+	local CAPE = 5
+	local BRACER = 8
+
+	local thor_cosmetics = {}
+	thor_cosmetics[HEAD] = "models/heroes/omniknight/head.vmdl"
+	--thor_cosmetics[HELM] = "models/items/tuskarr/harmful_iron_fist_head/harmful_iron_fist_head.vmdl"
+	thor_cosmetics[HELM] = "models/items/omniknight/thunderwraths_helm/thunderwraths_helm.vmdl"
+	--thor_cosmetics[HAMMER] = "models/items/faceless_void/voidhammer/voidhammer.vmdl"
+	--thor_cosmetics[HAMMER] = "models/items/omniknight/weapon_rune_hammer.vmdl"
+	--thor_cosmetics[HAMMER] = "models/heroes/dawnbreaker/dawnbreaker_weapon.vmdl"
+	--thor_cosmetics[HAMMER] = "models/items/disruptor/disruptor_rider_storm_hammer/disruptor_rider_storm_hammer.vmdl"
+	--thor_cosmetics[HAMMER] = "models/items/sven/greatsword_cyclopean_marauder/greatsword_cyclopean_marauder.vmdl"
+	thor_cosmetics[HAMMER] = "models/heroes/elder_titan/elder_titan_hammer.vmdl"
+	--thor_cosmetics[HANDS] = "models/items/sven/guardian_of_the_holy_flame_arms/guardian_of_the_holy_flame_arms.vmdl"
+	thor_cosmetics[HANDS] = "models/items/sven/spartan_gauntlet.vmdl"
+	thor_cosmetics[4] = "models/items/sven/outcast_knight_belt/outcast_knight_belt.vmdl"
+	thor_cosmetics[5] = "models/items/sven/guise_of_belligerent_ram_back/guise_of_belligerent_ram_back.vmdl"
+	thor_cosmetics[6] = "models/items/sven/guise_of_belligerent_ram_shoulder/guise_of_belligerent_ram_shoulder.vmdl"
+	thor_cosmetics[7] = "models/items/sven/outcast_knight_back/outcast_knight_back.vmdl"
+	--thor_cosmetics[BRACER] = "models/heroes/faceless_void/faceless_void_bracer.vmdl"
+	--thor_cosmetics[BRACER] = "models/heroes/dawnbreaker/dawnbreaker_arms.vmdl"
+	--thor_cosmetics[CAPE] = "models/items/omniknight/cape_hierophant.vmdl"
+	--thor_cosmetics[CAPE] = "models/items/invoker/exort_cape.vmdl"
+
+	local wearables = {}
+
+	-- local ghost_body = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+	-- ghost_body:SetModel("models/heroes/faceless_void/faceless_void.vmdl")
+	-- ghost_body:SetOriginalModel("models/heroes/faceless_void/faceless_void.vmdl")
+	-- ghost_body:AddNoDraw()
+	-- ghost_body:FollowEntity(unit, true)
+	-- ghost_body:SetParent(unit, nil)
+	-- ghost_body:SetOwner(unit)
+	-- ghost_body:AddNewModifier(nil, nil, "modifier_wearable", {})
+
+	
+	for k,wearable in pairs(thor_cosmetics) do
+		--print("Creating Cosmetic " .. wearable)
+		wearables[k] = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		local cosmetic = wearables[k]
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+		cosmetic:SetOwner(unit)
+		-- if k == CAPE then
+		-- 	cosmetic:SetAbsScale(2.0)
+		-- end
+		--if k == HELM or k == CAPE then
+		if k == HELM then
+			cosmetic:FollowEntity(wearables[HEAD], true)
+		-- elseif k == HAMMER then
+		-- 	cosmetic:FollowEntity(wearables[BRACER], true)
+		-- 	--cosmetic:FollowEntity(ghost_body, true)
+		else
+			cosmetic:FollowEntity(unit, true)
+		end
+
+		-- if k == HAMMER then
+		-- 	cosmetic:SetModel("models/items/faceless_void/voidhammer/voidhammer.vmdl")
 		-- end
 	end
 end

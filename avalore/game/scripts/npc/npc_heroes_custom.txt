@@ -10,6 +10,7 @@
 #base "heroes/gilgamesh/gilgamesh.txt"
 #base "heroes/pecos_bill/pecos_bill.txt"
 #base "heroes/sun_wukong/sun_wukong.txt"
+#base "heroes/thor/thor.txt"
 
 "DOTAHeroes"
 {

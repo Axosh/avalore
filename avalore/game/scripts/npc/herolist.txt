@@ -94,6 +94,7 @@
   "npc_dota_hero_spectre"             "0"
   "npc_dota_hero_spirit_breaker"      "0"
   "npc_dota_hero_storm_spirit"        "0"
+  //"npc_dota_hero_sven"                          "1"
   "npc_dota_hero_sven"                "0"
   "npc_dota_hero_techies"             "0"
   "npc_dota_hero_templar_assassin"    "0"
@@ -118,4 +119,5 @@
   "npc_dota_hero_witch_doctor"        "0"
   "npc_dota_hero_zuus"                          "1"
   //"npc_dota_hero_davy_jones"                  "1"
+  "npc_dota_hero_dawnbreaker"                   "1"
 }
