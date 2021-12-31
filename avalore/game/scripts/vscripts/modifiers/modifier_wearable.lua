@@ -3,7 +3,8 @@ AVALORE_INVISIBLE_MODIFIERS = {
     "modifier_deadly_fog_invis",
     "modifier_rogueish_escape",
 	"modifier_faction_forest_fade",
-	"modifier_water_fade"
+	"modifier_water_fade",
+	"modifier_forest_fade" -- generic version, unassociated with the faction
 }
 
 --LinkLuaModifier( "modifier_rogueish_escape", "heroes/robin_hood/ability_rich_poor", LUA_MODIFIER_MOTION_NONE )

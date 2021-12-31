@@ -208,6 +208,27 @@ function AngleBetween2DVectors(vect_a, vect_b)
     return (math.deg(abs_radians)) -- convert radians to degrees and return
 end
 
+-- https://byjus.com/maths/angle-between-two-vectors/
+-- https://devforum.roblox.com/t/best-way-to-get-the-angle-between-two-vectors/208450/2
+-- https://stackoverflow.com/questions/10002918/what-is-the-need-for-normalizing-a-vector
+function AngleBetween2DVectors_JoyStick(vect)
+    -- cosine of dot product of A and B, divided by the magnitudes multiplied
+    -- but since these are normalized, both should have magnitude 1
+    -- cos((A . B) / (a_magnitude * b_magnitude))
+    local vect_a = Vector(0, 1, 0) -- pointing "up"
+    local vect_b = vect
+    local dot_prod = vect_a:Dot(vect_b)
+    print("Dot Prod = " .. tostring(dot_prod))
+    local radians = math.acos(dot_prod)
+    local degrees = math.deg(radians)
+    if vect_b.x < 0 then
+        return 360 - degrees
+    else
+        return degrees
+    end
+end
+
+
 -- -----------------------------------------------------------------------------------
 -- The idea here is to map the vector targetting a player drags
 -- to a direction that can be used (similar to the way the chat wheel works)
@@ -246,6 +267,7 @@ end
 -- so a 90 degree angle would correspond to quadrant "1"
 -- -----------------------------------------------------------------------------------
 function MapAngleToXSlice(angle)
+    print("MapAngleToXSlice(" .. tostring(angle) .. ")")
 
     if angle >= 45 and angle < 135 then
         return 1
@@ -258,8 +280,11 @@ function MapAngleToXSlice(angle)
     end
 end
 
-function XQuadrantBetween2DVectors(vect_a, vect_b)
-    return MapAngleToXSlice(AngleBetween2DVectors(vect_a, vect_b))
+function XQuadrantBetween2DVectors_JoyStick(vect)
+    print("======XQuadrantBetween2DVectors=====")
+    --PrintVector(vect_a, "Vect A")
+    --PrintVector(vect_b, "Vect B")
+    return MapAngleToXSlice(AngleBetween2DVectors_JoyStick(vect))
 end
 
 

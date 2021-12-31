@@ -37,7 +37,8 @@ function ability_72_bian:OnSpellStart()
     -- Disjoint projectiles
 	ProjectileManager:ProjectileDodge(caster)
 
-    local quadrant = XQuadrantBetween2DVectors(Vector(0,1,0), direction)
+    --local quadrant = XQuadrantBetween2DVectors(Vector(0,1,0), direction)
+    local quadrant = XQuadrantBetween2DVectors_JoyStick(direction)
 
     local modifier_transformation = ""
 

@@ -37,6 +37,7 @@ end
 
 function modifier_forest_fade:OnCreated(kv)
     if not IsServer() then return end
+    self.radius = 200
     if kv.isCosmetic then
         -- if we're a cosmetic, try to keep up with the stack count on the hero (particularly because Robin Hood can change cosmetics)
         if self:GetCaster():GetOwnerEntity():FindModifierByName(self:GetName()) then
@@ -86,12 +87,15 @@ function modifier_forest_fade:OnIntervalThink()
     if not IsServer() then return end
 
     local stacks = self:GetStackCount()
-    if stacks > 0 then
-        self:SetStackCount(stacks - 1)
-        if (stacks - 1 ) == 0 then
-            local particle = ParticleManager:CreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf", PATTACH_ABSORIGIN, self:GetParent())
-            ParticleManager:ReleaseParticleIndex(particle)
+    if GridNav:IsNearbyTree(self:GetParent():GetAbsOrigin(), self.radius, false) then
+        if stacks > 0 then
+            self:SetStackCount(stacks - 1)
+            if (stacks - 1 ) == 0 then
+                local particle = ParticleManager:CreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+                ParticleManager:ReleaseParticleIndex(particle)
+            end
         end
+    else
+        self:SetStackCount(self.cooldown)
     end
-    
 end
