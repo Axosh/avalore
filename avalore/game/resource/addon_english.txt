@@ -266,6 +266,23 @@
 		"DOTA_Tooltip_Ability_ability_ride_a_twister_Lore"					"He was an outstanding rider and could ride anything. The only cowboy able to ride 'Widow-Maker' (an unbreakable horse), as well as lassoing a tornado and riding it"
 		"DOTA_Tooltip_modifier_ride_a_twister"								"Ridin' a Twister"
 
+		// ===== SUN WUKONG ===== //
+		"DOTA_Tooltip_Ability_ability_72_bian_cancel"						"Revert to Monkey Form"
+		
+		"DOTA_Tooltip_Ability_ability_72_bian"								"72 Bian"
+		"DOTA_Tooltip_Ability_ability_72_bian_Lore"							"Monkey King could transform into 72 different animals, objects, and plants"
+
+		"DOTA_Tooltip_Ability_ability_boar_gore"							"Gore"
+
+		"DOTA_Tooltip_Ability_ability_immortality"							"Immortality"
+		"DOTA_Tooltip_Ability_ability_immortality_Lore"						"Over the course of 'Journey to the West', Monkey King is made immortal many times over having consumed Peaches of Immortality, Heavenly Wine, and other sources."
+
+		"DOTA_Tooltip_Ability_ability_ruyi_jingu_bang"						"Ruyi Jingu Bang"
+		"DOTA_Tooltip_Ability_ability_ruyi_jingu_bang_Lore"					"The Ruyi Jingu Bang is Sun Wukong's iconic weapon which has an incredible weight, and is able to change size."
+
+		"DOTA_Tooltip_Ability_ability_shen_wai_shen_fa"						"Shen Wai Shen Fa"
+		"DOTA_Tooltip_Ability_ability_shen_wai_shen_fa_Lore"				"'Body Outside of Body' - each hair on Sun Wukong's body can be plucked and trasformed into another form."
+
 
 		//--------------------------------------------------------------------------------
 		// Objectives
