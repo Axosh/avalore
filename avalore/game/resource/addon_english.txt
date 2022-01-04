@@ -283,6 +283,11 @@
 		"DOTA_Tooltip_Ability_ability_shen_wai_shen_fa"						"Shen Wai Shen Fa"
 		"DOTA_Tooltip_Ability_ability_shen_wai_shen_fa_Lore"				"'Body Outside of Body' - each hair on Sun Wukong's body can be plucked and trasformed into another form."
 
+		"DOTA_Tooltip_modifier_72_bian_bird"								"Bird Form"
+		"DOTA_Tooltip_modifier_72_bian_boar"								"Boar Form"
+		"DOTA_Tooltip_modifier_72_bian_fish"								"Fish Form"
+		"DOTA_Tooltip_modifier_72_bian_tree"								"Tree Form"
+
 
 		//--------------------------------------------------------------------------------
 		// Objectives
