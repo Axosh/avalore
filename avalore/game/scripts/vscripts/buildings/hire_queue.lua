@@ -10,6 +10,7 @@ hire_queue = class({})
 -- ==================================================================
 
 function HireUnit(unit, team, gold_cost, merc_camp_building)
+    print("HireUnit(unit, team, gold_cost, merc_camp_building)")
     local team_gold = {}
     local is_demi_hero = false
     if string.find(unit, "demi_hero") then

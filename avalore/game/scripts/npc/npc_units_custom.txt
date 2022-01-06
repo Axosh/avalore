@@ -7,6 +7,8 @@
 #base "units/merc_hulk.txt"
 #base "units/merc_flying.txt"
 
+#base "units/merc_yeti.txt"
+
 #base "heroes/zeus/avalore_unit_storm_cloud.txt"
 
 #base "heroes/gilgamesh/enkidu.txt"

@@ -5,6 +5,7 @@ end
 require("constants")
 require("references")
 require("scripts/vscripts/libraries/map_and_nav")
+require("controllers/demi_hero_manager")
 --require("debug")
 
 LinkLuaModifier( "modifier_flagbase", MODIFIER_FLAGBASE, LUA_MODIFIER_MOTION_NONE )
@@ -84,6 +85,9 @@ function Spawners:Init()
     Spawners.MercQueue[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP] = {}
     Spawners.MercQueue[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT] = {}
 
+    DemiHeroManager:AddTeam(DOTA_TEAM_GOODGUYS)
+    DemiHeroManager:AddTeam(DOTA_TEAM_BADGUYS)
+
     print("Spawning Merc Camps")
     Spawners.MercCamps = {}
     Spawners.MercCamps[DOTA_TEAM_GOODGUYS] = {}
@@ -93,6 +97,8 @@ function Spawners:Init()
     Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_BOT]:SetForwardVector(Vector(0,1,0)) -- face towards top of map
     for key, value in pairs(Spawners.MercCamps[DOTA_TEAM_GOODGUYS]) do
         value:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
+        local merc_item = value:AddItemByName("item_merc_demi_hero_yeti")
+        merc_item:SetShareability(0) -- fully shareable
     end
     Spawners.MercCamps[DOTA_TEAM_BADGUYS] = {}
     Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP] = CreateUnitByName( "mercenary_camp", Vector(7232, 5888, 256), true, nil, nil, DOTA_TEAM_BADGUYS )
@@ -101,6 +107,8 @@ function Spawners:Init()
     Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT]:SetForwardVector(Vector(0,-1,0)) -- face the left of the map
     for key, value in pairs(Spawners.MercCamps[DOTA_TEAM_BADGUYS]) do
         value:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
+        local merc_item = value:AddItemByName("item_merc_demi_hero_yeti")
+        merc_item:SetShareability(0) -- fully shareable
     end
 
 
@@ -324,6 +332,10 @@ function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
                         --print("Popped off unit in queue: " .. merc_unit)
                         local creep = CreateUnitByName( merc_unit, value.Spawner:GetOrigin(), true, nil, nil, value.Team )
                         creep:SetInitialGoalEntity(value.FirstWaypoint)
+                        -- for demi heroes, init level
+                        if string.find(creep:GetName(), "demi_hero") then
+                            creep:SetLevel(DemiHeroManager:GetDemiHeroLevel(value.Team, creep:GetName()))
+                        end
                     end
                     local queue_obj = {loc = key};
                     --print("Clearing Hire Queue " .. key)
