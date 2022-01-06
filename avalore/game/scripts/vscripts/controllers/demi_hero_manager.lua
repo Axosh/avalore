@@ -23,3 +23,12 @@ function DemiHeroManager:HireDemiHero(team, unit)
 
     return DemiHeroManager[team][unit:GetName()]
 end
+
+function DemiHeroManager:GetDemiHeroLevel(team, unit)
+    local demi_hero_level = DemiHeroManager[team][unit:GetName()]
+    if demi_hero_level then
+        return demi_hero_level
+    else
+        return 0
+    end
+end

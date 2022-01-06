@@ -11,6 +11,10 @@ hire_queue = class({})
 
 function HireUnit(unit, team, gold_cost, merc_camp_building)
     local team_gold = {}
+    local is_demi_hero = false
+    if string.find(unit, "demi_hero") then
+        is_demi_hero = true
+    end
     -- check that they have enough gold and append correct unit to spawn
     if team == DOTA_TEAM_GOODGUYS then
         if not (Score.RadiSharedGoldCurr >= gold_cost) then
@@ -28,7 +32,9 @@ function HireUnit(unit, team, gold_cost, merc_camp_building)
             Score.RadiSharedGoldCurr = Score.RadiSharedGoldCurr - gold_cost
             team_gold.gold = Score.RadiSharedGoldCurr
         end
-        unit = unit .. "radi"
+        if not is_demi_hero then
+            unit = unit .. "radi"
+        end
     else
         if not (Score.DireSharedGoldCurr >= gold_cost) then
             print("[HireQueue:OnSpellStart()] Not enough gold")
@@ -45,7 +51,9 @@ function HireUnit(unit, team, gold_cost, merc_camp_building)
             Score.DireSharedGoldCurr = Score.DireSharedGoldCurr - gold_cost
             team_gold.gold = Score.DireSharedGoldCurr
         end
-        unit = unit .. "dire"
+        if not is_demi_hero then
+            unit = unit .. "dire"
+        end
     end
 
     CustomGameEventManager:Send_ServerToTeam(team, "update_team_gold", team_gold)
@@ -58,6 +66,10 @@ function HireUnit(unit, team, gold_cost, merc_camp_building)
         if merc_camp_building == value then
             lane = key
         end
+    end
+
+    if is_demi_hero then
+        DemiHeroManager:HireDemiHero(team, unit)
     end
 
     print("Queueing up a " .. unit .. " in lane " .. lane)

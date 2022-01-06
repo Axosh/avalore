@@ -1,0 +1,27 @@
+"DOTAItems"
+{
+    "item_merc_demi_hero_yeti"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                                                  "9000"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						                      "item_datadriven"            
+        "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityTextureName"                                  "merc_demi_hero/merc_yeti"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemKillable"					"0"
+		"ItemSellable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemDroppable"					"0"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"1"
+
+        "SideShop"                      "0"
+        "SecretShop"					"0"
+
+        "AbilitySharedCooldown"         "demi_hero_yeti"
+    }
+}

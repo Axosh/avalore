@@ -1,6 +1,6 @@
 "DOTAUnits"
 {
-    "npc_avalore_merc_yeti"
+    "npc_avalore_merc_demi_hero_yeti"
     {
         // General
         //----------------------------------------------------------------
