@@ -4,7 +4,8 @@
     {
         // General
         //----------------------------------------------------------------
-        "BaseClass"                 "npc_dota_lone_druid_bear"
+        "BaseClass"					"npc_dota_creature"
+        //"BaseClass"                 "npc_dota_lone_druid_bear"
         "Model"						"models/heroes/tuskarr/tuskarr.vmdl"	// Model.
         "ModelScale"				"0.8"
         "UnitLabel"                 "yeti"
