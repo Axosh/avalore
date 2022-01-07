@@ -333,8 +333,13 @@ function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
                         local creep = CreateUnitByName( merc_unit, value.Spawner:GetOrigin(), true, nil, nil, value.Team )
                         creep:SetInitialGoalEntity(value.FirstWaypoint)
                         -- for demi heroes, init level
-                        if string.find(creep:GetName(), "demi_hero") then
-                            creep:SetLevel(DemiHeroManager:GetDemiHeroLevel(value.Team, creep:GetName()))
+                        print("creep:GetName() ==> " .. creep:GetName())
+                        print("creep:GetUnitLabel() ==> " .. creep:GetUnitLabel())
+                        print("creep:GetUnitName() ==> " .. creep:GetUnitName())
+                        if string.find(creep:GetUnitName(), "demi_hero") then
+                            print("Leveling up Demi-Hero to " .. tostring(DemiHeroManager:GetDemiHeroLevel(value.Team, creep:GetUnitName())))
+                            creep:CreatureLevelUp(DemiHeroManager:GetDemiHeroLevel(value.Team, creep:GetUnitName()) - 1)
+                            --creep:SetLevel(DemiHeroManager:GetDemiHeroLevel(value.Team, creep:GetUnitName()))
                         end
                     end
                     local queue_obj = {loc = key};
