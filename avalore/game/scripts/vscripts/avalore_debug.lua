@@ -34,5 +34,37 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
         for _,mod in pairs(hero:FindAllModifiers()) do
             print(mod:GetName())
         end
+    elseif string.find(input, "add_gametime") then
+        -- offset gametime in seconds
+        local arr = StringToArrayByWhitespace(input)
+        print("Parsed Args:")
+        PrintTable(arr)
+        local gametime = arr[2]
+        local try_offset = tonumber(gametime)
+        if try_offset then
+            _G.time_offset = try_offset
+        else
+            print("Error parsing number")
+        end
+    elseif input == "gametime" then
+        local curr_gametime = GameRules:GetDOTATime(false, false)
+        curr_gametime = curr_gametime + _G.time_offset
+        print("Current Gametime + Offset = " .. tostring(curr_gametime))
     end
+    
+end
+
+-- ========================================================================================
+-- delimit a string by whitespace and split into
+-- tokens and stuff those into an array like any
+-- split function (except 1-indexed instead of 0-indexed)
+-- https://stackoverflow.com/questions/1426954/split-string-in-lua
+-- ========================================================================================
+function StringToArrayByWhitespace(input_string)
+    local result_array = {}
+    for token in string.gmatch(input_string, "[^%s]+") do
+        print("\"" .. token .. "\"")
+        table.insert(result_array, token)
+    end
+    return result_array
 end

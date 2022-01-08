@@ -6,6 +6,7 @@ _G.nCOUNTDOWNTIMER = 2401
 _G.Temp = false
 _G.round = 0
 _G.first_loop = true
+_G.time_offset = 0
 --[[
 _G.GoodScore = 0
 _G.BadScore = 0
@@ -182,6 +183,7 @@ function CAvaloreGameMode:OnThink()
 
 	--grab current time as a float, excluding pregame and negative time
 	curr_gametime = GameRules:GetDOTATime(false, false)
+	curr_gametime = curr_gametime + _G.time_offset
 
 	-- if self.countdownEnabled == true then
 	-- 	CountdownTimer()

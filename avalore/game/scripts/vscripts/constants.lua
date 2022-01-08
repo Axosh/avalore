@@ -15,9 +15,9 @@ MELEE_ATTACK_RANGE = 150
 -- ROUND START TIMES (IN SECONDS)
 -- ==================================
 
-Constants.TIME_ROUND_1_START = 1200--0     --00 min
+Constants.TIME_ROUND_1_START = 0     --00 min
 Constants.TIME_ROUND_2_START = 600   --10 min
-Constants.TIME_ROUND_3_START = 0--1200  --20 min
+Constants.TIME_ROUND_3_START = 1200  --20 min
 Constants.TIME_ROUND_4_START = 1800  --30 min
 
 -- ==================================

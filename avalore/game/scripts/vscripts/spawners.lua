@@ -17,7 +17,8 @@ LinkLuaModifier( "modifier_shows_through_fog", MODIFIER_SHOWS_THROUGH_FOW, LUA_M
 function Spawners:Init()
     -- GameTime in seconds to start splitting the middle wave around the center (mostly for debug)
     Spawners.iSplitTime = Constants.TIME_ROUND_2_START
-    Spawners.iShelfInterval = 120 
+    Spawners.iShelfInterval = 120
+    Spawners.lanesAreSplit = false
 
     -- Spawning Handles (Entities)
     Spawners.h_RadiantSpawn_Top             = Entities:FindByName(nil, "spawner_good_top")
@@ -293,7 +294,7 @@ end
 function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
     --print("GameTime = " .. tostring(iGameTimeSeconds) .. ", \tEval = " .. tostring(math.floor(iGameTimeSeconds) % 30))
     print("Start Spawning Waves...")
-    if iGameTimeSeconds == self.iSplitTime then
+    if (not Spawners.lanesAreSplit) and (iGameTimeSeconds > self.iSplitTime) then
         self:SplitLanes()
     end
 

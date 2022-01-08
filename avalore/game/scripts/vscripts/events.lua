@@ -33,7 +33,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	local killedTeam 		= killedEntity:GetTeam()
 	local attackerEntity 	= EntIndexToHScript( event.entindex_attacker )
 	local attackerTeam 		= nil --attackerEntity:GetTeam()
-	local curr_gametime 	= GameRules:GetDOTATime(false, false)
+	local curr_gametime 	= (GameRules:GetDOTATime(false, false) + _G.time_offset)
 	local isPlayer 			= attackerEntity:GetPlayerOwnerID() > -1 -- TODO: Test for summons/illu
 	local isDeny			= false
 	local killedTeamString 	= "" -- radi/dire
@@ -530,6 +530,10 @@ end
 function CAvaloreGameMode:InitCosmetics(unit)
 	local playernum = 0
 	local hero = PlayerResource:GetSelectedHeroEntity(playernum)
+
+	local hero_name = PlayerResource:GetSelectedHeroName(playernum)
+	--print("Cosmetics Init for: " .. hero_name)
+
 	-- -- Test - remove effects
 	-- for sSlotName, hWear in pairs(unit.Slots) do
 	-- 	if hWear["model"] then
@@ -554,11 +558,13 @@ function CAvaloreGameMode:InitCosmetics(unit)
 	-- end
 	--local hero = PlayerResource:GetPlayer( hPlayerHero:GetPlayerOwnerID() ):GetAssignedHero()
 	--CosmeticLib:PrintItemsFromPlayer(PlayerResource:GetPlayer(0))
-	CosmeticLib:RemoveParticles(PlayerResource:GetPlayer(0))
-	--CAvaloreGameMode:RemoveAll(hero)
-	CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_HEAD )
-	CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_BODY_HEAD )
-	CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_SHOULDER )
+	if hero_name ~= "npc_dota_hero_rubick" then
+		CosmeticLib:RemoveParticles(PlayerResource:GetPlayer(0))
+		--CAvaloreGameMode:RemoveAll(hero)
+		CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_HEAD )
+		CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_BODY_HEAD )
+		CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_SHOULDER )
+	end
 
 	--local selected_item = CosmeticLib._AllItemsByID[ "" .. CosmeticID ]
 	--print(">>>>><<<<<")
@@ -568,9 +574,6 @@ function CAvaloreGameMode:InitCosmetics(unit)
 	if CAvaloreGameMode.player_cosmetics == nil then
 		CAvaloreGameMode.player_cosmetics = {}
 	end
-
-	local hero_name = PlayerResource:GetSelectedHeroName(playernum)
-	--print("Cosmetics Init for: " .. hero_name)
 
 	if hero_name == "npc_dota_hero_davy_jones" or hero_name == "npc_dota_hero_kunkka" then
 		--CosmeticLib:ReplaceDefault( hero, "npc_dota_hero_kunkka" )
