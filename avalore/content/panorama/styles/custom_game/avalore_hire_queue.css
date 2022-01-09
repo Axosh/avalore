@@ -94,3 +94,12 @@
     min-width: 40px;
     min-height: 40px;
 }
+
+/* DEMI-HEROES */
+.npc_avalore_merc_demi_hero_yeti
+{
+    background-image: url("file://{images}/ui/npc_avalore_merc_demi_hero_yeti.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+}

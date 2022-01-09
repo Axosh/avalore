@@ -42,7 +42,7 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
         local gametime = arr[2]
         local try_offset = tonumber(gametime)
         if try_offset then
-            _G.time_offset = try_offset
+            _G.time_offset = _G.time_offset + try_offset
         else
             print("Error parsing number")
         end

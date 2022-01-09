@@ -15,6 +15,9 @@
         "ConsideredHero"			"1"
         "HasInventory"				"0"
 
+        // "AI"
+        "vscripts"                  "items/demi_hero_mercs/ai/ai_yeti.lua"
+
         // Abilities
 		//----------------------------------------------------------------
         // these will be added dynamically later for each level
@@ -37,6 +40,14 @@
         "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"325"		// Speed
 		"MovementTurnRate"			"0.5"		// Turning rate.
+
+        // Status
+        //----------------------------------------------------------------
+        "StatusHealth"		"500"
+        "StatusHealthRegen"	"0.5"
+        "StatusMana"		"200"
+        "StatusManaRegen"	"2"
+
 
         // Attack
         //----------------------------------------------------------------

@@ -1,3 +1,4 @@
+-- DON'T USE THIS FILE - OVERRIDDEN BY SOME INTERNAL DOTA FILE
 --[[
     Utility functions for helping debug.
 --]]

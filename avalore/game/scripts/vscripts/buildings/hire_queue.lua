@@ -76,7 +76,7 @@ function HireUnit(unit, team, gold_cost, merc_camp_building)
     print("Queueing up a " .. unit .. " in lane " .. lane)
     table.insert(Spawners.MercQueue[team][lane], unit)
     local queue_obj = {}
-    queue_obj.img = unit
+    queue_obj.img = unit -- note: these images are used to lookup a classname (avalore_hire_queue.css) on the front end which have the image set to the background
     queue_obj.loc = lane
     CustomGameEventManager:Send_ServerToTeam(team, "add_to_hire_queue", queue_obj)
 
