@@ -50,6 +50,12 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
         local curr_gametime = GameRules:GetDOTATime(false, false)
         curr_gametime = curr_gametime + _G.time_offset
         print("Current Gametime + Offset = " .. tostring(curr_gametime))
+    elseif input == "spawn enemy" then
+        --local temp_hero = CreateUnitByName("npc_dota_hero_rubick", Vector(7232, 7232, 256), true, nil, hero:GetOwner(), DOTA_TEAM_BADGUYS)
+        local temp_hero = CreateUnitByName("npc_dota_hero_rubick", Vector(0, 0, 0), true, nil, hero:GetOwner(), DOTA_TEAM_BADGUYS)
+        temp_hero:SetControllableByPlayer(0, false)
+        temp_hero:AddNewModifier(nil, nil, "modifier_provide_vision", {})
+        print("Created ... " .. temp_hero:GetUnitName())
     end
     
 end

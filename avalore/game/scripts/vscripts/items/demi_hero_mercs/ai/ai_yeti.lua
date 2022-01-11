@@ -13,6 +13,10 @@ function Spawn(entityKeyValues)
         --hFreezingField:setiSetHidden(true)
         hFreezingField:SetLevel(0)
     end
+
+    if thisEntity:GetLevel() < 4 then
+        hNova:SetLevel(0)
+    end
     
     thisEntity:SetContextThink("YetiAIThink", YetiAIThink, 1)
 end
