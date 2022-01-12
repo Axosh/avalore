@@ -102,10 +102,10 @@ function Spawners:Init()
         merc_item:SetShareability(0) -- fully shareable
     end
     Spawners.MercCamps[DOTA_TEAM_BADGUYS] = {}
-    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP] = CreateUnitByName( "mercenary_camp", Vector(7232, 5888, 256), true, nil, nil, DOTA_TEAM_BADGUYS )
-    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP]:SetForwardVector(Vector(-1,0,0)) -- face bottom of map
-    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT] = CreateUnitByName( "mercenary_camp", Vector(5888, 7232, 256), true, nil, nil, DOTA_TEAM_BADGUYS )
-    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT]:SetForwardVector(Vector(0,-1,0)) -- face the left of the map
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT] = CreateUnitByName( "mercenary_camp", Vector(7232, 5888, 256), true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT]:SetForwardVector(Vector(-1,0,0)) -- face bottom of map
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP] = CreateUnitByName( "mercenary_camp", Vector(5888, 7232, 256), true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP]:SetForwardVector(Vector(0,-1,0)) -- face the left of the map
     for key, value in pairs(Spawners.MercCamps[DOTA_TEAM_BADGUYS]) do
         value:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
         local merc_item = value:AddItemByName("item_merc_demi_hero_yeti")

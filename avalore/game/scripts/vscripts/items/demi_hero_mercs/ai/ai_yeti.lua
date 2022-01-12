@@ -39,6 +39,7 @@ function YetiAIThink(self)
 
             -- TODO: make better (just need some working prototype for now)
             if hIceShards:IsCooldownReady() and hIceShards:IsFullyCastable() then
+                print("Casting Shards on " .. hRandomPlayer:GetUnitName())
                 ExecuteOrderFromTable({
                     UnitIndex = thisEntity:entindex(),
                     OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
@@ -56,6 +57,7 @@ function YetiAIThink(self)
         print("Visible Enemies = " .. tostring(#hVisibleEnemies))
         if #hVisibleEnemies > 3 then
             local hRandomEnemy = hVisibleEnemies[ RandomInt( 1, #hVisibleEnemies ) ]
+            print("Casting Nova on " .. hRandomEnemy:GetUnitName())
             ExecuteOrderFromTable({
                 UnitIndex = thisEntity:entindex(),
                 OrderType = DOTA_UNIT_ORDER_CAST_POSITION,

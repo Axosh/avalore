@@ -51,11 +51,21 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
         curr_gametime = curr_gametime + _G.time_offset
         print("Current Gametime + Offset = " .. tostring(curr_gametime))
     elseif input == "spawn enemy" then
+        local enemy_team = DOTA_TEAM_BADGUYS
+        local team_localized = "Dire"
+        if hero:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+            enemy_team = DOTA_TEAM_GOODGUYS
+            team_localized = "Radiant"
+        end
         --local temp_hero = CreateUnitByName("npc_dota_hero_rubick", Vector(7232, 7232, 256), true, nil, hero:GetOwner(), DOTA_TEAM_BADGUYS)
-        local temp_hero = CreateUnitByName("npc_dota_hero_rubick", Vector(0, 0, 0), true, nil, hero:GetOwner(), DOTA_TEAM_BADGUYS)
+        local temp_hero = CreateUnitByName("npc_dota_hero_rubick", Vector(0, 0, 0), true, nil, hero:GetOwner(), enemy_team)
         temp_hero:SetControllableByPlayer(0, false)
         temp_hero:AddNewModifier(nil, nil, "modifier_provide_vision", {})
-        print("Created ... " .. temp_hero:GetUnitName())
+        print("Created ... " .. temp_hero:GetUnitName() .. " on team .. " .. team_localized)
+        for key, value in pairs(Spawners.MercCamps[enemy_team]) do
+			--print("Giving Player " .. tostring(hPlayerHero:GetPlayerOwnerID()) .. " shared control of " .. tostring(key))
+			value:SetControllableByPlayer(hero:GetPlayerOwnerID(), false)
+		end
     end
     
 end
