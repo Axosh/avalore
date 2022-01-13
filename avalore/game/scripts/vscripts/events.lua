@@ -593,8 +593,10 @@ function CAvaloreGameMode:InitCosmetics(unit)
 	elseif hero_name == "npc_avalore_hero_sun_wukong" or hero_name == "npc_dota_hero_monkey_king" then
 		CAvaloreGameMode:InitSunWukong(hero, playernum)
 	--elseif hero_name == "npc_avalore_hero_thor" or hero_name == "npc_dota_hero_sven" then
-elseif hero_name == "npc_avalore_hero_thor" or hero_name == "npc_dota_hero_dawnbreaker" then
+	elseif hero_name == "npc_avalore_hero_thor" or hero_name == "npc_dota_hero_dawnbreaker" then
 		CAvaloreGameMode:InitThor(hero, playernum)
+	elseif hero_name == "npc_dota_hero_dragon_knight"	or hero_name == "npc_avalore_hero_king_arthur" then
+		CAvaloreGameMode:InitKingArthur(hero, playernum)
 	end
 
 	hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
@@ -912,6 +914,33 @@ function CAvaloreGameMode:InitThor(hero, playernum)
 		-- else
 		-- 	cosmetic:FollowEntity(unit, true)
 		-- end
+	end
+end
+
+function CAvaloreGameMode:InitKingArthur(hero, playernum)
+	local unit = hero
+	if unit == nil and playernum ~= nil then
+		unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	end
+
+	local king_arthur_cosmetics = {}
+	king_arthur_cosmetics[0] = "models/heroes/dragon_knight_persona/dk_persona_shoulder_pauldrons.vmdl"
+	king_arthur_cosmetics[1] = "models/heroes/dragon_knight_persona/dk_persona_weapon.vmdl"
+	--king_arthur_cosmetics[1] = "models/items/dragon_knight/ascension_weapon/ascension_weapon.vmdl"
+	king_arthur_cosmetics[2] = "models/heroes/dragon_knight_persona/dk_persona_head_hair.vmdl"
+	king_arthur_cosmetics[3] = "models/heroes/dragon_knight_persona/dk_persona_shoulder_cape.vmdl"
+	--king_arthur_cosmetics[4] = "models/items/dragon_knight/fire_tribunal_tabard/fire_tribunal_tabard.vmdl"
+
+	local wearables = {}
+	for k,wearable in pairs(king_arthur_cosmetics) do
+		wearables[k] = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		local cosmetic = wearables[k]
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+		cosmetic:SetOwner(unit)
+		cosmetic:FollowEntity(unit, true)
 	end
 end
 

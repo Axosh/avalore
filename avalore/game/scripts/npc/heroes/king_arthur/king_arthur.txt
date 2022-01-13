@@ -1,0 +1,70 @@
+"DOTAUnits"
+{
+    "npc_avalore_hero_king_arthur"
+    {
+        // General
+		//----------------------------------------------------------------
+        "override_hero"             "npc_dota_hero_dragon_knight"
+        "Model"                     "models/heroes/dragon_knight_persona/dk_persona_base.vmdl"
+        "ModelScale"				"1"
+        "BotImplemented"            "0"
+
+        // Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"             "4"
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""			// Ability 6 - Extra.
+		"Ability7"					""		// Ability 7 - Extra.
+		"Ability8"					""//"ability_boar_gore"			// Ability 8 - Extra.
+
+        //10-17 => Talents
+        "Ability10"                 ""
+        "Ability11"                 ""
+        "Ability12"                 ""
+        "Ability13"                 ""
+
+        // Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"310"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+        // Attack
+		//----------------------------------------------------------------
+        
+        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"           "50"
+        "AttackDamageMax"           "50"
+        "AttackRange"               "250"
+        "AttackRate"                "1.7"
+        "BaseAttackSpeed"           "100"
+        "AttackAnimationPoint"      "0.33"
+
+        // Status
+		//----------------------------------------------------------------
+        "StatusHealthRegen"         "3.25"
+        "StatusHealth"              "200"
+        "StatusManaRegen"           "0.0"
+        "StatusMana"                "75"
+
+        // Attributes
+		//----------------------------------------------------------------
+        "AttributePrimary"          "DOTA_ATTRIBUTE_AGILITY"
+        "AttributeBaseStrength"     "23"
+        "AttributeStrengthGain"     "4.5"
+        "AttributeBaseAgility"      "18"
+        "AttributeAgilityGain"      "1.5"
+        "AttributeBaseIntelligence" "15"
+        "AttributeIntelligenceGain" "1.5"
+
+        // Bounds
+		//----------------------------------------------------------------
+        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"
+        "RingRadius"                "70"
+        "HealthBarOffset"			"300"
+    }
+}
