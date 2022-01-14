@@ -10,3 +10,11 @@ function ability_hammer_toss:Precache( context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_dawnbreaker/dawnbreaker_converge_trail.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_dawnbreaker/dawnbreaker_converge_debuff.vpcf", context )
 end
+
+function ability_hammer_toss:OnSpellStart()
+	local caster 	= self:GetCaster()
+	local target 	= self:GetVectorTargetPosition()
+	local radius 	= self:GetSpecialValueFor( "projectile_radius" )
+	local speed 	= self:GetSpecialValueFor( "projectile_speed" )
+	local distance 	= self:GetSpecialValueFor( "range" )
+end

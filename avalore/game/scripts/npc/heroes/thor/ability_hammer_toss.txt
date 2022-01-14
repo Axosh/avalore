@@ -1,0 +1,107 @@
+"DOTAAbilities"
+{
+	"ability_hammer_toss"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/thor/ability_hammer_toss.lua"
+		"AbilityTextureName"			"thor/hammer_toss"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.25"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18 16 14 12"
+		"AbilityManaCost"				"110"
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hammer_damage"			"60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_radius"			"150"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"				"1500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"flare_debuff_duration"				"2.5"
+			}
+			"05"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"flare_radius"					"150"
+			}
+			"06"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"move_slow"							"35"
+			}	
+			"07"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"burn_damage"						"20 30 40 50"
+			}	
+			"08"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"burn_interval"						"0.5"
+			}	
+			"09"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"pause_duration"						"2"
+			}	
+			"10"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"hammer_aoe_radius"						"250"
+			}	
+			"11"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"travel_speed_pct"						"100"
+			}	
+			"12"
+			{
+				"var_type"								"FIELD_INTEGER"
+				"return_anim_distance_threshold"						"300"
+			}
+			"13"	
+			{
+				"var_type"								"FIELD_INTEGER"
+				"range"								"1000 1100 1200 1300"
+			}
+			"14"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vector_target"			"1"		
+			}
+		}
+	}
+}
