@@ -903,7 +903,13 @@ function CAvaloreGameMode:InitThor(hero, playernum)
 		local cosmetic = wearables[k]
 		cosmetic:SetOriginalModel(wearable)
 		cosmetic:SetModel(wearable)
-		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		local wearable_kvs = {}
+		-- hammer model
+		if k == 0 then
+			print("Weapon Wearable => " .. wearable)
+			wearable_kvs["no_draw_mod"] = "modifier_no_hammer"
+		end
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", wearable_kvs)
 		cosmetic:SetParent(unit, nil)
 		cosmetic:SetOwner(unit)
 		cosmetic:FollowEntity(unit, true)

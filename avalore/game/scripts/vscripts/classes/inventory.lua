@@ -73,7 +73,7 @@ function Inventory:Add(item)
         end
     end
 
-    print("Adding Item: " .. item:GetName())
+    --print("Adding Item: " .. item:GetName())
     --print("Find result - " .. tostring(string.find("item_slot", item:GetName())))
     -- if we're adding the item slot dummy, just skip
     if item:GetName():find("item_slot") then return end

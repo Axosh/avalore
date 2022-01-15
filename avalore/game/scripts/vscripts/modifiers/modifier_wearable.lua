@@ -28,14 +28,23 @@ function modifier_wearable:IsStunDebuff() return false end
 function modifier_wearable:IsPurgeException() return false end
 function modifier_wearable:IsHidden() return true end
 
-function modifier_wearable:OnCreated()
-	--print("Created a modifier_wearable")
+function modifier_wearable:OnCreated(kv)
 	if not IsServer() then return end
+
+	print("Created a modifier_wearable for " .. self:GetParent():GetModelName())
 
 	-- spawn in as invis so that it doesn't accidentally draw when its not supposed to
 	-- (mostly applicable for Robin Hood because they can swap cosmetics as a skill)
 	-- local cosmetic = self:GetParent()
 	-- cosmetic:AddNewModifier(cosmetic, nil, "modifier_wearable_temp_invis", {isCosmetic = true})
+
+	-- modifiers that when applied mean we shouldn't draw the cosmetic
+	PrintTable(kv)
+	if kv.no_draw_mod then
+		self.no_draw_mod = kv.no_draw_mod
+	else
+		self.no_draw_mod = "modifier_dummy_no_draw" -- bogus value
+	end
 
 	self:StartIntervalThink(FrameTime())
 	self.render_color = nil
@@ -120,11 +129,30 @@ function modifier_wearable:OnIntervalThink()
 	-- 	end
 	-- end
 
-	if (hero:IsOutOfGame() or hero:IsHexed() 
+	-- check for no-draw modifiers special to this hero/cosmetic
+	-- local special_no_draw = false
+	-- for key,value in pairs(self.no_draw_mods) do
+	-- 	print("Checking for Modifier => " .. value)
+	-- 	if hero:hasModifier(value) then
+	-- 		--cosmetic:AddNoDraw()
+	-- 		print("Found Special NoDraw Case ==> " .. value)
+	-- 		special_no_draw = true
+	-- 	end
+	-- end
+
+	-- if hero:HasModifier("modifier_no_hammer") then
+	-- 	print("Hero has no_hammer")
+	-- 	print(self.no_draw_mod)
+	-- end
+
+	if (hero:IsOutOfGame() or hero:IsHexed()
 		or hero:HasModifier("modifier_shapeshift_eagle")
 		or hero:HasModifier("modifier_72_bian_boar")
 		or hero:HasModifier("modifier_72_bian_bird")
-		or hero:HasModifier("modifier_72_bian_tree")) then
+		or hero:HasModifier("modifier_72_bian_tree")
+		or hero:HasModifier(self.no_draw_mod)) then
+		--or special_no_draw) then
+			print("Adding NoDraw to " .. cosmetic:GetModelName())
 		cosmetic:AddNoDraw()
 	else
 		cosmetic:RemoveNoDraw()

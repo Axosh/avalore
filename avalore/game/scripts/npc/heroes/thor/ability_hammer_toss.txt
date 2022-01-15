@@ -97,11 +97,11 @@
 				"var_type"								"FIELD_INTEGER"
 				"range"								"1000 1100 1200 1300"
 			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vector_target"			"1"		
-			}
+			// "14"
+			// {
+			// 	"var_type"				"FIELD_INTEGER"
+			// 	"vector_target"			"1"		
+			// }
 		}
 	}
 }

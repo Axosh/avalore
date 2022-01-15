@@ -89,18 +89,18 @@ end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 -- * is_courier: bool ==> NOTE: idk what this tracks, because it seems to ALWAYS BE TRUE
 function CAvaloreGameMode:OnItemAdded(event)
 	if not IsServer() then return end
-	PrintTable(event)
+	--PrintTable(event)
 	local item = EntIndexToHScript( event.item_entindex )
 	local owner = EntIndexToHScript( event.inventory_parent_entindex )
-	print("Inventory Owner: " .. owner:GetName())
+	--print("Inventory Owner: " .. owner:GetName())
 
 	-- don't worry about recipes
 	if item then
 		if (string.find(item:GetName(), "item_recipe")) then return end
 
-		print("CAvaloreGameMode:OnItemAdded(event)")
-		print("Item: " .. item:GetName())
-    	print("Item Slot: " .. item:GetItemSlot())
+		--print("CAvaloreGameMode:OnItemAdded(event)")
+		--print("Item: " .. item:GetName())
+    	--print("Item Slot: " .. item:GetItemSlot())
 		
 
 		local inventory = InventoryManager[event.inventory_player_id]
