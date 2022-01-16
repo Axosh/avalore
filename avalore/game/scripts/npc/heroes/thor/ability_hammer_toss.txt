@@ -1,3 +1,4 @@
+//-- Source Created by Elfansoer
 "DOTAAbilities"
 {
 	"ability_hammer_toss"

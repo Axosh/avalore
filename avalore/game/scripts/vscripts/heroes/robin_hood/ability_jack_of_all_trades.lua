@@ -306,7 +306,7 @@ function modifier_jack_of_all_trades_melee:OnAttackStart(keys)
     --print("OnAttackStart")
     --PrintTable(keys)
     if keys.attacker == self:GetParent() then
-        print("OnAttackStart - Active Seq: " .. self:GetCaster():GetSequence())
+        --print("OnAttackStart - Active Seq: " .. self:GetCaster():GetSequence())
         --self:GetCaster():RemoveGesture(ACT_DOTA_ATTACK)
         --self:GetCaster():StopAnimation()
         local caster = self:GetCaster()
@@ -322,7 +322,7 @@ function modifier_jack_of_all_trades_melee:OnAttack(keys)
     if not IsServer () then return end
     --print("OnAttack: " .. tostring)
     if keys.attacker == self:GetParent() then
-        print("OnAttack - Active Seq: " .. self:GetCaster():GetSequence())
+        --print("OnAttack - Active Seq: " .. self:GetCaster():GetSequence())
         local caster = self:GetCaster()
         --DoEntFire( button, "SetAnimation", "ancient_trigger001_down", 0, self, self )
         self:GetCaster():RemoveGesture(ACT_DOTA_ATTACK)

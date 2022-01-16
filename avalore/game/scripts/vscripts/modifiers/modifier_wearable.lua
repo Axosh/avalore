@@ -152,8 +152,8 @@ function modifier_wearable:OnIntervalThink()
 		or hero:HasModifier("modifier_72_bian_tree")
 		or hero:HasModifier(self.no_draw_mod)) then
 		--or special_no_draw) then
-			print("Adding NoDraw to " .. cosmetic:GetModelName())
-		cosmetic:AddNoDraw()
+			--print("Adding NoDraw to " .. cosmetic:GetModelName())
+			cosmetic:AddNoDraw()
 	else
 		cosmetic:RemoveNoDraw()
 		-- For Robin-Hood since they can swap weapons

@@ -1,3 +1,5 @@
+-- Source Created by Elfansoer
+
 modifier_hammer_trail = class({})
 
 --------------------------------------------------------------------------------

@@ -1,3 +1,4 @@
+-- Source Created by Elfansoer
 modifier_hammer_toss_thinker = class({})
 
 function modifier_hammer_toss_thinker:IsHidden() return true end

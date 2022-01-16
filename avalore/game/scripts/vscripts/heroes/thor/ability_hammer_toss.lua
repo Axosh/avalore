@@ -1,3 +1,4 @@
+-- Source Created by Elfansoer
 ability_hammer_toss = class({})
 
 LinkLuaModifier("modifier_no_hammer", "heroes/thor/modifier_no_hammer.lua", LUA_MODIFIER_MOTION_NONE)
