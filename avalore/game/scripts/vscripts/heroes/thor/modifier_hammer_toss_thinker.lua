@@ -16,7 +16,8 @@ function modifier_hammer_toss_thinker:OnCreated(kv)
     self.duration = self:GetAbility():GetSpecialValueFor( "flare_debuff_duration" )
     self.vision = 200
 	self.interval = 0.1
-    self.max_return = 1.5
+    --self.max_return = 1.5
+	self.max_return = 3.0
 
     if not IsServer() then return end
 
@@ -27,6 +28,7 @@ end
 
 function modifier_hammer_toss_thinker:OnIntervalThink()
     if not self.converge then
+	--if self.converge then
 		self:Return()
 		return
 	end

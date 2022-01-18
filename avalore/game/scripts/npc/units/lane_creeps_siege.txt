@@ -8,7 +8,7 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_siege"	// Class of entity of link to.
-		"Model"						"models/creeps/lane_creeps/creep_good_siege/creep_good_siege.vmdl"	// Model.
+		"Model"						"models/creeps/lane_creeps/creep_2021_radiant/creep_2021_radiant_siege.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Engine"					// Name of sound set.
 		"MinimapIcon"				"minimap_siege"
 		"MinimapIconSize"				"350"
@@ -100,7 +100,7 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_siege"	// Class of entity of link to.
-		"Model"						"models/creeps/lane_creeps/creep_bad_siege/creep_bad_siege.vmdl"	// Model.
+		"Model"						"models/creeps/lane_creeps/creep_2021_dire/creep_2021_dire_siege.vmdl"	// Model.
 		"SoundSet"					"Creep_Bad_Engine"					// Name of sound set.
 		"MinimapIcon"					"minimap_siege"
 		"MinimapIconSize"				"350"
@@ -196,7 +196,7 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_siege"	// Class of entity of link to.
-		"Model"						"models/creeps/lane_creeps/creep_good_siege/creep_good_siege.vmdl"	// Model.
+		"Model"						"models/creeps/lane_creeps/creep_2021_radiant/creep_2021_radiant_siege.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Engine"					// Name of sound set.
 		"MinimapIcon"					"minimap_siege"
 		"MinimapIconSize"				"350"
@@ -287,7 +287,7 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_siege"	// Class of entity of link to.
-		"Model"						"models/creeps/lane_creeps/creep_bad_siege/creep_bad_siege.vmdl"	// Model.
+		"Model"						"models/creeps/lane_creeps/creep_2021_dire/creep_2021_dire_siege.vmdl"	// Model.
 		"SoundSet"					"Creep_Bad_Engine"					// Name of sound set.
 		"MinimapIcon"					"minimap_siege"
 		"MinimapIconSize"				"350"
@@ -383,7 +383,7 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_siege"	// Class of entity of link to.
-		"Model"						"models/creeps/lane_creeps/creep_good_siege/creep_good_siege.vmdl"	// Model.
+		"Model"						"models/creeps/lane_creeps/creep_2021_radiant/creep_2021_radiant_siege.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Engine"					// Name of sound set.
 		"MinimapIcon"					"minimap_siege"
 		"MinimapIconSize"				"350"
@@ -475,7 +475,7 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_siege"	// Class of entity of link to.
-		"Model"						"models/creeps/lane_creeps/creep_bad_siege/creep_bad_siege.vmdl"	// Model.
+		"Model"						"models/creeps/lane_creeps/creep_2021_dire/creep_2021_dire_siege.vmdl"	// Model.
 		"SoundSet"					"Creep_Bad_Engine"					// Name of sound set.
 		"MinimapIcon"					"minimap_siege"
 		"MinimapIconSize"				"350"

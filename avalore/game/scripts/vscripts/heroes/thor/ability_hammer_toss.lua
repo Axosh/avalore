@@ -39,22 +39,40 @@ end
 
 function ability_hammer_toss:OnSpellStart()
 	local caster 	= self:GetCaster()
+	--local point = self:GetCursorPosition()
+
+	-- Play effects
+	local sound_cast = "Hero_Disruptor.ThunderStrike.Cast"
+	EmitSoundOn(sound_cast, caster)
+
+	self:GetCaster():StartGesture(ACT_DOTA_GENERIC_CHANNEL_1)
+end
+
+function ability_hammer_toss:OnChannelFinish(bInterrupted)
+	local caster = self:GetCaster()
 	local point = self:GetCursorPosition()
-	--local target 	= self:GetVectorTargetPosition()
+	local channel_pct = (GameRules:GetGameTime() - self:GetChannelStartTime())/self:GetChannelTime()
+
+	caster:RemoveGesture(ACT_DOTA_GENERIC_CHANNEL_1)
+
+	print("Channel % = " .. tostring(channel_pct))
+
 	local radius 	= self:GetSpecialValueFor( "projectile_radius" )
 	local speed 	= self:GetSpecialValueFor( "projectile_speed" )
 	local distance 	= self:GetSpecialValueFor( "range" )
+	distance = distance * channel_pct
 	local name = ""
 
 	--local direction = target.direction:Normalized()
 
 	-- get direction
 	local direction = point-caster:GetOrigin()
-	local len = direction:Length2D()
+	--local len = direction:Length2D()
 	direction.z = 0
 	direction = direction:Normalized()
 
-	distance = math.min( distance, len )
+	--distance = math.min( distance, len )
+	print("Distance = " .. tostring(distance))
 
 	-- create thinker
 	local thinker = CreateModifierThinker(

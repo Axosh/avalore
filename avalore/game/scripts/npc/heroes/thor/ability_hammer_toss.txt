@@ -12,14 +12,16 @@
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityCastRange"				"1600"
 		"AbilityCastPoint"				"0.25"
+		"AbilityChannelTime"			"2.0 2.0 2.0 2.0"
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
@@ -76,7 +78,7 @@
 			"09"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"pause_duration"						"2"
+				"pause_duration"						"3"
 			}	
 			"10"
 			{
@@ -96,7 +98,7 @@
 			"13"	
 			{
 				"var_type"								"FIELD_INTEGER"
-				"range"								"1000 1100 1200 1300"
+				"range"								"1600 1800 2000 2200"
 			}
 			// "14"
 			// {
