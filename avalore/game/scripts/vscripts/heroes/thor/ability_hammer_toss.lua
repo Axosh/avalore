@@ -129,6 +129,7 @@ end
 -- Projectile
 ability_hammer_toss.projectiles = {}
 ability_hammer_toss.thinkers = {}
+
 function ability_hammer_toss:OnProjectileThinkHandle( handle )
 	local data = self.projectiles[handle]
 	if data.thinker:IsNull() then return end
@@ -180,19 +181,27 @@ function ability_hammer_toss:OnProjectileHitHandle( target, location, handle )
 	local data = self.projectiles[handle]
 	if not handle then return end
 
+	-- print("Hit something!");
+	-- local thinker = data.thinker:FindModifierByName( "modifier_hammer_toss_thinker" )
+	-- if thinker then
+	-- 	thinker.converge = false
+	-- 	thinker:Return()
+	-- end
+
 	if data.cast==1 then
+		print("data.cast 1")
 		if target then
 			self:HammerHit( target, location )
 			return false
 		end
 
-		-- set thinker origin
+		--set thinker origin
 		local loc = GetGroundPosition( location, self:GetCaster() )
 		data.thinker:SetOrigin( loc )
 
 		-- begin delay
 		local mod = data.thinker:FindModifierByName( "modifier_hammer_toss_thinker" )
-		mod:Delay()
+		--mod:Delay()
 
 		-- stop effect
 		self:StopEffects( data.effect )
@@ -201,6 +210,7 @@ function ability_hammer_toss:OnProjectileHitHandle( target, location, handle )
 		self.projectiles[handle] = nil
 
 	elseif data.cast==2 then
+		print("data.cast 2")
 		local caster = self:GetCaster()
 
 		-- destroy thinker

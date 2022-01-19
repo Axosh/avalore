@@ -59,6 +59,7 @@ function modifier_hammer_toss_thinker:Delay()
 end
 
 function modifier_hammer_toss_thinker:Return()
+	print("Starting Return")
 	if self.converge then return end
 
 	self.converge = true
