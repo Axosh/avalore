@@ -188,27 +188,63 @@ function ability_hammer_toss:OnProjectileHitHandle( target, location, handle )
 	-- 	thinker:Return()
 	-- end
 
+	-- projectile that's going away from hero
 	if data.cast==1 then
 		print("data.cast 1")
-		if target then
-			self:HammerHit( target, location )
-			return false
+
+		if target and (target:IsCreep() or target:IsConsideredHero()) then
+
+			-- play effects
+			local particle = ParticleManager:CreateParticle("particles/econ/items/zeus/lightning_weapon_fx/zuus_lightning_bolt_bodyglow_immortal_lightning.vpcf", PATTACH_ABSORIGIN, target)
+			local target_point = target:GetAbsOrigin()
+			ParticleManager:SetParticleControl(particle, 0, Vector(target_point.x, target_point.y, target_point.z))
+			ParticleManager:SetParticleControl(particle, 1, Vector(target_point.x, target_point.y, z_pos))
+			ParticleManager:SetParticleControl(particle, 2, Vector(target_point.x, target_point.y, target_point.z))
+
+			local targ
+			for i,thinker in ipairs(self.thinkers) do
+				targ = thinker
+				break
+			end
+			if not targ then return end
+
+			-- find projectile if exist
+			if self.projectiles[targ.id] then
+				-- stop effect
+				self:StopEffects( self.projectiles[targ.id].effect )
+
+				-- destroy projectile
+				self.projectiles[targ.id] = nil
+				ProjectileManager:DestroyLinearProjectile( targ.id )
+			end
+
+			-- set thinker to return
+			local mod = targ:FindModifierByName( "modifier_hammer_toss_thinker" )
+			mod:Return()
+		else
+		--end
+
+		-- if target then
+		-- 	self:HammerHit( target, location )
+		-- 	return false
+		-- end
+
+			--set thinker origin
+			local loc = GetGroundPosition( location, self:GetCaster() )
+			data.thinker:SetOrigin( loc )
+
+			-- begin delay
+			local mod = data.thinker:FindModifierByName( "modifier_hammer_toss_thinker" )
+			mod:Delay()
+
+			-- stop effect
+			self:StopEffects( data.effect )
+
+			-- destroy handle
+			self.projectiles[handle] = nil
 		end
 
-		--set thinker origin
-		local loc = GetGroundPosition( location, self:GetCaster() )
-		data.thinker:SetOrigin( loc )
-
-		-- begin delay
-		local mod = data.thinker:FindModifierByName( "modifier_hammer_toss_thinker" )
-		--mod:Delay()
-
-		-- stop effect
-		self:StopEffects( data.effect )
-
-		-- destroy handle
-		self.projectiles[handle] = nil
-
+	-- projectile that is returning to hero
 	elseif data.cast==2 then
 		print("data.cast 2")
 		local caster = self:GetCaster()
