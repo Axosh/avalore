@@ -100,6 +100,16 @@
 				"var_type"								"FIELD_INTEGER"
 				"range"								"1600 1800 2000 2200"
 			}
+			"14"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"stun_min"							"0.5"
+			}
+			"15"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"stun_max"							"2.0"
+			}
 			// "14"
 			// {
 			// 	"var_type"				"FIELD_INTEGER"

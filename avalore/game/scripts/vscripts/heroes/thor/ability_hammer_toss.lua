@@ -4,6 +4,7 @@ ability_hammer_toss = class({})
 LinkLuaModifier("modifier_no_hammer", "heroes/thor/modifier_no_hammer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hammer_toss_thinker", "heroes/thor/modifier_hammer_toss_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hammer_trail", "heroes/thor/modifier_hammer_trail.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
 
 
 function ability_hammer_toss:Precache( context )
@@ -62,6 +63,7 @@ function ability_hammer_toss:OnChannelFinish(bInterrupted)
 	local distance 	= self:GetSpecialValueFor( "range" )
 	distance = distance * channel_pct
 	local name = ""
+	self.channel_pct = channel_pct
 
 	--local direction = target.direction:Normalized()
 
@@ -193,6 +195,8 @@ function ability_hammer_toss:OnProjectileHitHandle( target, location, handle )
 		print("data.cast 1")
 
 		if target and (target:IsCreep() or target:IsConsideredHero()) then
+
+			self:PhysicalHit(target)
 
 			-- play effects
 			local particle = ParticleManager:CreateParticle("particles/econ/items/zeus/lightning_weapon_fx/zuus_lightning_bolt_bodyglow_immortal_lightning.vpcf", PATTACH_ABSORIGIN, target)
@@ -375,4 +379,35 @@ end
 function ability_hammer_toss:StopEffects( effect )
 	ParticleManager:DestroyParticle( effect, false )
 	ParticleManager:ReleaseParticleIndex( effect )
+end
+
+function ability_hammer_toss:PhysicalHit(target)
+	local damage = self:GetSpecialValueFor( "hammer_damage" )
+
+	local stun_min = self:GetSpecialValueFor( "stun_min" )
+	local stun_max = self:GetSpecialValueFor( "stun_max" )
+	local stun_duration = (stun_max * self.channel_pct)
+	if stun_min > stun_duration then
+		stun_duration = stun_min
+	end
+	print("stun dur = " .. tostring(stun_duration))
+
+	target:AddNewModifier(
+					self:GetCaster(), -- player source
+					self, -- ability source
+					"modifier_avalore_stunned", -- modifier name
+					{ duration = stun_duration }); -- kv
+
+	local damageTable = {
+		victim = target,
+		attacker = self:GetCaster(),
+		damage = damage,
+		damage_type = DAMAGE_TYPE_PHYSICAL,
+		--damage_type = self:GetAbilityDamageType(),
+		ability = self, --Optional.
+	}
+	ApplyDamage(damageTable)
+
+	-- play effects
+	self:PlayEffects2( target )
 end
