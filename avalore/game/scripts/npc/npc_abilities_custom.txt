@@ -60,6 +60,7 @@
 
 #base "heroes/thor/ability_hammer_toss.txt"
 #base "heroes/thor/ability_toothgnashers.txt"
+#base "heroes/thor/ability_consume_goat.txt"
 
 "DOTAAbilities"
 {	

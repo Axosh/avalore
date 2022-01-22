@@ -1074,6 +1074,14 @@ end
 -- > player: short
 -- > abilityname: string
 function CAvaloreGameMode:OnPlayerLearnedAbility(event)
+	-- print("Ability was learned! ==> " .. event.abilityname)
+	-- if event.abilityname == "ability_toothgnashers" then
+	-- 	local player = EntIndexToHScript(event.player)
+	-- 	local hero = player:GetAssignedHero()
+	-- 	if hero:FindAbilityByName("ability_consume_goat") == nil then
+	-- 		hero:AddAbility("ability_consume_goat")
+	-- 	end
+	-- end
 	--print("CAvaloreGameMode:OnPlayerLearnedAbility(event)")
 	-- local player = EntIndexToHScript(event.player)
 	-- local hero = player:GetAssignedHero()

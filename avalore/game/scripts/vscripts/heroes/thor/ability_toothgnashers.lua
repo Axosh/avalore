@@ -26,3 +26,14 @@ function ability_toothgnashers:OnSpellStart()
         mod:IncrementStackCount()
     end
 end
+
+-- function ability_toothgnashers:GetAssociatedSecondaryAbilities()
+--     return ""
+
+function ability_toothgnashers:OnUpgrade()
+   if not self.consume then
+       self.consume = self:GetCaster():FindAbilityByName("ability_consume_goat")
+   end
+
+   self.consume:UpgradeAbility(true)
+end

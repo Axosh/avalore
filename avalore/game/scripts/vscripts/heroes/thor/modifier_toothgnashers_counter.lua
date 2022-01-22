@@ -36,7 +36,7 @@ function modifier_toothgnashers_counter:OnStackCountChanged(iOldStackCount)
 
     -- consumed a chage
     if iOldStackCount > self:GetStackCount() then
-        self.goat_units[iOldStackCount]:Kill()
+        self.goat_units[iOldStackCount]:ForceKill(false)
         table.remove(self.goat_units, iOldStackCount)
     else
         -- summoned a new goat

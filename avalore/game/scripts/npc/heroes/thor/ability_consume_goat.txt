@@ -1,0 +1,45 @@
+"DOTAAbilities"
+{
+    "ability_consume_goat"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"                    "heroes/thor/ability_consume_goat.lua"
+        "FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+
+        "AbilityTextureName"            "thor/consume_goat"
+
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+        // Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.25"
+		"AbilityChannelTime"			"3.0 3.0 3.0 3.0"
+
+        // Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10 10 10 10"
+		"AbilityManaCost"				"100"
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"				"FIELD_FLOAT"
+				"heal_interval"	        "0.5"
+            }
+            "02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal_per_interval"		"20 30 40 50"
+			}
+        }
+    }
+}
