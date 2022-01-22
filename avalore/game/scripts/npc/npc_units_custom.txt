@@ -13,6 +13,8 @@
 
 #base "heroes/gilgamesh/enkidu.txt"
 
+#base "heroes/thor/toothgnasher.txt"
+
 // Units File
 "DOTAUnits"
 {

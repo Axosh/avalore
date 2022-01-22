@@ -59,6 +59,7 @@
 #base "heroes/sun_wukong/ability_boar_gore.txt"
 
 #base "heroes/thor/ability_hammer_toss.txt"
+#base "heroes/thor/ability_toothgnashers.txt"
 
 "DOTAAbilities"
 {	

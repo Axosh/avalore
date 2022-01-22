@@ -225,6 +225,12 @@ function ability_hammer_toss:OnProjectileHitHandle( target, location, handle )
 			-- set thinker to return
 			local mod = targ:FindModifierByName( "modifier_hammer_toss_thinker" )
 			mod:Return()
+
+			-- stop effect
+			self:StopEffects( data.effect )
+
+			-- destroy handle
+			self.projectiles[handle] = nil
 		else
 		--end
 

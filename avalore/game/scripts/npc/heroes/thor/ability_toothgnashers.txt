@@ -1,0 +1,37 @@
+"DOTAAbilities"
+{
+    "ability_toothgnashers"
+    {
+        "BaseClass"						"ability_lua"
+        "ScriptFile"					"heroes/thor/ability_toothgnashers.lua"
+        "AbilityTextureName"			"thor/toothgnashers"
+        "FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+        // Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"50"
+		"AbilityManaCost"				"50"
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"speed_per_goat"	        "5 10 15 20"
+			}
+		}
+    }
+}
