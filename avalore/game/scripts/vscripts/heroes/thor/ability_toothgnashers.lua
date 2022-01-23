@@ -12,7 +12,7 @@ function ability_toothgnashers:OnSpellStart()
 
     -- if we have the modifier, then check to see if we can add a stack
     if caster:HasModifier("modifier_toothgnashers_counter") then
-        if caster:HasModifier("modifier_toothgnashers_counter"):GetStackCount() < self.num_goats then
+        if caster:FindModifierByName("modifier_toothgnashers_counter"):GetStackCount() < self.num_goats then
             caster:FindModifierByName("modifier_toothgnashers_counter"):IncrementStackCount()
         else
             -- couldn't cast - refund
