@@ -1,0 +1,17 @@
+"DOTAUnits"
+[
+    "npc_avalore_thunder_clap_blocker"
+    {
+        "BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/earthshaker/ti9_immortal/ti9_immortal_fissure.vmdl"
+		"ModelScale"				"1.0"
+		"Level"						"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"building_unselectable"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+    }
+]

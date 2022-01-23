@@ -14,6 +14,7 @@
 #base "heroes/gilgamesh/enkidu.txt"
 
 #base "heroes/thor/toothgnasher.txt"
+#base "heroes/thor/thunder_clap_blocker.txt"
 
 // Units File
 "DOTAUnits"
