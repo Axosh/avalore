@@ -15,7 +15,7 @@
 		//----------------------------------------------------------------
 		"AbilityLayout"             "4"
 		"Ability1"					"ability_hammer_toss"
-		"Ability2"					""
+		"Ability2"					"ability_thunder_clap"
 		"Ability3"					"ability_toothgnashers"
 		"Ability4"					"ability_consume_goat"			// Ability 4.
 		"Ability5"					""			// Ability 5.

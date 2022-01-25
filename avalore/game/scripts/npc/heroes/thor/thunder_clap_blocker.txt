@@ -1,5 +1,5 @@
 "DOTAUnits"
-[
+{
     "npc_avalore_thunder_clap_blocker"
     {
         "BaseClass"					"npc_dota_creature"
@@ -14,4 +14,4 @@
 		"Ability3"					""
 		"Ability4"					""
     }
-]
+}
