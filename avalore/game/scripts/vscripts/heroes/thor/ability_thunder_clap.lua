@@ -134,6 +134,7 @@ function ability_thunder_clap:MakeBlockers(caster)
     local block_width = 24
 	local block_delta = 8.25
     local blocks = 8
+    local block_duration  = self:GetSpecialValueFor("block_duration")
 
     local radius = self:GetSpecialValueFor("radius")
     local caster_loc = caster:GetAbsOrigin()
@@ -146,10 +147,18 @@ function ability_thunder_clap:MakeBlockers(caster)
     --                                 caster_loc.y,
     --                                 caster_loc.z)
 
-    local curr_block_vec = GetGroundPosition(caster_loc + Vector(0, radius, 0), nil)
+    local curr_block_vec = GetGroundPosition(caster_loc + (Vector(0, radius, 0) * caster_facing:Normalized()), nil)
+    --local curr_block_vec = GetGroundPosition(caster_loc + (Vector(0, radius, 0)), nil)
+    --curr_block_vec = RotatePosition(caster_loc, QAngle(0, 90, 0), curr_block_vec)
+    
+    --for i=1,blocks do
+    for i=1,(blocks + 8) do
+        -- kind of a hack, but fuck vector math
+        if i > 8 then
+            local blocker_unit = CreateUnitByName("npc_avalore_thunder_clap_blocker", curr_block_vec, false, nil, nil, caster:GetTeam())
+            blocker_unit:AddNewModifier(caster, self, "modifier_erect_wall_thinker", {duration = block_duration})
+        end
 
-    for i=1,blocks do
-        local blocker_unit = CreateUnitByName("npc_avalore_thunder_clap_blocker", curr_block_vec, false, nil, nil, caster:GetTeam())
         curr_block_vec		= RotatePosition(caster_loc, QAngle(0, 180 / blocks, 0), curr_block_vec)
     end
 end
