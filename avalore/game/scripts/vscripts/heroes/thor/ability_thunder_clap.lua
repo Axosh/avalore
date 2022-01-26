@@ -130,7 +130,7 @@ function ability_thunder_clap:MakeBlockers_old(caster)
 	end
 end
 
-function ability_thunder_clap:MakeBlockers(caster)
+function ability_thunder_clap:MakeBlockers_old2(caster)
     local block_width = 24
 	local block_delta = 8.25
     local blocks = 8
@@ -160,5 +160,42 @@ function ability_thunder_clap:MakeBlockers(caster)
         end
 
         curr_block_vec		= RotatePosition(caster_loc, QAngle(0, 180 / blocks, 0), curr_block_vec)
+    end
+end
+
+-- https://moddota.com/scripting/vector-math/
+function ability_thunder_clap:MakeBlockers(caster)
+    --local blocks = 8
+    local block_duration  = self:GetSpecialValueFor("block_duration")
+    local numPoints = 24
+    local caster_facing = caster:GetForwardVector()
+    local radius = self:GetSpecialValueFor("radius")
+    local block_width = 24
+
+    local angle = 2 * math.pi / numPoints
+    for i=1,numPoints do
+        local direction = Vector(math.cos(angle * i), math.sin(angle * i))
+        local circlePoint = direction * radius
+        local angle_between = AngleBetween2DVectors(direction, caster_facing)
+        print("angle between = " .. tostring(angle_between))
+        if angle_between > 0 and angle_between < 90 then
+            local curr_block_vec = GetGroundPosition(caster:GetAbsOrigin() + circlePoint, nil)
+            local blocker_unit = CreateUnitByName("npc_avalore_thunder_clap_blocker", curr_block_vec, false, nil, nil, caster:GetTeam())
+            blocker_unit:AddNewModifier(caster, self, "modifier_erect_wall_thinker", {duration = block_duration})
+            blocker_unit:AddNewModifier(caster, self, "modifier_unselectable", {})
+            blocker_unit:AddNewModifier(caster, self, "modifier_no_healthbar", {}) --built-in
+            --blocker_unit:SetHullRadius(block_width)
+
+            local blocker = CreateModifierThinker(
+												caster, -- player source
+												self, -- ability source
+												"modifier_erect_wall_thinker", -- modifier name
+												{ duration = block_duration }, -- kv
+												curr_block_vec,
+												caster:GetTeamNumber(),
+												true
+											)
+		    blocker:SetHullRadius( 70 )
+        end
     end
 end

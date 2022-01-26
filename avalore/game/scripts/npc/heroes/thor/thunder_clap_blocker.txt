@@ -13,5 +13,10 @@
 		"Ability2"					""
 		"Ability3"					""
 		"Ability4"					""
+
+        // Bounds
+		//----------------------------------------------------------------
+        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"
+        "RingRadius"                "200"
     }
 }
