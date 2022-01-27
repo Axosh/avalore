@@ -1,9 +1,42 @@
 "DOTAAbilities"
 {
-    "ability_thunder_gods_strengthen"
+    "ability_thunder_gods_strength"
     {
         // General
 		//-------------------------------------------------------------------------------------------------------------
-        
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"					"heroes/thor/ability_thunder_gods_strength.lua"
+
+        "AbilityTextureName"            "thor/thunder_gods_strength"
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+        "FightRecapLevel"               "2"
+
+        "MaxLevel"						"3"
+
+        // Time     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                "120 120 120"
+
+        // Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"               "100 150 200"
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"				"FIELD_INTEGER"
+                "duration"				"35"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage_amp"            "120 160 200"
+            }
+        }
     }
 }

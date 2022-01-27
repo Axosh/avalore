@@ -192,6 +192,20 @@ function modifier_wearable:OnIntervalThink()
 					cosmetic:RemoveNoDraw()
 				end
 			end
+		elseif hero:GetName() == "npc_dota_hero_dawnbreaker" then
+			if hero:HasModifier("modifier_thunder_gods_strength_buff") then
+				if cosmetic:GetModelName() == "models/items/dawnbreaker/first_light_head/first_light_head.vmdl" then
+					cosmetic:AddNoDraw()
+				elseif cosmetic:GetModelName() == "models/heroes/dawnbreaker/dawnbreaker_head.vmdl" then
+					cosmetic:RemoveNoDraw()
+				end
+			else
+				if cosmetic:GetModelName() == "models/items/dawnbreaker/first_light_head/first_light_head.vmdl" then
+					cosmetic:RemoveNoDraw()
+				elseif cosmetic:GetModelName() == "models/heroes/dawnbreaker/dawnbreaker_head.vmdl" then
+					cosmetic:AddNoDraw()
+				end
+			end
 		end
 	end
 

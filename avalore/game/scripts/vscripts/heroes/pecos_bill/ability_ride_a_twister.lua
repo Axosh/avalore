@@ -13,7 +13,7 @@ function ability_ride_a_twister:OnSpellStart()
 
     if not IsServer() then return end
 
-    PrintVector(caster:GetAbsOrigin(), "Before")
+    --PrintVector(caster:GetAbsOrigin(), "Before")
 
     caster:AddNewModifier(caster, self, "modifier_ride_a_twister", {duration = self:GetSpecialValueFor("duration")})
 end

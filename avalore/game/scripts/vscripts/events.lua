@@ -895,6 +895,9 @@ function CAvaloreGameMode:InitThor(hero, playernum)
 	--thor_cosmetics[4] = "models/items/sven/the_watcher_of_the_north_shoulder/the_watcher_of_the_north_shoulder.vmdl"
 	--thor_cosmetics[4] = "models/items/crystal_maiden/frosty_valkyrie_shoulder/frosty_valkyrie_shoulder.vmdl"
 	thor_cosmetics[4] = "models/items/omniknight/omni_fall20_immortal_shoulders/omni_fall20_immortal_shoulders.vmdl"
+	
+	-- gods strength transformation
+	thor_cosmetics[5] = "models/heroes/dawnbreaker/dawnbreaker_head.vmdl"
 
 	local wearables = {}
 	for k,wearable in pairs(thor_cosmetics) do
@@ -920,6 +923,11 @@ function CAvaloreGameMode:InitThor(hero, playernum)
 		-- else
 		-- 	cosmetic:FollowEntity(unit, true)
 		-- end
+
+		if k > 4 then
+			print("No Draw added to: " .. cosmetic:GetModelName())
+			cosmetic:AddNoDraw()
+		end
 	end
 end
 
