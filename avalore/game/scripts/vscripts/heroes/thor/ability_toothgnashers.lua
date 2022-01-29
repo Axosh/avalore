@@ -14,6 +14,7 @@ function ability_toothgnashers:OnSpellStart()
     if caster:HasModifier("modifier_toothgnashers_counter") then
         if caster:FindModifierByName("modifier_toothgnashers_counter"):GetStackCount() < self.num_goats then
             caster:FindModifierByName("modifier_toothgnashers_counter"):IncrementStackCount()
+            self:PlayEffects()
         else
             -- couldn't cast - refund
             self:RefundManaCost()
@@ -24,7 +25,14 @@ function ability_toothgnashers:OnSpellStart()
         -- first cast - give him both goats
         local mod = caster:AddNewModifier(caster, self, "modifier_toothgnashers_counter", {})
         mod:IncrementStackCount()
+        self:PlayEffects()
     end
+end
+
+function ability_toothgnashers:PlayEffects()
+    local sound_cast = "Hero_ShadowShaman.SheepHex.Target"
+
+    EmitSoundOn( sound_cast, self:GetCaster() )
 end
 
 -- function ability_toothgnashers:GetAssociatedSecondaryAbilities()

@@ -8,6 +8,11 @@
         "FightRecapLevel"				"1"
 		"MaxLevel"						"4"
 
+		"precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
+        }
+
         // Ability General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"

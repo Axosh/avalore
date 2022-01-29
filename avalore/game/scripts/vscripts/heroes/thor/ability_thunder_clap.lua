@@ -1,9 +1,11 @@
 ability_thunder_clap = ability_thunder_clap or class({})
 
 LinkLuaModifier( "modifier_erect_wall_thinker", "scripts/vscripts/heroes/gilgamesh/modifier_erect_wall_thinker.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_thunder_clap_debuff", "heroes/thor/modifier_thunder_clap_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 
 
 function ability_thunder_clap:OnSpellStart()
+    self:GetCaster():EmitSound("Hero_Brewmaster.ThunderClap")
     if not IsServer() then return end
 
     local caster    = self:GetCaster()
@@ -13,43 +15,43 @@ function ability_thunder_clap:OnSpellStart()
 	--local distance      = self:GetCastRange( point, caster )
 	local duration      = self:GetSpecialValueFor("block_duration")
 	local radius        = self:GetSpecialValueFor("radius")
-	--local slow_duration = self:GetSpecialValueFor("slow_duration")
+	local slow_duration = self:GetDuration()
 
     self:MakeBlockers(caster)
 
     -- -- get list of affected enemies by the slow/damage
-	-- local enemies = FindUnitsInRadius (
-	-- 	self:GetCaster():GetTeamNumber(),
-	-- 	self:GetCaster():GetOrigin(),
-	-- 	nil,
-	-- 	radius,
-	-- 	DOTA_UNIT_TARGET_TEAM_ENEMY,
-	-- 	DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-	-- 	DOTA_UNIT_TARGET_FLAG_NONE,
-	-- 	FIND_ANY_ORDER,
-	-- 	false
-	-- )
+	local enemies = FindUnitsInRadius (
+		self:GetCaster():GetTeamNumber(),
+		self:GetCaster():GetOrigin(),
+		nil,
+		radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		DOTA_UNIT_TARGET_FLAG_NONE,
+		FIND_ANY_ORDER,
+		false
+	)
 
 	-- -- Do for each affected enemies
-	-- for _,enemy in pairs(enemies) do
-	-- 	-- Apply damage
-	-- 	local damage = {
-	-- 		victim = enemy,
-	-- 		attacker = self:GetCaster(),
-	-- 		damage = damage,
-	-- 		damage_type = DAMAGE_TYPE_MAGICAL,
-	-- 		ability = self
-	-- 	}
-	-- 	ApplyDamage( damage )
+	for _,enemy in pairs(enemies) do
+		-- Apply damage
+		local damage = {
+			victim = enemy,
+			attacker = self:GetCaster(),
+			damage = damage,
+			damage_type = DAMAGE_TYPE_MAGICAL,
+			ability = self
+		}
+		ApplyDamage( damage )
 
-	-- 	-- Add slow modifier
-	-- 	enemy:AddNewModifier(
-	-- 		self:GetCaster(),
-	-- 		self,
-	-- 		"modifier_thunder_clap_debuff",
-	-- 		{ duration = slow_duration }
-	-- 	)
-	-- end
+		-- Add slow modifier
+		enemy:AddNewModifier(
+			self:GetCaster(),
+			self,
+			"modifier_thunder_clap_debuff",
+			{ duration = slow_duration }
+		)
+	end
 
 	-- Play effects
 	self:PlayEffects()
@@ -78,7 +80,8 @@ end
 
 function ability_thunder_clap:PlayEffects()
 	-- get resources
-	local sound_cast = "Hero_Ursa.Earthshock"
+	--local sound_cast = "Hero_Ursa.Earthshock"
+    local sound_cast = "Hero_Dawnbreaker.Luminosity.Strike"
 	local particle_cast = "particles/units/heroes/hero_ursa/ursa_earthshock.vpcf"
 
 	-- get data

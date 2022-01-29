@@ -183,6 +183,8 @@ function ability_hammer_toss:OnProjectileHitHandle( target, location, handle )
 	local data = self.projectiles[handle]
 	if not handle then return end
 
+	if not data then return end
+
 	-- print("Hit something!");
 	-- local thinker = data.thinker:FindModifierByName( "modifier_hammer_toss_thinker" )
 	-- if thinker then
