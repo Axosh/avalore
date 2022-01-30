@@ -305,6 +305,10 @@
 		"DOTA_Tooltip_Ability_ability_thunder_gods_strength"				"Thunder God's Strength"
 		"DOTA_Tooltip_Ability_ability_thunder_gods_strength_Lore"			"Thor was known for his strength and loved to fight"
 
+		// -- Talents
+		"DOTA_Tooltip_Ability_talent_lightning_charged"						"Lightning Charged"
+		"DOTA_Tooltip_Ability_talent_lightning_charged_description"				"As Hammer Toss flies, will zap enemies within a 350 radius around the projectile for 150 lightning magic damage."
+
 
 		//--------------------------------------------------------------------------------
 		// Objectives

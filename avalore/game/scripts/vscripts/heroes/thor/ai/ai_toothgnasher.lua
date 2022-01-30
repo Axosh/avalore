@@ -24,22 +24,22 @@ function ToothgnasherAIThink(self)
         local distanceFromThor = math.sqrt( (xDist ^ 2) + (yDist ^ 2) )
 
         if distanceFromThor > 2000 then
-            print("Warp - Too far from Thor!")
+            --print("Warp - Too far from Thor!")
             -- TODO: logic to warp goat to thor
             self.waypoint = nil --clear current waypoint
         elseif distanceFromThor > 500 then
-            print("Follow - Too far from Thor!")
+            --print("Follow - Too far from Thor!")
             self.waypoint = nil --clear current waypoint
             --MoveToUnitPosition(thor)
             -- add some jitter so they don't clump
             self:MoveToPosition(thor:GetAbsOrigin() + RandomVector( RandomFloat( 20, 20)))
         else
             if self.waypoint then
-                print("Have Waypoint")
+                --print("Have Waypoint")
                 local xWpDist = self.waypoint.x - thisEntity:GetAbsOrigin().x
                 local yWpDist = self.waypoint.y - thisEntity:GetAbsOrigin().y
                 local distanceFromWp = math.sqrt( (xWpDist ^ 2) + (yWpDist ^ 2) )
-                print("Distance from Waypoint = " .. tostring(distanceFromWp))
+                --print("Distance from Waypoint = " .. tostring(distanceFromWp))
                 -- we're close enough
                 if distanceFromWp < 10 then
                     self.waypoint = nil --clear current waypoint
@@ -47,11 +47,11 @@ function ToothgnasherAIThink(self)
                     self:MoveToPosition(self.waypoint)
                 end
             else
-                print("Set Waypoint")
+                --print("Set Waypoint")
                 local waypoint = thisEntity:GetAbsOrigin() + RandomVector( RandomFloat( 100, 300 ) )
                 if GridNav:CanFindPath( self:GetAbsOrigin(), waypoint ) then
                     self.waypoint = waypoint
-                    PrintVector(waypoint, "Set a new waypoint")
+                    --PrintVector(waypoint, "Set a new waypoint")
                 end
             end
         end

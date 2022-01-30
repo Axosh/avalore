@@ -52,6 +52,11 @@ function ability_hammer_toss:OnSpellStart()
 		self.lightning = true
 		self.lightning_dmg = self:GetOwner():FindAbilityByName("talent_lightning_charged"):GetSpecialValueFor("damage")
 		self.lightning_radius = self:GetOwner():FindAbilityByName("talent_lightning_charged"):GetSpecialValueFor("radius")
+		--self.last_zap = 0
+		self.lightning_zap_target = {}
+		-- only hit targets 1x each way
+		self.lightning_zap_target[1] = {} -- corresponds to hammer flying out
+		self.lightning_zap_target[2] = {} -- corresponds to hammer returning
 
 		-- precache damage
 		self.lightning_damageTable = {
@@ -151,8 +156,10 @@ function ability_hammer_toss:OnProjectileThinkHandle( handle )
 	local data = self.projectiles[handle]
 	if data.thinker:IsNull() then return end
 
+	local location = ProjectileManager:GetLinearProjectileLocation( handle )
+
 	if data.cast==1 then
-		local location = ProjectileManager:GetLinearProjectileLocation( handle )
+		
 		-- move thinker along projectile
 		data.thinker:SetOrigin( location )
 
@@ -161,7 +168,7 @@ function ability_hammer_toss:OnProjectileThinkHandle( handle )
 		GridNav:DestroyTreesAroundPoint( location, radius, false )
 
 	elseif data.cast==2 then
-		local location = ProjectileManager:GetTrackingProjectileLocation( handle )
+		--local location = ProjectileManager:GetTrackingProjectileLocation( handle )
 		local radius = self:GetSpecialValueFor( "projectile_radius" )
 
 		-- move thinker along projectile
@@ -170,7 +177,7 @@ function ability_hammer_toss:OnProjectileThinkHandle( handle )
 		-- find enemies not yet hit
 		local enemies = FindUnitsInRadius(
 			self:GetCaster():GetTeamNumber(),	-- int, your team number
-			location,	-- point, center point
+			location,	-- point/vector, center point
 			nil,	-- handle, cacheUnit. (not known)
 			radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
 			DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
@@ -194,6 +201,10 @@ function ability_hammer_toss:OnProjectileThinkHandle( handle )
 	end
 
 	if self.lightning then
+		-- if last zap was more than 1 second ago, then zap again
+		--if (GameRules:GetDOTATime(false, false) - self.last_zap) > 1 then
+		print("[Lightning Charged] Trying to Zap!")
+		print("Data cast = " .. tostring(data.cast))
 		-- find enemies to be hit by lightning
 		local enemies = FindUnitsInRadius(
 			self:GetCaster():GetTeamNumber(),	-- int, your team number
@@ -207,14 +218,21 @@ function ability_hammer_toss:OnProjectileThinkHandle( handle )
 			false	-- bool, can grow cache
 		)
 		for _,enemy in pairs(enemies) do
-			self.lightning_damageTable.victim = enemy
-			ApplyDamage( self.lightning_damageTable )
-			self:PlayEffects4( enemy )
+			-- only hit units 1x when flying out and 1x returning
+			if not self.lightning_zap_target[data.cast][enemy] then
+				self.lightning_zap_target[data.cast][enemy] = true
+				self.lightning_damageTable.victim = enemy
+				ApplyDamage( self.lightning_damageTable )
+				self:PlayEffects4( enemy, location )
+			end
 		end
 
 		if  #enemies > 1 then
 			EmitSoundOnLocationWithCaster( location, "Hero_razor.lightning", self:GetCaster() )
+			print("Zapped at least 1 enemy!")
 		end
+			--self.last_zap = GameRules:GetDOTATime(false, false)
+		--end
 	end
 end
 
@@ -424,10 +442,11 @@ function ability_hammer_toss:PlayEffects3()
 end
 
 -- lightning zap from talent_lightning_charged
-function ability_hammer_toss:PlayEffects4(enemy)
+function ability_hammer_toss:PlayEffects4(enemy, location)
 	local particle_cast = "particles/units/heroes/hero_razor/razor_storm_lightning_strike.vpcf"
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_CUSTOMORIGIN, self.parent )
-	ParticleManager:SetParticleControl( effect_cast, 0, self.parent:GetOrigin() + Vector(0,0,500) )
+	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_CUSTOMORIGIN, self:GetCaster() )
+	--ParticleManager:SetParticleControl( effect_cast, 0, location + Vector(0,0,500) )
+	ParticleManager:SetParticleControl( effect_cast, 0, location)
 	ParticleManager:SetParticleControlEnt(
 		effect_cast,
 		1,

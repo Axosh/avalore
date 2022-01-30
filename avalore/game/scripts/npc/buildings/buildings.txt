@@ -72,6 +72,8 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"4000"
 		"StatusHealthRegen"			"2"
+		"HealthBarOffset"			"300"
+
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 		
