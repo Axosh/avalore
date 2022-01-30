@@ -47,6 +47,21 @@ function ability_hammer_toss:OnSpellStart()
 	EmitSoundOn(sound_cast, caster)
 
 	self:GetCaster():StartGesture(ACT_DOTA_GENERIC_CHANNEL_1)
+
+	if self:GetCaster():HasTalent("talent_lightning_charged") then
+		self.lightning = true
+		self.lightning_dmg = self:GetOwner():FindAbilityByName("talent_lightning_charged"):GetSpecialValueFor("damage")
+		self.lightning_radius = self:GetOwner():FindAbilityByName("talent_lightning_charged"):GetSpecialValueFor("radius")
+
+		-- precache damage
+		self.lightning_damageTable = {
+			-- victim = target,
+			attacker = self:GetCaster(),
+			damage = self.lightning_dmg,
+			damage_type = DAMAGE_TYPE_MAGICAL,
+			ability = self, --Optional.
+		}
+	end
 end
 
 function ability_hammer_toss:OnChannelFinish(bInterrupted)
@@ -177,6 +192,30 @@ function ability_hammer_toss:OnProjectileThinkHandle( handle )
 		local radius = self:GetSpecialValueFor( "projectile_radius" )
 		GridNav:DestroyTreesAroundPoint( location, radius, false )
 	end
+
+	if self.lightning then
+		-- find enemies to be hit by lightning
+		local enemies = FindUnitsInRadius(
+			self:GetCaster():GetTeamNumber(),	-- int, your team number
+			location,	-- point, center point
+			nil,	-- handle, cacheUnit. (not known)
+			self.lightning_radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
+			DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
+			0,	-- int, flag filter
+			0,	-- int, order filter
+			false	-- bool, can grow cache
+		)
+		for _,enemy in pairs(enemies) do
+			self.lightning_damageTable.victim = enemy
+			ApplyDamage( self.lightning_damageTable )
+			self:PlayEffects4( enemy )
+		end
+
+		if  #enemies > 1 then
+			EmitSoundOnLocationWithCaster( location, "Hero_razor.lightning", self:GetCaster() )
+		end
+	end
 end
 
 function ability_hammer_toss:OnProjectileHitHandle( target, location, handle )
@@ -256,7 +295,7 @@ function ability_hammer_toss:OnProjectileHitHandle( target, location, handle )
 			self.projectiles[handle] = nil
 		end
 
-	-- projectile that is returning to hero
+	-- projectile that is returning to hero?
 	elseif data.cast==2 then
 		print("data.cast 2")
 		local caster = self:GetCaster()
@@ -378,6 +417,23 @@ function ability_hammer_toss:PlayEffects3()
 		hTarget,
 		PATTACH_POINT_FOLLOW,
 		"attach_attack1",
+		Vector(0,0,0), -- unknown
+		true -- unknown, true
+	)
+	ParticleManager:ReleaseParticleIndex( effect_cast )
+end
+
+-- lightning zap from talent_lightning_charged
+function ability_hammer_toss:PlayEffects4(enemy)
+	local particle_cast = "particles/units/heroes/hero_razor/razor_storm_lightning_strike.vpcf"
+	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_CUSTOMORIGIN, self.parent )
+	ParticleManager:SetParticleControl( effect_cast, 0, self.parent:GetOrigin() + Vector(0,0,500) )
+	ParticleManager:SetParticleControlEnt(
+		effect_cast,
+		1,
+		enemy,
+		PATTACH_POINT_FOLLOW,
+		"attach_hitloc",
 		Vector(0,0,0), -- unknown
 		true -- unknown, true
 	)
