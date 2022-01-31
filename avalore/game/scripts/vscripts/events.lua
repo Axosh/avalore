@@ -597,6 +597,8 @@ function CAvaloreGameMode:InitCosmetics(unit)
 		CAvaloreGameMode:InitThor(hero, playernum)
 	elseif hero_name == "npc_dota_hero_dragon_knight"	or hero_name == "npc_avalore_hero_king_arthur" then
 		CAvaloreGameMode:InitKingArthur(hero, playernum)
+	elseif hero_name == "npc_dota_hero_phantom_lancer"	or hero_name == "npc_avalore_hero_anubis" then
+		CAvaloreGameMode:InitAnubis(hero, playernum)
 	end
 
 	hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
@@ -947,6 +949,32 @@ function CAvaloreGameMode:InitKingArthur(hero, playernum)
 
 	local wearables = {}
 	for k,wearable in pairs(king_arthur_cosmetics) do
+		wearables[k] = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
+		local cosmetic = wearables[k]
+		cosmetic:SetOriginalModel(wearable)
+		cosmetic:SetModel(wearable)
+		cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
+		cosmetic:SetParent(unit, nil)
+		cosmetic:SetOwner(unit)
+		cosmetic:FollowEntity(unit, true)
+	end
+end
+
+function CAvaloreGameMode:InitAnubis(hero, playernum)
+	local unit = hero
+	if unit == nil and playernum ~= nil then
+		unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
+	end
+
+	local anubis_cosmetics = {}
+	anubis_cosmetics[0] = "models/items/phantom_lancer/anubis_phantom_lancer_head/anubis_phantom_lancer_head.vmdl"
+	anubis_cosmetics[1] = "models/items/phantom_lancer/anubis_phantom_lancer_arms/anubis_phantom_lancer_arms.vmdl"
+	anubis_cosmetics[2] = "models/items/phantom_lancer/anubis_phantom_lancer_belt/anubis_phantom_lancer_belt.vmdl"
+	anubis_cosmetics[3] = "models/items/phantom_lancer/anubis_phantom_lancer_shoulder/anubis_phantom_lancer_shoulder.vmdl"
+	anubis_cosmetics[4] = "models/items/phantom_lancer/anubis_phantom_lancer_weapon/anubis_phantom_lancer_weapon.vmdl"
+
+	local wearables = {}
+	for k,wearable in pairs(anubis_cosmetics) do
 		wearables[k] = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
 		local cosmetic = wearables[k]
 		cosmetic:SetOriginalModel(wearable)
