@@ -984,6 +984,7 @@ function CAvaloreGameMode:InitAnubis(hero, playernum)
 		cosmetic:SetOwner(unit)
 		cosmetic:FollowEntity(unit, true)
 	end
+	unit:SetRenderColor(0,0,0)
 end
 
 function CAvaloreGameMode:InitThor_old(hero, playernum)

@@ -66,6 +66,13 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
 			--print("Giving Player " .. tostring(hPlayerHero:GetPlayerOwnerID()) .. " shared control of " .. tostring(key))
 			value:SetControllableByPlayer(hero:GetPlayerOwnerID(), false)
 		end
+    elseif string.find(input, "spawn unit") then
+        local arr = StringToArrayByWhitespace(input)
+        local unit_arg = arr[3] -- lua is 1-indexed for this stuff
+        print(unit_arg)
+        local unit = CreateUnitByName(unit_arg, hero:GetAbsOrigin(), true, nil, hero:GetOwner(), hero:GetTeamNumber())
+        print("Created ... " .. unit:GetUnitName())
+        PrintVector(unit:GetAbsOrigin(), "at location")
     end
     
 end
@@ -78,9 +85,11 @@ end
 -- ========================================================================================
 function StringToArrayByWhitespace(input_string)
     local result_array = {}
+    local cnt = 1 -- lua is 1-indexed for this stuff
     for token in string.gmatch(input_string, "[^%s]+") do
-        print("\"" .. token .. "\"")
+        print("[" .. tostring(cnt) .. "] = \"" .. token .. "\"")
         table.insert(result_array, token)
+        cnt = cnt + 1
     end
     return result_array
 end
