@@ -46,7 +46,7 @@
 		"ItemKillable"					    "0"
         "ItemPurchasable"					"0"
 		"ItemSellable"						"0"
-        "AllowedInBackpack"				    "0"
+        "AllowedInBackpack"				    "1"
 		"IsTempestDoubleClonable"		    "0"
         "ItemDroppable" 				    "1"
         "ItemDeclarations"					"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
@@ -66,7 +66,7 @@
             "01"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "item_slot"                                 "30" //FEET
+                "item_slot"                                 "30" //Misc
             }
 		}
 
@@ -106,7 +106,7 @@
 		"ItemKillable"					    "0"
         "ItemPurchasable"					"0"
 		"ItemSellable"						"0"
-        "AllowedInBackpack"				    "0"
+        "AllowedInBackpack"				    "1"
 		"IsTempestDoubleClonable"		    "0"
         "ItemDroppable" 				    "1"
         "ItemDeclarations"					"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
@@ -118,6 +118,16 @@
 		// 		"Function"			    "DropItemOnDeath"
 		// 	}
 		// }
+		// Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "30" //Misc
+            }
+		}
 
     } // end: "item_avalore_flag_b"
 
@@ -155,7 +165,7 @@
 		"ItemKillable"					    "0"
         "ItemPurchasable"					"0"
 		"ItemSellable"						"0"
-        "AllowedInBackpack"				    "0"
+        "AllowedInBackpack"				    "1"
 		"IsTempestDoubleClonable"		    "0"
         "ItemDroppable" 				    "1"
         "ItemDeclarations"					"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
@@ -167,6 +177,16 @@
 		// 		"Function"			    "DropItemOnDeath"
 		// 	}
 		// }
+		// Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "30" //Misc
+            }
+		}
 
     } // end: "item_avalore_flag_c"
 
@@ -204,7 +224,7 @@
 		"ItemKillable"					    "0"
         "ItemPurchasable"					"0"
 		"ItemSellable"						"0"
-        "AllowedInBackpack"				    "0"
+        "AllowedInBackpack"				    "1"
 		"IsTempestDoubleClonable"		    "0"
         "ItemDroppable" 				    "1"
         "ItemDeclarations"					"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
@@ -216,6 +236,16 @@
 		// 		"Function"			    "DropItemOnDeath"
 		// 	}
 		// }
+		// Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "30" //Misc
+            }
+		}
 
     } // end: "item_avalore_flag_d"
 
@@ -253,7 +283,7 @@
 		"ItemKillable"					    "0"
         "ItemPurchasable"					"0"
 		"ItemSellable"						"0"
-        "AllowedInBackpack"				    "0"
+        "AllowedInBackpack"				    "1"
 		"IsTempestDoubleClonable"		    "0"
         "ItemDroppable" 				    "1"
         "ItemDeclarations"					"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
@@ -265,6 +295,16 @@
 		// 		"Function"			    "DropItemOnDeath"
 		// 	}
 		// }
+		// Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "30" //Misc
+            }
+		}
 
     } // end: "item_avalore_flag_e"
 
@@ -303,7 +343,7 @@
 		"ItemKillable"					    "0"
         "ItemPurchasable"					"0"
 		"ItemSellable"						"0"
-        "AllowedInBackpack"				    "0"
+        "AllowedInBackpack"				    "1"
 		"IsTempestDoubleClonable"		    "0"
         "ItemDroppable" 				    "1"
         "ItemDeclarations"					"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
@@ -315,6 +355,16 @@
 		//  		"Function"			    "DropItemOnDeath"
 		//  	}
 		//  }
+		// Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "30" //Misc
+            }
+		}
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			

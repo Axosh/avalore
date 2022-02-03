@@ -119,8 +119,8 @@ function modifier_item_flag_carry:IsDebuff() return true end
 function modifier_item_flag_carry:IsPurgable() return false end
 
 function modifier_item_flag_carry:OnCreated(keys)
-    print("modifier_item_flag_carry:OnCreated()")
     if IsServer() then
+        print("modifier_item_flag_carry:OnCreated()")
         local ent_flag = nil
 
         --local sFlag = HasFlagInInventory(self:GetParent())
@@ -128,10 +128,15 @@ function modifier_item_flag_carry:OnCreated(keys)
 
         local flag_carry_mods = self:GetParent():FindAllModifiersByName(MODIFIER_FLAG_CARRY_NAME)
         --check to see if they already have a flag (i.e. 2 instances of this modifier since it's already been applied here)
-        -- print("table count = " .. TableCount(flag_carry_mods))
-        -- if TableCount(flag_carry_mods) > 1 then
-        --     PrintTable(flag_carry_mods)
-        -- end
+        print("table count = " .. TableCount(flag_carry_mods))
+        if TableCount(flag_carry_mods) > 1 then
+            print("already had modifier")
+            --PrintTable(flag_carry_mods)
+            for _,mod in pairs(flag_carry_mods) do
+                print("destroying old carry mod")
+                mod:Destroy()
+            end
+        end
         
         if sFlag == OBJECTIVE_FLAG_ITEM_A then
             ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_A})

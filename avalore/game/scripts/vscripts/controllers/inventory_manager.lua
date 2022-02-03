@@ -89,10 +89,11 @@ end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 -- * is_courier: bool ==> NOTE: idk what this tracks, because it seems to ALWAYS BE TRUE
 function CAvaloreGameMode:OnItemAdded(event)
 	if not IsServer() then return end
-	--PrintTable(event)
+	PrintTable(event)
 	local item = EntIndexToHScript( event.item_entindex )
 	local owner = EntIndexToHScript( event.inventory_parent_entindex )
 	local hero = PlayerResource:GetSelectedHeroEntity(event.inventory_player_id)
+	if (not hero) or (not hero:IsRealHero()) then return end -- probably merc camp init
 	--print("Inventory Owner: " .. owner:GetName())
 
 	-- don't worry about recipes
@@ -133,7 +134,8 @@ function CAvaloreGameMode:OnItemAdded(event)
 		or event.itemname == OBJECTIVE_FLAG_ITEM_E then
 			if inventory:Contains(event.itemname) and (not owner:HasItemInInventory(event.itemname)) then
 				print("Item in Avalore Inv, but not in Dota Inv")
-				owner:PickupDroppedItem(item)
+				--hero:AddItem(item) -- crashes game
+				hero:PickupDroppedItem(item)
 			end
 		end
 	end

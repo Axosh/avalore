@@ -98,14 +98,25 @@ function modifier_inventory_manager:OnIntervalThink()
             -- if intr_mod then
             --     print("Intrinsic Mod: " .. intr_mod)
             -- end
-            if intr_mod and not hero:FindModifierByName(intr_mod) then
-                print("modifier_inventory_manager > Adding (" .. item:GetName() .. ", " .. intr_mod .. ")")
-                --hero:AddNewModifier(self, item, intr_mod, {})
-                hero:AddNewModifier(hero, item, intr_mod, {})
+            if intr_mod then
+                if not hero:FindModifierByName(intr_mod) then
+                    print("modifier_inventory_manager > Adding (" .. item:GetName() .. ", " .. intr_mod .. ")")
+                    --hero:AddNewModifier(self, item, intr_mod, {})
+                    hero:AddNewModifier(hero, item, intr_mod, {})
+                    --backpack_state[intr_mod] = item
+                end
+
+                -- start or continue tracking this backpacked item
                 backpack_state[intr_mod] = item
             end
         end
     end
+
+    -- print("==== BACKPACK STATE ====")
+    -- for mod,item in pairs(backpack_state) do
+    --     print("Modifier: " .. mod .. ", Item: " .. item:GetName())
+    -- end
+    -- print("========================")
     
     -- remake the backpack
     self.curr_backpack = nil -- garbage collect

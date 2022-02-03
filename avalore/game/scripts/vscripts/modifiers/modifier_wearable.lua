@@ -4,7 +4,13 @@ AVALORE_INVISIBLE_MODIFIERS = {
     "modifier_rogueish_escape",
 	"modifier_faction_forest_fade",
 	"modifier_water_fade",
-	"modifier_forest_fade" -- generic version, unassociated with the faction
+	"modifier_forest_fade", -- generic version, unassociated with the faction
+	-- built-in dota mods
+	"modifier_persistent_invisibility",
+	"modifier_invisible",
+	"modifier_invisible_truesight_immune",
+	"modifier_rune_invis",
+	"modifier_rune_super_invis"
 }
 
 --LinkLuaModifier( "modifier_rogueish_escape", "heroes/robin_hood/ability_rich_poor", LUA_MODIFIER_MOTION_NONE )
