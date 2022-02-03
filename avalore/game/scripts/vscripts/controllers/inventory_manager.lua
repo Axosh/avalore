@@ -92,13 +92,17 @@ function CAvaloreGameMode:OnItemAdded(event)
 	--PrintTable(event)
 	local item = EntIndexToHScript( event.item_entindex )
 	local owner = EntIndexToHScript( event.inventory_parent_entindex )
+	local hero = PlayerResource:GetSelectedHeroEntity(event.inventory_player_id)
 	--print("Inventory Owner: " .. owner:GetName())
 
 	-- don't worry about recipes
 	if item then
 		if (string.find(item:GetName(), "item_recipe")) then return end
 
-		--print("CAvaloreGameMode:OnItemAdded(event)")
+		print("CAvaloreGameMode:OnItemAdded(event)")
+		if hero then --could be a spawner or something
+			print("Room for item? => " .. tostring(hero:HasRoomForItem(event.itemname, false, false)))
+		end
 		--print("Item: " .. item:GetName())
     	--print("Item Slot: " .. item:GetItemSlot())
 		
@@ -121,7 +125,20 @@ function CAvaloreGameMode:OnItemAdded(event)
 				inventory:Add(item)
 			end
 		end
+
+		if     event.itemname == OBJECTIVE_FLAG_ITEM_A 
+		or event.itemname == OBJECTIVE_FLAG_ITEM_B 
+		or event.itemname == OBJECTIVE_FLAG_ITEM_C 
+		or event.itemname == OBJECTIVE_FLAG_ITEM_D 
+		or event.itemname == OBJECTIVE_FLAG_ITEM_E then
+			if inventory:Contains(event.itemname) and (not owner:HasItemInInventory(event.itemname)) then
+				print("Item in Avalore Inv, but not in Dota Inv")
+				owner:PickupDroppedItem(item)
+			end
+		end
 	end
+
+	
 
 	-- if item:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_FEET then
 	-- 	if owner:HasItemInInventory("item_slot_feet") then

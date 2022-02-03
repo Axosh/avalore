@@ -91,7 +91,7 @@ function Inventory:Add(item)
         item_slot = AVALORE_ITEM_SLOT_MISC
     end
 
-    -- print("Item Added to Slot: " .. tostring(item:GetItemSlot()))
+    print("Trying to add item " .. item:GetName() .. " to Slot: " .. tostring(item_slot))
 
     -- handle misc/backpack
     if item_slot == AVALORE_ITEM_SLOT_MISC then
@@ -327,4 +327,28 @@ function Inventory:RemoveFromMisc(item)
             return
         end
     end
+end
+
+
+function Inventory:Contains(item_name)
+    print("Inventory:Contains(item)" .. item_name)
+    -- check main inv
+    for avalore_slot=AVALORE_ITEM_SLOT_HEAD,AVALORE_ITEM_SLOT_TRINKET do
+        if self.slots[avalore_slot] ~= nil then -- sanity check for bugged inventory
+            if self.slots[avalore_slot]:GetName() == item_name then
+                return true
+            end
+        end
+    end
+
+    -- check backpack/misc
+    for avalore_slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
+        if self.slots[AVALORE_ITEM_SLOT_MISC][avalore_slot] ~= nil then -- sanity check for bugged inventory
+            if self.slots[AVALORE_ITEM_SLOT_MISC][avalore_slot]:GetName() == item_name then
+                return true
+            end
+        end
+    end
+
+    return false
 end
