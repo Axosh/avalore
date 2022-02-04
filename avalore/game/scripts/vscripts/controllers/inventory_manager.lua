@@ -89,18 +89,32 @@ end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 -- * is_courier: bool ==> NOTE: idk what this tracks, because it seems to ALWAYS BE TRUE
 function CAvaloreGameMode:OnItemAdded(event)
 	if not IsServer() then return end
+	print("CAvaloreGameMode:OnItemAdded(event)")
 	PrintTable(event)
 	local item = EntIndexToHScript( event.item_entindex )
 	local owner = EntIndexToHScript( event.inventory_parent_entindex )
+	if owner then
+		print("Owner => " .. owner:GetName())
+	else
+		print("Owner => nil")
+	end
 	local hero = PlayerResource:GetSelectedHeroEntity(event.inventory_player_id)
+	
 	if (not hero) or (not hero:IsRealHero()) then return end -- probably merc camp init
 	--print("Inventory Owner: " .. owner:GetName())
+	local hEIndex = hero:GetEntityIndex()
+	print("Hero Ent Index => " .. tostring(hEIndex))
+
+	-- this is probably an illusion
+	-- seems that when an illusion is created, the inventory is cloned
+	-- and we don't want to let that process interfere with Avalore's inventory tracking
+	if hEIndex ~= event.inventory_parent_entindex then return end
 
 	-- don't worry about recipes
 	if item then
 		if (string.find(item:GetName(), "item_recipe")) then return end
 
-		print("CAvaloreGameMode:OnItemAdded(event)")
+		--print("CAvaloreGameMode:OnItemAdded(event)")
 		if hero then --could be a spawner or something
 			print("Room for item? => " .. tostring(hero:HasRoomForItem(event.itemname, false, false)))
 		end
