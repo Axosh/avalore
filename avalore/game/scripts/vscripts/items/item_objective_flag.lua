@@ -138,26 +138,57 @@ function modifier_item_flag_carry:OnCreated(keys)
             end
         end
         
+        local particleFx = ""
         if sFlag == OBJECTIVE_FLAG_ITEM_A then
             ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_A})
+            particleFx = "particles/units/heroes/hero_legion_commander/legion_commander_press_base.vpcf"
+            RenderFlagMorale(ent_flag)
         elseif sFlag == OBJECTIVE_FLAG_ITEM_B then
             ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_B})
+            particleFx = "particles/units/heroes/hero_legion_commander/legion_commander_press_base.vpcf"
+            RenderFlagMorale(ent_flag)
         elseif sFlag == OBJECTIVE_FLAG_ITEM_C then
             ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_C})
+            particleFx = "particles/econ/items/invoker/invoker_ti7/invoker_ti7_alacrity_buff_arc_pnt.vpcf"
+            RenderFlagAgility(ent_flag)
         elseif sFlag == OBJECTIVE_FLAG_ITEM_D then
             ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_D})
+            particleFx = "particles/econ/items/monkey_king/plus_2018/monkey_king_plus_2018_weapon_ambient_magic.vpcf"
+            RenderFlagArcane(ent_flag)
         elseif sFlag == OBJECTIVE_FLAG_ITEM_E then
             ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_E})
+            particleFx = "particles/econ/events/fall_major_2016/cyclone_fm06_leaves.vpcf"
+            RenderFlagRegrowth(ent_flag)
         end
+        --SetFlagForward(ent_flag)
 
         local flag_letter = string.sub(sFlag, -1) -- get the last letter
 
         ent_flag:FollowEntity(self:GetParent(), false)
         self.entFollow = ent_flag
+        --ent_flag:SetForwardVector(Vector(1, 0, 0))
+        --ent_flag:SetForwardVector(Vector(-1, 0, 0))
+
+        -- print("Owner = > " .. self:GetParent():GetName())
+        local hero_forward = self:GetParent():GetForwardVector()
+        --local flag_forward = RotatePosition(hero_forward, QAngle(0, 90, 0), )
+        local flag_forward = RotatePosition(Vector(0,0,0), QAngle(0, 90, 0), hero_forward)
+        ent_flag:SetForwardVector(flag_forward)
+        -- local xRot = math.sin(90)
+        -- local yRot = math.cos(90)
+        -- ent_flag:SetForwardVector(Vector(hero_forward.x + xRot, hero_forward.y + yRot, hero_forward.z))
+        -- PrintVector(self:GetParent():GetForwardVector(), "Hero Forward Vect")
+        -- PrintVector(ent_flag:GetForwardVector(), "Flag Forward Vect")
+        -- print("Angle Between = " .. tostring(AngleBetween2DVectors(ent_flag:GetForwardVector(), hero_forward)))
         
         if self.particle == nil then
             self.particle = ParticleManager:CreateParticle(OBJECTIVE_FLAG_PARTICLE_CAPTURE, PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
             ParticleManager:SetParticleControl(self.particle, 0, Vector(0, 0, 0))
+        end
+
+        if self.flag_particle == nil then
+            self.flag_particle = ParticleManager:CreateParticle(particleFx, PATTACH_ABSORIGIN_FOLLOW, ent_flag)
+            ParticleManager:SetParticleControl(self.flag_particle, 0, Vector(0, 0, 0))
         end
 
         local mod_name = GetFlagModifierNameFromIdentifier(flag_letter)
@@ -205,6 +236,12 @@ function modifier_item_flag_carry:OnDestroy(keys)
 		ParticleManager:DestroyParticle(self.particle, false)
 		ParticleManager:ReleaseParticleIndex(self.particle)
 		self.particle = nil
+    end
+
+    if self.flag_particle ~= nil then
+		ParticleManager:DestroyParticle(self.flag_particle, false)
+		ParticleManager:ReleaseParticleIndex(self.flag_particle)
+		self.flag_particle = nil
     end
 
     if self.entFollow ~= nil then

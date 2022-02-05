@@ -310,3 +310,46 @@ function ResolveEndPoint(starting_point, vector_dir, distance)
     local add_vect = vector_dir:Normalized() * distance
     return starting_point + add_vect
 end
+
+
+-- ================================================
+-- Physical Versions of Flags
+-- ================================================
+
+-- Flag A, Flag B
+function RenderFlagMorale(unit)
+    --unit:SetRenderColor(245, 166, 35) -- pale orange (matches icon)
+    unit:SetRenderColor(255, 166, 0) -- orange
+    unit:SetRenderAlpha(1.0)
+    --unit:SetModelScale(2.0)
+end
+
+-- Flag C
+function RenderFlagAgility(unit)
+    --unit:SetRenderColor(126, 211, 33)
+    unit:SetRenderColor(0, 255, 0)
+    unit:SetRenderAlpha(1.0)
+    --unit:SetModelScale(2.0)
+end
+
+-- Flag D
+function RenderFlagArcane(unit)
+    --unit:SetRenderColor(72, 186, 255)
+    --unit:SetRenderColor(72, 186, 255)
+    unit:SetRenderColor(0, 0, 255)
+    unit:SetRenderAlpha(1.0)
+    --unit:SetModelScale(2.0)
+end
+
+-- Flag E
+function RenderFlagRegrowth(unit)
+    --unit:SetRenderColor(65, 116, 5)
+    unit:SetRenderColor(0, 128, 5)
+    unit:SetRenderAlpha(1.0)
+    --unit:SetModelScale(2.0)
+end
+
+function SetFlagForward(unit)
+    print("skip")
+    --unit:SetForwardVector(Vector(0,-1,0))
+end

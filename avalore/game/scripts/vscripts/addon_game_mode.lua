@@ -113,7 +113,7 @@ function CAvaloreGameMode:InitGameMode()
 	-- ListenToGameEvent("inventory_updated", Dynamic_Wrap(CAvaloreGameMode, "OnInventoryUpdated"), self)
 	-- ListenToGameEvent("dota_item_gifted", Dynamic_Wrap(CAvaloreGameMode, "OnItemGifted"), self)
 	-- ListenToGameEvent("dota_inventory_changed", Dynamic_Wrap(CAvaloreGameMode, "OnInventoryChanged"), self)
-	-- ListenToGameEvent( "dota_item_spawned", Dynamic_Wrap( CAvaloreGameMode, "OnItemSpawned" ), self )
+	ListenToGameEvent( "dota_item_spawned", Dynamic_Wrap( CAvaloreGameMode, "OnItemSpawned" ), self )
 	_G.nCOUNTDOWNTIMER = 2401
 	self.countdownEnabled = true
 	GameRules:SetPreGameTime( 10 )
@@ -245,6 +245,9 @@ function CAvaloreGameMode:OnThink()
 			self:InitRound1()
 		end
 		-- spawn flags ping notification
+		if (flag_announce_curr == 1) then
+			Spawners:InitFlags()
+		end
 		if (flag_announce_curr < 6) then 
 			local flag_temp
 			--print("Trying to ping flag locations")

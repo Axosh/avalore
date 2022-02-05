@@ -128,27 +128,27 @@ OBJECTIVE_FLAG_PARTICLE_CAPTURE = "particles/customgames/capturepoints/cp_wood.v
 -- Orange Flag ==> Morale (Radiant)
 OBJECTIVE_FLAG_SPAWNER_A    = "spawner_flag_a"
 OBJECTIVE_FLAG_ITEM_A       = "item_avalore_flag_a"
-OBJECTIVE_FLAG_MODEL_A      = "maps/reef_assets/props/teams/banner_radiant_reef.vmdl"
+OBJECTIVE_FLAG_MODEL_A      = "models/flag_tintable.vmdl" --"models/props_teams/bannerb_dire.vmdl" --"maps/reef_assets/props/teams/banner_radiant_reef.vmdl"
 
 -- Red Flag ==> Morale (Dire)
 OBJECTIVE_FLAG_SPAWNER_B    = "spawner_flag_b"
 OBJECTIVE_FLAG_ITEM_B       = "item_avalore_flag_b"
-OBJECTIVE_FLAG_MODEL_B      = "maps/journey_assets/props/teams/banner_journey_radiant.vmdl"
+OBJECTIVE_FLAG_MODEL_B      = "models/flag_tintable.vmdl" --"models/props_teams/bannerb_dire.vmdl" --"maps/journey_assets/props/teams/banner_journey_radiant.vmdl"
 
 -- Yellow Flag ==> Agility
 OBJECTIVE_FLAG_SPAWNER_C    = "spawner_flag_c"
 OBJECTIVE_FLAG_ITEM_C       = "item_avalore_flag_c"
-OBJECTIVE_FLAG_MODEL_C      = "maps/journey_assets/props/teams/banner_journey_dire_small.vmdl"
+OBJECTIVE_FLAG_MODEL_C      = "models/flag_tintable.vmdl" --"models/props_teams/bannerb_dire.vmdl" --"maps/journey_assets/props/teams/banner_journey_dire_small.vmdl"
 
 -- Purple Flag ==> Arcane
 OBJECTIVE_FLAG_SPAWNER_D    = "spawner_flag_d"
 OBJECTIVE_FLAG_ITEM_D       = "item_avalore_flag_d"
-OBJECTIVE_FLAG_MODEL_D      = "maps/reef_assets/props/teams/banner_dire_reef_small.vmdl"
+OBJECTIVE_FLAG_MODEL_D      = "models/flag_tintable.vmdl" --"models/props_teams/bannerb_dire.vmdl" --"maps/reef_assets/props/teams/banner_dire_reef_small.vmdl"
 
 -- Blue Flag ==> Regrowth
 OBJECTIVE_FLAG_SPAWNER_E    = "spawner_flag_e"
 OBJECTIVE_FLAG_ITEM_E       = "item_avalore_flag_e"
-OBJECTIVE_FLAG_MODEL_E      = "models/props_teams/bannerb_dire.vmdl"
+OBJECTIVE_FLAG_MODEL_E      = "models/flag_tintable.vmdl" --"models/props_teams/bannerb_dire.vmdl"
 
 OBJECTIVE_FLAG_SPAWNERS = {OBJECTIVE_FLAG_SPAWNER_A, OBJECTIVE_FLAG_SPAWNER_B, OBJECTIVE_FLAG_SPAWNER_C, OBJECTIVE_FLAG_SPAWNER_D, OBJECTIVE_FLAG_SPAWNER_E}
 

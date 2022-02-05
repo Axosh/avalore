@@ -187,6 +187,7 @@ function ability_thunder_clap:MakeBlockers(caster)
             blocker_unit:AddNewModifier(caster, self, "modifier_erect_wall_thinker", {duration = block_duration})
             blocker_unit:AddNewModifier(caster, self, "modifier_unselectable", {})
             blocker_unit:AddNewModifier(caster, self, "modifier_no_healthbar", {}) --built-in
+			blocker_unit:AddNewModifier(caster, self, "modifier_invulnerable", {}) --built-in
             --blocker_unit:SetHullRadius(block_width)
 
             local blocker = CreateModifierThinker(

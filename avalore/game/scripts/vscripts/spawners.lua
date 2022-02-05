@@ -113,7 +113,7 @@ function Spawners:Init()
     end
 
 
-    self:InitFlags()
+    --self:InitFlags()
     print("Spawners Initialized")
 end
 
@@ -166,21 +166,61 @@ function Spawners:InitFlags()
     -- Spawn Actual Flags
 
     local newItem           = CreateItem( OBJECTIVE_FLAG_ITEM_A, nil , nil )
+    -- for the flag particles to init
+    local spawner_tmp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_A)
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, spawner_tmp:GetAbsOrigin(), 200, 10.0, false)
+    AddFOWViewer(DOTA_TEAM_BADGUYS, spawner_tmp:GetAbsOrigin(), 200, 10.0, false)
     local newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_A):GetOrigin(), newItem )
+    --newItemPhysical:SetRenderColor(245, 166, 35)
+    --newItemPhysical:SetForwardVector(Vector(0,-1,0))
+    RenderFlagMorale(newItemPhysical)
+    SetFlagForward(newItemPhysical)
 
     newItem           = CreateItem( OBJECTIVE_FLAG_ITEM_B, nil , nil )
+    -- for the flag particles to init
+    spawner_tmp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_B)
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, spawner_tmp:GetAbsOrigin(), 200, 10.0, false)
+    AddFOWViewer(DOTA_TEAM_BADGUYS, spawner_tmp:GetAbsOrigin(), 200, 10.0, false)
     newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_B):GetOrigin(), newItem )
+    -- newItemPhysical:SetRenderColor(245, 166, 35)
+    -- newItemPhysical:SetForwardVector(Vector(0,-1,0))
+    RenderFlagMorale(newItemPhysical)
+    SetFlagForward(newItemPhysical)
 
     newItem           = CreateItem( OBJECTIVE_FLAG_ITEM_C, nil , nil )
+    -- for the flag particles to init
+    spawner_tmp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_C)
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, spawner_tmp:GetAbsOrigin(), 200, 10.0, false)
+    AddFOWViewer(DOTA_TEAM_BADGUYS, spawner_tmp:GetAbsOrigin(), 200, 10.0, false)
     newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_C):GetOrigin(), newItem )
+    -- newItemPhysical:SetRenderColor(126, 211, 33)
+    -- newItemPhysical:SetForwardVector(Vector(0,-1,0))
+    RenderFlagAgility(newItemPhysical)
+    SetFlagForward(newItemPhysical)
 
     newItem           = CreateItem( OBJECTIVE_FLAG_ITEM_D, nil , nil )
+    -- for the flag particles to init
+    spawner_tmp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_D)
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, spawner_tmp:GetAbsOrigin(), 200, 10.0, false)
+    AddFOWViewer(DOTA_TEAM_BADGUYS, spawner_tmp:GetAbsOrigin(), 200, 10.0, false)
     newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_D):GetOrigin(), newItem )
     --newItemPhysical:GetRenderColor(OBJECTIVE_FLAG_RENDER_D[0], OBJECTIVE_FLAG_RENDER_D[1], OBJECTIVE_FLAG_RENDER_D[2])
     --newItemPhysical:SetRenderColor(148,0,211)
+    -- newItemPhysical:SetRenderColor(72, 186, 255)
+    -- newItemPhysical:SetForwardVector(Vector(0,-1,0))
+    RenderFlagArcane(newItemPhysical)
+    SetFlagForward(newItemPhysical)
 
     newItem           = CreateItem( OBJECTIVE_FLAG_ITEM_E, nil , nil )
+    -- for the flag particles to init
+    spawner_tmp = Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_E)
+    AddFOWViewer(DOTA_TEAM_GOODGUYS, spawner_tmp:GetAbsOrigin(), 200, 10.0, false)
+    AddFOWViewer(DOTA_TEAM_BADGUYS, spawner_tmp:GetAbsOrigin(), 200, 10.0, false)
     newItemPhysical   = CreateItemOnPositionSync( Entities:FindByName(nil, OBJECTIVE_FLAG_SPAWNER_E):GetOrigin(), newItem )
+    -- newItemPhysical:SetRenderColor(65, 116, 5)
+    -- newItemPhysical:SetForwardVector(Vector(0,-1,0))
+    RenderFlagRegrowth(newItemPhysical)
+    SetFlagForward(newItemPhysical)
 
     --print("Top has " .. Spawners.DireFlagBases.Top:GetModifierCount() .. " modifiers.")
 end

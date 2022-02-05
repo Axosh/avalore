@@ -192,6 +192,16 @@ function CAvaloreGameMode:OnInventoryChanged(event)
 	elseif item:GetContainer() then
 		print("OnInventoryChanged >> Dropped")
 		-- if the item has a container, that means it was dropped and now has a physical form
+		local phys_item = item:GetContainer()
+		if (item:GetName() == OBJECTIVE_FLAG_ITEM_A) or (item:GetName() == OBJECTIVE_FLAG_ITEM_B) then
+			RenderFlagMorale(phys_item)
+		elseif item:GetName() == OBJECTIVE_FLAG_ITEM_C then
+			RenderFlagAgility(phys_item)
+		elseif item:GetName() == OBJECTIVE_FLAG_ITEM_D then
+			RenderFlagArcane(phys_item)
+		elseif item:GetName() == OBJECTIVE_FLAG_ITEM_E then
+			RenderFlagRegrowth(phys_item)
+		end
 		inventory:Remove(item)
     end
 
@@ -334,4 +344,14 @@ function CAvaloreGameMode:ItemPurchased(event)
 	-- 	local inventory = InventoryManager[event.inventory_player_id]
 	-- 	inventory:Add(item)
 	-- end
+end
+
+-- dota_item_spawned
+-- * item_ent_index: EntityIndex
+-- * player_id: int
+function CAvaloreGameMode:OnItemSpawned(event)
+	print("CAvaloreGameMode:OnItemSpawned(event) >> " .. tostring(event.item_ent_index))
+	-- local item = EntIndexToHScript( event.item_ent_index )
+	-- print("Item => " .. item:GetName())
+	-- local phys_item = item:GetContainer()
 end

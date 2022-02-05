@@ -23,10 +23,14 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         //"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		//"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-        "Model"                         "maps/reef_assets/props/teams/banner_radiant_reef.vmdl"
+        //"Model"                         "maps/reef_assets/props/teams/banner_radiant_reef.vmdl"
+        "Model"                         "models/flag_tintable.vmdl"
+        //"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+        "Effect"                        "particles/units/heroes/hero_legion_commander/legion_commander_press_base.vpcf"
+        //"ModelScale"                   "2.0"
         //"PingOverrideText"				"Avalore_Chat_Flag_Pinged"
         "ScriptFile"                    "items/item_objective_flag.lua"
-        "AbilityTextureName"			"flag"
+        "AbilityTextureName"			"flags/morale_flag"
 
         // Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -83,10 +87,14 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         //"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		//"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-        "Model"                         "maps/journey_assets/props/teams/banner_journey_radiant.vmdl"
+        //"Model"                         "maps/journey_assets/props/teams/banner_journey_radiant.vmdl"
+        "Model"                         "models/flag_tintable.vmdl"
+        //"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+        "Effect"                        "particles/units/heroes/hero_legion_commander/legion_commander_press_base.vpcf"
+        //"ModelScale"                   "2.0"
         //"PingOverrideText"				"Avalore_Chat_Flag_Pinged"
         "ScriptFile"                    "items/item_objective_flag.lua"
-        "AbilityTextureName"			"flag"
+        "AbilityTextureName"			"flags/morale_flag"
 
         // Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -142,10 +150,14 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         //"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		//"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-        "Model"                         "maps/journey_assets/props/teams/banner_journey_dire_small.vmdl"
+        //"Model"                         "maps/journey_assets/props/teams/banner_journey_dire_small.vmdl"
+        "Model"                         "models/flag_tintable.vmdl"
+        //"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+        "Effect"                        "particles/econ/items/invoker/invoker_ti7/invoker_ti7_alacrity_buff_arc_pnt.vpcf"
+        //"ModelScale"                   "2.0"
         //"PingOverrideText"				"Avalore_Chat_Flag_Pinged"
         "ScriptFile"                    "items/item_objective_flag.lua"
-        "AbilityTextureName"			"flag"
+        "AbilityTextureName"			"flags/agility_flag"
 
         // Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -201,10 +213,14 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         //"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		//"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-        "Model"                         "maps/reef_assets/props/teams/banner_dire_reef_small.vmdl"
+        //"Model"                         "maps/reef_assets/props/teams/banner_dire_reef_small.vmdl"
+        "Model"                         "models/flag_tintable.vmdl"
+        //"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+        "Effect"                        "particles/econ/items/monkey_king/plus_2018/monkey_king_plus_2018_weapon_ambient_magic.vpcf"
+        //"ModelScale"                   "2.0"
         //"PingOverrideText"				"Avalore_Chat_Flag_Pinged"
         "ScriptFile"                    "items/item_objective_flag.lua"
-        "AbilityTextureName"			"flag"
+        "AbilityTextureName"			"flags/arcane_flag"
 
         // Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -260,10 +276,14 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         //"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		//"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-        "Model"                         "models/props_teams/bannerb_dire.vmdl"
+        //"Model"                         "models/props_teams/bannerb_dire.vmdl"
+        "Model"                         "models/flag_tintable.vmdl"
+        //"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+        "Effect"                        "particles/econ/events/fall_major_2016/cyclone_fm06_leaves.vpcf"
+        //"ModelScale"                   "2.0"
         //"PingOverrideText"				"Avalore_Chat_Flag_Pinged"
         "ScriptFile"                    "items/item_objective_flag.lua"
-        "AbilityTextureName"			"flag"
+        "AbilityTextureName"			"flags/regrowth_flag"
 
         // Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -321,6 +341,7 @@
 		//"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
         //"Model"                         "models/items/legion_commander/lc_immortal_head_ti7/lc_ti7_immortal_gem.vmdl"
 		"Model"                         "models/items/meepo/diggers_divining_rod/diggers_divining_rod_gem_saphire.vmdl"
+        "Effect"						"particles/generic_gameplay/dropped_item.vpcf"
         //"PingOverrideText"				"Avalore_Chat_Flag_Pinged"
         "ScriptFile"                    "items/item_summoning_gem.lua"
         "AbilityTextureName"			"summoning_gem2"
