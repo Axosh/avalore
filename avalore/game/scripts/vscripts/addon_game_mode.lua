@@ -344,6 +344,8 @@ end
 
 function CAvaloreGameMode:InitRound1()
 	-- spawn 7 wisps
+	local wisp = nil
+	local particle_fx = nil
 	for i = 0,6,1
 	do
 		local vSpawnLoc = nil
@@ -354,7 +356,18 @@ function CAvaloreGameMode:InitRound1()
 				vSpawnLoc = nil
 			end
 		end
-		CreateUnitByName( ROUND1_WISP_UNIT, vSpawnLoc, true, nil, nil, DOTA_TEAM_NEUTRALS )
+		wisp = CreateUnitByName( ROUND1_WISP_UNIT, vSpawnLoc, true, nil, nil, DOTA_TEAM_NEUTRALS )
+		particle_fx = ParticleManager:CreateParticle("particles/econ/items/dark_willow/dark_willow_immortal_2021/dw_2021_willow_wisp_spell_debuff_cloud.vpcf", PATTACH_POINT_FOLLOW, wisp)
+		ParticleManager:SetParticleControl(particle_fx, 5, Vector(0, 0, 0))
+
+		particle_fx = ParticleManager:CreateParticle("particles/units/heroes/hero_dark_willow/dark_willow_willowisp_ambient_trail.vpcf", PATTACH_POINT_FOLLOW, wisp)
+		ParticleManager:SetParticleControl(particle_fx, 5, Vector(0, 0, 0))
+
+		particle_fx = ParticleManager:CreateParticle("particles/units/heroes/hero_dark_willow/dark_willow_willowisp_ambient_sphere.vpcf", PATTACH_POINT_FOLLOW, wisp)
+		ParticleManager:SetParticleControl(particle_fx, 5, Vector(0, 0, 0))
+		--wisp:AddParticle(particle_fx, false, false, -1, false, false)
+
+		wisp:StartGesture(ACT_DOTA_ATTACK)
 	end
 
 	-- broadcast that round 1 has started and give some instructions

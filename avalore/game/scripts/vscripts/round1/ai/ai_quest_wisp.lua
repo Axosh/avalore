@@ -69,12 +69,14 @@ function RoamBetweenWaypoints( self )
 	local gameTime = GameRules:GetGameTime()
 	local aiState = self.aiState
 	if aiState.vWaypoint ~= nil then
+		--self:StartGesture(ACT_DOTA_RUN)
 		local flRoamTimeLeft = aiState.flNextWaypointTime - gameTime
 		if flRoamTimeLeft <= 0 then
 			aiState.vWaypoint = nil
 		end
 	end
     if aiState.vWaypoint == nil then
+		--self:StartGesture(ACT_DOTA_IDLE)
         aiState.vWaypoint = aiState.tWaypoints[ RandomInt( 1, #aiState.tWaypoints ) ]
         aiState.flNextWaypointTime = gameTime + RandomFloat( 2, 4 )
     	self:MoveToPosition( aiState.vWaypoint )

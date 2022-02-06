@@ -31,8 +31,10 @@
 		//General
 		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/heroes/dark_willow/dark_willow_wisp.vmdl"
+		//"Effect"					"particles/econ/items/dark_willow/dark_willow_immortal_2021/dw_2021_willow_wisp_spell_debuff_cloud.vpcf"
 		"ModelScale"				"1.0"
 		"Level"						"0"
+		"Portrait"					"scripts/npc/portraits"
 
 		// Abilities
 		//----------------------------------------------------------------

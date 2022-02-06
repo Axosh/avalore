@@ -73,6 +73,20 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
         local unit = CreateUnitByName(unit_arg, hero:GetAbsOrigin(), true, nil, hero:GetOwner(), hero:GetTeamNumber())
         print("Created ... " .. unit:GetUnitName())
         PrintVector(unit:GetAbsOrigin(), "at location")
+    elseif input == "black sheep wall" then
+        AddFOWViewer(hero:GetTeamNumber(), Vector(0,0,0), 8000, 600, false)
+        AddFOWViewer(hero:GetTeamNumber(), Vector(1000,6000,0), 8000, 600, false)
+        AddFOWViewer(hero:GetTeamNumber(), Vector(6000,1000,0), 8000, 600, false)
+        AddFOWViewer(hero:GetTeamNumber(), Vector(-6000,-1000,0), 8000, 600, false)
+        AddFOWViewer(hero:GetTeamNumber(), Vector(-1000,-6000,0), 8000, 600, false)
+        for x=1,4,1 do
+            for y=1,4,1 do
+                AddFOWViewer(hero:GetTeamNumber(), Vector(x * 4000, y * 4000, 0), 8000, 600, false)
+                AddFOWViewer(hero:GetTeamNumber(), Vector(x * -4000, y * 4000, 0), 8000, 600, false)
+                AddFOWViewer(hero:GetTeamNumber(), Vector(x * 4000, y * -4000, 0), 8000, 600, false)
+                AddFOWViewer(hero:GetTeamNumber(), Vector(x * -4000, y * -4000, 0), 8000, 600, false)
+            end
+        end
     end
     
 end
