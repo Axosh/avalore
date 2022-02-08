@@ -12,7 +12,7 @@
 #base "heroes/sun_wukong/sun_wukong.txt"
 #base "heroes/thor/thor.txt"
 #base "heroes/king_arthur/king_arthur.txt"
-#base "heroes/anbuis/anbuis.txt"
+#base "heroes/anubis/anubis.txt"
 
 "DOTAHeroes"
 {

@@ -36,6 +36,7 @@
 		"npc_avalore_enkidu4"									"Enkidu"
 		"npc_dota_hero_sniper"									"Pecos Bill"
 		"npc_dota_hero_dawnbreaker"								"Thor"
+		"npc_dota_hero_phantom_lancer"							"Anubis"
 
 
 		//--------------------------------------------------------------------------------
