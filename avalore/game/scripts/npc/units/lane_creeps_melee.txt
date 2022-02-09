@@ -281,6 +281,7 @@
 		"SoundSet"					"Creep_Bad_Melee_Mega"					// Name of sound set.
 		"ModelScale" 				"1.00"
 		"Level"						"1"
+		"Portrait"					"scripts/npc/portraits"
 		
 		// Abilities
 		//----------------------------------------------------------------
