@@ -16,5 +16,36 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+        
+        // Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.45 0.45 0.45 0.45"
+
+        // Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0 0 0" //"140.0 130.0 120.0"
+		"AbilityManaCost"				"0 0 0"//"150 225 300"
+
+        // Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+            "01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"900"
+			}
+            "03" // how long after a unit dies that it can be reanimated
+            {
+                "var_type"              "FIELD_FLOAT"
+                "corpse_freshness"      "4.0 6.0 8.0 10.0"
+            }
+        }
     }
 }
