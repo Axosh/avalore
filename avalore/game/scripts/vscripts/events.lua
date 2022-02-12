@@ -591,7 +591,7 @@ function CAvaloreGameMode:InitCosmetics(unit)
 	elseif hero_name == "npc_dota_hero_pecos_bill" or hero_name == "npc_dota_hero_sniper" then
 		CAvaloreGameMode:InitPecosBill(hero, playernum)
 	elseif hero_name == "npc_avalore_hero_sun_wukong" or hero_name == "npc_dota_hero_monkey_king" then
-		CAvaloreGameMode:InitSunWukong(hero, playernum)
+		CAvaloreGameMode:InitSunWukong(hero, playernum, false)
 	--elseif hero_name == "npc_avalore_hero_thor" or hero_name == "npc_dota_hero_sven" then
 	elseif hero_name == "npc_avalore_hero_thor" or hero_name == "npc_dota_hero_dawnbreaker" then
 		CAvaloreGameMode:InitThor(hero, playernum)
@@ -831,7 +831,7 @@ function CAvaloreGameMode:InitPecosBill(hero, playernum)
 	end
 end
 
-function CAvaloreGameMode:InitSunWukong(hero, playernum)
+function CAvaloreGameMode:InitSunWukong(hero, playernum, isIllu)
 	local unit = hero
 	if unit == nil and playernum ~= nil then
 		unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
@@ -859,6 +859,10 @@ function CAvaloreGameMode:InitSunWukong(hero, playernum)
 		cosmetic:SetParent(unit, nil)
 		cosmetic:SetOwner(unit)
 		cosmetic:FollowEntity(unit, true)
+		if isIllu then
+			cosmetic:MakeIllusion()
+			cosmetic:SetRenderColor(0,0,255)
+		end
 		
 		if k > 3 then
 			print("No Draw added to: " .. cosmetic:GetModelName())

@@ -65,6 +65,8 @@
 #base "heroes/thor/ability_thunder_gods_strength.txt"
 #base "heroes/thor/talent_lightning_charged.txt"
 
+#base "heroes/anubis/ability_embalm.txt"
+
 "DOTAAbilities"
 {	
 	"building_unselectable"

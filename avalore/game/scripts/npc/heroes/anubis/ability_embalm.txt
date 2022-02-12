@@ -6,7 +6,7 @@
 		//-------------------------------------------------------------------------------------------------------------
         "BaseClass"					"ability_lua"
         "ScriptFile"				"heroes/anubis/ability_embalm.lua"
-        "AbilityTextureName"	    "anubis/ability_embalm"
+        "AbilityTextureName"	    "anubis/embalm"
         "FightRecapLevel"			"1"
 		"MaxLevel"	                "4"
 

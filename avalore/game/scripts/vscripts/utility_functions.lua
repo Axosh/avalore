@@ -311,6 +311,12 @@ function ResolveEndPoint(starting_point, vector_dir, distance)
     return starting_point + add_vect
 end
 
+function DistanceBetweenVectors(vect_a, vect_b)
+    local xDist = vect_a.x - vect_b.x
+    local yDist = vect_a.y - vect_b.y
+    local len = math.sqrt((xDist ^ 2) + (yDist ^ 2))
+    return len
+end
 
 -- ================================================
 -- Physical Versions of Flags

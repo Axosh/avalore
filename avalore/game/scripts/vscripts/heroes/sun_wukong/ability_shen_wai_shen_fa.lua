@@ -44,7 +44,7 @@ function ability_shen_wai_shen_fa:OnSpellStart()
 			-- Vanilla modifier to give the illusions that Terrorblade illusion texture
 			--illusion:AddNewModifier(self:GetCaster(), self, "modifier_terrorblade_conjureimage", {})
             CAvaloreGameMode:RemoveAll( illusion )
-            CAvaloreGameMode:InitSunWukong(illusion, nil)
+            CAvaloreGameMode:InitSunWukong(illusion, nil, true)
 
 			illusion:StartGesture(ACT_DOTA_CAST_ABILITY_3_END)
             
