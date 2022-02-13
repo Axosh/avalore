@@ -46,6 +46,11 @@
                 "var_type"              "FIELD_FLOAT"
                 "corpse_freshness"      "4.0 6.0 8.0 10.0"
             }
+			"04"
+			{
+				"var_type"		 		"FIELD_FLOAT"
+				"tick_interval"			"0.5"
+			}
         }
     }
 }

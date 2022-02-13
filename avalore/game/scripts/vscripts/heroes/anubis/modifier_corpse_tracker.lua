@@ -13,6 +13,7 @@ function modifier_corpse_tracker:OnCreated(kv)
 
     -- track: unit/entid, gametime of death, unit class?
     self.corpses = {}
+    self.corpse_id = 0
 
     self:StartIntervalThink(FrameTime())
 end
@@ -32,26 +33,31 @@ function modifier_corpse_tracker:OnIntervalThink()
 
     for _,unit in pairs(units) do
         -- double checking IsAlive because that seems to derp out
-        if not self.corpses[unit:GetEntityIndex()] and not unit:IsAlive() and not unit["corpse_indexed"] then
+        if not unit:IsAlive() and not unit["corpse_indexed"] then
             --self.corpses[unit:GetEntityIndex()] = {}
             unit["corpse_indexed"] = true
-            self.corpses[unit] = {}
-            self.corpses[unit]["gametime"] = GameRules:GetGameTime()--{"gametime" =GameRules:GetGameTime(), unit:GetUnitName()}
-            self.corpses[unit]["unitname"] = unit:GetUnitName()
-            self.corpses[unit]["location"] = unit:GetAbsOrigin()
-            print("[CorpseTracker] Added New Corpse: " .. unit:GetUnitName()) -- .. " with index: " .. tostring(unit:GetEntityIndex()))
+            unit["corpse_id"] = self.corpse_id -- may need to find a way to lock this while being used/incremented
+            print("[CorpseTracker] Added New Corpse(" .. tostring(self.corpse_id) .. "): " .. unit:GetUnitName()) -- .. " with index: " .. tostring(unit:GetEntityIndex()))
+            self.corpse_id = self.corpse_id + 1
+
+            self.corpses[unit["corpse_id"]] = {}
+            self.corpses[unit["corpse_id"]]["gametime"] = GameRules:GetGameTime()--{"gametime" =GameRules:GetGameTime(), unit:GetUnitName()}
+            self.corpses[unit["corpse_id"]]["unitname"] = unit:GetUnitName()
+            self.corpses[unit["corpse_id"]]["location"] = unit:GetAbsOrigin()
+            --self.corpses[unit]["corpse_id"] = unit["corpse_id"]
             --PrintTable(unit)
         end
     end
 
     -- prune corpses that are too old
     local temp = {}
-    for unit,unitinfo in pairs(self.corpses) do
+    for id,unitinfo in pairs(self.corpses) do
         if (GameRules:GetGameTime() - unitinfo["gametime"]) < self.freshness then
-            temp[unit] = {}
-            temp[unit]["gametime"] = unitinfo["gametime"]
-            temp[unit]["unitname"] = unitinfo["unitname"]
-            temp[unit]["location"] = unitinfo["location"]
+            temp[id] = {}
+            temp[id]["gametime"] = unitinfo["gametime"]
+            temp[id]["unitname"] = unitinfo["unitname"]
+            temp[id]["location"] = unitinfo["location"]
+            --temp[unit]["corpse_id"] = unitinfo["corpse_id"]
         end
     end
 
@@ -68,6 +74,7 @@ function modifier_corpse_tracker:GetCorpses()
         result[unit]["gametime"] = unitinfo["gametime"]
         result[unit]["unitname"] = unitinfo["unitname"]
         result[unit]["location"] = unitinfo["location"]
+        result[unit]["corpse_id"] = unitinfo["corpse_id"]
     end
     
     return result
