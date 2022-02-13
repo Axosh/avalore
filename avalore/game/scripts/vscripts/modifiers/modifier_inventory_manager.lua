@@ -22,6 +22,9 @@ function modifier_inventory_manager:OnIntervalThink()
     --print("modifier_inventory_manager:OnIntervalThink()")
     local hero = self:GetParent()
     if hero == nil then return end
+    -- if not hero:IsAlive() then
+    --     print("Inventory Owner is Dead!")
+    -- end
 
     -- check for dummy items wrongly placed in the stash (need to fix this upstream some time)
     for stash_slot=9,14 do

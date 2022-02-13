@@ -39,6 +39,10 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	local killedTeamString 	= "" -- radi/dire
 	local winnning_team 	= nil -- setting our own variable to update the scores one last time before game ends
 	local objectiveMsg 		= nil -- if set, will broadcast whatever message key is stored in it
+	
+	-- if isPlayer then
+	-- 	print("Player Died!")
+	-- end
 
 	-- used to navigate Score tables
 	if killedTeam == DOTA_TEAM_BADGUYS then
