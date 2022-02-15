@@ -1,0 +1,22 @@
+"DOTAUnits"
+{
+    "anubis_mummy_ranged"
+    {
+        //General
+		"BaseClass"					"npc_dota_base_additive"
+		"Model"						"models/heroes/clinkz/clinkz.vmdl"
+
+        // Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+            "AttachWearables"
+            {
+                "Wearable1" { "ItemDef" "" } // models/items/clinkz/ti6_clinkz_gloves/ti6_clinkz_gloves.vmdl
+                "Wearable2" { "ItemDef" "" } // models/items/clinkz/ti6_clinkz_head/ti6_clinkz_head.vmdl
+                "Wearable3" { "ItemDef" "" } // models/items/clinkz/ti6_clinkz_weapon/ti6_clinkz_weapon.vmdl
+            }
+        }
+    }
+}

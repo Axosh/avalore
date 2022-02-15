@@ -1,7 +1,7 @@
 -- taken largely from dota_imba
 
 function CAvaloreGameMode:OrderFilter(keys)
-	print("CAvaloreGameMode:OrderFilter(keys)")
+	--print("CAvaloreGameMode:OrderFilter(keys)")
     local units = keys["units"]
 	local unit
 	if units["0"] then
