@@ -17,6 +17,8 @@
 #base "heroes/thor/thunder_clap_blocker.txt"
 
 #base "heroes/anubis/tomb.txt"
+#base "heroes/anubis/anubis_mummy_melee.txt"
+#base "heroes/anubis/anubis_mummy_ranged.txt"
 
 // Units File
 "DOTAUnits"

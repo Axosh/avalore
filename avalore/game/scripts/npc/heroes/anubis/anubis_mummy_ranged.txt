@@ -3,8 +3,60 @@
     "anubis_mummy_ranged"
     {
         //General
-		"BaseClass"					"npc_dota_base_additive"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/clinkz/clinkz.vmdl"
+        "ModelScale"				"1.0"
+		"Level"						"1"
+        
+        // Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""			// Ability 1
+		"Ability2"					""			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		// Armor
+		"ArmorPhysical"				"0"			// Physical protection.
+		"MagicalResistance"			"0"
+
+        // Movement
+		//----------------------------------------------------------------
+        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"325"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+        // Status
+        //----------------------------------------------------------------
+        "StatusHealth"		"125"
+        "StatusHealthRegen"	"0.5"
+        "StatusMana"		"0"
+        "StatusManaRegen"	"0"
+
+        // Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"25"		// Damage range min.
+		"AttackDamageMax"			"25"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1"			// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"500"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
+		"ProjectileSpeed"			"900"		// Speed of projectile.
+
+        // Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"500"		// Range of vision during day light.
+		"VisionNighttimeRange"		"500"		// Range of vision at night time.
+
 
         // Creature Data
         //----------------------------------------------------------------
@@ -13,9 +65,9 @@
             "DisableClumpingBehavior"	"1"
             "AttachWearables"
             {
-                "Wearable1" { "ItemDef" "" } // models/items/clinkz/ti6_clinkz_gloves/ti6_clinkz_gloves.vmdl
-                "Wearable2" { "ItemDef" "" } // models/items/clinkz/ti6_clinkz_head/ti6_clinkz_head.vmdl
-                "Wearable3" { "ItemDef" "" } // models/items/clinkz/ti6_clinkz_weapon/ti6_clinkz_weapon.vmdl
+                "Wearable1" { "ItemDef" "7917" } // models/items/clinkz/ti6_clinkz_gloves/ti6_clinkz_gloves.vmdl
+                "Wearable2" { "ItemDef" "7918" } // models/items/clinkz/ti6_clinkz_head/ti6_clinkz_head.vmdl
+                "Wearable3" { "ItemDef" "7916" } // models/items/clinkz/ti6_clinkz_weapon/ti6_clinkz_weapon.vmdl
             }
         }
     }
