@@ -47,9 +47,9 @@ function modifier_embalm_thinker:OnIntervalThink()
                 self.resurrected[id] = unitinfo
                 local unit_name = unitinfo["unitname"]
                 if string.find(unit_name, "npc_avalore_creep_melee") then
-                    unit_name = "npc_dota_unit_undying_zombie"
+                    unit_name = "anubis_mummy_melee"
                 elseif string.find(unit_name, "npc_avalore_creep_ranged") then
-                    unit_name = "npc_dota_lesser_eidolon"
+                    unit_name = "anubis_mummy_ranged"
                 end
 
                 CreateUnitByNameAsync(  unit_name, 
