@@ -26,6 +26,8 @@ function ability_embalm:OnSpellStart()
 		false
 	)
 	--self.thinker = self.thinker:FindModifierByName("modifier_embalm_thinker")
+	caster:StopAnimation()
+	caster:StartGestureWithPlaybackRate(ACT_DOTA_OVERRIDE_ABILITY_1, 5)
 end
 
 function ability_embalm:OnChannelFinish( bInterrupted )
