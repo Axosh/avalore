@@ -9,14 +9,15 @@ function modifier_embalm_thinker:OnCreated(kv)
 
     self.corpse_tracker = self:GetCaster():FindModifierByName("modifier_corpse_tracker")
     self.tick_interval = self:GetAbility():GetSpecialValueFor("tick_interval")
+    self.mummy_duration = self:GetAbility():GetSpecialValueFor("mummy_duration")
     self.caster_id = self:GetCaster():GetPlayerID()
     self.resurrected = {}
 
     local corpses = self.corpse_tracker:GetCorpses()
-    print("Corpses At OnCreated Time:")
-    print("=========================================================")
-    PrintTable(corpses)
-    print("=========================================================")
+    -- print("Corpses At OnCreated Time:")
+    -- print("=========================================================")
+    -- PrintTable(corpses)
+    -- print("=========================================================")
 
     self:StartIntervalThink(self.tick_interval)
 end
@@ -28,13 +29,14 @@ function modifier_embalm_thinker:OnIntervalThink()
     -- print("=========================================================")
     -- PrintTable(corpses)
     -- print("=========================================================")
-    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-    PrintTable(self.resurrected)
-    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    -- print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    -- PrintTable(self.resurrected)
+    -- print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
     local corpse_spawn_callback = function(unit)
         unit:SetRenderColor(0,255,0) --green
         unit:SetControllableByPlayer(self.caster_id, false ) -- (playerID, bSkipAdjustingPosition)
+        unit:AddNewModifier(self:GetCaster(), nil, "modifier_mummy", {duration = self.mummy_duration})
     end
 
     for id,unitinfo in pairs(corpses) do

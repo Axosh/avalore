@@ -153,11 +153,12 @@ function modifier_item_flag_carry:OnCreated(keys)
             RenderFlagAgility(ent_flag)
         elseif sFlag == OBJECTIVE_FLAG_ITEM_D then
             ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_D})
-            particleFx = "particles/econ/items/monkey_king/plus_2018/monkey_king_plus_2018_weapon_ambient_magic.vpcf"
+            particleFx = "particles/items5_fx/elixer_mana.vpcf"
             RenderFlagArcane(ent_flag)
         elseif sFlag == OBJECTIVE_FLAG_ITEM_E then
             ent_flag = SpawnEntityFromTableSynchronous("prop_dynamic", {model = OBJECTIVE_FLAG_MODEL_E})
-            particleFx = "particles/econ/events/fall_major_2016/cyclone_fm06_leaves.vpcf"
+            particleFx = "particles/econ/events/spring_2021/fountain_regen_spring_2021_bokeh.vpcf"
+            --particleFx = "particles/econ/events/fall_major_2016/cyclone_fm06_leaves.vpcf"
             RenderFlagRegrowth(ent_flag)
         end
         --SetFlagForward(ent_flag)
