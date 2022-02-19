@@ -1,0 +1,71 @@
+"DOTAAbilities"
+{
+    "ability_protector_of_tombs"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"                    "heroes/anubis/ability_protector_of_tombs.lua"
+        "AbilitySound"					"Hero_Undying.Tombstone"
+        "AbilityCastAnimation"			"ACT_DOTA_UNDYING_TOMBSTONE"
+
+        "AbilityTextureName"            "anubis/protector_of_tombs"
+
+        "FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+
+        // Casting
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.45 0.45 0.45 0.45"
+
+        // Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"85 80 75 70"
+
+        // Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 130 140 150"
+
+        // Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+            "01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tombstone_health"		"16 20 24 28"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hits_to_destroy_tooltip"	"4 5 6 7"				
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"30.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"1200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_threshold_pct_tooltip"		"40"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"trees_destroy_radius"	"300"
+			}
+        }
+    }
+}

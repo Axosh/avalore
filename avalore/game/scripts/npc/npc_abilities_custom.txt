@@ -66,6 +66,7 @@
 #base "heroes/thor/talent_lightning_charged.txt"
 
 #base "heroes/anubis/ability_embalm.txt"
+#base "heroes/anubis/ability_protector_of_tombs.txt"
 
 "DOTAAbilities"
 {	
