@@ -19,6 +19,17 @@
 				"var_type"				"FIELD_INTEGER"
 				"radius"				"900"
 			}
+            "03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_move_speed_pct"	"35"
+			}
+
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"200"
+			}		
         }
     }
 }

@@ -27,9 +27,12 @@ function modifier_tomb_aura:OnCreated()
     self.radius			= self:GetAbility():GetSpecialValueFor("radius")
 
     if not IsServer() then return end
-    local aura_particle = ParticleManager:CreateParticle("particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ring_spiral.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    --local aura_particle = ParticleManager:CreateParticle("particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ring_spiral.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local aura_particle = ParticleManager:CreateParticle("particles/hero/sand_king/sandking_sandstorm_aura.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	--ParticleManager:SetParticleControl(aura_particle, 5, Vector(self.radius * 1.1, 0, 0))
-    ParticleManager:SetParticleControl(aura_particle, 0, Vector(self:GetParent():GetAbsOrigin().x,self:GetParent():GetAbsOrigin().y,self:GetParent():GetAbsOrigin().z+64))
-	ParticleManager:SetParticleControl(aura_particle, 10, Vector(self.radius, self.radius, 0))
+    ParticleManager:SetParticleControl(aura_particle, 0, self:GetParent():GetAbsOrigin())
+	ParticleManager:SetParticleControl(aura_particle, 1, Vector(self.radius, self.radius, 1))
+    -- ParticleManager:SetParticleControl(aura_particle, 0, Vector(self:GetParent():GetAbsOrigin().x,self:GetParent():GetAbsOrigin().y,self:GetParent():GetAbsOrigin().z+64))
+	-- ParticleManager:SetParticleControl(aura_particle, 10, Vector(self.radius, self.radius, 0))
 	self:AddParticle(aura_particle, false, false, -1, false, false)
 end
