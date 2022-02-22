@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+    "subability_tomb_aura"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"                    "heroes/anubis/subability_tomb_aura.lua"
+        "AbilityTextureName"            "anubis/protector_of_tombs"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+         // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"900"
+			}
+        }
+    }
+}

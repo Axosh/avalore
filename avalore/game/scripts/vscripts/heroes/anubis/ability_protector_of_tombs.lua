@@ -18,6 +18,9 @@ function ability_protector_of_tombs:OnSpellStart()
 	tombstone:SetBaseMaxHealth(tombstone_health)
 	tombstone:SetMaxHealth(tombstone_health)
 	tombstone:SetHealth(tombstone_health)
+    tombstone:GetAbilityByIndex(0):SetLevel(1)
+    tombstone:GetAbilityByIndex(1):SetLevel(1)
+    tombstone:AddNewModifier(self:GetCaster(), nil, "modifier_mummy", {duration = duration})
 
     -- TODO: add aura modifier
     GridNav:DestroyTreesAroundPoint(target_point, trees_destroy_radius, true)
