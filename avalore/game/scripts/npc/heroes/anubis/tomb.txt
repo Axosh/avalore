@@ -7,9 +7,11 @@
         // General
         //
         "BaseClass"                 "npc_dota_unit_undying_tombstone"
-        "Model"                     "models/items/undying/undying_fall20_immortal_head/undying_fall20_immortal_tombstone.vmdl"
+        //"Model"                     "models/items/undying/undying_fall20_immortal_head/undying_fall20_immortal_tombstone.vmdl"
+        "Model"                     "models/items/phoenix/ultimate/eye_of_the_sun_sun_pyramid/eye_of_the_sun_sun_pyramid.vmdl"
         "SoundSet"                  "Undying_Tombstone"                 // Name of sound set.
-        "ModelScale"                ".8"
+        //"ModelScale"                ".8"
+        "ModelScale"                "1.5"
         "Level"                     "4"
         "IsSummoned"                "1"
         "IsAncient"                 "1"
@@ -46,6 +48,7 @@
         // Bounds
         //----------------------------------------------------------------
         "BoundsHullName"            "DOTA_HULL_SIZE_REGULAR"            // Hull type used for navigation/locomotion.
+        "RingRadius"                "70"
         "HealthBarOffset"           "250"
 
         // Movement

@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+    "ability_guardian_of_the_scales"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					"ability_lua"
+        "ScriptFile"				"heroes/anubis/ability_guardian_of_the_scales.lua"
+        "AbilityTextureName"	    "anubis/guardian_of_the_scales"
+        "FightRecapLevel"			"1"
+		"MaxLevel"	                "4"
+
+         // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+
+        // Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.2"
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+                "var_type"          "FIELD_FLOAT"
+                "duration"           "5"
+            }
+            "02"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "max_damage"        "200 300 400 500"
+            }
+            "03"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "max_healing"       "50 150 250 350"
+            }
+        }
+    }
+}

@@ -14,6 +14,7 @@ function ability_protector_of_tombs:OnSpellStart()
     EmitSoundOnLocationWithCaster(target_point, cast_sound, caster)
 
     local tombstone = CreateUnitByName("npc_avalore_tomb", target_point, true, caster, caster, caster:GetTeamNumber())
+    tombstone:StartGesture(ACT_DOTA_LOADOUT)
     tombstone:SetOwner(caster)
 	tombstone:SetBaseMaxHealth(tombstone_health)
 	tombstone:SetMaxHealth(tombstone_health)
