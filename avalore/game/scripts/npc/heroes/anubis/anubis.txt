@@ -14,7 +14,7 @@
 
 		"Ability1"					"ability_embalm"
 		"Ability2"					"ability_protector_of_tombs"
-		"Ability3"					""
+		"Ability3"					"ability_guardian_of_the_scales"
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.

@@ -68,6 +68,7 @@
 #base "heroes/anubis/ability_embalm.txt"
 #base "heroes/anubis/ability_protector_of_tombs.txt"
 #base "heroes/anubis/subability_tomb_aura.txt"
+#base "heroes/anubis/ability_guardian_of_the_scales.txt"
 
 "DOTAAbilities"
 {	
