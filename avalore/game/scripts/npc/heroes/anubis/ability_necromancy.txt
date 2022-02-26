@@ -1,0 +1,40 @@
+"DOTAAbilities"
+{
+    "ability_necromancy"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					"ability_lua"
+        "ScriptFile"				"heroes/anubis/ability_necromancy.lua"
+        "AbilityTextureName"	    "anubis/necromancy"
+        "FightRecapLevel"				"2"
+		"MaxLevel"						"3"
+
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"1200"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration"              "7 9 11"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "outgoing_damage_pct"   "50 70 90"
+            }
+        }
+    }
+}
