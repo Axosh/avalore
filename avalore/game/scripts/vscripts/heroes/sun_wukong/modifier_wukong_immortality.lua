@@ -33,6 +33,10 @@ function modifier_wukong_immortality:OnIntervalThink()
     end
 end
 
+function modifier_wukong_immortality:CanDie()
+    return self.can_die
+end
+
 function modifier_wukong_immortality:DeclareFunctions()
 	return  {
                 MODIFIER_PROPERTY_REINCARNATION,
