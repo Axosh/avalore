@@ -310,6 +310,17 @@
 		"DOTA_Tooltip_Ability_talent_lightning_charged"						"Lightning Charged"
 		"DOTA_Tooltip_Ability_talent_lightning_charged_description"				"As Hammer Toss flies, will zap enemies within a 350 radius around the projectile for 150 lightning magic damage."
 
+		// ===== ANUBIS ===== //
+
+		"DOTA_Tooltip_Ability_ability_embalm"							"Embalm"
+
+		"DOTA_Tooltip_Ability_ability_guardian_of_the_scales"			"Guardian of the Scales"
+
+		"DOTA_Tooltip_Ability_ability_protector_of_tombs"				"Protector of Tombs"
+
+		"DOTA_Tooltip_Ability_ability_necromancy"						"Necromancy"
+
+
 
 		//--------------------------------------------------------------------------------
 		// Objectives
