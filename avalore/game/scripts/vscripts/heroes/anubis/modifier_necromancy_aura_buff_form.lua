@@ -6,7 +6,7 @@ function modifier_necromancy_aura_buff_form:IsDebuff() return false end
 function modifier_necromancy_aura_buff_form:IsPurgable() return false end
 
 function modifier_necromancy_aura_buff_form:OnCreated()
-    elf.caster = self:GetCaster()
+    self.caster = self:GetCaster()
 	self.ability = self:GetAbility()
 	self.parent = self:GetParent()
 end
@@ -45,7 +45,8 @@ function modifier_necromancy_aura_buff_form:GetDisableHealing()
 end
 
 function modifier_necromancy_aura_buff_form:GetModifierModelScale()
-	return 105
+	return 1
+	--return 105
 end
 
 

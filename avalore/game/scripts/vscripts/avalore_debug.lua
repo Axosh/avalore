@@ -71,6 +71,8 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
         local unit_arg = arr[3] -- lua is 1-indexed for this stuff
         print(unit_arg)
         local unit = CreateUnitByName(unit_arg, hero:GetAbsOrigin(), true, nil, hero:GetOwner(), hero:GetTeamNumber())
+        unit:SetControllableByPlayer(0, false)
+        unit:AddNewModifier(nil, nil, "modifier_provide_vision", {})
         print("Created ... " .. unit:GetUnitName())
         PrintVector(unit:GetAbsOrigin(), "at location")
     elseif input == "black sheep wall" then
