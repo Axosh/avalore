@@ -30,3 +30,9 @@ function modifier_necromancy_aura:GetModifierAura()
 	return "modifier_necromancy_aura_buff"
 end
 
+function modifier_necromancy_aura:GetAuraEntityReject(target)
+	if target:HasModifier("modifier_necromancy_aura_buff_form") then
+		return true
+	end
+	return false
+end
