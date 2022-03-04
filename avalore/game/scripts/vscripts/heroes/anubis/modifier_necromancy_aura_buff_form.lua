@@ -9,6 +9,11 @@ function modifier_necromancy_aura_buff_form:OnCreated()
     self.caster = self:GetCaster()
 	self.ability = self:GetAbility()
 	self.parent = self:GetParent()
+	if IsServer() then
+		self:StartIntervalThink(0.1)
+	end
+
+	self:SetStackCount(math.floor(self:GetDuration() + 0.5))
 end
 
 function modifier_necromancy_aura_buff_form:DeclareFunctions()
@@ -49,6 +54,44 @@ function modifier_necromancy_aura_buff_form:GetModifierModelScale()
 	--return 105
 end
 
+function modifier_necromancy_aura_buff_form:OnIntervalThink()
+	if not IsServer() then
+		return
+	end
+	self:SetStackCount(math.floor(self:GetRemainingTime() + 0.5))
+end
+
+function modifier_necromancy_aura_buff_form:OnDestroy()
+	if IsServer() then
+		print("modifier_necromancy_aura_buff_form:OnDestroy()")
+		-- Force kill the unit
+		TrueKill(self.original_killer, self.parent, self.ability_killer)
+
+		if self.parent:IsAlive() then
+			self.parent:Kill(self.ability_killer, self.original_killer)
+		end
+
+		if self.parent:IsAlive() then
+			print("modifier_necromancy_aura_buff_form:OnDestroy() >> Deal Lethal Damage")
+			local damageTable = {
+				victim = self.parent,
+				attacker = self.original_killer,
+				damage = 100000000,
+				damage_type = DAMAGE_TYPE_PURE,
+				ability = self.ability_killer,
+				damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY + DOTA_DAMAGE_FLAG_BYPASSES_BLOCK + DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
+			}
+			ApplyDamage(damageTable)
+		end
+
+		--self.damage_pool = nil
+		self.max_hp = nil
+		self.threhold_hp = nil
+	end
+	self.caster = nil
+	self.ability = nil
+	self.parent = nil
+end
 
 
 function modifier_necromancy_aura_buff_form:GetStatusEffectName()

@@ -77,7 +77,7 @@ function modifier_necromancy_aura_buff:OnTakeDamage(keys)
                 --         keys.inflictor.ghost_death = true
                 --     end
                 -- end
-            end                
+            end
         end
 	end
 end

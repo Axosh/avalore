@@ -193,6 +193,20 @@ function GetCastRangeIncrease( unit )
 	return cast_range_increase
 end
 
+function TrueKill(caster, target, ability)
+    -- Deals lethal damage in order to trigger death-preventing abilities... Except for Reincarnation
+	if not ( target:HasModifier("modifier_wukong_immortality") or target:HasModifier("modifier_necromancy_aura_buff") or target:HasModifier("modifier_necromancy_aura_buff_form") ) then
+		target:Kill(ability, caster)
+	end
+
+    -- Removes the relevant modifiers
+	target:RemoveModifierByName("modifier_invulnerable")
+
+    -- Kills the target
+	if not target:HasModifier("modifier_necromancy_aura_buff_form") then
+		target:Kill(ability, caster)
+	end
+end
 
 -- ================================================
 -- Vectors
