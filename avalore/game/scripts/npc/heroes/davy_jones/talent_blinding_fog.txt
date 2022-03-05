@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+    "talent_blinding_fog"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbilty"
+        {
+            "01" "ability_deadly_fog"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"                      "FIELD_FLOAT"
+                "bonus_radius"                  "300"
+            }
+            "02"
+            {
+                "var_type"                      "FIELD_FLOAT"
+                "reduced_vision_radius"         "100"
+            }
+        }
+    }
+}

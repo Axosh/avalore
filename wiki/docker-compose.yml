@@ -1,0 +1,38 @@
+version: '3.2'
+services:
+  mediawiki:
+    image: mediawiki:1.37.1
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    networks:
+      - wikinet
+    # links is deprecated
+    #links:
+    #  - database
+    volumes:
+      - ./wikidata:/var/www/html/images
+      # After initial setup, download LocalSettings.php to the same directory as
+      # this yaml and uncomment the following line and use compose to restart
+      # the mediawiki service
+      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+  # This key also defines the name of the database host used during setup instead of the default "localhost"
+  database:
+    image: mariadb:10.7.3
+    ports:
+        - "3306:3306"
+    networks:
+      - wikinet
+    restart: unless-stopped
+    volumes:
+        - ./dbdata:/var/lib/mysql
+    environment:
+      # @see https://phabricator.wikimedia.org/source/mediawiki/browse/master/includes/DefaultSettings.php
+      MYSQL_DATABASE: avalore
+      MYSQL_USER: avalore_admin
+      MYSQL_PASSWORD: {REDACTED}
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+
+networks:
+  wikinet:
+    driver: bridge
