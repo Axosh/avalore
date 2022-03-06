@@ -18,8 +18,8 @@
 		"Ability1"					"ability_lightning_bolt"
 		"Ability2"					"ability_shapeshift"
 		"Ability3"					"ability_summon_storm"
-		//"Ability4"					""			// Ability 4.
-		//"Ability5"					""			// Ability 5.
+		"Ability4"					"generic_hidden"			// Ability 4.
+		"Ability5"					"generic_hidden"			// Ability 5.
 		"Ability6"					"ability_thunder_gods_wrath"			// Ability 6 - Extra.
 		 "Ability7"					"ability_eagle_cancel"			// Ability 7 - Extra.
 		// "Ability8"					""			// Ability 8 - Extra.

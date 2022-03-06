@@ -15,8 +15,8 @@
 		"Ability1"					"ability_ruyi_jingu_bang"
 		"Ability2"					"ability_shen_wai_shen_fa"
 		"Ability3"					"ability_72_bian"
-		"Ability4"					""			// Ability 4.
-		"Ability5"					""			// Ability 5.
+		"Ability4"					"generic_hidden"			// Ability 4.
+		"Ability5"					"generic_hidden"			// Ability 5.
 		"Ability6"					"ability_immortality"			// Ability 6 - Extra.
 		"Ability7"					"ability_72_bian_cancel"		// Ability 7 - Extra.
 		"Ability8"					""//"ability_boar_gore"			// Ability 8 - Extra.

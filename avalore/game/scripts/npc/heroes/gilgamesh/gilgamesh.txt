@@ -15,8 +15,8 @@
 		"Ability1"					"ability_befriend_enkidu"
 		"Ability2"					"ability_gilgamesh_grapple"
 		"Ability3"					"ability_erect_wall"
-		"Ability4"					""			// Ability 4.
-		"Ability5"					""			// Ability 5.
+		"Ability4"					"generic_hidden"			// Ability 4.
+		"Ability5"					"generic_hidden"			// Ability 5.
 		"Ability6"					"ability_tyrant_king"			// Ability 6 - Extra.
 		//"Ability7"					""			// Ability 7 - Extra.
 		// "Ability8"					""			// Ability 8 - Extra.

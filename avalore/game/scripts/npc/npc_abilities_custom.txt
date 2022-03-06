@@ -12,6 +12,8 @@
 #base "heroes/davy_jones/ability_riptide.txt"
 #base "heroes/davy_jones/ability_lost_souls.txt"
 #base "heroes/davy_jones/ability_flying_dutchman.txt"
+// Talents
+#base "heroes/davy_jones/talent_blinding_fog.txt"
 
 #base "heroes/robin_hood/ability_jack_of_all_trades.txt"
 #base "heroes/robin_hood/ability_rich_poor.txt"

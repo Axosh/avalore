@@ -45,9 +45,9 @@
     "Ability1"                  "ability_jack_of_all_trades"
     "Ability2"                  "ability_avalore_marksmanship"//"windrunner_shackleshot"//"ability_rich_poor"//""//"ability_swashbuckle"
     "Ability3"                  "ability_shackleshot"//"pangolier_swashbuckle"//"ability_trick_shot"
-    "Ability4"                  "ability_grappling_hook"//"shredder_timber_chain"//"ability_grapple"
-    "Ability5"                  ""
-    "Ability6"                  ""
+    "Ability4"                  "generic_hidden"//"shredder_timber_chain"//"ability_grapple"
+    "Ability5"                  "generic_hidden"
+    "Ability6"                  "ability_grappling_hook"
 
     "Ability10"                 "ability_rich_poor"                    
     "Ability11"                 "ability_swashbuckle"   

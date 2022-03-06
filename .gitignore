@@ -22,5 +22,7 @@
 /.scannerwork
 
 # Wiki
+/wiki/docker-compose.yml
+/wiki/LocalSettings.php
 /wiki/wikidata/*
 /wiki/dbdata/*

@@ -40,8 +40,8 @@
         "Ability1"                  "ability_coyote_howl"
         "Ability2"                  "ability_wrangle"
         "Ability3"                  "ability_gunslinger"
-        "Ability4"                  ""
-        "Ability5"                  ""
+        "Ability4"                  "generic_hidden"
+        "Ability5"                  "generic_hidden"
         "Ability6"                  "ability_ride_a_twister"
 
         "Ability10"                 ""                    

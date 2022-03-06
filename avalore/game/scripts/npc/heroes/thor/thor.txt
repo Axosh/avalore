@@ -18,7 +18,7 @@
 		"Ability2"					"ability_thunder_clap"
 		"Ability3"					"ability_toothgnashers"
 		"Ability4"					"ability_consume_goat"			// Ability 4.
-		"Ability5"					""			// Ability 5.
+		"Ability5"					"generic_hidden"			// Ability 5.
 		"Ability6"					"ability_thunder_gods_strength"			// Ability 6 - Extra.
 		"Ability7"					""		// Ability 7 - Extra.
 		"Ability8"					""//"ability_boar_gore"			// Ability 8 - Extra.

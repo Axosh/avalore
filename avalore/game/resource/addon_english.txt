@@ -141,6 +141,10 @@
 		"DOTA_Tooltip_Ability_ability_flying_dutchman_radius"			"radius"
 		"DOTA_Tooltip_Ability_ability_flying_dutchman_damage"			"damage"
 
+		// TALENTS
+		"DOTA_Tooltip_Ability_talent_blinding_fog"						"Blinding Fog"
+		"DOTA_Tooltip_Ability_talent_blinding_fog_description"			"Deadly Fog spreads an additional 300 radius and causes enemies caught within it to have their vision reduced to 100"
+
 		// ===== ROBIN HOOD ====
 		"DOTA_Tooltip_Ability_ability_jack_of_all_trades"				"Jack of All Trades"
 		"DOTA_Tooltip_modifier_jack_of_all_trades_melee"				"Swordsman"
