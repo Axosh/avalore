@@ -3,6 +3,8 @@ require(REQ_ABILITY_AOEDAMAGE)
 
 modifier_deadly_fog = class({})
 
+LinkLuaModifier( "modifier_blinding_fog_aura",  "heroes/davy_jones/modifier_blinding_fog_aura.lua",        LUA_MODIFIER_MOTION_NONE )
+
 function modifier_deadly_fog:DeclareFunctions()
     return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION}
 end
@@ -56,20 +58,8 @@ function modifier_deadly_fog:OnCreated(kv)
         end
 
         if self.caster:HasTalent("talent_blinding_fog") then
-            --local aura_particle = ParticleManager:CreateParticle("particles/hero/sand_king/sandking_sandstorm_aura.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
-            local aura_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_night_stalker/nightstalker_crippling_fear_aura.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
-            --ParticleManager:SetParticleControl(aura_particle, 5, Vector(self.radius * 1.1, 0, 0))
-            -- ParticleManager:SetParticleControl(aura_particle, 0, self:GetParent():GetAbsOrigin())
-            -- ParticleManager:SetParticleControl(aura_particle, 1, Vector(self.radius, self.radius, 1))
-
-            ParticleManager:SetParticleControl(aura_particle, 1, self.caster:GetAbsOrigin())
-        	ParticleManager:SetParticleControl(aura_particle, 2, Vector(self.radius, self.radius, self.radius))
-            ParticleManager:SetParticleControl(aura_particle, 3, self.caster:GetAbsOrigin())
-
-            -- color (gray)
-            --ParticleManager:SetParticleControl(aura_particle, 3, Vector(200, 200, 200))
-            
-            self:AddParticle(aura_particle, false, false, -1, false, false)
+            print("adding modifier_blinding_fog_aura")
+            self.caster:AddNewModifier(self.caster, self.ability, "modifier_blinding_fog_aura", {duration = kv.duration, radius = self.radius})
         end
 
         --self.particle_deadly_fog_fx = ParticleManager:CreateParticle(particle_deadly_fog, PATTACH_ABSORIGIN_FOLLOW, caster)
