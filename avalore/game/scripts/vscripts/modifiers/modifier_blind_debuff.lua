@@ -10,6 +10,7 @@ end
 
 function modifier_blind_debuff:OnCreated(kv)
     if not IsServer() then return end
+    print("modifier_blind_debuff:OnCreated()")
 
     self.caster  = self:GetCaster()
     self.ability = self:GetAbility()

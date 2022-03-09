@@ -6,10 +6,11 @@ function modifier_blinding_fog_aura:IsPurgable() return false end
 function modifier_blinding_fog_aura:IsAura() return true end
 
 function modifier_blinding_fog_aura:GetAuraSearchTeam()
-    return DTOA_UNTI_TARGET_TEAM_ENEMY
+    return DOTA_UNIT_TARGET_TEAM_ENEMY
 end
 
 function modifier_blinding_fog_aura:GetAuraSearchFlags()
+    --return DOTA_UNIT_TARGET_FLAG_NONE
     return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE 
 end
 
