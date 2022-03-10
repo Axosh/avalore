@@ -6,7 +6,8 @@ modifier_deadly_fog = class({})
 LinkLuaModifier( "modifier_blinding_fog_aura",  "heroes/davy_jones/modifier_blinding_fog_aura.lua",        LUA_MODIFIER_MOTION_NONE )
 
 function modifier_deadly_fog:DeclareFunctions()
-    return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION}
+    return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+            MODIFIER_PROPERTY_TOOLTIP}
 end
 
 function modifier_deadly_fog:IsDebuff()
@@ -90,4 +91,8 @@ end
 
 function modifier_deadly_fog:GetOverrideAnimation()
     return ACT_DOTA_OVERRIDE_ABILITY_1
+end
+
+function modifier_deadly_fog:OnTooltip()
+    return self.radius
 end

@@ -51,6 +51,7 @@
             {
                 "var_type"				"FIELD_INTEGER"
                 "radius"				"500 550 600 650"
+                "LinkedSpecialBonus"    "talent_blinding_fog"
             }
             "03"
             {
