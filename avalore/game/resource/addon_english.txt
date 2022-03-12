@@ -147,6 +147,9 @@
 		"DOTA_Tooltip_modifier_blinding_fog_aura"						"Blinding Fog"
 		"DOTA_Tooltip_modifier_blinding_fog_aura_description"			"Dramatically reduced vision for enemies within range"
 
+		"DOTA_Tooltip_Ability_talent_noxious_fog"						"Noxious Fog"
+		"DOTA_Tooltip_Ability_talent_noxious_fog_description"			"Deals additional damage as a percentage of max health (2% max HP/sec)"
+
 		// ===== ROBIN HOOD ====
 		"DOTA_Tooltip_Ability_ability_jack_of_all_trades"				"Jack of All Trades"
 		"DOTA_Tooltip_modifier_jack_of_all_trades_melee"				"Swordsman"

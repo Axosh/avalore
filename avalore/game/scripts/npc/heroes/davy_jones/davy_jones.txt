@@ -23,7 +23,7 @@
         "Ability9"        ""
         // ================ TALENTS ===================================
         "Ability10"       "talent_blinding_fog"
-        "Ability11"       ""
+        "Ability11"       "talent_noxious_fog"
         "Ability12"       ""
         "Ability13"       ""
         "Ability14"       ""

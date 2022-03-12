@@ -47,3 +47,8 @@ function modifier_blinding_fog_aura:OnCreated(kv)
     
     self:AddParticle(aura_particle, false, false, -1, false, false)
 end
+
+function modifier_blinding_fog_aura:OnRefresh(kv)
+    if IsServer() then return end
+    self:OnCreated(kv)
+end

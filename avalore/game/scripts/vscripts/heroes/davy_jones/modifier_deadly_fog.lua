@@ -4,6 +4,7 @@ require(REQ_ABILITY_AOEDAMAGE)
 modifier_deadly_fog = class({})
 
 LinkLuaModifier( "modifier_blinding_fog_aura",  "heroes/davy_jones/modifier_blinding_fog_aura.lua",        LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_noxious_fog_aura",  "heroes/davy_jones/modifier_noxious_fog_aura.lua",        LUA_MODIFIER_MOTION_NONE )
 
 function modifier_deadly_fog:DeclareFunctions()
     return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
@@ -61,6 +62,8 @@ function modifier_deadly_fog:OnCreated(kv)
         if self.caster:HasTalent("talent_blinding_fog") then
             print("adding modifier_blinding_fog_aura")
             self.caster:AddNewModifier(self.caster, self.ability, "modifier_blinding_fog_aura", {duration = kv.duration, radius = self.radius})
+        elseif self.caster:HasTalent("talent_noxious_fog") then
+            self.caster:AddNewModifier(self.caster, self.caster:FindAbilityByName("talent_noxious_fog"), "modifier_noxious_fog_aura", {duration = kv.duration, radius = self.radius})
         end
 
         --self.particle_deadly_fog_fx = ParticleManager:CreateParticle(particle_deadly_fog, PATTACH_ABSORIGIN_FOLLOW, caster)
