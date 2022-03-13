@@ -15,6 +15,7 @@
 // Talents
 #base "heroes/davy_jones/talent_blinding_fog.txt"
 #base "heroes/davy_jones/talent_noxious_fog.txt"
+#base "heroes/davy_jones/talent_surf.txt"
 
 #base "heroes/robin_hood/ability_jack_of_all_trades.txt"
 #base "heroes/robin_hood/ability_rich_poor.txt"

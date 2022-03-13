@@ -42,6 +42,11 @@ function ability_riptide:OnSpellStart()
 	-- vector = vector:Normalized()
 
     -- create linear projectile
+	local target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
+	if self:GetCaster():HasTalent("talent_surf") then
+		target_team = DOTA_UNIT_TARGET_TEAM_BOTH
+	end
+
     local info = {
         Source = caster,
         Ability = self,
@@ -49,7 +54,7 @@ function ability_riptide:OnSpellStart()
     
         bDeleteOnHit = false,
     
-        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+        iUnitTargetTeam = target_team,
         iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
         iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
     
@@ -84,8 +89,14 @@ function ability_riptide:OnProjectileHit_ExtraData( target, location, data )
     if not target then return end
 
     local vision = 200
-	local duration = 2
     local max_dist = self:GetSpecialValueFor( "knockback_distance_max" )
+
+	local duration = 2
+	if target:GetTeam() == self:GetCaster():GetTeam() then
+		if self:GetCaster():HasTalent("talent_surf") then
+			duration = 0.35 -- basically a result of experimentation of "what looks right"
+		end
+	end
 
 		-- provide vision
 	AddFOWViewer( self:GetCaster():GetTeamNumber(), target:GetOrigin(), vision, duration, true )
