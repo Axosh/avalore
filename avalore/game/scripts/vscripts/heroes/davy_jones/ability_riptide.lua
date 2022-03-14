@@ -127,6 +127,17 @@ function ability_riptide:OnProjectileHit_ExtraData( target, location, data )
 		} -- kv
 	)
 
+	local damage = self:GetSpecialValueFor("riptide_damge")
+
+	local damageTable = {
+		victim = target,
+		attacker = self:GetCaster(),
+		damage = damage,
+		damage_type = DAMAGE_TYPE_MAGICAL,
+		ability = self, --Optional.
+	}
+	ApplyDamage(damageTable)
+
     -- play effects
 	self:PlayEffects( target )
 end

@@ -71,6 +71,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"vector_target"			"1"				
 			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"riptide_damge"			"80 120 160 200"
+			}
         }
     }
 }
