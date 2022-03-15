@@ -90,8 +90,8 @@ function CAvaloreGameMode:OrderFilter(keys)
 
         -- Sun Wukong - Jingu Stuff
         if ability ~= nil then
-            if ability:GetAbilityName() == "ability_ruyi_jingu_bang" then
-                --print("Hit Filter for ability_ruyi_jingu_bang")
+            if ability:GetAbilityName() == "ability_ruyi_jingu_bang" or ability:GetAbilityName() == "ability_riptide"then
+                print("Hit Filter for ability_ruyi_jingu_bang and ability_riptide")
                 unit:AddNewModifier(unit, ability, "modifier_ignore_cast_direction", {duration = 0.41} )
             end
         end

@@ -24,7 +24,7 @@
         // Ability General
 		//-------------------------------------------------------------------------------------------------------------
         "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
         "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
         "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
         "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"

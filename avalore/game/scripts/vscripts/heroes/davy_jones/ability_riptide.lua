@@ -1,6 +1,7 @@
 ability_riptide = ability_riptide or class({})
 
 LinkLuaModifier( "modifier_knockback_avalore", "scripts/vscripts/modifiers/modifier_knockback_avalore", LUA_MODIFIER_MOTION_BOTH )
+LinkLuaModifier( "modifier_ignore_cast_direction", "scripts/vscripts/modifiers/modifier_ignore_cast_direction.lua", LUA_MODIFIER_MOTION_NONE )
 --LinkLuaModifier( "modifier_swashbuckle", "heroes/robin_hood/modifier_swashbuckle.lua", LUA_MODIFIER_MOTION_NONE )
 
 -- ==================================================
@@ -129,14 +130,17 @@ function ability_riptide:OnProjectileHit_ExtraData( target, location, data )
 
 	local damage = self:GetSpecialValueFor("riptide_damge")
 
-	local damageTable = {
-		victim = target,
-		attacker = self:GetCaster(),
-		damage = damage,
-		damage_type = DAMAGE_TYPE_MAGICAL,
-		ability = self, --Optional.
-	}
-	ApplyDamage(damageTable)
+	-- due to the surf talent, make sure we're only attacking enemies
+	if target:GetTeam() ~= self:GetCaster():GetTeam() then
+		local damageTable = {
+			victim = target,
+			attacker = self:GetCaster(),
+			damage = damage,
+			damage_type = DAMAGE_TYPE_MAGICAL,
+			ability = self, --Optional.
+		}
+		ApplyDamage(damageTable)
+	end
 
     -- play effects
 	self:PlayEffects( target )
