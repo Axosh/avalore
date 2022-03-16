@@ -43,7 +43,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"destination"			"32 38 44 50"
-				"LinkedSpecialBonus"	"special_bonus_imba_lich_10"
 			}
 			"03"
 			{

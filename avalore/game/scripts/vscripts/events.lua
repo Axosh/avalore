@@ -1128,19 +1128,22 @@ function CAvaloreGameMode:OnPlayerLearnedAbility(event)
 	-- 	end
 	-- end
 	--print("CAvaloreGameMode:OnPlayerLearnedAbility(event)")
-	-- local player = EntIndexToHScript(event.player)
-	-- local hero = player:GetAssignedHero()
-	-- local abilityname = event.abilityname
+	local player = EntIndexToHScript(event.player)
+	local hero = player:GetAssignedHero()
+	local abilityname = event.abilityname
 
 	-- print(abilityname)
 	-- print(hero:GetName())
 	-- print(tostring(abilityname:find("talent")))
 
-	-- if abilityname:find("talent") == 1 then
-	-- 	print("Adding modifier: " .. "modifier_" .. abilityname)
-	-- 	local modif = hero:AddNewModifier(hero, nil, "modifier_" .. abilityname, {})
-	-- 	print()
-	-- end
+	-- add dummy modifiers so some of the special value lookups (e.g. range increases) will work
+	-- NOTE: not all talents have/need these tracking modifiers, but it won't cause errors if the attempt 
+	--       to add them fails
+	if abilityname:find("talent") == 1 then
+		print("Adding modifier: " .. "modifier_" .. abilityname)
+		local modif = hero:AddNewModifier(hero, nil, "modifier_" .. abilityname, {})
+		--print()
+	end
 
 	-- print("===== Debug Modifiers =====")
 	-- for _,mod in pairs(hero:FindAllModifiers()) do

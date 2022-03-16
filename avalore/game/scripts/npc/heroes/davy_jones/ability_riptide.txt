@@ -33,7 +33,7 @@
 
         // Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
+		//"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.3"
 		"AbilityDuration"				"2.0 2.0 2.0 2.0"
 
@@ -60,6 +60,7 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"cast_range"		"700"
+				"LinkedSpecialBonus" "talent_riptide_cast_range"
 			}
             "04"
 			{

@@ -2,10 +2,17 @@ ability_deadly_fog = class({})
 
 LinkLuaModifier( "modifier_deadly_fog",         "heroes/davy_jones/modifier_deadly_fog.lua",        LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_deadly_fog_invis",   "heroes/davy_jones/modifier_deadly_fog_invis.lua",  LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_blinding_fog",   "heroes/davy_jones/modifier_talent_blinding_fog.lua",  LUA_MODIFIER_MOTION_NONE )
 
 function ability_deadly_fog:Precache( context )
     PrecacheResource("particle", "particles/econ/items/necrolyte/necro_ti9_immortal/necro_ti9_immortal_shroud.vpcf",    context)
     PrecacheResource("particle", "particles/generic_hero_status/status_invisibility_start.vpcf",                        context)
+end
+
+function ability_deadly_fog:GetAOERadius()
+    local rad = self:GetSpecialValueFor("radius") + self:GetCaster():FindTalentValue("talent_blinding_fog", "bonus_radius")
+    print("Rad => " .. tostring(rad))
+    return rad
 end
 
 function ability_deadly_fog:OnSpellStart()

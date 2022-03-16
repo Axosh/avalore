@@ -153,6 +153,8 @@
 		"DOTA_Tooltip_Ability_talent_surf"								"Surf"
 		"DOTA_Tooltip_Ability_talent_surf_description"					"Riptide will also displace allies over a shortened period of travel time (0.35s) without dealing damage to them."
 
+		"DOTA_Tooltip_Ability_talent_riptide_cast_range"				"+400 Riptide Cast Range"
+
 		// ===== ROBIN HOOD ====
 		"DOTA_Tooltip_Ability_ability_jack_of_all_trades"				"Jack of All Trades"
 		"DOTA_Tooltip_modifier_jack_of_all_trades_melee"				"Swordsman"
