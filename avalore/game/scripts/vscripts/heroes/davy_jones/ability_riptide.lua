@@ -2,6 +2,7 @@ ability_riptide = ability_riptide or class({})
 
 LinkLuaModifier( "modifier_knockback_avalore", "scripts/vscripts/modifiers/modifier_knockback_avalore", LUA_MODIFIER_MOTION_BOTH )
 LinkLuaModifier( "modifier_ignore_cast_direction", "scripts/vscripts/modifiers/modifier_ignore_cast_direction.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_wet", "scripts/vscripts/modifiers/modifier_wet.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_riptide_cast_range", "heroes/davy_jones/modifier_talent_riptide_cast_range.lua", LUA_MODIFIER_MOTION_NONE )
 --LinkLuaModifier( "modifier_swashbuckle", "heroes/robin_hood/modifier_swashbuckle.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -11,6 +12,7 @@ function ability_riptide:GetCastRange(location, taget)
 	return range
 end
 
+-- accommodate for learning while dead?
 function ability_riptide:OnOwnerSpawned()
 	if self:GetCaster():HasTalent("talent_riptide_cast_range") and not self:GetCaster():HasModifier("modifier_talent_riptide_cast_range") then
 		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_talent_riptide_cast_range", {})
@@ -101,6 +103,12 @@ end
 
 function ability_riptide:OnProjectileHit_ExtraData( target, location, data )
     if not target then return end
+
+	-- they just got hit with a wave of water, so...
+	target:AddNewModifier( 	self:GetCaster(), -- player source
+							self, -- ability source
+							"modifier_wet", -- modifier name
+							{}) --kv
 
     local vision = 200
     local max_dist = self:GetSpecialValueFor( "knockback_distance_max" )

@@ -1,5 +1,6 @@
 ability_lost_souls = ability_lost_souls or class({})
 LinkLuaModifier("modifier_lost_souls", "heroes/davy_jones/ability_lost_souls.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_spectral_empowerment", "heroes/davy_jones/modifier_talent_spectral_empowerment.lua", LUA_MODIFIER_MOTION_NONE)
 
 function ability_lost_souls:GetAbilityTextureName()
    return "lost_souls"
@@ -47,6 +48,11 @@ function modifier_lost_souls:OnCreated()
 	self.creep_kill_soul_count 		= self.ability:GetSpecialValueFor("creep_kill_soul_count")
 	self.hero_kill_soul_count 		= self.ability:GetSpecialValueFor("hero_kill_soul_count")
 	self.damage_per_soul 			= self.ability:GetSpecialValueFor("damage_per_soul")
+	self.bonus_per_soul = 0
+	if self:GetCaster():HasTalent("talent_spectral_empowerment") then
+		self.bonus_per_soul = self:GetCaster():FindTalentValue("talent_spectral_empowerment", "bonus_per_soul")
+		print("Bonus Damage of " .. tostring(self.bonus_per_soul))
+	end
 	self.max_souls 					= self.ability:GetSpecialValueFor("max_souls")
 	self.soul_projectile_speed 		= self.ability:GetSpecialValueFor("soul_projectile_speed")
 	self.souls_lost_on_death_pct 	= self.ability:GetSpecialValueFor("souls_lost_on_death_pct")
@@ -57,11 +63,12 @@ function modifier_lost_souls:OnCreated()
 end
 
 function modifier_lost_souls:OnRefresh()
+	print("modifier_lost_souls:OnRefresh()")
 	self:OnCreated()
 end
 
 function modifier_lost_souls:GetModifierPreAttack_BonusDamage()
-	return (self.damage_per_soul * self:GetStackCount())
+	return ((self.damage_per_soul + self.bonus_per_soul) * self:GetStackCount())
 end
 
 -- NOTE: This fires any time any unit dies

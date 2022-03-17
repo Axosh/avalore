@@ -155,6 +155,9 @@
 
 		"DOTA_Tooltip_Ability_talent_riptide_cast_range"				"+400 Riptide Cast Range"
 
+		"DOTA_Tooltip_Ability_talent_spectral_empowerment"				"Spectral Empowerment"
+		"DOTA_Tooltip_Ability_talent_spectral_empowerment_description"	"Lost Souls: +2 damage per soul"
+
 		// ===== ROBIN HOOD ====
 		"DOTA_Tooltip_Ability_ability_jack_of_all_trades"				"Jack of All Trades"
 		"DOTA_Tooltip_modifier_jack_of_all_trades_melee"				"Swordsman"
