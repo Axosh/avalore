@@ -22,12 +22,12 @@
         "Ability8"        ""
         "Ability9"        ""
         // ================ TALENTS ===================================
-        "Ability10"       "talent_blinding_fog"
-        "Ability11"       "talent_noxious_fog"
-        "Ability12"       "talent_surf"
-        "Ability13"       "talent_riptide_cast_range"
-        "Ability14"       "talent_spectral_empowerment"
-        "Ability15"       ""
+        "Ability10"       "talent_surf"
+        "Ability11"       "talent_riptide_cast_range"
+        "Ability12"       "talent_spectral_empowerment"
+        "Ability13"       "talent_rough_waves"
+        "Ability14"       "talent_blinding_fog"
+        "Ability15"       "talent_noxious_fog"
         "Ability16"       ""
 
         "ArmorPhysical"             "5"                 // Physical protection.

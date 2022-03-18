@@ -149,7 +149,7 @@ function ability_riptide:OnProjectileHit_ExtraData( target, location, data )
 		} -- kv
 	)
 
-	local damage = self:GetSpecialValueFor("riptide_damge")
+	local damage = self:GetSpecialValueFor("riptide_damge") + self:GetCaster():FindTalentValue("talent_rough_waves", "bonus_nuke_damage")
 
 	-- due to the surf talent, make sure we're only attacking enemies
 	if target:GetTeam() ~= self:GetCaster():GetTeam() then

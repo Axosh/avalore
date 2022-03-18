@@ -18,6 +18,7 @@
 #base "heroes/davy_jones/talent_surf.txt"
 #base "heroes/davy_jones/talent_riptide_cast_range.txt"
 #base "heroes/davy_jones/talent_spectral_empowerment.txt"
+#base "heroes/davy_jones/talent_rough_waves.txt"
 
 #base "heroes/robin_hood/ability_jack_of_all_trades.txt"
 #base "heroes/robin_hood/ability_rich_poor.txt"

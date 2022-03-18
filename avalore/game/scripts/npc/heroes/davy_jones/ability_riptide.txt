@@ -76,6 +76,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"riptide_damge"			"80 120 160 200"
+				"LinkedSpecialBonus" 	"talent_rough_waves"
 			}
         }
     }

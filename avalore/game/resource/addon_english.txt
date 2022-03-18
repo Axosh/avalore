@@ -158,6 +158,9 @@
 		"DOTA_Tooltip_Ability_talent_spectral_empowerment"				"Spectral Empowerment"
 		"DOTA_Tooltip_Ability_talent_spectral_empowerment_description"	"Lost Souls: +2 damage per soul"
 
+		"DOTA_Tooltip_Ability_talent_rough_waves"						"Rough Waves"
+		"DOTA_Tooltip_Ability_talent_rough_waves_description"						"Riptide: +200 damage"
+
 		// ===== ROBIN HOOD ====
 		"DOTA_Tooltip_Ability_ability_jack_of_all_trades"				"Jack of All Trades"
 		"DOTA_Tooltip_modifier_jack_of_all_trades_melee"				"Swordsman"
