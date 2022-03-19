@@ -114,6 +114,11 @@
 		"DOTA_Tooltip_modifier_deadly_fog"								"Deadly Fog Damage"
 		"DOTA_Tooltip_modifier_deadly_fog_Description"					"Dealing damage in an AOE"
 
+		// Riptide
+		"DOTA_Tooltip_Ability_ability_riptide"							"Riptide"
+		"DOTA_Tooltip_Ability_ability_riptide_description"				"Creates a vector-targeted projectile that deals damage and applies a knockback in the targeted direction"
+		"DOTA_Tooltip_Ability_ability_riptide_riptide_damge"			"DAMAGE"
+
 		// Whirlpool - Ability + Modifiers
 		"DOTA_Tooltip_Ability_ability_whirlpool"						"Whirlpool"
 		"DOTA_Tooltip_Ability_ability_whirlpool_Description"			"Creates a whirlpool that sucks enemies towards the center with increasing pull"
@@ -160,6 +165,9 @@
 
 		"DOTA_Tooltip_Ability_talent_rough_waves"						"Rough Waves"
 		"DOTA_Tooltip_Ability_talent_rough_waves_description"						"Riptide: +200 damage"
+
+		"DOTA_Tooltip_Ability_talent_dead_never_die"					"What is Dead May Never Die"
+		"DOTA_Tooltip_Ability_talent_dead_never_die_description"		"Flying Dutchman: Pirate Ghosts restore Davy Jones' HP when they return based on 25% of the damage they dealt"
 
 		// ===== ROBIN HOOD ====
 		"DOTA_Tooltip_Ability_ability_jack_of_all_trades"				"Jack of All Trades"

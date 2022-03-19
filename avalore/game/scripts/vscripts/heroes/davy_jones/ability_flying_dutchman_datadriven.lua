@@ -63,6 +63,8 @@ function ExorcismStart( event )
 	for i=1,spirits do
 		Timers:CreateTimer(i * delay_between_spirits, function()
 			local unit = CreateUnitByName(unit_name, caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+			local particle_fx = ParticleManager:CreateParticle("particles/econ/courier/courier_hermit_crab/hermit_crab_skady_ambient_trail_smoke.vpcf", PATTACH_POINT_FOLLOW, unit)
+			ParticleManager:SetParticleControl(particle_fx, 5, Vector(0, 0, 0))
 
 			-- The modifier takes care of the physics and logic
 			ability:ApplyDataDrivenModifier(caster, unit, "modifier_exorcism_spirit", {})
@@ -370,10 +372,12 @@ function ExorcismPhysics( event )
 			if collision then 
 
 				-- Heal is calculated as: a percentage of the units average attack damage multiplied by the amount of attacks the spirit did.
-				local heal_done =  unit.numberOfHits * average_damage* heal_percent
-				caster:Heal(heal_done, ability)
-				caster:EmitSound("Hero_DeathProphet.Exorcism.Heal")
-				--print("Healed ",heal_done)
+				if caster:HasTalent("talent_dead_never_die") then
+					local heal_done =  unit.numberOfHits * average_damage* heal_percent
+					caster:Heal(heal_done, ability)
+					caster:EmitSound("Hero_DeathProphet.Exorcism.Heal")
+					--print("Healed ",heal_done)
+				end
 
 				unit:SetPhysicsVelocity(Vector(0,0,0))
 	        	unit:OnPhysicsFrame(nil)

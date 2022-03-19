@@ -10,5 +10,7 @@ function modifier_talent_spectral_empowerment:OnCreated()
 
     -- force it to refresh to update bonus soul damage
     print("modifier_talent_spectral_empowerment:OnCreated()")
-    self:GetParent():FindModifierByName("modifier_lost_souls"):ForceRefresh()
+    if self:GetParent():FindModifierByName("modifier_lost_souls") then
+        self:GetParent():FindModifierByName("modifier_lost_souls"):ForceRefresh()
+    end
 end

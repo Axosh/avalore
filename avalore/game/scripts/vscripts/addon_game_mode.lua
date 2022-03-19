@@ -278,22 +278,22 @@ function CAvaloreGameMode:OnThink()
 		end
 	end
 
-	--TEMP ==> force debug: set hero to lvl 6
-	local p1_hero = PlayerResource:GetSelectedHeroEntity(0)
-	-- if p1_hero then
-	-- 	print("Mana Regen = " .. tostring(p1_hero:GetManaRegen()))
+	-- --TEMP ==> force debug: set hero to lvl 6
+	-- local p1_hero = PlayerResource:GetSelectedHeroEntity(0)
+	-- -- if p1_hero then
+	-- -- 	print("Mana Regen = " .. tostring(p1_hero:GetManaRegen()))
+	-- -- end
+	-- --if p1_hero ~= nil and p1_hero:GetLevel() < 6 then
+	-- if p1_hero ~= nil and p1_hero:GetLevel() < 20 then
+	-- 	p1_hero:HeroLevelUp(false)
+	-- 	--p1_hero:UpgradeAbility(bSupressSpeech)
+	-- 	p1_hero:HeroLevelUp(false)
+	-- 	p1_hero:HeroLevelUp(false)
+	-- 	p1_hero:HeroLevelUp(false)
+	-- 	p1_hero:HeroLevelUp(false)
+	-- 	--DEBUG
+	-- 	p1_hero:SetGold(10000, true)
 	-- end
-	--if p1_hero ~= nil and p1_hero:GetLevel() < 6 then
-	if p1_hero ~= nil and p1_hero:GetLevel() < 20 then
-		p1_hero:HeroLevelUp(false)
-		--p1_hero:UpgradeAbility(bSupressSpeech)
-		p1_hero:HeroLevelUp(false)
-		p1_hero:HeroLevelUp(false)
-		p1_hero:HeroLevelUp(false)
-		p1_hero:HeroLevelUp(false)
-		--DEBUG
-		p1_hero:SetGold(10000, true)
-	end
 
 	-- if p1_hero and not temp then
 	-- 	temp = true

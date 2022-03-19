@@ -369,7 +369,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	if objectiveMsg ~= nil then
 		local broadcast_obj =
 		{
-			msg = objectiveMsg,
+			msg = "#" .. objectiveMsg,
 			time = 10,
 			elaboration = ""
 		}

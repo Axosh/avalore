@@ -28,7 +28,8 @@
         "Ability13"       "talent_rough_waves"
         "Ability14"       "talent_blinding_fog"
         "Ability15"       "talent_noxious_fog"
-        "Ability16"       ""
+        "Ability16"       "talent_dead_never_die"
+        "Ability17"       ""
 
         "ArmorPhysical"             "5"                 // Physical protection.
         "MagicalResistance"         "0"                 // Magical protection (percentage).

@@ -89,6 +89,23 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
                 AddFOWViewer(hero:GetTeamNumber(), Vector(x * -4000, y * -4000, 0), 8000, 600, false)
             end
         end
+    -- elseif input == "level up" then
+    --     hero:HeroLevelUp(false)
+    --elseif string.find(input, "add levels") then
+    elseif string.find(input, "level up") then
+        local arr = StringToArrayByWhitespace(input)
+        local level = 1
+        if arr[3] ~= nil then
+            level = tonumber(arr[3])
+        end
+        while (level > 0) do
+            hero:HeroLevelUp(false)
+            level = level - 1
+        end
+    elseif string.find(input, "set gold") then
+        local arr = StringToArrayByWhitespace(input)
+        local gold = tonumber(arr[3])
+        hero:SetGold(gold, true)
     end
     
 end

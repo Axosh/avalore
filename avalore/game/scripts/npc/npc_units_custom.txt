@@ -430,7 +430,9 @@
 	"lost_souls_ghost"
 	{
 		"BaseClass" "npc_dota_base_additive"
-		"Model"	"models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_frost.vmdl"
+		"Model"		"models/items/necrolyte/necro_ti9_immortal_skirt/necro_ti9_immortal_ghost.vmdl"
+		"ModelScale"				"0.8"
+		//"Model"	"models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_frost.vmdl"
 		"Level" "0"
 		// Abilities
 		//----------------------------------------------------------------
@@ -500,6 +502,14 @@
 		// Bots
 		//----------------------------------------------------------------
 		"AttackDesire" "1.5" // How much bots want to attack them vs other non-hero things
+
+		// "Creature"
+		// {
+		// 	"AttachWearables"
+		// 	{
+
+		// 	}
+		// }
 	}
 
 	"wearable_dummy"

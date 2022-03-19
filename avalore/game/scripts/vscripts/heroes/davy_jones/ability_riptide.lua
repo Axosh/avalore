@@ -2,7 +2,7 @@ ability_riptide = ability_riptide or class({})
 
 LinkLuaModifier( "modifier_knockback_avalore", "scripts/vscripts/modifiers/modifier_knockback_avalore", LUA_MODIFIER_MOTION_BOTH )
 LinkLuaModifier( "modifier_ignore_cast_direction", "scripts/vscripts/modifiers/modifier_ignore_cast_direction.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_wet", "scripts/vscripts/modifiers/modifier_wet.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_wet", "scripts/vscripts/modifiers/elemental_status/modifier_wet.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_riptide_cast_range", "heroes/davy_jones/modifier_talent_riptide_cast_range.lua", LUA_MODIFIER_MOTION_NONE )
 --LinkLuaModifier( "modifier_swashbuckle", "heroes/robin_hood/modifier_swashbuckle.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -184,3 +184,8 @@ function ability_riptide:PlayEffects( target )
 	)
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 end
+
+-- -- show correct number in UI?
+-- function ability_riptide:GetAbilityDamage()
+-- 	return self:GetSpecialValueFor("riptide_damge") + self:GetCaster():FindTalentValue("talent_rough_waves", "bonus_nuke_damage")
+-- end
