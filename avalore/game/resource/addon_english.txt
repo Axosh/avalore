@@ -169,6 +169,12 @@
 		"DOTA_Tooltip_Ability_talent_dead_never_die"					"What is Dead May Never Die"
 		"DOTA_Tooltip_Ability_talent_dead_never_die_description"		"Flying Dutchman: Pirate Ghosts restore Davy Jones' HP when they return based on 25% of the damage they dealt"
 
+		"DOTA_Tooltip_Ability_talent_cannons"							"Naval Artillery"
+		"DOTA_Tooltip_Ability_talent_cannons_description"				"Flying Dutchman: Every 2 seconds, fires a cannon ball dealing 200 PHYSICAL damage to any BUILDING in 800 range"
+
+		"DOTA_Tooltip_modifier_talent_cannons_buff"						"Naval Artillery"
+		"DOTA_Tooltip_modifier_talent_cannons_buff_description"			"Firing cannons at nearby buildings"
+
 		// ===== ROBIN HOOD ====
 		"DOTA_Tooltip_Ability_ability_jack_of_all_trades"				"Jack of All Trades"
 		"DOTA_Tooltip_modifier_jack_of_all_trades_melee"				"Swordsman"

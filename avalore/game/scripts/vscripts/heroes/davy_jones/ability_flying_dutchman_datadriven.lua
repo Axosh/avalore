@@ -2,6 +2,8 @@ require("references")
 require(REQ_LIB_TIMERS)
 require(REQ_LIB_PHYSICS)
 
+LinkLuaModifier( "modifier_talent_cannons_buff", "heroes/davy_jones/modifier_talent_cannons_buff.lua", LUA_MODIFIER_MOTION_NONE )
+
 --[[
 	Author: Noya, physics by BMD
 	Date: 26.01.2016.
@@ -45,6 +47,10 @@ function ExorcismStart( event )
 	    ParticleManager:SetParticleControlEnt(caster.ship_particle, 2, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(caster.ship_particle, 3, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
     end
+
+	if caster:HasTalent("talent_cannons") then
+		caster:AddNewModifier(caster, nil, "modifier_talent_cannons_buff", {duration = duration})
+	end
 
     -- if caster.ship_particle == nil then
     --     print("Trying to create ship particles")
