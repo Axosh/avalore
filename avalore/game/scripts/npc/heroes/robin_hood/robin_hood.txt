@@ -49,15 +49,17 @@
     "Ability5"                  "generic_hidden"
     "Ability6"                  "ability_grappling_hook"
 
-    "Ability10"                 "ability_rich_poor"                    
-    "Ability11"                 "ability_swashbuckle"   
-
+    // Hidden
+    "Ability7"                  ""
+    "Ability8"                 "ability_rich_poor"                    
+    "Ability9"                 "ability_swashbuckle"   
+    // Talents
+    "Ability10"                 ""
+    "Ability11"                 ""
     "Ability12"                 ""
     "Ability13"                 ""    
-
     "Ability14"                 ""
     "Ability15"                 ""
-
     "Ability16"                 ""        
     "Ability17"                 ""        
 
