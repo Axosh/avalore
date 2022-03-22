@@ -20,7 +20,7 @@ function modifier_chink_in_the_armor_debuff:DeclareFunctions()
 end
 
 function modifier_chink_in_the_armor_debuff:GetModifierPhysicalArmorBonus()
-    return self.armor_reduction
+    return -(self.armor_reduction)
 end
 
 -- function modifier_chink_in_the_armor_debuff:PlayEffects()

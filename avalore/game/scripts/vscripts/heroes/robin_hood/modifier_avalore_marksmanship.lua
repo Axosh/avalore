@@ -1,5 +1,7 @@
 modifier_avalore_marksmanship = class({})
 
+LinkLuaModifier( "modifier_chink_in_the_armor_debuff", "heroes/robin_hood/modifier_chink_in_the_armor_debuff.lua", LUA_MODIFIER_MOTION_NONE )
+
 --------------------------------------------------------------------------------
 -- Init
 --------------------------------------------------------------------------------
@@ -96,7 +98,9 @@ function modifier_avalore_marksmanship:GetModifierProcAttack_BonusDamage_Physica
 			-- increase stack unless already maxed
 			if modifier:GetStackCount() < self.max_stacks then
 				modifier:IncrementStackCount()
-			elseif self:GetCaster():HasTalent("talent_chink_in_the_armor") then
+			end
+			
+			if modifier:GetStackCount() == self.max_stacks and self:GetCaster():HasTalent("talent_chink_in_the_armor") then
 				target:AddNewModifier(	self:GetAbility():GetCaster(),
 										self:GetCaster():FindAbilityByName("talent_chink_in_the_armor"),
 										"modifier_chink_in_the_armor_debuff",
