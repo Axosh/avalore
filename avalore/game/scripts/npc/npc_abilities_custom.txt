@@ -7,6 +7,9 @@
 
 // Dota Heroes File
 
+// 
+// DAVY JONES
+//
 #base "heroes/davy_jones/ability_deadly_fog.txt"
 #base "heroes/davy_jones/ability_whirlpool.txt"
 #base "heroes/davy_jones/ability_riptide.txt"
@@ -22,12 +25,17 @@
 #base "heroes/davy_jones/talent_dead_never_die.txt"
 #base "heroes/davy_jones/talent_cannons.txt"
 
+//
+// ROBIN HOOD
+//
 #base "heroes/robin_hood/ability_jack_of_all_trades.txt"
 #base "heroes/robin_hood/ability_rich_poor.txt"
 #base "heroes/robin_hood/ability_swashbuckle.txt"
 #base "heroes/robin_hood/ability_grappling_hook.txt"
 #base "heroes/robin_hood/ability_avalore_marksmanship.txt"
 #base "heroes/robin_hood/ability_shackleshot.txt"
+// Talents
+#base "heroes/robin_hood/talent_chink_in_the_armor.txt"
 
 #base "heroes/dionysus/ability_over_indulge.txt"
 #base "heroes/dionysus/ability_allure_of_the_drink.txt"

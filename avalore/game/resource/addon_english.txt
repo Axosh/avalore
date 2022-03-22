@@ -175,7 +175,9 @@
 		"DOTA_Tooltip_modifier_talent_cannons_buff"						"Naval Artillery"
 		"DOTA_Tooltip_modifier_talent_cannons_buff_description"			"Firing cannons at nearby buildings"
 
+		//
 		// ===== ROBIN HOOD ====
+		//
 		"DOTA_Tooltip_Ability_ability_jack_of_all_trades"				"Jack of All Trades"
 		"DOTA_Tooltip_modifier_jack_of_all_trades_melee"				"Swordsman"
 		"DOTA_Tooltip_modifier_jack_of_all_trades_ranged"				"Archer"
@@ -189,6 +191,10 @@
 		"DOTA_Tooltip_Ability_ability_avalore_marksmanship"             "Marksmanship"
 		"DOTA_Tooltip_Ability_ability_avalore_marksmanship_Description"	"Robin Hood hits an opponent in the exact same spot, each time inflicting bonus damage."
 		"DOTA_Tooltip_Ability_ability_avalore_marksmanship_Lore"		"Robin Hood was a reknowned marksman, once splitting an arrow in a tournament. \nStory: Robin Hood and the Golden Arrow"
+		"DOTA_Tooltip_Ability_ability_avalore_marksmanship_max_stacks"	"MAX STACKS: "
+		"DOTA_Tooltip_Ability_ability_avalore_marksmanship_damage_per_stack"	"DAMAGE PER STACK: "
+		"DOTA_Tooltip_Ability_ability_avalore_marksmanship_bonus_reset_time"	"STACK RESET TIME: "
+
 		"DOTA_Tooltip_modifier_avalore_marksmanship"					"Marksmanship Buff"
 		"DOTA_Tooltip_modifier_marksmanship_debuff"						"Marksmanship Debuff"
 
@@ -196,6 +202,10 @@
 
 		"DOTA_Tooltip_Ability_ability_grappling_hook"             		"Grappling Hook"
 		"DOTA_Tooltip_Ability_ability_grappling_hook_description"       "Fires a grappling hook that can latch on to trees and buildings"
+
+		// Talents
+		"DOTA_Tooltip_Ability_talent_chink_in_the_armor"				"Chink in the Armor"
+		"DOTA_Tooltip_Ability_talent_chink_in_the_armor_description"	"Marksmanship: After landing 6 successive hits, applies a -7 armor debuff to the target"
 
 		// ===== DIONYSUS ====
 

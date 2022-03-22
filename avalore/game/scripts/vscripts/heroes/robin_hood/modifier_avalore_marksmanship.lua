@@ -96,6 +96,11 @@ function modifier_avalore_marksmanship:GetModifierProcAttack_BonusDamage_Physica
 			-- increase stack unless already maxed
 			if modifier:GetStackCount() < self.max_stacks then
 				modifier:IncrementStackCount()
+			elseif self:GetCaster():HasTalent("talent_chink_in_the_armor") then
+				target:AddNewModifier(	self:GetAbility():GetCaster(),
+										self:GetCaster():FindAbilityByName("talent_chink_in_the_armor"),
+										"modifier_chink_in_the_armor_debuff",
+										{})
 			end
 			modifier:ForceRefresh()
 
