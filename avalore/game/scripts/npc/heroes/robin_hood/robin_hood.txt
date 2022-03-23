@@ -54,9 +54,9 @@
     "Ability8"                 "ability_rich_poor"                    
     "Ability9"                 "ability_swashbuckle"   
     // Talents
-    "Ability10"                 "talent_chink_in_the_armor"
-    "Ability11"                 ""
-    "Ability12"                 ""
+    "Ability10"                 "talent_parry"
+    "Ability11"                 "talent_bonus_range"
+    "Ability12"                 "talent_chink_in_the_armor"
     "Ability13"                 ""    
     "Ability14"                 ""
     "Ability15"                 ""

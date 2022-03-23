@@ -1114,6 +1114,9 @@ end
 -- TALENTS
 -- =================================
 
+LinkLuaModifier( "modifier_talent_parry", "heroes/robin_hood/modifier_talent_parry.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_bonus_range", "heroes/robin_hood/modifier_talent_bonus_range.lua", LUA_MODIFIER_MOTION_NONE )
+
 -- event: dota_player_learned_ability
 -- > PlayerID: PlayerID
 -- > player: short

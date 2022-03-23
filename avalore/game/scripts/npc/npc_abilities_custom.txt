@@ -35,6 +35,8 @@
 #base "heroes/robin_hood/ability_avalore_marksmanship.txt"
 #base "heroes/robin_hood/ability_shackleshot.txt"
 // Talents
+#base "heroes/robin_hood/talent_bonus_range.txt"
+#base "heroes/robin_hood/talent_parry.txt"
 #base "heroes/robin_hood/talent_chink_in_the_armor.txt"
 
 #base "heroes/dionysus/ability_over_indulge.txt"

@@ -11,6 +11,8 @@ LinkLuaModifier("modifier_jack_of_all_trades_ranged", "heroes/robin_hood/ability
 LinkLuaModifier("modifier_jack_of_all_trades_melee",  "heroes/robin_hood/ability_jack_of_all_trades.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_wearable_temp_invis", "scripts/vscripts/modifiers/modifier_wearable_temp_invis", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_parry", "heroes/robin_hood/modifier_talent_parry.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_bonus_range", "heroes/robin_hood/modifier_talent_bonus_range.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_jack_of_all_trades:ProcsMagicStick()
     return false
@@ -147,6 +149,8 @@ function modifier_jack_of_all_trades_ranged:OnCreated(kv)
     --print("[modifier_jack_of_all_trades_ranged] Started OnCreated")
     if IsServer() then
         self.bonus_range   = self:GetAbility():GetSpecialValueFor("ranged_bonus_range")
+        -- factor in talent if they have it
+        self.bonus_range = self.bonus_range + self:GetCaster():FindTalentValue("talent_bonus_range", "bonus_range")
         self.bonus_ms = 0
         self.range      = 600--self:GetParent():GetBaseAttackRange()
         --print("[modifier_jack_of_all_trades_ranged] parent = " .. self:GetParent():GetName())
@@ -179,8 +183,10 @@ function modifier_jack_of_all_trades_ranged:OnCreated(kv)
         -- cosmetic:SetOwner(unit)
         -- self:GetParent().weapon_model = cosmetic
     end
-    
+end
 
+function modifier_jack_of_all_trades_ranged:OnRefresh()
+    self:OnCreated()
 end
 
 
@@ -197,7 +203,8 @@ function modifier_jack_of_all_trades_melee:DeclareFunctions()
         MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND,
         MODIFIER_EVENT_ON_ATTACK,
         MODIFIER_EVENT_ON_ATTACK_START,
-        MODIFIER_EVENT_ON_ATTACK_LANDED
+        MODIFIER_EVENT_ON_ATTACK_LANDED,
+        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
 	}
 
 	return funcs
@@ -219,6 +226,10 @@ function modifier_jack_of_all_trades_melee:RemoveOnDeath()
 	return false
 end
 
+function modifier_jack_of_all_trades_melee:GetModifierPhysicalArmorBonus()
+    return self.bonus_armor
+end
+
 -- hopefully uses animation for shackleshot which kind of looks like she's swinging a sword
 --function modifier_jack_of_all_trades_melee:GetOverrideAnimation() return ACT_DOTA_CAST_ABILITY_1 end
 
@@ -236,6 +247,8 @@ function modifier_jack_of_all_trades_melee:OnCreated(kv)
         self.bonus_ms   = self:GetAbility():GetSpecialValueFor("melee_bonus_move_speed")
         self.range      = MELEE_ATTACK_RANGE
         self:GetParent():SetAttackCapability( DOTA_UNIT_CAP_MELEE_ATTACK )
+        self.bonus_armor = self:GetCaster():FindTalentValue("talent_parry", "bonus_armor")
+
 
         -- self:OnIntervalThink()
 	    -- self:StartIntervalThink(FrameTime())

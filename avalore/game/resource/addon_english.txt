@@ -100,7 +100,9 @@
 		// ABILITIES
  		//--------------------------------------------------------------------------------
 
+		// ==============================================
 		// ===== Davy Jones =====
+		// ==============================================
 		// Deadly Fog - Ability + Modifiers
 		"DOTA_Tooltip_Ability_ability_deadly_fog"						"Deadly Fog"
 		"DOTA_Tooltip_Ability_ability_deadly_fog_Description"			"Invisibility\nAoE Damage"
@@ -175,10 +177,17 @@
 		"DOTA_Tooltip_modifier_talent_cannons_buff"						"Naval Artillery"
 		"DOTA_Tooltip_modifier_talent_cannons_buff_description"			"Firing cannons at nearby buildings"
 
-		//
+		// ==============================================
 		// ===== ROBIN HOOD ====
-		//
-		"DOTA_Tooltip_Ability_ability_jack_of_all_trades"				"Jack of All Trades"
+		// ==============================================
+		"DOTA_Tooltip_Ability_ability_jack_of_all_trades"							"Jack of All Trades"
+		"DOTA_Tooltip_Ability_ability_jack_of_all_trades_description"				"Toggle between Ranged and Melee forms, both having their own benefits and abilities.\n"
+		"DOTA_Tooltip_Ability_ability_jack_of_all_trades_base_range"				"BASE RANGE: "
+		"DOTA_Tooltip_Ability_ability_jack_of_all_trades_melee_range"				"MELEE RANGE: "
+		"DOTA_Tooltip_Ability_ability_jack_of_all_trades_melee_bonus_move_speed"	"MELEE MOVE SPEED BONUS: "
+		"DOTA_Tooltip_Ability_ability_jack_of_all_trades_ranged_bonus_range"		"RANGED FORM BONUS RANGE: "
+		"DOTA_Tooltip_Ability_ability_jack_of_all_trades_Lore"						"Robin Hood was a well regarded swordsman and archer"
+
 		"DOTA_Tooltip_modifier_jack_of_all_trades_melee"				"Swordsman"
 		"DOTA_Tooltip_modifier_jack_of_all_trades_ranged"				"Archer"
 
@@ -207,7 +216,15 @@
 		"DOTA_Tooltip_Ability_talent_chink_in_the_armor"				"Chink in the Armor"
 		"DOTA_Tooltip_Ability_talent_chink_in_the_armor_description"	"Marksmanship: After landing 6 successive hits, applies a -7 armor debuff to the target"
 
+		"DOTA_Tooltip_Ability_talent_bonus_range"						"+100 Range"
+		"DOTA_Tooltip_Ability_talent_bonus_range_Description"			"Jack of all Trades (Ranged): +100 Range"
+
+		"DOTA_Tooltip_Ability_talent_parry"								"Parry"
+		"DOTA_Tooltip_Ability_talent_parry_Description"					"Jack of all Trades (Melee): +5 bonus armor"
+
+		// ==============================================
 		// ===== DIONYSUS ====
+		// ==============================================
 
 		"DOTA_Tooltip_Ability_ability_over_indulge"						"Over Indulge"
 		"DOTA_Tooltip_Ability_ability_over_indulge_Description"			"Douse an area with alcohol. Affected enemies will have a 33% chance to do a normal attack, 33% chance do deal half-damage, 33% chance to miss entirely"

@@ -32,7 +32,18 @@
             "02"
             {
                 "var_type"				    "FIELD_INTEGER"
-			    "ranged_bonus_range"		"50 100 150 200"
+			    "ranged_bonus_range"		"25 50 75 100"
+            }
+            // For Tooltip Use
+            "03"
+            {
+                "var_type"				    "FIELD_INTEGER"   
+                "base_range"                "600"
+            }
+            "04"
+            {
+                "var_type"				    "FIELD_INTEGER"   
+                "melee_range"                "150"
             }
         }
     }
