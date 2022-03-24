@@ -189,7 +189,9 @@
 		"DOTA_Tooltip_Ability_ability_jack_of_all_trades_Lore"						"Robin Hood was a well regarded swordsman and archer"
 
 		"DOTA_Tooltip_modifier_jack_of_all_trades_melee"				"Swordsman"
+		"DOTA_Tooltip_modifier_jack_of_all_trades_melee_description"	"Providing %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% ms and %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor"
 		"DOTA_Tooltip_modifier_jack_of_all_trades_ranged"				"Archer"
+		"DOTA_Tooltip_modifier_jack_of_all_trades_ranged_description"	"Providing %dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS% bonus range"
 
 		"DOTA_Tooltip_Ability_ability_rich_poor"						"Steal From the Rich/Give to the Poor"
 

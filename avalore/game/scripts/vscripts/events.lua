@@ -459,8 +459,8 @@ end
 -- 		"hero"			"string"
 -- 	}
 function CAvaloreGameMode:OnHeroFinishSpawn(event)
-	print("==== OnHeroFinishSpawn ====")
-	PrintTable(event)
+	-- print("==== OnHeroFinishSpawn ====")
+	-- PrintTable(event)
 	local hPlayerHero = EntIndexToHScript( event.heroindex )
 	if hPlayerHero ~= nil and hPlayerHero:IsRealHero() then
 		if hPlayerHero.bFirstSpawnComplete == nil then
@@ -477,11 +477,11 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 		InventoryManager[hPlayerHero:GetPlayerOwnerID()]:Init(hPlayerHero:GetPlayerOwnerID())
 
 		-- Init shared control of Merc Camps
-		print("---- Give Shared Control to Merc Camps ----")
-		print("Player Team: " .. tostring(hPlayerHero:GetTeam()))
-		PrintTable(Spawners.MercCamps[hPlayerHero:GetTeam()])
+		-- print("---- Give Shared Control to Merc Camps ----")
+		-- print("Player Team: " .. tostring(hPlayerHero:GetTeam()))
+		-- PrintTable(Spawners.MercCamps[hPlayerHero:GetTeam()])
 		for key, value in pairs(Spawners.MercCamps[hPlayerHero:GetTeam()]) do
-			print("Giving Player " .. tostring(hPlayerHero:GetPlayerOwnerID()) .. " shared control of " .. tostring(key))
+			--print("Giving Player " .. tostring(hPlayerHero:GetPlayerOwnerID()) .. " shared control of " .. tostring(key))
 			value:SetControllableByPlayer(hPlayerHero:GetPlayerOwnerID(), false)
 		end
 	end
@@ -1114,8 +1114,8 @@ end
 -- TALENTS
 -- =================================
 
-LinkLuaModifier( "modifier_talent_parry", "heroes/robin_hood/modifier_talent_parry.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_talent_bonus_range", "heroes/robin_hood/modifier_talent_bonus_range.lua", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier( "modifier_talent_parry", "heroes/robin_hood/modifier_talent_parry.lua", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier( "modifier_talent_bonus_range", "heroes/robin_hood/modifier_talent_bonus_range.lua", LUA_MODIFIER_MOTION_NONE )
 
 -- event: dota_player_learned_ability
 -- > PlayerID: PlayerID

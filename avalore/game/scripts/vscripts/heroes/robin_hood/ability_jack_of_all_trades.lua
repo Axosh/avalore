@@ -101,6 +101,12 @@ end
 function ability_jack_of_all_trades:OnUpgrade()
 	if self.modifier then
 		self.modifier:ForceRefresh()
+    else
+        -- start in ranged form
+        self.modifier = self:GetCaster():AddNewModifier(self:GetCaster(),
+                                                        self,
+                                                        "modifier_jack_of_all_trades_ranged",
+                                                        {})
 	end
 end
 
@@ -147,41 +153,15 @@ end
 
 function modifier_jack_of_all_trades_ranged:OnCreated(kv)
     --print("[modifier_jack_of_all_trades_ranged] Started OnCreated")
+    
+    self.bonus_range   = self:GetAbility():GetSpecialValueFor("ranged_bonus_range")
+    -- factor in talent if they have it
+    self.bonus_range = self.bonus_range + self:GetCaster():FindTalentValue("talent_bonus_range", "bonus_range")
+--        print("bonus range => " .. tostring(self.bonus_range))
+    self.bonus_ms = 0
+    self.range      = 600--self:GetParent():GetBaseAttackRange()
     if IsServer() then
-        self.bonus_range   = self:GetAbility():GetSpecialValueFor("ranged_bonus_range")
-        -- factor in talent if they have it
-        self.bonus_range = self.bonus_range + self:GetCaster():FindTalentValue("talent_bonus_range", "bonus_range")
-        self.bonus_ms = 0
-        self.range      = 600--self:GetParent():GetBaseAttackRange()
-        --print("[modifier_jack_of_all_trades_ranged] parent = " .. self:GetParent():GetName())
-        --print("[modifier_jack_of_all_trades_ranged] Current Attack Cap = " .. self:GetParent():GetAttackCapability())
-        --print("[modifier_jack_of_all_trades_ranged] printing DOTA_UNIT_CAP_RANGED_ATTACK ==> " .. tostring(DOTA_UNIT_CAP_RANGED_ATTACK))
         self:GetParent():SetAttackCapability( DOTA_UNIT_CAP_RANGED_ATTACK )
-
-        -- Drawing the cosmetic/wearable is all handled in modifier_wearable
-
-        --self:GetParent().weapon_model:RemoveEffects(EF_NODRAW)
-        -- self:GetParent().weapon_model:RemoveEffects(EF_NODRAW)
-        -- self:GetParent().weapon_model_alt:AddEffects(EF_NODRAW)
-        
-        --CosmeticLib:RemoveFromSlot(self:GetParent(), DOTA_LOADOUT_TYPE_WEAPON)
-        -- self:GetParent().weapon_model:RemoveSelf()
-        -- self:GetParent().weapon_model = nil
-        -- local unit = self:GetParent()
-        -- -- Longbow of the Roving Pathfinder (DOTA_LOADOUT_TYPE_WEAPON)
-        -- --local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"})
-        -- --SomeModel:FollowEntity(self:GetParent(), true)
-        -- local wearable = "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"
-        -- local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
-        -- --local cosmetic = CreateUnitByNameAsync("wearable_dummy", unit:GetAbsOrigin(), false, unit, nil, unit:GetTeam(), nil)
-		-- cosmetic:SetOriginalModel(wearable)
-		-- cosmetic:SetModel(wearable)
-        -- cosmetic:AddNewModifier(cosmetic, nil, "modifier_wearable_temp_invis", {isCosmetic = true})
-		-- cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
-		-- cosmetic:SetParent(unit, nil)
-        -- cosmetic:FollowEntity(unit, true)
-        -- cosmetic:SetOwner(unit)
-        -- self:GetParent().weapon_model = cosmetic
     end
 end
 
@@ -242,63 +222,16 @@ function modifier_jack_of_all_trades_melee:GetModifierAttackRangeBonus()
 end
 
 function modifier_jack_of_all_trades_melee:OnCreated(kv)
-    --print("[modifier_jack_of_all_trades_melee] Started OnCreated")
-    if IsServer() then
-        self.bonus_ms   = self:GetAbility():GetSpecialValueFor("melee_bonus_move_speed")
-        self.range      = MELEE_ATTACK_RANGE
-        self:GetParent():SetAttackCapability( DOTA_UNIT_CAP_MELEE_ATTACK )
-        self.bonus_armor = self:GetCaster():FindTalentValue("talent_parry", "bonus_armor")
+    
+    self.bonus_ms   = self:GetAbility():GetSpecialValueFor("melee_bonus_move_speed")
+    self.range      = MELEE_ATTACK_RANGE
+    self.bonus_armor = self:GetCaster():FindTalentValue("talent_parry", "bonus_armor")
+    if not IsServer() then return end
+    self:GetParent():SetAttackCapability( DOTA_UNIT_CAP_MELEE_ATTACK )
+end
 
-
-        -- self:OnIntervalThink()
-	    -- self:StartIntervalThink(FrameTime())
-
-        -- Drawing the cosmetic/wearable is all handled in modifier_wearable
-
-        -- self:GetParent().weapon_model:AddEffects(EF_NODRAW)
-        -- self:GetParent().weapon_model_alt:RemoveEffects(EF_NODRAW)
-
-        --CosmeticLib:RemoveFromSlot(self:GetParent(), DOTA_LOADOUT_TYPE_WEAPON)
-        -- self:GetParent().weapon_model:RemoveSelf()
-        -- self:GetParent().weapon_model = nil
-        -- No-Guard the Courageous Edge (DOTA_LOADOUT_TYPE_WEAPON) -- Juggernaut Weapon
-        --local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/juggernaut/brave_sword.vmdl"})
-
-        --local SomeModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl"})
-        --SomeModel:SetLocalScale(0.75)
-
-        -- print ("========[BEFORE]=========")
-        -- print("Forward Vector = " .. DebugVector(SomeModel:GetForwardVector()))
-        -- print("Local Origin = " .. DebugVector(SomeModel:GetLocalOrigin()))
-        -- print ("=========================")
-        -- SomeModel:SetForwardVector(self:GetParent():GetForwardVector() * Vector(-1,-1,1))
-        -- SomeModel:SetLocalOrigin(Vector(100,100,100))
-        -- print ("========[AFTER]=========")
-        -- print("Forward Vector = " .. DebugVector(SomeModel:GetForwardVector()))
-        -- print("Local Origin = " .. DebugVector(SomeModel:GetLocalOrigin()))
-        -- print ("=========================")
-        --SomeModel:FollowEntity(self:GetParent(), true)
-        -- print ("========[FOLLOW]=========")
-        -- print("Forward Vector = " .. DebugVector(SomeModel:GetForwardVector()))
-        -- print("Local Origin = " .. DebugVector(SomeModel:GetLocalOrigin()))
-        -- print ("=========================")
-        -- local unit = self:GetParent()
-        -- local wearable = "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl"
-
-        
-
-        -- local cosmetic = CreateUnitByName("wearable_dummy", unit:GetAbsOrigin(), false, nil, nil, unit:GetTeam())
-        -- --local cosmetic = CreateUnitByNameAsync("wearable_dummy", unit:GetAbsOrigin(), false, unit, nil, unit:GetTeam(), nil)
-		-- cosmetic:SetOriginalModel(wearable)
-		-- cosmetic:SetModel(wearable)
-        -- cosmetic:AddNewModifier(cosmetic, nil, "modifier_wearable_temp_invis", {isCosmetic = true})
-		-- cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {})
-		-- cosmetic:SetParent(unit, nil)
-        -- cosmetic:FollowEntity(unit, true)
-        -- cosmetic:SetOwner(unit)
-        -- self:GetParent().weapon_model = cosmetic
-        --self:GetParent().weapon_model = SomeModel
-    end
+function modifier_jack_of_all_trades_melee:OnRefresh()
+    self:OnCreated()
 end
 
 -- function modifier_jack_of_all_trades_melee:OnIntervalThink()
