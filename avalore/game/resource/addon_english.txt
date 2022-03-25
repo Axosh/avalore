@@ -24,6 +24,7 @@
 		// Heroes
 		//--------------------------------------------------------------------------------
 		"npc_dota_hero_kunkka" 									"Davy Jones"
+		"npc_dota_hero_kunkka_description" 						"The metaphorical sailor's devil who holds the souls of deceased sailors in his Locker."
 		"npc_dota_hero_keeper_of_the_light"						"Merlin"
 		"npc_dota_hero_rubick"									"Debuggy Boi"
 		"npc_dota_hero_windrunner"								"Robin Hood"
@@ -105,10 +106,12 @@
 		// ==============================================
 		// Deadly Fog - Ability + Modifiers
 		"DOTA_Tooltip_Ability_ability_deadly_fog"						"Deadly Fog"
-		"DOTA_Tooltip_Ability_ability_deadly_fog_Description"			"Invisibility\nAoE Damage"
+		"DOTA_Tooltip_Ability_ability_deadly_fog_Description"			"AoE Magic Damage in a radius around Davy Jones that also provides <font color=\"#b24bf2\">Invisibility</font>"
 		"DOTA_Tooltip_Ability_ability_deadly_fog_Lore" 					"A thick and deadly localized fog masks Davy Jones from his enemies."
 		"DOTA_Tooltip_Ability_ability_deadly_fog_radius"				"FOG RADIUS:"
 		"DOTA_Tooltip_Ability_ability_deadly_fog_damage"				"DAMAGE:"
+		"DOTA_Tooltip_Ability_ability_deadly_fog_damage_interval"		"DAMAGE INTERVAL: "
+		"DOTA_Tooltip_Ability_ability_deadly_fog_duration"				"DURATION: "
 
 		"DOTA_Tooltip_modifier_deadly_fog_invis"						"Deadly Fog Invisibility"
 		"DOTA_Tooltip_modifier_deadly_fog_invis_Description"			"Invisible after a 3 second delay (reset by attacking)"
@@ -166,7 +169,7 @@
 		"DOTA_Tooltip_Ability_talent_spectral_empowerment_description"	"Lost Souls: +2 damage per soul"
 
 		"DOTA_Tooltip_Ability_talent_rough_waves"						"Rough Waves"
-		"DOTA_Tooltip_Ability_talent_rough_waves_description"						"Riptide: +200 damage"
+		"DOTA_Tooltip_Ability_talent_rough_waves_description"			"Riptide: +{s:bonus_nuke_damage} damage"
 
 		"DOTA_Tooltip_Ability_talent_dead_never_die"					"What is Dead May Never Die"
 		"DOTA_Tooltip_Ability_talent_dead_never_die_description"		"Flying Dutchman: Pirate Ghosts restore Davy Jones' HP when they return based on 25% of the damage they dealt"
