@@ -8,7 +8,7 @@ LinkLuaModifier( "modifier_talent_riptide_cast_range", "heroes/davy_jones/modifi
 
 function ability_riptide:GetCastRange(location, taget)
 	local range = self:GetSpecialValueFor("cast_range") + self:GetCaster():FindTalentValue("talent_riptide_cast_range", "cast_range_increase")
-	print("Cast Range = > " .. tostring(range))
+	--print("Cast Range = > " .. tostring(range))
 	return range
 end
 
@@ -110,13 +110,13 @@ function ability_riptide:OnProjectileHit_ExtraData( target, location, data )
 							"modifier_wet", -- modifier name
 							{}) --kv
 
-    local vision = 200
+    local vision = self:GetSpecialValueFor( "vision" )
     local max_dist = self:GetSpecialValueFor( "knockback_distance_max" )
 
-	local duration = 2
+	local duration = self:GetSpecialValueFor( "knockback_duration" )
 	if target:GetTeam() == self:GetCaster():GetTeam() then
 		if self:GetCaster():HasTalent("talent_surf") then
-			duration = 0.35 -- basically a result of experimentation of "what looks right"
+			duration =  self:GetCaster():FindTalentValue("talent_surf", "displacement_time") -- basically a result of experimentation of "what looks right"
 		end
 	end
 

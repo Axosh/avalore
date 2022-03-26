@@ -42,6 +42,7 @@ function modifier_deadly_fog_invis:OnCreated()
     self.caster = self:GetCaster()
 	self.ability = self:GetAbility()
 	self.parent = self:GetParent()
+    self.invis_fade = self:GetAbility():GetSpecialValueFor("invis_fade_time")
 
 	local particle = ParticleManager:CreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf", PATTACH_ABSORIGIN, self:GetParent())
     ParticleManager:ReleaseParticleIndex(particle)
@@ -55,7 +56,7 @@ function modifier_deadly_fog_invis:OnAttack(keys)
         -- Only apply if the parent is the one attacking
         if self.parent == attacker then
             --print("[modifier_deadly_fog_invis] OnAttack")
-            self:SetStackCount(3)
+            self:SetStackCount(self.invis_fade)
         end
     end
 end
@@ -65,7 +66,7 @@ function modifier_deadly_fog_invis:OnAbilityFullyCast(keys)
         local caster = keys.unit
         -- Only apply if the parent is the one attacking
         if self.parent == caster then
-            self:SetStackCount(3)
+            self:SetStackCount(self.invis_fade)
         end
     end
 end

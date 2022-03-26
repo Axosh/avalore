@@ -106,9 +106,11 @@ function modifier_wearable:OnIntervalThink()
 			end
 		else
 			if not cosmetic:HasModifier(v) then
+				local mod = hero:FindModifierByName(v)
 				print("Adding Modifier " .. tostring(v) .. " to " .. cosmetic:GetName() .. " for " .. hero:GetName())
-				cosmetic:AddNewModifier(cosmetic, nil, v, {isCosmetic = true})
-				break -- remove this break if you want to add multiple modifiers at the same time
+				-- need to make sure we include the ability so that it can pull SpecialValues
+				cosmetic:AddNewModifier(cosmetic, mod:GetAbility(), v, {isCosmetic = true})
+				break
 			end
 		end
 		-- monitor stacks since a lot of those are used for tracking countdowns to invis

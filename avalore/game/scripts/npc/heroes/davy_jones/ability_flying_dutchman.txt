@@ -50,11 +50,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"radius"				"700 700 700 700"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spirits"				"4 12 21 32"
-			}
+			// "02"
+			// {
+			// 	"var_type"				"FIELD_INTEGER"
+			// 	"spirits"				"4 12 21 32"
+			// }
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -73,22 +73,23 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"min_damage"			"53 53 53 53"
+				"min_damage"			"53 55 58"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"max_damage"			"58 58 58 58"
+				"max_damage"			"53 55 58"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"heal_percent"			"25 25 25 25"
+				"heal_percent"			"25 25 25" // just leaving this here because it doesn't seem to display right in the tooltip otherwise
+				"LinkedSpecialBonus" 	"talent_dead_never_die"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"average_damage"		"55 55 55 55"
+				"average_damage"		"53 55 58"
 			}
 			// Extra
 			"10"

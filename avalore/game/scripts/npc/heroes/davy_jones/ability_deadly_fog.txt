@@ -53,6 +53,11 @@
                 "radius"				"500 550 600 650"
                 "LinkedSpecialBonus"    "talent_blinding_fog"
             }
+            "03"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "invis_fade_time"		"3.0"
+            }
             // "03"
             // {
             //     "var_type"				"FIELD_FLOAT"

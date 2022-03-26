@@ -112,70 +112,83 @@
 		"DOTA_Tooltip_Ability_ability_deadly_fog_damage"				"DAMAGE:"
 		"DOTA_Tooltip_Ability_ability_deadly_fog_damage_interval"		"DAMAGE INTERVAL: "
 		"DOTA_Tooltip_Ability_ability_deadly_fog_duration"				"DURATION: "
+		"DOTA_Tooltip_Ability_ability_deadly_fog_invis_fade_time"		"FADE TIME: "
 
 		"DOTA_Tooltip_modifier_deadly_fog_invis"						"Deadly Fog Invisibility"
-		"DOTA_Tooltip_modifier_deadly_fog_invis_Description"			"Invisible after a 3 second delay (reset by attacking)"
+		"DOTA_Tooltip_modifier_deadly_fog_invis_Description"			"Invisible after a delay (reset by attacking)"
 
 		"DOTA_Tooltip_modifier_deadly_fog"								"Deadly Fog Damage"
 		"DOTA_Tooltip_modifier_deadly_fog_Description"					"Dealing damage in an AOE"
 
 		// Riptide
-		"DOTA_Tooltip_Ability_ability_riptide"							"Riptide"
-		"DOTA_Tooltip_Ability_ability_riptide_description"				"Creates a vector-targeted projectile that deals damage and applies a knockback in the targeted direction"
-		"DOTA_Tooltip_Ability_ability_riptide_riptide_damge"			"DAMAGE"
+		"DOTA_Tooltip_Ability_ability_riptide"								"Riptide"
+		"DOTA_Tooltip_Ability_ability_riptide_description"					"Creates a <font color=\"#4bf250\">vector-targeted</font> projectile that deals damage and applies a <font color=\"#e9f24b\">knockback</font> in the targeted direction.\nApplies the <font color=\"#f25ed2\">Wet Modifier</font> to enemies hit."
+		"DOTA_Tooltip_Ability_ability_riptide_riptide_damge"				"DAMAGE: "
+		"DOTA_Tooltip_Ability_ability_riptide_projectile_speed"				"PROJECTILE SPEED: "
+		"DOTA_Tooltip_Ability_ability_riptide_projectile_aoe"				"PROJECTILE AOE: "
+		"DOTA_Tooltip_Ability_ability_riptide_cast_range"					"CAST RANGE: "
+		"DOTA_Tooltip_Ability_ability_riptide_knockback_distance_max"		"KNOCKBACK MAX: "
+		"DOTA_Tooltip_Ability_ability_riptide_knockback_duration"			"KNOCKBACK DURATION: "
+		"DOTA_Tooltip_Ability_ability_riptide_vision"						"VISION RADIUS: "
 
 		// Whirlpool - Ability + Modifiers
-		"DOTA_Tooltip_Ability_ability_whirlpool"						"Whirlpool"
-		"DOTA_Tooltip_Ability_ability_whirlpool_Description"			"Creates a whirlpool that sucks enemies towards the center with increasing pull"
-		"DOTA_Tooltip_Ability_ability_whirlpool_Lore"					"lore"
-		"DOTA_Tooltip_Ability_ability_whirlpool_radius"					"radius"
-		"DOTA_Tooltip_Ability_ability_whirlpool_damage"					"damage"
+		// "DOTA_Tooltip_Ability_ability_whirlpool"						"Whirlpool"
+		// "DOTA_Tooltip_Ability_ability_whirlpool_Description"			"Creates a whirlpool that sucks enemies towards the center with increasing pull"
+		// "DOTA_Tooltip_Ability_ability_whirlpool_Lore"					"lore"
+		// "DOTA_Tooltip_Ability_ability_whirlpool_radius"					"radius"
+		// "DOTA_Tooltip_Ability_ability_whirlpool_damage"					"damage"
 
-		"DOTA_Tooltip_modifier_ability_whirlpool_pull"					"Whirlpool"
-		"DOTA_Tooltip_modifier_ability_whirlpool_pull_Description"		"Being sucked into a whirlpool!"
+		// "DOTA_Tooltip_modifier_ability_whirlpool_pull"					"Whirlpool"
+		// "DOTA_Tooltip_modifier_ability_whirlpool_pull_Description"		"Being sucked into a whirlpool!"
 
 		// Lost Souls - Ability + Modifiers
-		"DOTA_Tooltip_Ability_ability_lost_souls"						"Lost Souls"
-		"DOTA_Tooltip_Ability_ability_lost_souls_Description"			"For every kill, gains one soul for his ghost crew granting additional damage and affecting his ultimate"
-		"DOTA_Tooltip_Ability_ability_lost_souls_Lore"					"lore"
-		"DOTA_Tooltip_Ability_ability_lost_souls_radius"				"radius"
-		"DOTA_Tooltip_Ability_ability_lost_souls_damage"				"damage"
+		"DOTA_Tooltip_Ability_ability_lost_souls"							"Lost Souls"
+		"DOTA_Tooltip_Ability_ability_lost_souls_Description"				"For every kill, gains one soul for his ghost crew granting additional damage and affecting his ultimate"
+		"DOTA_Tooltip_Ability_ability_lost_souls_Lore"						"Each Lost Soul joins Davy Jones' Locker, becoming part of the ghost crew of the Flying Dutchman"
+		"DOTA_Tooltip_Ability_ability_lost_souls_creep_kill_soul_count"		"SOULS PER CREEP KILL: "
+		"DOTA_Tooltip_Ability_ability_lost_souls_hero_kill_soul_count"		"SOULS PER HERO KILL: "
+		"DOTA_Tooltip_Ability_ability_lost_souls_damage_per_soul"			"BONUS DAMAGE PER SOUL: "
+		"DOTA_Tooltip_Ability_ability_lost_souls_max_souls"					"MAX SOULS: "
+		"DOTA_Tooltip_Ability_ability_lost_souls_souls_lost_on_death_pct"	"%SOULS LOST ON DEATH:"
 
-		"DOTA_Tooltip_modifier_lost_souls"								"Lost Souls"
-		"DOTA_Tooltip_modifier_lost_souls_Description"					"Gaining damage per stack and unleashing the same number of ghosts when the Flying Dutchman is summoned"
+		"DOTA_Tooltip_modifier_lost_souls"									"Lost Souls"
+		"DOTA_Tooltip_modifier_lost_souls_Description"						"Gaining damage per stack (total of %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%) and unleashing the same number of ghosts when the Flying Dutchman is summoned"
 
 		// Flying Dutchman - Ability
-		"DOTA_Tooltip_Ability_ability_flying_dutchman"					"Flying Dutchman"
-		"DOTA_Tooltip_Ability_ability_flying_dutchman_Description"		"Summons his ghostly vessel, the Flying Dutchman. For every stack of Lost Souls, a ghostly crewman will appear and fight"
-		"DOTA_Tooltip_Ability_ability_flying_dutchman_Lore"				"lore"
-		"DOTA_Tooltip_Ability_ability_flying_dutchman_radius"			"radius"
-		"DOTA_Tooltip_Ability_ability_flying_dutchman_damage"			"damage"
+		"DOTA_Tooltip_Ability_ability_flying_dutchman"							"Flying Dutchman"
+		"DOTA_Tooltip_Ability_ability_flying_dutchman_Description"				"Summons his ghostly vessel, the Flying Dutchman. For every stack of <font color=\"#5c94d2\">LOST SOULS</font>, a ghostly crewman will appear and fight"
+		"DOTA_Tooltip_Ability_ability_flying_dutchman_Lore"						"Originally a separate mythos, but fused with the Davy Jones lore by the 'Pirates of the Caribbean' Disney franchise"
+		"DOTA_Tooltip_Ability_ability_flying_dutchman_average_damage"			"GHOST DAMAGE: "
+		"DOTA_Tooltip_Ability_ability_flying_dutchman_min_time_between_attacks"	"MIN TIME BETWEEN GHOST ATTACKS: "
+		"DOTA_Tooltip_Ability_ability_flying_dutchman_duration"					"DURATION: "
+		"DOTA_Tooltip_Ability_ability_flying_dutchman_max_distance"				"MAX GHOST ATTACK RANGE: "
+		"DOTA_Tooltip_Ability_ability_flying_dutchman_heal_percent"				"%HEAL PERCENT (TALENT): "
 
 		// TALENTS
 		"DOTA_Tooltip_Ability_talent_blinding_fog"						"Blinding Fog"
-		"DOTA_Tooltip_Ability_talent_blinding_fog_description"			"Deadly Fog spreads an additional 300 radius and causes enemies caught within it to have their vision reduced to 100"
+		"DOTA_Tooltip_Ability_talent_blinding_fog_description"			"Deadly Fog spreads an additional {s:bonus_radius} radius and causes enemies caught within it to have their vision reduced to {s:reduced_vision_radius}"
 		"DOTA_Tooltip_modifier_blinding_fog_aura"						"Blinding Fog"
 		"DOTA_Tooltip_modifier_blinding_fog_aura_description"			"Dramatically reduced vision for enemies within range"
 
 		"DOTA_Tooltip_Ability_talent_noxious_fog"						"Noxious Fog"
-		"DOTA_Tooltip_Ability_talent_noxious_fog_description"			"Deadly Fog deals additional damage as a percentage of max health (2% max HP/sec)"
+		"DOTA_Tooltip_Ability_talent_noxious_fog_description"			"Deadly Fog deals additional damage as a percentage of max health ({s:damage_percent}% max HP/sec)"
 
 		"DOTA_Tooltip_Ability_talent_surf"								"Surf"
-		"DOTA_Tooltip_Ability_talent_surf_description"					"Riptide will also displace allies over a shortened period of travel time (0.35s) without dealing damage to them."
+		"DOTA_Tooltip_Ability_talent_surf_description"					"Riptide will also displace allies over a shortened period of travel time ({s:displacement_time}s) without dealing damage to them."
 
-		"DOTA_Tooltip_Ability_talent_riptide_cast_range"				"+400 Riptide Cast Range"
+		"DOTA_Tooltip_Ability_talent_riptide_cast_range"				"+{s:cast_range_increase} Riptide Cast Range"
 
 		"DOTA_Tooltip_Ability_talent_spectral_empowerment"				"Spectral Empowerment"
-		"DOTA_Tooltip_Ability_talent_spectral_empowerment_description"	"Lost Souls: +2 damage per soul"
+		"DOTA_Tooltip_Ability_talent_spectral_empowerment_description"	"Lost Souls: +{s:bonus_per_soul} damage per soul"
 
 		"DOTA_Tooltip_Ability_talent_rough_waves"						"Rough Waves"
 		"DOTA_Tooltip_Ability_talent_rough_waves_description"			"Riptide: +{s:bonus_nuke_damage} damage"
 
 		"DOTA_Tooltip_Ability_talent_dead_never_die"					"What is Dead May Never Die"
-		"DOTA_Tooltip_Ability_talent_dead_never_die_description"		"Flying Dutchman: Pirate Ghosts restore Davy Jones' HP when they return based on 25% of the damage they dealt"
+		"DOTA_Tooltip_Ability_talent_dead_never_die_description"		"Flying Dutchman: Pirate Ghosts restore Davy Jones' HP when they return based on {s:heal_percent}% of the damage they dealt"
 
 		"DOTA_Tooltip_Ability_talent_cannons"							"Naval Artillery"
-		"DOTA_Tooltip_Ability_talent_cannons_description"				"Flying Dutchman: Every 2 seconds, fires a cannon ball dealing 200 PHYSICAL damage to any BUILDING in 800 range"
+		"DOTA_Tooltip_Ability_talent_cannons_description"				"Flying Dutchman: Every {s:attack_interval} seconds, fires a cannon ball dealing {s:damage} PHYSICAL damage to any BUILDING in {s:range} range"
 
 		"DOTA_Tooltip_modifier_talent_cannons_buff"						"Naval Artillery"
 		"DOTA_Tooltip_modifier_talent_cannons_buff_description"			"Firing cannons at nearby buildings"

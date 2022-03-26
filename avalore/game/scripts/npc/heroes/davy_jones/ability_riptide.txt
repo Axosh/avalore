@@ -78,6 +78,16 @@
 				"riptide_damge"			"80 120 160 200"
 				"LinkedSpecialBonus" 	"talent_rough_waves"
 			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"vision"			"200"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"knockback_duration"	"2"
+			}
         }
     }
 }

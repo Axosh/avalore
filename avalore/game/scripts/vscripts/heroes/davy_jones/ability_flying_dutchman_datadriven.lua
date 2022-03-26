@@ -106,7 +106,7 @@ function ExorcismPhysics( event )
 	local average_damage = ability:GetLevelSpecialValueFor( "average_damage", ability:GetLevel() - 1 )
 	local give_up_distance = ability:GetLevelSpecialValueFor( "give_up_distance", ability:GetLevel() - 1 )
 	local max_distance = ability:GetLevelSpecialValueFor( "max_distance", ability:GetLevel() - 1 )
-	local heal_percent = ability:GetLevelSpecialValueFor( "heal_percent", ability:GetLevel() - 1 ) * 0.01
+	local heal_percent = (ability:GetLevelSpecialValueFor( "heal_percent", ability:GetLevel() - 1 ) + (event.caster):FindTalentValue("talent_dead_never_die", "heal_percent")) * 0.01
 	local min_time_between_attacks = ability:GetLevelSpecialValueFor( "min_time_between_attacks", ability:GetLevel() - 1 )
 	local abilityDamageType = ability:GetAbilityDamageType()
 	local abilityTargetType = ability:GetAbilityTargetType()
