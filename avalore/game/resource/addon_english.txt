@@ -202,7 +202,7 @@
 		"DOTA_Tooltip_Ability_ability_jack_of_all_trades_melee_range"				"MELEE RANGE: "
 		"DOTA_Tooltip_Ability_ability_jack_of_all_trades_melee_bonus_move_speed"	"MELEE MOVE SPEED BONUS: "
 		"DOTA_Tooltip_Ability_ability_jack_of_all_trades_ranged_bonus_range"		"RANGED FORM BONUS RANGE: "
-		"DOTA_Tooltip_Ability_ability_jack_of_all_trades_Lore"						"Robin Hood was a well regarded swordsman and archer"
+		"DOTA_Tooltip_Ability_ability_jack_of_all_trades_Lore"						"Robin Hood was both a highly skilled swordsman and archer in folklore"
 
 		"DOTA_Tooltip_modifier_jack_of_all_trades_melee"				"Swordsman"
 		"DOTA_Tooltip_modifier_jack_of_all_trades_melee_description"	"Providing %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% ms and %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor"
@@ -210,10 +210,20 @@
 		"DOTA_Tooltip_modifier_jack_of_all_trades_ranged_description"	"Providing %dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS% bonus range"
 
 		"DOTA_Tooltip_Ability_ability_rich_poor"						"Steal From the Rich/Give to the Poor"
+		"DOTA_Tooltip_Ability_ability_rich_poor_Lore"					"Considered a Heroic Outlaw, Robin Hood is best known for tales of robbing the rich and giving to the poor."
+		"DOTA_Tooltip_Ability_ability_rich_poor_description"			"When off cooldown, next attack will trigger <font color=\"#b24bf2\">invisibility</font>. If target was an enemy hero, will also <font color=\"#ff3033\">steal</font> <font color=\"#ffc130\">gold</font>.<br />When Toggled On - Stolen Gold Goes to Robin Hood<br />When Toggled Off - Stolen Gold Goes to Lowest Networth Ally (including Robin Hood)"
+		"DOTA_Tooltip_Ability_ability_rich_poor_gold_steal"				"GOLD STOLEN: "
+		"DOTA_Tooltip_Ability_ability_rich_poor_escape_time"			"INVISIBILITY DURATION: "
+		"DOTA_Tooltip_Ability_ability_rich_poor_virtual_cooldown"		"COOLDOWN: "
 
 		"DOTA_Tooltip_Ability_ability_swashbuckle"						"Swashbuckle"
-
-		"DOTA_Tooltip_Ability_ability_avalore_grappling_hook"           "Grappling Hook"
+		"DOTA_Tooltip_Ability_ability_swashbuckle_description"			"<font color=\"#4bf250\">Vector-Targeted</font> <font color=\"#e9f24b\">dash</font> that performs a number of special <font color=\"#ff3033\">physical</font> attacks in a line at the end."
+		"DOTA_Tooltip_Ability_ability_swashbuckle_Lore"					"Often shown at a sword-weilding yeoman in folklore, and a skilled swordsman at that."
+		"DOTA_Tooltip_Ability_ability_swashbuckle_range"				"RANGE: "
+		"DOTA_Tooltip_Ability_ability_swashbuckle_dash_speed"			"DASH SPEED: "
+		"DOTA_Tooltip_Ability_ability_swashbuckle_damage"				"STRIKE DAMAGE: "
+		"DOTA_Tooltip_Ability_ability_swashbuckle_strikes"				"STRIKES: "
+		"DOTA_Tooltip_Ability_ability_swashbuckle_attack_interval"		"STRIKE INTERVAL: "
 
 		"DOTA_Tooltip_Ability_ability_avalore_marksmanship"             "Marksmanship"
 		"DOTA_Tooltip_Ability_ability_avalore_marksmanship_Description"	"Robin Hood hits an opponent in the exact same spot, each time inflicting bonus damage."
@@ -222,13 +232,25 @@
 		"DOTA_Tooltip_Ability_ability_avalore_marksmanship_damage_per_stack"	"DAMAGE PER STACK: "
 		"DOTA_Tooltip_Ability_ability_avalore_marksmanship_bonus_reset_time"	"STACK RESET TIME: "
 
-		"DOTA_Tooltip_modifier_avalore_marksmanship"					"Marksmanship Buff"
-		"DOTA_Tooltip_modifier_marksmanship_debuff"						"Marksmanship Debuff"
+		"DOTA_Tooltip_modifier_avalore_marksmanship"					"Marksmanship"
+		"DOTA_Tooltip_modifier_avalore_marksmanship_description"		"Successive shots on the same target provide stacking damage"
+
+		"DOTA_Tooltip_modifier_marksmanship_debuff"						"Marksman's Arrow"
+		"DOTA_Tooltip_modifier_marksmanship_debuff_Description"			"Each stack adding more damage to attacks coming from Robin Hood"
 
 		"DOTA_Tooltip_Ability_ability_shackleshot"             			"Shackleshot"
+		"DOTA_Tooltip_Ability_ability_shackleshot_description" 			"Fires a trick shot that shackles the target to a <font color=\"#0cb71b\">tree</font> or <font color=\"#ffffff\">unit</font> directly behind it. If nothing to latch to, then stun duration is reduced."
+		"DOTA_Tooltip_Ability_ability_shackleshot_fail_stun_duration"   "REDUCED STUN DURATION: "
+		"DOTA_Tooltip_Ability_ability_shackleshot_stun_duration"        "SUCCESS STUN DURATION: "
 
-		"DOTA_Tooltip_Ability_ability_grappling_hook"             		"Grappling Hook"
-		"DOTA_Tooltip_Ability_ability_grappling_hook_description"       "Fires a grappling hook that can latch on to trees and buildings"
+		"DOTA_Tooltip_Ability_ability_grappling_hook"           	"Grappling Hook"
+		"DOTA_Tooltip_Ability_ability_grappling_hook_description"   "Fires a grappling hook in a straight line that is able to latch onto <font color=\"#b75f0c\">buildings</font> and <font color=\"#0cb71b\">trees</font>."
+		"DOTA_Tooltip_Ability_ability_grappling_hook_Lore"   		"Modern adaptations of Robin Hood have expanded the toolkit into grapplings to scale buildings and trees."
+		"DOTA_Tooltip_Ability_ability_grappling_hook_range"         "RANGE: "
+		"DOTA_Tooltip_Ability_ability_grappling_hook_speed"        	"PROJECTILE SPEED: "
+
+		//"DOTA_Tooltip_Ability_ability_grappling_hook"             		"Grappling Hook"
+		//"DOTA_Tooltip_Ability_ability_grappling_hook_description"       "Fires a grappling hook that can latch on to trees and buildings"
 
 		// Talents
 		"DOTA_Tooltip_Ability_talent_chink_in_the_armor"				"Chink in the Armor"
@@ -504,5 +526,10 @@
 
 		"DOTA_Tooltip_modifier_conflagration"					"Conflagration"
 		"DOTA_Tooltip_modifier_conflagration_description"		"On fire and taking periodic Fire Damage!"
+
+		//***************
+		// GENERIC
+		//***************
+		"DOTA_Tooltip_modifier_avalore_stunned"					"Stunned"
 	}
 }

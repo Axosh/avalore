@@ -316,7 +316,7 @@ function FlagTrigger_OnStartTouch(trigger)
                 if(Score.flags[flag_letter].currTeamPossession ~= NPC:GetTeam()) then
                     Score.playerStats[NPC:GetPlayerOwnerID()].flag_captures = Score.playerStats[NPC:GetPlayerOwnerID()].flag_captures + 1
                     -- show a message to all
-                    objectiveMsg = "objective_flag" -- see addon_english.txt (panorama/localization)
+                    objectiveMsg = "#objective_flag" -- see addon_english.txt (panorama/localization)
                     local broadcast_obj =
                     {
                         msg = objectiveMsg,
