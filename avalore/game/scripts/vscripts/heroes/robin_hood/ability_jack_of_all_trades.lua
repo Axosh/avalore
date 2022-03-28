@@ -20,9 +20,9 @@ end
 
 function ability_jack_of_all_trades:GetAbilityTextureName()
     if self:GetToggleState() then
-        return "jack_of_all_trades_melee"
+        return "robin_hood/jack_of_all_trades_melee"
     else
-        return "jack_of_all_trades_ranged"
+        return "robin_hood/jack_of_all_trades_ranged"
     end
 end
 

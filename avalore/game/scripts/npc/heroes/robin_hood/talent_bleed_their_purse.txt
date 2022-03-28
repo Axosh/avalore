@@ -1,0 +1,37 @@
+"DOTAAbilities"
+{
+    "talent_bleed_their_purse"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbilty"
+        {
+            "01" "ability_rich_poor"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"                 "FIELD_FLOAT"
+                "reduction"                "0.33"
+            }
+            "02"
+			{
+                "var_type"                 "FIELD_FLOAT"
+                "duration"                "3"
+            }
+            "03"
+            {
+                 "var_type"                 "FIELD_INTEGER"
+                 "tooltip_reduction"        "33" // not sure if there's an easy way to format as percentage in-line
+            }
+        }
+    }
+}

@@ -99,3 +99,34 @@ function CAvaloreGameMode:OrderFilter(keys)
 
     return true
 end
+
+
+    -- ===============================================================================
+    -- Handle Special Cases Involving Gold
+    -- ===============================================================================
+	-- USAGE: Modify the table and Return true to use new values, return false to cancel the event
+	-- =============================================
+	-- ModifyGoldFilterEvent
+	-- * player_id_const: PlayerID
+	-- * reason_const: EDOTA_ModifyGold_Reason
+	-- * reliable: 0 | 1
+	-- * gold: uint
+	-- ============================================
+	function CAvaloreGameMode:GoldFilter(keys)
+		-- if keys.gold <= 0 then
+		-- 	return false
+		-- end
+
+		if PlayerResource:GetPlayer(keys.player_id_const) == nil then return end
+		local player = PlayerResource:GetPlayer(keys.player_id_const)
+		if player then
+			local hero = player:GetAssignedHero()
+			if hero == nil then return end
+
+			local mod_bleed_their_purse = hero:FindModifierByName("modifier_bleed_their_purse_debuff")
+			if mod_bleed_their_purse then
+				keys.gold = (keys.gold * (1 - mod_bleed_their_purse:GoldReduction()))
+				return true
+			end
+		end
+	end

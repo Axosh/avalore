@@ -6,7 +6,7 @@
 		//-------------------------------------------------------------------------------------------------------------
         "BaseClass"					"ability_lua"
         "AbilityType"				"DOTA_ABILITY_TYPE_BASIC"
-        "AbilityTextureName"		"grappling_hook"
+        "AbilityTextureName"		"robin_hood/grappling_hook"
         "ScriptFile"				"heroes/robin_hood/ability_grappling_hook.lua"
         "FightRecapLevel"			"1"
 		"MaxLevel"					"4"

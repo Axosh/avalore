@@ -6,7 +6,7 @@
 		//-------------------------------------------------------------------------------------------------------------
         "BaseClass"					"ability_lua"
         "AbilityType"				"DOTA_ABILITY_TYPE_BASIC"
-        "AbilityTextureName"		"avalore_marksmanship"
+        "AbilityTextureName"		"robin_hood/avalore_marksmanship"
         "ScriptFile"				"heroes/robin_hood/ability_avalore_marksmanship.lua"
         "FightRecapLevel"				"1"
         "MaxLevel"						"4"

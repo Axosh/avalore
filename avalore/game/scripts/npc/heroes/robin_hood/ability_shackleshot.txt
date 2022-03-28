@@ -11,7 +11,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/robin_hood/ability_shackleshot"
-		"AbilityTextureName"			"avalore_shackleshot"
+		"AbilityTextureName"			"robin_hood/avalore_shackleshot"
 		"FightRecapLevel"				"1"
 		"MaxLevel"						"4"
 		"precache"

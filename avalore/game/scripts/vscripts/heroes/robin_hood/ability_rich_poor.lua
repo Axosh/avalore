@@ -5,12 +5,13 @@ ability_rich_poor = ability_rich_poor or class({})
 
 LinkLuaModifier( "modifier_rich_poor", "heroes/robin_hood/ability_rich_poor", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_rogueish_escape", "heroes/robin_hood/ability_rich_poor", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_bleed_their_purse_debuff", "heroes/robin_hood/modifier_bleed_their_purse_debuff", LUA_MODIFIER_MOTION_NONE )
 
 function ability_rich_poor:GetAbilityTextureName()
     if self:GetToggleState() then
-        return "steal_from_rich"
+        return "robin_hood/steal_from_rich"
     else
-        return "give_to_poor"
+        return "robin_hood/give_to_poor"
     end
 end
 
@@ -131,6 +132,10 @@ function modifier_rich_poor:GetModifierProcAttack_Feedback( kv )
 
             -- escape modifier
             self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_rogueish_escape", {duration = self.escape_time})
+            if self:GetCaster():HasTalent("talent_bleed_their_purse") then
+                local debuff_dur = self:GetCaster():FindTalentValue("talent_bleed_their_purse", "duration")
+                kv.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_bleed_their_purse_debuff", {duration = debuff_dur})
+            end
             -- local player_num = self:GetParent():GetPlayerOwnerID()
             -- for key,value in pairs(CAvaloreGameMode.player_cosmetics[player_num]) do
             --     value:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_rogueish_escape", {duration = self.escape_time})

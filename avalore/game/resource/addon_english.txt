@@ -254,13 +254,19 @@
 
 		// Talents
 		"DOTA_Tooltip_Ability_talent_chink_in_the_armor"				"Chink in the Armor"
-		"DOTA_Tooltip_Ability_talent_chink_in_the_armor_description"	"Marksmanship: After landing 6 successive hits, applies a -7 armor debuff to the target"
+		"DOTA_Tooltip_Ability_talent_chink_in_the_armor_description"	"Marksmanship: After landing 6 successive hits, applies a -{s:armor_reduction} armor debuff to the target"
 
-		"DOTA_Tooltip_Ability_talent_bonus_range"						"+100 Range"
-		"DOTA_Tooltip_Ability_talent_bonus_range_Description"			"Jack of all Trades (Ranged): +100 Range"
+		"DOTA_Tooltip_Ability_talent_bonus_range"						"+{s:bonus_range} Range"
+		"DOTA_Tooltip_Ability_talent_bonus_range_Description"			"Jack of all Trades (Ranged): +{s:bonus_range} Range"
 
 		"DOTA_Tooltip_Ability_talent_parry"								"Parry"
-		"DOTA_Tooltip_Ability_talent_parry_Description"					"Jack of all Trades (Melee): +5 bonus armor"
+		"DOTA_Tooltip_Ability_talent_parry_Description"					"Jack of all Trades (Melee): +{s:bonus_armor} bonus armor"
+
+		"DOTA_Tooltip_Ability_talent_bleed_their_purse"					"Bleed Their Purse"
+		"DOTA_Tooltip_Ability_talent_bleed_their_purse_Description"					"Steal From the Rich/Give to the Poor: applies a debuff lasting {s:duration}s and reducing incoming gold by {s:tooltip_reduction}%"
+
+		"DOTA_Tooltip_modifier_bleed_their_purse_debuff"				"Bleed Their Purse"
+		"DOTA_Tooltip_modifier_bleed_their_purse_debuff_description"	"Incoming gold reduced by a percentage"
 
 		// ==============================================
 		// ===== DIONYSUS ====
