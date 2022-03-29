@@ -1,5 +1,8 @@
 modifier_swashbuckle = modifier_swashbuckle or class({})
 
+LinkLuaModifier( "modifier_swashbuckle_tracker_debuff", "heroes/robin_hood/modifier_swashbuckle_tracker_debuff.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_avalore_disarmed", "modifiers/modifier_avalore_disarmed", LUA_MODIFIER_MOTION_NONE )
+
 
 -- ==================================================
 -- ATTRIBUTES
@@ -34,6 +37,7 @@ function modifier_swashbuckle:OnCreated( kv )
 
 	-- set count
 	self.count = 0
+	self.targets = {}
 
 	-- Start interval
 	self:StartIntervalThink( self.interval )
@@ -89,6 +93,14 @@ function modifier_swashbuckle:OnIntervalThink()
 	for _,enemy in pairs(enemies) do
 		-- Attack
 		self:GetParent():PerformAttack( enemy, true, true, true, false, false, false, true )
+		if self:GetCaster():HasTalent("talent_disarm") then
+			if enemy:IsAlive() then
+				enemy:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_swashbuckle_tracker_debuff", {duration = 1.0})
+				if enemy:FindModifierByName("modifier_swashbuckle_tracker_debuff"):GetStackCount() == self.strikes then
+					enemy:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_avalore_disarmed", {duration = self:GetCaster():FindTalentValue("talent_disarm", "duration")})
+				end
+			end
+		end
 
 		-- play sound
 		local sound_target = "Hero_Pangolier.Swashbuckle.Damage"

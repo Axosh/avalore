@@ -4,7 +4,7 @@
     {
         "BaseClass"						"ability_lua"
         "ScriptFile"					"heroes/robin_hood/ability_jack_of_all_trades.lua"
-        "AbilityTextureName"			"robin_hoodjack_of_all_trades_ranged"
+        "AbilityTextureName"			"robin_hood/jack_of_all_trades_ranged"
         //"AbilityTextureName"			"jack_of_all_trades"
         "FightRecapLevel"				"1"
         "MaxLevel"						"4"

@@ -268,6 +268,9 @@
 		"DOTA_Tooltip_modifier_bleed_their_purse_debuff"				"Bleed Their Purse"
 		"DOTA_Tooltip_modifier_bleed_their_purse_debuff_description"	"Incoming gold reduced by a percentage"
 
+		"DOTA_Tooltip_Ability_talent_disarm"								"Disarm"
+		"DOTA_Tooltip_Ability_talent_disarm_description"					"Swashbuckle: when a unit is hit by every strike, they will be disarmed for {s:duration}s"
+
 		// ==============================================
 		// ===== DIONYSUS ====
 		// ==============================================
@@ -537,5 +540,6 @@
 		// GENERIC
 		//***************
 		"DOTA_Tooltip_modifier_avalore_stunned"					"Stunned"
+		"DOTA_Tooltip_modifier_avalore_disarmed"				"Disarmed"
 	}
 }
