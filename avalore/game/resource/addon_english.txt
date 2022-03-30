@@ -271,6 +271,9 @@
 		"DOTA_Tooltip_Ability_talent_disarm"								"Disarm"
 		"DOTA_Tooltip_Ability_talent_disarm_description"					"Swashbuckle: when a unit is hit by every strike, they will be disarmed for {s:duration}s"
 
+		"DOTA_Tooltip_Ability_talent_shackle_bolt"						"Shackle Bolt"
+		"DOTA_Tooltip_Ability_talent_shackle_bolt_description"			"Shackleshot: Can now shackle to buildings"
+
 		// ==============================================
 		// ===== DIONYSUS ====
 		// ==============================================

@@ -64,6 +64,11 @@ function ability_shackleshot:OnProjectileHit_ExtraData( target, location, ExtraD
 	local target_origin = target:GetOrigin()
 	local target_angle = VectorToAngles( target_origin-location ).y
 
+	local enemy_search = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+	if self:GetCaster():HasTalent("talent_shackle_bolt") then
+		enemy_search = enemy_search + DOTA_UNIT_TARGET_BUILDING
+	end
+
 	-- find nearby enemies
 	local enemies = FindUnitsInRadius(
 		self:GetCaster():GetTeamNumber(),	-- int, your team number
@@ -71,7 +76,7 @@ function ability_shackleshot:OnProjectileHit_ExtraData( target, location, ExtraD
 		nil,	-- handle, cacheUnit. (not known)
 		search_radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
 		DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
+		enemy_search,	-- int, type filter
 		0,	-- int, flag filter
 		FIND_CLOSEST,	-- int, order filter
 		false	-- bool, can grow cache

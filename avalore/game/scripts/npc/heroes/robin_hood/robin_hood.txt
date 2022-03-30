@@ -59,7 +59,7 @@
     "Ability12"                 "talent_chink_in_the_armor"
     "Ability13"                 "talent_bleed_their_purse"    
     "Ability14"                 "talent_disarm"
-    "Ability15"                 ""
+    "Ability15"                 "talent_shackle_bolt"
     "Ability16"                 ""        
     "Ability17"                 ""        
 

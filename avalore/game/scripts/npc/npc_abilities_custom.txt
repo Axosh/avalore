@@ -40,6 +40,7 @@
 #base "heroes/robin_hood/talent_chink_in_the_armor.txt"
 #base "heroes/robin_hood/talent_bleed_their_purse.txt"
 #base "heroes/robin_hood/talent_disarm.txt"
+#base "heroes/robin_hood/talent_shackle_bolt.txt"
 
 #base "heroes/dionysus/ability_over_indulge.txt"
 #base "heroes/dionysus/ability_allure_of_the_drink.txt"
