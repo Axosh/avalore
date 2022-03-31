@@ -1,6 +1,7 @@
 
 ability_grappling_hook = ability_grappling_hook or class({})
 LinkLuaModifier( "modifier_grappling_hook", "heroes/robin_hood/modifier_grappling_hook.lua", LUA_MODIFIER_MOTION_HORIZONTAL )
+LinkLuaModifier( "modifier_talent_escape_artist", "heroes/robin_hood/modifier_talent_escape_artist.lua", LUA_MODIFIER_MOTION_HORIZONTAL )
 
 function ability_grappling_hook:OnSpellStart()
     local caster = self:GetCaster()
@@ -8,7 +9,7 @@ function ability_grappling_hook:OnSpellStart()
 
 	-- load data
 	local projectile_speed = self:GetSpecialValueFor( "speed" )
-	local projectile_distance = self:GetSpecialValueFor( "range" )
+	local projectile_distance = self:GetSpecialValueFor( "range" ) + self:GetCaster():FindTalentValue("talent_escape_artist", "range_bonus")
 	local projectile_radius = self:GetSpecialValueFor( "radius" )
 	local projectile_direction = point-caster:GetOrigin()
 	projectile_direction.z = 0
@@ -26,12 +27,12 @@ function ability_grappling_hook:OnSpellStart()
 		Ability = self,
 		vSpawnOrigin = caster:GetAbsOrigin(),
 		
-	    bDeleteOnHit = false,
-	    
-	    EffectName = "",
-	    fDistance = projectile_distance,
-	    fStartRadius = projectile_radius,
-	    fEndRadius = projectile_radius,
+		bDeleteOnHit = false,
+
+		EffectName = "",
+		fDistance = projectile_distance,
+		fStartRadius = projectile_radius,
+		fEndRadius = projectile_radius,
 		vVelocity = projectile_direction * projectile_speed,
 	
 		bHasFrontalCone = false,
@@ -50,6 +51,14 @@ function ability_grappling_hook:OnSpellStart()
 		radius = tree_radius,
 	}
 	self.projectiles[ projectile ] = ExtraData
+end
+
+function ability_grappling_hook:GetCastRange(vLocation, hTarget)
+	return self:GetSpecialValueFor( "range" ) + self:GetCaster():FindTalentValue("talent_escape_artist", "range_bonus")
+end
+
+function ability_grappling_hook:GetCooldown(iLevel)
+	return self.BaseClass.GetCooldown(self, iLevel) - self:GetCaster():FindTalentValue("talent_escape_artist", "cooldown_reduction")
 end
 
 local function concatArray(a, b)

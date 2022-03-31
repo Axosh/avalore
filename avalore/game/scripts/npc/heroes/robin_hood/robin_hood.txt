@@ -60,7 +60,7 @@
     "Ability13"                 "talent_bleed_their_purse"    
     "Ability14"                 "talent_disarm"
     "Ability15"                 "talent_shackle_bolt"
-    "Ability16"                 ""        
+    "Ability16"                 "talent_escape_artist"        
     "Ability17"                 ""        
 
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"

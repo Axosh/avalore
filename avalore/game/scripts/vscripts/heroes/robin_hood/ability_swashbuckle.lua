@@ -3,6 +3,7 @@ ability_swashbuckle = ability_swashbuckle or class({})
 
 LinkLuaModifier( "modifier_knockback_avalore", "scripts/vscripts/modifiers/modifier_knockback_avalore", LUA_MODIFIER_MOTION_BOTH )
 LinkLuaModifier( "modifier_swashbuckle", "heroes/robin_hood/modifier_swashbuckle.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_disarm", "heroes/robin_hood/modifier_talent_disarm.lua", LUA_MODIFIER_MOTION_NONE )
 
 -- ==================================================
 -- Ability Phase Start

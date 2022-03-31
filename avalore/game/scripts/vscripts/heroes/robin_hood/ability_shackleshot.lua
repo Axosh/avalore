@@ -1,5 +1,6 @@
 ability_shackleshot = class({})
 LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_shackle_bolt", "heroes/robin_hood/modifier_talent_shackle_bolt", LUA_MODIFIER_MOTION_NONE )
 
 -- function ability_shackleshot:GetAbilityTextureName()	
 -- 	return "avalore_shackleshot"

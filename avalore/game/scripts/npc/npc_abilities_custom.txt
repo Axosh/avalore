@@ -7,9 +7,9 @@
 
 // Dota Heroes File
 
-// 
+// ===============================================================
 // DAVY JONES
-//
+// ===============================================================
 #base "heroes/davy_jones/ability_deadly_fog.txt"
 #base "heroes/davy_jones/ability_whirlpool.txt"
 #base "heroes/davy_jones/ability_riptide.txt"
@@ -25,9 +25,9 @@
 #base "heroes/davy_jones/talent_dead_never_die.txt"
 #base "heroes/davy_jones/talent_cannons.txt"
 
-//
+// ===============================================================
 // ROBIN HOOD
-//
+// ===============================================================
 #base "heroes/robin_hood/ability_jack_of_all_trades.txt"
 #base "heroes/robin_hood/ability_rich_poor.txt"
 #base "heroes/robin_hood/ability_swashbuckle.txt"
@@ -41,12 +41,19 @@
 #base "heroes/robin_hood/talent_bleed_their_purse.txt"
 #base "heroes/robin_hood/talent_disarm.txt"
 #base "heroes/robin_hood/talent_shackle_bolt.txt"
+#base "heroes/robin_hood/talent_escape_artist.txt"
 
+// ===============================================================
+// DIONYSUS
+// ===============================================================
 #base "heroes/dionysus/ability_over_indulge.txt"
 #base "heroes/dionysus/ability_allure_of_the_drink.txt"
 #base "heroes/dionysus/ability_maenadic_fervor.txt"
 #base "heroes/dionysus/ability_maenadic_frenzy.txt"
 
+// ===============================================================
+// ZEUS
+// ===============================================================
 #base "heroes/zeus/ability_lightning_bolt.txt"
 #base "heroes/zeus/ability_shapeshift.txt"
 #base "heroes/zeus/ability_eagle_cancel.txt"
@@ -57,22 +64,34 @@
 #base "heroes/zeus/talent_ride_the_stormwinds.txt"
 #base "heroes/zeus/talent_shapeshift_enemy_duration.txt"
 
+// ===============================================================
+// QUEZALCOATL
+// ===============================================================
 #base "heroes/quetzalcoatl/ability_fertile_winds.txt"
 #base "heroes/quetzalcoatl/ability_fertile_winds_cancel.txt"
 #base "heroes/quetzalcoatl/ability_flora_and_fauna.txt"
 #base "heroes/quetzalcoatl/ability_calmecac_patronage.txt"
 #base "heroes/quetzalcoatl/ability_quetzalcoatls_blessing.txt"
 
+// ===============================================================
+// GILGAMESH
+// ===============================================================
 #base "heroes/gilgamesh/ability_befriend_enkidu.txt"
 #base "heroes/gilgamesh/ability_gilgamesh_grapple.txt"
 #base "heroes/gilgamesh/ability_erect_wall.txt"
 #base "heroes/gilgamesh/ability_tyrant_king.txt"
 
+// ===============================================================
+// PECOS BILL
+// ===============================================================
 #base "heroes/pecos_bill/ability_coyote_howl.txt"
 #base "heroes/pecos_bill/ability_ride_a_twister.txt"
 #base "heroes/pecos_bill/ability_wrangle.txt"
 #base "heroes/pecos_bill/ability_gunslinger.txt"
 
+// ===============================================================
+// SUN WUKONG
+// ===============================================================
 #base "heroes/sun_wukong/ability_immortality.txt"
 #base "heroes/sun_wukong/ability_ruyi_jingu_bang.txt"
 #base "heroes/sun_wukong/ability_shen_wai_shen_fa.txt"
@@ -80,6 +99,9 @@
 #base "heroes/sun_wukong/ability_72_bian_cancel.txt"
 #base "heroes/sun_wukong/ability_boar_gore.txt"
 
+// ===============================================================
+// THOR
+// ===============================================================
 #base "heroes/thor/ability_hammer_toss.txt"
 #base "heroes/thor/ability_toothgnashers.txt"
 #base "heroes/thor/ability_consume_goat.txt"
@@ -87,6 +109,9 @@
 #base "heroes/thor/ability_thunder_gods_strength.txt"
 #base "heroes/thor/talent_lightning_charged.txt"
 
+// ===============================================================
+// ANUBIS
+// ===============================================================
 #base "heroes/anubis/ability_embalm.txt"
 #base "heroes/anubis/ability_protector_of_tombs.txt"
 #base "heroes/anubis/subability_tomb_aura.txt"

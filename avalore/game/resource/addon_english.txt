@@ -246,7 +246,7 @@
 		"DOTA_Tooltip_Ability_ability_grappling_hook"           	"Grappling Hook"
 		"DOTA_Tooltip_Ability_ability_grappling_hook_description"   "Fires a grappling hook in a straight line that is able to latch onto <font color=\"#b75f0c\">buildings</font> and <font color=\"#0cb71b\">trees</font>."
 		"DOTA_Tooltip_Ability_ability_grappling_hook_Lore"   		"Modern adaptations of Robin Hood have expanded the toolkit into grapplings to scale buildings and trees."
-		"DOTA_Tooltip_Ability_ability_grappling_hook_range"         "RANGE: "
+		"DOTA_Tooltip_Ability_ability_grappling_hook_range"         "RANGE: " //NOTE: This doesn't update when you get the talent, unsure if there's a fix
 		"DOTA_Tooltip_Ability_ability_grappling_hook_speed"        	"PROJECTILE SPEED: "
 
 		//"DOTA_Tooltip_Ability_ability_grappling_hook"             		"Grappling Hook"
@@ -273,6 +273,9 @@
 
 		"DOTA_Tooltip_Ability_talent_shackle_bolt"						"Shackle Bolt"
 		"DOTA_Tooltip_Ability_talent_shackle_bolt_description"			"Shackleshot: Can now shackle to buildings"
+
+		"DOTA_Tooltip_Ability_talent_escape_artist"						"Escape Artist"
+		"DOTA_Tooltip_Ability_talent_escape_artist_description"			"Grappling Hood: -{s:cooldown_reduction} cooldown, +{s:range_bonus} range"
 
 		// ==============================================
 		// ===== DIONYSUS ====

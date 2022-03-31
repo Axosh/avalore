@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+    "talent_escape_artist"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbilty"
+        {
+            "01" "ability_grappling_hook"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"                   "FIELD_INTEGER"
+                "cooldown_reduction"         "8"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "range_bonus"               "600"
+            }
+        }
+    }
+}
