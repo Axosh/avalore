@@ -24,11 +24,17 @@
 		// Heroes
 		//--------------------------------------------------------------------------------
 		"npc_dota_hero_kunkka" 									"Davy Jones"
-		"npc_dota_hero_kunkka_description" 						"The metaphorical sailor's devil who holds the souls of deceased sailors in his Locker."
+		"npc_dota_hero_kunkka_hype" 							"The metaphorical sailor's devil who holds the souls of deceased sailors in his Locker."
+
 		"npc_dota_hero_keeper_of_the_light"						"Merlin"
 		"npc_dota_hero_rubick"									"Debuggy Boi"
+
 		"npc_dota_hero_windrunner"								"Robin Hood"
+		"npc_dota_hero_windrunner_hype"							"The legendary heroic outlaw from English folklore. A swordsman, archer, and rogue that steals from the rich to give to the poor."
+		
 		"npc_dota_hero_brewmaster"								"Dionysus"
+		"npc_dota_hero_brewmaster_hype"							"Dionysus (Bacchus in the Roman Pantheon) is the Greek god associated with wine, fertility, religious ecstasy, and festivity."
+
 		"npc_dota_hero_viper"									"Quetzalcoatl"
 		"npc_dota_hero_lone_druid"								"Gilgamesh"
 		"npc_avalore_enkidu1"									"Enkidu"
@@ -286,9 +292,11 @@
 		// ==============================================
 
 		"DOTA_Tooltip_Ability_ability_over_indulge"						"Over Indulge"
-		"DOTA_Tooltip_Ability_ability_over_indulge_Description"			"Douse an area with alcohol. Affected enemies will have a 33% chance to do a normal attack, 33% chance do deal half-damage, 33% chance to miss entirely"
-		"DOTA_Tooltip_Ability_ability_over_indulge_duration"			"duration"
-		"DOTA_Tooltip_Ability_ability_over_indulge_radius"				"radius"
+		"DOTA_Tooltip_Ability_ability_over_indulge_Description"			"Douse an area with alcohol. Affected enemies will have a 33% chance to do a normal attack, 33% chance do deal reduced damage, 33% chance to miss entirely.\nIn 3-second intervals, will also alternate between a movement slow and normal movement."
+		"DOTA_Tooltip_Ability_ability_over_indulge_duration"			"DURATION: "
+		"DOTA_Tooltip_Ability_ability_over_indulge_radius"				"RADIUS: "
+		"DOTA_Tooltip_Ability_ability_over_indulge_movement_slow"		"MOVEMENT SLOW: "
+		"DOTA_Tooltip_Ability_ability_over_indulge_reduction"			"DAMAGE REDUCTION: "
 
 		"DOTA_Tooltip_Ability_ability_allure_of_the_drink"				"Allure of the Drink"
 		"DOTA_Tooltip_Ability_ability_allure_of_the_drink_Description"	"Dionysus locks eyes with a target, cajoling them towards him with the promise of intoxicating wine"
