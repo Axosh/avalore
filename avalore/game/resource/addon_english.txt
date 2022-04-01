@@ -248,6 +248,7 @@
 		"DOTA_Tooltip_Ability_ability_grappling_hook_Lore"   		"Modern adaptations of Robin Hood have expanded the toolkit into grapplings to scale buildings and trees."
 		"DOTA_Tooltip_Ability_ability_grappling_hook_range"         "RANGE: " //NOTE: This doesn't update when you get the talent, unsure if there's a fix
 		"DOTA_Tooltip_Ability_ability_grappling_hook_speed"        	"PROJECTILE SPEED: "
+		"DOTA_Tooltip_Ability_ability_grappling_hook_radius"       	"RADIUS: "
 
 		//"DOTA_Tooltip_Ability_ability_grappling_hook"             		"Grappling Hook"
 		//"DOTA_Tooltip_Ability_ability_grappling_hook_description"       "Fires a grappling hook that can latch on to trees and buildings"
@@ -276,6 +277,9 @@
 
 		"DOTA_Tooltip_Ability_talent_escape_artist"						"Escape Artist"
 		"DOTA_Tooltip_Ability_talent_escape_artist_description"			"Grappling Hood: -{s:cooldown_reduction} cooldown, +{s:range_bonus} range"
+
+		"DOTA_Tooltip_Ability_talent_acrobatic_swordplay"				"Acrobatic Swordplay"
+		"DOTA_Tooltip_Ability_talent_acrobatic_swordplay_description"	"Grappling Hook: perform melee auto attack on any hero within the radius"
 
 		// ==============================================
 		// ===== DIONYSUS ====

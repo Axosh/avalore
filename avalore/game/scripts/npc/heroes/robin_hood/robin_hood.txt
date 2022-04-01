@@ -61,7 +61,7 @@
     "Ability14"                 "talent_disarm"
     "Ability15"                 "talent_shackle_bolt"
     "Ability16"                 "talent_escape_artist"        
-    "Ability17"                 ""        
+    "Ability17"                 "talent_acrobatic_swordplay"        
 
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"

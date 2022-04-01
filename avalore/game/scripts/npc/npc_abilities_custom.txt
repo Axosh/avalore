@@ -42,6 +42,7 @@
 #base "heroes/robin_hood/talent_disarm.txt"
 #base "heroes/robin_hood/talent_shackle_bolt.txt"
 #base "heroes/robin_hood/talent_escape_artist.txt"
+#base "heroes/robin_hood/talent_acrobatic_swordplay.txt"
 
 // ===============================================================
 // DIONYSUS

@@ -1,5 +1,7 @@
 modifier_grappling_hook = class({})
 
+LinkLuaModifier( "modifier_talent_acrobatic_swordplay", "heroes/robin_hood/modifier_talent_acrobatic_swordplay", LUA_MODIFIER_MOTION_NONE )
+
 --------------------------------------------------------------------------------
 -- Classifications
 function modifier_grappling_hook:IsHidden()
@@ -30,6 +32,8 @@ function modifier_grappling_hook:OnCreated( kv )
 	self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
 	self.point = Vector( kv.point_x, kv.point_y, kv.point_z )
 	self.effect = kv.effect
+
+	self.auto_attack = self:GetCaster():HasTalent("talent_acrobatic_swordplay")
 
 	-- precache damage
 	self.damageTable = {
@@ -132,6 +136,14 @@ function modifier_grappling_hook:UpdateHorizontalMotion( me, dt )
 			-- damage
 			self.damageTable.victim = enemy
 			ApplyDamage( self.damageTable )
+
+			-- if have talent, then auto attack as well
+			if self.auto_attack then
+				-- check for phys immune/ethereal
+				if not enemy:IsAttackImmune() then
+					self:GetCaster():PerformAttack(enemy, true, true, true, true, false, false, true)
+				end
+			end
 
 			-- play effects
 			self:PlayEffects( enemy )
