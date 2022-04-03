@@ -297,7 +297,7 @@
 		"DOTA_Tooltip_Ability_ability_over_indulge_Lore"				"God of the grape-harvest, and heavily associated with wine and drinking."
 		"DOTA_Tooltip_Ability_ability_over_indulge_duration"			"DURATION: "
 		"DOTA_Tooltip_Ability_ability_over_indulge_radius"				"RADIUS: "
-		"DOTA_Tooltip_Ability_ability_over_indulge_movement_slow"		"MOVEMENT SLOW: "
+		"DOTA_Tooltip_Ability_ability_over_indulge_movement_slow"		"%MOVEMENT SLOW: "
 		"DOTA_Tooltip_Ability_ability_over_indulge_reduction"			"%DAMAGE REDUCTION: "
 
 		"DOTA_Tooltip_Ability_ability_allure_of_the_drink"				"Allure of the Drink"
@@ -308,6 +308,15 @@
 
 		"DOTA_Tooltip_Ability_ability_maenadic_fervor"					"Maenadic Fervor"
 		"DOTA_Tooltip_Ability_ability_maenadic_fervor_Description"		"Bestows a state of manic ecstasy on the target increasing both incoming and outgoing damage as well as attack speed"
+		"DOTA_Tooltip_Ability_ability_maenadic_fervor_Lore"				"Bestows a state of manic ecstasy on the target increasing both incoming and outgoing damage as well as attack speed"
+		"DOTA_Tooltip_Ability_ability_maenadic_fervor_duration"										"(HERO) DURATION: "
+		"DOTA_Tooltip_Ability_ability_maenadic_fervor_damage_outgoing_increase_buff_pct"			"%(ALLY) DMG AMP: "
+		"DOTA_Tooltip_Ability_ability_maenadic_fervor_damage_incoming_increase_buff_pct"			"%(ALLY) INC DMG AMP: "
+		"DOTA_Tooltip_Ability_ability_maenadic_fervor_attack_speed_increase_buff_pct"				"%(ALLY) ATK SPEED BONUS: "
+		"DOTA_Tooltip_Ability_ability_maenadic_fervor_damage_outgoing_increase_debuff_pct"			"%(ENEMY) DMG REDUCTION: "
+		"DOTA_Tooltip_Ability_ability_maenadic_fervor_damage_incoming_increase_debuff_pct"			"%(ENEMY) INC DMG AMP: "
+		"DOTA_Tooltip_Ability_ability_maenadic_fervor_attack_speed_increase_debuff_pct"				"%(ENEMY) ATK SPEED BONUS: "
+		"DOTA_Tooltip_Ability_ability_maenadic_fervor_duration_maenad"								"(CREEP) DURATION: "
 
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy"					"Maenadic Frenzy"
 
