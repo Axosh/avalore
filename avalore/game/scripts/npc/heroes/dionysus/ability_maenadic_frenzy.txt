@@ -37,8 +37,8 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"10.0 10.0 10.0" // duration for debugging
-				//"duration"				"4.0 4.5 5.0"
+				//"duration"				"10.0 10.0 10.0" // duration for debugging
+				"duration"				"4.0 4.5 5.0"
 			}
             "03"
             {
