@@ -1,9 +1,10 @@
 ability_allure_of_the_drink = class({})
 
 LinkLuaModifier("modifier_allure_of_the_drink", "heroes/dionysus/modifier_allure_of_the_drink", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_allure_of_the_drink_helper", "heroes/dionysus/modifier_allure_of_the_drink_helper", LUA_MODIFIER_MOTION_NONE)
 
 function ability_allure_of_the_drink:GetIntrinsicModifierName()
-	return "modifier_allure_of_the_drink"
+	return "modifier_allure_of_the_drink_helper"
 end
 
 -- function ability_allure_of_the_drink:GetBehavior()
@@ -32,6 +33,7 @@ function ability_allure_of_the_drink:OnSpellStart()
 
     self.target:EmitSound("Hero_Lich.SinisterGaze.Target")
 
+	--self.caster:AddNewModifier(self:GetCaster(), self, "modifier_allure_of_the_drink", {duration = self:GetChannelTime()})
     self.target:AddNewModifier(self:GetCaster(), self, "modifier_allure_of_the_drink", {duration = self:GetChannelTime()})
     self.target:AddNewModifier(self:GetCaster(), nil, "modifier_truesight", {duration = self:GetChannelTime()})
 

@@ -1,5 +1,8 @@
 modifier_allure_of_the_drink = modifier_allure_of_the_drink or class({})
 
+function modifier_allure_of_the_drink:IsHidden() return false end
+function modifier_allure_of_the_drink:IsDebuff() return true end
+function modifier_allure_of_the_drink:IsPurgeable() return true end
 
 function modifier_allure_of_the_drink:GetStatusEffectName()
 	return "particles/status_fx/status_effect_lich_gaze.vpcf"
@@ -12,14 +15,17 @@ function modifier_allure_of_the_drink:OnCreated()
 
 	self.destination		= self.ability:GetSpecialValueFor("destination") --+ self.caster:FindTalentValue("special_bonus_imba_lich_10")
 	self.distance 			= CalcDistanceBetweenEntityOBB(self:GetCaster(), self:GetParent()) * (self.destination / 100)
-	--self.mana_drain			= self.ability:GetSpecialValueFor("mana_drain")
+	
 
 	if not IsServer() then return end
 
-	self.status_resistance = self:GetParent():GetStatusResistance()
+	self.status_resistance = 0 --self:GetParent():GetStatusResistance()
 
 	self.duration			= self:GetRemainingTime()
 	self.interval			= 0.1
+	print("Caster = " .. self.caster:GetName())
+	print("Caster = " .. self.parent:GetName())
+	print("Dist = " .. tostring(self.distance))
 
 	-- if self.parent.GetMana then
 	-- 	self.current_mana		= self.parent:GetMana()
@@ -47,8 +53,14 @@ function modifier_allure_of_the_drink:OnCreated()
 		self:AddParticle(self.particle2, false, false, -1, false, false)
 	end
 
-	self.parent:Interrupt()
-	self.parent:MoveToNPC(self.caster)
+	self:GetParent():Interrupt()
+	self:GetParent():Stop()
+	--self.parent:MoveToNPC(self.caster)
+	local newOrder = {UnitIndex = self:GetParent():entindex(),
+				OrderType = DOTA_UNIT_ORDER_MOVE_TO_TARGET,
+				TargetIndex = self:GetCaster():entindex()}
+
+	ExecuteOrderFromTable(newOrder)
 
 	self:StartIntervalThink(self.interval)
 end
@@ -56,11 +68,15 @@ end
 function modifier_allure_of_the_drink:OnIntervalThink()
 	if not self:GetCaster() or not self:GetAbility() or not self:GetAbility():IsChanneling() then
 		self:Destroy()
+	-- else
+	-- 	-- make sure they keep moving towards caster (e.g. neutrals might try to go home)
+	-- 	self.parent:MoveToNPC(self.caster)
     end
 end
 
 function modifier_allure_of_the_drink:OnDestroy()
 	if not IsServer() then return end
+	print("modifier_allure_of_the_drink:OnDestroy()")
 
 	self.parent:Interrupt()
 	
@@ -75,7 +91,7 @@ end
 
 function modifier_allure_of_the_drink:CheckState()
 	return {
-		[MODIFIER_STATE_HEXED] = true,	-- Using this as substitute for Fear which isn't a provided state
+		[MODIFIER_STATE_FEARED] = true, --MODIFIER_STATE_TAUNTED?
 		[MODIFIER_STATE_SILENCED] = true,
 		[MODIFIER_STATE_MUTED] = true,
 		[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
