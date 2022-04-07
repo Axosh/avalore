@@ -51,6 +51,8 @@
 #base "heroes/dionysus/ability_allure_of_the_drink.txt"
 #base "heroes/dionysus/ability_maenadic_fervor.txt"
 #base "heroes/dionysus/ability_maenadic_frenzy.txt"
+// Talents
+#base "heroes/dionysus/talent_potent_drinks.txt"
 
 // ===============================================================
 // ZEUS

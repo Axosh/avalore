@@ -9,6 +9,8 @@ end
 
 function ability_over_indulge:OnSpellStart()
     self:GetCaster():EmitSound("Hero_Brewmaster.CinderBrew.Cast")
+
+	self.duration = self:GetSpecialValueFor("duration") + self:GetCaster():FindTalentValue("talent_potent_drinks", "bonus_duration")
 	
 	local brew_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_cinder_brew_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 	ParticleManager:SetParticleControl(brew_particle, 1, self:GetCursorPosition())
@@ -85,7 +87,7 @@ function ability_over_indulge:OnProjectileThinkHandle(projectileHandle)
 			
 			if unit:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() then
 				
-				unit:AddNewModifier(self:GetCaster(), self, "modifier_drunk", {duration = self:GetSpecialValueFor("duration") * (1 - unit:GetStatusResistance())})
+				unit:AddNewModifier(self:GetCaster(), self, "modifier_drunk", {duration = self.duration * (1 - unit:GetStatusResistance())})
 			end
 		end
 	end
@@ -108,7 +110,7 @@ function ability_over_indulge:OnProjectileHitHandle(target, location, projectile
 				
 				if unit:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() then
 					
-					unit:AddNewModifier(self:GetCaster(), self, "modifier_drunk", {duration = self:GetSpecialValueFor("duration") * (1 - unit:GetStatusResistance())})
+					unit:AddNewModifier(self:GetCaster(), self, "modifier_drunk", {duration = self.duration * (1 - unit:GetStatusResistance())})
 				end
 			end
 		end

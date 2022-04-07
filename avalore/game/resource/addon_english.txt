@@ -325,6 +325,10 @@
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy_duration"			"DURATION: "
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy_frenzy_search_radius"		"ALLY SEARCH RADIUS: "
 
+		// Talents
+		"DOTA_Tooltip_Ability_talent_potent_drinks"						"Potent Drinks"
+		"DOTA_Tooltip_Ability_talent_potent_drinks_description"			"Over Indulge: +{s:bonus_duration}s"
+
 
 		// ===== ZEUS =====
 		"DOTA_Tooltip_Ability_ability_shapeshift"						"Shapeshift"
