@@ -300,6 +300,9 @@
 		"DOTA_Tooltip_Ability_ability_over_indulge_movement_slow"		"%MOVEMENT SLOW: "
 		"DOTA_Tooltip_Ability_ability_over_indulge_reduction"			"%DAMAGE REDUCTION: "
 
+		"DOTA_Tooltip_modifier_drunk"									"Drunk"
+		"DOTA_Tooltip_modifier_drunk_description"						"Slowed on intervals, attacks have a chance to do reduced damage and miss."
+
 		"DOTA_Tooltip_Ability_ability_allure_of_the_drink"				"Allure of the Drink"
 		"DOTA_Tooltip_Ability_ability_allure_of_the_drink_Description"	"Dionysus locks eyes with a target, cajoling them towards him with the promise of intoxicating wine"
 		"DOTA_Tooltip_Ability_ability_allure_of_the_drink_Lore"			"His followers were often said to become possessed by the god"
@@ -317,6 +320,9 @@
 		"DOTA_Tooltip_Ability_ability_maenadic_fervor_damage_incoming_increase_debuff_pct"			"%(ENEMY) INC DMG AMP: "
 		"DOTA_Tooltip_Ability_ability_maenadic_fervor_attack_speed_increase_debuff_pct"				"%(ENEMY) ATK SPEED BONUS: "
 		"DOTA_Tooltip_Ability_ability_maenadic_fervor_duration_maenad"								"(CREEP) DURATION: "
+
+		"DOTA_Tooltip_modifier_maenadic_fervor"							"Maenadic Fervor"
+		"DOTA_Tooltip_modifier_maenadic_fervor_description"				"Both incoming and outgoing damage are amplified, attack speed is buffed"
 
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy"					"Maenadic Frenzy"
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy_description"		"Enemies within a radius around Dionysus are forced to attack their closest ally so long as they remain in the radius."
