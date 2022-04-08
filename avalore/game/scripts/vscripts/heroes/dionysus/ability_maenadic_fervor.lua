@@ -1,6 +1,7 @@
 ability_maenadic_fervor = class({})
 LinkLuaModifier("modifier_maenadic_fervor", "heroes/dionysus/modifier_maenadic_fervor.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_maenad",          "heroes/dionysus/modifier_maenad.lua",          LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_talent_unbridled_power", "heroes/dionysus/modifier_talent_unbridled_power.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_maenadic_fervor:OnSpellStart()
 	-- unit identifier

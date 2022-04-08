@@ -93,7 +93,22 @@ function modifier_drunk:OnAttackStart(kv)
                     (kv.damage * self.percent_dmg), 
                     nil)
         else
-            print("Normal attack")
+            print("Normal/self attack")
+            if self:GetCaster():HasTalent("talent_self_inflicted_wounds") then
+                self.self_dmg_pct = (self:GetCaster():GetTalentValue("talent_self_inflicted_wounds", "self_dmg_percent") / 100)
+                self.self_damage = kv.damage *self. self_dmg_pct
+                -- Damage caster
+                ApplyDamage({
+                    victim = self:GetParent(),
+                    attacker = self:GetParent(),
+                    damage = self.self_damage,
+                    damage_type = DAMAGE_TYPE_PHYSICAL,
+                    damage_flags = DOTA_DAMAGE_FLAG_NON_LETHAL,
+                    ability = nil
+                })
+                -- give visual indication they hit themself
+                SendOverheadEventMessage(nil, OVERHEAD_ALERT_OUTGOING_DAMAGE, self:GetParent(), self.self_damage, nil)
+            end
         end
 
         if not next(self.attack_queue) then

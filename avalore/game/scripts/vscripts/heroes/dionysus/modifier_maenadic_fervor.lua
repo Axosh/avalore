@@ -22,7 +22,7 @@ function modifier_maenadic_fervor:GetAbilityValues()
     -- buff allies
     if self:GetParent():GetTeam() == self:GetCaster():GetTeam() then
 	    self.isDebuff = false
-	    self.dmg_out_amp = self:GetAbility():GetSpecialValueFor( "damage_outgoing_increase_buff_pct" )
+	    self.dmg_out_amp = self:GetAbility():GetSpecialValueFor( "damage_outgoing_increase_buff_pct" ) + self:GetCaster():FindTalentValue("talent_unbridled_power", "bonus_outgoing_dmg")
         self.dmg_in_amp  = self:GetAbility():GetSpecialValueFor( "damage_incoming_increase_buff_pct" )
         self.as_amp      = self:GetAbility():GetSpecialValueFor("attack_speed_increase_buff_pct")
     else

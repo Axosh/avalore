@@ -53,6 +53,8 @@
 #base "heroes/dionysus/ability_maenadic_frenzy.txt"
 // Talents
 #base "heroes/dionysus/talent_potent_drinks.txt"
+#base "heroes/dionysus/talent_self_inflicted_wounds.txt"
+#base "heroes/dionysus/talent_unbridled_power.txt"
 
 // ===============================================================
 // ZEUS

@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "talent_potent_drinks"
+    "talent_self_inclicted_wounds"
     {
         // General
 		//-------------------------------------------------------------------------------------------------------------
@@ -19,13 +19,8 @@
 		{
             "01"
             {
-                "var_type"          "FIELD_FLOAT"
-                "bonus_duration"   "3.0"
-            }
-            "02"
-            {
-                "var_type" "FIELD_INTEGER"
-                "bonus_radius" "200"
+                "var_type"          "FIELD_INTEGER"
+                "self_dmg_percent"   "40"
             }
         }
     }

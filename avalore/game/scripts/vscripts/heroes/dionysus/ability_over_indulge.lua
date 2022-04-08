@@ -1,9 +1,11 @@
 ability_over_indulge = class({})
 
 LinkLuaModifier("modifier_drunk", "heroes/dionysus/modifier_drunk.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_talent_potent_drinks", "heroes/dionysus/modifier_talent_potent_drinks.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_self_inflicted_wounds", "heroes/dionysus/modifier_talent_self_inflicted_wounds.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_over_indulge:GetAOERadius()
-	return self:GetSpecialValueFor("radius")
+	return self:GetSpecialValueFor("radius") + self:GetCaster():FindTalentValue("talent_potent_drinks", "bonus_radius")
 end
 
 
@@ -11,6 +13,7 @@ function ability_over_indulge:OnSpellStart()
     self:GetCaster():EmitSound("Hero_Brewmaster.CinderBrew.Cast")
 
 	self.duration = self:GetSpecialValueFor("duration") + self:GetCaster():FindTalentValue("talent_potent_drinks", "bonus_duration")
+	self.radius = self:GetSpecialValueFor("radius") + self:GetCaster():FindTalentValue("talent_potent_drinks", "bonus_radius")
 	
 	local brew_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_cinder_brew_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 	ParticleManager:SetParticleControl(brew_particle, 1, self:GetCursorPosition())
@@ -51,8 +54,8 @@ function ability_over_indulge:OnSpellStart()
 		vAcceleration	    = nil, --hmm...
 		fMaxSpeed	        = nil, -- What's the default on this thing?
 		fDistance	        = (self:GetCursorPosition() - self:GetCaster():GetAbsOrigin()):Length2D(),
-		fStartRadius	    = self:GetSpecialValueFor("radius"),
-		fEndRadius		    = self:GetSpecialValueFor("radius"),
+		fStartRadius	    = self.radius,
+		fEndRadius		    = self.radius,
 		fExpireTime		    = nil,
 		iUnitTargetTeam	    = DOTA_UNIT_TARGET_TEAM_BOTH,
 		iUnitTargetFlags	= DOTA_UNIT_TARGET_FLAG_NONE,
@@ -73,10 +76,10 @@ end
 
 -- Due to some weird logic detailed in the wiki where this doesn't work as a simple "apply immediately to all enemies upon projectile land" but rather like a wave that gradually affects units but only if they're within a radius, going to use a thinker
 function ability_over_indulge:OnProjectileThinkHandle(projectileHandle)
-	for _, unit in pairs(FindUnitsInRadius(self:GetCaster():GetTeamNumber(), ProjectileManager:GetLinearProjectileLocation(projectileHandle), nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
+	for _, unit in pairs(FindUnitsInRadius(self:GetCaster():GetTeamNumber(), ProjectileManager:GetLinearProjectileLocation(projectileHandle), nil, self.radius, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
 		print("Over Indulge - found unit " .. unit:GetName())
 		-- Check if the projectile, the unit, and the final destination radius are all overlapping or not
-		if self.projectiles[projectileHandle]["destination"] and ((self.projectiles[projectileHandle]["destination"] - ProjectileManager:GetLinearProjectileLocation(projectileHandle)) * Vector(1, 1, 0)):Length2D() <= self:GetSpecialValueFor("radius") and ((unit:GetAbsOrigin() - ProjectileManager:GetLinearProjectileLocation(projectileHandle)) * Vector(1, 1, 0)):Length2D() <= self:GetSpecialValueFor("radius") and not self.projectiles[projectileHandle][unit:entindex()] then
+		if self.projectiles[projectileHandle]["destination"] and ((self.projectiles[projectileHandle]["destination"] - ProjectileManager:GetLinearProjectileLocation(projectileHandle)) * Vector(1, 1, 0)):Length2D() <= self.radius and ((unit:GetAbsOrigin() - ProjectileManager:GetLinearProjectileLocation(projectileHandle)) * Vector(1, 1, 0)):Length2D() <= self.radius and not self.projectiles[projectileHandle][unit:entindex()] then
 			self.projectiles[projectileHandle][unit:entindex()]	= true
 			
 			if unit:IsHero() then
@@ -97,7 +100,7 @@ function ability_over_indulge:OnProjectileHitHandle(target, location, projectile
 	if not target and location then
 		EmitSoundOnLocationWithCaster(location, "Hero_Brewmaster.CinderBrew", self:GetCaster())
 		
-		for _, unit in pairs(FindUnitsInRadius(self:GetCaster():GetTeamNumber(), location, nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
+		for _, unit in pairs(FindUnitsInRadius(self:GetCaster():GetTeamNumber(), location, nil, self.radius, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
 			print("Over Indulge - found unit " .. unit:GetName())
 			if not self.projectiles[projectileHandle][unit:entindex()] then
 				self.projectiles[projectileHandle][unit:entindex()]	= true

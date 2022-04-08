@@ -23,6 +23,8 @@
 
 		// Talents
 		"Ability10"					"talent_potent_drinks"
+		"Ability11"					"talent_self_inflicted_wounds"
+		"Ability12"					"talent_unbridled_power"
 
         // Armor
 		//----------------------------------------------------------------
