@@ -333,7 +333,7 @@
 
 		// Talents
 		"DOTA_Tooltip_Ability_talent_potent_drinks"						"Potent Drinks"
-		"DOTA_Tooltip_Ability_talent_potent_drinks_description"			"Over Indulge: +{s:bonus_duration}s and +{sbonus_radius} radius"
+		"DOTA_Tooltip_Ability_talent_potent_drinks_description"			"Over Indulge: +{s:bonus_duration}s and +{s:bonus_radius} radius"
 
 		"DOTA_Tooltip_Ability_talent_self_inflicted_wounds"				"Self Inflicted Wounds"
 		"DOTA_Tooltip_Ability_talent_self_inflicted_wounds_description"	"Over Indulge: on normal attacks, also do {s:self_dmg_percent}% of the damage to self"

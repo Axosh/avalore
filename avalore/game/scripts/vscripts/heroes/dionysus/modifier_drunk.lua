@@ -95,8 +95,12 @@ function modifier_drunk:OnAttackStart(kv)
         else
             print("Normal/self attack")
             if self:GetCaster():HasTalent("talent_self_inflicted_wounds") then
-                self.self_dmg_pct = (self:GetCaster():GetTalentValue("talent_self_inflicted_wounds", "self_dmg_percent") / 100)
-                self.self_damage = kv.damage *self. self_dmg_pct
+                self.self_dmg_pct = (self:GetCaster():FindTalentValue("talent_self_inflicted_wounds", "self_dmg_percent") / 100)
+                print("Dmg % = " .. tostring(self.self_dmg_pct))
+                print("Orig Dmg = " .. tostring(kv.original_damage))
+                --self.self_damage = kv.original_damage *self. self_dmg_pct
+                self.self_damage = self:GetParent():GetAttackDamage() *self. self_dmg_pct
+                print("Hitting self for " .. tostring(self.self_damage))
                 -- Damage caster
                 ApplyDamage({
                     victim = self:GetParent(),

@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "talent_self_inclicted_wounds"
+    "talent_self_inflicted_wounds"
     {
         // General
 		//-------------------------------------------------------------------------------------------------------------
