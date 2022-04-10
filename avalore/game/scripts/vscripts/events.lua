@@ -112,8 +112,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 
 	if killedEntity:GetUnitName() == ROUND1_WISP_UNIT then
 		--objectivePoints = 3
-		refreshScores = true
-		objectiveMsg = "objective_wisp" -- see addon_english.txt (panorama/localization)
+		local skip_wisps = false -- used when end of round kills remaining wisps
 		local first_wisp = true--false
 		if attackerTeam == DOTA_TEAM_GOODGUYS then
 			if Score.round1.radi_wisp_count == 0 then
@@ -125,21 +124,29 @@ function CAvaloreGameMode:OnEntityKilled(event)
 				first_wisp = true
 			end
 			Score.round1.dire_wisp_count = Score.round1.dire_wisp_count + 1
+		else
+			-- probably force killed by round end
+			skip_wisps = true
 		end
-		Score.playerStats[attackerEntity:GetPlayerOwnerID()].wisps = Score.playerStats[attackerEntity:GetPlayerOwnerID()].wisps + 1
-		-- give everyone the modifier if this is the first wisp capture
-		if first_wisp then
-			for playerID = 0, DOTA_MAX_PLAYERS do
-				if PlayerResource:IsValidPlayerID(playerID) then
-					if not PlayerResource:IsBroadcaster(playerID) then
-						local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-						if hero:GetTeam() == attackerTeam then
-							print("[Events] Adding Wisp Aura for Player " .. tostring(playerID) .. " (" .. hero:GetName() .. ")")
-							hero:AddNewModifier(hero, nil, MODIFIER_ROUND1_WISP_REGEN, {})
-						end
-					end -- end IsBroadcaster
-				end -- end IsValidPlayerID
-			end -- end for-loop
+		if not skip_wisps then
+			refreshScores = true
+			objectiveMsg = "objective_wisp" -- see addon_english.txt (panorama/localization)
+
+			Score.playerStats[attackerEntity:GetPlayerOwnerID()].wisps = Score.playerStats[attackerEntity:GetPlayerOwnerID()].wisps + 1
+			-- give everyone the modifier if this is the first wisp capture
+			if first_wisp then
+				for playerID = 0, DOTA_MAX_PLAYERS do
+					if PlayerResource:IsValidPlayerID(playerID) then
+						if not PlayerResource:IsBroadcaster(playerID) then
+							local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+							if hero:GetTeam() == attackerTeam then
+								print("[Events] Adding Wisp Aura for Player " .. tostring(playerID) .. " (" .. hero:GetName() .. ")")
+								hero:AddNewModifier(hero, nil, MODIFIER_ROUND1_WISP_REGEN, {})
+							end
+						end -- end IsBroadcaster
+					end -- end IsValidPlayerID
+				end -- end for-loop
+			end
 		end
 	end
 

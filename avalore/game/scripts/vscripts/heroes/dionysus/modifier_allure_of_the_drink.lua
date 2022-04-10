@@ -3,6 +3,7 @@ modifier_allure_of_the_drink = modifier_allure_of_the_drink or class({})
 function modifier_allure_of_the_drink:IsHidden() return false end
 function modifier_allure_of_the_drink:IsDebuff() return true end
 function modifier_allure_of_the_drink:IsPurgeable() return true end
+function modifier_allure_of_the_drink:IsStunDebuff() return false end
 
 function modifier_allure_of_the_drink:GetStatusEffectName()
 	return "particles/status_fx/status_effect_lich_gaze.vpcf"
@@ -53,14 +54,15 @@ function modifier_allure_of_the_drink:OnCreated()
 		self:AddParticle(self.particle2, false, false, -1, false, false)
 	end
 
-	self:GetParent():Interrupt()
 	self:GetParent():Stop()
-	--self.parent:MoveToNPC(self.caster)
-	local newOrder = {UnitIndex = self:GetParent():entindex(),
-				OrderType = DOTA_UNIT_ORDER_MOVE_TO_TARGET,
-				TargetIndex = self:GetCaster():entindex()}
+	self:GetParent():Interrupt()
+	
+	self:GetParent():MoveToNPC(self:GetCaster())
+	-- local newOrder = {	UnitIndex = self:GetParent():entindex(),
+	-- 					OrderType = DOTA_UNIT_ORDER_MOVE_TO_TARGET,
+	-- 					TargetIndex = self:GetCaster():entindex() }
 
-	ExecuteOrderFromTable(newOrder)
+	-- ExecuteOrderFromTable(newOrder)
 
 	self:StartIntervalThink(self.interval)
 end
@@ -68,9 +70,10 @@ end
 function modifier_allure_of_the_drink:OnIntervalThink()
 	if not self:GetCaster() or not self:GetAbility() or not self:GetAbility():IsChanneling() then
 		self:Destroy()
-	-- else
+	 else
 	-- 	-- make sure they keep moving towards caster (e.g. neutrals might try to go home)
-	-- 	self.parent:MoveToNPC(self.caster)
+		print("Moving to " .. self:GetCaster():GetName())
+		self:GetParent():MoveToNPC(self:GetCaster())
     end
 end
 
@@ -91,11 +94,11 @@ end
 
 function modifier_allure_of_the_drink:CheckState()
 	return {
-		[MODIFIER_STATE_FEARED] = true, --MODIFIER_STATE_TAUNTED?
-		[MODIFIER_STATE_SILENCED] = true,
-		[MODIFIER_STATE_MUTED] = true,
+		-- [MODIFIER_STATE_FEARED] = true, --MODIFIER_STATE_TAUNTED?
+		-- [MODIFIER_STATE_SILENCED] = true,
+		-- [MODIFIER_STATE_MUTED] = true,
 		[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
-		[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true
+		-- [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true
 	}
 end
 

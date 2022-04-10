@@ -55,6 +55,8 @@
 #base "heroes/dionysus/talent_potent_drinks.txt"
 #base "heroes/dionysus/talent_self_inflicted_wounds.txt"
 #base "heroes/dionysus/talent_unbridled_power.txt"
+#base "heroes/dionysus/talent_possessed.txt"
+#base "heroes/dionysus/talent_beacon.txt"
 
 // ===============================================================
 // ZEUS

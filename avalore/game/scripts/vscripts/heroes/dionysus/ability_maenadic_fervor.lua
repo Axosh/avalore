@@ -31,12 +31,18 @@ function ability_maenadic_fervor:OnSpellStart()
             target = self:ControlAICreep(target)
         end
 
+        local maenad_kv = {}
+        -- if they don't have the talent, then there's a time limit
+        if not self:GetCaster():HasTalent("talent_possessed") then
+            maenad_kv = { duration = duration_dominate }
+        end
+
         -- possess the creep unit
 		target:AddNewModifier(
 			caster, -- player source
 			self, -- ability source
 			"modifier_maenad", -- modifier name
-			{ duration = duration_dominate } -- kv
+            maenad_kv -- kv
 		)
 
         -- add buff
@@ -44,7 +50,7 @@ function ability_maenadic_fervor:OnSpellStart()
             caster, -- player source
             self, -- ability source
             "modifier_maenadic_fervor", -- modifier name
-            { duration = duration_dominate } -- kv
+            maenad_kv -- kv
         )
 
 		-- dispel target

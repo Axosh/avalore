@@ -347,6 +347,7 @@ function CAvaloreGameMode:InitRound1()
 	-- spawn 7 wisps
 	local wisp = nil
 	local particle_fx = nil
+	Score["wisps"] = {}
 	for i = 0,6,1
 	do
 		local vSpawnLoc = nil
@@ -369,6 +370,7 @@ function CAvaloreGameMode:InitRound1()
 		--wisp:AddParticle(particle_fx, false, false, -1, false, false)
 
 		wisp:StartGesture(ACT_DOTA_ATTACK)
+		table.insert(Score["wisps"], wisp)
 	end
 
 	-- broadcast that round 1 has started and give some instructions
@@ -434,6 +436,13 @@ function CAvaloreGameMode:InitRound2()
 	Score.entities.dire_outpost:RemoveModifierByName("modifier_invulnerable") -- modifier seems to also make uncapturable
 	Score.entities.radi_outpost:RemoveModifierByName("modifier_invulnerable") -- modifier seems to also make uncapturable
 	-- NOTE: Outposts have another hidden modifier: "modifier_watch_tower"
+
+	-- kill any remaining wisps
+	for _,wisp in pairs(Score["wisps"]) do
+		if wisp and wisp:IsAlive() then
+			wisp:ForceKill(false)
+		end
+	end
 end
 
 function CAvaloreGameMode:InitRound3()

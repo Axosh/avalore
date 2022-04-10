@@ -324,6 +324,9 @@
 		"DOTA_Tooltip_modifier_maenadic_fervor"							"Maenadic Fervor"
 		"DOTA_Tooltip_modifier_maenadic_fervor_description"				"Both incoming and outgoing damage are amplified, attack speed is buffed"
 
+		"DOTA_Tooltip_modifier_maenad"									"Maenad"
+		"DOTA_Tooltip_modifier_maenad_description"						"Dominated and under player control"
+
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy"					"Maenadic Frenzy"
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy_description"		"Enemies within a radius around Dionysus are forced to attack their closest ally so long as they remain in the radius."
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy_Lore"				"Maenads were usually depicted in a state of ecstatic frenzy. In \"The Bacchae\", a mob of Maenads rip Pentheus limb from limb - one of which was his own mother."
@@ -338,8 +341,14 @@
 		"DOTA_Tooltip_Ability_talent_self_inflicted_wounds"				"Self Inflicted Wounds"
 		"DOTA_Tooltip_Ability_talent_self_inflicted_wounds_description"	"Over Indulge: on normal attacks, also do {s:self_dmg_percent}% of the damage to self"
 
+		"DOTA_Tooltip_Ability_talent_beacon"							"Beacon"
+		"DOTA_Tooltip_Ability_talent_beacon_description"				"Allure of the Drink: when cast on a target, will also draw in all enemies in the cast range"
+
 		"DOTA_Tooltip_Ability_talent_unbridled_power"					"Unbridled Power"
 		"DOTA_Tooltip_Ability_talent_unbridled_power_description"		"Maenadic Fervor: (ALLIES) +{s:bonus_outgoing_dmg}% outgoing dammage"
+
+		"DOTA_Tooltip_Ability_talent_possessed"							"Possessed"
+		"DOTA_Tooltip_Ability_talent_possessed_description"				"Maenadic Fervor: removes time limit on creep domination"
 
 		// ===== ZEUS =====
 		"DOTA_Tooltip_Ability_ability_shapeshift"						"Shapeshift"

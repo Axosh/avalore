@@ -24,7 +24,9 @@
 		// Talents
 		"Ability10"					"talent_potent_drinks"
 		"Ability11"					"talent_self_inflicted_wounds"
-		"Ability12"					"talent_unbridled_power"
+		"Ability12"					"talent_beacon"
+		"Ability14"					"talent_unbridled_power"
+		"Ability15"					"talent_possessed"
 
         // Armor
 		//----------------------------------------------------------------
