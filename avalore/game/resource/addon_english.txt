@@ -309,6 +309,9 @@
 		"DOTA_Tooltip_Ability_ability_allure_of_the_drink_duration"		"DURATION: "
 		"DOTA_Tooltip_Ability_ability_allure_of_the_drink_destination"	"%DISTANCE MOVED: "
 
+		"DOTA_Tooltip_modifier_allure_of_the_drink"						"Allure of the Drink"
+		"DOTA_Tooltip_modifier_allure_of_the_drink_description"			"Forcibly moving towards caster"
+
 		"DOTA_Tooltip_Ability_ability_maenadic_fervor"					"Maenadic Fervor"
 		"DOTA_Tooltip_Ability_ability_maenadic_fervor_Description"		"Increases both incoming and outgoing damage, along with attack speed. If cast on a creep or neutral, they will become Dominated and under Dionysus' control."
 		"DOTA_Tooltip_Ability_ability_maenadic_fervor_Lore"				"Bestows a state of manic ecstasy on the target, or bakkheia - freed from all restraint."
@@ -333,6 +336,9 @@
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy_radius"			"RADIUS: "
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy_duration"			"DURATION: "
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy_frenzy_search_radius"		"ALLY SEARCH RADIUS: "
+
+		"DOTA_Tooltip_modifier_maenadic_frenzy_debuff"					"Maenadic Frenzy"
+		"DOTA_Tooltip_modifier_maenadic_frenzy_debuff_description"		"Forcibly attacking nearby allies"
 
 		// Talents
 		"DOTA_Tooltip_Ability_talent_potent_drinks"						"Potent Drinks"
