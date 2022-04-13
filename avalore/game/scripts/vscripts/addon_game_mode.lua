@@ -7,6 +7,7 @@ _G.Temp = false
 _G.round = 0
 _G.first_loop = true
 _G.time_offset = 0
+_G.round_1_init = false
 --[[
 _G.GoodScore = 0
 _G.BadScore = 0
@@ -344,6 +345,10 @@ end
 -- end
 
 function CAvaloreGameMode:InitRound1()
+	-- only init this once so we don't spawn a billion wisps when debugging
+	if _G.round_1_init then return end
+
+	_G.round_1_init = true
 	-- spawn 7 wisps
 	local wisp = nil
 	local particle_fx = nil
