@@ -25,7 +25,7 @@ function modifier_allure_of_the_drink:OnCreated()
 	self.duration			= self:GetRemainingTime()
 	self.interval			= 0.1
 	print("Caster = " .. self.caster:GetName())
-	print("Caster = " .. self.parent:GetName())
+	print("Parent = " .. self.parent:GetName())
 	print("Dist = " .. tostring(self.distance))
 
 	-- if self.parent.GetMana then
@@ -54,15 +54,16 @@ function modifier_allure_of_the_drink:OnCreated()
 		self:AddParticle(self.particle2, false, false, -1, false, false)
 	end
 
-	self:GetParent():Stop()
-	self:GetParent():Interrupt()
+	-- self:GetParent():Stop()
+	-- self:GetParent():Interrupt()
+	-- --self:GetParent():SetForceAttackTarget( self:GetCaster() )
 	
-	self:GetParent():MoveToNPC(self:GetCaster())
-	-- local newOrder = {	UnitIndex = self:GetParent():entindex(),
-	-- 					OrderType = DOTA_UNIT_ORDER_MOVE_TO_TARGET,
-	-- 					TargetIndex = self:GetCaster():entindex() }
+	-- self:GetParent():MoveToNPC(self:GetCaster())
+	local newOrder = {	UnitIndex = self:GetParent():entindex(),
+						OrderType = DOTA_UNIT_ORDER_MOVE_TO_TARGET,
+						TargetIndex = self:GetCaster():entindex() }
 
-	-- ExecuteOrderFromTable(newOrder)
+	ExecuteOrderFromTable(newOrder)
 
 	self:StartIntervalThink(self.interval)
 end
@@ -70,10 +71,10 @@ end
 function modifier_allure_of_the_drink:OnIntervalThink()
 	if not self:GetCaster() or not self:GetAbility() or not self:GetAbility():IsChanneling() then
 		self:Destroy()
-	 else
-	-- 	-- make sure they keep moving towards caster (e.g. neutrals might try to go home)
-		print("Moving to " .. self:GetCaster():GetName())
-		self:GetParent():MoveToNPC(self:GetCaster())
+	--  else
+	-- -- 	-- make sure they keep moving towards caster (e.g. neutrals might try to go home)
+	-- 	--print("Moving to " .. self:GetCaster():GetName())
+	-- 	self:GetParent():MoveToNPC(self:GetCaster())
     end
 end
 
@@ -94,10 +95,11 @@ end
 
 function modifier_allure_of_the_drink:CheckState()
 	return {
-		-- [MODIFIER_STATE_FEARED] = true, --MODIFIER_STATE_TAUNTED?
+		-- [MODIFIER_STATE_TAUNTED] = true, --MODIFIER_STATE_TAUNTED?
 		-- [MODIFIER_STATE_SILENCED] = true,
 		-- [MODIFIER_STATE_MUTED] = true,
-		[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+		 [MODIFIER_STATE_DISARMED] = true,
+		--[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
 		-- [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true
 	}
 end
