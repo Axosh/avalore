@@ -8,6 +8,7 @@
 #base "units/merc_flying.txt"
 
 #base "units/merc_yeti.txt"
+#base "units/merc_djinn.txt"
 
 #base "heroes/zeus/avalore_unit_storm_cloud.txt"
 

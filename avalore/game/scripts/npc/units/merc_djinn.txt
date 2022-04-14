@@ -1,0 +1,74 @@
+"DOTAUnits"
+{
+    "npc_avalore_merc_djinn"
+    {
+        // General
+        //----------------------------------------------------------------
+        "BaseClass"					"npc_dota_creature"
+        "Model"                     "models/items/warlock/golem/warlock_the_infernal_master_golem/warlock_the_infernal_master_golem.vmdl"
+        "MinimapIcon"				"minimap_aghanim"
+        "CanBeDominated"			"0"
+        "ConsideredHero"			"0"
+        "HasInventory"				"0"
+
+        // "AI"
+        //----------------------------------------------------------------
+        //"vscripts"                  "items/demi_hero_mercs/ai/ai_yeti.lua"
+
+        // Abilities
+		//----------------------------------------------------------------
+        "Ability1"					"warlock_flaming_fists"
+		"Ability2"					"warlock_permanent_immolation"
+
+        // Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"6"
+		"MagicalResistance"			"33"
+
+        // Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"70"
+		"AttackDamageMax"			"80"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.26"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"225"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"900"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"HealthBarOffset"			"240"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+        // Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"100"
+		"BountyGoldMin"				"100"
+		"BountyGoldMax"				"100"
+
+        // Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"320"
+		"MovementTurnRate"			"0.5"
+
+        // Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1000"
+        "StatusHealthRegen"			"2"		
+
+        // Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+    }
+}
