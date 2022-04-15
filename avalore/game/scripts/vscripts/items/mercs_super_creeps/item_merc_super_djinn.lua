@@ -1,13 +1,14 @@
 item_merc_super_djinn = class({})
 
 function item_merc_super_djinn:OnSpellStart()
-    if not IsServer() then return end
     print("item_merc_super_djinn:OnSpellStart()")
+    if not IsServer() then return end
 
     local caster = self:GetCaster()
     local team = caster:GetTeam()
     local unit = "npc_avalore_merc_djinn"
-    local target = self:GetCursorTarget()
+    --local target = self:GetCursorPosition()--self:GetCursorTarget() --self:GetCursorPosition()
+    local target = caster:GetCursorPosition()
 
     -- 1) validate location
 
