@@ -100,6 +100,8 @@ function Spawners:Init()
         value:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
         local merc_item = value:AddItemByName("item_merc_demi_hero_yeti")
         merc_item:SetShareability(0) -- fully shareable
+        merc_item = value:AddItemByName("item_merc_super_djinn")
+        merc_item:SetShareability(0) -- fully shareable
     end
     Spawners.MercCamps[DOTA_TEAM_BADGUYS] = {}
     Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT] = CreateUnitByName( "mercenary_camp", Vector(7232, 5888, 256), true, nil, nil, DOTA_TEAM_BADGUYS )
@@ -109,6 +111,8 @@ function Spawners:Init()
     for key, value in pairs(Spawners.MercCamps[DOTA_TEAM_BADGUYS]) do
         value:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
         local merc_item = value:AddItemByName("item_merc_demi_hero_yeti")
+        merc_item:SetShareability(0) -- fully shareable
+        merc_item = value:AddItemByName("item_merc_super_djinn")
         merc_item:SetShareability(0) -- fully shareable
     end
 

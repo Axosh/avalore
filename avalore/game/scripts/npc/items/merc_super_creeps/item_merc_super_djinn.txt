@@ -4,9 +4,15 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
+        "ID"                                                  "9001"
         "BaseClass"						                      "item_lua"            
         "ScriptFile"					                      "items/mercs_super_creeps/item_merc_super_djinn.lua"
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityTextureName"                                  "merc_demi_hero/item_merc_super_djinn"
+
+        // Stats
+        "AbilityCastRange"				"0"
+        "AbilityManaCost"				"0"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
