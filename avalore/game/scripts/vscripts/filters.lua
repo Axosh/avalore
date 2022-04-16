@@ -1,15 +1,71 @@
 -- taken largely from dota_imba
 
+
+-- entindex_caster_const: EntityIndex
+-- entindex_ability_const: EntityIndex
+-- value_name_const: string
+-- value: int
+function CAvaloreGameMode:AbilityTuningFilter(keys)
+	-- local ability = EntIndexToHScript(keys["entindex_ability_const"])
+	-- if ability:GetName() == "item_slot_misc" then return end
+	-- --print("CAvaloreGameMode:AbilityTuningFilter(keys)")
+	-- --print(ability:GetName())
+	-- if string.find(ability:GetName(), "merc") then
+	-- 	PrintTable(keys)
+	-- end
+	return true
+end
+
+
+-- ExecuteOrderFilterEvent
+-- *  units: { [string]: EntityIndex }
+-- * entindex_target: EntityIndex
+-- * entindex_ability: EntityIndex
+-- * issuer_player_id_const: PlayerID
+-- * sequence_number_const: uint
+-- * queue: 0 | 1
+-- * order_type: dotaunitorder_t
+-- * position_x: float
+-- * position_y: float
+-- * position_z: float
 function CAvaloreGameMode:OrderFilter(keys)
-	--print("CAvaloreGameMode:OrderFilter(keys)")
-    local units = keys["units"]
+	-- print("CAvaloreGameMode:OrderFilter(keys)")
+	-- PrintTable(keys)
+
+
+	local ability = EntIndexToHScript(keys.entindex_ability)
+	if ability ~= nil then
+		print("Ability => " .. ability:GetName())
+	 	if ability:GetName() == "item_merc_super_djinn" then
+			--ability = EntIndexToHScript(keys["entindex_ability"])
+			print(ability:GetName())
+			--PrintTable(ability)
+			--print("keys issued by: " .. tostring(keys.issuer_player_id_const))
+			--print("unit issued by: " .. tostring(unit.issuer_player_id_const))
+			-- temporarily set owner to player to capture caster correctly
+			local unit = ability:GetOwner() -- should be the merc camp
+			--print("ABility Owner = > " .. ability:GetOwner():GetName())
+			--unit:SetOwner(PlayerResource:GetPlayer(keys.issuer_player_id_const):GetAssignedHero())
+			-- --unit.issuer_player_id_const = keys.issuer_player_id_const
+			-- -- local keys = {}
+			-- -- keys["caster"]
+			unit.PlayerCaster = keys.issuer_player_id_const
+			unit.target_x = keys.position_x
+			unit.target_y = keys.position_y
+			ability:OnSpellStart()
+			return true
+		 end
+	end
+
+	local units = keys["units"]
 	local unit
 	if units["0"] then
 		unit = EntIndexToHScript(units["0"])
+		print("Unit => " .. unit:GetClassname())
 	else
 		return nil
 	end
-	if unit == nil then return end
+	
 
     -- -- Don't let couriers be controlled when multi-selected
 	-- if keys.units then
@@ -86,7 +142,7 @@ function CAvaloreGameMode:OrderFilter(keys)
     --if keys.order_type == DOTA_UNIT_ORDER_CAST_TARGET then
     --print("[Filters] keys.order_type = " .. tostring(keys.order_type))
     if keys.order_type == DOTA_UNIT_ORDER_CAST_POSITION then
-        local ability = EntIndexToHScript(keys.entindex_ability)
+        --local ability = EntIndexToHScript(keys.entindex_ability)
 
         -- Sun Wukong - Jingu Stuff
         if ability ~= nil then
