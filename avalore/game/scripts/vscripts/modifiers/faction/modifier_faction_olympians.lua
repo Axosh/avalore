@@ -93,7 +93,7 @@ function modifier_faction_olympians:OnTakeDamage( kv )
 
 		-- only return on units attacking
 		if attacker:GetTeamNumber() ~= parent:GetTeamNumber() and parent == target then --and not attacker:IsOther() then
-            print("Return Damage: " .. tostring(damage))
+            --print("Return Damage: " .. tostring(damage))
 
 			-- particles
 			local particle_return_fx = ParticleManager:CreateParticle(particle_return, PATTACH_ABSORIGIN_FOLLOW, parent)

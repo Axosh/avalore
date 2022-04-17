@@ -1,4 +1,5 @@
 require("references")
+require("spawners")
 require(REQ_LIB_TIMERS)
 
 item_merc_super_djinn = class({})
@@ -23,6 +24,15 @@ function item_merc_super_djinn:OnSpellStart()
 
 
     -- 1) validate location
+    local lane = ""
+    for key, value in pairs(Spawners.MercCamps[team]) do
+        print("Value: " .. tostring(value))
+        -- check to see which merc camp this is
+        if self:GetOwner() == value then
+            lane = key
+        end
+    end
+    print("lane = " .. lane)
 
     -- 2) validate enough gold 
     --    and deal with gold and stuff later for this proof of concept

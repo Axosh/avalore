@@ -35,10 +35,10 @@ function CAvaloreGameMode:OrderFilter(keys)
 
 	local ability = EntIndexToHScript(keys.entindex_ability)
 	if ability ~= nil then
-		print("Ability => " .. ability:GetName())
+		--print("Ability => " .. ability:GetName())
 	 	if ability:GetName() == "item_merc_super_djinn" then
 			--ability = EntIndexToHScript(keys["entindex_ability"])
-			print(ability:GetName())
+			--print(ability:GetName())
 			--PrintTable(ability)
 			--print("keys issued by: " .. tostring(keys.issuer_player_id_const))
 			--print("unit issued by: " .. tostring(unit.issuer_player_id_const))
@@ -61,7 +61,7 @@ function CAvaloreGameMode:OrderFilter(keys)
 	local unit
 	if units["0"] then
 		unit = EntIndexToHScript(units["0"])
-		print("Unit => " .. unit:GetClassname())
+		--print("Unit => " .. unit:GetClassname())
 	else
 		return nil
 	end

@@ -131,8 +131,11 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter(Dynamic_Wrap(CAvaloreGameMode, "AbilityTuningFilter"), self)
 	
 	-- Custom Mode Framework Inits
-	Spawners:Init()
-	Score:Init()
+	if not _G.not_init then
+		_G.not_init = true
+		Spawners:Init()
+		Score:Init()
+	end
 	-- set unselectable so they can't be captured until round2 begins
 	-- also note: force set the team to NOTEAM later on or the engine forces 
 	--            them to begin as radiant and dire owned
@@ -347,9 +350,9 @@ end
 
 function CAvaloreGameMode:InitRound1()
 	-- only init this once so we don't spawn a billion wisps when debugging
-	if _G.round_1_init then return end
+	if not _G.round_1_init_not_done then return end
 
-	_G.round_1_init = true
+	_G.round_1_init_not_done = false
 	-- spawn 7 wisps
 	local wisp = nil
 	local particle_fx = nil
