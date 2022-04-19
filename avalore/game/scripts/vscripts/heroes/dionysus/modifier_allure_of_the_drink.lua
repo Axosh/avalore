@@ -27,6 +27,7 @@ function modifier_allure_of_the_drink:OnCreated()
 	print("Caster = " .. self.caster:GetName())
 	print("Parent = " .. self.parent:GetName())
 	print("Dist = " .. tostring(self.distance))
+	self.caster_pos = self.caster:GetAbsOrigin() -- for calculating distance from caster for talent
 
 	-- if self.parent.GetMana then
 	-- 	self.current_mana		= self.parent:GetMana()
@@ -71,6 +72,10 @@ end
 
 function modifier_allure_of_the_drink:OnIntervalThink()
 	if not self:GetCaster() or not self:GetAbility() or not self:GetAbility():IsChanneling() then
+		if self:GetCaster():HasTalent("talent_give_in") then
+			if 
+			unit:AddNewModifier(self:GetCaster(), self, "modifier_drunk", {duration = self.duration * (1 - unit:GetStatusResistance())})
+		end
 		self:Destroy()
 	 else
 	-- 	-- make sure they keep moving towards caster (e.g. neutrals might try to go home)

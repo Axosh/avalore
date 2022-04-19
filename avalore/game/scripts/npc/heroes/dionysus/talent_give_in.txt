@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+    "talent_give_in"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbilty"
+        {
+            "01" "ability_allure_of_the_drink"
+        }
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "drunk_radius"      "150"
+            }
+        }
+    }
+}

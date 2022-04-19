@@ -57,6 +57,7 @@
 #base "heroes/dionysus/talent_unbridled_power.txt"
 #base "heroes/dionysus/talent_possessed.txt"
 #base "heroes/dionysus/talent_beacon.txt"
+#base "heroes/dionysus/talent_give_in.txt"
 
 // ===============================================================
 // ZEUS

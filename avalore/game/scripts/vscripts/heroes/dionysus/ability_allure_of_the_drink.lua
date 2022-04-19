@@ -8,6 +8,15 @@ function ability_allure_of_the_drink:GetIntrinsicModifierName()
 	return "modifier_allure_of_the_drink_helper"
 end
 
+function ability_allure_of_the_drink:CastFilterResultTarget(target)
+	-- talent also pierces spell immunity
+	if self:GetCaster():HasTalent("talent_give_in") then
+		return UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, self:GetCaster():GetTeamNumber())
+	else
+		return UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, self:GetCaster():GetTeamNumber())
+	end
+end
+
 -- function ability_allure_of_the_drink:GetBehavior()
 -- 	if not self:GetCaster():HasScepter() then
 -- 		return self.BaseClass.GetBehavior(self)
