@@ -304,7 +304,7 @@
 		"DOTA_Tooltip_modifier_drunk_description"						"Slowed on intervals, attacks have a chance to do reduced damage and miss."
 
 		"DOTA_Tooltip_Ability_ability_allure_of_the_drink"				"Allure of the Drink"
-		"DOTA_Tooltip_Ability_ability_allure_of_the_drink_Description"	"Dionysus locks eyes with a target, cajoling them towards him with the promise of intoxicating wine"
+		"DOTA_Tooltip_Ability_ability_allure_of_the_drink_Description"	"Target enemy hero will be forced to move a percentage of the distance between them and Dionysus for the duration of the spell."
 		"DOTA_Tooltip_Ability_ability_allure_of_the_drink_Lore"			"His followers were often said to become possessed by the god"
 		"DOTA_Tooltip_Ability_ability_allure_of_the_drink_duration"		"DURATION: "
 		"DOTA_Tooltip_Ability_ability_allure_of_the_drink_destination"	"%DISTANCE MOVED: "
@@ -349,6 +349,9 @@
 
 		"DOTA_Tooltip_Ability_talent_beacon"							"Beacon"
 		"DOTA_Tooltip_Ability_talent_beacon_description"				"Allure of the Drink: when cast on a target, will also draw in all enemies in the cast range"
+
+		"DOTA_Tooltip_Ability_talent_give_in"							"Give In"
+		"DOTA_Tooltip_Ability_talent_give_in_description"				"Allure of the Drink: pierce spell immunity. If target is within {s:drunk_radius} units of Dionysus by the end, will become Drunk for {s:drunk_duration}s"
 
 		"DOTA_Tooltip_Ability_talent_unbridled_power"					"Unbridled Power"
 		"DOTA_Tooltip_Ability_talent_unbridled_power_description"		"Maenadic Fervor: (ALLIES) +{s:bonus_outgoing_dmg}% outgoing dammage"

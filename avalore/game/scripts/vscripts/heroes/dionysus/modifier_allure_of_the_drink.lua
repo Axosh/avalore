@@ -132,10 +132,10 @@ end
 function modifier_allure_of_the_drink:GetModifierMoveSpeed_Limit()
 	if not IsServer() then return end
 	
-	if not self:GetCaster():HasScepter() then
-		return self.distance / (self.ability:GetChannelTime() * (1 - math.min(self.status_resistance, 0.9999))) -- If target has 100% status resistance, make non-divide by 0 so target zips to caster
-	else
+	-- if not self:GetCaster():HasScepter() then
+	-- 	return self.distance / (self.ability:GetChannelTime() * (1 - math.min(self.status_resistance, 0.9999))) -- If target has 100% status resistance, make non-divide by 0 so target zips to caster
+	-- else
 		return self.distance / self.ability:GetChannelTime()
-	end
+	--end
 end
 
