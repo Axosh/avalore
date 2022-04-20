@@ -1,5 +1,8 @@
 modifier_allure_of_the_drink = modifier_allure_of_the_drink or class({})
 
+LinkLuaModifier("modifier_drunk", "heroes/dionysus/modifier_drunk.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_talent_give_in", "heroes/dionysus/modifier_talent_give_in.lua", LUA_MODIFIER_MOTION_NONE )
+
 function modifier_allure_of_the_drink:IsHidden() return false end
 function modifier_allure_of_the_drink:IsDebuff() return true end
 function modifier_allure_of_the_drink:IsPurgeable() return true end
@@ -28,6 +31,11 @@ function modifier_allure_of_the_drink:OnCreated()
 	print("Parent = " .. self.parent:GetName())
 	print("Dist = " .. tostring(self.distance))
 	self.caster_pos = self.caster:GetAbsOrigin() -- for calculating distance from caster for talent
+	self.drunk_range = self:GetCaster():FindTalentValue("talent_give_in", "drunk_radius")
+	self.drunk_duration = self:GetCaster():FindTalentValue("talent_give_in", "drunk_duration")
+	-- if not self.drunk_range then
+	-- 	self.drunk_range = -1 --if they don't have the talent, make it always fail the radius check
+	-- end
 
 	-- if self.parent.GetMana then
 	-- 	self.current_mana		= self.parent:GetMana()
@@ -73,8 +81,9 @@ end
 function modifier_allure_of_the_drink:OnIntervalThink()
 	if not self:GetCaster() or not self:GetAbility() or not self:GetAbility():IsChanneling() then
 		if self:GetCaster():HasTalent("talent_give_in") then
-			if 
-			unit:AddNewModifier(self:GetCaster(), self, "modifier_drunk", {duration = self.duration * (1 - unit:GetStatusResistance())})
+			if (self.caster_pos - self:GetParent():GetAbsOrigin()):Length2D() < self.drunk_range then
+				self:GetParent():AddNewModifier(self:GetCaster(), self, "modifier_drunk", {duration = self.drunk_duration})
+			end
 		end
 		self:Destroy()
 	 else
@@ -82,6 +91,8 @@ function modifier_allure_of_the_drink:OnIntervalThink()
 		--print("Moving to " .. self:GetCaster():GetName())
 		self:GetParent():Stop()
 		self:GetParent():MoveToNPC(self:GetCaster())
+		-- refresh just in case (e.g. force staff)
+		self.caster_pos = self.caster:GetAbsOrigin() -- for calculating distance from caster for talent
     end
 end
 

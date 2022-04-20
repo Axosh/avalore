@@ -3,6 +3,7 @@ ability_allure_of_the_drink = class({})
 LinkLuaModifier("modifier_allure_of_the_drink", "heroes/dionysus/modifier_allure_of_the_drink", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_allure_of_the_drink_helper", "heroes/dionysus/modifier_allure_of_the_drink_helper", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_talent_beacon", "heroes/dionysus/modifier_talent_beacon.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_give_in", "heroes/dionysus/modifier_talent_give_in.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_allure_of_the_drink:GetIntrinsicModifierName()
 	return "modifier_allure_of_the_drink_helper"

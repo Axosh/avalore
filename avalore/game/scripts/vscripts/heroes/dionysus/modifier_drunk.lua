@@ -3,6 +3,10 @@ require(REQ_UTIL)
 
 modifier_drunk = class({})
 
+function modifier_drunk:GetTexture()
+	return "generic/drunk"
+end
+
 function modifier_drunk:GetEffectName()
 	return "particles/units/heroes/hero_brewmaster/brewmaster_cinder_brew_debuff.vpcf"
 end
@@ -32,8 +36,14 @@ function modifier_drunk:OnCreated()
     
     self.miss_chance = 0 -- changes based on whether next attack is a miss
     self.percent_dmg = 100
-    self.reduction = self:GetAbility():GetSpecialValueFor("reduction")
-    self.movement_slow		= self:GetAbility():GetSpecialValueFor("movement_slow") * (-1)
+    if self:GetAbility() then
+        self.reduction = self:GetAbility():GetSpecialValueFor("reduction")
+        self.movement_slow		= self:GetAbility():GetSpecialValueFor("movement_slow") * (-1)
+    else
+        -- for the talent (hardcoded right now)
+        self.reduction = 30
+        self.movement_slow = -30
+    end
     self.is_slow_interval = true
     self.countdown = 3
 

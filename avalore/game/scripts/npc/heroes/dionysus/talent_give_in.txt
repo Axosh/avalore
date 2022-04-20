@@ -21,6 +21,12 @@
                 "var_type"          "FIELD_INTEGER"
                 "drunk_radius"      "150"
             }
+            "02"
+            {
+                "var_type"					"FIELD_FLOAT"
+                "drunk_duration"     "6"
+            }
+            // also allows to go through spell immunity, but that's just baked into the LUA
         }
     }
 }
