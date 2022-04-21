@@ -359,6 +359,9 @@
 		"DOTA_Tooltip_Ability_talent_possessed"							"Possessed"
 		"DOTA_Tooltip_Ability_talent_possessed_description"				"Maenadic Fervor: removes time limit on creep domination"
 
+		"DOTA_Tooltip_Ability_talent_limit_break"						"Limit Break"
+		"DOTA_Tooltip_Ability_talent_limit_break_description"			"Maenadic Frenzy: enemies attack each other with bonus {s:bonus_attack_speed} attack speed"
+
 		// ===== ZEUS =====
 		"DOTA_Tooltip_Ability_ability_shapeshift"						"Shapeshift"
 		"DOTA_Tooltip_Ability_ability_shapeshift_Description"			"<b>When cast on self:</b> turn into an eagle with flying movement and bonus vision. Can be cancelled any time.\n<b>When cast on enemy:</b> <font color=\"#ffa500\">Hexes</font> target into a wolf"

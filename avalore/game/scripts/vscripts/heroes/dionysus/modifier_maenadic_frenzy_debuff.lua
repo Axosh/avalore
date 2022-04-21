@@ -5,11 +5,19 @@ function modifier_maenadic_frenzy_debuff:IsPurgable() return false end
 function modifier_maenadic_frenzy_debuff:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIPLE end
 
 function modifier_maenadic_frenzy_debuff:OnCreated()
+    if self:GetCaster():HasTalent("talent_limit_break") then
+        self.as_amp = self:GetCaster():FindTalentValue("talent_limit_break", "bonus_attack_speed")
+    else
+        self.as_amp = 0
+    end
+
     if not IsServer() then return end
 
     self.parent = self:GetParent()
 	self.caster = self:GetCaster()
     self.attack_target = nil
+    
+    --print("as amp = " .. tostring(self.as_amp))
 
     local aura_particle = ParticleManager:CreateParticle("particles/econ/courier/courier_axolotl_ambient/courier_axolotl_ambient_head.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControl(aura_particle, 5, Vector(0, 0, 0))
@@ -44,6 +52,16 @@ function modifier_maenadic_frenzy_debuff:OnIntervalThink()
             (self.parent):Stop()
         end
     end
+end
+
+function modifier_maenadic_frenzy_debuff:DecalreFunctions()
+    return {
+        MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    }
+end
+
+function modifier_maenadic_frenzy_debuff:GetModifierAttackSpeedBonus_Constant(kv)
+    return self.as_amp
 end
 
 -- returns the closest allied target with the same debuff or returns nil

@@ -28,6 +28,7 @@
 		"Ability13"					"talent_give_in"
 		"Ability14"					"talent_unbridled_power"
 		"Ability15"					"talent_possessed"
+		"Ability16"					"talent_limit_break"
 
         // Armor
 		//----------------------------------------------------------------

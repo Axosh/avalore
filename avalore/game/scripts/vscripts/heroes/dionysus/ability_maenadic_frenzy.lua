@@ -1,6 +1,7 @@
 ability_maenadic_frenzy = class({})
 
 LinkLuaModifier("modifier_maenadic_frenzy_aura", "heroes/dionysus/modifier_maenadic_frenzy_aura.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_limit_break", "heroes/dionysus/modifier_talent_limit_break.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_maenadic_frenzy:OnSpellStart()
     if not IsServer() then return end
