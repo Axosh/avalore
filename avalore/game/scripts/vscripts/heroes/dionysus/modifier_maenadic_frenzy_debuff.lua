@@ -54,13 +54,11 @@ function modifier_maenadic_frenzy_debuff:OnIntervalThink()
     end
 end
 
-function modifier_maenadic_frenzy_debuff:DecalreFunctions()
-    return {
-        MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    }
+function modifier_maenadic_frenzy_debuff:DeclareFunctions()
+    return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}
 end
 
-function modifier_maenadic_frenzy_debuff:GetModifierAttackSpeedBonus_Constant(kv)
+function modifier_maenadic_frenzy_debuff:GetModifierAttackSpeedBonus_Constant()
     return self.as_amp
 end
 
