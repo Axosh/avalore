@@ -4,6 +4,16 @@ function modifier_maenadic_frenzy_debuff:IsHidden() return false end
 function modifier_maenadic_frenzy_debuff:IsPurgable() return false end
 function modifier_maenadic_frenzy_debuff:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIPLE end
 
+function modifier_maenadic_frenzy_debuff:CheckState()
+    return {
+        [MODIFIER_STATE_CANNOT_TARGET_ENEMIES] = true,
+        [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+        [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+        [MODIFIER_STATE_ATTACK_ALLIES] = true,
+        [MODIFIER_STATE_CANNOT_TARGET_ENEMIES] = true
+    }
+end
+
 function modifier_maenadic_frenzy_debuff:OnCreated()
     if self:GetCaster():HasTalent("talent_limit_break") then
         self.as_amp = self:GetCaster():FindTalentValue("talent_limit_break", "bonus_attack_speed")
@@ -30,6 +40,7 @@ function modifier_maenadic_frenzy_debuff:OnCreated()
     local first_target = self:FindClosestAllyToAttack()
     if first_target then
         self.attack_target = first_target;
+        (self.parent):FaceTowards(first_target:GetAbsOrigin());
         (self.parent):SetForceAttackTargetAlly(first_target)
     else
         (self.parent):Stop()
@@ -46,11 +57,14 @@ function modifier_maenadic_frenzy_debuff:OnIntervalThink()
         local next_target = self:FindClosestAllyToAttack()
         if next_target then
             self.attack_target = next_target;
-            (self.parent):FaceTowards(next_target:GetAbsOrigin());
-            (self.parent):SetForceAttackTargetAlly(next_target);
+            (self.parent):FaceTowards(self.attack_target:GetAbsOrigin());
+            (self.parent):SetForceAttackTargetAlly(self.attack_target);
         else
             (self.parent):Stop()
         end
+    else
+        (self.parent):FaceTowards(self.attack_target:GetAbsOrigin());
+        (self.parent):SetForceAttackTargetAlly(self.attack_target);
     end
 end
 
@@ -87,6 +101,11 @@ function modifier_maenadic_frenzy_debuff:FindClosestAllyToAttack()
             break
 		end
 	end
+    local target_debug = "nil"
+    if target then
+        target_debug = target:GetUnitName()
+    end
+    print(self:GetParent():GetUnitName() .. " targeting " .. target_debug)
 
 	return target
 end
