@@ -41,7 +41,8 @@ function modifier_maenadic_frenzy_debuff:OnCreated()
     if first_target then
         self.attack_target = first_target;
         (self.parent):FaceTowards(first_target:GetAbsOrigin());
-        (self.parent):SetForceAttackTargetAlly(first_target)
+        (self.parent):MoveToTargetToAttack(first_target);
+        (self.parent):SetForceAttackTargetAlly(first_target);
     else
         (self.parent):Stop()
     end
@@ -58,45 +59,63 @@ function modifier_maenadic_frenzy_debuff:OnIntervalThink()
         if next_target then
             self.attack_target = next_target;
             (self.parent):FaceTowards(self.attack_target:GetAbsOrigin());
+            (self.parent):MoveToTargetToAttack(self.attack_target);
             (self.parent):SetForceAttackTargetAlly(self.attack_target);
         else
             (self.parent):Stop()
         end
-    else
-        (self.parent):FaceTowards(self.attack_target:GetAbsOrigin());
-        (self.parent):SetForceAttackTargetAlly(self.attack_target);
+    -- else
+    --     (self.parent):FaceTowards(self.attack_target:GetAbsOrigin());
+    --     (self.parent):SetForceAttackTargetAlly(self.attack_target);
     end
 end
 
 function modifier_maenadic_frenzy_debuff:DeclareFunctions()
-    return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}
+    return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL}
 end
 
+-- amp is calculated in the OnCreated and can be modified by a Talent
 function modifier_maenadic_frenzy_debuff:GetModifierAttackSpeedBonus_Constant()
     return self.as_amp
 end
 
+-- Only Allied units should be able to deal damage during this (similar to Winter Wyvern ult)
+function modifier_maenadic_frenzy_debuff:GetAbsoluteNoDamagePhysical(event)
+    if event.attacker and event.attacker:GetTeamNumber() == self:GetParent():GetTeamNumber() then
+        return 0
+    else
+        -- no dmg from enemies
+        return 1
+    end
+end
+
 -- returns the closest allied target with the same debuff or returns nil
 function modifier_maenadic_frenzy_debuff:FindClosestAllyToAttack()
-    local caster = self:GetCaster()
-    local radius = self:GetAbility():GetSpecialValueFor("frenzy_search_radius")
+    --local caster = self:GetCaster()
+    local radius = self:GetAbility():GetSpecialValueFor("radius")--self:GetAbility():GetSpecialValueFor("frenzy_search_radius")
+    --print("Search Radi = " .. tostring(radius))
 
     local units = FindUnitsInRadius(
-		caster:GetTeamNumber(),	-- int, your team number
-		caster:GetOrigin(),	-- point, center point
+		self:GetParent():GetTeamNumber(),	-- int, your team number
+		self:GetCaster():GetOrigin(), --self:GetParent():GetAbsOrigin(), --caster:GetOrigin(),	-- point, center point
 		nil,	-- handle, cacheUnit. (not known)
 		radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
-		DOTA_UNIT_TARGET_TEAM_BOTH,	-- int, team filter
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
+		self:GetParent():GetTeamNumber(),	-- int, team filter
+        DOTA_UNIT_TARGET_ALL ,
+		--DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
 		0,	-- int, flag filter
 		FIND_CLOSEST,	-- int, order filter
 		false	-- bool, can grow cache
 	)
 
     local target = nil
+    local count = 0
 	for _,unit in pairs(units) do
+        count = count + 1
+        print("Checking unit => " .. unit:GetUnitName())
 		local filter = unit:FindModifierByName( 'modifier_maenadic_frenzy_debuff' )
-		if filter then
+		if filter and unit ~= self:GetParent() then
             target = unit
             break
 		end
@@ -105,7 +124,7 @@ function modifier_maenadic_frenzy_debuff:FindClosestAllyToAttack()
     if target then
         target_debug = target:GetUnitName()
     end
-    print(self:GetParent():GetUnitName() .. " targeting " .. target_debug)
+    print("Looked at " .. tostring(count) .. " nearby units; " .. self:GetParent():GetUnitName() .. " targeting " .. target_debug)
 
 	return target
 end

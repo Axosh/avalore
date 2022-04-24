@@ -58,7 +58,8 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
             team_localized = "Radiant"
         end
         --local temp_hero = CreateUnitByName("npc_dota_hero_rubick", Vector(7232, 7232, 256), true, nil, hero:GetOwner(), DOTA_TEAM_BADGUYS)
-        local temp_hero = CreateUnitByName("npc_dota_hero_rubick", Vector(0, 0, 0), true, nil, hero:GetOwner(), enemy_team)
+        --local temp_hero = CreateUnitByName("npc_dota_hero_rubick", Vector(0, 0, 0), true, nil, hero:GetOwner(), enemy_team)
+        local temp_hero = CreateUnitByName("npc_dota_hero_phantom_lancer", Vector(0, 0, 0), true, nil, hero:GetOwner(), enemy_team)
         temp_hero:SetControllableByPlayer(0, false)
         temp_hero:AddNewModifier(nil, nil, "modifier_provide_vision", {})
         print("Created ... " .. temp_hero:GetUnitName() .. " on team .. " .. team_localized)

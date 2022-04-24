@@ -132,7 +132,7 @@ function CAvaloreGameMode:InitGameMode()
 	
 	-- Custom Mode Framework Inits
 	if not _G.not_init then
-		_G.not_init = true
+		_G.not_init = false
 		Spawners:Init()
 		Score:Init()
 	end
@@ -447,9 +447,11 @@ function CAvaloreGameMode:InitRound2()
 	-- NOTE: Outposts have another hidden modifier: "modifier_watch_tower"
 
 	-- kill any remaining wisps
-	for _,wisp in pairs(Score["wisps"]) do
-		if wisp and wisp:IsAlive() then
-			wisp:ForceKill(false)
+	if Score["wisps"] then -- this check is mostly for debugging when init might get run twice
+		for _,wisp in pairs(Score["wisps"]) do
+			if wisp and wisp:IsAlive() then
+				wisp:ForceKill(false)
+			end
 		end
 	end
 end

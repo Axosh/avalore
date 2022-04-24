@@ -22,6 +22,10 @@ function ability_maenadic_frenzy:OnSpellStart()
     --                         caster:get, nTeamNumber, bPhantomBlocker)
 end
 
-function ability_maenadic_frenzy:GetAOERadius()
-	return self:GetSpecialValueFor("radius")
-end 
+-- function ability_maenadic_frenzy:GetAOERadius()
+-- 	return self:GetSpecialValueFor("radius")
+-- end
+
+function ability_maenadic_frenzy:GetCastRange()
+    return self:GetSpecialValueFor("radius")
+end
