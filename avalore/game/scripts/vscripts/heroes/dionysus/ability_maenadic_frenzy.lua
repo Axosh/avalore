@@ -1,7 +1,8 @@
 ability_maenadic_frenzy = class({})
 
-LinkLuaModifier("modifier_maenadic_frenzy_aura", "heroes/dionysus/modifier_maenadic_frenzy_aura.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_talent_limit_break", "heroes/dionysus/modifier_talent_limit_break.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_maenadic_frenzy_aura",    "heroes/dionysus/modifier_maenadic_frenzy_aura.lua",    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_limit_break",      "heroes/dionysus/modifier_talent_limit_break.lua",      LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_talent_ritual_madness",   "heroes/dionysus/modifier_talent_ritual_madness.lua",   LUA_MODIFIER_MOTION_NONE )
 
 function ability_maenadic_frenzy:OnSpellStart()
     if not IsServer() then return end
@@ -14,18 +15,8 @@ function ability_maenadic_frenzy:OnSpellStart()
                             ability,
                             "modifier_maenadic_frenzy_aura",
                             {duration = duration})
-
-    -- CreateModifierThinker(  caster, 
-    --                         ability, 
-    --                         "modifier_maenadic_frenzy_aura", 
-    --                         {duration = duration}, 
-    --                         caster:get, nTeamNumber, bPhantomBlocker)
 end
 
--- function ability_maenadic_frenzy:GetAOERadius()
--- 	return self:GetSpecialValueFor("radius")
--- end
-
 function ability_maenadic_frenzy:GetCastRange()
-    return self:GetSpecialValueFor("radius")
+    return self:GetSpecialValueFor("radius") + self:FindTalentValue("talent_ritual_madness", "bonus_aura_aoe")
 end

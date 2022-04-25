@@ -71,8 +71,12 @@ function modifier_maenadic_frenzy_debuff:OnIntervalThink()
 end
 
 function modifier_maenadic_frenzy_debuff:DeclareFunctions()
-    return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL}
+    return {
+                MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+                MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+                MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+                MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE
+            }
 end
 
 -- amp is calculated in the OnCreated and can be modified by a Talent
@@ -85,7 +89,20 @@ function modifier_maenadic_frenzy_debuff:GetAbsoluteNoDamagePhysical(event)
     if event.attacker and event.attacker:GetTeamNumber() == self:GetParent():GetTeamNumber() then
         return 0
     else
-        -- no dmg from enemies
+        return 1
+    end
+end
+function modifier_maenadic_frenzy_debuff:GetAbsoluteNoDamageMagical(event)
+    if event.attacker and event.attacker:GetTeamNumber() == self:GetParent():GetTeamNumber() then
+        return 0
+    else
+        return 1
+    end
+end
+function modifier_maenadic_frenzy_debuff:GetAbsoluteNoDamagePure(event)
+    if event.attacker and event.attacker:GetTeamNumber() == self:GetParent():GetTeamNumber() then
+        return 0
+    else
         return 1
     end
 end
@@ -110,10 +127,10 @@ function modifier_maenadic_frenzy_debuff:FindClosestAllyToAttack()
 	)
 
     local target = nil
-    local count = 0
+    --local count = 0
 	for _,unit in pairs(units) do
-        count = count + 1
-        print("Checking unit => " .. unit:GetUnitName())
+        --count = count + 1
+        --print("Checking unit => " .. unit:GetUnitName())
 		local filter = unit:FindModifierByName( 'modifier_maenadic_frenzy_debuff' )
 		if filter and unit ~= self:GetParent() then
             target = unit
@@ -124,13 +141,13 @@ function modifier_maenadic_frenzy_debuff:FindClosestAllyToAttack()
     if target then
         target_debug = target:GetUnitName()
     end
-    print("Looked at " .. tostring(count) .. " nearby units; " .. self:GetParent():GetUnitName() .. " targeting " .. target_debug)
+    --print("Looked at " .. tostring(count) .. " nearby units; " .. self:GetParent():GetUnitName() .. " targeting " .. target_debug)
 
 	return target
 end
 
 function modifier_maenadic_frenzy_debuff:OnDestroy()
     if not IsServer() then return end
-	
+
 	(self.parent):SetForceAttackTargetAlly(nil)
 end

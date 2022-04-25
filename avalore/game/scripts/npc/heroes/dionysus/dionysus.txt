@@ -29,6 +29,7 @@
 		"Ability14"					"talent_unbridled_power"
 		"Ability15"					"talent_possessed"
 		"Ability16"					"talent_limit_break"
+		"Ability17"					"talent_ritual_madness"
 
         // Armor
 		//----------------------------------------------------------------
@@ -50,11 +51,11 @@
 
 		// Attributes
 		//----------------------------------------------------------------
-		"AttributePrimary"		"DOTA_ATTRIBUTE_STRENGTH"
-		"AttributeBaseStrength"		"23"
-		"AttributeStrengthGain"		"3.700000"
-		"AttributeBaseAgility"		"19"
-		"AttributeAgilityGain"		"2.0000"
+		"AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			"23"
+		"AttributeStrengthGain"			"3.700000"
+		"AttributeBaseAgility"			"19"
+		"AttributeAgilityGain"			"2.0000"
 		"AttributeBaseIntelligence"		"15"
 		"AttributeIntelligenceGain"		"1.60000"
 

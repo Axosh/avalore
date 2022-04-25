@@ -335,10 +335,13 @@
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy_Lore"				"Maenads were usually depicted in a state of ecstatic frenzy. In \"The Bacchae\", a mob of Maenads rip Pentheus limb from limb - one of which was his own mother."
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy_radius"			"RADIUS: "
 		"DOTA_Tooltip_Ability_ability_maenadic_frenzy_duration"			"DURATION: "
-		"DOTA_Tooltip_Ability_ability_maenadic_frenzy_frenzy_search_radius"		"ALLY SEARCH RADIUS: "
+		//"DOTA_Tooltip_Ability_ability_maenadic_frenzy_frenzy_search_radius"		"ALLY SEARCH RADIUS: "
 
 		"DOTA_Tooltip_modifier_maenadic_frenzy_debuff"					"Maenadic Frenzy"
 		"DOTA_Tooltip_modifier_maenadic_frenzy_debuff_description"		"Forcibly attacking nearby allies"
+
+		"DOTA_Tooltip_modifier_maenadic_frenzy_aura"					"Maenadic Frenzy"
+		"DOTA_Tooltip_modifier_maenadic_frenzy_aura_description"		"Causing enemies to forcibly attack their nearby allies"
 
 		// Talents
 		"DOTA_Tooltip_Ability_talent_potent_drinks"						"Potent Drinks"
@@ -361,6 +364,9 @@
 
 		"DOTA_Tooltip_Ability_talent_limit_break"						"Limit Break"
 		"DOTA_Tooltip_Ability_talent_limit_break_description"			"Maenadic Frenzy: enemies attack each other with bonus {s:bonus_attack_speed} attack speed"
+		
+		"DOTA_Tooltip_Ability_talent_ritual_madness"					"Ritual Madness"
+		"DOTA_Tooltip_Ability_talent_ritual_madness_description"		"Maenadic Frenzy: extends the AoE by {s:bonus_aura_aoe} and each unit that dies under the effect extends the duration {s:duration_extension_per_death}s"
 
 		// ===== ZEUS =====
 		"DOTA_Tooltip_Ability_ability_shapeshift"						"Shapeshift"

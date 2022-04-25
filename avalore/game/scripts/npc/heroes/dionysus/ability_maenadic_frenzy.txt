@@ -40,11 +40,11 @@
 				//"duration"				"10.0 10.0 10.0" // duration for debugging
 				"duration"				"4.0 4.5 5.0"
 			}
-            "03"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "frenzy_search_radius"  "300"
-            }
+            // "03"
+            // {
+            //     "var_type"				"FIELD_INTEGER"
+            //     "frenzy_search_radius"  "300"
+            // }
         }
     }
 }
