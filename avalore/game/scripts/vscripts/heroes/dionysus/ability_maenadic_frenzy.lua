@@ -18,5 +18,5 @@ function ability_maenadic_frenzy:OnSpellStart()
 end
 
 function ability_maenadic_frenzy:GetCastRange()
-    return self:GetSpecialValueFor("radius") + self:FindTalentValue("talent_ritual_madness", "bonus_aura_aoe")
+    return self:GetSpecialValueFor("radius") + self:GetCaster():FindTalentValue("talent_ritual_madness", "bonus_aura_aoe")
 end

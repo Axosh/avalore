@@ -26,6 +26,9 @@ function modifier_maenadic_frenzy_debuff:OnCreated()
     self.parent = self:GetParent()
 	self.caster = self:GetCaster()
     self.attack_target = nil
+
+    -- 0 or value
+    self.duration_extension_per_death = self:GetCaster():FindTalentValue("talent_ritual_madness", "duration_extension_per_death")
     
     --print("as amp = " .. tostring(self.as_amp))
 
@@ -75,7 +78,9 @@ function modifier_maenadic_frenzy_debuff:DeclareFunctions()
                 MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
                 MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
                 MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
-                MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE
+                MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
+                --MODIFIER_EVENT_ON_DEATH,
+                MODIFIER_EVENT_ON_TAKEDAMAGE_KILLCREDIT
             }
 end
 
@@ -150,4 +155,49 @@ function modifier_maenadic_frenzy_debuff:OnDestroy()
     if not IsServer() then return end
 
 	(self.parent):SetForceAttackTargetAlly(nil)
+end
+
+--function modifier_maenadic_frenzy_debuff:OnDeath(kv)
+function modifier_maenadic_frenzy_debuff:OnTakeDamageKillCredit(kv)
+    if not IsServer() then return end
+    -- filter for the unit that has this modifier
+    if not kv.target == self:GetParent() then return end
+    -- don't do anything if illusion
+    --if kv.target:IsIllusion() then return nil end
+
+
+    -- make sure they're taking lethal damage
+    -- print("Unit Health: " .. tostring(self:GetParent():GetHealth()))
+    -- print("Taking Damage: " .. tostring(kv.damage))
+    if self:GetParent():GetHealth() - kv.damage > 0 then return end
+    
+    -- make sure they have the debuff
+    if not kv.target:FindModifierByName(self:GetName()) then return end
+
+    -- give kill credit to Dionysus
+    self:GetParent():Kill(self:GetAbility(), self:GetCaster())
+
+    -- if player has talent, then also extend the duration of the ability
+    if self:GetCaster():HasTalent("talent_ritual_madness") then
+        local aura_mod = self:GetCaster():FindModifierByName("modifier_maenadic_frenzy_aura")
+        -- check for race condition where the debuff lingers longer than the aura is active
+        if aura_mod then
+            print("Unit died under Maenadic Frenzy - Extending Time")
+            print("Original Time Left: " .. tostring(aura_mod:GetRemainingTime()))
+            aura_mod:SetDuration(aura_mod:GetRemainingTime() + self.duration_extension_per_death, true)
+            print("New Time Left: " .. tostring(aura_mod:GetRemainingTime()))
+        end
+        
+    end
+
+    -- if self:GetCaster():HasTalent("talent_ritual_madness") then
+    --     for _,ent in pairs(Entities:FindAllInSphere(self:GetCaster():GetAbsOrigin(), self:GetAbility():GetCastRange())) do
+    --         if ent:IsBaseNPC() then
+    --             local mod = ent:FindModifierByName(self:GetName())
+    --             if mod then
+    --                 mod:SetDuration(mod:GetRemainingTime() + self.duration_extension_per_death, true)
+    --             end
+    --         end
+    --     end
+    -- end
 end

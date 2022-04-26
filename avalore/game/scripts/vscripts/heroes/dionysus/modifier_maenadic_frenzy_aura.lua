@@ -26,7 +26,7 @@ function modifier_maenadic_frenzy_aura:GetAuraRadius()
 end
 
 function modifier_maenadic_frenzy_aura:OnCreated()
-    self.radius			= self:GetAbility():GetSpecialValueFor("radius") + self:FindTalentValue("talent_ritual_madness", "bonus_aura_aoe")
+    self.radius			= self:GetAbility():GetSpecialValueFor("radius") + self:GetCaster():FindTalentValue("talent_ritual_madness", "bonus_aura_aoe")
 
     if not IsServer() then return end
 
