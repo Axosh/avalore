@@ -84,7 +84,7 @@ function ability_lightning_bolt:LightningBolt(caster, ability, target, target_po
         end
     end
 
-    if not nimbus and target then
+    if not storm_cloud and target then
         -- If the target possesses a ready Linken's Sphere, do nothing
         if target:GetTeam() ~= caster:GetTeam() then
             if target:TriggerSpellAbsorb(ability) then
@@ -115,7 +115,9 @@ function ability_lightning_bolt:LightningBolt(caster, ability, target, target_po
     end
 
     --local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_lightning_bolt.vpcf", PATTACH_WORLDORIGIN, target, caster)
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_lightning_bolt.vpcf", PATTACH_WORLDORIGIN, target)
+    --local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_lightning_bolt.vpcf", PATTACH_WORLDORIGIN, target)
+    --particles/econ/items/zeus/arcana_chariot/zuus_arcana_bolt_light.vpcf
+    local particle = ParticleManager:CreateParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", PATTACH_WORLDORIGIN, target)
     if target == nil then 
         -- Renders the particle on the ground target
         ParticleManager:SetParticleControl(particle, 0, Vector(target_point.x, target_point.y, target_point.z))

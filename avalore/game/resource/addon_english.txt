@@ -368,7 +368,9 @@
 		"DOTA_Tooltip_Ability_talent_ritual_madness"					"Ritual Madness"
 		"DOTA_Tooltip_Ability_talent_ritual_madness_description"		"Maenadic Frenzy: extends the AoE by {s:bonus_aura_aoe} and each unit that dies under the effect extends the duration {s:duration_extension_per_death}s"
 
+		// ==============================================
 		// ===== ZEUS =====
+		// ==============================================
 		"DOTA_Tooltip_Ability_ability_shapeshift"						"Shapeshift"
 		"DOTA_Tooltip_Ability_ability_shapeshift_Description"			"<b>When cast on self:</b> turn into an eagle with flying movement and bonus vision. Can be cancelled any time.\n<b>When cast on enemy:</b> <font color=\"#ffa500\">Hexes</font> target into a wolf"
 		"DOTA_Tooltip_Ability_ability_shapeshift_duration_self"			"DURATION (SELF):"
@@ -377,21 +379,33 @@
 		"DOTA_Tooltip_Ability_ability_shapeshift_Note0"					"Instantly destroys illusions."
 		"DOTA_Tooltip_Ability_ability_shapeshift_Lore"					"Zeus took many animal forms, notably an Eagle, Bull, and Swan. He also sometimes transformed mortals, for instance turning Lycaon into a wolf as a punishment."
 
+		"DOTA_Tooltip_Ability_ability_eagle_cancel"								"Shapeshift (Cancel)"
+		"DOTA_Tooltip_Ability_ability_eagle_cancel_description"					"Revert back to Zeus form"
+
+		"DOTA_Tooltip_Ability_ability_lightning_bolt"							"Lightning Bolt"
+		"DOTA_Tooltip_Ability_ability_lightning_bolt_description"				"Nukes a unit, mini-stuns, and provides True Sight for a brief amount of time in an AoE"
+		"DOTA_Tooltip_Ability_ability_lightning_bolt_true_sight_radius"			"TRUE SIGHT RADIUS: "
+		"DOTA_Tooltip_Ability_ability_lightning_bolt_sight_duration"			"TRUE SIGHT DURATION: "
+		"DOTA_Tooltip_Ability_ability_lightning_bolt_stun_duration"				"MINI-STUN DURATION: "
+
+
 		// -- Talents
-		"DOTA_Tooltip_Ability_talent_static_field"						"Static Field"
-		"DOTA_Tooltip_Ability_talent_static_field_description"			"On Casting an Electrical Spell, Zeus emits a 900 radius field that deals 8% of a Unit's Current HP if they're in range."
+		"DOTA_Tooltip_Ability_talent_static_field"							"Static Field"
+		"DOTA_Tooltip_Ability_talent_static_field_description"				"On Casting an Electrical Spell, Zeus emits a 900 radius field that deals 8% of a Unit's Current HP if they're in range."
 
-		"DOTA_Tooltip_Ability_talent_chain_lightning"					"Chain Lightning"
-		"DOTA_Tooltip_Ability_talent_chain_lightning_description"		"Adds chain lightning to Lightning Bolt. Hops to a target in 500 range 5/7/9/15 times dealing 75/100/125/150 magic damage"
+		"DOTA_Tooltip_Ability_talent_chain_lightning"						"Chain Lightning"
+		"DOTA_Tooltip_Ability_talent_chain_lightning_description"			"Adds chain lightning to Lightning Bolt. Hops to a target in 500 range 5/7/9/15 times dealing 75/100/125/150 magic damage"
 
-		"DOTA_Tooltip_Ability_talent_ride_the_stormwinds"				"Ride the Stormwinds"
+		"DOTA_Tooltip_Ability_talent_ride_the_stormwinds"					"Ride the Stormwinds"
 		"DOTA_Tooltip_Ability_talent_ride_the_stormwinds_description"		"While shapeshifted to an Eagle, gains a bonus +50 Movespeed and +500 Vision"
 
 		"DOTA_Tooltip_Ability_talent_shapeshift_enemy_duration"				"+{s:bonus_duration_enemy} seconds Shapeshift Duration (Enemy)"
 		//"DOTA_Tooltip_Ability_talent_shapeshift_enemy_duration_description" ""
 
 
+		// ==============================================
 		// ===== QUETZALCOATL =====
+		// ==============================================
 		"DOTA_Tooltip_Ability_ability_fertile_winds"					"Fertile Winds"
 		"DOTA_Tooltip_Ability_ability_fertile_winds_Lore"				"Quetzalcoatl was a god of wind and fertility, bringing the rain that grew life-giving crops."
 
@@ -417,7 +431,9 @@
 		"DOTA_Tooltip_modifier_quetzalcoatls_blessing_description"			"Receiving +%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% Bonus INT, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% Magic Amplification. If killed with this buff, receive -%dMODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE%%% Respawn Timer Reduction."
 
 
+		// ==============================================
 		// ===== GILGAMESH ===== //
+		// ==============================================
 		"DOTA_Tooltip_Ability_ability_befriend_enkidu"						"Befriend Enkidu"
 		"DOTA_Tooltip_Ability_ability_befriend_enkidu_Lore"					"Early on in the myth, Gilgamesh and Enkidu become best of friends. Over time, Enkidu becomes more human and less animal. When he dies, Gilgamesh is grief stricken."
 
@@ -439,7 +455,9 @@
 		"DOTA_Tooltip_modifier_tyrant_king_debuff_description"				"Giving a percent of attack damage to Gilgamesh"
 
 
+		// ==============================================
 		// ===== PECOS BILL ===== //
+		// ==============================================
 		"DOTA_Tooltip_Ability_ability_coyote_howl"							"Coyote Howl"
 		"DOTA_Tooltip_Ability_ability_coyote_howl_Lore"						"Pecos Bill was raised by coyotes and in some renditions of the tale, used a coyote howl to tame horses"
 		"DOTA_Tooltip_modifier_coyote_howl_fear"							"Coyote Howl"
@@ -458,7 +476,9 @@
 		"DOTA_Tooltip_Ability_ability_ride_a_twister_Lore"					"He was an outstanding rider and could ride anything. The only cowboy able to ride 'Widow-Maker' (an unbreakable horse), as well as lassoing a tornado and riding it"
 		"DOTA_Tooltip_modifier_ride_a_twister"								"Ridin' a Twister"
 
+		// ==============================================
 		// ===== SUN WUKONG ===== //
+		// ==============================================
 		"DOTA_Tooltip_Ability_ability_72_bian_cancel"						"Revert to Monkey Form"
 		
 		"DOTA_Tooltip_Ability_ability_72_bian"								"72 Bian"
@@ -480,7 +500,9 @@
 		"DOTA_Tooltip_modifier_72_bian_fish"								"Fish Form"
 		"DOTA_Tooltip_modifier_72_bian_tree"								"Tree Form"
 
+		// ==============================================
 		// ===== THOR ===== //
+		// ==============================================
 		"DOTA_Tooltip_Ability_ability_consume_goat"							"Consume Goat"
 		"DOTA_Tooltip_Ability_ability_consume_goat_Lore"					"Thor would regularly kill, cook, eat, and resurrect his goats when he was hungry"
 
@@ -500,7 +522,9 @@
 		"DOTA_Tooltip_Ability_talent_lightning_charged"						"Lightning Charged"
 		"DOTA_Tooltip_Ability_talent_lightning_charged_description"				"As Hammer Toss flies, will zap enemies within a 350 radius around the projectile for 150 lightning magic damage."
 
+		// ==============================================
 		// ===== ANUBIS ===== //
+		// ==============================================
 
 		"DOTA_Tooltip_Ability_ability_embalm"							"Embalm"
 
