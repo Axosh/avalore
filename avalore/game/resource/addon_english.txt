@@ -387,6 +387,10 @@
 		"DOTA_Tooltip_Ability_ability_lightning_bolt_true_sight_radius"			"TRUE SIGHT RADIUS: "
 		"DOTA_Tooltip_Ability_ability_lightning_bolt_sight_duration"			"TRUE SIGHT DURATION: "
 		"DOTA_Tooltip_Ability_ability_lightning_bolt_stun_duration"				"MINI-STUN DURATION: "
+		"DOTA_Tooltip_Ability_ability_lightning_bolt_lore"						"Zeus has strong associations with lightning. While being deceptive himself, he also characteristically hates lying and deceit."
+
+		"DOTA_Tooltip_Ability_ability_summon_storm"								"Summon Storm"
+		"DOTA_Tooltip_Ability_ability_summon_storm_description"					"Summons a fully controllable cloud with flying movment. It will periodically cast Lightning Bolt (based on Zeus' spell level)"
 
 
 		// -- Talents

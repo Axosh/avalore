@@ -40,6 +40,9 @@
 		//----------------------------------------------------------------
         //"ProjectileModel"           "models/items/zeus/lightning_weapon/zuus_lightning_weapon.vmdl"
         //"ProjectileModel"           "particles/units/heroes/hero_razor/razor_static_link_projectile_b.vpcf"
+        "ProjectileModel"           "particles/econ/items/zeus/lightning_weapon_fx/zuus_base_attack_immortal_lightning.vpcf"
+        //"ProjectileModel"            "particles/units/heroes/hero_shadowshaman/shadow_shaman_ward_base_attack.vpcf" //sanity check
+        "ProjectileSpeed"           "900"
         "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageMin"           "35"
         "AttackDamageMax"           "35"

@@ -1,6 +1,8 @@
 ability_thunder_gods_wrath = class({})
 
 LinkLuaModifier("modifier_talent_static_field",       "heroes/zeus/modifier_talent_static_field.lua",       LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_lightning_true_sight", "heroes/zeus/modifier_lightning_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_lightning_bolt",       "heroes/zeus/modifier_lightning_bolt.lua",       LUA_MODIFIER_MOTION_NONE)
 
 function ability_thunder_gods_wrath:OnAbilityPhaseStart()
 	self:GetCaster():EmitSound("Hero_Zuus.GodsWrath.PreCast")
@@ -26,7 +28,7 @@ function ability_thunder_gods_wrath:OnSpellStart(kv)
     if not IsServer() then return end
     local caster = self:GetCaster()
 	local ability = self
-	local sight_radius = ability:GetLevelSpecialValueFor("sight_radius", (ability:GetLevel() -1))
+	local sight_radius = ability:GetLevelSpecialValueFor("true_sight_radius", (ability:GetLevel() -1))
 	local sight_duration = ability:GetLevelSpecialValueFor("sight_duration", (ability:GetLevel() -1))
 	
     EmitSoundOnLocationForAllies(self:GetCaster():GetAbsOrigin(), "Hero_Zuus.GodsWrath", self:GetCaster())
@@ -39,11 +41,35 @@ function ability_thunder_gods_wrath:OnSpellStart(kv)
     for _,hero in pairs(HeroList:GetAllHeroes()) do 
         if hero:IsAlive() and hero:GetTeam() ~= caster:GetTeam() and (not hero:IsIllusion()) and not hero:IsClone() then
             local target_point = hero:GetAbsOrigin()
+            print("Zapping " .. hero:GetName())
+            print("Radi = " .. tostring(sight_radius))
+            print("Dur = " .. tostring(sight_duration))
 
-            local thundergod_strike_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_thundergods_wrath.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero, self:GetCaster())
+            -- local dummy_unit = CreateUnitByName("npc_dummy_unit", Vector(target_point.x, target_point.y, 0), false, nil, nil, caster:GetTeam())
+            -- local true_sight = dummy_unit:AddNewModifier(caster, ability, "modifier_lightning_true_sight", {duration = sight_duration})
+            -- true_sight:SetStackCount(sight_radius)
+            -- dummy_unit:SetDayTimeVisionRange(sight_radius)
+            -- dummy_unit:SetNightTimeVisionRange(sight_radius)
+            -- dummy_unit:AddNewModifier(caster, ability, "modifier_lightning_bolt", {})
+            -- print("Target Point: (" .. tostring(target_point.x) .. ", " .. tostring(target_point.y) .. ")")
+            -- AddFOWViewer(DOTA_TEAM_GOODGUYS, target_point, sight_radius, sight_duration, false)
+	        -- AddFOWViewer(DOTA_TEAM_BADGUYS, target_point, sight_radius, sight_duration, false)
+
+            --local thundergod_strike_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_thundergods_wrath.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+            --local thundergod_strike_particle = ParticleManager:CreateParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_thundergods_wrath.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+            local thundergod_strike_particle = ParticleManager:CreateParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_thundergods_wrath.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
             ParticleManager:SetParticleControl(thundergod_strike_particle, 0, Vector(target_point.x, target_point.y, target_point.z + hero:GetBoundingMaxs().z))
             ParticleManager:SetParticleControl(thundergod_strike_particle, 1, Vector(target_point.x, target_point.y, 2000))
             ParticleManager:SetParticleControl(thundergod_strike_particle, 2, Vector(target_point.x, target_point.y, target_point.z + hero:GetBoundingMaxs().z))
+            ParticleManager:ReleaseParticleIndex(thundergod_strike_particle)
+
+            --local particle = ParticleManager:CreateParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_thundergods_wrath_start_strike.vpcf", PATTACH_WORLDORIGIN, target)
+            local particle = ParticleManager:CreateParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_thundergods_wrath_start_bolt_parent.vpcf", PATTACH_WORLDORIGIN, target)
+            -- ParticleManager:SetParticleControl(particle, 0, Vector(target_point.x, target_point.y, target_point.z))
+            -- ParticleManager:SetParticleControl(particle, 1, Vector(target_point.x, target_point.y, z_pos))
+            -- ParticleManager:SetParticleControl(particle, 2, Vector(target_point.x, target_point.y, target_point.z))
+            ParticleManager:SetParticleControl(particle, 0, target_point)
+	        ParticleManager:ReleaseParticleIndex(particle)
 
             if (not hero:IsMagicImmune()) and (not hero:IsInvisible() or caster:CanEntityBeSeenByMyTeam(hero)) then
                 damage_table.damage	 = self:GetAbilityDamage()
@@ -52,7 +78,9 @@ function ability_thunder_gods_wrath:OnSpellStart(kv)
 
                 Timers:CreateTimer(FrameTime(), function()
                     if not hero:IsAlive() then
-                        local thundergod_kill_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zeus/zues_kill_empty.vpcf", PATTACH_WORLDORIGIN, nil, self:GetCaster())
+                        print("He dead")
+                        --local thundergod_kill_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zeus/zues_kill_empty.vpcf", PATTACH_WORLDORIGIN, self:GetCaster())
+                        local thundergod_kill_particle = ParticleManager:CreateParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_kill_remnant.vpcf", PATTACH_WORLDORIGIN, self:GetCaster())
                         ParticleManager:SetParticleControl(thundergod_kill_particle, 0, hero:GetAbsOrigin())
                         ParticleManager:SetParticleControl(thundergod_kill_particle, 1, hero:GetAbsOrigin())
                         ParticleManager:SetParticleControl(thundergod_kill_particle, 2, hero:GetAbsOrigin())
@@ -64,7 +92,15 @@ function ability_thunder_gods_wrath:OnSpellStart(kv)
 
             hero:EmitSound("Hero_Zuus.GodsWrath.Target")
 
-            hero:AddNewModifier(caster, ability, "modifier_zuus_thundergodswrath_vision_thinker", {duration = sight_duration, radius = sight_radius}) -- using a built-in modifier
+            --hero:AddNewModifier(caster, ability, "modifier_zuus_thundergodswrath_vision_thinker", {duration = sight_duration, radius = sight_radius}) -- using a built-in modifier
+            AddFOWViewer(self:GetCaster():GetTeam(), target_point, sight_radius, sight_duration, false)
+            local dummy_unit = CreateUnitByName("npc_dummy_unit", Vector(target_point.x, target_point.y, 0), false, nil, nil, caster:GetTeam())
+            local true_sight = dummy_unit:AddNewModifier(caster, ability, "modifier_lightning_true_sight", {duration = sight_duration})
+            true_sight:SetStackCount(sight_radius)
+            -- dummy_unit:SetDayTimeVisionRange(sight_radius)
+            -- dummy_unit:SetNightTimeVisionRange(sight_radius)
+            dummy_unit:AddNewModifier(caster, ability, "modifier_lightning_bolt", {})
+            dummy_unit:AddNewModifier(self:GetCaster(), nil, "modifier_kill", {duration = sight_duration + 1}) --built-in modifier: remove dummy after duration
         end
     end
 end

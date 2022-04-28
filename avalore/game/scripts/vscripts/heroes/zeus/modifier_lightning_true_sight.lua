@@ -5,7 +5,8 @@ function modifier_lightning_true_sight:IsHidden() return true end
 function modifier_lightning_true_sight:IsPurgable() return false end
 
 function modifier_lightning_true_sight:GetAuraRadius()
-	return 1
+    return self:GetStackCount()
+	--return 1
 end
 
 function modifier_lightning_true_sight:GetModifierAura()
@@ -13,7 +14,8 @@ function modifier_lightning_true_sight:GetModifierAura()
 end
 
 function modifier_lightning_true_sight:GetAuraSearchTeam()
-	return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+    return DOTA_UNIT_TARGET_TEAM_ENEMY
+	--return DOTA_UNIT_TARGET_TEAM_FRIENDLY
 end
 
 function modifier_lightning_true_sight:GetAuraSearchFlags()
