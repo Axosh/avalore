@@ -758,9 +758,9 @@ function CAvaloreGameMode:InitZeus(hero, playernum)
 	zeus_cosmetics[2] = "models/heroes/zeus/zeus_belt.vmdl"
 	zeus_cosmetics[3] = "models/items/zeus/lightning_weapon/mesh/zeus_lightning_weapon_model.vmdl"
 
-	-- cloud cosmetic/particle
-	local cloud = ParticleManager:CreateParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_chariot.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
-	ParticleManager:SetParticleControlEnt(cloud, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", hero:GetAbsOrigin(), true)
+	-- -- cloud cosmetic/particle
+	-- local cloud = ParticleManager:CreateParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_chariot.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
+	-- ParticleManager:SetParticleControlEnt(cloud, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", hero:GetAbsOrigin(), true)
 	
 
 	for k,wearable in pairs(zeus_cosmetics) do
@@ -772,11 +772,16 @@ function CAvaloreGameMode:InitZeus(hero, playernum)
 		cosmetic:SetParent(unit, nil)
 		cosmetic:SetOwner(unit)
 		cosmetic:FollowEntity(unit, true)
+		if k == 2 then
+			-- cloud cosmetic/particle
+	local cloud = ParticleManager:CreateParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_chariot.vpcf", PATTACH_ABSORIGIN_FOLLOW, cosmetic)
+	ParticleManager:SetParticleControlEnt(cloud, 0, cosmetic, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", cosmetic:GetAbsOrigin(), true)
+		end
 		if k == 3 then
 			-- see dota_imba's control_points.txt
-			local electricity = ParticleManager:CreateParticle("particles/econ/items/zeus/lightning_weapon_fx/zues_immortal_lightning_weapon.vpcf", PATTACH_CUSTOMORIGIN, hero)
+			local electricity = ParticleManager:CreateParticle("particles/econ/items/zeus/lightning_weapon_fx/zues_immortal_lightning_weapon.vpcf", PATTACH_CUSTOMORIGIN, cosmetic)
 			--ParticleManager:SetParticleControl(electricity, 0, hero:GetAbsOrigin())
-			ParticleManager:SetParticleControlEnt(electricity, 0, cosmetic, PATTACH_POINT_FOLLOW, "attach_attack1", hero:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(electricity, 0, cosmetic, PATTACH_POINT_FOLLOW, "attach_attack1", cosmetic:GetAbsOrigin(), true)
 			--ParticleManager:SetParticleControlEnt(electricity, 4, hero, PATTACH_POINT_FOLLOW, "attach_attack1", hero:GetAbsOrigin(), true)
 			--ParticleManager:SetParticleControlEnt(electricity, 5, hero, PATTACH_POINT_FOLLOW, "attach_attack1", hero:GetAbsOrigin(), true)
 			-- ParticleManager:SetParticleControl(electricity, 4, hero:GetAbsOrigin())

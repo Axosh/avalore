@@ -138,7 +138,7 @@ function ability_lightning_bolt:LightningBolt(caster, ability, target, target_po
     dummy_unit:SetNightTimeVisionRange(sight_radius_night)
 
     dummy_unit:AddNewModifier(caster, ability, "modifier_lightning_bolt", {})
-    dummy_unit:AddNewModifier(self:GetCaster(), nil, "modifier_kill", {duration = sight_duration + 1}) --built-in modifier: remove dummy after duration
+    dummy_unit:AddNewModifier(caster, nil, "modifier_kill", {duration = sight_duration + 1}) --built-in modifier: remove dummy after duration
     --dummy_unit:AddNewModifier(caster, nil, "modifier_kill", {duration = sight_duration + 1})
 
     -- if they chose chain lightning, add that to the spell
