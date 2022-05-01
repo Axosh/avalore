@@ -375,7 +375,9 @@
 		"DOTA_Tooltip_Ability_ability_shapeshift_Description"			"<b>When cast on self:</b> turn into an eagle with flying movement and bonus vision. Can be cancelled any time.\n<b>When cast on enemy:</b> <font color=\"#ffa500\">Hexes</font> target into a wolf"
 		"DOTA_Tooltip_Ability_ability_shapeshift_duration_self"			"DURATION (SELF):"
 		"DOTA_Tooltip_Ability_ability_shapeshift_duration_enemy"		"DURATION (ENEMY):"
-		//"DOTA_Tooltip_Ability_ability_shapeshift_mov
+		"DOTA_Tooltip_Ability_ability_shapeshift_speed_self"			"SPEED (SELF):"
+		"DOTA_Tooltip_Ability_ability_shapeshift_speed_enemy"			"SPEED (ENEMY):"
+		"DOTA_Tooltip_Ability_ability_shapeshift_vision"				"VISION (SELF):"
 		"DOTA_Tooltip_Ability_ability_shapeshift_Note0"					"Instantly destroys illusions."
 		"DOTA_Tooltip_Ability_ability_shapeshift_Lore"					"Zeus took many animal forms, notably an Eagle, Bull, and Swan. He also sometimes transformed mortals, for instance turning Lycaon into a wolf as a punishment."
 
@@ -391,6 +393,13 @@
 
 		"DOTA_Tooltip_Ability_ability_summon_storm"								"Summon Storm"
 		"DOTA_Tooltip_Ability_ability_summon_storm_description"					"Summons a fully controllable cloud with flying movment. It will periodically cast Lightning Bolt (based on Zeus' spell level)"
+		"DOTA_Tooltip_Ability_ability_summon_storm_cloud_duration"				"DURATION:"
+		"DOTA_Tooltip_Ability_ability_summon_storm_cloud_bolt_interval"			"BOLT INTERVAL:"
+		"DOTA_Tooltip_Ability_ability_summon_storm_cloud_radius"				"TARGETING RADIUS:"
+		"DOTA_Tooltip_Ability_ability_summon_storm_melee_hero_attack"			"MELEE HITS TO KILL:"
+		"DOTA_Tooltip_Ability_ability_summon_storm_ranged_hero_attack"			"RANGED HITS TO KILL:"
+		"DOTA_Tooltip_Ability_ability_summon_storm_non_hero_attack"				"CREEP HITS TO KILL"
+		"DOTA_Tooltip_Ability_ability_summon_storm_Lore"						"A God of the sky, thunder, a \"cloud-gatherer\". He could control weather by bringing rain and storms."
 
 
 		// -- Talents

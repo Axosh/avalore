@@ -717,6 +717,12 @@ function CAvaloreGameMode:InitRobinHood(unit_temp, playernum)
 			unit_temp.weapon_model_alt = cosmetic
 
 		end
+		if k == 1 then
+			local bow_string = ParticleManager:CreateParticle("particles/units/heroes/hero_windrunner/windrunner_bowstring.vpcf", PATTACH_CUSTOMORIGIN, cosmetic)
+			ParticleManager:SetParticleControlEnt(bow_string, 0, cosmetic, PATTACH_POINT_FOLLOW, "bow_bot", cosmetic:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(bow_string, 1, cosmetic, PATTACH_POINT_FOLLOW, "bow_mid", cosmetic:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(bow_string, 2, cosmetic, PATTACH_POINT_FOLLOW, "bow_top", cosmetic:GetAbsOrigin(), true)
+		end
 	end
 	
 end
@@ -774,8 +780,8 @@ function CAvaloreGameMode:InitZeus(hero, playernum)
 		cosmetic:FollowEntity(unit, true)
 		if k == 2 then
 			-- cloud cosmetic/particle
-	local cloud = ParticleManager:CreateParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_chariot.vpcf", PATTACH_ABSORIGIN_FOLLOW, cosmetic)
-	ParticleManager:SetParticleControlEnt(cloud, 0, cosmetic, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", cosmetic:GetAbsOrigin(), true)
+			local cloud = ParticleManager:CreateParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_chariot.vpcf", PATTACH_ABSORIGIN_FOLLOW, cosmetic)
+			ParticleManager:SetParticleControlEnt(cloud, 0, cosmetic, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", cosmetic:GetAbsOrigin(), true)
 		end
 		if k == 3 then
 			-- see dota_imba's control_points.txt
