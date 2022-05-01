@@ -401,6 +401,13 @@
 		"DOTA_Tooltip_Ability_ability_summon_storm_non_hero_attack"				"CREEP HITS TO KILL"
 		"DOTA_Tooltip_Ability_ability_summon_storm_Lore"						"A God of the sky, thunder, a \"cloud-gatherer\". He could control weather by bringing rain and storms."
 
+		"DOTA_Tooltip_Ability_ability_thunder_gods_wrath"						"Thunder God's Wrath"
+		"DOTA_Tooltip_Ability_ability_thunder_gods_wrath_description"			"Strikes all enemy heroes with a more powerful lightning bolt anywhere on the map. Provides True Sight around each hero struck. If an enemy hero is invisible, it takes no damage, but the True Sight is still created at that hero's location."
+		"DOTA_Tooltip_Ability_ability_thunder_gods_wrath_true_sight_radius"		"TRUE SIGHT RADIUS:"
+		"DOTA_Tooltip_Ability_ability_thunder_gods_wrath_sight_duration"		"TRUE SIGHT DURATION:"
+		"DOTA_Tooltip_Ability_ability_thunder_gods_wrath_lore"					"Many stories in mythology involve Zeus being vengeful."
+		
+
 
 		// -- Talents
 		"DOTA_Tooltip_Ability_talent_static_field"							"Static Field"
