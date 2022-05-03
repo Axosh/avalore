@@ -46,6 +46,9 @@ function modifier_storm_cloud:OnCreated(keys)
         particles[3] = "particles/units/heroes/hero_zeus/zeus_cloud_ground_glow.vpcf"
         particles[4] = "particles/units/heroes/hero_zeus/zeus_cloud_ground_haze.vpcf"
         particles[5] = "particles/units/heroes/hero_zeus/zeus_cloud_ground_sparks.vpcf"
+		-- if self:GetCaster():HasTalent("talent_rainstorm") then 
+		-- 	particles[6] = "particles/units/heroes/hero_slardar/slardar_amp_damage_rain.vpcf"
+		-- end
         --particles[6] = "particles/econ/events/spring_2021/radiance_owner_spring_2021_rings_proj.vpcf"
         --particles[6] = "particles/econ/events/spring_2021/cyclone_spring2021_ground_b.vpcf"
 
@@ -60,6 +63,18 @@ function modifier_storm_cloud:OnCreated(keys)
             -- Position of cloud 
             ParticleManager:SetParticleControl(self.storm_cloud_particle[k], 2, Vector(target_point.x, target_point.y, target_point.z + 450))	
         end
+
+		if self:GetCaster():HasTalent("talent_rainstorm") then 
+			-- particles/units/heroes/hero_slardar/slardar_amp_damage.vpcf
+			local rain = ParticleManager:CreateParticle("particles/units/heroes/hero_slardar/slardar_amp_damage_rain.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
+			ParticleManager:SetParticleControl(rain, 0, Vector(target_point.x, target_point.y, 450))
+            -- Radius of ground effect
+            ParticleManager:SetParticleControl(rain, 1, Vector(self.cloud_radius, 0, 0))
+            -- Position of cloud 
+            ParticleManager:SetParticleControl(rain, 2, self:GetParent():GetAbsOrigin())
+			ParticleManager:SetParticleControl(rain, 62, self:GetParent():GetAbsOrigin());
+			self.storm_cloud_particle[6] = rain;
+		end
 
 		-- Create nimbus cloud particle
 		--self.zuus_nimbus_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zeus/zeus_cloud.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetCaster())

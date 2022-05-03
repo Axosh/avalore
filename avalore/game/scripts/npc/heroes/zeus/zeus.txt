@@ -29,6 +29,7 @@
         "Ability11"                 "talent_chain_lightning"
         "Ability12"                 "talent_ride_the_stormwinds"
         "Ability13"                 "talent_shapeshift_enemy_duration"
+        "Ability14"                 "talent_rainstorm"
         
         // Movement
 		//----------------------------------------------------------------
