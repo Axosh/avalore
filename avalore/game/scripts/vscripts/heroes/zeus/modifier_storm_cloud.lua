@@ -66,13 +66,32 @@ function modifier_storm_cloud:OnCreated(keys)
 
 		if self:GetCaster():HasTalent("talent_rainstorm") then 
 			-- particles/units/heroes/hero_slardar/slardar_amp_damage.vpcf
-			local rain = ParticleManager:CreateParticle("particles/units/heroes/hero_slardar/slardar_amp_damage_rain.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
-			ParticleManager:SetParticleControl(rain, 0, Vector(target_point.x, target_point.y, 450))
-            -- Radius of ground effect
-            ParticleManager:SetParticleControl(rain, 1, Vector(self.cloud_radius, 0, 0))
-            -- Position of cloud 
-            ParticleManager:SetParticleControl(rain, 2, self:GetParent():GetAbsOrigin())
-			ParticleManager:SetParticleControl(rain, 62, self:GetParent():GetAbsOrigin());
+			--local rain = ParticleManager:CreateParticle("particles/units/heroes/hero_slardar/slardar_amp_damage_rain.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
+			-- see: https://github.com/Chiayue/mengshahe/blob/814000be300607736c2ada9bca321e82ded19df4/scripts/vscripts/ability/abilities_lua/modifier/modifier_active_thunder_storm_lua.lua
+			-- local rain = ParticleManager:CreateParticle("particles/units/heroes/hero_razor/razor_rain_storm.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
+			local rain = ParticleManager:CreateParticle(
+							"particles/units/heroes/hero_razor/razor_rain_storm.vpcf", 
+							PATTACH_CUSTOMORIGIN_FOLLOW, 
+							self:GetParent())
+			ParticleManager:SetParticleControl(self.storm_cloud_particle[k], 0, Vector(target_point.x, target_point.y, 450))
+			-- ParticleManager:SetParticleControlEnt( rain, 2, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(target_point.x, target_point.y, 0), true )
+			-- self:AddParticle( rain, false, false, -1, false, true )
+			--ParticleManager:SetParticleControl(rain, 0, Vector(target_point.x, target_point.y, -450))
+
+			-- ParticleManager:SetParticleControl(rain, 0, target_point)
+			-- self:AddParticle( rain, false, false, 15, false, false )
+			-- ParticleManager:SetParticleControlEnt(rain, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
+			-- ParticleManager:SetParticleControlEnt(rain, 2, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
+
+			-- ParticleManager:SetParticleControlEnt(rain, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", Vector(target_point.x, target_point.y, target_point.z - 450), true)
+			-- ParticleManager:SetParticleControlEnt(rain, 2, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", Vector(target_point.x, target_point.y, target_point.z - 450), true)
+
+			-- ParticleManager:SetParticleControl(rain, 0, Vector(target_point.x, target_point.y, 450))
+            -- -- Radius of ground effect
+            -- ParticleManager:SetParticleControl(rain, 1, Vector(self.cloud_radius, 0, 0))
+            -- -- Position of cloud 
+            -- ParticleManager:SetParticleControl(rain, 2, self:GetParent():GetAbsOrigin())
+			-- ParticleManager:SetParticleControl(rain, 62, self:GetParent():GetAbsOrigin());
 			self.storm_cloud_particle[6] = rain;
 		end
 
