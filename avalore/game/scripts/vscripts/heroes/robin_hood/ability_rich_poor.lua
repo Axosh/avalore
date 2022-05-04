@@ -24,7 +24,10 @@ function ability_rich_poor:ProcsMagicStick()
 end
 
 function ability_rich_poor:OnUpgrade()
-	self:GetOwner():FindModifierByName(self:GetIntrinsicModifierName()):ForceRefresh()
+	local mod = self:GetOwner():FindModifierByName(self:GetIntrinsicModifierName())
+    if mod then
+        mod:ForceRefresh()
+    end
 end
 
 function ability_rich_poor:OnToggle()
@@ -55,6 +58,10 @@ function modifier_rich_poor:IsPurgable()
 end
 
 function modifier_rich_poor:OnCreated(kv)
+    -- check this didn't erroniously get added via toggling melee/ranged
+    if self:GetParent():FindAbilityByName("ability_rich_poor"):GetLevel() == 0 then
+        self:Destroy()
+    end
     self.gold_steal = self:GetAbility():GetSpecialValueFor("gold_steal")
     self.escape_time = self:GetAbility():GetSpecialValueFor("escape_time")
     self.cd = self:GetAbility():GetSpecialValueFor("virtual_cooldown")

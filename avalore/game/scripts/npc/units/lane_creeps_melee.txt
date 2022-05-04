@@ -7,7 +7,8 @@
     {
         // General
 		//
-		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
+		//"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_melee_crystal.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
 		"ModelScale" 				"0.75"
@@ -89,6 +90,13 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+		
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
     }
 
     "npc_avalore_creep_melee_dire"

@@ -733,9 +733,12 @@ function CAvaloreGameMode:InitDionysus(hero, playernum)
 	local dionysus_cosmetics = {}
 	dionysus_cosmetics[0] = "models/items/brewmaster/barrel_vice.vmdl"
 	dionysus_cosmetics[1] = "models/items/brewmaster/coffeemaster_weapon/coffeemaster_weapon.vmdl"
-	dionysus_cosmetics[2] = "models/items/brewmaster/honorable_brawler_shoulder/honorable_brawler_shoulder.vmdl"
+	--dionysus_cosmetics[2] = "models/items/brewmaster/honorable_brawler_shoulder/honorable_brawler_shoulder.vmdl"
 	dionysus_cosmetics[3] = "models/items/brewmaster/honorable_brawler_arms/honorable_brawler_arms.vmdl"
-	dionysus_cosmetics[4] = "models/items/brewmaster/honorable_brawler_back/honorable_brawler_back.vmdl"
+	--dionysus_cosmetics[4] = "models/items/brewmaster/honorable_brawler_back/honorable_brawler_back.vmdl"
+	dionysus_cosmetics[4] = "models/items/brewmaster/gifts_of_the_northern_lands_shoulder/gifts_of_the_northern_lands_shoulder.vmdl"
+	--dionysus_cosmetics[2] = "models/items/brewmaster/gifts_of_the_northern_lands_head/gifts_of_the_northern_lands_head.vmdl"
+	dionysus_cosmetics[2] = "models/items/brewmaster/the_bell_of_seclusion_head/the_bell_of_seclusion_head.vmdl"
 
 	for k,wearable in pairs(dionysus_cosmetics) do
 		--print("Creating Cosmetic " .. wearable)

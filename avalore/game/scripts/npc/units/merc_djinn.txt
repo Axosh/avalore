@@ -70,5 +70,12 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"
 		"VisionNighttimeRange"		"1800"
+
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
     }
 }
