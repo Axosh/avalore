@@ -1,6 +1,8 @@
 require("scripts/vscripts/heroes/zeus/ability_lightning_bolt")
 modifier_storm_cloud = class({})
 
+LinkLuaModifier("modifier_rainstorm_aura", "heroes/zeus/modifier_rainstorm_aura.lua", LUA_MODIFIER_MOTION_NONE)
+
 STORM_CLOUD_PARTICLE_KEY = 1
 
 function modifier_storm_cloud:IsHidden() return true end
@@ -93,6 +95,8 @@ function modifier_storm_cloud:OnCreated(keys)
             -- ParticleManager:SetParticleControl(rain, 2, self:GetParent():GetAbsOrigin())
 			-- ParticleManager:SetParticleControl(rain, 62, self:GetParent():GetAbsOrigin());
 			self.storm_cloud_particle[6] = rain;
+
+			self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_rainstorm_aura", {radius = keys.cloud_radius})
 		end
 
 		-- Create nimbus cloud particle
