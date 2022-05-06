@@ -403,10 +403,12 @@ function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
             -- radiant attackers
             local creep = CreateUnitByName( ROUND4_MELEE_CREEPS, Spawners.h_Round4_Radi:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_CUSTOM_1 )
             creep:SetInitialGoalEntity(Spawners.h_Waypoint_Radi_Ancient)
+            creep:SetRequiresReachingEndPath(true)
             creep:MoveToPositionAggressive(Spawners.h_Waypoint_Radi_Ancient:GetAbsOrigin())
             -- dire attackers
             creep = CreateUnitByName( ROUND4_MELEE_CREEPS, Spawners.h_Round4_Dire:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_CUSTOM_1 )
             creep:SetInitialGoalEntity(Spawners.h_Waypoint_Dire_Ancient)
+            creep:SetRequiresReachingEndPath(true)
             creep:MoveToPositionAggressive(Spawners.h_Waypoint_Dire_Ancient:GetAbsOrigin())
         end 
     end
