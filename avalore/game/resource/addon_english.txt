@@ -94,6 +94,10 @@
 		"npc_avalore_merc_hulk_radi"		"Hulk Mercenary"
 		"npc_avalore_merc_hulk_dire"		"Hulk Mercenary"
 
+		// ===== Rounds =====
+
+		"npc_avalore_round4_melee_creep"	"Frozen Horde"
+
 		//--------------------------------------------------------------------------------
 		// BUILDINGS
 		//--------------------------------------------------------------------------------

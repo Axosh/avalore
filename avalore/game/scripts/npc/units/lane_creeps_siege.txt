@@ -93,6 +93,12 @@
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
 		
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 	}
 
     "npc_avalore_siege_dire"
@@ -185,6 +191,12 @@
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
 		
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 	}	
 
     //=================================================================================
@@ -280,6 +292,13 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 	}	
 
     "npc_avalore_siege_dire_super"
@@ -372,6 +391,12 @@
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
 		
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 	}	
 
     //=================================================================================
@@ -468,6 +493,12 @@
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
 		
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 	}	
 
     "npc_avalore_siege_dire_super_mega"
@@ -560,7 +591,11 @@
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
 		
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 	}	
-
-
 }

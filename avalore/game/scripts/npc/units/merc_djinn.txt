@@ -17,8 +17,8 @@
 
         // Abilities
 		//----------------------------------------------------------------
-        "Ability1"					"warlock_flaming_fists"
-		"Ability2"					"warlock_permanent_immolation"
+        "Ability1"					"warlock_golem_flaming_fists"
+		"Ability2"					"warlock_golem_permanent_immolation"
 
         // Armor
 		//----------------------------------------------------------------

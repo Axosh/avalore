@@ -8,7 +8,7 @@
     {
         // General
 		//
-		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_melee_crystal.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
 		"ModelScale" 				"0.75"
@@ -90,13 +90,20 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
     }
 
     "npc_avalore_creep_melee_dire"
     {
         // General
 		//
-		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/lane_creeps/nemestice_crystal_creeps/creep_bad_melee/creep_crystal_bad_melee.vmdl"	// Model.
 		"SoundSet"					"Creep_Bad_Melee"					// Name of sound set.
 		"ModelScale" 				"0.75"
@@ -178,6 +185,13 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
     }
 
     //=================================================================================
@@ -188,7 +202,7 @@
     {
         // General
 		//
-		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_melee_crystal.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Melee_Mega"					// Name of sound set.
 		"ModelScale" 				"1.00"
@@ -270,13 +284,20 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 	}
     
     "npc_avalore_creep_melee_dire_super"
     {
         // General
 		//
-		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/lane_creeps/nemestice_crystal_creeps/creep_bad_melee/creep_crystal_bad_melee.vmdl"	// Model.
 		"SoundSet"					"Creep_Bad_Melee_Mega"					// Name of sound set.
 		"ModelScale" 				"1.00"
@@ -358,6 +379,13 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 	}
 
     //=================================================================================
@@ -368,7 +396,7 @@
 	{
 		// General
 		//
-		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_melee_mega_crystal.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Melee_Mega"					// Name of sound set.
 		"ModelScale"				"1.10"
@@ -450,6 +478,13 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 	}	
 
 
@@ -457,7 +492,7 @@
 	{
 		// General
 		//
-		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee_mega_crystal.vmdl"	// Model.
 		"SoundSet"					"Creep_Bad_Melee_Mega"					// Name of sound set.
 		"ModelScale"				"1.10"
@@ -539,6 +574,13 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 	}	
 
 
@@ -549,7 +591,7 @@
 	{
 		// General
 		//
-		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/lane_creeps/creep_radiant_ranged/radiant_ranged_crystal.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Range"					// Name of sound set.
 		"ModelScale" 				"0.75"
@@ -631,13 +673,20 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 	}
 
     "npc_avalore_creep_ranged_dire"
 	{
 		// General
 		//
-		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/lane_creeps/creep_bad_ranged/creep_bad_ranged_crystal.vmdl"	// Model.
 		"SoundSet"					"Creep_Bad_Range"					// Name of sound set.
 		"ModelScale" 				"0.75"
@@ -719,6 +768,13 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 	}
 
     //=================================================================================
@@ -813,6 +869,13 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 		
 	}
 
@@ -905,6 +968,13 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+
+		// Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+		}
 		
 	}	
 }

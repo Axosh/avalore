@@ -401,13 +401,13 @@ function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
         --print("[Spawners] spawning neutral wave")
         for i = 1, 13, 1 do
             -- radiant attackers
-            local creep = CreateUnitByName( ROUND4_MELEE_CREEPS, Spawners.h_Round4_Radi:GetOrigin(), true, nil, nil, DOTA_TEAM_CUSTOM_1 )
+            local creep = CreateUnitByName( ROUND4_MELEE_CREEPS, Spawners.h_Round4_Radi:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_CUSTOM_1 )
             creep:SetInitialGoalEntity(Spawners.h_Waypoint_Radi_Ancient)
-            creep:MoveToPositionAggressive(Spawners.h_Waypoint_Radi_Ancient:GetOrigin())
+            creep:MoveToPositionAggressive(Spawners.h_Waypoint_Radi_Ancient:GetAbsOrigin())
             -- dire attackers
-            creep = CreateUnitByName( ROUND4_MELEE_CREEPS, Spawners.h_Round4_Dire:GetOrigin(), true, nil, nil, DOTA_TEAM_CUSTOM_1 )
+            creep = CreateUnitByName( ROUND4_MELEE_CREEPS, Spawners.h_Round4_Dire:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_CUSTOM_1 )
             creep:SetInitialGoalEntity(Spawners.h_Waypoint_Dire_Ancient)
-            creep:MoveToPositionAggressive(Spawners.h_Waypoint_Dire_Ancient:GetOrigin())
+            creep:MoveToPositionAggressive(Spawners.h_Waypoint_Dire_Ancient:GetAbsOrigin())
         end 
     end
     --print("End Spawning Waves...")
