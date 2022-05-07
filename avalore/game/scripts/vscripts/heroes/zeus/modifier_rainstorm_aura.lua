@@ -6,7 +6,8 @@ function modifier_rainstorm_aura:IsPurgable() return false end
 function modifier_rainstorm_aura:IsAura() return true end
 
 function modifier_rainstorm_aura:GetAuraSearchTeam()
-    return DOTA_UNIT_TARGET_TEAM_ENEMY
+    return DOTA_UNIT_TARGET_TEAM_BOTH
+    --return DOTA_UNIT_TARGET_TEAM_ENEMY
 end
 
 -- function modifier_rainstorm_aura:GetAuraSearchFlags()

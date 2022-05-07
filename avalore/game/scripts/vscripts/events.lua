@@ -10,6 +10,7 @@ require(REQ_LIB_COSMETICS)
 require(REQ_SPAWNERS)
 require(REQ_CTRL_INV_MNGR)
 require(REQ_CLASS_INV)
+require(REQ_LIB_TIMERS)
 --require("scripts/vscripts/modifiers/modifier_wearable")
 
 LinkLuaModifier( "modifier_inventory_manager", "scripts/vscripts/modifiers/modifier_inventory_manager", LUA_MODIFIER_MOTION_NONE )
@@ -25,6 +26,30 @@ LinkLuaModifier("modifier_talent_static_field",       "heroes/zeus/modifier_tale
 
 -- Inventory Debug
 LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
+
+-- Elemental
+LinkLuaModifier( "modifier_wet", "scripts/vscripts/modifiers/elemental_status/modifier_wet.lua", LUA_MODIFIER_MOTION_NONE )
+
+-- 
+-- entindex: EntityIndex
+-- is_respawn: short
+-- 
+function CAvaloreGameMode:OnNPCSpawned(event)
+	--PrintTable(event)
+	if event.is_respawn ~= 0 then return end
+	-- only doing some initial spawn stuff
+	local spawned_ent = EntIndexToHScript(event.entindex)
+
+	-- NOTE: This doesn't work, seems to be a race condition that makes the modifier not show up (even though it seems to work ok?)
+	-- Timers:CreateTimer(1.0, function()
+	-- 	spawned_ent:AddNewModifier( nil, -- player source
+	-- 								nil, -- ability source
+	-- 								"modifier_wet", -- modifier name
+	-- 								{}) --kv
+	-- end)
+	
+
+end
 
 --initialized with ListenToGameEvent("entity_killed", Dynamic_Wrap(CustomGameMode, "OnEntityKilled"), self)
 function CAvaloreGameMode:OnEntityKilled(event)
@@ -491,6 +516,8 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 			--print("Giving Player " .. tostring(hPlayerHero:GetPlayerOwnerID()) .. " shared control of " .. tostring(key))
 			value:SetControllableByPlayer(hPlayerHero:GetPlayerOwnerID(), false)
 		end
+
+		hPlayerHero:AddNewModifier(nil, nil, "modifier_wet", {})
 	end
 
 	-- print("[CAvaloreGameMode:OnHeroFinishSpawn] hero name: " .. hPlayerHero:GetUnitName())

@@ -84,7 +84,10 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 )
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(CAvaloreGameMode, "OnEntityKilled"), self)
 
+	-- SPAWNING
 	ListenToGameEvent("dota_on_hero_finish_spawn", Dynamic_Wrap(CAvaloreGameMode, "OnHeroFinishSpawn"), self)
+	ListenToGameEvent("npc_spawned", Dynamic_Wrap(CAvaloreGameMode, 'OnNPCSpawned'), self)
+	--ListenToGameEvent("npc_spawn_finished", Dynamic_Wrap(CAvaloreGameMode, 'OnNPCSpawnFinished'), self)
 
 	-- ITEM STUFF (see: inventory_manager.lua and inventory.lua)
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAvaloreGameMode, "OnItemPickUp"), self)
