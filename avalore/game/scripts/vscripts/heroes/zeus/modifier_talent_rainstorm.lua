@@ -1,4 +1,4 @@
-modifier_talent_rainstorm = modifier_talent_ride_the_stormwinds or class({})
+modifier_talent_rainstorm = modifier_talent_rainstorm or class({})
 
 function modifier_talent_rainstorm:IsHidden()         return true  end
 function modifier_talent_rainstorm:IsPurgable()       return false end

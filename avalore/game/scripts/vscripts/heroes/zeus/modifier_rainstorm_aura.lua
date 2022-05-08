@@ -15,7 +15,7 @@ end
 -- end
 
 function modifier_rainstorm_aura:GetAuraSearchType()
-    return DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_OTHER 
+    return DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_HERO --+ DOTA_UNIT_TARGET_OTHER 
 end
 
 function modifier_rainstorm_aura:GetModifierAura()

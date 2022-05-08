@@ -142,22 +142,24 @@ function ability_lightning_bolt:LightningBolt(caster, ability, target, target_po
     --dummy_unit:AddNewModifier(caster, nil, "modifier_kill", {duration = sight_duration + 1})
 
     -- if they chose chain lightning, add that to the spell
-    if caster:HasTalent("talent_chain_lightning") and (target == nil or not target:TriggerSpellAbsorb(ability))  then
-        local cast_origin = caster
-        if storm_cloud then
-            cast_origin = storm_cloud
-        end
-        local head_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning_head.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-		ParticleManager:SetParticleControlEnt(head_particle, 0, cast_origin, PATTACH_POINT_FOLLOW, "attach_attack1", cast_origin:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(head_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		-- No reason for this CP besides that I like colours
-		ParticleManager:SetParticleControl(head_particle, 62, Vector(2, 0, 2))
+    if not storm_cloud then
+        if caster:HasTalent("talent_chain_lightning") and (target == nil or not target:TriggerSpellAbsorb(ability))  then
+            local cast_origin = caster
+            -- if storm_cloud then
+            --     cast_origin = storm_cloud
+            -- end
+            local head_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning_head.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+            ParticleManager:SetParticleControlEnt(head_particle, 0, cast_origin, PATTACH_POINT_FOLLOW, "attach_attack1", cast_origin:GetAbsOrigin(), true)
+            ParticleManager:SetParticleControlEnt(head_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+            -- No reason for this CP besides that I like colours
+            ParticleManager:SetParticleControl(head_particle, 62, Vector(2, 0, 2))
 
-		ParticleManager:ReleaseParticleIndex(head_particle)
-		
-		caster:AddNewModifier(caster, ability, "modifier_talent_chain_lightning", {
-			starting_unit_entindex	= target:entindex()
-		})
+            ParticleManager:ReleaseParticleIndex(head_particle)
+            
+            caster:AddNewModifier(caster, ability, "modifier_talent_chain_lightning", {
+                starting_unit_entindex	= target:entindex()
+            })
+        end
     end
 
     if target ~= nil and target:GetTeam() ~= caster:GetTeam() then

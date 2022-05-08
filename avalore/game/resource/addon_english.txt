@@ -426,6 +426,11 @@
 		"DOTA_Tooltip_Ability_talent_shapeshift_enemy_duration"				"+{s:bonus_duration_enemy} seconds Shapeshift Duration (Enemy)"
 		//"DOTA_Tooltip_Ability_talent_shapeshift_enemy_duration_description" ""
 
+		"DOTA_Tooltip_Ability_talent_rainstorm"								"Rainstorm"
+		"DOTA_Tooltip_Ability_talent_rainstorm_description"					"Storm Cloud: ANY unit standing under the cloud will gain the \"Wet\" modifier"
+
+		"DOTA_Tooltip_Ability_talent_lightning_strikes_twice"				"Lightning Strikes Twice"
+		"DOTA_Tooltip_Ability_talent_lightning_strikes_twice_description"	"Storm Cloud: casts bolt on TWO targets (or same one twice if no other target)"
 
 		// ==============================================
 		// ===== QUETZALCOATL =====

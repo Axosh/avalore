@@ -2,6 +2,8 @@ require("scripts/vscripts/heroes/zeus/ability_lightning_bolt")
 modifier_storm_cloud = class({})
 
 LinkLuaModifier("modifier_rainstorm_aura", "heroes/zeus/modifier_rainstorm_aura.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_rainstorm",       "heroes/zeus/modifier_talent_rainstorm.lua",       LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_lightning_strikes_twice",       "heroes/zeus/modifier_talent_lightning_strikes_twice.lua",       LUA_MODIFIER_MOTION_NONE)
 
 STORM_CLOUD_PARTICLE_KEY = 1
 
@@ -149,14 +151,37 @@ function modifier_storm_cloud:OnIntervalThink()
 				false
 			)
 
+			local target_one = nil
+			local target_two = nil
+
 			for _,unit in pairs(nearby_enemy_units) do
 				if unit:IsAlive() then
-					ability_lightning_bolt:LightningBolt(self:GetCaster(), self.lightning_bolt, unit, unit:GetAbsOrigin(), self:GetParent())
-					-- Abort when we find something to hit
-					self.counter = 0
-					break
+					if not target_one then
+						target_one = unit
+					elseif not target_two then
+						target_two = unit
+					end
+					-- ability_lightning_bolt:LightningBolt(self:GetCaster(), self.lightning_bolt, unit, unit:GetAbsOrigin(), self:GetParent())
+					-- -- Abort when we find something to hit
+					-- self.counter = 0
+					-- break
 				end
-			end            
+			end
+			if target_one then
+				print("Zapping Target 1: " .. target_one:GetUnitName())
+				ability_lightning_bolt:LightningBolt(self:GetCaster(), self.lightning_bolt, target_one, target_one:GetAbsOrigin(), self:GetParent())
+				if self:GetCaster():HasTalent("talent_lightning_strikes_twice") then
+					if not target_two then
+						target_two = target_one
+					end
+					print("Zapping Target 2: " .. target_two:GetUnitName())
+					-- slight delay between bolts
+					Timers:CreateTimer(0.2, function()
+							ability_lightning_bolt:LightningBolt(self:GetCaster(), self.lightning_bolt, target_two, target_two:GetAbsOrigin(), self:GetParent())
+					end)
+				end
+				self.counter = 0 -- reset the timer to wait to seek a new target to zap
+			end
 		end
 
         if self.cloud_counter > 5.0 then

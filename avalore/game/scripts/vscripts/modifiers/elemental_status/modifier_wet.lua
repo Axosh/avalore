@@ -51,8 +51,8 @@ function modifier_wet:OnIntervalThink()
     if not IsServer() then return end
 
     -- if standing in the river
-    if self:GetParent():GetAbsOrigin().z <= 0.5 then
-        print("in water")
+    if self:GetParent():GetAbsOrigin().z <= 0.5 or self:GetParent():FindModifierByName("modifier_rainstorm_aura") then
+        --print("in water")
         self.natural_stacks = 2
         self.natural_linger = 2
     elseif self.natural_linger > 0 then
@@ -71,9 +71,9 @@ function modifier_wet:OnIntervalThink()
 
     --print("Setting Stack Count to: " .. tostring(self.natural_stacks + self.spell_stacks))
     self:SetStackCount(self.natural_stacks + self.spell_stacks)
-    if self:GetStackCount() > 0 then
-        print("We have stacks!")
-    end
+    -- if self:GetStackCount() > 0 then
+    --     print("We have stacks!")
+    -- end
 
     -- if unit is burning, then purge that
     local mod_burning = self:GetParent():FindModifierByName("modifier_conflagration")
