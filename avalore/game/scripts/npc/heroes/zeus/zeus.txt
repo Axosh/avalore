@@ -31,6 +31,7 @@
         "Ability13"                 "talent_shapeshift_enemy_duration"
         "Ability14"                 "talent_rainstorm"
         "Ability15"                 "talent_lightning_strikes_twice"
+        "Ability16"                 "talent_lightning_rod"
         
         // Movement
 		//----------------------------------------------------------------

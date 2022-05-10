@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+    "talent_lightning_rod"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbility"
+		{
+            "01"    "ability_thunder_gods_wrath"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"search_radius"		    "500"
+			}
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_dmg_per_hero"    "100"
+            }
+        }
+    }
+}

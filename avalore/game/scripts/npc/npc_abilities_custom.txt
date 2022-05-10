@@ -76,6 +76,7 @@
 #base "heroes/zeus/talent_shapeshift_enemy_duration.txt"
 #base "heroes/zeus/talent_rainstorm.txt"
 #base "heroes/zeus/talent_lightning_strikes_twice.txt"
+#base "heroes/zeus/talent_lightning_rod.txt"
 
 // ===============================================================
 // QUEZALCOATL

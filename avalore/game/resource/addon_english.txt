@@ -432,6 +432,9 @@
 		"DOTA_Tooltip_Ability_talent_lightning_strikes_twice"				"Lightning Strikes Twice"
 		"DOTA_Tooltip_Ability_talent_lightning_strikes_twice_description"	"Storm Cloud: casts bolt on TWO targets (or same one twice if no other target)"
 
+		"DOTA_Tooltip_Ability_talent_lightning_rod"							"Lightning Rod"
+		"DOTA_Tooltip_Ability_talent_lightning_rod_description"				"Thunder God's Wrath: for every target are within {s:search_radius} of victim, deals {s:bonus_dmg_per_hero} more damage"
+
 		// ==============================================
 		// ===== QUETZALCOATL =====
 		// ==============================================

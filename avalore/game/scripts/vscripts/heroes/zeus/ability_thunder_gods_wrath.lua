@@ -1,6 +1,7 @@
 ability_thunder_gods_wrath = class({})
 
 LinkLuaModifier("modifier_talent_static_field",       "heroes/zeus/modifier_talent_static_field.lua",       LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_lightning_rod",       "heroes/zeus/modifier_talent_lightning_rod.lua",       LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_lightning_true_sight", "heroes/zeus/modifier_lightning_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_lightning_bolt",       "heroes/zeus/modifier_lightning_bolt.lua",       LUA_MODIFIER_MOTION_NONE)
 
@@ -72,7 +73,21 @@ function ability_thunder_gods_wrath:OnSpellStart(kv)
 	        ParticleManager:ReleaseParticleIndex(particle)
 
             if (not hero:IsMagicImmune()) and (not hero:IsInvisible() or caster:CanEntityBeSeenByMyTeam(hero)) then
-                damage_table.damage	 = self:GetAbilityDamage()
+                local bonus_dmg = 0
+                if self:GetCaster():HasTalent("talent_lightning_rod") then
+                    local lightning_rod_radius = self:GetCaster():FindTalentValue("talent_lightning_rod", "search_radius")
+                    local bonus_dmg_per_hero = self:GetCaster():FindTalentValue("talent_lightning_rod", "bonus_dmg_per_hero")
+                    -- iterate through targets again, find out if any are within the radius
+                    --for _,hero_b in pairs(HeroList:GetAllHeroes()) do 
+                    for _,hero_b in pairs(FindUnitsInRadius(self:GetCaster():GetTeamNumber(), hero:GetAbsOrigin(), nil, lightning_rod_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do 
+                        if hero ~= hero_b and hero_b:IsAlive() and hero_b:GetTeam() ~= caster:GetTeam() and (not hero_b:IsIllusion()) and not hero_b:IsClone() then
+                            bonus_dmg = bonus_dmg + bonus_dmg_per_hero
+                        end
+                    end
+
+                end
+
+                damage_table.damage	 = self:GetAbilityDamage() + bonus_dmg
                 damage_table.victim  = hero
                 ApplyDamage(damage_table)
 
