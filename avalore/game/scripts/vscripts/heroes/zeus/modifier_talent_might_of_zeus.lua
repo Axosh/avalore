@@ -5,7 +5,8 @@ function modifier_talent_might_of_zeus:IsPurgable()       return false end
 function modifier_talent_might_of_zeus:RemoveOnDeath()    return false end
 
 function modifier_talent_might_of_zeus:OnCreated()
-    self.bonus_str = self:GetCaster():FindTalentValue("modifier_talent_might_of_zeus", "bonus_str")
+    --self.bonus_str = self:GetCaster():FindTalentValue("modifier_talent_might_of_zeus", "bonus_str")
+    self.bonus_str = self:GetParent():FindAbilityByName("talent_might_of_zeus"):GetSpecialValueFor("bonus_str")
     print("bonus str " .. tostring(self.bonus_str))
 end
 
