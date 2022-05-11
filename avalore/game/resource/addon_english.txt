@@ -435,6 +435,9 @@
 		"DOTA_Tooltip_Ability_talent_lightning_rod"							"Lightning Rod"
 		"DOTA_Tooltip_Ability_talent_lightning_rod_description"				"Thunder God's Wrath: for every target are within {s:search_radius} of victim, deals {s:bonus_dmg_per_hero} more damage"
 
+		"DOTA_Tooltip_Ability_talent_might_of_zeus"							"Might of Zeus"
+		"DOTA_Tooltip_Ability_talent_might_of_zeus_description"				"+{s:bonus_str} STR"
+
 		// ==============================================
 		// ===== QUETZALCOATL =====
 		// ==============================================

@@ -82,6 +82,7 @@ function ability_thunder_gods_wrath:OnSpellStart(kv)
                     for _,hero_b in pairs(FindUnitsInRadius(self:GetCaster():GetTeamNumber(), hero:GetAbsOrigin(), nil, lightning_rod_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do 
                         if hero ~= hero_b and hero_b:IsAlive() and hero_b:GetTeam() ~= caster:GetTeam() and (not hero_b:IsIllusion()) and not hero_b:IsClone() then
                             bonus_dmg = bonus_dmg + bonus_dmg_per_hero
+                            print("bonus damage += " .. tostring(bonus_dmg))
                         end
                     end
 

@@ -22,6 +22,9 @@ t_dire_outpost.radiTime = 0
 t_dire_outpost.direTime = 0
 --]]
 
+-- IDK where to put these
+LinkLuaModifier("modifier_talent_might_of_zeus",       "heroes/zeus/modifier_talent_might_of_zeus.lua",       LUA_MODIFIER_MOTION_NONE)
+
 ---------------------------------------------------------------------------
 -- CAvaloreGameMode class
 ---------------------------------------------------------------------------
