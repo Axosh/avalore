@@ -442,15 +442,30 @@
 		// ===== QUETZALCOATL =====
 		// ==============================================
 		"DOTA_Tooltip_Ability_ability_fertile_winds"					"Fertile Winds"
+		"DOTA_Tooltip_Ability_ability_fertile_winds_description"		"Dive forward with unobstructed flying movement in an arc spawning trees along the way, some of which heal nearby allied units. After the dash length is reached, will then return towards the original location.\nCan be cancelled mid flight"
+		"DOTA_Tooltip_Ability_ability_fertile_winds_dash_length"		"DIVE LENGTH: "
+		"DOTA_Tooltip_Ability_ability_fertile_winds_dash_duration"		"DIVE DURATION: "
+		"DOTA_Tooltip_Ability_ability_fertile_winds_tree_duration"		"TREE DURATION: "
+		"DOTA_Tooltip_Ability_ability_fertile_winds_heal_per_second"	"HEAL AMOUNT: "
+		"DOTA_Tooltip_Ability_ability_fertile_winds_heal_interval"		"HEAL INTERVAL: "
+		"DOTA_Tooltip_Ability_ability_fertile_winds_heal_radius"		"HEAL RADIUS: "
 		"DOTA_Tooltip_Ability_ability_fertile_winds_Lore"				"Quetzalcoatl was a god of wind and fertility, bringing the rain that grew life-giving crops."
 
 		"DOTA_Tooltip_Ability_ability_fertile_winds_cancel"				"Fertile Winds (Cancel Flight)"
 		"DOTA_Tooltip_Ability_ability_fertile_winds_cancel_Lore"		"Quetzalcoatl was a god of wind and fertility, bringing the rain that grew life-giving crops."
 
 		"DOTA_Tooltip_Ability_ability_flora_and_fauna"					"Flora and Fauna"
+		"DOTA_Tooltip_Ability_ability_flora_and_fauna_description"		"Launches a swarm of bats. Upon impact, the victim becomes rooted in flowers taking damage in 0.5s intervals over the duration of the root."
+		"DOTA_Tooltip_Ability_ability_flora_and_fauna_damage"			"TOTAL DAMAGE: "
+		"DOTA_Tooltip_Ability_ability_flora_and_fauna_duration"			"ROOT DURATION: "
+		"DOTA_Tooltip_Ability_ability_flora_and_fauna_count"			"BAT COUNT: "
+		"DOTA_Tooltip_Ability_ability_flora_and_fauna_speed"			"BAT SPEED: "
+		"DOTA_Tooltip_Ability_ability_flora_and_fauna_travel_time"		"BAT TRAVEL TIME: "
 		"DOTA_Tooltip_Ability_ability_flora_and_fauna_Lore"				"In one story, Quetzalcoatl spawns a bat from a rock which then bit a fertility goddess. From the wound burst flowers."
 
 		"DOTA_Tooltip_Ability_ability_calmecac_patronage"				"Calmecac Patronage"
+		"DOTA_Tooltip_Ability_ability_calmecac_patronage_description"	"Global passive bonus INT aura that affects all allies"
+		"DOTA_Tooltip_Ability_ability_calmecac_patronage_int_bonus"		"INT BONUS: "
 		"DOTA_Tooltip_Ability_ability_calmecac_patronage_Lore"			"Quetzalcoatl was also a god of learning and wisdom. He was venerated in the calmecac (school for Aztec nobility)."
 
 		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing"							"Quetzalcoatl's Blessing"
