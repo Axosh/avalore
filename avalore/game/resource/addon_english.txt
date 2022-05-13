@@ -480,6 +480,10 @@
 		"DOTA_Tooltip_modifier_quetzalcoatls_blessing"						"Quetzalcoatl's Blessing"
 		"DOTA_Tooltip_modifier_quetzalcoatls_blessing_description"			"Receiving +%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% Bonus INT, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% Magic Amplification. If killed with this buff, receive -%dMODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE%%% Respawn Timer Reduction."
 
+		// -- Talents
+		"DOTA_Tooltip_Ability_talent_ehecacozcatl"							"Ehecacózcatl"
+		"DOTA_Tooltip_Ability_talent_ehecacozcatl_description"				"Fertile Winds: Adds {s:bonus_length} to the dive length"
+
 
 		// ==============================================
 		// ===== GILGAMESH ===== //

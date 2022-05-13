@@ -14,7 +14,8 @@ function ability_fertile_winds:OnSpellStart(kv)
     local caster        = self:GetCaster()
 	local target_point  = self:GetCursorPosition()
 
-    local dashLength	= self:GetSpecialValueFor("dash_length")
+    self.talent_dash   = self:GetCaster():FindTalentValue("talent_ehecacozcatl", "bonus_length")
+    local dashLength	= self:GetSpecialValueFor("dash_length") + self.talent_dash
     local dashWidth		= self:GetSpecialValueFor("dash_width")
     local dashDuration	= self:GetSpecialValueFor("dash_duration")
     local healRadius    = self:GetSpecialValueFor("heal_radius")
@@ -45,6 +46,10 @@ function ability_fertile_winds:OnSpellStart(kv)
 
     self.tree_spawn_counter = 0
     self.heal_tree_counter = 3
+    self.tree_counter_mod = 0
+    if self.talent_dash > 0 then
+        self.tree_counter_mod = 1
+    end
 
     caster:SetContextThink( DoUniqueString("updateFertileWinds"), function ( )
         ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + caster:GetRightVector() * 32 )
@@ -66,7 +71,7 @@ function ability_fertile_winds:OnSpellStart(kv)
             --Timers:CreateTimer(0.2, function()
                 CreateTempTreeWithModel(spawn_location, treeDuration, "models/props_tree/dire_tree005.vmdl")
             --end)
-            self.tree_spawn_counter = 3
+            self.tree_spawn_counter = 3  - self.tree_counter_mod
             if self.heal_tree_counter == 0 then
                 local unit = CreateUnitByName('npc_dummy_unit', spawn_location, false, caster, caster, caster:GetTeamNumber())
                 unit:AddNewModifier(caster, self, "modifier_fertile_winds_heal", {duration = treeDuration })
