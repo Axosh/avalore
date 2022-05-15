@@ -6,7 +6,8 @@ ability_fertile_winds = ability_fertile_winds or class({})
 LinkLuaModifier( "modifier_fertile_winds_helper", "scripts/vscripts/heroes/quetzalcoatl/modifier_fertile_winds_helper", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_fertile_winds_heal", "scripts/vscripts/heroes/quetzalcoatl/modifier_fertile_winds_heal", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_unselectable", MODIFIER_UNSELECTABLE, LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_avalore_destroy_trees", "scripts/vscripts/modifiers/base_spell/modifier_avalore_destroy_trees.lua", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier( "modifier_avalore_destroy_trees", "scripts/vscripts/modifiers/base_spell/modifier_avalore_destroy_trees.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_avalore_flying", "scripts/vscripts/modifiers/modifier_avalore_flying.lua", LUA_MODIFIER_MOTION_NONE )
 
 LinkLuaModifier( "modifier_talent_ehecacozcatl", "scripts/vscripts/heroes/quetzalcoatl/modifier_talent_ehecacozcatl", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_overgrowth", "scripts/vscripts/heroes/quetzalcoatl/modifier_talent_overgrowth", LUA_MODIFIER_MOTION_NONE )
@@ -25,6 +26,7 @@ function ability_fertile_winds:OnSpellStart(kv)
     local treeDuration  = self:GetSpecialValueFor("tree_duration")
 
     caster:StartGesture(ACT_DOTA_OVERRIDE_ABILITY_1)
+    caster:AddNewModifier(caster, self, "modifier_avalore_flying", { duration = dashDuration + 1.0 })
 
     --local modifierCasterName	= kv.modifier_caster_name
 
@@ -118,7 +120,7 @@ function ability_fertile_winds:OnSpellStart(kv)
 			ParticleManager:ReleaseParticleIndex(pfx2)
             
             -- give a temporary tree clearing mod so they don't get stuck
-            caster:AddNewModifier(caster, self, "modifier_avalore_destroy_trees", { duration = 1.0 })
+            --caster:AddNewModifier(caster, self, "modifier_avalore_destroy_trees", { duration = 1.0 })
             
 
 			return nil
