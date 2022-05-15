@@ -89,6 +89,7 @@
 #base "heroes/quetzalcoatl/ability_quetzalcoatls_blessing.txt"
 // Talents
 #base "heroes/quetzalcoatl/talent_ehecacozcatl.txt"
+#base "heroes/quetzalcoatl/talent_overgrowth.txt"
 
 // ===============================================================
 // GILGAMESH

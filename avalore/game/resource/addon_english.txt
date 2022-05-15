@@ -483,6 +483,9 @@
 		// -- Talents
 		"DOTA_Tooltip_Ability_talent_ehecacozcatl"							"Ehecacózcatl"
 		"DOTA_Tooltip_Ability_talent_ehecacozcatl_description"				"Fertile Winds: Adds {s:bonus_length} to the dive length"
+		
+		"DOTA_Tooltip_Ability_talent_overgrowth"							"Overgrowth"
+		"DOTA_Tooltip_Ability_talent_overgrowth_description"				""
 
 
 		// ==============================================

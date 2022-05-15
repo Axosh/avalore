@@ -8,6 +8,9 @@ LinkLuaModifier( "modifier_fertile_winds_heal", "scripts/vscripts/heroes/quetzal
 LinkLuaModifier( "modifier_unselectable", MODIFIER_UNSELECTABLE, LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_avalore_destroy_trees", "scripts/vscripts/modifiers/base_spell/modifier_avalore_destroy_trees.lua", LUA_MODIFIER_MOTION_NONE )
 
+LinkLuaModifier( "modifier_talent_ehecacozcatl", "scripts/vscripts/heroes/quetzalcoatl/modifier_talent_ehecacozcatl", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_overgrowth", "scripts/vscripts/heroes/quetzalcoatl/modifier_talent_overgrowth", LUA_MODIFIER_MOTION_NONE )
+
 function ability_fertile_winds:OnSpellStart(kv)
     if not IsServer() then return end
 
@@ -70,6 +73,10 @@ function ability_fertile_winds:OnSpellStart(kv)
             --local tree = CreateTempTreeWithModel(caster:GetAbsOrigin() + caster:GetRightVector() * 32, treeDuration, "models/props_tree/dire_tree005.vmdl")
             --Timers:CreateTimer(0.2, function()
                 CreateTempTreeWithModel(spawn_location, treeDuration, "models/props_tree/dire_tree005.vmdl")
+                if self:GetCaster():HasTalent("talent_overgrowth") then
+                    print("Has Talent")
+                    CreateTempTreeWithModel(caster:GetAbsOrigin() + caster:GetRightVector() * -128, treeDuration, "models/props_tree/dire_tree005.vmdl")
+                end
             --end)
             self.tree_spawn_counter = 3  - self.tree_counter_mod
             if self.heal_tree_counter == 0 then

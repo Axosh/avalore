@@ -26,7 +26,8 @@
 		//"Ability8"					""			
 
         //10-17 => Talents
-        "Ability10"                  "talent_ehecacozcatl"
+        "Ability10"                 "talent_ehecacozcatl"
+        "Ability11"                 "talent_overgrowth"
 
         // Movement
 		//----------------------------------------------------------------
