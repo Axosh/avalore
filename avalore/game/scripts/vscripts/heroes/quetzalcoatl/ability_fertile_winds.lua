@@ -76,7 +76,7 @@ function ability_fertile_winds:OnSpellStart(kv)
             --Timers:CreateTimer(0.2, function()
                 CreateTempTreeWithModel(spawn_location, treeDuration, "models/props_tree/dire_tree005.vmdl")
                 if self:GetCaster():HasTalent("talent_overgrowth") then
-                    print("Has Talent")
+                    --print("Has Talent")
                     CreateTempTreeWithModel(caster:GetAbsOrigin() + caster:GetRightVector() * -128, treeDuration, "models/props_tree/dire_tree005.vmdl")
                 end
             --end)
@@ -87,6 +87,13 @@ function ability_fertile_winds:OnSpellStart(kv)
                 unit:AddNewModifier(caster, self, "modifier_unselectable", {duration = treeDuration })
                 unit:AddNewModifier(caster, self, "modifier_no_healthbar", {duration = treeDuration })
                 --tree:AddNewModifier(caster, self, "modifier_fertile_winds_heal", nil)
+                if self:GetCaster():HasTalent("talent_overgrowth") then
+                    local spawn_loc_2 = caster:GetAbsOrigin() + caster:GetRightVector() * -128
+                    unit = CreateUnitByName('npc_dummy_unit', spawn_loc_2, false, caster, caster, caster:GetTeamNumber())
+                    unit:AddNewModifier(caster, self, "modifier_fertile_winds_heal", {duration = treeDuration })
+                    unit:AddNewModifier(caster, self, "modifier_unselectable", {duration = treeDuration })
+                    unit:AddNewModifier(caster, self, "modifier_no_healthbar", {duration = treeDuration })
+                end
                 self.heal_tree_counter = 3
             else
                 self.heal_tree_counter = self.heal_tree_counter - 1
