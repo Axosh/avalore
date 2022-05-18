@@ -106,7 +106,8 @@ function ability_flora_and_fauna:OnProjectileHit_ExtraData(target, location, dat
 		{
 			duration 			= self:GetSpecialValueFor("duration"),
 			damage				= self:GetSpecialValueFor("damage"),
-			damage_type			= self:GetAbilityDamageType()
+			damage_type			= self:GetAbilityDamageType(),
+			impact_num 			= 0 --tracks whether we splinter or not for the talent
 			--beetle_entindex		= beetle:entindex()
 		})
 		

@@ -18,6 +18,7 @@ function modifier_rose_bush_debuff:OnCreated( kv )
 	local duration = kv.duration
 	local damage = kv.damage
 	local interval = 0.5
+	local impact_num = kv.impact_num
 
 	-- set dps
 	local instances = duration/interval
@@ -32,6 +33,12 @@ function modifier_rose_bush_debuff:OnCreated( kv )
 		ability = self:GetAbility(), --Optional.
 	}
 	-- ApplyDamage(damageTable)
+
+	if self:GetCaster():HasTalent("talent_second_bloom") then
+		for bats=1,8 do
+			
+		end
+	end
 
 	-- Start interval
 	self:StartIntervalThink( interval )
