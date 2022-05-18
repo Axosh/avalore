@@ -90,6 +90,7 @@
 // Talents
 #base "heroes/quetzalcoatl/talent_ehecacozcatl.txt"
 #base "heroes/quetzalcoatl/talent_overgrowth.txt"
+#base "heroes/quetzalcoatl/talent_second_bloom.txt"
 
 // ===============================================================
 // GILGAMESH
