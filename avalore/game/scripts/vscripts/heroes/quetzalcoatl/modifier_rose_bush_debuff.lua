@@ -36,44 +36,49 @@ function modifier_rose_bush_debuff:OnCreated( kv )
 
 	-- if they have the talent, then send out more
 	if self:GetCaster():HasTalent("talent_second_bloom") and impact_num < 1 then
-		local start_pos			= GetGroundPosition(self:GetParent():GetAbsOrigin() + Vector(0, 10,  0), nil)
+		local start_pos			= GetGroundPosition(self:GetParent():GetAbsOrigin() + Vector(0, 100,  0), nil)
+		local direction = (start_pos - self:GetParent():GetAbsOrigin()):Normalized()
+		direction.z = 0
 		local bat_dummy		    = nil
 		local projectile_table	= nil
 		local projectileID		= nil
 		local num_bats 			= 8
-		for bats=1,num_bats do
+		local degrees = 360 / num_bats
+		for bats=1,num_bats,1 do
 		
 			local projectile_dummy_unit = CreateUnitByName("npc_bat_dummy_unit", start_pos, false, self:GetCaster(), self:GetCaster(), self:GetCaster():GetTeamNumber())
 			--projectile_dummy_unit:SetForwardVector(self:GetCaster():GetForwardVector():Normalized())
+			projectile_dummy_unit:SetForwardVector(direction)
 			--projectile_dummy_unit:SetModel("models/props_wildlife/wildlife_bat001.vmdl")
-			projectile_dummy_unit:AddNewModifier(self:GetCaster(), self, "modifier_unselectable", {duration = self:GetAbility():GetSpecialValueFor("travel_time") })
-			projectile_dummy_unit:AddNewModifier(self:GetCaster(), self, "modifier_no_healthbar", {duration = self:GetAbility():GetSpecialValueFor("travel_time") })
-			projectile_dummy_unit:AddNewModifier(self:GetCaster(), self, "modifier_invulnerable", {duration = self:GetAbility():GetSpecialValueFor("travel_time") })
+			projectile_dummy_unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_unselectable", {duration = self:GetAbility():GetSpecialValueFor("travel_time") })
+			projectile_dummy_unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_no_healthbar", {duration = self:GetAbility():GetSpecialValueFor("travel_time") })
+			projectile_dummy_unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_invulnerable", {duration = self:GetAbility():GetSpecialValueFor("travel_time") })
 
-			bat_dummy = CreateModifierThinker(self:GetCaster(), self, nil, 
+			bat_dummy = CreateModifierThinker(self:GetCaster(), self:GetAbility(), nil, 
 			{
 				
 			}, self:GetCaster():GetAbsOrigin(), self:GetCaster():GetTeamNumber(), false)
 
 			projectile_table = {
-				Ability				= self,
+				Ability				= self:GetAbility(),
 				--EffectName			= "particles/units/heroes/hero_death_prophet/death_prophet_carrion_swarm_bats.vpcf",
 				-- "The beetles spawn within a 300 radius around of Weaver (random position) and move forward as a swarm."
 				vSpawnOrigin		= start_pos,
 				-- "The Swarm moves forward at a speed of 600, taking 5 seconds to reach max distance."
 				-- Gonna add the 5 second as an AbilitySpecial which isn't a thing in vanilla
-				fDistance			= (self:GetAbility():GetSpecialValueFor("speed") * self:GetAbility():GetSpecialValueFor("travel_time")) + self:GetCaster():GetCastRangeBonus(),
+				fDistance			= 800, --(self:GetAbility():GetSpecialValueFor("speed") * self:GetAbility():GetSpecialValueFor("travel_time")) + self:GetCaster():GetCastRangeBonus(),
 				fStartRadius		= self:GetAbility():GetSpecialValueFor("radius"),
 				fEndRadius			= self:GetAbility():GetSpecialValueFor("radius"),
 				Source				= self:GetCaster(),
-				bHasFrontalCone		= false,
+				bHasFrontalCone		= true,
 				bReplaceExisting	= false,
 				iUnitTargetTeam		= DOTA_UNIT_TARGET_TEAM_ENEMY,
 				iUnitTargetFlags	= DOTA_UNIT_TARGET_FLAG_NO_INVIS,
 				iUnitTargetType		= DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 				fExpireTime 		= GameRules:GetGameTime() + 10.0,
 				bDeleteOnHit		= false,
-				vVelocity			= (self:GetParent():GetAbsOrigin()):Normalized() * self:GetAbility():GetSpecialValueFor("speed") * Vector(1, 1, 0),
+				vVelocity			= direction * self:GetAbility():GetSpecialValueFor("speed"),
+				--vVelocity			= (self:GetParent():GetAbsOrigin()):Normalized() * self:GetAbility():GetSpecialValueFor("speed") * Vector(1, 1, 0),
 				bProvidesVision		= true,
 				-- "The beetles provide flying vision while traveling forwards and while attached to a unit."
 				iVisionRadius 		= 321,
@@ -87,9 +92,12 @@ function modifier_rose_bush_debuff:OnCreated( kv )
 			}
 			projectileID = ProjectileManager:CreateLinearProjectile(projectile_table)
 			bat_dummy.projectileID	= projectileID
+
+			start_pos = RotatePosition(self:GetParent():GetAbsOrigin(), QAngle(0, 360/num_bats), start_pos)
+			direction = RotatePosition(Vector(0,0,0), QAngle(0, degrees, 0), direction)
 		end
 
-		start_pos = RotatePosition(self:GetParent():GetAbsOrigin(), QAngle(0, 360/num_bats), start_pos)
+		
 	end
 
 	-- Start interval
