@@ -1,6 +1,6 @@
 modifier_calmecac_patronage_aura_effect = class({})
 
-function modifier_calmecac_patronage_aura_effect:IsHidden() return true end
+function modifier_calmecac_patronage_aura_effect:IsHidden() return false end
 function modifier_calmecac_patronage_aura_effect:IsDebuff() return false end
 function modifier_calmecac_patronage_aura_effect:IsPurgable() return false end
 
@@ -27,13 +27,19 @@ end
 
 function modifier_calmecac_patronage_aura_effect:DeclareFunctions()
 	return {
-                MODIFIER_PROPERTY_STATS_INTELLECT_BONUS
+                MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+				MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE
                 --MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
             }
 end
 
 function modifier_calmecac_patronage_aura_effect:GetModifierBonusStats_Intellect()
     return self.int_bonus
+end
+
+function modifier_calmecac_patronage_aura_effect:GetModifierSpellAmplify_Percentage()
+	print("Calmecac Patronage Magic Amp - " .. tostring(self:GetCaster():FindTalentValue("talent_culture_hero", "magic_amp")))
+	return self:GetCaster():FindTalentValue("talent_culture_hero", "magic_amp")
 end
 
 -- function modifier_calmecac_patronage_aura_effect:GetModifierConstantManaRegen()

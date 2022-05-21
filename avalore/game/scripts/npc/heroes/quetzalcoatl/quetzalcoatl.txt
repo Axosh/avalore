@@ -30,6 +30,7 @@
         "Ability11"                 "talent_overgrowth"
         "Ability12"                 "talent_second_bloom"
         "Ability13"                 "talent_life_giver"
+        "Ability14"                 "talent_culture_hero"
 
         // Movement
 		//----------------------------------------------------------------

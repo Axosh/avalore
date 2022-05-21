@@ -2,6 +2,7 @@ ability_calmecac_patronage = ability_calmecac_patronage or class({})
 
 LinkLuaModifier( "modifier_calmecac_patronage_aura", "scripts/vscripts/heroes/quetzalcoatl/modifier_calmecac_patronage_aura", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_calmecac_patronage_aura_effect", "scripts/vscripts/heroes/quetzalcoatl/modifier_calmecac_patronage_aura_effect", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_culture_hero", "scripts/vscripts/heroes/quetzalcoatl/modifier_talent_culture_hero", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 -- Passive Modifier

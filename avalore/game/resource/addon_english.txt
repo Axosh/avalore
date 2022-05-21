@@ -471,6 +471,9 @@
 		"DOTA_Tooltip_modifier_calmecac_patronage_aura_effect"				"Calmecac Patronage"
 		"DOTA_Tooltip_modifier_calmecac_patronage_aura_effect_description"	"Receiving %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% Bonus INT"
 
+		"DOTA_Tooltip_modifier_calmecac_patronage_aura"						"Calmecac Patronage"
+		"DOTA_Tooltip_modifier_calmecac_patronage_aura_description"			"Granting %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% Bonus INT"
+
 		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing"							"Quetzalcoatl's Blessing"
 		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_description"				"Sacrifice a portion of your MAX HP to give an allied hero a short-lasting BUFF, massively increasing their INT and giving a MAGIC AMP. If the ally dies while buffed, they will have their RESPAWN TIME REDUCED by a PERCENTAGE."
 		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_self_dmg_percent" 			"%MAX HP SACRIFICED:"
@@ -495,6 +498,9 @@
 
 		"DOTA_Tooltip_Ability_talent_life_giver"							"Life Giver"
 		"DOTA_Tooltip_Ability_talent_life_giver_description"				"Flora and Fauna: bats travel for {s:bonus_travel_time} sec longer, and the debuff lasts for {s:bonus_duration} extra second"
+
+		"DOTA_Tooltip_Ability_talent_culture_hero"							"Culture Hero"
+		"DOTA_Tooltip_Ability_talent_culture_hero_description"				"Calmecac Patronage: +{s:magic_amp}% magic damage aura"
 
 
 		// ==============================================
