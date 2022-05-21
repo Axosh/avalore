@@ -29,6 +29,7 @@
         "Ability10"                 "talent_ehecacozcatl"
         "Ability11"                 "talent_overgrowth"
         "Ability12"                 "talent_second_bloom"
+        "Ability13"                 "talent_life_giver"
 
         // Movement
 		//----------------------------------------------------------------

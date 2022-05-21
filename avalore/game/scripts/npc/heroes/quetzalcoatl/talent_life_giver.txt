@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+    "talent_life_giver"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbility"
+		{
+            "01"    "ability_flora_and_fauna"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"bonus_travel_time"	    "2"
+			}
+            "02"
+            {
+                "var_type"			"FIELD_FLOAT"
+				"bonus_duration"	"1.0"
+            }
+        }
+    }
+}

@@ -8,6 +8,8 @@ function ability_flora_and_fauna:OnSpellStart()
         self:GetCaster():SetCursorPosition(self:GetCursorPosition() + self:GetCaster():GetForwardVector())
     end
 
+	local travel_time = self:GetSpecialValueFor("travel_time") + self:GetCaster():FindTalentValue("talent_life_giver", "bonus_travel_time")
+
     local start_pos			= nil
 	local bat_dummy		    = nil
 	local projectile_table	= nil
@@ -40,7 +42,7 @@ function ability_flora_and_fauna:OnSpellStart()
 			vSpawnOrigin		= start_pos,
 			-- "The Swarm moves forward at a speed of 600, taking 5 seconds to reach max distance."
 			-- Gonna add the 5 second as an AbilitySpecial which isn't a thing in vanilla
-			fDistance			= (self:GetSpecialValueFor("speed") * self:GetSpecialValueFor("travel_time")) + self:GetCaster():GetCastRangeBonus(),
+			fDistance			= (self:GetSpecialValueFor("speed") * travel_time) + self:GetCaster():GetCastRangeBonus(),
 			fStartRadius		= self:GetSpecialValueFor("radius"),
 			fEndRadius			= self:GetSpecialValueFor("radius"),
 			Source				= self:GetCaster(),
@@ -99,12 +101,14 @@ function ability_flora_and_fauna:OnProjectileThink_ExtraData(location, data)
 end
 
 function ability_flora_and_fauna:OnProjectileHit_ExtraData(target, location, data)
+
+	local duration = self:GetSpecialValueFor("duration") + self:GetCaster():FindTalentValue("talent_life_giver", "bonus_duration")
     -- if they're hit by a bat and don't have the debuff, give it to them
 	if target and not target:HasModifier("modifier_rose_bush_debuff") and data.bat_entindex and EntIndexToHScript(data.bat_entindex) and not EntIndexToHScript(data.bat_entindex):IsNull() then
 		
 		target:AddNewModifier(self:GetCaster(), self, "modifier_rose_bush_debuff",
 		{
-			duration 			= self:GetSpecialValueFor("duration"),
+			duration 			= duration,
 			damage				= self:GetSpecialValueFor("damage"),
 			damage_type			= self:GetAbilityDamageType(),
 			impact_num 			= 0 --tracks whether we splinter or not for the talent

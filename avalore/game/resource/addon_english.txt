@@ -491,6 +491,10 @@
 		"DOTA_Tooltip_Ability_talent_overgrowth_description"				"Fertile Winds: Spawns a second row of trees along the outer edge of the first"
 
 		"DOTA_Tooltip_Ability_talent_second_bloom"							"Second Bloom"
+		"DOTA_Tooltip_Ability_talent_second_bloom_description"				"Flora and Fauna: upon impact, a second set of bats bursts out in a radial pattern that can then hit any unit not affected by the debuff already"
+
+		"DOTA_Tooltip_Ability_talent_life_giver"							"Life Giver"
+		"DOTA_Tooltip_Ability_talent_life_giver_description"				"Flora and Fauna: bats travel for {s:bonus_travel_time} sec longer, and the debuff lasts for {s:bonus_duration} extra second"
 
 
 		// ==============================================

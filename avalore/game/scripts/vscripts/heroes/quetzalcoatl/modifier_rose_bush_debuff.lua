@@ -36,7 +36,7 @@ function modifier_rose_bush_debuff:OnCreated( kv )
 
 	-- if they have the talent, then send out more
 	if self:GetCaster():HasTalent("talent_second_bloom") and impact_num < 1 then
-		local start_pos			= GetGroundPosition(self:GetParent():GetAbsOrigin() + Vector(0, 100,  0), nil)
+		local start_pos			= GetGroundPosition(self:GetParent():GetAbsOrigin() + Vector(0, 50,  0), nil)
 		local direction = (start_pos - self:GetParent():GetAbsOrigin()):Normalized()
 		direction.z = 0
 		local bat_dummy		    = nil
