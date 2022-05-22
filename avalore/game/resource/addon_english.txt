@@ -502,6 +502,9 @@
 		"DOTA_Tooltip_Ability_talent_culture_hero"							"Culture Hero"
 		"DOTA_Tooltip_Ability_talent_culture_hero_description"				"Calmecac Patronage: +{s:magic_amp}% magic damage aura"
 
+		"DOTA_Tooltip_Ability_talent_brilliance_aura"						"Brilliance Aura"
+		"DOTA_Tooltip_Ability_talent_brilliance_aura_description"			"Calmecac Patronage: +{s:mana_regen} mana regen aura"
+
 
 		// ==============================================
 		// ===== GILGAMESH ===== //

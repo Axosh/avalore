@@ -2,7 +2,7 @@ modifier_calmecac_patronage_aura = class({})
 
 LinkLuaModifier( "modifier_calmecac_patronage_aura_effect", "scripts/vscripts/heroes/quetzalcoatl/modifier_calmecac_patronage_aura_effect", LUA_MODIFIER_MOTION_NONE )
 
-function modifier_calmecac_patronage_aura:IsHidden() return false end
+function modifier_calmecac_patronage_aura:IsHidden() return true end -- hide the emitter
 function modifier_calmecac_patronage_aura:IsDebuff() return false end
 function modifier_calmecac_patronage_aura:IsPurgable() return false end
 

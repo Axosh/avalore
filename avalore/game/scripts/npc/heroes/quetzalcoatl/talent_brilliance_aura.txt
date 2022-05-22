@@ -1,0 +1,27 @@
+"DOTAAbilities"
+{
+    "talent_brilliance_aura"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbility"
+		{
+            "01"    "ability_calmecac_patronage"
+        }
+
+        // // Special
+		// //-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_FLOAT"
+				"mana_regen"	        "2.0"
+			}
+        }
+    }
+}

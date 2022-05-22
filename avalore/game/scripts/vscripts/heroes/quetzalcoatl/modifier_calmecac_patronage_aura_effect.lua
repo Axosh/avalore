@@ -28,7 +28,8 @@ end
 function modifier_calmecac_patronage_aura_effect:DeclareFunctions()
 	return {
                 MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-				MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE
+				MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+				MODIFIER_PROPERTY_MANA_REGEN_CONSTANT
                 --MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
             }
 end
@@ -38,7 +39,7 @@ function modifier_calmecac_patronage_aura_effect:GetModifierBonusStats_Intellect
 end
 
 function modifier_calmecac_patronage_aura_effect:GetModifierSpellAmplify_Percentage()
-	print("Calmecac Patronage Magic Amp - " .. tostring(self:GetCaster():FindTalentValue("talent_culture_hero", "magic_amp")))
+	--print("Calmecac Patronage Magic Amp - " .. tostring(self:GetCaster():FindTalentValue("talent_culture_hero", "magic_amp")))
 	return self:GetCaster():FindTalentValue("talent_culture_hero", "magic_amp")
 end
 
@@ -46,3 +47,7 @@ end
 -- 	if self:GetParent()==self:GetCaster() then return self.regen_self end
 -- 	return self.regen_ally
 -- end
+
+function modifier_calmecac_patronage_aura_effect:GetModifierConstantManaRegen()
+	return self:GetCaster():FindTalentValue("talent_brilliance_aura", "mana_regen")
+end
