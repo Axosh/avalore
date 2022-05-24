@@ -30,7 +30,7 @@ services:
       # @see https://phabricator.wikimedia.org/source/mediawiki/browse/master/includes/DefaultSettings.php
       MYSQL_DATABASE: avalore
       MYSQL_USER: avalore_admin
-      MYSQL_PASSWORD: {REDACTED}
+      MYSQL_PASSWORD: v@J#AfGEgBYfU8_avalore
       MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
 
 networks:

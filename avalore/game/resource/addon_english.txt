@@ -504,6 +504,9 @@
 
 		"DOTA_Tooltip_Ability_talent_brilliance_aura"						"Brilliance Aura"
 		"DOTA_Tooltip_Ability_talent_brilliance_aura_description"			"Calmecac Patronage: +{s:mana_regen} mana regen aura"
+		
+		"DOTA_Tooltip_Ability_talent_rebirth"								"Rebirth"
+		"DOTA_Tooltip_Ability_talent_rebirth_description"					"Quetzalcoatl's Blessing: +{s:bonus_respawn_reduction_percent}% respawn time reduction"
 
 
 		// ==============================================

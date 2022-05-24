@@ -56,7 +56,7 @@ $wgDBtype = "mysql";
 $wgDBserver = "database:3306";
 $wgDBname = "avalore";
 $wgDBuser = "root";
-$wgDBpassword = "{REDACTED}";
+$wgDBpassword = "tikuUW%i%EAjh4p#ZN]YjVT2M693-*V>";
 
 # MySQL specific settings
 $wgDBprefix = "";
@@ -105,14 +105,14 @@ $wgLocaltimezone = "UTC";
 ## be publicly accessible from the web.
 #$wgCacheDirectory = "$IP/cache";
 
-$wgSecretKey = "{REDACTED}";
+$wgSecretKey = "8411fd6006887544428a270ba8d5197a0afe3d768014487122a4e89f82ef0766";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "{REDACTED}";
+$wgUpgradeKey = "69a2936c15e9c5b1";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation

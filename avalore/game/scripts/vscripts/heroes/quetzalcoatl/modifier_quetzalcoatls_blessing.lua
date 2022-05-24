@@ -1,5 +1,7 @@
 modifier_quetzalcoatls_blessing = class({})
 
+LinkLuaModifier( "modifier_talent_rebirth", "scripts/vscripts/heroes/quetzalcoatl/modifier_talent_rebirth", LUA_MODIFIER_MOTION_NONE )
+
 function modifier_quetzalcoatls_blessing:IsHidden() return false end
 function modifier_quetzalcoatls_blessing:IsPurgable() return false end
 function modifier_quetzalcoatls_blessing:RemoveOnDeath() return true end
@@ -17,7 +19,7 @@ end
 function modifier_quetzalcoatls_blessing:OnRefresh( kv )
     self.int_bonus = self:GetAbility():GetSpecialValueFor("int_bonus")
     self.magic_amp = self:GetAbility():GetSpecialValueFor("magic_amp")
-    self.respawn_reduction_percent = self:GetAbility():GetSpecialValueFor("respawn_reduction_percent")
+    self.respawn_reduction_percent = (self:GetAbility():GetSpecialValueFor("respawn_reduction_percent") + self:GetCaster():FindTalentValue("talent_rebirth", "bonus_respawn_reduction_percent"))
 end
 
 function modifier_quetzalcoatls_blessing:DeclareFunctions()

@@ -1,6 +1,7 @@
 ability_quetzalcoatls_blessing = ability_quetzalcoatls_blessing or class({})
 
 LinkLuaModifier( "modifier_quetzalcoatls_blessing", "scripts/vscripts/heroes/quetzalcoatl/modifier_quetzalcoatls_blessing", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_rebirth", "scripts/vscripts/heroes/quetzalcoatl/modifier_talent_rebirth", LUA_MODIFIER_MOTION_NONE )
 
 function ability_quetzalcoatls_blessing:OnAbilityPhaseInterrupted()
 end
