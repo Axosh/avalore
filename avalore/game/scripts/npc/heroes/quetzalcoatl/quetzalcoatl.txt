@@ -33,6 +33,7 @@
         "Ability14"                 "talent_ehecacozcatl"
         "Ability15"                 "talent_overgrowth"
         "Ability16"                 "talent_rebirth"
+        "Ability17"                 "talent_primal_force"
         
 
         // Movement

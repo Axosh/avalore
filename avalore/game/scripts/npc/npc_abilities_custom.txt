@@ -95,6 +95,7 @@
 #base "heroes/quetzalcoatl/talent_culture_hero.txt"
 #base "heroes/quetzalcoatl/talent_brilliance_aura.txt"
 #base "heroes/quetzalcoatl/talent_rebirth.txt"
+#base "heroes/quetzalcoatl/talent_primal_force.txt"
 
 // ===============================================================
 // GILGAMESH
