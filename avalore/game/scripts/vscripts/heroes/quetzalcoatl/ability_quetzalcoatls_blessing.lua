@@ -23,7 +23,7 @@ function ability_quetzalcoatls_blessing:OnSpellStart()
         attacker        = caster,
         victim          = caster,
         damage          = hp_loss,
-        damage_type     = DAMAGE_TYPE_MAGICAL,
+        damage_type     = DAMAGE_TYPE_PURE,
         damage_flags    = DOTA_DAMAGE_FLAG_NON_LETHAL,
         ability         = self
     }

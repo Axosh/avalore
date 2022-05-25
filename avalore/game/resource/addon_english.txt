@@ -475,7 +475,7 @@
 		"DOTA_Tooltip_modifier_calmecac_patronage_aura_description"			"Granting %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% Bonus INT"
 
 		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing"							"Quetzalcoatl's Blessing"
-		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_description"				"Sacrifice a portion of your MAX HP to give an allied hero a short-lasting BUFF, massively increasing their INT and giving a MAGIC AMP. If the ally dies while buffed, they will have their RESPAWN TIME REDUCED by a PERCENTAGE."
+		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_description"				"Sacrifice a portion of your MAX HP (pure damage) to give an allied hero a short-lasting BUFF, massively increasing their INT and giving a MAGIC AMP. If the ally dies while buffed, they will have their RESPAWN TIME REDUCED by a PERCENTAGE."
 		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_self_dmg_percent" 			"%MAX HP SACRIFICED:"
 		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_buff_duration"				"DURATION:"
 		"DOTA_Tooltip_Ability_ability_quetzalcoatls_blessing_int_bonus"					"BONUS INT:"
@@ -507,6 +507,9 @@
 		
 		"DOTA_Tooltip_Ability_talent_rebirth"								"Rebirth"
 		"DOTA_Tooltip_Ability_talent_rebirth_description"					"Quetzalcoatl's Blessing: +{s:bonus_respawn_reduction_percent}% respawn time reduction"
+
+		"DOTA_Tooltip_Ability_talent_primal_force"							"Primal Force"
+		"DOTA_Tooltip_Ability_talent_primal_force_description"				"Quetzalcoatl's Blessing: -{s:self_dmg_percent_reduction}% HP Sacrificed"
 
 
 		// ==============================================
