@@ -535,6 +535,13 @@
 		"DOTA_Tooltip_modifier_tyrant_king_debuff"							"Tyrant King"
 		"DOTA_Tooltip_modifier_tyrant_king_debuff_description"				"Giving a percent of attack damage to Gilgamesh"
 
+		// -- Talents
+		"DOTA_Tooltip_Ability_talent_synergy"								"Synergy"
+		"DOTA_Tooltip_Ability_talent_synergy_description"					"Befriend Enkidu: Synchronize Move Speed and +{s:bonus_as} attack speed for both"
+
+		"DOTA_Tooltip_Ability_talent_tag_team"								"Tag Team"
+		"DOTA_Tooltip_Ability_talent_synergy_description"					"Befriend Enkidu/Grapple: +{s:bonus_dmg_pct}% attack damage to grappled unit"
+
 
 		// ==============================================
 		// ===== PECOS BILL ===== //

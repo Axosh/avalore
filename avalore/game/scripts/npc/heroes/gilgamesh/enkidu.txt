@@ -202,7 +202,7 @@
         "Level"						    "3"
 		"CanBeDominated"				"0"
         "ConsideredHero"			"1"
-        "HasInventory"				"1"
+        "HasInventory"				"0"//"HasInventory"				"1"
 
         // Abilities
 		//----------------------------------------------------------------
@@ -296,7 +296,7 @@
         "Level"						    "4"
 		"CanBeDominated"				"0"
         "ConsideredHero"			"1"
-        "HasInventory"				"1"
+        "HasInventory"				"0"//"HasInventory"				"1"
 
         // Abilities
 		//----------------------------------------------------------------

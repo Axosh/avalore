@@ -104,6 +104,9 @@
 #base "heroes/gilgamesh/ability_gilgamesh_grapple.txt"
 #base "heroes/gilgamesh/ability_erect_wall.txt"
 #base "heroes/gilgamesh/ability_tyrant_king.txt"
+// Talents
+#base "heroes/gilgamesh/talent_synergy.txt"
+#base "heroes/gilgamesh/talent_tag_team.txt"
 
 // ===============================================================
 // PECOS BILL

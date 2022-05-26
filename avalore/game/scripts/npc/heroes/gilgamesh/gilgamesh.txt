@@ -22,7 +22,14 @@
 		// "Ability8"					""			// Ability 8 - Extra.
 
         //10-17 => Talents
-        //"Ability10"                 ""
+        "Ability10"                 ""
+        "Ability11"                 ""
+        "Ability12"                 ""
+        "Ability13"                 ""
+        "Ability14"                 "talent_synergy"
+        "Ability15"                 "talent_tag_team"
+        "Ability16"                 ""
+        "Ability17"                 ""
 
         // Movement
 		//----------------------------------------------------------------
