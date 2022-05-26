@@ -42,7 +42,7 @@ function ability_gilgamesh_grapple:OnUpgrade()
 
     local enk_ability = self:GetOwner():GetAbilityByIndex(0)
     local enk_ref = enk_ability:GetEnkiduRef()
-    if enk_ref:GetLevel() > 2 then
+    if enk_ref and enk_ref:GetLevel() > 2 then
         enk_ref:GetAbilityByIndex(0):SetLevel(self:GetLevel())
     end
 

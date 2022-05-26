@@ -1,6 +1,8 @@
 ability_befriend_enkidu = ability_befriend_enkidu or class({})
 
 LinkLuaModifier( "modifier_gilgameshs_sorrow", "scripts/vscripts/heroes/gilgamesh/modifier_gilgameshs_sorrow.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_synergy", "scripts/vscripts/heroes/gilgamesh/modifier_synergy.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_synergy", "scripts/vscripts/heroes/gilgamesh/modifier_talent_synergy.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_befriend_enkidu:OnSpellStart()
     if not IsServer() then return end
@@ -81,6 +83,10 @@ function ability_befriend_enkidu:SummonEnkidu(vector_location)
 
     -- attribute kills to hero
     unit:AddNewModifier(self:GetCaster(), self, "modifier_kill", nil)
+
+    if self:GetCaster():HasTalent("talent_synergy") then
+        unit:AddNewModifier(self:GetCaster(), self, "modifier_synergy", {is_enkidu = true})
+    end
 
     -- give control
     unit:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)

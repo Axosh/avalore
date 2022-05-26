@@ -539,8 +539,11 @@
 		"DOTA_Tooltip_Ability_talent_synergy"								"Synergy"
 		"DOTA_Tooltip_Ability_talent_synergy_description"					"Befriend Enkidu: Synchronize Move Speed and +{s:bonus_as} attack speed for both"
 
+		"DOTA_Tooltip_modifier_synergy"										"Synergy"
+		"DOTA_Tooltip_modifier_synergy_description"							"Providing %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% AS and %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% MS"
+
 		"DOTA_Tooltip_Ability_talent_tag_team"								"Tag Team"
-		"DOTA_Tooltip_Ability_talent_synergy_description"					"Befriend Enkidu/Grapple: +{s:bonus_dmg_pct}% attack damage to grappled unit"
+		"DOTA_Tooltip_Ability_talent_tag_team_description"					"Befriend Enkidu/Grapple: +{s:bonus_dmg_pct}% attack damage to grappled unit"
 
 
 		// ==============================================
