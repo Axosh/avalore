@@ -23,6 +23,7 @@ LinkLuaModifier("modifier_faction_olympians",      "modifiers/faction/modifier_f
 
 -- Talents that can be activated later
 LinkLuaModifier("modifier_talent_static_field",       "heroes/zeus/modifier_talent_static_field.lua",       LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_synergy", "scripts/vscripts/heroes/gilgamesh/modifier_synergy.lua", LUA_MODIFIER_MOTION_NONE )
 
 -- Inventory Debug
 LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
@@ -1209,6 +1210,22 @@ function CAvaloreGameMode:OnPlayerLearnedAbility(event)
 		print("Adding modifier: " .. "modifier_" .. abilityname)
 		local modif = hero:AddNewModifier(hero, nil, "modifier_" .. abilityname, {})
 		--print()
+
+		-- SPECIAL HANDLING
+		if modif:GetName() == "modifier_talent_synergy" then
+			local enk_ability = hero:FindAbilityByName("ability_befriend_enkidu")
+			hero:AddNewModifier(hero, enk_ability, "modifier_synergy", {})
+
+			if enk_ability:GetLevel() > 0 then
+				local enkidu = enk_ability:GetEnkiduRef()
+				-- if they have it leveled, then make sure he's actually summoned
+				if enkidu then
+					enkidu:AddNewModifier(hero, enk_ability, "modifier_synergy", {})
+				end
+			end
+		end
+
+
 	end
 
 	-- print("===== Debug Modifiers =====")

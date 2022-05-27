@@ -7,21 +7,23 @@ function modifier_talent_synergy:IsHidden() 		return true end
 function modifier_talent_synergy:IsPurgable() 		return false end
 function modifier_talent_synergy:RemoveOnDeath() 	return false end
 
-function modifier_talent_synergy:OnCreated()
+-- try to handle in events.lua (not ideal, but race conditions)
 
-    if not IsServer() then return end
-    --self.bonus_attack_speed = self:GetParent():FindTalentValue("talent_synergy", "bonus_as")
+-- function modifier_talent_synergy:OnCreated()
 
-    self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_synergy", {is_enkidu = false})
+--     if not IsServer() then return end
+--     --self.bonus_attack_speed = self:GetParent():FindTalentValue("talent_synergy", "bonus_as")
 
-    --self:GetParent():GetAdditionalOwnedUnits()
-    local enk_ability = self:GetParent():FindAbilityByName("ability_befriend_enkidu")
-    if enk_ability:GetLevel() > 0 then
-        local enkidu = enk_ability:GetEnkiduRef()
-        -- if they have it leveled, then make sure he's actually summoned
-        if enkidu then
-            enkidu:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_synergy", {is_enkidu = true})
-        end
-    end
+--     self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_synergy", {is_enkidu = false})
 
-end
+--     --self:GetParent():GetAdditionalOwnedUnits()
+--     local enk_ability = self:GetParent():FindAbilityByName("ability_befriend_enkidu")
+--     if enk_ability:GetLevel() > 0 then
+--         local enkidu = enk_ability:GetEnkiduRef()
+--         -- if they have it leveled, then make sure he's actually summoned
+--         if enkidu then
+--             enkidu:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_synergy", {is_enkidu = true})
+--         end
+--     end
+
+-- end

@@ -13,12 +13,13 @@ end
 function modifier_synergy:OnCreated(kv)
     
     self.bonus_attack_speed = self:GetCaster():FindTalentValue("talent_synergy", "bonus_as")
+    print("AS Bonus: " .. tostring(self.bonus_attack_speed))
     self.bonus_move_speed = 0
 
-    if not IsServer() then return end
+    --if not IsServer() then return end
 
     --if kv.is_enkidu then
-        self:StartIntervalThink(FrameTime())
+    self:StartIntervalThink(FrameTime())
     --end
 end
 
@@ -27,15 +28,22 @@ function modifier_synergy:OnIntervalThink()
     --if not IsServer() then return end
 
     -- re-read this due to race condition
-    if self.bonus_attack_speed == 0 then
-        self.bonus_attack_speed = self:GetCaster():FindTalentValue("talent_synergy", "bonus_as")
-    end
+    -- if self.bonus_attack_speed == 0 then
+    --     print("Update Bonus AS")
+    --     self.bonus_attack_speed = self:GetCaster():FindTalentValue("talent_synergy", "bonus_as")
+    --     print(tostring(self.bonus_attack_speed))
+    -- end
 
     -- only update for Enkidu
     if self:GetParent() ~= self:GetCaster() then
-        local enkidu_speed = self:GetParent():GetMoveSpeedModifier(self:GetParent():GetBaseMoveSpeed(), false)
+        --print(self:GetParent():GetName())
+        local enkidu_speed = self:GetParent():GetBaseMoveSpeed() --self:GetParent():GetMoveSpeedModifier(self:GetParent():GetBaseMoveSpeed(), false)
         local gilgamesh_speed = self:GetCaster():GetMoveSpeedModifier(self:GetCaster():GetBaseMoveSpeed(), false)
         self.bonus_move_speed = gilgamesh_speed - enkidu_speed
+        if self.bonus_move_speed < 0 then
+            self.bonus_move_speed = 0
+        end
+        --print("Gilga = " .. tostring(gilgamesh_speed) .. " || Enk = " .. tostring(enkidu_speed))
     end
 
     --print("Gilga = " .. tostring(gilgamesh_speed) .. " || Enk = " .. tostring(enkidu_speed))
@@ -55,5 +63,7 @@ function modifier_synergy:GetModifierAttackSpeedBonus_Constant(kv)
 end
 
 function modifier_synergy:GetModifierMoveSpeedBonus_Constant()
+    --if self.bonus_move_speed > self:GetParent():GetMoveSpeedModifier(self:GetParent():GetBaseMoveSpeed(), false) then
     return self.bonus_move_speed
+    --end
 end
