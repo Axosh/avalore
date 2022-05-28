@@ -2,6 +2,7 @@ ability_gilgamesh_grapple = ability_gilgamesh_grapple or class({})
 
 LinkLuaModifier("modifier_grapple_self",    "scripts/vscripts/heroes/gilgamesh/modifier_grapple_self.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_grapple_target",  "scripts/vscripts/heroes/gilgamesh/modifier_grapple_target.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_tag_team", "scripts/vscripts/heroes/gilgamesh/modifier_talent_tag_team.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_gilgamesh_grapple:GetBehavior()
     return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED

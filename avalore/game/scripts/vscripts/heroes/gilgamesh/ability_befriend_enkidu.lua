@@ -3,11 +3,17 @@ ability_befriend_enkidu = ability_befriend_enkidu or class({})
 LinkLuaModifier( "modifier_gilgameshs_sorrow", "scripts/vscripts/heroes/gilgamesh/modifier_gilgameshs_sorrow.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_synergy", "scripts/vscripts/heroes/gilgamesh/modifier_synergy.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_synergy", "scripts/vscripts/heroes/gilgamesh/modifier_talent_synergy.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_tag_team", "scripts/vscripts/heroes/gilgamesh/modifier_talent_tag_team.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_befriend_enkidu:OnSpellStart()
     if not IsServer() then return end
 
     print("ability_befriend_enkidu:OnSpellStart()")
+    
+    -- if they are re-summoning, then nuke the current Enkidu so they don't get 2
+    if self.enkidu and self.enkidu:IsAlive() then
+        UTIL_RemoveImmediate(self.enkidu)
+    end
     -- Spawn Unit
     self.enkidu = self:SummonEnkidu()
 

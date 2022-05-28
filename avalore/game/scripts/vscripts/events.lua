@@ -1212,7 +1212,7 @@ function CAvaloreGameMode:OnPlayerLearnedAbility(event)
 		--print()
 
 		-- SPECIAL HANDLING
-		if modif:GetName() == "modifier_talent_synergy" then
+		if modif and modif:GetName() == "modifier_talent_synergy" then
 			local enk_ability = hero:FindAbilityByName("ability_befriend_enkidu")
 			hero:AddNewModifier(hero, enk_ability, "modifier_synergy", {})
 
