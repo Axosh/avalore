@@ -6,7 +6,7 @@ function modifier_grapple_target:IsPurgable()			return false end
 function modifier_grapple_target:IsPurgeException()	    return true end
 function modifier_grapple_target:GetAttributes() 		return MODIFIER_ATTRIBUTE_MULTIPLE end
 
-function modifier_grapple_target:OnCreated()
+function modifier_grapple_target:OnCreated(kv)
     if not IsServer() then return end
 
 	-- find the main hero (e.g. gilgamesh) for the talent since enkidu might be casting
@@ -25,7 +25,10 @@ function modifier_grapple_target:OnCreated()
 
     self.tick_interval			= self:GetAbility():GetSpecialValueFor("tick_interval")
 	self.total_damage			= self:GetAbility():GetSpecialValueFor("total_damage")
-	self.channel_time			= self:GetAbility():GetSpecialValueFor("channel_time")
+	--self.channel_time			= self:GetAbility():GetSpecialValueFor("channel_time")
+	self.channel_time 			= kv.duration
+	--self.channel_time			= self:GetAbility():GetSpecialValueFor("channel_time") + self:GetCaster():FindTalentValue("talent_endurance", "bonus_duration")
+	print("Channel Time => " .. tostring(self.channel_time))
 
     self.damage_per_tick	= self.total_damage / (self.channel_time / self.tick_interval)
 
@@ -69,7 +72,7 @@ function modifier_grapple_target:GetModifierIncomingDamage_Percentage(kv)
 	if self.amplify_damage > 0 then
 		-- if the source of the damage is the player grappling this target
 		if kv.attacker:GetMainControllingPlayer() == self:GetCaster():GetMainControllingPlayer() then
-			print("amping damage!!!!")
+			--print("amping damage!!!!")
 			return self.amplify_damage
 		end
 	end

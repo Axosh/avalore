@@ -1,8 +1,9 @@
 ability_gilgamesh_grapple = ability_gilgamesh_grapple or class({})
 
-LinkLuaModifier("modifier_grapple_self",    "scripts/vscripts/heroes/gilgamesh/modifier_grapple_self.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_grapple_self",    "scripts/vscripts/heroes/gilgamesh/modifier_grapple_self.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_grapple_target",  "scripts/vscripts/heroes/gilgamesh/modifier_grapple_target.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_talent_tag_team", "scripts/vscripts/heroes/gilgamesh/modifier_talent_tag_team.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_talent_endurance", "scripts/vscripts/heroes/gilgamesh/modifier_talent_endurance.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_gilgamesh_grapple:GetBehavior()
     return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED
@@ -10,6 +11,19 @@ end
 
 function ability_gilgamesh_grapple:CastFilterResultTarget(target)
     return UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, self:GetCaster():GetTeamNumber())
+end
+
+function ability_gilgamesh_grapple:GetChannelTime()
+
+    if IsClient() then
+        return self:GetSpecialValueFor("channel_time") + self:GetCaster():FindTalentValue("talent_endurance", "bonus_duration")
+    else
+        -- handle it this way due to client/server nonsense with talent values
+        if not self.main_hero then
+            self.main_hero = PlayerResource:GetSelectedHeroEntity(self:GetCaster():GetMainControllingPlayer())
+        end
+        return self:GetSpecialValueFor("channel_time") + self.main_hero:FindTalentValue("talent_endurance", "bonus_duration")
+    end
 end
 
 -- function ability_gilgamesh_grapple:GetIntrinsicModifierName()
@@ -23,10 +37,17 @@ end
 function ability_gilgamesh_grapple:OnSpellStart()
     if not IsServer() then return end
 
+    if not self.main_hero then
+        self.main_hero = PlayerResource:GetSelectedHeroEntity(self:GetCaster():GetMainControllingPlayer())
+    end
     self.target = self:GetCursorTarget()
+    --local main_hero = PlayerResource:GetSelectedHeroEntity(self:GetCaster():GetMainControllingPlayer())
+    -- do it this way because client-side reads from a table, server-side reads from abilities (which Enkidu doesn't have)
+    local dur = self:GetSpecialValueFor("channel_time") + self.main_hero:FindTalentValue("talent_endurance", "bonus_duration")
+    --print("Ability Dur = ")
 
     if not self.target:TriggerSpellAbsorb(self) then
-        self.target:AddNewModifier(self:GetCaster(), self, "modifier_grapple_target", {duration = self:GetChannelTime()})
+        self.target:AddNewModifier(self:GetCaster(), self, "modifier_grapple_target", {duration = dur})
     end
 end
 

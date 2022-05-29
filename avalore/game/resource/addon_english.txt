@@ -545,6 +545,10 @@
 		"DOTA_Tooltip_Ability_talent_tag_team"								"Tag Team"
 		"DOTA_Tooltip_Ability_talent_tag_team_description"					"Befriend Enkidu/Grapple: +{s:bonus_dmg_pct}% attack damage to grappled unit"
 
+		"DOTA_Tooltip_Ability_talent_endurance"								"Endurance"
+		"DOTA_Tooltip_Ability_talent_endurance_description"					"Grapple: +{s:bonus_duration} channel time"
+		"DOTA_Tooltip_modifier_talent_endurance"							"Endurance (DEBUG)"
+
 
 		// ==============================================
 		// ===== PECOS BILL ===== //

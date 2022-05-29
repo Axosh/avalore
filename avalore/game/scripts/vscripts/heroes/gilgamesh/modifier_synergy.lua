@@ -46,6 +46,21 @@ function modifier_synergy:OnIntervalThink()
         --print("Gilga = " .. tostring(gilgamesh_speed) .. " || Enk = " .. tostring(enkidu_speed))
     end
 
+    -- if Enkiduo happens to be faster..
+    --if self:GetParent() == self:GetCaster() then
+    -- else
+    -- doesn't work because GetEnkiduRef only works server-side
+    --     local enk_ref = self:GetCaster():FindAbilityByName("ability_befriend_enkidu"):GetEnkiduRef()
+    --     if enk_ref then
+    --         local enkidu_speed = enk_ref:GetBaseMoveSpeed()
+    --         local gilgamesh_speed = self:GetCaster():GetMoveSpeedModifier(self:GetCaster():GetBaseMoveSpeed(), false)
+    --         self.bonus_move_speed = enkidu_speed - gilgamesh_speed
+    --         if self.bonus_move_speed < 0 then
+    --             self.bonus_move_speed = 0
+    --         end
+    --     end
+    -- end
+
     --print("Gilga = " .. tostring(gilgamesh_speed) .. " || Enk = " .. tostring(enkidu_speed))
 
     --self:GetParent():SetBaseMoveSpeed(self:GetCaster():GetBaseMoveSpeed())

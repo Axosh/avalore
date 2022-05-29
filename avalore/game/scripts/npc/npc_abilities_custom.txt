@@ -107,6 +107,7 @@
 // Talents
 #base "heroes/gilgamesh/talent_synergy.txt"
 #base "heroes/gilgamesh/talent_tag_team.txt"
+#base "heroes/gilgamesh/talent_endurance.txt"
 
 // ===============================================================
 // PECOS BILL
