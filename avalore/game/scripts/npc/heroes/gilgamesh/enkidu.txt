@@ -18,8 +18,8 @@
 
         // Abilities
 		//----------------------------------------------------------------
-        "Ability1"					""			// Ability 1.
-		"Ability2"					""			// Ability 2.
+        "Ability1"					"ability_none"			// Ability 1.
+		"Ability2"					"ability_none"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -112,8 +112,8 @@
 
         // Abilities
 		//----------------------------------------------------------------
-        "Ability1"					""			// Ability 1.
-		"Ability2"					""			// Ability 2.
+        "Ability1"					"ability_none"			// Ability 1.
+		"Ability2"					"ability_none"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -206,7 +206,7 @@
 
         // Abilities
 		//----------------------------------------------------------------
-        "Ability1"					""			// Ability 1.
+        "Ability1"					"ability_none"			// Ability 1.
 		"Ability2"					"ability_gilgamesh_grapple"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
@@ -300,7 +300,7 @@
 
         // Abilities
 		//----------------------------------------------------------------
-        "Ability1"					""			// Ability 1.
+        "Ability1"					"ability_none"			// Ability 1.
 		"Ability2"					"ability_gilgamesh_grapple"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.

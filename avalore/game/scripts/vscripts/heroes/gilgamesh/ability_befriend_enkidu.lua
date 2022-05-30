@@ -79,7 +79,7 @@ function ability_befriend_enkidu:SummonEnkidu(vector_location)
 
     -- sync the Grapple Ability
     if enkidu_level > 2 and self:GetCaster():GetAbilityByIndex(1):GetLevel() > 0 then
-        unit:GetAbilityByIndex(0):SetLevel(self:GetCaster():GetAbilityByIndex(1):GetLevel())
+        unit:GetAbilityByIndex(1):SetLevel(self:GetCaster():GetAbilityByIndex(1):GetLevel())
     end
 
     -- Spawn Effects
@@ -96,8 +96,13 @@ function ability_befriend_enkidu:SummonEnkidu(vector_location)
     end
 
     if self:GetCaster():HasTalent("talent_endurance") then
-        print("Giving Enkidu Endurance Talent")
+        --print("Giving Enkidu Endurance Talent")
         unit:AddNewModifier(self:GetCaster(), self:GetCaster():FindAbilityByName("ability_gilgamesh_grapple"), "modifier_talent_endurance", {})
+    end
+
+    if self:GetCaster():HasTalent("talent_grappling_hold") then
+        --print("Giving Enkidu Endurance Talent")
+        unit:AddNewModifier(self:GetCaster(), self:GetCaster():FindAbilityByName("ability_gilgamesh_grapple"), "modifier_talent_grappling_hold", {})
     end
 
     -- give control

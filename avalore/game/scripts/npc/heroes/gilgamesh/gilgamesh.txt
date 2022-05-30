@@ -27,7 +27,7 @@
         "Ability12"                 ""
         "Ability13"                 ""
         "Ability14"                 "talent_endurance"
-        "Ability15"                 ""
+        "Ability15"                 "talent_grappling_hold"
         "Ability16"                 ""
         "Ability17"                 ""
 

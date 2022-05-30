@@ -112,6 +112,8 @@
 		// ABILITIES
  		//--------------------------------------------------------------------------------
 
+		"DOTA_Tooltip_Ability_ability_none"							"None"
+
 		// ==============================================
 		// ===== Davy Jones =====
 		// ==============================================
@@ -516,13 +518,21 @@
 		// ===== GILGAMESH ===== //
 		// ==============================================
 		"DOTA_Tooltip_Ability_ability_befriend_enkidu"						"Befriend Enkidu"
+		"DOTA_Tooltip_Ability_ability_befriend_enkidu_description"			"Summon Enkidu, a powerful demi-hero unit, that will last until killed or re-summoned. Should Enkidu die, Gilgamesh will be affected by a strong debuff if Enkidu is not summoned within 5 seconds (300 non-lethal pure damage, -25% AS, -25% MS)"
+		"DOTA_Tooltip_Ability_ability_befriend_enkidu_tooltip_enk_hp"		"ENKIDU HP: "
+		"DOTA_Tooltip_Ability_ability_befriend_enkidu_tooltip_enk_dmg"		"ENKIDU DMG: "
+		"DOTA_Tooltip_Ability_ability_befriend_enkidu_tooltip_enk_armor"	"ENKIDU ARMOR: "
+		"DOTA_Tooltip_Ability_ability_befriend_enkidu_tooltip_enk_ms"		"ENKIDU MS: "
 		"DOTA_Tooltip_Ability_ability_befriend_enkidu_Lore"					"Early on in the myth, Gilgamesh and Enkidu become best of friends. Over time, Enkidu becomes more human and less animal. When he dies, Gilgamesh is grief stricken."
 
 		"DOTA_Tooltip_modifier_gilgameshs_sorrow"							"Gilgamesh's Sorrow"
 		"DOTA_Tooltip_modifier_gilgameshs_sorrow_description"				"Gilgamesh is stricken with grief and will fall into a depression if Enkidu is not resummoned within 5 seconds"
 
-		"DOTA_Tooltip_Ability_ability_grapple"								"Grapple"
-		"DOTA_Tooltip_Ability_ability_grapple_Lore"							"Gilgamesh and Enkidu wrestle and grapple in their initial bout. Later on, Enkidu holds the Bull of Heaven while Gilgamesh slays it."
+		"DOTA_Tooltip_Ability_ability_gilgamesh_grapple"					"Grapple"
+		"DOTA_Tooltip_Ability_ability_gilgamesh_grapple_description"		"Grab and hold a unit in place, stunning it and doing damage over time for the duration of the channeling effect.\n\nEnkidu also gains this ability at the same level once Befriend Enkidu is level 3."
+		"DOTA_Tooltip_Ability_ability_gilgamesh_grapple_total_damage"		"TOTAL DAMAGE: "
+		"DOTA_Tooltip_Ability_ability_gilgamesh_grapple_channel_time"		"CHANNEL TIME: "
+		"DOTA_Tooltip_Ability_ability_gilgamesh_grapple_Lore"				"Gilgamesh and Enkidu wrestle and grapple in their initial bout. Later on, Enkidu holds the Bull of Heaven while Gilgamesh slays it."
 
 		"DOTA_Tooltip_Ability_ability_erect_wall"							"Erect Wall"
 		"DOTA_Tooltip_Ability_ability_erect_wall_Lore"						"Gilgamesh, King of Uruk and a skilled builder, surrounded the city with glorious walls"
@@ -546,8 +556,11 @@
 		"DOTA_Tooltip_Ability_talent_tag_team_description"					"Befriend Enkidu/Grapple: +{s:bonus_dmg_pct}% attack damage to grappled unit"
 
 		"DOTA_Tooltip_Ability_talent_endurance"								"Endurance"
-		"DOTA_Tooltip_Ability_talent_endurance_description"					"Grapple: +{s:bonus_duration} channel time"
+		"DOTA_Tooltip_Ability_talent_endurance_description"					"Grapple: +{s:bonus_duration} channel time, dealing an additional {s:bonus_dmg} damage over the duration"
 		"DOTA_Tooltip_modifier_talent_endurance"							"Endurance (DEBUG)"
+
+		"DOTA_Tooltip_Ability_talent_grappling_hold"						"Grappling Hold"
+		"DOTA_Tooltip_Ability_talent_grappling_hold_description"			"Grapple: Pierces Spell Immunity"
 
 
 		// ==============================================

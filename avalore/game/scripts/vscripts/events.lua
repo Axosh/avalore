@@ -1214,11 +1214,12 @@ function CAvaloreGameMode:OnPlayerLearnedAbility(event)
 
 		-- SPECIAL HANDLING
 		if modif then
-			if modif:GetName() == "modifier_talent_synergy" or modif:GetName() == "modifier_talent_endurance" then
+			if modif:GetName() == "modifier_talent_synergy" or modif:GetName() == "modifier_talent_endurance" or modif:GetName() == "modifier_talent_grappling_hold" then
 				local enk_ability = hero:FindAbilityByName("ability_befriend_enkidu")
 				local ability_parent = enk_ability
 				local mod_name = "modifier_synergy"
-				if modif:GetName() == "modifier_talent_endurance" then
+				--if modif:GetName() == "modifier_talent_endurance" or modif:GetName() == "modifier_talent_grappling_hold" then
+				if modif:GetName() ~= "modifier_talent_synergy" then
 					ability_parent = hero:FindAbilityByName("ability_gilgamesh_grapple")
 					mod_name = modif:GetName()
 				end

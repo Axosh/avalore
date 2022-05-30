@@ -22,6 +22,11 @@
                 "var_type"                "FIELD_INTEGER"
                 "bonus_duration"          "1.0"
             }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_dmg"             "100"
+            }
         }
     }
 }

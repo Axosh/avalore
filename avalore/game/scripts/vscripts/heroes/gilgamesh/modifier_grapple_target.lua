@@ -1,6 +1,7 @@
 modifier_grapple_target = class({})
 
 LinkLuaModifier( "modifier_talent_tag_team", "scripts/vscripts/heroes/gilgamesh/modifier_talent_tag_team.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_endurance", "scripts/vscripts/heroes/gilgamesh/modifier_talent_endurance.lua", LUA_MODIFIER_MOTION_NONE )
 
 function modifier_grapple_target:IsPurgable()			return false end
 function modifier_grapple_target:IsPurgeException()	    return true end
@@ -24,7 +25,7 @@ function modifier_grapple_target:OnCreated(kv)
     self.particle = self:AddParticle(particle, true, false, -1, true, false)
 
     self.tick_interval			= self:GetAbility():GetSpecialValueFor("tick_interval")
-	self.total_damage			= self:GetAbility():GetSpecialValueFor("total_damage")
+	self.total_damage			= self:GetAbility():GetSpecialValueFor("total_damage") + main_hero:FindTalentValue("talent_endurance","bonus_dmg")
 	--self.channel_time			= self:GetAbility():GetSpecialValueFor("channel_time")
 	self.channel_time 			= kv.duration
 	--self.channel_time			= self:GetAbility():GetSpecialValueFor("channel_time") + self:GetCaster():FindTalentValue("talent_endurance", "bonus_duration")

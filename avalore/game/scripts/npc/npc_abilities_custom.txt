@@ -108,6 +108,7 @@
 #base "heroes/gilgamesh/talent_synergy.txt"
 #base "heroes/gilgamesh/talent_tag_team.txt"
 #base "heroes/gilgamesh/talent_endurance.txt"
+#base "heroes/gilgamesh/talent_grappling_hold.txt"
 
 // ===============================================================
 // PECOS BILL
@@ -148,6 +149,7 @@
 
 "DOTAAbilities"
 {	
+	"Version"		"1"
 	"building_unselectable"
 	{
 		"AbilityBehavior"       	 	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -182,6 +184,15 @@
 		}
 	}
 
+	// basically to be used as a "spacer" so hotkeys end up in the right spot
+	"ability_none"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"            "ability_none"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"0"
+	}
+
 	//"flag_morale_aura"
 	//{
 	//	"BaseClass"										"ability_lua"
@@ -189,8 +200,6 @@
 	//	"ScriptFile"				"modifiers/flags/modifier_flag_morale"
 	//	"AbilityBehavior"								"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 	//}
-
-	"Version"		"1"
 
 	// ========================
 	// DAVY_JONES: Deadly Fog

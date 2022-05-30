@@ -10,7 +10,15 @@ function ability_gilgamesh_grapple:GetBehavior()
 end
 
 function ability_gilgamesh_grapple:CastFilterResultTarget(target)
-    return UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, self:GetCaster():GetTeamNumber())
+    -- local target = DOTA_UNIT_TARGET_FLAG_NONE
+    -- if self:GetCaster():HasModifier("modifier_talent_grappling_hold") then
+    --     target = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+    -- end
+    if self:GetCaster():HasModifier("modifier_talent_grappling_hold") then
+        return UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, self:GetCaster():GetTeamNumber())
+    else
+        return UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, self:GetCaster():GetTeamNumber())
+    end
 end
 
 function ability_gilgamesh_grapple:GetChannelTime()
@@ -65,7 +73,7 @@ function ability_gilgamesh_grapple:OnUpgrade()
     local enk_ability = self:GetOwner():GetAbilityByIndex(0)
     local enk_ref = enk_ability:GetEnkiduRef()
     if enk_ref and enk_ref:GetLevel() > 2 then
-        enk_ref:GetAbilityByIndex(0):SetLevel(self:GetLevel())
+        enk_ref:GetAbilityByIndex(1):SetLevel(self:GetLevel())
     end
 
     -- units = Entities:FindAllByName("enkidu")
@@ -74,7 +82,7 @@ function ability_gilgamesh_grapple:OnUpgrade()
     -- for _,unit in pairs(units) do
     --     print(unit:GetName())
     --     if unit:GetUnitLabel() == "enkidu" and unit:GetLevel() > 2 then --and unit:GetOwner() == self:GetOwner() then
-    --         unit:GetAbilityByIndex(0):SetLevel(self:GetLevel())
+    --         unit:GetAbilityByIndex(1):SetLevel(self:GetLevel())
     --     end
     -- end
 end
