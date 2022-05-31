@@ -562,6 +562,9 @@
 		"DOTA_Tooltip_Ability_talent_grappling_hold"						"Grappling Hold"
 		"DOTA_Tooltip_Ability_talent_grappling_hold_description"			"Grapple: Pierces Spell Immunity"
 
+		"DOTA_Tooltip_Ability_talent_defensive_perimeter"					"Defensive Perimeter"
+		"DOTA_Tooltip_Ability_talent_defensive_perimeter_description"		"Erect Wall: +{s:bonus_width} wall length"
+
 
 		// ==============================================
 		// ===== PECOS BILL ===== //

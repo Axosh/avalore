@@ -24,7 +24,7 @@
         //10-17 => Talents
         "Ability10"                 "talent_synergy"
         "Ability11"                 "talent_tag_team"
-        "Ability12"                 ""
+        "Ability12"                 "talent_defensive_perimeter"
         "Ability13"                 ""
         "Ability14"                 "talent_endurance"
         "Ability15"                 "talent_grappling_hold"

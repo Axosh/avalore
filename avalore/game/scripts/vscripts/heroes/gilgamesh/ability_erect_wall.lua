@@ -2,6 +2,7 @@ ability_erect_wall = ability_erect_wall or class({})
 
 LinkLuaModifier( "modifier_erect_wall_thinker", "scripts/vscripts/heroes/gilgamesh/modifier_erect_wall_thinker.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_talent_defensive_perimeter", "scripts/vscripts/heroes/gilgamesh/modifier_talent_defensive_perimeter.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_erect_wall:OnSpellStart()
     if not IsServer() then return end
@@ -15,7 +16,7 @@ function ability_erect_wall:OnSpellStart()
     local radius        = self:GetSpecialValueFor("radius")
     local stun_duration = self:GetSpecialValueFor("stun_duration")
 	--local distance 		= self:GetCastRange()
-	local distance 		= self:GetSpecialValueFor("width")
+	local distance 		= self:GetSpecialValueFor("width") + self:GetCaster():FindTalentValue("talent_defensive_perimeter", "bonus_width")
 
     local block_width   = 24
     local block_delta   = 8.25
