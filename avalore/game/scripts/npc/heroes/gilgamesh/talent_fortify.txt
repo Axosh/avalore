@@ -1,0 +1,42 @@
+"DOTAAbilities"
+{
+    "talent_fortify"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbilty"
+        {
+            "01" "ability_erect_wall"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"              "FIELD_INTEGER"
+                "heal_per_second"       "50"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "channel_time"          "4.0"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "armor_buff"            "10"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "buff_duration"         "20"
+            }
+        }
+    }
+}
