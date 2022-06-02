@@ -104,12 +104,14 @@
 #base "heroes/gilgamesh/ability_gilgamesh_grapple.txt"
 #base "heroes/gilgamesh/ability_erect_wall.txt"
 #base "heroes/gilgamesh/ability_tyrant_king.txt"
+#base "heroes/gilgamesh/ability_fortify.txt"
 // Talents
 #base "heroes/gilgamesh/talent_synergy.txt"
 #base "heroes/gilgamesh/talent_tag_team.txt"
 #base "heroes/gilgamesh/talent_endurance.txt"
 #base "heroes/gilgamesh/talent_grappling_hold.txt"
 #base "heroes/gilgamesh/talent_defensive_perimeter.txt"
+#base "heroes/gilgamesh/talent_fortify.txt"
 
 // ===============================================================
 // PECOS BILL

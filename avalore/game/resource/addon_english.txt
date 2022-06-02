@@ -565,6 +565,8 @@
 		"DOTA_Tooltip_Ability_talent_defensive_perimeter"					"Defensive Perimeter"
 		"DOTA_Tooltip_Ability_talent_defensive_perimeter_description"		"Erect Wall: +{s:bonus_width} wall length"
 
+		"DOTA_Tooltip_Ability_talent_fortify"								"Fortify"
+
 
 		// ==============================================
 		// ===== PECOS BILL ===== //

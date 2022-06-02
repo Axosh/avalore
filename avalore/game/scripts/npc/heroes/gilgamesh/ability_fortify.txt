@@ -1,0 +1,56 @@
+"DOTAAbilities"
+{
+    "ability_fortify"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					    "ability_lua"
+        "ScriptFile"                    "heroes/gilgamesh/fortify.lua"
+
+        "AbilityTextureName"            "gilgamesh/fortify"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BUILDING"			
+        "SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"		
+        "AbilitySound"					"Hero_Treant.LivingArmor.Cast" //placeholder
+
+        "AbilityCastPoint"				"0.4"
+		"FightRecapLevel"				"1"
+
+        // Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60"
+
+        // Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"              "FIELD_INTEGER"
+                "heal_per_second"       "50"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "channel_time"          "4.0"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "armor_buff"            "10"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "buff_duration"         "20"
+            }
+        }
+    }
+}
