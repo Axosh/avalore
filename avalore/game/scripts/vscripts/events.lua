@@ -19,12 +19,13 @@ LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA
 -- Faction Stuff
 LinkLuaModifier("modifier_faction_forest",     "modifiers/faction/modifier_faction_forest.lua",       LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_water",      "modifiers/faction/modifier_faction_water.lua",        LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_faction_olympians",      "modifiers/faction/modifier_faction_olympians.lua",    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faction_olympians",  "modifiers/faction/modifier_faction_olympians.lua",    LUA_MODIFIER_MOTION_NONE)
 
 -- Talents that can be activated later
-LinkLuaModifier("modifier_talent_static_field",       "heroes/zeus/modifier_talent_static_field.lua",       LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier( "modifier_synergy", "scripts/vscripts/heroes/gilgamesh/modifier_synergy.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_talent_endurance", "scripts/vscripts/heroes/gilgamesh/modifier_talent_endurance.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_talent_static_field", "heroes/zeus/modifier_talent_static_field.lua",                    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_synergy", 			"scripts/vscripts/heroes/gilgamesh/modifier_synergy.lua",          LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_endurance",    "scripts/vscripts/heroes/gilgamesh/modifier_talent_endurance.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_fortify",      "scripts/vscripts/heroes/gilgamesh/modifier_talent_fortify.lua",   LUA_MODIFIER_MOTION_NONE)
 
 -- Inventory Debug
 LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )

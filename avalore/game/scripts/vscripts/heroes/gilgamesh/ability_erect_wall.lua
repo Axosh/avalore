@@ -3,6 +3,7 @@ ability_erect_wall = ability_erect_wall or class({})
 LinkLuaModifier( "modifier_erect_wall_thinker", "scripts/vscripts/heroes/gilgamesh/modifier_erect_wall_thinker.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_talent_defensive_perimeter", "scripts/vscripts/heroes/gilgamesh/modifier_talent_defensive_perimeter.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_talent_fortify",      "scripts/vscripts/heroes/gilgamesh/modifier_talent_fortify.lua",   LUA_MODIFIER_MOTION_NONE)
 
 function ability_erect_wall:OnSpellStart()
     if not IsServer() then return end
