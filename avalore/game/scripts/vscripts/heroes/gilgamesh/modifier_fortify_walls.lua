@@ -1,0 +1,1 @@
+modifier_fortify_walls = class({})

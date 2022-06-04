@@ -11,7 +11,7 @@
 
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
         "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_BASIC"		
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"		
         "SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"		
         "AbilitySound"					"Hero_Treant.LivingArmor.Cast" //placeholder
@@ -20,9 +20,16 @@
 		"FightRecapLevel"				"1"
         "MaxLevel"						"1"
 
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"				"200 200 200 200"
+        "AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+        "AbilityCastAnimation"		    "ACT_DOTA_GENERIC_CHANNEL_1"
+
         // Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60"
+        "AbilityChannelTime"			"4.0"
 
         // Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -33,21 +40,26 @@
         "AbilitySpecial"
 		{
             "01"
-			{
-                "var_type"              "FIELD_INTEGER"
-                "heal_per_second"       "50"
-            }
-            "02"
             {
-                "var_type"              "FIELD_FLOAT"
-                "channel_time"          "4.0"
+                "var_type"              "FIELD_INTEGER"
+                "total_healing"         "200"
             }
-            "03"
+            // "01"
+			// {
+            //     "var_type"              "FIELD_INTEGER"
+            //     "heal_per_second"       "50"
+            // }
+            // "02"
+            // {
+            //     "var_type"              "FIELD_FLOAT"
+            //     "channel_time"          "4.0"
+            // }
+            "02"
             {
                 "var_type"              "FIELD_INTEGER"
                 "armor_buff"            "10"
             }
-            "04"
+            "03"
             {
                 "var_type"              "FIELD_INTEGER"
                 "buff_duration"         "20"
