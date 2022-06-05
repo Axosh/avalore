@@ -11,7 +11,7 @@
 
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
         "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"		
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CUSTOM"		// merc camps are considered "hero creeps"
         "SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"		
         "AbilitySound"					"Hero_Treant.LivingArmor.Cast" //placeholder
@@ -29,7 +29,7 @@
         // Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60"
-        "AbilityChannelTime"			"4.0"
+        "AbilityChannelTime"			"4.0" // NOTE: Partity changes to this into talent_fortify.txt for tooltips, and the ability special below
 
         // Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -37,6 +37,7 @@
 
         // Special
 		//-------------------------------------------------------------------------------------------------------------
+        // NOTE: Parity any changes here in talent_fortify.txt
         "AbilitySpecial"
 		{
             "01"
@@ -63,6 +64,12 @@
             {
                 "var_type"              "FIELD_INTEGER"
                 "buff_duration"         "20"
+            }
+            "04"
+            {
+                // This is just used for the tooltip - the actual channel time is read from the KV above
+                "var_type"              "FIELD_FLOAT"
+                "channel_time"          "4.0"
             }
         }
     }

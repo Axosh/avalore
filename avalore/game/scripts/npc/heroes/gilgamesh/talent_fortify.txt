@@ -12,5 +12,32 @@
         {
             "01" "ability_erect_wall"
         }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        // NOTE: Parity any changes here in ability_fortify.txt
+        "AbilitySpecial"
+		{
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "total_healing"         "200"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "armor_buff"            "10"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "buff_duration"         "20"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "channel_time"          "4.0"
+            }
+        }
     }
 }

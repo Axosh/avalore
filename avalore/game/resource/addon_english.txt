@@ -545,6 +545,13 @@
 		"DOTA_Tooltip_modifier_tyrant_king_debuff"							"Tyrant King"
 		"DOTA_Tooltip_modifier_tyrant_king_debuff_description"				"Giving a percent of attack damage to Gilgamesh"
 
+		"DOTA_Tooltip_Ability_ability_fortify"								"Fortify"
+		"DOTA_Tooltip_Ability_ability_fortify_description"					"Heal a target building while channeling. At the end of a full channel, grants an armor buff to the building."
+		"DOTA_Tooltip_Ability_ability_fortify_channel_time"					"CHANNEL TIME: "
+		"DOTA_Tooltip_Ability_ability_fortify_total_healing"				"TOTAL HEALING: "
+		"DOTA_Tooltip_Ability_ability_fortify_armor_buff"					"ARMOR BUFF: "
+		"DOTA_Tooltip_Ability_ability_fortify_buff_duration"				"BUFF DURATION: "
+
 		// -- Talents
 		"DOTA_Tooltip_Ability_talent_synergy"								"Synergy"
 		"DOTA_Tooltip_Ability_talent_synergy_description"					"Befriend Enkidu: Synchronize Move Speed and +{s:bonus_as} attack speed for both"
@@ -566,6 +573,10 @@
 		"DOTA_Tooltip_Ability_talent_defensive_perimeter_description"		"Erect Wall: +{s:bonus_width} wall length"
 
 		"DOTA_Tooltip_Ability_talent_fortify"								"Fortify"
+		"DOTA_Tooltip_Ability_talent_fortify_description"					"New Sub-Ability: channel on target building for {s:channel_time}s healing up to {s:total_healing} hp. At end, buff building for {s:armor_buff} armor for {s:buff_duration}s"
+
+		"DOTA_Tooltip_modifier_fortify_walls"								"Fortify"
+		"DOTA_Tooltip_modifier_fortify_walls_description"					"Granting +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor buff"
 
 
 		// ==============================================

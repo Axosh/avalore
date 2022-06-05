@@ -7,16 +7,12 @@ function ability_fortify:GetBehavior()
 end
 
 function ability_fortify:CastFilterResultTarget(target)
-    local result = false
-    -- check for buildings
-    result = UnitFilter(target, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, self:GetCaster():GetTeamNumber())
     -- check for merc camp (technically a "creature")
-    if not result then
-        if target:GetName() == "mercenary_camp" then
-            result = true
-        end
+    if target:GetUnitName() == "mercenary_camp" then
+        return UF_SUCCESS
     end
-    return result
+    -- check for buildings
+    return UnitFilter(target, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, self:GetCaster():GetTeamNumber())
 end
 
 function ability_fortify:OnSpellStart()
@@ -26,6 +22,15 @@ function ability_fortify:OnSpellStart()
     self.total_heal = self:GetSpecialValueFor("total_healing")
     self.curr_heal = 0
     self.channel_time = 0
+
+    local particle_cast = "particles/items5_fx/repair_kit.vpcf"
+    -- use bigger particle for bigger structures
+    if self.target:GetUnitName() == "mercenary_camp" or self.target:GetUnitName() == OBJECTIVE_DIRE_BASE or self.target:GetUnitName() == OBJECTIVE_RADI_BASE or string.find(self.target:GetUnitName(), "rax") then
+        particle_cast = "particles/items5_fx/repair_kit_ancient.vpcf"
+    end
+    self.repair_particle = ParticleManager:CreateParticle(particle_cast, PATTACH_ABSORIGIN_FOLLOW, self.target)
+	ParticleManager:SetParticleControlEnt(self.repair_particle, 1, self.target, PATTACH_POINT_FOLLOW, "attach_origin", self.target:GetAbsOrigin(), true)
+	--self.target:AddParticle(self.repair_particle, false, false, -1, false, false)
 end
 
 function ability_fortify:OnChannelThink(interval)
@@ -44,12 +49,16 @@ function ability_fortify:OnChannelThink(interval)
         self.target:Heal(heal_amount, self)
         SendOverheadEventMessage(self.target, OVERHEAD_ALERT_HEAL, self.target, heal_amount, self.target)
         self.curr_heal = self.curr_heal + heal_amount
-        print(tostring(self.curr_heal))
+        --print(tostring(self.curr_heal))
     end
     self.channel_time = self.channel_time + interval
 end
 
 function ability_fortify:OnChannelFinish(bIntrreupted)
+    -- remove repair particle
+    --ParticleManager:ReleaseParticleIndex(self.repair_particle)
+    ParticleManager:DestroyParticle(self.repair_particle, true)
+    
     if not IsServer() then return end
     -- only grant buff if channel finished successfully
     if not bIntrreupted then
@@ -60,7 +69,7 @@ function ability_fortify:OnChannelFinish(bIntrreupted)
             SendOverheadEventMessage(self.target, OVERHEAD_ALERT_HEAL, self.target, extra_heal, self.target)
         end
         self.curr_heal = self.curr_heal + extra_heal
-        print(tostring(self.curr_heal))
+        --print(tostring(self.curr_heal))
 
         -- add the buff
         self.target:AddNewModifier(self:GetCaster(), self, "modifier_fortify_walls", {duration = self:GetSpecialValueFor("buff_duration")})
