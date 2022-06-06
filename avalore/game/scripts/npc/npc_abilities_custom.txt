@@ -112,6 +112,7 @@
 #base "heroes/gilgamesh/talent_grappling_hold.txt"
 #base "heroes/gilgamesh/talent_defensive_perimeter.txt"
 #base "heroes/gilgamesh/talent_fortify.txt"
+#base "heroes/gilgamesh/talent_tyranny.txt"
 
 // ===============================================================
 // PECOS BILL

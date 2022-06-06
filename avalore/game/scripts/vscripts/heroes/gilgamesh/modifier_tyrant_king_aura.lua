@@ -34,7 +34,8 @@ end
 
 function modifier_tyrant_king_aura:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE
+        MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
+        MODIFIER_EVENT_ON_KILL
     }
 end
 
@@ -82,3 +83,7 @@ end
 function modifier_tyrant_king_aura:GetModifierBaseAttack_BonusDamage()
     return self.borrowed_dmg
 end
+
+-- function modifier_tyrant_king_aura:OnKill()
+
+-- end

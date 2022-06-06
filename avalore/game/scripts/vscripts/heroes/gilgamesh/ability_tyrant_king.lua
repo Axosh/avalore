@@ -1,6 +1,7 @@
 ability_tyrant_king = class({})
 
 LinkLuaModifier("modifier_tyrant_king_aura",    "scripts/vscripts/heroes/gilgamesh/modifier_tyrant_king_aura.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_tyranny",      "scripts/vscripts/heroes/gilgamesh/modifier_talent_tyranny.lua",   LUA_MODIFIER_MOTION_NONE)
 
 function ability_tyrant_king:OnSpellStart()
     if not IsServer() then return end

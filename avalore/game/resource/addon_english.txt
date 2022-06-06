@@ -578,6 +578,12 @@
 		"DOTA_Tooltip_modifier_fortify_walls"								"Fortify"
 		"DOTA_Tooltip_modifier_fortify_walls_description"					"Granting +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor buff"
 
+		"DOTA_Tooltip_Ability_talent_tyranny"								"Tyranny"
+		"DOTA_Tooltip_Ability_talent_tyranny_description"					"Tyrant King: every enemy hero kill during the cast grants +{s:bonus_dmg_per_kill} permanent damage"
+
+		"DOTA_Tooltip_modifier_talent_tyranny"								"Tyranny"
+		"DOTA_Tooltip_modifier_talent_tyranny_description"					"Granting +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% permanent attack damage"
+
 
 		// ==============================================
 		// ===== PECOS BILL ===== //
