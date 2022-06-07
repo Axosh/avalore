@@ -1,6 +1,7 @@
 modifier_tyrant_king_aura = class({})
 
 LinkLuaModifier("modifier_tyrant_king_debuff",    "scripts/vscripts/heroes/gilgamesh/modifier_tyrant_king_debuff.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_benevolence_aura",    "scripts/vscripts/heroes/gilgamesh/modifier_benevolence_aura.lua", LUA_MODIFIER_MOTION_NONE)
 
 function modifier_tyrant_king_aura:IsPurgable()	return false end
 function modifier_tyrant_king_aura:IsAura() return true end
@@ -82,6 +83,14 @@ end
 
 function modifier_tyrant_king_aura:GetModifierBaseAttack_BonusDamage()
     return self.borrowed_dmg
+end
+
+function modifier_tyrant_king_aura:OnDestroy()
+    if not IsServer() then return end
+
+    if self:GetCaster():IsAlive() and self:GetCaster():HasTalent("talent_benevolence") then
+        self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_benevolence_aura", {duration = self:GetCaster():FindTalentValue("talent_benevolence", "aura_duration")})
+    end
 end
 
 -- function modifier_tyrant_king_aura:OnKill()

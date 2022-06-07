@@ -10,14 +10,21 @@ function ability_erect_wall:OnSpellStart()
 
     local caster         = self:GetCaster()
     local vector_targets = self:GetVectorTargetPosition()
+
+	-- seems to be some odd case where this can happen - might be related to alt-tabbing between casts
+	if not vector_targets then
+		self:EndCooldown()
+		self:RefundManaCost()
+	end
 	--local point = self:GetCursorPosition()
 	
 
     local duration      = self:GetSpecialValueFor("duration")
-    local radius        = self:GetSpecialValueFor("radius")
+    local radius        = self:GetSpecialValueFor("fissure_radius")
     local stun_duration = self:GetSpecialValueFor("stun_duration")
 	--local distance 		= self:GetCastRange()
 	local distance 		= self:GetSpecialValueFor("width") + self:GetCaster():FindTalentValue("talent_defensive_perimeter", "bonus_width")
+	local damage 		= self:GetAbilityDamage()
 
     local block_width   = 24
     local block_delta   = 8.25
@@ -78,6 +85,7 @@ function ability_erect_wall:OnSpellStart()
 
 	-- apply damage, shove and stun
 	for _,unit in pairs(units) do
+		print(unit:GetUnitName())
 		-- shove
 		FindClearSpaceForUnit( unit, unit:GetOrigin(), true )
 

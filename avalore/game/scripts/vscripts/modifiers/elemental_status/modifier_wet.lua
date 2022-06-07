@@ -20,7 +20,7 @@ end
 function modifier_wet:OnCreated(kv)
     if not IsServer() then return end
 
-    print("Created modifier_wet for " .. self:GetParent():GetUnitName())
+    --print("Created modifier_wet for " .. self:GetParent():GetUnitName())
 
     self.spell_stacks = 0 -- stacks coming from spells that hit the owner
     self.spell_stack_duration = 0

@@ -17,8 +17,8 @@
 		"Ability3"					"ability_erect_wall"
 		"Ability4"					"generic_hidden"			// Ability 4.
 		"Ability5"					"generic_hidden"			// Ability 5.
-		"Ability6"					"ability_tyrant_king"			// Ability 6 - Extra.
-		//"Ability7"					""			// Ability 7 - Extra.
+		"Ability6"					"ability_tyrant_king"		// Ability 6 - Extra.
+		//"Ability7"				""			                // Ability 7 - Extra.
 		"Ability8"					"ability_fortify"			// Ability 8 - Extra.
 
         //10-17 => Talents
@@ -29,13 +29,13 @@
         "Ability14"                 "talent_endurance"
         "Ability15"                 "talent_grappling_hold"
         "Ability16"                 "talent_tyranny"
-        "Ability17"                 ""
+        "Ability17"                 "talent_benevolence"
 
         // Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"310"		// Speed
-		"MovementTurnRate"			"0.5"		// Turning rate.
+		"MovementSpeed"				"310"		                        // Speed
+		"MovementTurnRate"			"0.5"		                        // Turning rate.
 
         // Attack
 		//----------------------------------------------------------------

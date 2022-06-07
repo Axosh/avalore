@@ -535,15 +535,24 @@
 		"DOTA_Tooltip_Ability_ability_gilgamesh_grapple_Lore"				"Gilgamesh and Enkidu wrestle and grapple in their initial bout. Later on, Enkidu holds the Bull of Heaven while Gilgamesh slays it."
 
 		"DOTA_Tooltip_Ability_ability_erect_wall"							"Erect Wall"
+		"DOTA_Tooltip_Ability_ability_erect_wall_description"				"Use Vector Targeting to construct a temporary wall that blocks movement. Upon creation, stuns and damages enemy units along its path."
+		"DOTA_Tooltip_Ability_ability_erect_wall_duration"					"WALL DURATION: "
+		//"DOTA_Tooltip_Ability_ability_erect_wall_range"						"LENGTH: "
+		"DOTA_Tooltip_Ability_ability_erect_wall_fissure_radius"			"STUN/DAMAGE RADIUS: "
+		"DOTA_Tooltip_Ability_ability_erect_wall_stun_duration"				"STUN DURATION: "
 		"DOTA_Tooltip_Ability_ability_erect_wall_Lore"						"Gilgamesh, King of Uruk and a skilled builder, surrounded the city with glorious walls"
 
 		"DOTA_Tooltip_Ability_ability_tyrant_king"							"Tyrant King"
+		"DOTA_Tooltip_Ability_ability_tyrant_king_description"				"Broadcasts an aura that siphons damage from nearby allies (including Enkidu). Any borrowed damage is added to Gilgamesh's base damage while the aura is active."
+		"DOTA_Tooltip_Ability_ability_tyrant_king_radius"					"RADIUS: "
+		"DOTA_Tooltip_Ability_ability_tyrant_king_duration"					"DURATION: "
+		"DOTA_Tooltip_Ability_ability_tyrant_king_leech_percent"			"DAMAGE PERCENT BORROWED: "
 		"DOTA_Tooltip_Ability_ability_erect_wall_Lore"						"At the start of the epic, Gilgamesh is a selfish brute. He uses his soldiers for deadly games, sleeps with the wives of his subjects, and so on."
 
 		"DOTA_Tooltip_modifier_tyrant_king_aura"							"Tyrant King"
-		"DOTA_Tooltip_modifier_tyrant_king_aura_description"				"Stealing a percent of ALLIED HERO UNIT attack damage in a radius"
+		"DOTA_Tooltip_modifier_tyrant_king_aura_description"				"Borrowing %dMODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE% of ALLIED HERO UNIT attack damage"
 		"DOTA_Tooltip_modifier_tyrant_king_debuff"							"Tyrant King"
-		"DOTA_Tooltip_modifier_tyrant_king_debuff_description"				"Giving a percent of attack damage to Gilgamesh"
+		"DOTA_Tooltip_modifier_tyrant_king_debuff_description"				"Lending %dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE% attack damage to Gilgamesh"
 
 		"DOTA_Tooltip_Ability_ability_fortify"								"Fortify"
 		"DOTA_Tooltip_Ability_ability_fortify_description"					"Heal a target building while channeling. At the end of a full channel, grants an armor buff to the building."
@@ -583,6 +592,15 @@
 
 		"DOTA_Tooltip_modifier_talent_tyranny"								"Tyranny"
 		"DOTA_Tooltip_modifier_talent_tyranny_description"					"Granting +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% permanent attack damage"
+
+		"DOTA_Tooltip_Ability_talent_benevolence"							"Benevolence"
+		"DOTA_Tooltip_Ability_talent_benevolence_description"				"Tyrant King: after the spell ends, grants an aura with a {s:aura_radius} radius only affecting allies giving +{s:damage_buff_aura_pct}% damage buff for {s:aura_duration}s"
+
+		"DOTA_Tooltip_modifier_benevolence_aura"							"Benevolence"
+		"DOTA_Tooltip_modifier_benevolence_aura_description"				"Granting bonus base attack damage to nearby allies"
+
+		"DOTA_Tooltip_modifier_benevolence_aura_buff"						"Benevolence"
+		"DOTA_Tooltip_modifier_benevolence_aura_buff_description"			"Receiving +%dMODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE%% bonus base attack damage"
 
 
 		// ==============================================
