@@ -607,22 +607,46 @@
 		// ===== PECOS BILL ===== //
 		// ==============================================
 		"DOTA_Tooltip_Ability_ability_coyote_howl"							"Coyote Howl"
+		"DOTA_Tooltip_Ability_ability_coyote_howl_description"				"Deals minor damage and applies an armor reduction debuff to enemies in a line"
+		"DOTA_Tooltip_Ability_ability_coyote_howl_damage"					"DAMAGE: "
+		"DOTA_Tooltip_Ability_ability_coyote_howl_armor_reduction"			"ARMOR REDUCTION: "
+		"DOTA_Tooltip_Ability_ability_coyote_howl_duration"					"DURATION: "
 		"DOTA_Tooltip_Ability_ability_coyote_howl_Lore"						"Pecos Bill was raised by coyotes and in some renditions of the tale, used a coyote howl to tame horses"
 		"DOTA_Tooltip_modifier_coyote_howl_fear"							"Coyote Howl"
-		"DOTA_Tooltip_modifier_coyote_howl_fear_description"				"Reduced Armor"
+		"DOTA_Tooltip_modifier_coyote_howl_fear_description"				"%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% Armor Reduction"
 
 		"DOTA_Tooltip_Ability_ability_gunslinger"							"Gunslinger"
+		"DOTA_Tooltip_Ability_ability_gunslinger_description"				"Grants a buff dealing fixed attack damage. Grants bonus range and attack speed to a set number of auto attacks, or until the buff duration has elapsed."
+		"DOTA_Tooltip_Ability_ability_gunslinger_buffed_attacks"			"BUFFED ATTACKS: "
+		"DOTA_Tooltip_Ability_ability_gunslinger_damage"					"FIXED ATTACK DAMAGE: "
+		"DOTA_Tooltip_Ability_ability_gunslinger_attack_speed_bonus"		"ATTACK SPEED BONUS: "
+		"DOTA_Tooltip_Ability_ability_gunslinger_attack_range_bonus"		"BONUS RANGE: "
+		"DOTA_Tooltip_Ability_ability_gunslinger_buff_duration_tooltip"		"DURATION: "
 		"DOTA_Tooltip_Ability_ability_gunslinger_Lore"						"Pecos Bill is attributed with the creation of the six-shooter, and in wooing Slue-Foot Sue, he shot all the stars from the sky except one which became the 'Lone Star'."
 		"DOTA_Tooltip_modifier_gunslinger"									"Gunslinger"
+		"DOTA_Tooltip_modifier_gunslinger_description"						"+%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS% Attack Range, +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% Attack Speed, and deals %dMODIFIER_PROPERTY_OVERRIDE_ATTACK_DAMAGE% Fixed Attack Damage"
 
 
 		"DOTA_Tooltip_Ability_ability_wrangle"								"Wrangle"
+		"DOTA_Tooltip_Ability_ability_wrangle_description"					"Uses his rattlesnake lasso to wrangle units in a target radius - dealing damage, pulling them closer together, and then closer to himself. Affected units are stunned while wrangled."
+		"DOTA_Tooltip_Ability_ability_wrangle_radius"						"RADIUS: "
+		"DOTA_Tooltip_Ability_ability_wrangle_total_damage"					"DAMAGE: "
+		"DOTA_Tooltip_Ability_ability_wrangle_debuff_duration"				"DEBUFF DURATION: "
+		"DOTA_Tooltip_Ability_ability_wrangle_projectile_speed"				"PROJECTILE SPEED: "
 		"DOTA_Tooltip_Ability_ability_wrangle_Lore"							"Pecos Bill invented calf roping and had a lasso, which was a rattlesnake named Shake."
 		"DOTA_Tooltip_modifier_wrangle_debuff"								"Wrangled"
+		"DOTA_Tooltip_modifier_wrangle_debuff_description"					"Stunned and being moved"
 
 		"DOTA_Tooltip_Ability_ability_ride_a_twister"						"Ride a Twister"
+		"DOTA_Tooltip_Ability_ability_ride_a_twister_description"			"Pecos Bill is hoisted up onto a twister that deals AoE damage around him for the duration of the spell and blocks a portion of attacks. Gains flying movement for the duration, and destroys trees in his path."
+		"DOTA_Tooltip_Ability_ability_ride_a_twister_damage_per_tick"		"DAMAGE: "
+		"DOTA_Tooltip_Ability_ability_ride_a_twister_damage_tick_interval"	"DAMAGE INTERVAL: "
+		"DOTA_Tooltip_Ability_ability_ride_a_twister_radius"				"RADIUS: "
+		"DOTA_Tooltip_Ability_ability_ride_a_twister_block_rate"			"ATTACKS BEFORE BLOCK: "
+		"DOTA_Tooltip_Ability_ability_ride_a_twister_duration"				"DURATION: "
 		"DOTA_Tooltip_Ability_ability_ride_a_twister_Lore"					"He was an outstanding rider and could ride anything. The only cowboy able to ride 'Widow-Maker' (an unbreakable horse), as well as lassoing a tornado and riding it"
 		"DOTA_Tooltip_modifier_ride_a_twister"								"Ridin' a Twister"
+		"DOTA_Tooltip_modifier_ride_a_twister_description"					"Flying movement, destroying nearby trees, dealing AoE damage, and blocking a portion of incoming attacks"
 
 		// ==============================================
 		// ===== SUN WUKONG ===== //
