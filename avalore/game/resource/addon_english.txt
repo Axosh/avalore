@@ -114,6 +114,9 @@
 
 		"DOTA_Tooltip_Ability_ability_none"							"None"
 
+		"DOTA_Tooltip_modifier_avalore_fear"						"Feared"
+		"DOTA_Tooltip_modifier_avalore_fear_description"			"Running away from caster"
+
 		// ==============================================
 		// ===== Davy Jones =====
 		// ==============================================
@@ -647,6 +650,10 @@
 		"DOTA_Tooltip_Ability_ability_ride_a_twister_Lore"					"He was an outstanding rider and could ride anything. The only cowboy able to ride 'Widow-Maker' (an unbreakable horse), as well as lassoing a tornado and riding it"
 		"DOTA_Tooltip_modifier_ride_a_twister"								"Ridin' a Twister"
 		"DOTA_Tooltip_modifier_ride_a_twister_description"					"Flying movement, destroying nearby trees, dealing AoE damage, and blocking a portion of incoming attacks"
+
+		// TALENTS
+		"DOTA_Tooltip_Ability_talent_fear"									"Fear"
+		"DOTA_Tooltip_Ability_talent_fear_description"						"Coyote Howl: applies a fear as well that lasts {s:duration}s"
 
 		// ==============================================
 		// ===== SUN WUKONG ===== //

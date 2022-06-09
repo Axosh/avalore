@@ -35,6 +35,8 @@
         "AttributeBaseIntelligence" "15"
         "AttributeIntelligenceGain" "1.5"
 
+        // Abilities
+		//----------------------------------------------------------------
         "AbilityLayout"             "4"
 
         "Ability1"                  "ability_coyote_howl"
@@ -43,8 +45,12 @@
         "Ability4"                  "generic_hidden"
         "Ability5"                  "generic_hidden"
         "Ability6"                  "ability_ride_a_twister"
+        //"Ability7"				""	
+        //"Ability8"				""	
+        //"Ability9"				""	
 
-        "Ability10"                 ""                    
+        //10-17 => Talents
+        "Ability10"                 "talent_fear"                    
         "Ability11"                 ""   
 
         "Ability12"                 ""
