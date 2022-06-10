@@ -117,6 +117,9 @@
 		"DOTA_Tooltip_modifier_avalore_fear"						"Feared"
 		"DOTA_Tooltip_modifier_avalore_fear_description"			"Running away from caster"
 
+		"DOTA_Tooltip_modifier_avalore_track_location"				"Tracked"
+		"DOTA_Tooltip_modifier_avalore_track_location_description"	"Location being revealed to enemies through Fog of War"
+
 		// ==============================================
 		// ===== Davy Jones =====
 		// ==============================================
@@ -652,8 +655,11 @@
 		"DOTA_Tooltip_modifier_ride_a_twister_description"					"Flying movement, destroying nearby trees, dealing AoE damage, and blocking a portion of incoming attacks"
 
 		// TALENTS
-		"DOTA_Tooltip_Ability_talent_fear"									"Fear"
+		"DOTA_Tooltip_Ability_talent_fear"									"Terror" //"Fear"
 		"DOTA_Tooltip_Ability_talent_fear_description"						"Coyote Howl: applies a fear as well that lasts {s:duration}s"
+
+		"DOTA_Tooltip_Ability_talent_scent_of_fear"							"Scent of Fear"
+		"DOTA_Tooltip_Ability_talent_scent_of_fear_description"				"Coyote Howl: reveals targets' locations in fog for duration of debuff and a {s:linger_time}s linger afterwards."
 
 		// ==============================================
 		// ===== SUN WUKONG ===== //

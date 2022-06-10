@@ -2,9 +2,11 @@
 
 ability_coyote_howl = class({})
 
-LinkLuaModifier( "modifier_coyote_howl_fear", "scripts/vscripts/heroes/pecos_bill/modifier_coyote_howl_fear.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_talent_fear", "scripts/vscripts/heroes/pecos_bill/modifier_talent_fear.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_coyote_howl_fear", "scripts/vscripts/heroes/pecos_bill/modifier_coyote_howl_fear.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_talent_fear", "scripts/vscripts/heroes/pecos_bill/modifier_talent_fear.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_talent_scent_of_fear", "scripts/vscripts/heroes/pecos_bill/modifier_talent_scent_of_fear.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_avalore_fear",     "modifiers/base_spell/modifier_avalore_fear.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_avalore_track_location",     "modifiers/base_spell/modifier_avalore_track_location.lua", LUA_MODIFIER_MOTION_NONE)
 
 function ability_coyote_howl:IsHiddenWhenStolen()       return false end
 function ability_coyote_howl:IsRefreshable()            return true end
@@ -76,9 +78,11 @@ function ability_coyote_howl:OnProjectileHit_ExtraData(target, location, ExtraDa
 	if target then
 		local caster = self:GetCaster()
 		ApplyDamage({victim = target, attacker = caster, ability = self, damage = ExtraData.damage, damage_type = self:GetAbilityDamageType()})
-		target:AddNewModifier(caster, self, "modifier_coyote_howl_fear", {duration = ExtraData.duration * (1 - target:GetStatusResistance())})
+		target:AddNewModifier(caster, self, "modifier_coyote_howl_fear", {duration = ExtraData.duration})
 		if caster:HasTalent("talent_fear") then
 			target:AddNewModifier(caster, self, "modifier_avalore_fear", {duration = caster:FindTalentValue("talent_fear", "duration")})
+		elseif caster:HasTalent("talent_scent_of_fear") then
+			target:AddNewModifier(caster, self, "modifier_avalore_track_location", {duration = ExtraData.duration + caster:FindTalentValue("talent_scent_of_fear", "linger_time")})
 		end
 	else
 		-- self:CreateVisibilityNode(location, self:GetSpecialValueFor("vision_aoe"), self:GetSpecialValueFor("vision_duration"))

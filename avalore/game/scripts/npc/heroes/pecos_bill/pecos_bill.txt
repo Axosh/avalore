@@ -51,7 +51,7 @@
 
         //10-17 => Talents
         "Ability10"                 "talent_fear"                    
-        "Ability11"                 ""   
+        "Ability11"                 "talent_scent_of_fear"   
 
         "Ability12"                 ""
         "Ability13"                 ""    
