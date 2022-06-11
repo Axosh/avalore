@@ -53,7 +53,7 @@
         "Ability10"                 "talent_fear"                    
         "Ability11"                 "talent_scent_of_fear"   
 
-        "Ability12"                 ""
+        "Ability12"                 "talent_rope_em_in"
         "Ability13"                 ""    
 
         "Ability14"                 ""

@@ -125,6 +125,7 @@
 // Talents
 #base "heroes/pecos_bill/talent_fear.txt"
 #base "heroes/pecos_bill/talent_scent_of_fear.txt"
+#base "heroes/pecos_bill/talent_rope_em_in.txt"
 
 // ===============================================================
 // SUN WUKONG

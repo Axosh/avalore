@@ -3,6 +3,8 @@ ability_wrangle = class({})
 LinkLuaModifier("modifier_wrangle_thinker", "heroes/pecos_bill/modifier_wrangle_thinker.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_wrangle_debuff",  "heroes/pecos_bill/modifier_wrangle_debuff.lua",  LUA_MODIFIER_MOTION_HORIZONTAL )
 
+LinkLuaModifier("modifier_talent_rope_em_in", "heroes/pecos_bill/modifier_talent_rope_em_in.lua", LUA_MODIFIER_MOTION_NONE )
+
 function ability_wrangle:Precache(context)
     PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_hoodwink.vsndevts", context )
     PrecacheResource( "particle", "particles/units/heroes/hero_hoodwink/hoodwink_bushwhack.vpcf", context )
@@ -17,6 +19,10 @@ end
 
 function ability_wrangle:GetAOERadius()
     return self:GetSpecialValueFor("radius")
+end
+
+function ability_wrangle:GetCastRange()
+    return self:GetSpecialValueFor("base_range") + self:GetCaster():FindTalentValue("talent_rope_em_in", "bonus_range")
 end
 
 function ability_wrangle:OnSpellStart()

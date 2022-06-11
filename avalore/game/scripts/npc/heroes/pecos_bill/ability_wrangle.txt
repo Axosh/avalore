@@ -18,7 +18,7 @@
 
         // Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
+		//"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.2"
 
         // Ability Resource
@@ -57,6 +57,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"visual_height"		"50"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_range"		"1200"
 			}
 		}
     }

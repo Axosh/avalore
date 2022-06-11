@@ -661,6 +661,9 @@
 		"DOTA_Tooltip_Ability_talent_scent_of_fear"							"Scent of Fear"
 		"DOTA_Tooltip_Ability_talent_scent_of_fear_description"				"Coyote Howl: reveals targets' locations in fog for duration of debuff and a {s:linger_time}s linger afterwards."
 
+		"DOTA_Tooltip_Ability_talent_rope_em_in"							"Rope 'em In"
+		"DOTA_Tooltip_Ability_talent_rope_em_in_description"				"Wrangle: gives a +{s:bonus_range} bonus range"
+
 		// ==============================================
 		// ===== SUN WUKONG ===== //
 		// ==============================================
