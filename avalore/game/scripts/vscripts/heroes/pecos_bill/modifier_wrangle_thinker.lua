@@ -13,7 +13,7 @@ function modifier_wrangle_thinker:OnCreated( kv )
 	self.damage     = self:GetAbility():GetSpecialValueFor( "total_damage" )
 	self.duration   = self:GetAbility():GetSpecialValueFor( "debuff_duration" )
 	self.speed      = self:GetAbility():GetSpecialValueFor( "projectile_speed" )
-	self.radius     = self:GetAbility():GetSpecialValueFor( "radius" )
+	self.radius     = self:GetAbility():GetSpecialValueFor( "radius" ) + self:GetCaster():FindTalentValue("talent_drive", "bonus_aoe")
 
 	if not IsServer() then return end
 

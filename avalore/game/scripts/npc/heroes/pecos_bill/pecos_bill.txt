@@ -54,7 +54,7 @@
         "Ability11"                 "talent_scent_of_fear"   
 
         "Ability12"                 "talent_rope_em_in"
-        "Ability13"                 ""    
+        "Ability13"                 "talent_drive"    
 
         "Ability14"                 ""
         "Ability15"                 ""

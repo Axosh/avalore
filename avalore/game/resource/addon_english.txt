@@ -664,6 +664,9 @@
 		"DOTA_Tooltip_Ability_talent_rope_em_in"							"Rope 'em In"
 		"DOTA_Tooltip_Ability_talent_rope_em_in_description"				"Wrangle: gives a +{s:bonus_range} bonus range"
 
+		"DOTA_Tooltip_Ability_talent_drive"									"Drive"
+		"DOTA_Tooltip_Ability_talent_drive_description"						"Wrangle: gives a +{s:bonus_aoe} bonus AoE to wrangle in even more enemies"
+
 		// ==============================================
 		// ===== SUN WUKONG ===== //
 		// ==============================================
