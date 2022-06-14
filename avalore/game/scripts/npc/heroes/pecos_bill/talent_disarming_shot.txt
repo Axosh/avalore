@@ -1,0 +1,38 @@
+"DOTAAbilities"
+{
+    "talent_disarming_shot"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbilty"
+        {
+            "01" "ability_gunslinger"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"              "FIELD_INTEGER"
+                "shots_to_disarm"       "3"
+            }
+            "02"
+            {
+                // time debuff is on a hero
+                "var_type"          "FIELD_INTEGER"
+                "linger_time"           "3"
+            }
+            "03"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "disarm_time"       "2.0"
+            }
+        }
+    }
+}

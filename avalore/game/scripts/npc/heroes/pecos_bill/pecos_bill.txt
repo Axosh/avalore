@@ -56,7 +56,7 @@
         "Ability12"                 "talent_rope_em_in"
         "Ability13"                 "talent_drive"    
 
-        "Ability14"                 ""
+        "Ability14"                 "talent_disarming_shot"
         "Ability15"                 ""
 
         "Ability16"                 ""        

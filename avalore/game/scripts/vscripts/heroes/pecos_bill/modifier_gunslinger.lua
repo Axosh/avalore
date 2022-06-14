@@ -1,5 +1,8 @@
 modifier_gunslinger = class({})
 
+LinkLuaModifier("modifier_disarming_shot_tracker", "heroes/pecos_bill/modifier_disarming_shot_tracker.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_avalore_disarm",     "modifiers/base_spell/modifier_avalore_disarm.lua", LUA_MODIFIER_MOTION_NONE)
+
 function modifier_gunslinger:IsHidden() return false end
 function modifier_gunslinger:IsDebuff() return false end
 function modifier_gunslinger:IsStunDebuff() return false end
@@ -71,13 +74,21 @@ function modifier_gunslinger:DeclareFunctions()
 end
 
 function modifier_gunslinger:OnAttack(kv)
+	if not IsServer() then return end
+
 	if kv.attacker~=self:GetParent() then return end
 	if self:GetStackCount()<=1 then
 		self:Destroy()
 	end
 
-	if self:GetStackCount()>0 then
+	if self:GetStackCount()>1 then
 		self:DecrementStackCount()
+		if self:GetParent():HasTalent("talent_disarming_shot") then
+			local debuff = kv.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_disarming_shot_tracker", {duration = self:GetParent():FindTalentValue("talent_disarming_shot", "linger_time")})
+			if debuff:GetStackCount() > (self:GetParent():FindTalentValue("talent_disarming_shot", "shots_to_disarm") - 1) then
+				kv.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_avalore_disarm", {duration = self:GetParent():FindTalentValue("talent_disarming_shot", "disarm_time")})
+			end
+		end
 	end
 end
 
