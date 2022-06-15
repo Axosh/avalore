@@ -669,6 +669,8 @@
 
 		"DOTA_Tooltip_Ability_talent_disarming_shot"						"Disarming Shot"
 
+		"DOTA_Tooltip_Ability_talent_explosive_shells"						"Explosive Shells"
+
 		// ==============================================
 		// ===== SUN WUKONG ===== //
 		// ==============================================

@@ -128,6 +128,7 @@
 #base "heroes/pecos_bill/talent_rope_em_in.txt"
 #base "heroes/pecos_bill/talent_drive.txt"
 #base "heroes/pecos_bill/talent_disarming_shot.txt"
+#base "heroes/pecos_bill/talent_explosive_shells.txt"
 
 // ===============================================================
 // SUN WUKONG

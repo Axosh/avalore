@@ -1,0 +1,27 @@
+"DOTAAbilities"
+{
+    "talent_explosive_shells"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbilty"
+        {
+            "01" "ability_gunslinger"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"      "FIELD_INTEGER"
+                "radius"        "200"
+            }
+        }
+    }
+}

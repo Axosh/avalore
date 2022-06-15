@@ -2,6 +2,7 @@ ability_gunslinger = class({})
 
 LinkLuaModifier("modifier_gunslinger", "heroes/pecos_bill/modifier_gunslinger.lua",        LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_talent_disarming_shot", "heroes/pecos_bill/modifier_talent_disarming_shot.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_talent_explosive_shells", "heroes/pecos_bill/modifier_talent_explosive_shells.lua", LUA_MODIFIER_MOTION_NONE )
 
 function ability_gunslinger:OnSpellStart()
 	-- unit identifier

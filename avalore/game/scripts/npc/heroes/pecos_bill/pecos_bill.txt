@@ -57,7 +57,7 @@
         "Ability13"                 "talent_drive"    
 
         "Ability14"                 "talent_disarming_shot"
-        "Ability15"                 ""
+        "Ability15"                 "talent_explosive_shells"
 
         "Ability16"                 ""        
         "Ability17"                 ""        

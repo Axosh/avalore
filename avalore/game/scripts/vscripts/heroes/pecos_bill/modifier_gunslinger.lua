@@ -60,7 +60,7 @@ end
 function modifier_gunslinger:DeclareFunctions()
 	local funcs = {
 		 MODIFIER_EVENT_ON_ATTACK,
-		-- MODIFIER_EVENT_ON_ATTACK_LANDED,
+		 MODIFIER_EVENT_ON_ATTACK_LANDED,
 		-- MODIFIER_EVENT_ON_ATTACK_RECORD_DESTROY,
 
 		MODIFIER_PROPERTY_PROJECTILE_NAME,
@@ -90,6 +90,54 @@ function modifier_gunslinger:OnAttack(kv)
 			end
 		end
 	end
+end
+
+function modifier_gunslinger:OnAttackLanded(kv)
+	if not IsServer() then return end
+	if kv.attacker ~= self:GetParent() then return end
+
+	if self:GetParent():HasTalent("talent_explosive_shells") then
+		local target = kv.target
+		if not self.explosion_radius then
+			self.explosion_radius = self:GetParent():FindTalentValue("talent_explosive_shells", "radius")
+		end
+		-- if target ~= nil and target:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
+		-- 	DoCleaveAttack( self:GetParent(), target, self:GetAbility(), kv.damage, self.explosion_radius, "particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf" )
+		-- end
+
+		-- Emit particle
+		--local particle	=	"particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_base_attack_explosion.vpcf"
+		--local particle	=	"particles/econ/items/ogre_magi/ogre_magi_arcana/ogre_magi_arcana_fireblast_streak.vpcf"
+		local particle = "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
+		local particle_fx = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN, self:GetParent())
+		ParticleManager:SetParticleControl(particle_fx, 0, target:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle_fx, 1, target:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle_fx, 2, Vector(self.explosion_radius, 1, 1))
+		ParticleManager:ReleaseParticleIndex(particle_fx)
+
+		-- Find enemies around the target
+		local enemies	=	FindUnitsInRadius(	self:GetParent():GetTeamNumber(),
+							target:GetAbsOrigin(),
+							nil,
+							self.explosion_radius,
+							DOTA_UNIT_TARGET_TEAM_ENEMY,
+							DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+							DOTA_UNIT_TARGET_FLAG_NONE,
+							FIND_ANY_ORDER,
+							false)
+
+		for _,enemy in pairs(enemies) do
+			-- Deal damage
+			local damageTable = {	victim = enemy,
+									damage = kv.damage,
+									damage_type = DAMAGE_TYPE_PHYSICAL, --DAMAGE_TYPE_MAGICAL,
+									attacker = self:GetParent(),
+									ability = self:GetAbility()
+								}
+			ApplyDamage(damageTable)
+		end
+	end
+
 end
 
 -- function modifier_gunslinger:GetModifierProjectileName()
