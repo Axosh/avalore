@@ -108,7 +108,8 @@ function modifier_gunslinger:OnAttackLanded(kv)
 		-- Emit particle
 		--local particle	=	"particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_base_attack_explosion.vpcf"
 		--local particle	=	"particles/econ/items/ogre_magi/ogre_magi_arcana/ogre_magi_arcana_fireblast_streak.vpcf"
-		local particle = "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
+		local particle = "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf" --works but is kinda distracting
+		--local particle = "particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare_explosion.vpcf"
 		local particle_fx = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN, self:GetParent())
 		ParticleManager:SetParticleControl(particle_fx, 0, target:GetAbsOrigin())
 		ParticleManager:SetParticleControl(particle_fx, 1, target:GetAbsOrigin())

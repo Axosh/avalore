@@ -86,11 +86,17 @@ function modifier_ride_a_twister:OnIntervalThink()
     if IsServer() then
         PrintVector(self.caster:GetAbsOrigin(), "  Curr")
 
-        AOEMagicDamage( self.caster,
+        local targets = nil
+        if self:GetCaster():HasTalent("talent_class_5_twister") then
+            targets = DOTA_UNIT_TARGET_BUILDING
+        end
+
+        AOEMagicDamageExtra( self.caster,
                         self.ability,
                         self.caster:GetAbsOrigin(),
                         self.radius,
-                        self.damage)
+                        self.damage,
+                        targets)
 
         -- clear trees
         GridNav:DestroyTreesAroundPoint(self:GetCaster():GetAbsOrigin(), self.radius, true)

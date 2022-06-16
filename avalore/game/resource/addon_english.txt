@@ -668,8 +668,14 @@
 		"DOTA_Tooltip_Ability_talent_drive_description"						"Wrangle: gives a +{s:bonus_aoe} bonus AoE to wrangle in even more enemies"
 
 		"DOTA_Tooltip_Ability_talent_disarming_shot"						"Disarming Shot"
+		"DOTA_Tooltip_Ability_talent_disarming_shot_description"			"Gunslinger: after {s:shots_to_disarm} successive hits on same target, they are disarmed for {s:disarm_time} seconds."
 
 		"DOTA_Tooltip_Ability_talent_explosive_shells"						"Explosive Shells"
+		"DOTA_Tooltip_Ability_talent_explosive_shells_description"			"Gunslinger: each shot also deals damage in a {s:radius} radius"
+		//"DOTA_Tooltip_Ability_talent_explosive_lore"						"TEST"
+
+		"DOTA_Tooltip_Ability_talent_class_5_twister"						"Class 5 Twister"
+		"DOTA_Tooltip_Ability_talent_class_5_twister_description"			"Ride a Twister: also deals damage to buildings"
 
 		// ==============================================
 		// ===== SUN WUKONG ===== //

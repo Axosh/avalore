@@ -24,9 +24,9 @@
             }
             "02"
             {
-                // time debuff is on a hero
+                // time tracking debuff is on a hero (hidden in UI)
                 "var_type"          "FIELD_INTEGER"
-                "linger_time"           "3"
+                "linger_time"       "3"
             }
             "03"
             {
