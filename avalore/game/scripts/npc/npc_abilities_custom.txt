@@ -130,6 +130,7 @@
 #base "heroes/pecos_bill/talent_disarming_shot.txt"
 #base "heroes/pecos_bill/talent_explosive_shells.txt"
 #base "heroes/pecos_bill/talent_class_5_twister.txt"
+#base "heroes/pecos_bill/talent_dust_devil.txt"
 
 // ===============================================================
 // SUN WUKONG

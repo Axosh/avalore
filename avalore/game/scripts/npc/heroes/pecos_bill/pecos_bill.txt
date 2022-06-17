@@ -60,7 +60,7 @@
         "Ability15"                 "talent_explosive_shells"
 
         "Ability16"                 "talent_class_5_twister"        
-        "Ability17"                 ""        
+        "Ability17"                 "talent_dust_devil"        
 
         "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
         "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"

@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+    "talent_dust_devil"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbilty"
+        {
+            "01" "ability_ride_a_twister"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"      "FIELD_INTEGER"
+                "slow_radius"    "600"
+            }
+            "02"
+            {
+                "var_type"      "FIELD_FLOAT"
+                "fade_time"     "3.0"
+            }
+        }
+    }
+}
