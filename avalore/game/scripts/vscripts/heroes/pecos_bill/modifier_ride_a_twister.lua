@@ -28,7 +28,8 @@ function modifier_ride_a_twister:OnCreated()
     self.damage = self.ability:GetSpecialValueFor("damage_per_tick")
     self.damage_interval = self.ability:GetSpecialValueFor("damage_tick_interval")
     self.radius = self.ability:GetSpecialValueFor("radius")
-    self.block_rate = self.ability:GetSpecialValueFor("block_rate")
+    -- subtract the talent value out if they have the talent
+    self.block_rate = self.ability:GetSpecialValueFor("block_rate") - self.caster:FindTalentValue("talent_dust_devil", "bonus_block_rate")
 
     self.hits_since_block = 0
 

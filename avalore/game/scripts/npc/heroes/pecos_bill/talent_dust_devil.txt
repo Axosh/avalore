@@ -24,8 +24,13 @@
             }
             "02"
             {
-                "var_type"      "FIELD_FLOAT"
-                "fade_time"     "3.0"
+                "var_type"      "FIELD_INTEGER"
+                "slow_pct"      "20"
+            }
+            "03"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "bonus_block_rate"  "1"
             }
         }
     }
