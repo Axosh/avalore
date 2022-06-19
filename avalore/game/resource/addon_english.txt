@@ -677,6 +677,15 @@
 		"DOTA_Tooltip_Ability_talent_class_5_twister"						"Class 5 Twister"
 		"DOTA_Tooltip_Ability_talent_class_5_twister_description"			"Ride a Twister: also deals damage to buildings"
 
+		"DOTA_Tooltip_Ability_talent_dust_devil"							"Dust Devil"
+		"DOTA_Tooltip_Ability_talent_dust_devil_description"				"Ride a Twister: reduces attacks before block by {s:bonus_block_rate}, also slows units by -{s:slow_pct} in a {s:slow_radius} radius"
+
+		"DOTA_Tooltip_modifier_dust_devil"									"Dust Devil"
+		"DOTA_Tooltip_modifier_dust_devil_description"						"Harder to hit and slowing nearby units"
+
+		"DOTA_Tooltip_modifier_dust_devil_debuff"							"Dust Devil"
+		"DOTA_Tooltip_modifier_dust_devil_debuff_description"				"Being slowed by -%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%"
+
 		// ==============================================
 		// ===== SUN WUKONG ===== //
 		// ==============================================
