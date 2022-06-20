@@ -13,7 +13,8 @@ function modifier_72_bian_boar:OnCreated()
 
     --if self:GetParent():IsRealHero() then
         self.gore_ability = self:GetParent():AddAbility("ability_boar_gore")
-        self.gore_ability:SetLevel(self:GetParent():GetAbilityByName("ability_72_bian"):GetLevel())
+        self.main_ability = self:GetParent():GetAbilityByName("ability_72_bian")
+        self.gore_ability:SetLevel(self.main_ability:GetLevel())
         self.jingu_ability = self:GetParent():FindAbilityByName("ability_ruyi_jingu_bang")
         self:GetParent():SwapAbilities( self.gore_ability:GetAbilityName(),
                                         self.jingu_ability:GetAbilityName(),
@@ -35,7 +36,7 @@ function modifier_72_bian_boar:GetModifierModelChange()
 end
 
 function modifier_72_bian_boar:GetModifierExtraHealthBonus()
-    return 400 --temp for testing
+    return self.main_ability:GetSpecialValueFor("boar_hp_bonus")
 end
 
 function modifier_72_bian_boar:OnDestroy()
