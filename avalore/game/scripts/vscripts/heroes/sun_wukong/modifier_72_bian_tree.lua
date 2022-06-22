@@ -18,9 +18,10 @@ function modifier_72_bian_tree:GetTexture()
     return "sun_wukong/tree_form"
 end
 
-function modifier_72_bian_tree:OnCreated()
+function modifier_72_bian_tree:OnCreated(kv)
     --self.speed_change = self:GetAbility():GetSpecialValueFor("speed_fish_rel")
 
+    self.bonus_speed = kv.bonus_speed
     if not IsServer() then return end
     --self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_water_fade", {})
     local rand = RandomInt(0, 5)
@@ -47,7 +48,7 @@ end
 
 
 function modifier_72_bian_tree:GetModifierMoveSpeedOverride()
-    return 150
+    return 150 + self.bonus_speed
 end
 
 

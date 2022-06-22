@@ -142,6 +142,8 @@
 #base "heroes/sun_wukong/ability_72_bian_cancel.txt"
 #base "heroes/sun_wukong/ability_boar_gore.txt"
 
+#base "heroes/sun_wukong/talent_animal_agility.txt"
+
 // ===============================================================
 // THOR
 // ===============================================================

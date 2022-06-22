@@ -9,7 +9,8 @@ function modifier_72_bian_fish:GetTexture()
     return "sun_wukong/fish_form"
 end
 
-function modifier_72_bian_fish:OnCreated()
+function modifier_72_bian_fish:OnCreated(kv)
+    self.bonus_speed = kv.bonus_speed
     self.speed_change = self:GetAbility():GetSpecialValueFor("speed_fish_rel")
 
     if not IsServer() then return end
@@ -35,10 +36,10 @@ end
 function modifier_72_bian_fish:GetModifierMoveSpeedBonus_Percentage()
     -- speed amp in water
     if self:GetParent():GetAbsOrigin().z <=0.5 then
-        return self.speed_change
+        return self.speed_change  + self.bonus_speed
     end
     -- slow on land
-    return (self.speed_change * -1)
+    return (self.speed_change * -1)  + self.bonus_speed
 end
 
 

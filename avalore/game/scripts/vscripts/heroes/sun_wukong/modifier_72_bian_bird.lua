@@ -8,7 +8,8 @@ function modifier_72_bian_bird:GetTexture()
     return "sun_wukong/bird_form"
 end
 
-function modifier_72_bian_bird:OnCreated()
+function modifier_72_bian_bird:OnCreated(kv)
+    self.bonus_speed = kv.bonus_speed
     if not IsServer() then return end
     self:GetParent():GetAbilityByName("ability_ruyi_jingu_bang"):SetHidden(true)
 end
@@ -16,7 +17,8 @@ end
 
 function modifier_72_bian_bird:DeclareFunctions()
     return {    MODIFIER_PROPERTY_MODEL_CHANGE,
-                MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS
+                MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
+                MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
             }
 end
 
@@ -30,6 +32,10 @@ end
 
 function modifier_72_bian_bird:GetModifierModelChange()
 	return "models/heroes/beastmaster/beastmaster_bird.vmdl"
+end
+
+function modifier_72_bian_bird:GetModifierMoveSpeedBonus_Percentage()
+    return self.bonus_speed
 end
 
 function modifier_72_bian_bird:GetActivityTranslationModifiers()

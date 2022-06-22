@@ -8,7 +8,8 @@ function modifier_72_bian_boar:GetTexture()
     return "sun_wukong/boar_form"
 end
 
-function modifier_72_bian_boar:OnCreated()
+function modifier_72_bian_boar:OnCreated(kv)
+    self.bonus_speed = kv.bonus_speed
     if not IsServer() then return end
 
     --if self:GetParent():IsRealHero() then
@@ -27,7 +28,8 @@ end
 
 function modifier_72_bian_boar:DeclareFunctions()
     return {    MODIFIER_PROPERTY_MODEL_CHANGE,
-                MODIFIER_PROPERTY_HEALTH_BONUS
+                MODIFIER_PROPERTY_HEALTH_BONUS,
+                MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
             }
 end
 
@@ -37,6 +39,10 @@ end
 
 function modifier_72_bian_boar:GetModifierExtraHealthBonus()
     return self.main_ability:GetSpecialValueFor("boar_hp_bonus")
+end
+
+function modifier_72_bian_boar:GetModifierMoveSpeedBonus_Percentage()
+    return self.bonus_speed
 end
 
 function modifier_72_bian_boar:OnDestroy()
