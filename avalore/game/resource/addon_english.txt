@@ -710,6 +710,11 @@
 		"DOTA_Tooltip_modifier_72_bian_fish"								"Fish Form"
 		"DOTA_Tooltip_modifier_72_bian_tree"								"Tree Form"
 
+		// TALENTS
+		"DOTA_Tooltip_Ability_talent_animal_agility"						"Animal Agility"
+		"DOTA_Tooltip_Ability_talent_animal_agility_description"			"72 Bian: +{s:bonus_speed} move speed in every transformation form"
+
+
 		// ==============================================
 		// ===== THOR ===== //
 		// ==============================================
