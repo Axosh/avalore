@@ -692,9 +692,18 @@
 		"DOTA_Tooltip_Ability_ability_72_bian_cancel"						"Revert to Monkey Form"
 		
 		"DOTA_Tooltip_Ability_ability_72_bian"								"72 Bian"
+		"DOTA_Tooltip_Ability_ability_72_bian_description"					"Use vector-targeting to select transformation. Disjoints Projectiles while transforming.\n\n<b>UP: Bird Form</b> - flying movement\n<b>RIGHT: Boar Form</b> - bonus HP and Gore Ability\n<b>DOWN: Tree Form</b> - slower movement, but don't appear on minimap and has healthbar hidden\n<b>LEFT: Fish Form</b> - movement bonus in water, movement slowed on land"
+		"DOTA_Tooltip_Ability_ability_72_bian_transformation_time"			"TRANSFORMATION TIME: "
+		"DOTA_Tooltip_Ability_ability_72_bian_boar_hp_bonus"				"BOAR - BONUS HP: "
+		"DOTA_Tooltip_Ability_ability_72_bian_boar_maim"					"BOAR - GORE SLOW: "
+		"DOTA_Tooltip_Ability_ability_72_bian_speed_tree_abs"				"TREE - SPEED: "
+		"DOTA_Tooltip_Ability_ability_72_bian_speed_fish_rel"				"FISH - MS CHANGE: "
 		"DOTA_Tooltip_Ability_ability_72_bian_Lore"							"Monkey King could transform into 72 different animals, objects, and plants"
 
 		"DOTA_Tooltip_Ability_ability_boar_gore"							"Gore"
+		"DOTA_Tooltip_Ability_ability_boar_gore_description"				"Attacks apply a debuff that slows the target."
+		"DOTA_Tooltip_Ability_ability_boar_gore_gore_movespeed_slow"		"SLOW PERCENTAGE: "
+		"DOTA_Tooltip_Ability_ability_boar_gore_duration"					"SLOW DURATION: "
 
 		"DOTA_Tooltip_Ability_ability_immortality"							"Immortality"
 		"DOTA_Tooltip_Ability_ability_immortality_Lore"						"Over the course of 'Journey to the West', Monkey King is made immortal many times over having consumed Peaches of Immortality, Heavenly Wine, and other sources."
@@ -706,14 +715,23 @@
 		"DOTA_Tooltip_Ability_ability_shen_wai_shen_fa_Lore"				"'Body Outside of Body' - each hair on Sun Wukong's body can be plucked and trasformed into another form."
 
 		"DOTA_Tooltip_modifier_72_bian_bird"								"Bird Form"
+		"DOTA_Tooltip_modifier_72_bian_bird_description"					"Granting flying movement"
+
 		"DOTA_Tooltip_modifier_72_bian_boar"								"Boar Form"
+		"DOTA_Tooltip_modifier_72_bian_boar_description"					"Bonus HP, and attacks slow enemies"
+
 		"DOTA_Tooltip_modifier_72_bian_fish"								"Fish Form"
+		"DOTA_Tooltip_modifier_72_bian_fish_description"					"Granting bonus movespeed in water, but slowed while out of water"
+
 		"DOTA_Tooltip_modifier_72_bian_tree"								"Tree Form"
+		"DOTA_Tooltip_modifier_72_bian_tree_description"					"Does not show on minimap and healthbar hidden, but movespeed set to minimum value"
 
 		// TALENTS
 		"DOTA_Tooltip_Ability_talent_animal_agility"						"Animal Agility"
 		"DOTA_Tooltip_Ability_talent_animal_agility_description"			"72 Bian: +{s:bonus_speed} move speed in every transformation form"
 
+		"DOTA_Tooltip_Ability_talent_camouflage"							"Camouflage"
+		"DOTA_Tooltip_Ability_talent_camouflage_description"				"72 Bian: Tree form goes invisible near other trees, Fish form goes invisible in water"
 
 		// ==============================================
 		// ===== THOR ===== //

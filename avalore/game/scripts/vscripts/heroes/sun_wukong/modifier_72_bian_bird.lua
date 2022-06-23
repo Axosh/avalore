@@ -9,7 +9,8 @@ function modifier_72_bian_bird:GetTexture()
 end
 
 function modifier_72_bian_bird:OnCreated(kv)
-    self.bonus_speed = kv.bonus_speed
+    self.bonus_speed = self:GetCaster():FindTalentValue("talent_animal_agility", "bonus_speed") --kv.bonus_speed
+    --print("modifier_72_bian_bird:OnCreated(kv) bonus_speed => " .. tostring(self.bonus_speed))
     if not IsServer() then return end
     self:GetParent():GetAbilityByName("ability_ruyi_jingu_bang"):SetHidden(true)
 end
@@ -18,7 +19,7 @@ end
 function modifier_72_bian_bird:DeclareFunctions()
     return {    MODIFIER_PROPERTY_MODEL_CHANGE,
                 MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
-                MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+                MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
             }
 end
 
@@ -34,7 +35,7 @@ function modifier_72_bian_bird:GetModifierModelChange()
 	return "models/heroes/beastmaster/beastmaster_bird.vmdl"
 end
 
-function modifier_72_bian_bird:GetModifierMoveSpeedBonus_Percentage()
+function modifier_72_bian_bird:GetModifierMoveSpeedBonus_Constant()
     return self.bonus_speed
 end
 

@@ -10,16 +10,19 @@ function modifier_72_bian_fish:GetTexture()
 end
 
 function modifier_72_bian_fish:OnCreated(kv)
-    self.bonus_speed = kv.bonus_speed
+    self.bonus_speed = self:GetCaster():FindTalentValue("talent_animal_agility", "bonus_speed") --kv.bonus_speed
     self.speed_change = self:GetAbility():GetSpecialValueFor("speed_fish_rel")
 
     if not IsServer() then return end
-    self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_water_fade", {})
+    if self:GetCaster():HasTalent("talent_camouflage") then
+        self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_water_fade", {})
+    end
 end
 
 function modifier_72_bian_fish:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
 	}
 
 	return funcs
@@ -32,14 +35,17 @@ end
 
 -- 	return state
 -- end
+function modifier_72_bian_fish:GetModifierMoveSpeedBonus_Constant()
+    return self.bonus_speed
+end
 
 function modifier_72_bian_fish:GetModifierMoveSpeedBonus_Percentage()
     -- speed amp in water
     if self:GetParent():GetAbsOrigin().z <=0.5 then
-        return self.speed_change  + self.bonus_speed
+        return self.speed_change
     end
     -- slow on land
-    return (self.speed_change * -1)  + self.bonus_speed
+    return (self.speed_change * -1)
 end
 
 

@@ -7,7 +7,9 @@ LinkLuaModifier("modifier_72_bian_tree",    "heroes/sun_wukong/modifier_72_bian_
 LinkLuaModifier("modifier_water_fade",      "modifiers/shared/modifier_water_fade.lua",     LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_forest_fade",     "modifiers/shared/modifier_forest_fade.lua",    LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boar_gore",       "heroes/sun_wukong/modifier_boar_gore.lua",     LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_talent_animal_agility",       "heroes/sun_wukong/modifier_talent_animal_agility.lua",     LUA_MODIFIER_MOTION_NONE)
+-- TALENTS
+LinkLuaModifier("modifier_talent_animal_agility", "heroes/sun_wukong/modifier_talent_animal_agility.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_camouflage",     "heroes/sun_wukong/modifier_talent_camouflage.lua",     LUA_MODIFIER_MOTION_NONE)
 
 function ability_72_bian:OnAbilityPhaseInterrupted()
 end
@@ -64,7 +66,7 @@ function ability_72_bian:OnSpellStart()
 
     -- trigger the transformation buff after the Timer expires
     Timers:CreateTimer(transformation_time, function()
-        caster:AddNewModifier(caster, self, modifier_transformation, {bonus_speed=self:GetCaster():FindTalentValue("talent_animal_agility", "bonus_speed")})
+        caster:AddNewModifier(caster, self, modifier_transformation, {})
     end)
 
     -- disable uncastable spells while transformed + change ability to cancel transform, preserve levels/upgrades

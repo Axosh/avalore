@@ -21,13 +21,15 @@ end
 function modifier_72_bian_tree:OnCreated(kv)
     --self.speed_change = self:GetAbility():GetSpecialValueFor("speed_fish_rel")
 
-    self.bonus_speed = kv.bonus_speed
+    self.bonus_speed = self:GetCaster():FindTalentValue("talent_animal_agility", "bonus_speed") --kv.bonus_speed
     if not IsServer() then return end
     --self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_water_fade", {})
     local rand = RandomInt(0, 5)
     self.tree_model = random_tree_table[rand]
 
-    self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_forest_fade", {})
+    if self:GetCaster():HasTalent("talent_camouflage") then
+        self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_forest_fade", {})
+    end
     self:GetParent():GetAbilityByName("ability_ruyi_jingu_bang"):SetHidden(true)
 end
 
@@ -41,6 +43,7 @@ function modifier_72_bian_tree:CheckState()
 	return {    [MODIFIER_STATE_DISARMED] = true,
                 [MODIFIER_STATE_MUTED] = true,
                 [MODIFIER_STATE_NOT_ON_MINIMAP] = true, --for testing
+                [MODIFIER_STATE_NO_HEALTH_BAR] = true
                 --[MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES] = true --for real
             }
 end
