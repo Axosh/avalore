@@ -24,7 +24,8 @@
         //10-17 => Talents
         "Ability10"                 "talent_animal_agility"
         "Ability11"                 "talent_camouflage"
-        "Ability12"                 ""
+
+        "Ability12"                 "talent_shepherds_leap"
         "Ability13"                 ""
 
         // Movement

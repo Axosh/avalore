@@ -144,6 +144,7 @@
 // Talents
 #base "heroes/sun_wukong/talent_animal_agility.txt"
 #base "heroes/sun_wukong/talent_camouflage.txt"
+#base "heroes/sun_wukong/talent_shepherds_leap.txt"
 
 // ===============================================================
 // THOR

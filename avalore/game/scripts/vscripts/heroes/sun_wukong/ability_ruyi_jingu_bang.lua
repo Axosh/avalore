@@ -8,6 +8,9 @@ LinkLuaModifier("modifier_jingu_vault",       "heroes/sun_wukong/modifier_jingu_
 LinkLuaModifier( "modifier_ignore_cast_direction", "scripts/vscripts/modifiers/modifier_ignore_cast_direction.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
 
+LinkLuaModifier("modifier_talent_shepherds_leap",       "heroes/sun_wukong/modifier_talent_shepherds_leap.lua",       LUA_MODIFIER_MOTION_NONE)
+
+
 function ability_ruyi_jingu_bang:OnAbilityPhaseInterrupted()
 end
 
@@ -48,7 +51,7 @@ function ability_ruyi_jingu_bang:OnSpellStart()
         PrintVector(vault_dir, "Vault Dir")
         local intensity = TargetingVectorIntensity(target)
         PrintVector((vault_dir * intensity * self:GetSpecialValueFor("vault_max_distance")), "Vector to Add")
-        local target_point = caster:GetAbsOrigin() + (vault_dir * intensity *  self:GetSpecialValueFor("vault_max_distance"))
+        local target_point = caster:GetAbsOrigin() + (vault_dir * intensity *  (self:GetSpecialValueFor("vault_max_distance") + self:GetCaster():FindTalentValue("modifier_talent_shepherds_leap", "bonus_distance")))
 
         --caster:StartGesture(ACT_DOTA_MK_SPRING_SOAR)
         --caster:StartGesture(ACT_DOTA_MK_STRIKE)
