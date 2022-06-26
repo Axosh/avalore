@@ -9,6 +9,7 @@ LinkLuaModifier( "modifier_ignore_cast_direction", "scripts/vscripts/modifiers/m
 LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
 
 LinkLuaModifier("modifier_talent_shepherds_leap",       "heroes/sun_wukong/modifier_talent_shepherds_leap.lua",       LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_13_5k_catties",       "heroes/sun_wukong/modifier_talent_13_5k_catties.lua",       LUA_MODIFIER_MOTION_NONE)
 
 
 function ability_ruyi_jingu_bang:OnAbilityPhaseInterrupted()
@@ -119,8 +120,8 @@ function ability_ruyi_jingu_bang:OnSpellStart()
         local slam_speed = self:GetSpecialValueFor("slam_speed")
         local slam_radius = self:GetSpecialValueFor("slam_radius")
         local slam_max_dist = self:GetSpecialValueFor("slam_max_distance")
-        local slam_max_damage = self:GetSpecialValueFor("slam_max_damage")
-        local slam_max_stun = self:GetSpecialValueFor("slam_max_stun")
+        local slam_max_damage = self:GetSpecialValueFor("slam_max_damage") + self:GetCaster():FindTalentValue("talent_talent_13_5k_catties", "bonus_max_damage")
+        local slam_max_stun = self:GetSpecialValueFor("slam_max_stun") + self:GetCaster():FindTalentValue("talent_talent_13_5k_catties", "bonus_max_stun")
         print("Max Dist = " .. tostring(slam_max_dist))
         --local slam_time = 1.0
         local distance = (caster:GetAbsOrigin() - target.end_pos):Length2D()

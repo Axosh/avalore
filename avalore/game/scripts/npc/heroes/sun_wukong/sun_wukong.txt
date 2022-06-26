@@ -26,7 +26,7 @@
         "Ability11"                 "talent_camouflage"
 
         "Ability12"                 "talent_shepherds_leap"
-        "Ability13"                 ""
+        "Ability13"                 "talent_13_5k_catties"
 
         // Movement
 		//----------------------------------------------------------------
