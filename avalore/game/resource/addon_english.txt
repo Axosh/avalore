@@ -736,6 +736,9 @@
 		"DOTA_Tooltip_Ability_talent_shepherds_leap"						"Shepherd's Leap"
 		"DOTA_Tooltip_Ability_talent_shepherds_leap_description"			"Ruyi Jingu Bang: +{s:bonus_distance} bonus distance when vaulting"
 
+		"DOTA_Tooltip_Ability_talent_13_5k_catties"							"13,500 Catties"
+		"DOTA_Tooltip_Ability_talent_13_5k_catties_description"				"Ruyi Jingu Bang: utilize the immense weight of the staff to do an additional "
+
 		// ==============================================
 		// ===== THOR ===== //
 		// ==============================================
