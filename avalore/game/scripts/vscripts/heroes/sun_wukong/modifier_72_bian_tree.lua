@@ -24,8 +24,34 @@ function modifier_72_bian_tree:OnCreated(kv)
     self.bonus_speed = self:GetCaster():FindTalentValue("talent_animal_agility", "bonus_speed") --kv.bonus_speed
     if not IsServer() then return end
     --self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_water_fade", {})
+    -- initialize with random tree
     local rand = RandomInt(0, 5)
     self.tree_model = random_tree_table[rand]
+    -- see if we can find a better option nearby to clone
+    local nearby_trees = GridNav:GetAllTreesAroundPoint(self:GetParent():GetAbsOrigin(), 600, false)
+    -- local nearby_trees = FindUnitsInRadius( self:GetParent():GetTeamNumber(), 
+    --                                         self:GetParent():GetAbsOrigin(), 
+    --                                         nil, 
+    --                                         600, --search range
+    --                                         0, --DOTA_UNIT_TARGET_TEAM_BOTH, 
+    --                                         DOTA_UNIT_TARGET_ALL + DOTA_UNIT_TARGET_TREE + DOTA_UNIT_TARGET_CUSTOM, --DOTA_UNIT_TARGET_TREE, 
+    --                                         DOTA_UNIT_TARGET_FLAG_NONE,
+    --                                         FIND_CLOSEST,
+    --                                         false)
+    if #nearby_trees > 0 then
+        for _, tree in pairs(nearby_trees) do
+            local tree_entid = GetEntityIndexForTreeId(tree:GetEntityIndex())
+            print("Tree ID => " .. tostring(tree_entid))
+            print("Tree EntID => " .. tostring(tree:GetEntityIndex()))
+            --self.tree_model = tree:GetModelName()
+            --print("Found Tree Model => " .. tree:GetModelName())
+            --print("Tree => " .. tostring(tree:GetTeam()))
+            --PrintTable(EntIndexToHScript(tree:GetEntityIndex()))
+            --print("Found Tree Model => " .. EntIndexToHScript(tree:GetEntityIndex()):GetModelName())
+            print("Found Tree Model => " .. EntIndexToHScript(tree_entid):GetModelName())
+            --break
+        end
+    end
 
     if self:GetCaster():HasTalent("talent_camouflage") then
         self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_forest_fade", {})
