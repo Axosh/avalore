@@ -373,3 +373,31 @@ function SetFlagForward(unit)
     print("skip")
     --unit:SetForwardVector(Vector(0,-1,0))
 end
+
+
+-- GRID NAV
+
+-- very hacky approach because I'm lazy
+function IsOnRadiantSide(x, y)
+    print("(" .. tostring(x) .. ", " .. tostring(y) .. ")")
+    -- check if they're roughly in radiant top lane
+    if x < -3900 and y < 3850 then
+        print("In Radi Top")
+        return true
+    -- check if they're roughly in the bottom corner of radiant
+    elseif x > 3900 and y < -3850 then
+        print("In Radi Bot")
+        return true
+    -- check to see if they're roughly in the mid-section of radiant
+    elseif x > -3900 and x < 3900 then
+        -- check if they're under the slope
+        local slope = -0.987 -- slope between (-3900, 3850) and (3900, -3850)
+        local calc_y = x * slope
+        print("Corresponding Y => " .. tostring(calc_y))
+        if  y <= calc_y then
+            print("In Radi Mid")
+            return true
+        end
+    end
+    return false
+end

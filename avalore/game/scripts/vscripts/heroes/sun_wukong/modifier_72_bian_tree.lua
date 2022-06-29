@@ -53,7 +53,7 @@ function modifier_72_bian_tree:OnCreated(kv)
     --     end
     -- end
 
-    if self:OnRadiantSide() then
+    if IsOnRadiantSide(self:GetParent():GetAbsOrigin().x, self:GetParent():GetAbsOrigin().y) then
         self.tree_model = "models/props_tree/tree_pinestatic_02.vmdl"
     else
         self.tree_model = "models/props_tree/dire_tree004b_sfm.vmdl"
@@ -64,29 +64,6 @@ function modifier_72_bian_tree:OnCreated(kv)
     end
     self:GetParent():GetAbilityByName("ability_ruyi_jingu_bang"):SetHidden(true)
 end
-
--- very hacky approach because I'm lazy
-function modifier_72_bian_tree:OnRadiantSide()
-    local x = self:GetParent():GetAbsOrigin().x
-    local y = self:GetParent():GetAbsOrigin().y
-    print("(" .. tostring(x) .. ", " .. tostring(y) .. ")")
-    -- check if they're roughly in radiant top lane
-    if x < -3900 and y < 3850 then
-        return true
-    -- check if they're roughly in the bottom corner of radiant
-    elseif x > 3900 and y < -3850 then
-        return true
-    -- check to see if they're roughly in the mid-section of radiant
-    elseif x > -3900 and x < 3900 then
-        -- check if they're under the slope
-        local slope = -0.987
-        if x * slope <= y then
-            return true
-        end
-    end
-    return false
-end
-
 
 
 function modifier_72_bian_tree:DeclareFunctions()

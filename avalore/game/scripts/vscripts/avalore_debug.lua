@@ -107,6 +107,8 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
         local arr = StringToArrayByWhitespace(input)
         local gold = tonumber(arr[3])
         hero:SetGold(gold, true)
+    elseif input == "debug loc" then
+        IsOnRadiantSide(hero:GetAbsOrigin().x, hero:GetAbsOrigin().y)
     end
     
 end
