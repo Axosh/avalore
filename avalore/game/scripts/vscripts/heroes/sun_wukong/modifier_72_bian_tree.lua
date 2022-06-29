@@ -28,29 +28,35 @@ function modifier_72_bian_tree:OnCreated(kv)
     local rand = RandomInt(0, 5)
     self.tree_model = random_tree_table[rand]
     -- see if we can find a better option nearby to clone
-    local nearby_trees = GridNav:GetAllTreesAroundPoint(self:GetParent():GetAbsOrigin(), 600, false)
-    -- local nearby_trees = FindUnitsInRadius( self:GetParent():GetTeamNumber(), 
-    --                                         self:GetParent():GetAbsOrigin(), 
-    --                                         nil, 
-    --                                         600, --search range
-    --                                         0, --DOTA_UNIT_TARGET_TEAM_BOTH, 
-    --                                         DOTA_UNIT_TARGET_ALL + DOTA_UNIT_TARGET_TREE + DOTA_UNIT_TARGET_CUSTOM, --DOTA_UNIT_TARGET_TREE, 
-    --                                         DOTA_UNIT_TARGET_FLAG_NONE,
-    --                                         FIND_CLOSEST,
-    --                                         false)
-    if #nearby_trees > 0 then
-        for _, tree in pairs(nearby_trees) do
-            local tree_entid = GetEntityIndexForTreeId(tree:GetEntityIndex())
-            print("Tree ID => " .. tostring(tree_entid))
-            print("Tree EntID => " .. tostring(tree:GetEntityIndex()))
-            --self.tree_model = tree:GetModelName()
-            --print("Found Tree Model => " .. tree:GetModelName())
-            --print("Tree => " .. tostring(tree:GetTeam()))
-            --PrintTable(EntIndexToHScript(tree:GetEntityIndex()))
-            --print("Found Tree Model => " .. EntIndexToHScript(tree:GetEntityIndex()):GetModelName())
-            print("Found Tree Model => " .. EntIndexToHScript(tree_entid):GetModelName())
-            --break
-        end
+    -- local nearby_trees = GridNav:GetAllTreesAroundPoint(self:GetParent():GetAbsOrigin(), 600, false)
+    -- -- local nearby_trees = FindUnitsInRadius( self:GetParent():GetTeamNumber(), 
+    -- --                                         self:GetParent():GetAbsOrigin(), 
+    -- --                                         nil, 
+    -- --                                         600, --search range
+    -- --                                         0, --DOTA_UNIT_TARGET_TEAM_BOTH, 
+    -- --                                         DOTA_UNIT_TARGET_ALL + DOTA_UNIT_TARGET_TREE + DOTA_UNIT_TARGET_CUSTOM, --DOTA_UNIT_TARGET_TREE, 
+    -- --                                         DOTA_UNIT_TARGET_FLAG_NONE,
+    -- --                                         FIND_CLOSEST,
+    -- --                                         false)
+    -- if #nearby_trees > 0 then
+    --     for _, tree in pairs(nearby_trees) do
+    --         local tree_entid = GetEntityIndexForTreeId(tree:GetEntityIndex())
+    --         print("Tree ID => " .. tostring(tree_entid))
+    --         print("Tree EntID => " .. tostring(tree:GetEntityIndex()))
+    --         --self.tree_model = tree:GetModelName()
+    --         --print("Found Tree Model => " .. tree:GetModelName())
+    --         --print("Tree => " .. tostring(tree:GetTeam()))
+    --         --PrintTable(EntIndexToHScript(tree:GetEntityIndex()))
+    --         --print("Found Tree Model => " .. EntIndexToHScript(tree:GetEntityIndex()):GetModelName())
+    --         print("Found Tree Model => " .. EntIndexToHScript(tree_entid):GetModelName())
+    --         --break
+    --     end
+    -- end
+
+    if self:OnRadiantSide() then
+        self.tree_model = "models/props_tree/tree_pinestatic_02.vmdl"
+    else
+        self.tree_model = "models/props_tree/dire_tree004b_sfm.vmdl"
     end
 
     if self:GetCaster():HasTalent("talent_camouflage") then
@@ -58,6 +64,30 @@ function modifier_72_bian_tree:OnCreated(kv)
     end
     self:GetParent():GetAbilityByName("ability_ruyi_jingu_bang"):SetHidden(true)
 end
+
+-- very hacky approach because I'm lazy
+function modifier_72_bian_tree:OnRadiantSide()
+    local x = self:GetParent():GetAbsOrigin().x
+    local y = self:GetParent():GetAbsOrigin().y
+    print("(" .. tostring(x) .. ", " .. tostring(y) .. ")")
+    -- check if they're roughly in radiant top lane
+    if x < -3900 and y < 3850 then
+        return true
+    -- check if they're roughly in the bottom corner of radiant
+    elseif x > 3900 and y < -3850 then
+        return true
+    -- check to see if they're roughly in the mid-section of radiant
+    elseif x > -3900 and x < 3900 then
+        -- check if they're under the slope
+        local slope = -0.987
+        if x * slope <= y then
+            return true
+        end
+    end
+    return false
+end
+
+
 
 function modifier_72_bian_tree:DeclareFunctions()
 	return  {   MODIFIER_PROPERTY_MODEL_CHANGE,
