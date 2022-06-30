@@ -1,11 +1,66 @@
 require("references")
 require("spawners")
 require(REQ_LIB_TIMERS)
+require(REQ_CONSTANTS)
 
 item_merc_super_djinn = class({})
 
-function item_merc_super_djinn:CastFilterResult()
-    return UF_SUCCESS
+function item_merc_super_djinn:GetBehavior()
+    return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_CHANNELLED
+end
+
+-- check if the location vector is in a lane that this merc spawner can target
+function item_merc_super_djinn:CastFilterResultLocation(location)
+    --if not IsServer() then return end
+    --print("item_merc_super_djinn:CastFilterResult(location)")
+    --print("Item AbsOrigin => (" .. tostring(self:GetAbsOrigin().x) .. ", " .. tostring(self:GetAbsOrigin().y)  .. ")")
+    local team = self:GetCaster():GetTeamNumber()
+    local lane = ""
+    -- Item AbsOrigin is shared with its parent (i.e. the merc camp)
+    if self:GetAbsOrigin() ==  Vector(-7232, -5888, 256) then
+        lane = Constants.KEY_RADIANT_TOP
+    elseif self:GetAbsOrigin() ==  Vector(-5888, -7232, 256) then
+        lane = Constants.KEY_RADIANT_BOT
+    elseif self:GetAbsOrigin() ==  Vector(5888, 7232, 256) then
+        lane = GetAbsOrigin.KEY_DIRE_TOP
+    elseif self:GetOriginAbs() ==  Vector(7232, 5888, 256) then
+        lane = Constants.KEY_DIRE_BOT
+    end
+    -- for key, value in pairs(Spawners.MercCamps[team]) do
+    --     print("Value: " .. tostring(value))
+    --     -- check to see which merc camp this is
+    --     if self:GetOwner() == value then
+    --         lane = key
+    --     end
+    -- end
+
+    if team == DOTA_TEAM_GOODGUYS then 
+        if lane == Constants.KEY_RADIANT_TOP then
+            if IsRadiantTopLane(location.x, location.y) then 
+                print("RADI TOP SUCCESS")
+                return UF_SUCCESS
+            end
+        elseif lane == Constants.KEY_RADIANT_BOT then
+            if IsRadiantBotLane(location.x, location.y) then 
+                print("RADI BOT SUCCESS")
+                return UF_SUCCESS
+            end
+        end
+    elseif team == DOTA_TEAM_BADGUYS then
+        if lane == Constants.KEY_DIRE_TOP then
+            if IsDireTopLane(location.x, location.y) then 
+                print("DIRE TOP SUCCESS")
+                return UF_SUCCESS
+            end
+        elseif lane == Constants.KEY_DIRE_BOT then
+            if IsDireBotLane(location.x, location.y) then 
+                print("DIRE BOT SUCCESS")
+                return UF_SUCCESS
+            end
+        end
+    end
+
+    return UF_FAIL_INVALID_LOCATION
 end
 
 function item_merc_super_djinn:OnSpellStart()
@@ -49,7 +104,7 @@ function item_merc_super_djinn:OnSpellStart()
     Timers:CreateTimer(2.0, function()
         GridNav:DestroyTreesAroundPoint(target * 180, 180, false)
     
-        self.unit = CreateUnitByName("npc_avalore_merc_djinn", target, true, nil, nil, team)
+        self.unit = CreateUnitByName(unit, target, true, nil, nil, team)
         -- local summon_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_summon_familiars.vpcf", PATTACH_ABSORIGIN, self.unit)
         -- ParticleManager:ReleaseParticleIndex(summon_particle)
 

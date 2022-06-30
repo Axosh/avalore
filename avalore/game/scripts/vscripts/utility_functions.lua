@@ -374,8 +374,9 @@ function SetFlagForward(unit)
     --unit:SetForwardVector(Vector(0,-1,0))
 end
 
-
+-- ====================================================================
 -- GRID NAV
+-- ====================================================================
 
 -- very hacky approach because I'm lazy
 function IsOnRadiantSide(x, y)
@@ -398,6 +399,38 @@ function IsOnRadiantSide(x, y)
             print("In Radi Mid")
             return true
         end
+    end
+    return false
+end
+
+-- //////////////////////////////
+-- For Determining Merc Spawns
+-- //////////////////////////////
+
+function IsRadiantTopLane(x, y)
+    if (x < -5800 and y < 3350) and (x > -7400 and y > -3850) then
+        return true
+    end
+    return false
+end
+
+function IsRadiantBotLane(x, y)
+    if (x < 5600 and y < -6100) and (x > -3800 and y > -7450) then
+        return true
+    end
+    return false
+end
+
+function IsDireTopLan(x, y)
+    if (x < 5800 and y < -3350) and (x > 7400 and y > 3850) then
+        return true
+    end
+    return false
+end
+
+function IsDireBotLane(x, y)
+    if (x < -5600 and y < 6100) and (x > 3800 and y > 7450) then
+        return true
     end
     return false
 end
