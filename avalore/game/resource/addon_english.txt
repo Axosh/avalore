@@ -739,6 +739,10 @@
 		"DOTA_Tooltip_Ability_talent_13_5k_catties"							"13,500 Catties"
 		"DOTA_Tooltip_Ability_talent_13_5k_catties_description"				"Ruyi Jingu Bang: utilize the immense weight of the staff to do an additional {s:bonus_max_damage} max damage and {s:bonus_max_stun}s max stun."
 
+		"DOTA_Tooltip_Ability_talent_adaptation"							"Adaptation"
+		"DOTA_Tooltip_Ability_talent_adaptation_description"				"Shen Wai Shen Fa: Illusions copy the current 72 Bian form"
+		
+
 		// ==============================================
 		// ===== THOR ===== //
 		// ==============================================

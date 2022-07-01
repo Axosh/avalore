@@ -28,6 +28,8 @@
         "Ability12"                 "talent_shepherds_leap"
         "Ability13"                 "talent_13_5k_catties"
 
+        "Ability14"                 "talent_adaptation"
+
         // Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
