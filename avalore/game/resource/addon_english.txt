@@ -706,12 +706,26 @@
 		"DOTA_Tooltip_Ability_ability_boar_gore_duration"					"SLOW DURATION: "
 
 		"DOTA_Tooltip_Ability_ability_immortality"							"Immortality"
+		"DOTA_Tooltip_Ability_ability_immortality_description"				"Upon death, after a short delay, Sun Wukong will rise again to continue to battle."
+		"DOTA_Tooltip_Ability_ability_immortality_rez_time"					"REINCARNATION DELAY: "
 		"DOTA_Tooltip_Ability_ability_immortality_Lore"						"Over the course of 'Journey to the West', Monkey King is made immortal many times over having consumed Peaches of Immortality, Heavenly Wine, and other sources."
 
 		"DOTA_Tooltip_Ability_ability_ruyi_jingu_bang"						"Ruyi Jingu Bang"
+		"DOTA_Tooltip_Ability_ability_ruyi_jingu_bang_description"			"VECTOR TARGETED - direcion determines whether Sun Wukong performs a VAULT or a SLAM. The magnitude of the vector determines distance.\nVAULT - by dragging the vector opposite the direction Sun Wukong is facing, he uses his jingu bang to launch himself forward dealing damage on impact.\nSLAM - by dragging the vector in front of Sun Wukong, slam the ground with jingu bang. The higher the magnitude, the further the distance, but sacrificing damage and stun duration."
+		"DOTA_Tooltip_Ability_ability_ruyi_jingu_bang_vault_max_distance"	"VAULT MAX DISTANCE: "
+		"DOTA_Tooltip_Ability_ability_ruyi_jingu_bang_vault_impact_dmg"		"VAULT IMPACT DMG: "
+		"DOTA_Tooltip_Ability_ability_ruyi_jingu_bang_vault_impact_radius"	"VAULT IMPACT RADIUS: "
+		"DOTA_Tooltip_Ability_ability_ruyi_jingu_bang_slam_radius"			"SLAM RADIUS: "
+		"DOTA_Tooltip_Ability_ability_ruyi_jingu_bang_slam_max_distance"	"SLAM MAX DISTANCE: "
+		"DOTA_Tooltip_Ability_ability_ruyi_jingu_bang_slam_max_stun"		"SLAM MAX STUN: "
+		"DOTA_Tooltip_Ability_ability_ruyi_jingu_bang_slam_max_damage"		"SLAM MAX DMG: "
 		"DOTA_Tooltip_Ability_ability_ruyi_jingu_bang_Lore"					"The Ruyi Jingu Bang is Sun Wukong's iconic weapon which has an incredible weight, and is able to change size."
 
-		"DOTA_Tooltip_Ability_ability_shen_wai_shen_fa"						"Shen Wai Shen Fa"
+		"DOTA_Tooltip_Ability_ability_shen_wai_shen_fa"								"Shen Wai Shen Fa"
+		"DOTA_Tooltip_Ability_ability_shen_wai_shen_fa_description"					"Creates an illusion that takes the form of Sun Wukong's monkey form (unless you have the talent)."
+		"DOTA_Tooltip_Ability_ability_shen_wai_shen_fa_illusion_duration"			"ILLUSION DURATION: "
+		"DOTA_Tooltip_Ability_ability_shen_wai_shen_fa_illusion_outgoing_tooltip"	"%ILLUSION DMG DEALT: "
+		"DOTA_Tooltip_Ability_ability_shen_wai_shen_fa_illusion_incoming_damage"	"%ILLUSION DMG TAKEN: "
 		"DOTA_Tooltip_Ability_ability_shen_wai_shen_fa_Lore"				"'Body Outside of Body' - each hair on Sun Wukong's body can be plucked and trasformed into another form."
 
 		"DOTA_Tooltip_modifier_72_bian_bird"								"Bird Form"
@@ -741,6 +755,15 @@
 
 		"DOTA_Tooltip_Ability_talent_adaptation"							"Adaptation"
 		"DOTA_Tooltip_Ability_talent_adaptation_description"				"Shen Wai Shen Fa: Illusions copy the current 72 Bian form"
+
+		"DOTA_Tooltip_Ability_talent_extra_illusion"						"Shen Wai Shen Fa: +{s:bonus_illusions} Illusion"
+
+		"DOTA_Tooltip_Ability_talent_rez_no_mana"							"Immortality: No Mana Cost"
+
+		"DOTA_Tooltip_Ability_talent_multiple_immortality"					"Multiple Immortality"
+		"DOTA_Tooltip_Ability_talent_multiple_immortality_description"		"Immortality: becomes a charge-based ability with a {s:extra_rez_count} charge max. Restock time based on Immortality's cooldown."
+
+		"DOTA_Tooltip_modifier_wukong_immortality"							"Immortality"
 		
 
 		// ==============================================

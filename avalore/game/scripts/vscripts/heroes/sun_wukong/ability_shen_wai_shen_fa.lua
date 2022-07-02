@@ -10,6 +10,8 @@ LinkLuaModifier("modifier_72_bian_fish",       "heroes/sun_wukong/modifier_72_bi
 
 --TALENTS
 LinkLuaModifier("modifier_talent_adaptation",     "heroes/sun_wukong/modifier_talent_adaptation.lua",     LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_extra_illusion",     "heroes/sun_wukong/modifier_talent_extra_illusion.lua",     LUA_MODIFIER_MOTION_NONE)
+
 
 --LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_wearable", LUA_MODIFIER_MOTION_NONE )
 
@@ -30,7 +32,7 @@ function ability_shen_wai_shen_fa:OnSpellStart()
                         outgoing_damage_roshan		= nil,
                         duration		= self:GetSpecialValueFor("illusion_duration")
                     },
-                    1, -- num illusions
+                    1 + self:GetCaster():FindTalentValue("talent_extra_illusion", "bonus_illusions"), -- num illusions
                     108, --padding?
                     false, --scramble position
                     true) --find clear space

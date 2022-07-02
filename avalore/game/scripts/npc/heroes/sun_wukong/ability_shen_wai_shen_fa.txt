@@ -40,18 +40,18 @@
 			"03"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"illusion_outgoing_tooltip"			"40.0 50.0 60.0 70.0"
+				"illusion_outgoing_tooltip"			"30.0 40.0 50.0 60.0"
 			}
 			"04"
 			{
 				"var_type"							"FIELD_FLOAT"
 				"illusion_incoming_damage"			"220.0 220.0 220.0 220.0"
 			}
-			"05"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"illusion_incoming_damage_total_tooltip"			"320.0 320.0 320.0 320.0"
-			}	
+			// "05"
+			// {
+			// 	"var_type"							"FIELD_FLOAT"
+			// 	"illusion_incoming_damage_total_tooltip"			"320.0 320.0 320.0 320.0"
+			// }	
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
     }

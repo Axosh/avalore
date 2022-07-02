@@ -29,6 +29,10 @@
         "Ability13"                 "talent_13_5k_catties"
 
         "Ability14"                 "talent_adaptation"
+        "Ability15"                 "talent_extra_illusion"
+
+        "Ability16"                 "talent_rez_no_mana"
+        "Ability17"                 "talent_multiple_immortality"
 
         // Movement
 		//----------------------------------------------------------------

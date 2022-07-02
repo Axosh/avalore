@@ -25,7 +25,7 @@ local AbilityKV = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
 -- end
 
 function C_DOTA_BaseNPC:HasTalent(talentName)
-	if self and self:FindAbilityByName(talentName):GetLevel() > 0 then
+	if self and self:FindAbilityByName(talentName) and self:FindAbilityByName(talentName):GetLevel() > 0 then
         return true
 	end
 

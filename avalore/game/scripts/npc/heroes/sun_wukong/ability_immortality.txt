@@ -34,7 +34,7 @@
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"200 120 40"
-		"AbilityManaCost"				"160"
+		"AbilityManaCost"				"160" // this is used for hero loadout - overriden by mana_cost in game
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -44,6 +44,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"rez_time"		        "3.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_cost"				"160" //overridden with talent
 			}
         }
     }

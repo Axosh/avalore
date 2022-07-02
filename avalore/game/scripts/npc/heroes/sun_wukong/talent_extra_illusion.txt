@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-    "talent_shepherds_leap"
+    "talent_extra_illusion"
     {
         // General
 		//-------------------------------------------------------------------------------------------------------------
@@ -10,7 +10,7 @@
 
         "LinkedAbilty"
         {
-            "01" "ability_ruyi_jingu_bang"
+            "01" "ability_shen_wai_shen_fa"
         }
 
         // Special
@@ -21,7 +21,7 @@
             "01"
             {
                 "var_type"					"FIELD_INTEGER"
-                "bonus_distance"		    "800"
+                "bonus_illusions"		    "1"
             }
         }
     }

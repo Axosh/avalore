@@ -147,6 +147,9 @@
 #base "heroes/sun_wukong/talent_shepherds_leap.txt"
 #base "heroes/sun_wukong/talent_13_5k_catties.txt"
 #base "heroes/sun_wukong/talent_adaptation.txt"
+#base "heroes/sun_wukong/talent_extra_illusion.txt"
+#base "heroes/sun_wukong/talent_rez_no_mana.txt"
+#base "heroes/sun_wukong/talent_multiple_immortality.txt"
 
 // ===============================================================
 // THOR
