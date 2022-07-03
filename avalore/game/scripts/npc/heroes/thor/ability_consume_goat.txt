@@ -19,7 +19,7 @@
         // Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.25"
-		"AbilityChannelTime"			"3.0 3.0 3.0 3.0"
+		"AbilityChannelTime"			"3.0 3.0 3.0 3.0" //also change the Special value for the tooltip
 
         // Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
@@ -39,6 +39,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"heal_per_interval"		"20 30 40 50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"channel_time_tooltip"	"3.0"
 			}
         }
     }

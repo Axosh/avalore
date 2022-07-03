@@ -770,6 +770,10 @@
 		// ===== THOR ===== //
 		// ==============================================
 		"DOTA_Tooltip_Ability_ability_consume_goat"							"Consume Goat"
+		"DOTA_Tooltip_Ability_ability_consume_goat_description"				"Sacrifice a goat (and the movespeed it grants) to channel a heal"
+		"DOTA_Tooltip_Ability_ability_consume_goat_heal_interval"			"HEAL INTERVAL: "
+		"DOTA_Tooltip_Ability_ability_consume_goat_heal_per_interval"		"HEAL PER TICK: "
+		"DOTA_Tooltip_Ability_ability_consume_goat_channel_time_tooltip"	"CHANNEL TIME: "
 		"DOTA_Tooltip_Ability_ability_consume_goat_Lore"					"Thor would regularly kill, cook, eat, and resurrect his goats when he was hungry"
 
 		"DOTA_Tooltip_Ability_ability_hammer_toss"							"Hammer Toss"
@@ -779,6 +783,8 @@
 		"DOTA_Tooltip_Ability_ability_thunder_clap_Lore"					"Thor's claps were said to produce thunder. In another story, Thor reshapes the landscape by using his hammer to pound valleys into it."
 
 		"DOTA_Tooltip_Ability_ability_toothgnashers"						"Summon Toothgnashers"
+		"DOTA_Tooltip_Ability_ability_toothgnashers_description"			"Summons Thor's goats that pull his chariot. They are uncontrolled, untargetable units. While alive, they both grant a movespeed buff, but may be consumed to recover HP."
+		"DOTA_Tooltip_Ability_ability_toothgnashers_speed_per_goat"			"MS PER GOAT: "
 		"DOTA_Tooltip_Ability_ability_toothgnashers_Lore"					"Thor had two goats that pulled his chariot."
 
 		"DOTA_Tooltip_Ability_ability_thunder_gods_strength"				"Thunder God's Strength"
@@ -786,7 +792,10 @@
 
 		// -- Talents
 		"DOTA_Tooltip_Ability_talent_lightning_charged"						"Lightning Charged"
-		"DOTA_Tooltip_Ability_talent_lightning_charged_description"				"As Hammer Toss flies, will zap enemies within a 350 radius around the projectile for 150 lightning magic damage."
+		"DOTA_Tooltip_Ability_talent_lightning_charged_description"			"As Hammer Toss flies, will zap enemies within a 350 radius around the projectile for 150 lightning magic damage."
+
+		"DOTA_Tooltip_Ability_talent_aftershock"							"Aftershock"
+		"DOTA_Tooltip_Ability_talent_aftershock_description"				"Thunder Clap: mini-stuns in the same AOE for {s:stun_dur} sec"
 
 		// ==============================================
 		// ===== ANUBIS ===== //

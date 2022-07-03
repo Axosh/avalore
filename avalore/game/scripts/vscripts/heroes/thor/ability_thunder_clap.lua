@@ -2,6 +2,9 @@ ability_thunder_clap = ability_thunder_clap or class({})
 
 LinkLuaModifier( "modifier_erect_wall_thinker", "scripts/vscripts/heroes/gilgamesh/modifier_erect_wall_thinker.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_thunder_clap_debuff", "heroes/thor/modifier_thunder_clap_debuff.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
+-- Talents
+LinkLuaModifier("modifier_talent_aftershock", "heroes/thor/modifier_talent_aftershock.lua", LUA_MODIFIER_MOTION_NONE)
 
 
 function ability_thunder_clap:OnSpellStart()
@@ -43,6 +46,15 @@ function ability_thunder_clap:OnSpellStart()
 			ability = self
 		}
 		ApplyDamage( damage )
+
+		if self:GetCaster():HasTalent("talent_aftershock") then
+			enemy:AddNewModifier(
+					self:GetCaster(), -- player source
+					self, -- ability source
+					"modifier_avalore_stunned", -- modifier name
+					{ duration = self:GetCaster():FindTalentValue("talent_aftershock", "stun_dur") } -- kv
+				)
+		end
 
 		-- Add slow modifier
 		enemy:AddNewModifier(
