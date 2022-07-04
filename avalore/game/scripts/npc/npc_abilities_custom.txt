@@ -161,7 +161,7 @@
 #base "heroes/thor/ability_thunder_gods_strength.txt"
 // Talents
 #base "heroes/thor/talent_lightning_charged.txt"
-
+#base "heroes/thor/talent_fistfighter.txt"
 #base "heroes/thor/talent_aftershock.txt"
 
 // ===============================================================

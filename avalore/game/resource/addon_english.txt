@@ -629,8 +629,11 @@
 		"DOTA_Tooltip_Ability_ability_gunslinger_attack_range_bonus"		"BONUS RANGE: "
 		"DOTA_Tooltip_Ability_ability_gunslinger_buff_duration_tooltip"		"DURATION: "
 		"DOTA_Tooltip_Ability_ability_gunslinger_Lore"						"Pecos Bill is attributed with the creation of the six-shooter, and in wooing Slue-Foot Sue, he shot all the stars from the sky except one which became the 'Lone Star'."
+
 		"DOTA_Tooltip_modifier_gunslinger"									"Gunslinger"
 		"DOTA_Tooltip_modifier_gunslinger_description"						"+%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS% Attack Range, +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% Attack Speed, and deals %dMODIFIER_PROPERTY_OVERRIDE_ATTACK_DAMAGE% Fixed Attack Damage"
+
+		"DOTA_Tooltip_modifier_disarming_shot_tracker"						"Disarming Shot"
 
 
 		"DOTA_Tooltip_Ability_ability_wrangle"								"Wrangle"
@@ -777,7 +780,16 @@
 		"DOTA_Tooltip_Ability_ability_consume_goat_Lore"					"Thor would regularly kill, cook, eat, and resurrect his goats when he was hungry"
 
 		"DOTA_Tooltip_Ability_ability_hammer_toss"							"Hammer Toss"
+		"DOTA_Tooltip_Ability_ability_hammer_toss_description"				"Channel a powerful throw and hurl Mjollnir along a line. Distance thrown and stun time based on channel duration.\n ON HIT - the hammer will immediately return to Thor. \n On MISS - it will lodge in the ground for a short time leaving Thor DISARMED until it returns."
+		"DOTA_Tooltip_Ability_ability_hammer_toss_hammer_damage"			"DAMAGE: "
+		"DOTA_Tooltip_Ability_ability_hammer_toss_stun_min"					"STUN MIN: "
+		"DOTA_Tooltip_Ability_ability_hammer_toss_stun_max"					"STUN MAX: "
+		"DOTA_Tooltip_Ability_ability_hammer_toss_pause_duration"			"MISS DELAY: "
+		"DOTA_Tooltip_Ability_ability_hammer_toss_range"					"MAX RANGE: "
+		"DOTA_Tooltip_Ability_ability_hammer_toss_channel_time_tooltip"		"MAX CHANNEL TIME: "
 		"DOTA_Tooltip_Ability_ability_hammer_toss_Lore"						"When Thor threw Mjolnir it would return to him. It was also said to never miss, and produce thunderbolts."
+
+		"DOTA_Tooltip_modifier_no_hammer_debuff"							"Disarmed"
 
 		"DOTA_Tooltip_Ability_ability_thunder_clap"							"Thunder Clap"
 		"DOTA_Tooltip_Ability_ability_thunder_clap_Lore"					"Thor's claps were said to produce thunder. In another story, Thor reshapes the landscape by using his hammer to pound valleys into it."
@@ -793,6 +805,8 @@
 		// -- Talents
 		"DOTA_Tooltip_Ability_talent_lightning_charged"						"Lightning Charged"
 		"DOTA_Tooltip_Ability_talent_lightning_charged_description"			"As Hammer Toss flies, will zap enemies within a 350 radius around the projectile for 150 lightning magic damage."
+
+		"DOTA_Tooltip_Ability_talent_fistfighter"							"Fistfighter"
 
 		"DOTA_Tooltip_Ability_talent_aftershock"							"Aftershock"
 		"DOTA_Tooltip_Ability_talent_aftershock_description"				"Thunder Clap: mini-stuns in the same AOE for {s:stun_dur} sec"

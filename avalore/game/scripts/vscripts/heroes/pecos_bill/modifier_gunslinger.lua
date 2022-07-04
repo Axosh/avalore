@@ -85,6 +85,7 @@ function modifier_gunslinger:OnAttack(kv)
 		self:DecrementStackCount()
 		if self:GetParent():HasTalent("talent_disarming_shot") then
 			local debuff = kv.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_disarming_shot_tracker", {duration = self:GetParent():FindTalentValue("talent_disarming_shot", "linger_time")})
+			print("Stack Count = " .. tostring(debuff:GetStackCount()))
 			if debuff:GetStackCount() > (self:GetParent():FindTalentValue("talent_disarming_shot", "shots_to_disarm") - 1) then
 				kv.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_avalore_disarm", {duration = self:GetParent():FindTalentValue("talent_disarming_shot", "disarm_time")})
 			end

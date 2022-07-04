@@ -5,7 +5,7 @@ LinkLuaModifier("modifier_no_hammer", "heroes/thor/modifier_no_hammer.lua", LUA_
 LinkLuaModifier("modifier_hammer_toss_thinker", "heroes/thor/modifier_hammer_toss_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hammer_trail", "heroes/thor/modifier_hammer_trail.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
-
+LinkLuaModifier("modifier_talent_fistfighter", "heroes/thor/modifier_talent_fistfighter.lua", LUA_MODIFIER_MOTION_NONE)
 
 function ability_hammer_toss:Precache( context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_dawnbreaker.vsndevts", context )

@@ -21,7 +21,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		//"AbilityCastRange"				"1600"
 		"AbilityCastPoint"				"0.25"
-		"AbilityChannelTime"			"2.0 2.0 2.0 2.0"
+		"AbilityChannelTime"			"2.0 2.0 2.0 2.0" // also update tooltip in AbilitySpecial
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
@@ -60,41 +60,41 @@
 				"var_type"							"FIELD_INTEGER"
 				"flare_radius"					"150"
 			}
-			"06"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"move_slow"							"35"
-			}	
-			"07"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"burn_damage"						"20 30 40 50"
-			}	
-			"08"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"burn_interval"						"0.5"
-			}	
+			// "06"
+			// {
+			// 	"var_type"							"FIELD_INTEGER"
+			// 	"move_slow"							"35"
+			// }	
+			// "07"
+			// {
+			// 	"var_type"							"FIELD_INTEGER"
+			// 	"burn_damage"						"20 30 40 50"
+			// }	
+			// "08"
+			// {
+			// 	"var_type"							"FIELD_FLOAT"
+			// 	"burn_interval"						"0.5"
+			// }	
 			"09"
 			{
 				"var_type"							"FIELD_FLOAT"
 				"pause_duration"						"3"
 			}	
-			"10"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"hammer_aoe_radius"						"250"
-			}	
-			"11"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"travel_speed_pct"						"100"
-			}	
-			"12"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"return_anim_distance_threshold"						"300"
-			}
+			// "10"
+			// {
+			// 	"var_type"							"FIELD_INTEGER"
+			// 	"hammer_aoe_radius"						"250"
+			// }	
+			// "11"
+			// {
+			// 	"var_type"							"FIELD_INTEGER"
+			// 	"travel_speed_pct"						"100"
+			// }	
+			// "12"
+			// {
+			// 	"var_type"								"FIELD_INTEGER"
+			// 	"return_anim_distance_threshold"						"300"
+			// }
 			"13"	
 			{
 				"var_type"								"FIELD_INTEGER"
@@ -109,6 +109,11 @@
 			{
 				"var_type"							"FIELD_FLOAT"
 				"stun_max"							"2.0"
+			}
+			"16"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"channel_time_tooltip"				"2.0" //also change in KVs
 			}
 			// "14"
 			// {

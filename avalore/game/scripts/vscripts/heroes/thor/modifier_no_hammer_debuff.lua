@@ -1,5 +1,7 @@
 modifier_no_hammer_debuff = class({})
 
+LinkLuaModifier("modifier_talent_fistfighter", "heroes/thor/modifier_talent_fistfighter.lua", LUA_MODIFIER_MOTION_NONE)
+
 function modifier_no_hammer_debuff:IsHidden() return false end
 function modifier_no_hammer_debuff:IsDebuff() return true end
 function modifier_no_hammer_debuff:IsPurgable() return false end
@@ -9,8 +11,17 @@ function modifier_no_hammer_debuff:GetTexture()
     return "thor/no_hammer"
 end
 
-function modifier_no_hammer_debuff:OnCreated()
+function modifier_no_hammer_debuff:CheckState()
+    return  {
+                [MODIFIER_STATE_DISARMED] = self.disarmable
+            }
+end
+
+
+function modifier_no_hammer_debuff:OnCreated(kv)
+    self.disarmable = not self:GetParent():HasTalent("talent_fistfighter")
     if not IsServer() then return end
+    --self.disarm_debuff = kv.disarm_debuff
     self:GetCaster():AddActivityModifier("no_hammer")
     self:StartIntervalThink(FrameTime())
 end
@@ -31,9 +42,13 @@ function modifier_no_hammer_debuff:DeclareFunction()
             }
 end
 
-function modifier_no_hammer_debuff:GetModifierAttackSpeedBonus_Constant()
-    return -25
+function modifier_no_hammer_debuff:GetModifierBaseAttack_BonusDamage()
+    return -50
 end
+
+-- function modifier_no_hammer_debuff:GetModifierAttackSpeedBonus_Constant()
+--     return -25
+-- end
 
 -- use the fist-attack animation
 -- function modifier_no_hammer_debuff:GetActivityTranslationModifiers()

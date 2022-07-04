@@ -25,7 +25,7 @@
 
         //10-17 => Talents
         "Ability10"                 "talent_lightning_charged"
-        "Ability11"                 ""
+        "Ability11"                 "talent_fistfighter"
         "Ability12"                 "talent_aftershock"
         "Ability13"                 ""
 

@@ -44,4 +44,5 @@ function ability_toothgnashers:OnUpgrade()
    end
 
    self.consume:UpgradeAbility(true)
+   --TODO: Refresh modifier bonus
 end
