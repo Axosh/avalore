@@ -12,5 +12,16 @@
 		{
             "01"    "ability_hammer_toss"
         }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"                      "FIELD_INTEGER"
+                "disarmed_dmg_reduction_pct"    "50"
+            }
+        }
     }
 }

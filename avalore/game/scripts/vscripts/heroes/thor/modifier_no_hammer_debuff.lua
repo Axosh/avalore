@@ -43,7 +43,7 @@ function modifier_no_hammer_debuff:DeclareFunction()
 end
 
 function modifier_no_hammer_debuff:GetModifierBaseAttack_BonusDamage()
-    return -50
+    return (-1 * self:GetParent():FindTalentValue("talent_fistfighter", "disarmed_dmg_reduction_pct"))
 end
 
 -- function modifier_no_hammer_debuff:GetModifierAttackSpeedBonus_Constant()
