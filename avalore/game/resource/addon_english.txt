@@ -792,6 +792,10 @@
 		"DOTA_Tooltip_modifier_no_hammer_debuff"							"Disarmed"
 
 		"DOTA_Tooltip_Ability_ability_thunder_clap"							"Thunder Clap"
+		"DOTA_Tooltip_Ability_ability_thunder_clap_description"				"Creates a movement blocking set of hills in a semi-circle in front of Thor and movement slow to enemies within the radius."
+		"DOTA_Tooltip_Ability_ability_thunder_clap_block_duration"			"BLOCK DURATION: "
+		"DOTA_Tooltip_Ability_ability_thunder_clap_radius"					"RADIUS: "
+		"DOTA_Tooltip_Ability_ability_thunder_clap_movement_slow"			"MOVE SLOW: "
 		"DOTA_Tooltip_Ability_ability_thunder_clap_Lore"					"Thor's claps were said to produce thunder. In another story, Thor reshapes the landscape by using his hammer to pound valleys into it."
 
 		"DOTA_Tooltip_Ability_ability_toothgnashers"						"Summon Toothgnashers"
