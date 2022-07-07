@@ -804,6 +804,9 @@
 		"DOTA_Tooltip_Ability_ability_toothgnashers_Lore"					"Thor had two goats that pulled his chariot."
 
 		"DOTA_Tooltip_Ability_ability_thunder_gods_strength"				"Thunder God's Strength"
+		"DOTA_Tooltip_Ability_ability_thunder_gods_strength_description"	"Summon's all Thor's strength for a short duration of time to give a massive damage amplification."
+		"DOTA_Tooltip_Ability_ability_thunder_gods_strength_duration"		"DURATION: "
+		"DOTA_Tooltip_Ability_ability_thunder_gods_strength_damage_amp"		"DAMAGE AMP: "
 		"DOTA_Tooltip_Ability_ability_thunder_gods_strength_Lore"			"Thor was known for his strength and loved to fight"
 
 		// -- Talents
