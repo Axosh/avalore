@@ -1,0 +1,27 @@
+"DOTAAbilities"
+{
+    "talent_shared_sustenance"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbility"
+		{
+            "01"    "ability_toothgnashers"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"              "FIELD_INTEGER"
+                "heal_radius"           "500"
+            }
+        }
+    }
+}

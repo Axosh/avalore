@@ -28,6 +28,7 @@
         "Ability11"                 "talent_fistfighter"
         "Ability12"                 "talent_aftershock"
         "Ability13"                 ""
+        "Ability14"                 "talent_shared_sustenance"
 
         // Movement
 		//----------------------------------------------------------------

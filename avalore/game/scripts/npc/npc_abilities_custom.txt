@@ -164,6 +164,8 @@
 #base "heroes/thor/talent_fistfighter.txt"
 #base "heroes/thor/talent_aftershock.txt"
 
+#base "heroes/thor/talent_shared_sustenance.txt"
+
 // ===============================================================
 // ANUBIS
 // ===============================================================
