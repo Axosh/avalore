@@ -818,6 +818,9 @@
 		"DOTA_Tooltip_Ability_talent_aftershock"							"Aftershock"
 		"DOTA_Tooltip_Ability_talent_aftershock_description"				"Thunder Clap: mini-stuns in the same AOE for {s:stun_dur} sec"
 
+		"DOTA_Tooltip_Ability_talent_shared_sustenance"						"Shared Sustenance"
+		"DOTA_Tooltip_Ability_talent_shared_sustenance_description"			"Consume Goat: heals allies within a {s:heal_radius} radius for the same amount"
+
 		// ==============================================
 		// ===== ANUBIS ===== //
 		// ==============================================

@@ -11,6 +11,14 @@ function ability_consume_goat:OnSpellStart()
     if goat_count:GetStackCount() > 0 then
         self.modifier = caster:AddNewModifier(caster, self, "modifier_consume_goat", {duration = self:GetChannelTime()})
         goat_count:DecrementStackCount()
+
+        if self:GetCaster():HasTalent("talent_shared_sustenance") then
+            self.radius = self:GetCaster():FindTalentValue("talent_shared_sustenance", "heal_radius")
+            self.mainParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_witchdoctor/witchdoctor_voodoo_restoration.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
+            ParticleManager:SetParticleControlEnt(self.mainParticle, 0, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_staff", self:GetCaster():GetAbsOrigin(), true)
+            ParticleManager:SetParticleControl(self.mainParticle, 1, Vector( self.radius, self.radius, self.radius ) )
+            ParticleManager:SetParticleControlEnt(self.mainParticle, 2, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_staff", self:GetCaster():GetAbsOrigin(), true)
+        end
     else
         self:EndCooldown()
     end
@@ -20,5 +28,10 @@ function ability_consume_goat:OnChannelFinish(bInstrrupted)
     if self.modifier then
         self.modifier:Destroy()
         self.modifier = nil
+    end
+
+    if self.mainParticle then
+        ParticleManager:DestroyParticle(self.mainParticle, false)
+        ParticleManager:ReleaseParticleIndex(self.mainParticle)
     end
 end
