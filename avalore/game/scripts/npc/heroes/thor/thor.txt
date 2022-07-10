@@ -29,6 +29,7 @@
         "Ability12"                 "talent_aftershock"
         "Ability13"                 ""
         "Ability14"                 "talent_shared_sustenance"
+        "Ability15"                 "talent_replenish"
 
         // Movement
 		//----------------------------------------------------------------

@@ -30,6 +30,6 @@ function modifier_consume_goat:OnIntervalThink()
         end
     else
         self:GetParent():Heal(self.heal_per_interval, self:GetCaster())
-    SendOverheadEventMessage(self:GetParent(), OVERHEAD_ALERT_HEAL, self:GetParent(), self.heal_per_interval, self:GetParent())
+        SendOverheadEventMessage(self:GetParent(), OVERHEAD_ALERT_HEAL, self:GetParent(), self.heal_per_interval, self:GetParent())
     end
 end
