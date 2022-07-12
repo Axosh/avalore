@@ -3,7 +3,7 @@ ability_toothgnashers = class({})
 LinkLuaModifier("modifier_toothgnashers_counter", "heroes/thor/modifier_toothgnashers_counter.lua", LUA_MODIFIER_MOTION_NONE)
 -- TALENTS
 LinkLuaModifier("modifier_talent_replenish", "heroes/thor/modifier_talent_replenish.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_talent_replenish", "heroes/thor/modifier_talent_replenish.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_replenish_counter", "heroes/thor/modifier_replenish_counter.lua", LUA_MODIFIER_MOTION_NONE)
 
 
 function ability_toothgnashers:OnCreated()
@@ -16,7 +16,7 @@ function ability_toothgnashers:GetAbilityTextureName()
     --print(tostring(self:GetCaster()))
     if self:GetCaster():HasTalent("talent_replenish") then
         --return ("thor/toothgnashers" .. tostring(self.replenish_stacks));
-        return ("thor/toothgnashers" .. tostring(self:GetCaster():GetModifierStackCount(""))))
+        return ("thor/toothgnashers" .. tostring(self:GetCaster():GetModifierStackCount("modifier_replenish_counter", nil)))
     else
         return "thor/toothgnashers"
     end
@@ -41,7 +41,7 @@ function ability_toothgnashers:OnSpellStart()
             caster:FindModifierByName("modifier_toothgnashers_counter"):IncrementStackCount()
             self:PlayEffects()
 
-            if self:GetCaster():HasTalent("talent_replenish") and (self.replenish_stacks) > 0 then
+            if self:GetCaster():HasTalent("talent_replenish") and (self:GetCaster():GetModifierStackCount("modifier_replenish_counter", nil)) > 0 then
                 self:EndCooldown()
                 --self.replenish_stacks = self.replenish_stacks - 1
                 self.replenish_counter:DecrementStackCount()
@@ -69,6 +69,7 @@ function ability_toothgnashers:SetupStacks()
     if IsServer() then
         self.replenish_counter      = self:GetCaster():FindModifierByName("modifier_replenish_counter")
         self.replenish_counter:SetStackCount(self.replenish_stacks_max)
+        print("Set Counter to .. " ..  tostring(self.replenish_stacks_max))
     end
     self.replenish_timer        = 0 -- start counting up towards the ability's cooldown
 
