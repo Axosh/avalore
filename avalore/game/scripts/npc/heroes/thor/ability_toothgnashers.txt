@@ -4,7 +4,7 @@
     {
         "BaseClass"						"ability_lua"
         "ScriptFile"					"heroes/thor/ability_toothgnashers.lua"
-        //"AbilityTextureName"			"thor/toothgnashers"
+        "AbilityTextureName"			"thor/toothgnashers"
         "FightRecapLevel"				"1"
 		"MaxLevel"						"4"
 

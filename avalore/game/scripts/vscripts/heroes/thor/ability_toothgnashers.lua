@@ -12,15 +12,16 @@ function ability_toothgnashers:OnCreated()
     end
 end
 
-function ability_toothgnashers:GetAbilityTextureName()
-    --print(tostring(self:GetCaster()))
-    if self:GetCaster():HasTalent("talent_replenish") then
-        --return ("thor/toothgnashers" .. tostring(self.replenish_stacks));
-        return ("thor/toothgnashers" .. tostring(self:GetCaster():GetModifierStackCount("modifier_replenish_counter", nil)))
-    else
-        return "thor/toothgnashers"
-    end
-end
+-- function ability_toothgnashers:GetAbilityTextureName()
+--     --print(tostring(self:GetCaster()))
+--     if self:GetCaster():HasTalent("talent_replenish") then
+--         --return ("thor/toothgnashers" .. tostring(self.replenish_stacks));
+--         print("thor/toothgnashers" .. tostring(self:GetCaster():GetModifierStackCount("modifier_replenish_counter", nil)))
+--         return ("thor/toothgnashers" .. tostring(self:GetCaster():GetModifierStackCount("modifier_replenish_counter", nil)))
+--     else
+--         return "thor/toothgnashers"
+--     end
+-- end
 
 -- NOTE: OnSpellStart only fires on server-side
 function ability_toothgnashers:OnSpellStart()
@@ -68,8 +69,8 @@ function ability_toothgnashers:SetupStacks()
     --self.replenish_counter      = self:GetCaster():FindModifierByName("modifier_replenish_counter")
     if IsServer() then
         self.replenish_counter      = self:GetCaster():FindModifierByName("modifier_replenish_counter")
-        self.replenish_counter:SetStackCount(self.replenish_stacks_max)
-        print("Set Counter to .. " ..  tostring(self.replenish_stacks_max))
+    --     self.replenish_counter:SetStackCount(self.replenish_stacks_max)
+    --     print("Set Counter to .. " ..  tostring(self.replenish_stacks_max))
     end
     self.replenish_timer        = 0 -- start counting up towards the ability's cooldown
 

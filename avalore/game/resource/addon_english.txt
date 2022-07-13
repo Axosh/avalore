@@ -822,6 +822,7 @@
 		"DOTA_Tooltip_Ability_talent_shared_sustenance_description"			"Consume Goat: heals allies within a {s:heal_radius} radius for the same amount"
 
 		"DOTA_Tooltip_Ability_talent_replenish"								"Replenish"
+		"DOTA_Tooltip_modifier_replenish_counter"							"Replenish Summons"
 
 		// ==============================================
 		// ===== ANUBIS ===== //
