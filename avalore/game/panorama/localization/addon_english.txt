@@ -45,4 +45,7 @@
 
 	"objective_round4_boss"							"The Beast Has Been Slain +50 Points"
 	"objective_round4_shields_down"					"The protective towers are down, The Beast is vulnerable"
+
+
+	"DOTA_HUD_Error_no_goats"						"No goats to consume!"
 }

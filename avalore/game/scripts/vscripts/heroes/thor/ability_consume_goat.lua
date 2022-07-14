@@ -2,13 +2,28 @@ ability_consume_goat = class({})
 
 LinkLuaModifier("modifier_consume_goat", "heroes/thor/modifier_consume_goat.lua", LUA_MODIFIER_MOTION_NONE)
 
+function ability_consume_goat:CastFilterResult()
+    local goat_count = self:GetCaster():FindModifierByName("modifier_toothgnashers_counter")
+
+    if goat_count and goat_count:GetStackCount() > 0 then
+        return UF_SUCCESS
+    else
+        return UF_FAIL_CUSTOM
+    end
+end
+
+function ability_consume_goat:GetCustomCastError()
+    return "DOTA_HUD_Error_no_goats"
+end
+
+
 function ability_consume_goat:OnSpellStart()
     local caster = self:GetCaster()
 
     if not IsServer() then return end
     local goat_count = caster:FindModifierByName("modifier_toothgnashers_counter")
 
-    if goat_count:GetStackCount() > 0 then
+    if goat_count and goat_count:GetStackCount() > 0 then
         self.modifier = caster:AddNewModifier(caster, self, "modifier_consume_goat", {duration = self:GetChannelTime()})
         goat_count:DecrementStackCount()
 
