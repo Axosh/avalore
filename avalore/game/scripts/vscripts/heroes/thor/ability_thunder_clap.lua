@@ -5,6 +5,7 @@ LinkLuaModifier("modifier_thunder_clap_debuff", "heroes/thor/modifier_thunder_cl
 LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
 -- Talents
 LinkLuaModifier("modifier_talent_aftershock", "heroes/thor/modifier_talent_aftershock.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_tectonic_force", "heroes/thor/modifier_talent_tectonic_force.lua", LUA_MODIFIER_MOTION_NONE)
 
 
 function ability_thunder_clap:OnSpellStart()
@@ -181,7 +182,7 @@ end
 -- https://moddota.com/scripting/vector-math/
 function ability_thunder_clap:MakeBlockers(caster)
     --local blocks = 8
-    local block_duration  = self:GetSpecialValueFor("block_duration")
+    local block_duration  = self:GetSpecialValueFor("block_duration") + self:GetCaster():FindTalentValue("talent_tectonic_force", "bonus_duration")
     local numPoints = 24
     local caster_facing = caster:GetForwardVector()
     local radius = self:GetSpecialValueFor("radius")

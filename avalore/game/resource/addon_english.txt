@@ -818,6 +818,9 @@
 		"DOTA_Tooltip_Ability_talent_aftershock"							"Aftershock"
 		"DOTA_Tooltip_Ability_talent_aftershock_description"				"Thunder Clap: mini-stuns in the same AOE for {s:stun_dur} sec"
 
+		"DOTA_Tooltip_Ability_talent_tectonic_force"						"Tectonic Force"
+		"DOTA_Tooltip_Ability_talent_tectonic_force_description"			"Thunder Clap: strikes with the power to form mountains and adds {s:bonus_duration} seconds to the blocker duration"
+
 		"DOTA_Tooltip_Ability_talent_shared_sustenance"						"Shared Sustenance"
 		"DOTA_Tooltip_Ability_talent_shared_sustenance_description"			"Consume Goat: heals allies within a {s:heal_radius} radius for the same amount"
 
