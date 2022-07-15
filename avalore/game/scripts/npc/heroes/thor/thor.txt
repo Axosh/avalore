@@ -27,7 +27,7 @@
         "Ability10"                 "talent_lightning_charged"
         "Ability11"                 "talent_fistfighter"
         "Ability12"                 "talent_aftershock"
-        "Ability13"                 ""
+        "Ability13"                 "talent_tectonic_force"
         "Ability14"                 "talent_shared_sustenance"
         "Ability15"                 "talent_replenish"
 

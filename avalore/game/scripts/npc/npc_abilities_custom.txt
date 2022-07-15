@@ -163,7 +163,7 @@
 #base "heroes/thor/talent_lightning_charged.txt"
 #base "heroes/thor/talent_fistfighter.txt"
 #base "heroes/thor/talent_aftershock.txt"
-
+#bsae "heroes/thor/talent_tectonic_force.txt"
 #base "heroes/thor/talent_shared_sustenance.txt"
 #base "heroes/thor/talent_replenish.txt"
 
