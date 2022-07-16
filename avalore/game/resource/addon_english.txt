@@ -827,6 +827,9 @@
 		"DOTA_Tooltip_Ability_talent_replenish"								"Replenish"
 		"DOTA_Tooltip_modifier_replenish_counter"							"Replenish Summons"
 
+		"DOTA_Tooltip_Ability_talent_brute_strength"						"Brute Strength"
+		"DOTA_Tooltip_Ability_talent_brute_strength_description"			"Thunder God's Strength: +{s:bonus_amp} damage amplification"
+
 		// ==============================================
 		// ===== ANUBIS ===== //
 		// ==============================================

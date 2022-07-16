@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_talent_brute_strength", "heroes/thor/modifier_talent_brute_strength.lua", LUA_MODIFIER_MOTION_NONE)
+
 modifier_thunder_gods_strength_buff = class({})
 
 function modifier_thunder_gods_strength_buff:IsPurgable() return false end
@@ -19,7 +21,7 @@ function modifier_thunder_gods_strength_buff:HeroEffectPriority()
 end
 
 function modifier_thunder_gods_strength_buff:OnCreated( kv )
-	self.gods_strength_damage = self:GetAbility():GetSpecialValueFor( "damage_amp" )
+	self.gods_strength_damage = self:GetAbility():GetSpecialValueFor( "damage_amp" ) + self:GetCaster():FindTalentValue("talent_brute_strength", "bonus_amp")
 
 	if IsServer() then
 		local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_sven/sven_spell_gods_strength_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
@@ -30,7 +32,7 @@ function modifier_thunder_gods_strength_buff:OnCreated( kv )
 end
 
 function modifier_thunder_gods_strength_buff:OnRefresh( kv )
-	self.gods_strength_damage = self:GetAbility():GetSpecialValueFor( "damage_amp" )
+	self.gods_strength_damage = self:GetAbility():GetSpecialValueFor( "damage_amp" ) + self:GetCaster():FindTalentValue("talent_brute_strength", "bonus_amp")
 end
 
 function modifier_thunder_gods_strength_buff:DeclareFunctions()

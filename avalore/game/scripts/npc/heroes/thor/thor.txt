@@ -30,6 +30,7 @@
         "Ability13"                 "talent_tectonic_force"
         "Ability14"                 "talent_shared_sustenance"
         "Ability15"                 "talent_replenish"
+        "Ability16"                 "talent_brute_strength"
 
         // Movement
 		//----------------------------------------------------------------

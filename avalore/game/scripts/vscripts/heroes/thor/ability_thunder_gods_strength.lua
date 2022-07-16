@@ -3,6 +3,9 @@ ability_thunder_gods_strength = class({})
 LinkLuaModifier("modifier_thunder_gods_strength_buff", "heroes/thor/modifier_thunder_gods_strength_buff.lua", LUA_MODIFIER_MOTION_NONE)
 --LinkLuaModifier("modifier_thunder_gods_strength_observer", "heroes/thor/modifier_thunder_gods_strength_observer.lua", LUA_MODIFIER_MOTION_NONE)
 
+-- Talents
+LinkLuaModifier("modifier_talent_brute_strength", "heroes/thor/modifier_talent_brute_strength.lua", LUA_MODIFIER_MOTION_NONE)
+
 
 function ability_thunder_gods_strength:OnSpellStart()
     EmitSoundOn( "Hero_Dawnbreaker.Solar_Guardian.BlastOff", self:GetCaster() )
