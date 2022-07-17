@@ -5,6 +5,7 @@ LinkLuaModifier("modifier_thunder_gods_strength_buff", "heroes/thor/modifier_thu
 
 -- Talents
 LinkLuaModifier("modifier_talent_brute_strength", "heroes/thor/modifier_talent_brute_strength.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_toughness", "heroes/thor/modifier_talent_toughness.lua", LUA_MODIFIER_MOTION_NONE)
 
 
 function ability_thunder_gods_strength:OnSpellStart()

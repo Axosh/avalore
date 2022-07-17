@@ -31,6 +31,7 @@
         "Ability14"                 "talent_shared_sustenance"
         "Ability15"                 "talent_replenish"
         "Ability16"                 "talent_brute_strength"
+        "Ability17"                 "talent_toughness"
 
         // Movement
 		//----------------------------------------------------------------

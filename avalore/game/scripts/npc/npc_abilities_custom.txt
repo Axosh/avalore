@@ -167,6 +167,7 @@
 #base "heroes/thor/talent_shared_sustenance.txt"
 #base "heroes/thor/talent_replenish.txt"
 #base "heroes/thor/talent_brute_strength.txt"
+#base "heroes/thor/talent_toughness.txt"
 
 // ===============================================================
 // ANUBIS

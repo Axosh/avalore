@@ -606,7 +606,7 @@
 		"DOTA_Tooltip_modifier_benevolence_aura_description"				"Granting bonus base attack damage to nearby allies"
 
 		"DOTA_Tooltip_modifier_benevolence_aura_buff"						"Benevolence"
-		"DOTA_Tooltip_modifier_benevolence_aura_buff_description"			"Receiving +%dMODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE%% bonus base attack damage"
+		"DOTA_Tooltip_modifier_benevolence_aura_buff_description"			"Receiving +%dMODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE%%% bonus base attack damage"
 
 
 		// ==============================================
@@ -687,7 +687,7 @@
 		"DOTA_Tooltip_modifier_dust_devil_description"						"Harder to hit and slowing nearby units"
 
 		"DOTA_Tooltip_modifier_dust_devil_debuff"							"Dust Devil"
-		"DOTA_Tooltip_modifier_dust_devil_debuff_description"				"Being slowed by -%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%"
+		"DOTA_Tooltip_modifier_dust_devil_debuff_description"				"Being slowed by -%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		// ==============================================
 		// ===== SUN WUKONG ===== //
@@ -809,11 +809,15 @@
 		"DOTA_Tooltip_Ability_ability_thunder_gods_strength_damage_amp"		"DAMAGE AMP: "
 		"DOTA_Tooltip_Ability_ability_thunder_gods_strength_Lore"			"Thor was known for his strength and loved to fight"
 
+		"DOTA_Tooltip_modifier_thunder_gods_strength_buff"					"Thunder God's Strength"
+		"DOTA_Tooltip_modifier_thunder_gods_strength_buff_description"		"+%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% Damage Amp, %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resist, %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% Damage Taken"
+
 		// -- Talents
 		"DOTA_Tooltip_Ability_talent_lightning_charged"						"Lightning Charged"
 		"DOTA_Tooltip_Ability_talent_lightning_charged_description"			"As Hammer Toss flies, will zap enemies within a 350 radius around the projectile for 150 lightning magic damage."
 
 		"DOTA_Tooltip_Ability_talent_fistfighter"							"Fistfighter"
+		"DOTA_Tooltip_Ability_talent_fistfighter_description"				"Basic disarms (including Hammer Toss) are instead a {s:disarmed_dmg_reduction_pct}% damage reduction instad of a disarm"
 
 		"DOTA_Tooltip_Ability_talent_aftershock"							"Aftershock"
 		"DOTA_Tooltip_Ability_talent_aftershock_description"				"Thunder Clap: mini-stuns in the same AOE for {s:stun_dur} sec"
@@ -829,6 +833,9 @@
 
 		"DOTA_Tooltip_Ability_talent_brute_strength"						"Brute Strength"
 		"DOTA_Tooltip_Ability_talent_brute_strength_description"			"Thunder God's Strength: +{s:bonus_amp} damage amplification"
+
+		"DOTA_Tooltip_Ability_talent_toughness"								"Toughness"
+		"DOTA_Tooltip_Ability_talent_toughness_description"					"Thunder God's Strength: -{s:damage_reduction} damage taken and +{s:status_resist}% status resist for duration"
 
 		// ==============================================
 		// ===== ANUBIS ===== //
