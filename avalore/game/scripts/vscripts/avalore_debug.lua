@@ -114,6 +114,8 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
         hero:SetGold(gold, true)
     elseif input == "debug loc" then
         IsOnRadiantSide(hero:GetAbsOrigin().x, hero:GetAbsOrigin().y)
+    elseif input == "status resist" then
+        print("Status Resist = " .. tostring(hero:GetStatusResistance()))
     end
     
 end
