@@ -849,7 +849,12 @@
 		"DOTA_Tooltip_Ability_ability_embalm_mummy_duration"			"SUMMON DURATION: "
 		"DOTA_Tooltip_Ability_ability_embalm_Lore"						"Anubis (Greek form of Anpu - the Eyptian word for 'to decay') was a God of Death - associated with mummification and embalming among other things. Helped rebuild Osiris' body and presided over the first mummification."
 
-		"DOTA_Tooltip_Ability_ability_guardian_of_the_scales"			"Guardian of the Scales"
+		"DOTA_Tooltip_Ability_ability_guardian_of_the_scales"				"Guardian of the Scales"
+		"DOTA_Tooltip_Ability_ability_guardian_of_the_scales_description"	"Purges debuffs and stuns on cast, then applies a modifier that counts damage taken and damage given to the target. At the end of the duration:\nIf Target Takes More Damage: Healed\nIf Target Deals More Damage: Dealt a PURE damage nuke"
+		"DOTA_Tooltip_Ability_ability_guardian_of_the_scales_duration"		"DURATION: "
+		"DOTA_Tooltip_Ability_ability_guardian_of_the_scales_max_damage"	"MAX DMG: "
+		"DOTA_Tooltip_Ability_ability_guardian_of_the_scales_max_healing"	"MAX HEAL: "
+		"DOTA_Tooltip_Ability_ability_guardian_of_the_scales_Lore"			"Weighed the deceaseds' hearts against a feather of Maat. If it was heavier, the soul was fed to Ammit. If it was lighter, the soul would go before Osiris and be admitted to Sekhet-Aaru (field of reeds)."
 
 		"DOTA_Tooltip_Ability_ability_protector_of_tombs"				"Protector of Tombs"
 

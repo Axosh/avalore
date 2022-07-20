@@ -10,6 +10,7 @@ function ability_guardian_of_the_scales:OnSpellStart()
 
     self:GetCaster():EmitSound("Hero_Oracle.FalsePromise.Cast") --idk if this will be the final sound or not
 
+    -- Purge(removePositiveBuffs, removeDebuffs, frameOnly, removeStuns, removeExceptions)
     target:Purge(false, true, false, true, true)
 
     target:AddNewModifier(
