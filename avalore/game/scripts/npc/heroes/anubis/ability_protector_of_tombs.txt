@@ -54,7 +54,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"1200"
+				"radius"				"900"
 			}
 			"05"
 			{
@@ -66,6 +66,17 @@
 				"var_type"				"FIELD_FLOAT"
 				"trees_destroy_radius"	"300"
 			}
+			// the actual values for these are in anubis/subability_tomb_aura.txt
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_bonus_move_speed_pct"	"35"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_bonus_attack_speed"	"200"
+			}	
         }
     }
 }

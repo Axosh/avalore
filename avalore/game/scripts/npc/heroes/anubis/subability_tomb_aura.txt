@@ -19,7 +19,8 @@
 				"var_type"				"FIELD_INTEGER"
 				"radius"				"900"
 			}
-            "03"
+			// remember to update the tooltips in anubis/ability_protector_of_tombs.txt
+            "02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_move_speed_pct"	"35"
