@@ -866,6 +866,11 @@
 
 
 		"DOTA_Tooltip_Ability_ability_necromancy"						"Necromancy"
+		"DOTA_Tooltip_Ability_ability_necromancy_description"			"Allied heroes that die within the radius will return as wraiths that are able to continue fighting with reduced damage for a short period of time."
+		"DOTA_Tooltip_Ability_ability_necromancy_radius"				"RADIUS: "
+		"DOTA_Tooltip_Ability_ability_necromancy_duration"				"DURATION: "
+		"DOTA_Tooltip_Ability_ability_necromancy_outgoing_damage_pct"	"OUTGOING DMG PCT: "
+		"DOTA_Tooltip_Ability_ability_necromancy_Lore"					"In the Post-Late Period (664-30 BCE), Anubis became associated with necromancers - spells invoked Anubis to fetch spirits from the underworld."
 
 
 
