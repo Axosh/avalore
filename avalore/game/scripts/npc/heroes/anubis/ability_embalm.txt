@@ -19,7 +19,7 @@
         
         // Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
-		//"AbilityCastRange"				"600"
+		"AbilityCastRange"				"900"
 		"AbilityCastPoint"				"0.45 0.45 0.45 0.45"
 		"AbilityChannelTime"			"5"
 		"AbilityDuration"				"5.0"

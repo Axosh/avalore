@@ -33,10 +33,15 @@ function modifier_embalm_thinker:OnIntervalThink()
     -- PrintTable(self.resurrected)
     -- print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
+    local particle_spawn = "particles/units/heroes/hero_undying/undying_zombie_spawn.vpcf"
     local corpse_spawn_callback = function(unit)
         unit:SetRenderColor(0,255,0) --green
         unit:SetControllableByPlayer(self.caster_id, false ) -- (playerID, bSkipAdjustingPosition)
         unit:AddNewModifier(self:GetCaster(), nil, "modifier_mummy", {duration = self.mummy_duration})
+
+        local particle_cast_fx = ParticleManager:CreateParticle(particle_spawn, PATTACH_ABSORIGIN, unit)
+        ParticleManager:SetParticleControl(particle_cast_fx, 0 , unit:GetAbsOrigin())
+        ParticleManager:ReleaseParticleIndex(particle_cast_fx)
     end
 
     for id,unitinfo in pairs(corpses) do

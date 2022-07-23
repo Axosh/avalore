@@ -9,10 +9,16 @@ LinkLuaModifier("modifier_mummy",    		  "scripts/vscripts/heroes/anubis/modifie
 --     self.mod_corpse_count = self:GetOwner():AddNewModifier(self:GetOwner(), self, "modifier_corpse_tracker", {})
 -- end
 
+-- function ability_embalm:GetCastRange(vLocation, npcTarget)
+-- 	return self.radius
+-- end
+
+
 function ability_embalm:OnSpellStart()
     local caster = self:GetCaster()
 	local ability = self
     local duration = self:GetSpecialValueFor("duration")
+	self.radius = self:GetSpecialValueFor("radius")
 
 	caster:StopAnimation()
 	caster:StartGestureWithPlaybackRate(ACT_DOTA_OVERRIDE_ABILITY_1, 5)

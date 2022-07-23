@@ -18,13 +18,17 @@ function modifier_corpse_tracker:OnCreated(kv)
     self:StartIntervalThink(FrameTime())
 end
 
+-- TODO: this might be better suited in the event when a unit dies - however, have some
+--       concerns about race conditions + being able to lock the array while it is in
+--       use by one function or the other
 function modifier_corpse_tracker:OnIntervalThink()
     -- find nearby dead units and see if they need to be added to the collection
     -- have to do this because dota only remembers units for 4 seconds after death
     local units = FindUnitsInRadius(self:GetCaster():GetTeamNumber(),   -- your team
                                     self:GetParent():GetAbsOrigin(),    -- your location
                                     nil,                                -- cacheUnit
-                                    self.radius,                        -- radius
+                                    -- use radius of whole map basically?
+                                    FIND_UNITS_EVERYWHERE, --self.radius,                        -- radius
                                     DOTA_UNIT_TARGET_TEAM_BOTH,     -- target team filter
                                     DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,              -- target type filter
                                     DOTA_UNIT_TARGET_FLAG_DEAD,         -- unit target flags

@@ -842,7 +842,7 @@
 		// ==============================================
 
 		"DOTA_Tooltip_Ability_ability_embalm"								"Embalm"
-		"DOTA_Tooltip_Ability_ability_embalm_description"					"Channels in a radius around him, bringing back mummified versions of all recently slain units for a set limit of time."
+		"DOTA_Tooltip_Ability_ability_embalm_description"					"Channels in a radius around him, bringing back controllable mummified versions of all recently slain units for a set limit of time."
 		"DOTA_Tooltip_Ability_ability_embalm_duration"						"CHANNEL TIME: "
 		"DOTA_Tooltip_Ability_ability_embalm_radius"						"RADIUS: "
 		"DOTA_Tooltip_Ability_ability_embalm_corpse_freshness"				"CORPSE TIMER: "
