@@ -1,5 +1,7 @@
 modifier_corpse_tracker = class({})
 
+LinkLuaModifier("modifier_talent_embalming_mastery",    		  "scripts/vscripts/heroes/anubis/modifier_talent_embalming_mastery.lua", LUA_MODIFIER_MOTION_NONE)
+
 function modifier_corpse_tracker:IsHidden() return true end
 function modifier_corpse_tracker:IsPurgable() return false end
 function modifier_corpse_tracker:RemoveOnDeath() return false end
@@ -36,8 +38,8 @@ function modifier_corpse_tracker:OnIntervalThink()
                                     false)                              -- can grow cache
 
     for _,unit in pairs(units) do
-        -- double checking IsAlive because that seems to derp out
-        if not unit:IsAlive() and not unit["corpse_indexed"] then
+        -- double checking IsAlive because that seems to derp out; also make sure this isn't one of Anubis' mummies
+        if not unit:IsAlive() and not unit["corpse_indexed"] and not (unit:GetPlayerOwnerID() == self:GetCaster():GetPlayerOwnerID()) then
             --self.corpses[unit:GetEntityIndex()] = {}
             unit["corpse_indexed"] = true
             unit["corpse_id"] = self.corpse_id -- may need to find a way to lock this while being used/incremented
@@ -56,7 +58,7 @@ function modifier_corpse_tracker:OnIntervalThink()
     -- prune corpses that are too old
     local temp = {}
     for id,unitinfo in pairs(self.corpses) do
-        if (GameRules:GetGameTime() - unitinfo["gametime"]) < self.freshness then
+        if (GameRules:GetGameTime() - unitinfo["gametime"]) < (self.freshness + self:GetCaster():FindTalentValue("talent_embalming_mastery", "bonus_cache_time")) then
             temp[id] = {}
             temp[id]["gametime"] = unitinfo["gametime"]
             temp[id]["unitname"] = unitinfo["unitname"]

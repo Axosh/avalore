@@ -1,5 +1,7 @@
 modifier_embalm_thinker = class({})
 
+LinkLuaModifier("modifier_talent_embalming_mastery",    		  "scripts/vscripts/heroes/anubis/modifier_talent_embalming_mastery.lua", LUA_MODIFIER_MOTION_NONE)
+
 function modifier_embalm_thinker:IsPurgable()	return false end
 function modifier_embalm_thinker:IsDebuff() return false end
 
@@ -37,7 +39,7 @@ function modifier_embalm_thinker:OnIntervalThink()
     local corpse_spawn_callback = function(unit)
         unit:SetRenderColor(0,255,0) --green
         unit:SetControllableByPlayer(self.caster_id, false ) -- (playerID, bSkipAdjustingPosition)
-        unit:AddNewModifier(self:GetCaster(), nil, "modifier_mummy", {duration = self.mummy_duration})
+        unit:AddNewModifier(self:GetCaster(), nil, "modifier_mummy", {duration = self.mummy_duration + self:GetCaster():FindTalentValue("talent_embalming_mastery", "bonus_duration")})
 
         local particle_cast_fx = ParticleManager:CreateParticle(particle_spawn, PATTACH_ABSORIGIN, unit)
         ParticleManager:SetParticleControl(particle_cast_fx, 0 , unit:GetAbsOrigin())

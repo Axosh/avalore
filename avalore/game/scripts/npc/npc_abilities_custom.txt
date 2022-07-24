@@ -178,6 +178,12 @@
 #base "heroes/anubis/ability_guardian_of_the_scales.txt"
 #base "heroes/anubis/ability_necromancy.txt"
 
+// Talents
+#base "heroes/anubis/talent_embalming_mastery.txt"
+
+
+// =================================================================
+
 "DOTAAbilities"
 {	
 	"Version"		"1"

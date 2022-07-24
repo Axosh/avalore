@@ -872,6 +872,11 @@
 		"DOTA_Tooltip_Ability_ability_necromancy_outgoing_damage_pct"	"OUTGOING DMG PCT: "
 		"DOTA_Tooltip_Ability_ability_necromancy_Lore"					"In the Post-Late Period (664-30 BCE), Anubis became associated with necromancers - spells invoked Anubis to fetch spirits from the underworld."
 
+		// TALENTS
+
+		"DOTA_Tooltip_Ability_talent_embalming_mastery"					"Embalming Mastery"
+		"DOTA_Tooltip_Ability_talent_embalming_mastery_description"		"Embalm: +{s:bonus_cache_time} sec. to 'corpse timer', +{s:bonus_duration} mummy summon duration"
+
 
 
 		//--------------------------------------------------------------------------------
