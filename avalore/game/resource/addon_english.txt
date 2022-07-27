@@ -849,6 +849,8 @@
 		"DOTA_Tooltip_Ability_ability_embalm_mummy_duration"				"SUMMON DURATION: "
 		"DOTA_Tooltip_Ability_ability_embalm_Lore"							"Anubis (Greek form of Anpu - the Eyptian word for 'to decay') was a God of Death - associated with mummification and embalming among other things. Helped rebuild Osiris' body and presided over the first mummification."
 
+		"DOTA_Tooltip_modifier_mummy"										"Mummified"
+
 		"DOTA_Tooltip_Ability_ability_guardian_of_the_scales"				"Guardian of the Scales"
 		"DOTA_Tooltip_Ability_ability_guardian_of_the_scales_description"	"Purges debuffs and stuns on cast, then applies a modifier that counts damage taken and damage given to the target. At the end of the duration:\nIf Target Takes More Damage: Healed\nIf Target Deals More Damage: Dealt a PURE damage nuke"
 		"DOTA_Tooltip_Ability_ability_guardian_of_the_scales_duration"		"DURATION: "
@@ -864,6 +866,9 @@
 		"DOTA_Tooltip_Ability_ability_protector_of_tombs_tooltip_bonus_move_speed_pct"	"BONUS MOVE SPEED: "
 		"DOTA_Tooltip_Ability_ability_protector_of_tombs_tooltip_bonus_attack_speed"	"BONUS ATTACK SPEED: "
 
+		"DOTA_Tooltip_modifier_tomb_aura"									"Protector of Tombs"
+		"DOTA_Tooltip_modifier_tomb_aura_buff"								"Protector of Tombs"
+
 
 		"DOTA_Tooltip_Ability_ability_necromancy"						"Necromancy"
 		"DOTA_Tooltip_Ability_ability_necromancy_description"			"Allied heroes that die within the radius will return as wraiths that are able to continue fighting with reduced damage for a short period of time."
@@ -871,6 +876,10 @@
 		"DOTA_Tooltip_Ability_ability_necromancy_duration"				"DURATION: "
 		"DOTA_Tooltip_Ability_ability_necromancy_outgoing_damage_pct"	"OUTGOING DMG PCT: "
 		"DOTA_Tooltip_Ability_ability_necromancy_Lore"					"In the Post-Late Period (664-30 BCE), Anubis became associated with necromancers - spells invoked Anubis to fetch spirits from the underworld."
+
+		"DOTA_Tooltip_modifier_necromancy_aura"							"Necromancy"
+		"DOTA_Tooltip_modifier_necromancy_aura_buff"					"Necromancy"
+		"DOTA_Tooltip_modifier_necromancy_aura_buff_form"				"Necromancy"
 
 		// TALENTS
 
