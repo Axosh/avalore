@@ -180,6 +180,7 @@
 
 // Talents
 #base "heroes/anubis/talent_embalming_mastery.txt"
+#base "heroes/anubis/talent_anesthesiology.txt"
 
 
 // =================================================================
