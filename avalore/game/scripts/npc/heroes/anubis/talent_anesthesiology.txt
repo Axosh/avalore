@@ -22,6 +22,11 @@
                 "var_type"               "FIELD_FLOAT"
                 "move_slow"              "10"
             }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration"              "3.0"
+            }
         }
     }
 }
