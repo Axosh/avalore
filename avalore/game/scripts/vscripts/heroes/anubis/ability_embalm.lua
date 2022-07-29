@@ -4,6 +4,9 @@ LinkLuaModifier("modifier_corpse_tracker",    "scripts/vscripts/heroes/anubis/mo
 LinkLuaModifier("modifier_embalm_thinker",    "scripts/vscripts/heroes/anubis/modifier_embalm_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_mummy",    		  "scripts/vscripts/heroes/anubis/modifier_mummy.lua", LUA_MODIFIER_MOTION_NONE)
 
+-- TALENTS
+LinkLuaModifier("modifier_talent_anesthesiology",    		  "scripts/vscripts/heroes/anubis/modifier_talent_anesthesiology.lua", LUA_MODIFIER_MOTION_NONE)
+
 -- -- called when the ability entity is created
 -- function ability_embalm:Init?()
 --     self.mod_corpse_count = self:GetOwner():AddNewModifier(self:GetOwner(), self, "modifier_corpse_tracker", {})

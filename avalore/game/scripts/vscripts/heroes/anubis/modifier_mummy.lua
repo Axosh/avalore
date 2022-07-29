@@ -1,5 +1,7 @@
 modifier_mummy = class({})
 
+LinkLuaModifier( "modifier_anesthesiology_slow", "scripts/vscripts/heroes/anubis/modifier_anesthesiology_slow", LUA_MODIFIER_MOTION_NONE )
+
 function modifier_mummy:IsHidden() return false end
 function modifier_mummy:IsDebuff() return false end
 function modifier_mummy:IsPurgable() return false end
@@ -37,4 +39,16 @@ end
 
 function modifier_mummy:GetEffectAttachType()
     return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_mummy:DeclareFunctions()
+    return {MODIFIER_EVENT_ON_ATTACK_LANDED}
+end
+
+function modifier_mummy:OnAttackLanded(kv)
+    if not IsServer() then return end
+    local player_hero = kv.attacker:GetMainControllingPlayer()
+    if kv.attacker:HasTalent("talent_anesthesiology") then
+        kv.target:AddNewModifier(self:GetCaster(), self:GetCaster():FindAbilityByName("ability_embalm"), "modifier_anesthesiology_slow", {duration = self:GetCaster():FindTalentValue("talent_anesthesiology", "duration") * (1 - kv.target:GetStatusResistance())})
+    end
 end
