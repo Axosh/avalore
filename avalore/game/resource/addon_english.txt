@@ -850,6 +850,7 @@
 		"DOTA_Tooltip_Ability_ability_embalm_Lore"							"Anubis (Greek form of Anpu - the Eyptian word for 'to decay') was a God of Death - associated with mummification and embalming among other things. Helped rebuild Osiris' body and presided over the first mummification."
 
 		"DOTA_Tooltip_modifier_mummy"										"Mummified"
+		"DOTA_Tooltip_modifier_anesthesiology_slow"							"Anesthesiology Slow"
 
 		"DOTA_Tooltip_Ability_ability_guardian_of_the_scales"				"Guardian of the Scales"
 		"DOTA_Tooltip_Ability_ability_guardian_of_the_scales_description"	"Purges debuffs and stuns on cast, then applies a modifier that counts damage taken and damage given to the target. At the end of the duration:\nIf Target Takes More Damage: Healed\nIf Target Deals More Damage: Dealt a PURE damage nuke"
@@ -886,6 +887,8 @@
 		"DOTA_Tooltip_Ability_talent_embalming_mastery"					"Embalming Mastery"
 		"DOTA_Tooltip_Ability_talent_embalming_mastery_description"		"Embalm: +{s:bonus_cache_time} sec. to 'corpse timer', +{s:bonus_duration} mummy summon duration"
 
+		"DOTA_Tooltip_Ability_talent_anesthesiology"					"Anesthesiology"
+		"DOTA_Tooltip_Ability_talent_anesthesiology_description"		"Embalm: as patron of Anesthesiology, all mummies created by Anubis apply a -{s:move_slow} move slow on attack for {s:duration} seconds."
 
 
 		//--------------------------------------------------------------------------------

@@ -47,8 +47,8 @@ end
 
 function modifier_mummy:OnAttackLanded(kv)
     if not IsServer() then return end
-    local player_hero = kv.attacker:GetMainControllingPlayer()
-    if kv.attacker:HasTalent("talent_anesthesiology") then
+    --local player_hero = kv.attacker:GetMainControllingPlayer()
+    if self:GetCaster():HasTalent("talent_anesthesiology") then
         kv.target:AddNewModifier(self:GetCaster(), self:GetCaster():FindAbilityByName("ability_embalm"), "modifier_anesthesiology_slow", {duration = self:GetCaster():FindTalentValue("talent_anesthesiology", "duration") * (1 - kv.target:GetStatusResistance())})
     end
 end
