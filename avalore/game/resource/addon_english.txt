@@ -888,7 +888,7 @@
 		"DOTA_Tooltip_Ability_talent_embalming_mastery_description"		"Embalm: +{s:bonus_cache_time} sec. to 'corpse timer', +{s:bonus_duration} mummy summon duration"
 
 		"DOTA_Tooltip_Ability_talent_anesthesiology"					"Anesthesiology"
-		"DOTA_Tooltip_Ability_talent_anesthesiology_description"		"Embalm: as patron of Anesthesiology, all mummies created by Anubis apply a -{s:move_slow} move slow on attack for {s:duration} seconds."
+		"DOTA_Tooltip_Ability_talent_anesthesiology_description"		"Embalm: as patron of Anesthesiology, all mummies created by Anubis apply a -{s:move_slow} move slow on attack for {s:duration} seconds. They also are immune to magical effects (e.g. stun)"
 
 
 		//--------------------------------------------------------------------------------

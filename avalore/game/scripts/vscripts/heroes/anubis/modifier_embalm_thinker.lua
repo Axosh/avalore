@@ -14,6 +14,7 @@ function modifier_embalm_thinker:OnCreated(kv)
     self.mummy_duration = self:GetAbility():GetSpecialValueFor("mummy_duration")
     self.caster_id = self:GetCaster():GetPlayerID()
     self.resurrected = {}
+    self.caster = self:GetCaster() -- set this initially (seems to be cases where it can't be found otherwise)
 
     local corpses = self.corpse_tracker:GetCorpses()
     -- print("Corpses At OnCreated Time:")
@@ -39,7 +40,7 @@ function modifier_embalm_thinker:OnIntervalThink()
     local corpse_spawn_callback = function(unit)
         unit:SetRenderColor(0,255,0) --green
         unit:SetControllableByPlayer(self.caster_id, false ) -- (playerID, bSkipAdjustingPosition)
-        unit:AddNewModifier(self:GetCaster(), nil, "modifier_mummy", {duration = self.mummy_duration + self:GetCaster():FindTalentValue("talent_embalming_mastery", "bonus_duration")})
+        unit:AddNewModifier(self.caster, nil, "modifier_mummy", {duration = self.mummy_duration + self.caster:FindTalentValue("talent_embalming_mastery", "bonus_duration")})
 
         local particle_cast_fx = ParticleManager:CreateParticle(particle_spawn, PATTACH_ABSORIGIN, unit)
         ParticleManager:SetParticleControl(particle_cast_fx, 0 , unit:GetAbsOrigin())
@@ -50,7 +51,7 @@ function modifier_embalm_thinker:OnIntervalThink()
         -- check that we haven't already resurrected this one
         if not self.resurrected[id] then
             -- check that its in range
-            if DistanceBetweenVectors(unitinfo["location"], self:GetCaster():GetAbsOrigin()) <= self:GetAbility():GetSpecialValueFor("radius") then
+            if DistanceBetweenVectors(unitinfo["location"], self.caster:GetAbsOrigin()) <= self:GetAbility():GetSpecialValueFor("radius") then
                 print("[Embalm Thinker] Pushing ID: " .. tostring(id))
                 --table.insert(self.resurrected, id) -- don't push this way, it generates its own indicies
                 self.resurrected[id] = unitinfo
@@ -64,9 +65,9 @@ function modifier_embalm_thinker:OnIntervalThink()
                 CreateUnitByNameAsync(  unit_name, 
                                         unitinfo["location"], 
                                         true, 
-                                        self:GetCaster(), 
-                                        self:GetCaster(), 
-                                        self:GetCaster():GetTeamNumber(),
+                                        self.caster, 
+                                        self.caster, 
+                                        self.caster:GetTeamNumber(),
                                         corpse_spawn_callback)
             end
         end

@@ -11,6 +11,9 @@ function modifier_mummy:GetTexture()
 end
 
 function modifier_mummy:OnCreated(kv)
+    self.immune = self:GetCaster():HasTalent("talent_anesthesiology")
+    --print("immune? => " .. tostring(self.immune))
+
     if not IsServer() then return end
 
     local parent = self:GetParent()
@@ -30,6 +33,7 @@ end
 function modifier_mummy:CheckState()
     return {
         [MODIFIER_STATE_DOMINATED] = true,
+        [MODIFIER_STATE_MAGIC_IMMUNE] = self.immune
     }
 end
 
