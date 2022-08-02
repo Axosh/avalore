@@ -24,7 +24,7 @@
         //10-17 => Talents
         "Ability10"                 "talent_embalming_mastery"
         "Ability11"                 "talent_anesthesiology"
-        "Ability12"                 ""
+        "Ability12"                 "talent_great_pyramid"
         "Ability13"                 ""
 
         // Movement

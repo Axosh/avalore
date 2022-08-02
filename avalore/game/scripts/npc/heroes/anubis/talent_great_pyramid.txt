@@ -1,0 +1,37 @@
+"DOTAAbilities"
+{
+    "talent_great_pyramid"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbilty"
+        {
+            "01" "ability_protector_of_tombs"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"                      "FIELD_INTEGER"
+                "bonus_radius"                  "300"
+            }
+            "02"
+            {
+                "var_type"                    "FIELD_INTEGER"
+                "bonus_health"                "8"
+            }
+            "03"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "bonus_model_size"      "0.25"
+            }
+        }
+    }
+}
