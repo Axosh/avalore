@@ -5,3 +5,7 @@ LinkLuaModifier("modifier_tomb_aura",    "scripts/vscripts/heroes/anubis/modifie
 function subability_tomb_aura:GetIntrinsicModifierName()
     return "modifier_tomb_aura"
 end
+
+function subability_tomb_aura:GetCastRange()
+    return self:GetSpecialValueFor("radius") + self:GetCaster():FindTalentValue("talent_great_pyramid", "bonus_radius")
+end

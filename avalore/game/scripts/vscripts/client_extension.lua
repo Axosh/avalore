@@ -64,3 +64,13 @@ function C_DOTABaseAbility:GetTalentSpecialValueFor(value)
 	end
 	return base
 end
+
+-- function C_DOTABaseAbility:LookupTalentValue(talentName, key)
+-- 	local value_name = key or "value"
+-- 	local specialVal = AbilityKV[talentName]["AbilitySpecial"]
+-- 	for l,m in pairs(specialVal) do
+-- 		if m[value_name] then
+-- 			return m[value_name]
+-- 		end
+-- 	end
+-- end

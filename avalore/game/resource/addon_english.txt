@@ -867,6 +867,8 @@
 		"DOTA_Tooltip_Ability_ability_protector_of_tombs_tooltip_bonus_move_speed_pct"	"BONUS MOVE SPEED: "
 		"DOTA_Tooltip_Ability_ability_protector_of_tombs_tooltip_bonus_attack_speed"	"BONUS ATTACK SPEED: "
 
+		"DOTA_Tooltip_Ability_subability_tomb_aura"							"Protector of Tombs"
+
 		"DOTA_Tooltip_modifier_tomb_aura"									"Protector of Tombs"
 		"DOTA_Tooltip_modifier_tomb_aura_buff"								"Protector of Tombs"
 
@@ -889,6 +891,9 @@
 
 		"DOTA_Tooltip_Ability_talent_anesthesiology"					"Anesthesiology"
 		"DOTA_Tooltip_Ability_talent_anesthesiology_description"		"Embalm: as patron of Anesthesiology, all mummies created by Anubis apply a -{s:move_slow} move slow on attack for {s:duration} seconds. They also are immune to magical effects (e.g. stun)"
+
+		"DOTA_Tooltip_Ability_talent_great_pyramid"						"Great Pyramid"
+		"DOTA_Tooltip_Ability_talent_great_pyramid_description"			"Protector of Tombs: +{s:bonus_radius} aura radius, +{s:bonus_health} tomb hp"
 
 
 		//--------------------------------------------------------------------------------
