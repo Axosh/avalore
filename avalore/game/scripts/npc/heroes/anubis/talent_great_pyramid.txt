@@ -19,6 +19,8 @@
 		{
             "01"
 			{
+                // WARNING: this value is used for the UI, the actual bonus is coded into
+                //          subability_tomb_aura's special value and based on level
                 "var_type"                      "FIELD_INTEGER"
                 "bonus_radius"                  "300"
             }
@@ -30,7 +32,7 @@
             "03"
             {
                 "var_type"				"FIELD_FLOAT"
-                "bonus_model_size"      "0.25"
+                "bonus_model_size"      "0.5"
             }
         }
     }

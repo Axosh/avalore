@@ -26,11 +26,13 @@ function ability_protector_of_tombs:OnSpellStart()
     tombstone:SetModelScale(tombstone:GetModelScale() + self:GetCaster():FindTalentValue("talent_great_pyramid", "bonus_model_size"))
     tombstone:GetAbilityByIndex(0):SetLevel(1)
     tombstone:GetAbilityByIndex(1):SetLevel(1)
-    tombstone:AddNewModifier(self:GetCaster(), nil, "modifier_mummy", {duration = duration})
+    local mummy_mod = tombstone:AddNewModifier(self:GetCaster(), nil, "modifier_mummy", {duration = duration, isHidden = true})
+    --mummy_mod:
 
     if self:GetCaster():HasTalent("talent_great_pyramid") then
         print("Has Modifier")
-        tombstone:AddNewModifier(tombstone, nil, "modifier_talent_great_pyramid", {duration = duration})
+        --tombstone:AddNewModifier(tombstone, nil, "modifier_talent_great_pyramid", {duration = duration})
+        tombstone:FindAbilityByName("subability_tomb_aura"):SetLevel(2)
     end
 
     -- TODO: add aura modifier

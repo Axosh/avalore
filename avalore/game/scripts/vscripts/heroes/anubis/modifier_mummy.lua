@@ -2,7 +2,7 @@ modifier_mummy = class({})
 
 LinkLuaModifier( "modifier_anesthesiology_slow", "scripts/vscripts/heroes/anubis/modifier_anesthesiology_slow", LUA_MODIFIER_MOTION_NONE )
 
-function modifier_mummy:IsHidden() return false end
+function modifier_mummy:IsHidden() return self.IsHidden end
 function modifier_mummy:IsDebuff() return false end
 function modifier_mummy:IsPurgable() return false end
 
@@ -12,6 +12,10 @@ end
 
 function modifier_mummy:OnCreated(kv)
     self.immune = self:GetCaster():HasTalent("talent_anesthesiology")
+    self.isHidden = false
+    if kv.isHidden then
+        self.IsHidden = kv.isHidden
+    end
     --print("immune? => " .. tostring(self.immune))
 
     if not IsServer() then return end

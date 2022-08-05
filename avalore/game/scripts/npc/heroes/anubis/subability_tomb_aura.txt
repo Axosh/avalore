@@ -17,7 +17,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"900"
+				"radius"				"900 1200"
 			}
 			// remember to update the tooltips in anubis/ability_protector_of_tombs.txt
             "02"

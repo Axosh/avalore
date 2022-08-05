@@ -22,22 +22,25 @@ function modifier_tomb_aura:GetModifierAura()
 end
 
 function modifier_tomb_aura:GetAuraRadius()
-    return self.radius + self:GetAbility():GetCaster():FindTalentValue("talent_great_pyramid", "bonus_radius")
+    --return self.radius
+    return self:GetAbility():GetSpecialValueFor("radius")
+    --return self.radius + self:GetAbility():GetCaster():FindTalentValue("talent_great_pyramid", "bonus_radius")
 end
 
 function modifier_tomb_aura:OnCreated()
+    if not IsServer() then return end
     -- if the hero has the talent, then it also gets added to the pyramid so the value is available
     --print("Caster => " .. self:GetAbility():GetCaster():GetName())
-    self.radius			= self:GetAbility():GetSpecialValueFor("radius") --+ self:GetAbility():GetCaster():FindTalentValue("talent_great_pyramid", "bonus_radius")
+    --self.radius			= self:GetAbility():GetSpecialValueFor("radius") --+ self:GetAbility():GetCaster():FindTalentValue("talent_great_pyramid", "bonus_radius")
     -- if self:GetAbility():GetCaster():HasModifier("modifier_talent_great_pyramid") then
     --     print("has talent")
     --     self.radius = self.radius + 
     -- end
     --self.radius = self:GetAbility():GetCastRange()
-    --print(self:GetAbility():GetName())
-    --print("Radius => " .. tostring(self.radius))
+    print(self:GetAbility():GetName())
+    print("Radius => " .. tostring(self.radius))
 
-    if not IsServer() then return end
+--    if not IsServer() then return end
     local aura_particle = ParticleManager:CreateParticle("particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ring_spiral.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControl(aura_particle, 0, Vector(self:GetParent():GetAbsOrigin().x,self:GetParent():GetAbsOrigin().y,self:GetParent():GetAbsOrigin().z+64))
 	ParticleManager:SetParticleControl(aura_particle, 10, Vector(self.radius, self.radius, 0))

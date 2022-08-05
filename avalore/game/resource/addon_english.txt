@@ -866,11 +866,18 @@
 		"DOTA_Tooltip_Ability_ability_protector_of_tombs_radius"			"BUFF RADIUS: "
 		"DOTA_Tooltip_Ability_ability_protector_of_tombs_tooltip_bonus_move_speed_pct"	"BONUS MOVE SPEED: "
 		"DOTA_Tooltip_Ability_ability_protector_of_tombs_tooltip_bonus_attack_speed"	"BONUS ATTACK SPEED: "
+		"DOTA_Tooltip_Ability_ability_protector_of_tombs_lore"				"Anubis had a role as a protector of graves and cemeteries. Most tombs had prayers to Anubis carved in them."
 
 		"DOTA_Tooltip_Ability_subability_tomb_aura"							"Protector of Tombs"
+		"DOTA_Tooltip_Ability_subability_tomb_aura_description"				"Buffs nearby allies that are 'defending' the tomb with increased attack speed and move speed.\nUpgraded via Talent"
+		"DOTA_Tooltip_Ability_subability_tomb_aura_radius"					"RADIUS: "
+		"DOTA_Tooltip_Ability_subability_tomb_aura_bonus_move_speed_pct"	"BONUS MOVE SPEED: "
+		"DOTA_Tooltip_Ability_subability_tomb_aura_bonus_attack_speed"		"BONUS ATTACK SPEED: "
 
 		"DOTA_Tooltip_modifier_tomb_aura"									"Protector of Tombs"
 		"DOTA_Tooltip_modifier_tomb_aura_buff"								"Protector of Tombs"
+		"DOTA_Tooltip_modifier_tomb_aura_buff_description"					"+%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE% MS and +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% AS"
+
 
 
 		"DOTA_Tooltip_Ability_ability_necromancy"						"Necromancy"
