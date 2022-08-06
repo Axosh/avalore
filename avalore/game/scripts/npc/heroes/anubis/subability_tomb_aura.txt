@@ -17,20 +17,35 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"900 1200"
+				"radius"				"900"
 			}
 			// remember to update the tooltips in anubis/ability_protector_of_tombs.txt
             "02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_move_speed_pct"	"35"
+				"bonus_move_speed_pct"	"35 40 45 50"
 			}
 
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"200"
-			}		
+				"bonus_attack_speed"	"50 60 70 80"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"talent_bonus_radius"		"300"
+			}
+			"05"
+			{
+				"var_type"               		"FIELD_INTEGER"
+                "talent_bonus_move_speed"       "10"
+			}
+			"06"
+			{
+				"var_type"              		"FIELD_INTEGER"
+                "talent_bonus_attack_speed"    	"40"
+			}
         }
     }
 }

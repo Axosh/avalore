@@ -24,6 +24,9 @@ function modifier_tomb_aura_buff:OnCreated()
 	self.bonus_move_speed_pct = self.ability:GetSpecialValueFor("bonus_move_speed_pct")
 	self.bonus_attack_speed = self.ability:GetSpecialValueFor("bonus_attack_speed")
 
+	self.talent_ms = self.ability:GetSpecialValueFor("talent_bonus_move_speed")
+	self.talent_as = self.ability:GetSpecialValueFor("talent_bonus_attack_speed")
+
     -- -- particle
     -- local aura_particle = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok_ovr_arc_lv.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 	-- ParticleManager:SetParticleControl(aura_particle, 3, Vector(0, 0, 0))
@@ -38,9 +41,17 @@ function modifier_tomb_aura_buff:DeclareFunctions()
 end
 
 function modifier_tomb_aura_buff:GetModifierMoveSpeedBonus_Percentage()
+	if self:GetCaster():HasModifier("modifier_talent_epitaph_spells") then
+		return self.bonus_move_speed_pct + self.talent_ms
+	end
+	
 	return self.bonus_move_speed_pct
 end
 
 function modifier_tomb_aura_buff:GetModifierAttackSpeedBonus_Constant()
+	if self:GetCaster():HasModifier("modifier_talent_epitaph_spells") then
+		return self.bonus_attack_speed + self.talent_as
+	end
+
 	return self.bonus_attack_speed
 end

@@ -2,6 +2,7 @@ ability_protector_of_tombs = ability_protector_of_tombs or class({})
 
 -- TALENTS
 LinkLuaModifier("modifier_talent_great_pyramid",    		  "scripts/vscripts/heroes/anubis/modifier_talent_great_pyramid.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_epitaph_spells",    		  "scripts/vscripts/heroes/anubis/modifier_talent_epitaph_spells.lua", LUA_MODIFIER_MOTION_NONE)
 
 
 function ability_protector_of_tombs:OnSpellStart()
@@ -24,15 +25,19 @@ function ability_protector_of_tombs:OnSpellStart()
 	tombstone:SetMaxHealth(tombstone_health + self:GetCaster():FindTalentValue("talent_great_pyramid", "bonus_health"))
 	tombstone:SetHealth(tombstone_health + self:GetCaster():FindTalentValue("talent_great_pyramid", "bonus_health"))
     tombstone:SetModelScale(tombstone:GetModelScale() + self:GetCaster():FindTalentValue("talent_great_pyramid", "bonus_model_size"))
-    tombstone:GetAbilityByIndex(0):SetLevel(1)
-    tombstone:GetAbilityByIndex(1):SetLevel(1)
+    tombstone:GetAbilityByIndex(0):SetLevel(self:GetLevel())
+    tombstone:GetAbilityByIndex(1):SetLevel(self:GetLevel())
     local mummy_mod = tombstone:AddNewModifier(self:GetCaster(), nil, "modifier_mummy", {duration = duration, isHidden = true})
     --mummy_mod:
 
     if self:GetCaster():HasTalent("talent_great_pyramid") then
-        print("Has Modifier")
-        --tombstone:AddNewModifier(tombstone, nil, "modifier_talent_great_pyramid", {duration = duration})
-        tombstone:FindAbilityByName("subability_tomb_aura"):SetLevel(2)
+        --print("Has Modifier")
+        tombstone:AddNewModifier(tombstone, nil, "modifier_talent_great_pyramid", {duration = duration})
+        --tombstone:FindAbilityByName("subability_tomb_aura"):SetLevel(2)
+    end
+
+    if self:GetCaster():HasTalent("talent_epitaph_spells") then
+        tombstone:AddNewModifier(tombstone, nil, "modifier_talent_epitaph_spells", {duration = duration})
     end
 
     -- TODO: add aura modifier

@@ -17,6 +17,7 @@
 		//-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
 		{
+            // These are tooltips - real stuff is done in subability_tomb_aura
             "01"
 			{
                 "var_type"               "FIELD_INTEGER"

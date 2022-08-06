@@ -902,6 +902,9 @@
 		"DOTA_Tooltip_Ability_talent_great_pyramid"						"Great Pyramid"
 		"DOTA_Tooltip_Ability_talent_great_pyramid_description"			"Protector of Tombs: +{s:bonus_radius} aura radius, +{s:bonus_health} tomb hp"
 
+		"DOTA_Tooltip_Ability_talent_epitaph_spells"					"Epitaph Spells"
+		"DOTA_Tooltip_Ability_talent_epitaph_spells_description"		"Protector of Tombs: tomb's aura gains +{s:bonus_move_speed} move speed and +{s:bonus_attack_speed} attack speed"
+
 
 		//--------------------------------------------------------------------------------
 		// Objectives

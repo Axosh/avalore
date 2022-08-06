@@ -25,7 +25,7 @@
         "Ability10"                 "talent_embalming_mastery"
         "Ability11"                 "talent_anesthesiology"
         "Ability12"                 "talent_great_pyramid"
-        "Ability13"                 ""
+        "Ability13"                 "talent_epitaph_spells"
 
         // Movement
 		//----------------------------------------------------------------

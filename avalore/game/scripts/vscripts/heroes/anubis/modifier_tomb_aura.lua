@@ -22,12 +22,17 @@ function modifier_tomb_aura:GetModifierAura()
 end
 
 function modifier_tomb_aura:GetAuraRadius()
-    --return self.radius
-    return self:GetAbility():GetSpecialValueFor("radius")
-    --return self.radius + self:GetAbility():GetCaster():FindTalentValue("talent_great_pyramid", "bonus_radius")
+    if self:GetCaster():HasModifier("modifier_talent_great_pyramid") then
+		return self.range + self.talent_range
+	end
+
+	return self.range
 end
 
 function modifier_tomb_aura:OnCreated()
+    self.range = self:GetAbility():GetSpecialValueFor("radius")
+    self.talent_range = self:GetAbility():GetSpecialValueFor("talent_bonus_radius")
+
     if not IsServer() then return end
     -- if the hero has the talent, then it also gets added to the pyramid so the value is available
     --print("Caster => " .. self:GetAbility():GetCaster():GetName())
@@ -37,8 +42,6 @@ function modifier_tomb_aura:OnCreated()
     --     self.radius = self.radius + 
     -- end
     --self.radius = self:GetAbility():GetCastRange()
-    print(self:GetAbility():GetName())
-    print("Radius => " .. tostring(self.radius))
 
 --    if not IsServer() then return end
     local aura_particle = ParticleManager:CreateParticle("particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ring_spiral.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())

@@ -182,6 +182,7 @@
 #base "heroes/anubis/talent_embalming_mastery.txt"
 #base "heroes/anubis/talent_anesthesiology.txt"
 #base "heroes/anubis/talent_great_pyramid.txt"
+#base "heroes/anubis/talent_epitaph_spells.txt"
 
 
 // =================================================================
