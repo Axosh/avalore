@@ -26,6 +26,7 @@
         "Ability11"                 "talent_anesthesiology"
         "Ability12"                 "talent_great_pyramid"
         "Ability13"                 "talent_epitaph_spells"
+        "Ability14"                 "talent_tilted_scales"
 
         // Movement
 		//----------------------------------------------------------------
