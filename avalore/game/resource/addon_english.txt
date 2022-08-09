@@ -905,6 +905,9 @@
 		"DOTA_Tooltip_Ability_talent_epitaph_spells"					"Epitaph Spells"
 		"DOTA_Tooltip_Ability_talent_epitaph_spells_description"		"Protector of Tombs: tomb's aura gains +{s:bonus_move_speed} move speed and +{s:bonus_attack_speed} attack speed"
 
+		"DOTA_Tooltip_Ability_talent_tilted_scales"						"Tilted Scales"
+		"DOTA_Tooltip_Ability_talent_tilted_scales_description"			"Guardian of the Scales: overrides the delay to be {s:delay_override} sec, after which the spell ALWAYS damages enemies and ALWAYS heals allies."
+
 
 		//--------------------------------------------------------------------------------
 		// Objectives

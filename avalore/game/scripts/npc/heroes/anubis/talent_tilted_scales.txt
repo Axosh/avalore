@@ -12,5 +12,16 @@
         {
             "01" "ability_guardian_of_the_scales"
         }
+
+          // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"            "FIELD_FLOAT"
+                "delay_override"      "1.5"
+            }
+        }
     }
 }
