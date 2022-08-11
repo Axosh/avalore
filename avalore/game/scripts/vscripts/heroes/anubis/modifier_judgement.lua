@@ -44,6 +44,18 @@ end
 function modifier_judgement:OnDestroy()
     if not IsServer() then return end
 
+    if self:GetCaster():HasTalent("talent_tilted_scales") then
+        if self:GetParent():GetTeam() == self:GetCaster():GetTeam() then
+            -- if ally, force heal
+            self.damage_taken_counter = 999
+            self.damage_given_counter = 0
+        else
+            -- if enemy, force damage
+            self.damage_taken_counter = 0
+            self.damage_given_counter = 999
+        end
+    end
+
     if self.damage_taken_counter > self.damage_given_counter then
         -- if this is imba, then maybe consider doing (taken/given) * max_heal
         self:GetParent():EmitSound("Hero_Oracle.FalsePromise.Healed")

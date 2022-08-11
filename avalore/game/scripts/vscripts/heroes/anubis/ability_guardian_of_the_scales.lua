@@ -2,6 +2,9 @@ ability_guardian_of_the_scales = ability_guardian_of_the_scales or class({})
 
 LinkLuaModifier( "modifier_judgement", "scripts/vscripts/heroes/anubis/modifier_judgement", LUA_MODIFIER_MOTION_NONE )
 
+-- TALENTS
+LinkLuaModifier( "modifier_talent_tilted_scales", "scripts/vscripts/heroes/anubis/modifier_talent_tilted_scales", LUA_MODIFIER_MOTION_NONE )
+
 function ability_guardian_of_the_scales:OnSpellStart()
     local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
