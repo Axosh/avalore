@@ -11,6 +11,10 @@ function ability_guardian_of_the_scales:OnSpellStart()
 
     local duration = self:GetSpecialValueFor("duration")
 
+    if self:GetCaster():HasTalent("talent_tilted_scales") then
+        duration = self:GetCaster():FindTalentValue("talent_tilted_scales", "delay_override")
+    end
+
     self:GetCaster():EmitSound("Hero_Oracle.FalsePromise.Cast") --idk if this will be the final sound or not
 
     -- Purge(removePositiveBuffs, removeDebuffs, frameOnly, removeStuns, removeExceptions)
