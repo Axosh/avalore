@@ -1,0 +1,27 @@
+"DOTAAbilities"
+{
+    "talent_ammits_judgement"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbilty"
+        {
+            "01" "ability_guardian_of_the_scales"
+        }
+
+          // Special
+		//-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+		{
+            "01"
+			{
+                "var_type"            "FIELD_INTEGER"
+                "bonus_damage"      "300"
+            }
+        }
+    }
+}
