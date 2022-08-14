@@ -908,6 +908,9 @@
 		"DOTA_Tooltip_Ability_talent_tilted_scales"						"Tilted Scales"
 		"DOTA_Tooltip_Ability_talent_tilted_scales_description"			"Guardian of the Scales: overrides the delay to be {s:delay_override} sec, after which the spell ALWAYS damages enemies and ALWAYS heals allies."
 
+		"DOTA_Tooltip_Ability_talent_ammits_judgement"					"Ammit's Judgement"
+		"DOTA_Tooltip_Ability_talent_ammits_judgement_description"		"Guardian of the Scales: partnered with Ammit, deals +{s:bonus_damage} more damage when the scales are not in the target's favor"
+
 
 		//--------------------------------------------------------------------------------
 		// Objectives

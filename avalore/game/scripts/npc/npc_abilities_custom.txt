@@ -183,6 +183,7 @@
 #base "heroes/anubis/talent_anesthesiology.txt"
 #base "heroes/anubis/talent_great_pyramid.txt"
 #base "heroes/anubis/talent_epitaph_spells.txt"
+#base "heroes/anubis/talent_ammits_judgement.txt"
 
 
 // =================================================================

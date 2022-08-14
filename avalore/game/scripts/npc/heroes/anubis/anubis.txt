@@ -27,6 +27,7 @@
         "Ability12"                 "talent_great_pyramid"
         "Ability13"                 "talent_epitaph_spells"
         "Ability14"                 "talent_tilted_scales"
+        "Ability15"                 "talent_ammits_judgement"
 
         // Movement
 		//----------------------------------------------------------------
