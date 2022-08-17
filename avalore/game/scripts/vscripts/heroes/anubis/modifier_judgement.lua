@@ -70,7 +70,7 @@ function modifier_judgement:OnDestroy()
         local damageTable = {
             attacker        = self:GetCaster(),
             victim          = self:GetParent(),
-            damage          = self.max_dmg,
+            damage          = self.max_dmg + self:GetCaster():FindTalentValue("talent_ammits_judgement", "bonus_damage"),
             damage_type     = DAMAGE_TYPE_PURE,
             damage_flags    = DOTA_DAMAGE_FLAG_NONE,
             ability         = self:GetAbility()
