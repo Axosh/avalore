@@ -68,7 +68,7 @@ function modifier_necromancy_aura_buff:OnTakeDamage(keys)
             -- end
 
             -- Assign the killer to the modifier, which would actually kill the hero later
-            local necromancy_form_modifier_handler = self.parent:AddNewModifier(self.caster, self.ability, self.necromancy_form, {duration = self.duration, outgoing_damage_pct = self.outgoing_damage_pct})
+            local necromancy_form_modifier_handler = self.parent:AddNewModifier(self.caster, self.ability, self.necromancy_form, {duration = self.duration, outgoing_damage_pct = (self.outgoing_damage_pct + self:GetCaster():FindTalentValue("talent_demotic_spells", "bonus_outgoing_damage_pct"))})
             if necromancy_form_modifier_handler then
                 necromancy_form_modifier_handler.original_killer = attacker
                 necromancy_form_modifier_handler.ability_killer = keys.inflictor

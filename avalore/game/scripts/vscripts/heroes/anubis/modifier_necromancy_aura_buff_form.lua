@@ -5,10 +5,11 @@ function modifier_necromancy_aura_buff_form:IsHidden() return false end
 function modifier_necromancy_aura_buff_form:IsDebuff() return false end
 function modifier_necromancy_aura_buff_form:IsPurgable() return false end
 
-function modifier_necromancy_aura_buff_form:OnCreated()
+function modifier_necromancy_aura_buff_form:OnCreated(kv)
     self.caster = self:GetCaster()
 	self.ability = self:GetAbility()
 	self.parent = self:GetParent()
+	self.outgoing_damage_pct = kv.outgoing_damage_pct
 	if IsServer() then
 		self:StartIntervalThink(0.1)
 	end
@@ -20,6 +21,7 @@ function modifier_necromancy_aura_buff_form:DeclareFunctions()
 	return {    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
 				MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
 				MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
+				MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
 				MODIFIER_PROPERTY_DISABLE_HEALING,
 				MODIFIER_PROPERTY_MODEL_SCALE,
 				MODIFIER_EVENT_ON_TAKEDAMAGE }
@@ -59,6 +61,12 @@ function modifier_necromancy_aura_buff_form:OnIntervalThink()
 		return
 	end
 	self:SetStackCount(math.floor(self:GetRemainingTime() + 0.5))
+end
+
+function modifier_necromancy_aura_buff_form:GetModifierTotalDamageOutgoing_Percentage(kv)
+	if kv.attacker == self:GetParent() then
+		return self.outgoing_damage_pct
+	end
 end
 
 function modifier_necromancy_aura_buff_form:OnDestroy()
