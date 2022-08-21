@@ -1,0 +1,27 @@
+"DOTAAbilities"
+{
+    "talent_osiris_will"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "special_bonus_undefined"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "LinkedAbilty"
+        {
+            "01" "ability_necromancy"
+        }
+
+        // Special
+		//-------------------------------------------------------------------------------------------------------------
+        // "AbilitySpecial"
+		// {
+        //     "01"
+		// 	{
+        //         "var_type"                      "FIELD_FLOAT"
+        //         "bonus_outgoing_damage_pct"     "20"
+        //     }
+        // }
+    }
+}

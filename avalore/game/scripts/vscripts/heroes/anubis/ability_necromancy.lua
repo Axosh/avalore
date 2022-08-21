@@ -6,6 +6,8 @@ LinkLuaModifier("modifier_necromancy_aura_buff_form", "heroes/anubis/modifier_ne
 
 -- TALENTS
 LinkLuaModifier( "modifier_talent_demotic_spells", "scripts/vscripts/heroes/anubis/modifier_talent_demotic_spells", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_osiris_will", "scripts/vscripts/heroes/anubis/modifier_talent_osiris_will", LUA_MODIFIER_MOTION_NONE )
+
 
 
 function ability_necromancy:GetIntrinsicModifierName()

@@ -29,6 +29,7 @@
         "Ability14"                 "talent_tilted_scales"
         "Ability15"                 "talent_ammits_judgement"
         "Ability16"                 "talent_demotic_spells"
+        "Ability17"                 "talent_osiris_will"
 
         // Movement
 		//----------------------------------------------------------------

@@ -1,5 +1,7 @@
 modifier_necromancy_aura = class({})
 
+LinkLuaModifier( "modifier_talent_osiris_will", "scripts/vscripts/heroes/anubis/modifier_talent_osiris_will", LUA_MODIFIER_MOTION_NONE )
+
 function modifier_necromancy_aura:AllowIllusionDuplicate() return false end
 function modifier_necromancy_aura:IsHidden() return true end
 function modifier_necromancy_aura:IsPurgable() return false end
@@ -15,6 +17,11 @@ function modifier_necromancy_aura:OnCreated()
 end
 
 function modifier_necromancy_aura:GetAuraRadius()
+	if self.caster:HasTalent("talent_osiris_will") then
+		print("GLOBAL")
+		return 999999
+	end
+	print(tostring(self.radius))
 	return self.radius
 end
 

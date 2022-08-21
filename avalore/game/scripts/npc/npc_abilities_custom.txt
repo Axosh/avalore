@@ -186,6 +186,7 @@
 #base "heroes/anubis/talent_ammits_judgement.txt"
 #base "heroes/anubis/talent_tilted_scales.txt"
 #base "heroes/anubis/talent_demotic_spells.txt"
+#base "heroes/anubis/talent_osiris_will.txt"
 
 
 // =================================================================

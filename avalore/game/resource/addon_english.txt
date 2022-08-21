@@ -914,6 +914,9 @@
 		"DOTA_Tooltip_Ability_talent_demotic_spells"					"Demotic Spells"
 		"DOTA_Tooltip_Ability_talent_demotic_spells_description"		"Necromancy: +{s:bonus_outgoing_damage_pct}% Outgoing Damage"
 
+		"DOTA_Tooltip_Ability_talent_osiris_will"						"Osiris' Will"
+		"DOTA_Tooltip_Ability_talent_osiris_will_description"			"Necromancy: Global"
+
 
 		//--------------------------------------------------------------------------------
 		// Objectives

@@ -15,10 +15,8 @@ function modifier_necromancy_aura_buff:OnCreated()
 end
 
 function modifier_necromancy_aura_buff:DeclareFunctions()
-	local decFuncs = {  MODIFIER_PROPERTY_MIN_HEALTH,
-                        MODIFIER_EVENT_ON_TAKEDAMAGE }
-
-	return decFuncs
+	return {  MODIFIER_PROPERTY_MIN_HEALTH,
+                MODIFIER_EVENT_ON_TAKEDAMAGE }
 end
 
 function modifier_necromancy_aura_buff:GetMinHealth()
@@ -26,7 +24,7 @@ function modifier_necromancy_aura_buff:GetMinHealth()
 end
 
 function modifier_necromancy_aura_buff:OnTakeDamage(keys)
-	if not IsServer() then return end
+	--if not IsServer() then return end
 
     local attacker = keys.attacker
     local target = keys.unit
@@ -43,7 +41,9 @@ function modifier_necromancy_aura_buff:OnTakeDamage(keys)
                 -- if it's off cooldown, then kill normally to trigger that first
                 if not self.parent:FindModifierByName("modifier_wukong_immortality"):CanDie() then
                     self:Destroy()
-                    self.parent:Kill(self.ability, attacker)
+                    if IsServer() then
+                        self.parent:Kill(self.ability, attacker)
+                    end
                     return nil
                 end
             end
@@ -51,7 +51,9 @@ function modifier_necromancy_aura_buff:OnTakeDamage(keys)
             -- Check for Aegis: kill the unit normally
             if self.parent:HasModifier("modifier_item_aegis") then
                 self:Destroy()
-                self.parent:Kill(self.ability, attacker)
+                if IsServer() then
+                    self.parent:Kill(self.ability, attacker)
+                end
                 return nil
             end
 
