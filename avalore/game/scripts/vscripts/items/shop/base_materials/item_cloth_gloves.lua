@@ -2,7 +2,7 @@ item_cloth_gloves = class({})
 
 LinkLuaModifier( "modifier_item_cloth_gloves", "items/shop/base_materials/item_cloth_gloves.lua", LUA_MODIFIER_MOTION_NONE )
 
-function item_leather_boots:GetIntrinsicModifierName()
+function item_cloth_gloves:GetIntrinsicModifierName()
     return "modifier_item_cloth_gloves"
 end
 
