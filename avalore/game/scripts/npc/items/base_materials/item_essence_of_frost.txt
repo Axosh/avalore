@@ -69,16 +69,16 @@
                 "var_type"                                  "FIELD_INTEGER"
                 "item_slot"                                 "30" //MISC
             }
-            // "02"
-            // {
-            //     "var_type"                                  "FIELD_INTEGER"
-            //     "bonus_movement_speed"                      "50"
-            // }
-            // "03"
-            // {
-            //     "var_type"                                  "FIELD_INTEGER"
-            //     "bonus_armor"                               "2"
-            // }
+            "02"
+            {
+                "var_type"                                 "FIELD_INTEGER"
+                "movespeed_slow"                        "5"
+            }
+            "03"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "attackspeed_slow"                           "5"
+            }
         }
     }
 }
