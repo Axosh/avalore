@@ -32,10 +32,10 @@
         //-------------------------------------------------------------------------------------------------------------
         //"ID"                            "3011"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/base_materials/item_leather_boots.lua"
+        "ScriptFile"                    "items/shop/base_materials/item_essence_of_frost.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/boots_of_speed.vmdl"
-        "AbilityTextureName"            "base_materials/leather_boots_rect"
+        "AbilityTextureName"            "base_materials/essence_of_frost"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -72,12 +72,17 @@
             "02"
             {
                 "var_type"                                 "FIELD_INTEGER"
-                "movespeed_slow"                        "5"
+                "movespeed_slow"                            "5"
             }
             "03"
             {
                 "var_type"                                  "FIELD_INTEGER"
                 "attackspeed_slow"                           "5"
+            }
+            "04"
+            {
+                "var_type"                                  "FIELD_FLOAT"   
+                "duration"                                  "3.0"
             }
         }
     }

@@ -4,6 +4,7 @@
 #base "items/base_materials/item_adventurers_cloak.txt"
 #base "items/base_materials/item_cloth_gloves.txt"
 #base "items/components/item_steel.txt"
+#base "items/base_materials/item_essence_of_frost.txt"
 
 #base "items/merc_demi_hero/item_merc_demi_hero_yeti.txt"
 #base "items/merc_super_creeps/item_merc_super_djinn.txt"

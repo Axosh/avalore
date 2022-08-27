@@ -17,6 +17,7 @@
     "misc"
 	{
 		"item"				"item_steel"
+		"item"				"item_essence_of_frost"
 	}	
  
 	// Level 1 - Green Recipes
