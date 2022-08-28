@@ -35,7 +35,8 @@ function modifier_item_essence_of_frost:OnAttackLanded(kv)
     local caster = self:GetCaster();
     if kv.attacker == caster and not kv.target:IsBuilding() then
         local dur_resist = self.duration * (1 - kv.target:GetStatusResistance())
-        kv.target:AddNewModifier(caster, self:GetAbility(), "modifier_frostbite", {duration = dur_resist, as_slow = self.attackspeed_slow, ms_slow = self.movespeed_slow})
+        --kv.target:AddNewModifier(caster, self:GetAbility(), "modifier_frostbite", {duration = dur_resist, as_slow = self.attackspeed_slow, ms_slow = self.movespeed_slow})
+        kv.target:AddNewModifier(caster, self:GetAbility(), "modifier_frostbite", {duration = dur_resist})
     end
 end
 
@@ -51,7 +52,8 @@ function modifier_frostbite:IsPurgable() return true end
 function modifier_frostbite:RemoveOnDeath() return true end
 
 function modifier_frostbite:GetTexture()
-    return "base_materials/essence_of_frost"
+    return self:GetAbility():GetTexture()
+    --return "items/base_materials/essence_of_frost"
 end
 
 function modifier_frostbite:DeclareFunctions()
@@ -60,8 +62,10 @@ function modifier_frostbite:DeclareFunctions()
 end
 
 function modifier_frostbite:OnCreated(kv)
-    self.as_slow = kv.as_slow
-    self.ms_slow = kv.ms_slow
+    print("AS Slow => " .. tostring(self:GetAbility():GetSpecialValueFor("attackspeed_slow")))
+    print("MS Slow => " .. tostring(self:GetAbility():GetSpecialValueFor("movespeed_slow")))
+    self.as_slow = self:GetAbility():GetSpecialValueFor("attackspeed_slow")
+    self.ms_slow = self:GetAbility():GetSpecialValueFor("movespeed_slow")
 
     if not IsServer() then return end
     
@@ -76,4 +80,9 @@ end
 
 function modifier_frostbite:GetModifierAttackSpeedBonus_Constant()
     return (-1 * self.as_slow)
+end
+
+function modifier_frostbite:OnRemove()
+    if not IsServer() then return end
+    ParticleManager:DestroyParticle(self.slow_hit_particle, false);
 end
