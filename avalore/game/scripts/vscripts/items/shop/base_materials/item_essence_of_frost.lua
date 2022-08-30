@@ -7,6 +7,10 @@ function item_essence_of_frost:GetIntrinsicModifierName()
     return "modifier_item_essence_of_frost"
 end
 
+-- function item_essence_of_frost:GetAbilityTextureName()
+--     return "items/essence_of_frost_orig"
+-- end
+
 -- ====================================
 -- INTRINSIC MOD
 -- ====================================
@@ -51,9 +55,10 @@ function modifier_frostbite:IsDebuff() return true end
 function modifier_frostbite:IsPurgable() return true end
 function modifier_frostbite:RemoveOnDeath() return true end
 
-function modifier_frostbite:GetTexture()
-    return self:GetAbility():GetTexture()
-    --return "items/base_materials/essence_of_frost"
+ function modifier_frostbite:GetTexture()
+    return "items/essence_of_frost_orig"
+--     return self:GetAbility():GetTexture()
+--     --return "items/base_materials/essence_of_frost"
 end
 
 function modifier_frostbite:DeclareFunctions()
