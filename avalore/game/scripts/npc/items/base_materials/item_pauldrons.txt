@@ -1,0 +1,89 @@
+"DOTAItems"
+{
+    "item_recipe_pauldrons"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"3010"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"base_materials/pauldrons"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"250"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_pauldrons"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_slot_chest"
+        }
+	}
+
+    "item_pauldrons"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        //"ID"                            "3011"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						"item_lua"            
+        "ScriptFile"                    "items/shop/base_materials/item_pauldrons.lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"                         "models/props_gameplay/red_box.vmdl"
+        "AbilityTextureName"            "base_materials/item_pauldrons"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        //"ItemShopTags"                  ""
+        "ItemQuality"                   "component"
+        "ItemAliases"                   "shoulder;pauldron"
+
+        "ItemKillable"					                    "1"
+		"ItemSellable"					                    "1"
+		"ItemPurchasable"				                    "1"
+		"ItemDroppable"					                    "1"
+		"ItemShareability"				                    "ITEM_NOT_SHAREABLE"
+		"ItemStackable"					                    "0"
+		"ItemPermanent"					                    "0"
+
+        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        //"ItemSlot"                                          "feet"
+
+        "SideShop"                                          "0"
+        "SecretShop"					                    "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "1" //CHEST
+            }
+            // "02"
+            // {
+            //     "var_type"                                 "FIELD_INTEGER"
+            //     "movespeed_slow"                            "5"
+            // }
+            // "03"
+            // {
+            //     "var_type"                                  "FIELD_INTEGER"
+            //     "attackspeed_slow"                           "5"
+            // }
+            // "04"
+            // {
+            //     "var_type"                                  "FIELD_FLOAT"   
+            //     "duration"                                  "3.0"
+            // }
+        }
+    }
+}
