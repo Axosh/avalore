@@ -35,7 +35,7 @@
         "ScriptFile"                    "items/shop/base_materials/item_pauldrons.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
-        "AbilityTextureName"            "base_materials/item_pauldrons"
+        "AbilityTextureName"            "base_materials/pauldrons"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------

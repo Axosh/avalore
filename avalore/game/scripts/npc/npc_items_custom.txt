@@ -4,7 +4,7 @@
 #base "items/base_materials/item_adventurers_cloak.txt"
 #base "items/base_materials/item_cloth_gloves.txt"
 #base "items/components/item_steel.txt"
-#base "items/base_materials/item_crown.txt"
+#base "items/base_materials/item_avalore_crown.txt"
 #base "items/base_materials/item_pauldrons.txt"
 #base "items/base_materials/item_essence_of_frost.txt"
 

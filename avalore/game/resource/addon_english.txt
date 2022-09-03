@@ -984,9 +984,13 @@
 		"DOTA_Tooltip_Ability_item_cloth_gloves"							"Cloth Gloves"
 		"DOTA_Tooltip_Ability_item_cloth_gloves_bonus_int"					"+$int"
 
-		"DOTA_Tooltip_Ability_item_recipe_crown"							"Crown"
-		"DOTA_Tooltip_Ability_item_crown"									"Crown"
-		"DOTA_Tooltip_Ability_item_crown_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_Ability_item_recipe_avalore_crown"					"Crown"
+		"DOTA_Tooltip_Ability_item_avalore_crown"							"Crown"
+		"DOTA_Tooltip_Ability_item_avalore_crown_bonus_armor"				"+$armor"
+
+		"DOTA_Tooltip_Ability_item_recipe_pauldrons"							"Pauldrons"
+		"DOTA_Tooltip_Ability_item_pauldrons"									"Pauldrons"
+		"DOTA_Tooltip_Ability_item_pauldrons_bonus_armor"						"+$armor"
 
 		// Components
 		"DOTA_Tooltip_Ability_item_recipe_steel"							"Steel"
