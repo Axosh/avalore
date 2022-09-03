@@ -14,6 +14,7 @@
 		"item"              "item_adventurers_cloak"
 		"item"				"item_cloth_gloves"
 		"item"				"item_crown"
+		"item"				"item_pauldrons"
     }
     "misc"
 	{

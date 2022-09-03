@@ -12,7 +12,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"250"
+		"ItemCost"						"400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -69,21 +69,11 @@
                 "var_type"                                  "FIELD_INTEGER"
                 "item_slot"                                 "1" //CHEST
             }
-            // "02"
-            // {
-            //     "var_type"                                 "FIELD_INTEGER"
-            //     "movespeed_slow"                            "5"
-            // }
-            // "03"
-            // {
-            //     "var_type"                                  "FIELD_INTEGER"
-            //     "attackspeed_slow"                           "5"
-            // }
-            // "04"
-            // {
-            //     "var_type"                                  "FIELD_FLOAT"   
-            //     "duration"                                  "3.0"
-            // }
+            "02"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_armor"                               "4"
+            }
         }
     }
 }
