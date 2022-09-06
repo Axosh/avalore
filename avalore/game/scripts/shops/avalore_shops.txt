@@ -15,6 +15,7 @@
 		"item"				"item_cloth_gloves"
 		"item"				"item_avalore_crown"
 		"item"				"item_pauldrons"
+		"item"				"item_plate"
     }
     "misc"
 	{
