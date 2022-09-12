@@ -1,5 +1,32 @@
 "DOTAItems"
 {
+
+    "item_recipe_talaria"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"3010"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"items_01/talaria"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"//"400"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_talaria"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_fairy_dust;item_sandals"
+        }
+	}
+
     "item_talaria"
     {
         // General
