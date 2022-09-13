@@ -261,10 +261,9 @@ end
 function Inventory:Combine(item_name)
     print("Inventory:Combine(item_name) > " .. item_name)
     for slot=0,15 do
-        local item = self:GetHero():GetItemInSlot(slot)
+        local item = self:GetHero():GetItemInSlot(slot) --note: they have some ability to move item slots around
         if item and item:GetName() == item_name then
             local item_slot = item:GetSpecialValueFor("item_slot")
-            --PrintTable(item)
             -- we shouldn't be hitting this, but just in case
             if item_slot == nil then
                 item_slot = AVALORE_ITEM_SLOT_MISC
@@ -277,9 +276,19 @@ function Inventory:Combine(item_name)
                 self.slots[item_slot] = item
                 --return
             end
-        -- check if combining ate multiple items
-        elseif (slot >= 0 and slot <= 9) and not item then
-            print("MIA!!!!")
+         end
+    end
+    -- make sure we didn't eat items while combining and not give the base slot back
+    for slot=0,5 do
+        local item = self.slots[slot]
+        if item:GetItemSlot() == -1 then
+            self:Remove(item)
+        end
+    end
+    for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
+        local item = self.slots[AVALORE_ITEM_SLOT_MISC][slot]
+        if item:GetItemSlot() == -1 then
+            self:Remove(item)
         end
     end
 end
