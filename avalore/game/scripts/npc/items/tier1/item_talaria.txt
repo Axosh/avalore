@@ -74,8 +74,8 @@
             }
             "03"
             {
-                "var_type"          "FIELD_INTEGER"
-                "bonus_mana_regen"       "1.25"
+                "var_type"                      "FIELD_INTEGER"
+                "bonus_mana_regen"              "1.25"
             }
         }
     }

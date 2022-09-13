@@ -22,7 +22,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_chest"
+            "01"                        "item_slot_trinket"
         }
 	}
 

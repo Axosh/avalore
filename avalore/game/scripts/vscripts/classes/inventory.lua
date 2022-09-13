@@ -264,6 +264,7 @@ function Inventory:Combine(item_name)
         local item = self:GetHero():GetItemInSlot(slot)
         if item and item:GetName() == item_name then
             local item_slot = item:GetSpecialValueFor("item_slot")
+            --PrintTable(item)
             -- we shouldn't be hitting this, but just in case
             if item_slot == nil then
                 item_slot = AVALORE_ITEM_SLOT_MISC
@@ -271,11 +272,14 @@ function Inventory:Combine(item_name)
             -- make the Avalore inventory aware
             if item_slot == AVALORE_ITEM_SLOT_MISC then
                 self:AddToMisc(item)
-                return
+                --return
             else
                 self.slots[item_slot] = item
-                return
+                --return
             end
+        -- check if combining ate multiple items
+        elseif (slot >= 0 and slot <= 9) and not item then
+            print("MIA!!!!")
         end
     end
 end
