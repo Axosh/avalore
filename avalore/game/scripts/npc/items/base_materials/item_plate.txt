@@ -7,7 +7,7 @@
 		//"ID"							"3010"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/pauldrons"
+        "AbilityTextureName" 			"base_materials/plate"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info

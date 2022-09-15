@@ -67,7 +67,7 @@
             "01"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "item_slot"                                 "4" //FEET
+                "item_slot"                                 "2" //BACK
             }
             "02"
             {

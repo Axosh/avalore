@@ -957,11 +957,12 @@
 		// Consumable
 		"DOTA_Tooltip_Ability_item_recipe_fairy_dust"		"Fairy Dust"
 		"DOTA_Tooltip_Ability_item_fairy_dust"				"Fairy Dust"
+		"DOTA_Tooltip_Ability_item_fairy_dust_description"	"<font color=\"#888888\"><b>SLOT</B>: Trinket</font>"
 
 		// Essences
 		"DOTA_Tooltip_Ability_item_recipe_essence_of_frost"		"Essence of Frost"
 		"DOTA_Tooltip_Ability_item_essence_of_frost"			"Essence of Frost"
-		"DOTA_Tooltip_Ability_item_essence_of_frost_description"		"Applies a move speed and attack speed slow on attack"
+		"DOTA_Tooltip_Ability_item_essence_of_frost_description"		"<font color=\"#888888\"><b>SLOT</B>: Misc</font><br />Applies a move speed and attack speed slow on attack"
 		"DOTA_Tooltip_Ability_item_essence_of_frost_movespeed_slow"		"%MOVESPEED SLOW: "
 		"DOTA_Tooltip_Ability_item_essence_of_frost_attackspeed_slow"	"ATTACKSPEED SLOW: "
 		"DOTA_Tooltip_Ability_item_essence_of_frost_duration"			"DURATION: "
@@ -970,7 +971,8 @@
 		"DOTA_Tooltip_modifier_frostbite_description"			"-%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE% MS and -%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% AS"
 
 		// Base Materials
-		"DOTA_Tooltip_Ability_item_sandals"						"Caster's Sandals"
+		"DOTA_Tooltip_Ability_item_sandals"									"Caster's Sandals"
+		"DOTA_Tooltip_Ability_item_sandals_description"						"<font color=\"#888888\"><b>SLOT</B>: Feet</font>"
 
 		"DOTA_Tooltip_Ability_item_recipe_leather_boots"					"Leather Boots"
 		"DOTA_Tooltip_Ability_item_leather_boots"							"Leather Boots"
@@ -981,6 +983,7 @@
 
 		"DOTA_Tooltip_Ability_item_recipe_adventurers_cloak"				"Adventurer's Cloak"
 		"DOTA_Tooltip_Ability_item_adventurers_cloak"						"Adventurer's Cloak"
+		"DOTA_Tooltip_Ability_item_adventurers_cloak_description"			"<font color=\"#888888\"><b>SLOT</B>: Back</font>"
 		"DOTA_Tooltip_Ability_item_adventurers_cloak_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_Ability_item_adventurers_cloak_bonus_str"				"+$str"
 		"DOTA_Tooltip_Ability_item_adventurers_cloak_bonus_agi"				"+$agi"
@@ -988,21 +991,24 @@
 
 		"DOTA_Tooltip_Ability_item_recipe_cloth_gloves"						"Cloth Gloves"
 		"DOTA_Tooltip_Ability_item_cloth_gloves"							"Cloth Gloves"
+		"DOTA_Tooltip_Ability_item_cloth_gloves_description"				"<font color=\"#888888\"><b>SLOT</B>: Hands</font>"
 		"DOTA_Tooltip_Ability_item_cloth_gloves_bonus_int"					"+$int"
 
 		"DOTA_Tooltip_Ability_item_recipe_avalore_crown"					"Crown"
 		"DOTA_Tooltip_Ability_item_avalore_crown"							"Crown"
+		"DOTA_Tooltip_Ability_item_avalore_crown_description"				"<font color=\"#888888\"><b>SLOT</B>: Head</font>"
 		"DOTA_Tooltip_Ability_item_avalore_crown_bonus_armor"				"+$armor"
 
 		"DOTA_Tooltip_Ability_item_recipe_pauldrons"							"Pauldrons"
 		"DOTA_Tooltip_Ability_item_pauldrons"									"Pauldrons"
+		"DOTA_Tooltip_Ability_item_pauldrons_description"						"<font color=\"#888888\"><b>SLOT</B>: Chest</font>"
 		"DOTA_Tooltip_Ability_item_pauldrons_bonus_armor"						"+$armor"
 
 		"DOTA_Tooltip_Ability_item_plate"									"Plate"
 		"DOTA_Tooltip_Ability_item_plate"									"Plate"
 		"DOTA_Tooltip_Ability_item_plate_bonus_armor"						"+$armor"
 		"DOTA_Tooltip_Ability_item_plate_damage_block"						"DAMAGE BLOCK: "
-		"DOTA_Tooltip_Ability_item_plate_description"						"Provides armor and passively blocks %damage_block% damage per attack landed."
+		"DOTA_Tooltip_Ability_item_plate_description"						"<font color=\"#888888\"><b>SLOT</B>: Chest</font><br /><br />Provides armor and passively blocks %damage_block% damage per attack landed."
 		"DOTA_Tooltip_Ability_item_plate_note0"								"Multiple sources of damage block do not stack"
 
 		// Components
@@ -1011,7 +1017,7 @@
 		"DOTA_Tooltip_Ability_item_steel_bonus_armor"						"+$armor"
 
 		// TIER 1
-		"DOTA_Tooltip_Ability_item_recipe_fairy_dust"		"Fairy Dust"
+		//"DOTA_Tooltip_Ability_item_recipe_fairy_dust"		"Fairy Dust"
 
 
 		//--------------------------------------------------------------------------------
