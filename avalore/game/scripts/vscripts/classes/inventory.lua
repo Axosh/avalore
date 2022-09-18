@@ -175,6 +175,10 @@ function Inventory:PickUp(item)
 end
 
 function Inventory:Remove(item)
+    self:Remove(item, false)
+end
+
+function Inventory:Remove(item, destroyOnRemove)
     if not IsServer() then return end
     -- don't do anything special for the placeholders
     if item:GetName():find("item_slot") then return end
@@ -192,6 +196,17 @@ function Inventory:Remove(item)
     -- if not item:GetContainer() then
     --     (self.slots[item_slot]):RemoveSelf()
     -- end
+
+    -- destroy item before adding in other slot
+    -- should only be applicable to items that can be cast (ie. main inventory slots)
+    if item_slot >= 0 and item_slot <= 5 then
+        if destroyOnRemove then
+            item:Destroy()
+            -- not sure if there's junk data or a race condition, but the "GetName" statement will get called if this
+            -- is not explicitly garbage collected right here
+            self.slots[item_slot] = nil
+        end
+    end
 
     -- re-add placeholder (also check if it's not already been re-added since server seems to call this twice)
     if item_slot == AVALORE_ITEM_SLOT_HEAD and (self.slots[AVALORE_ITEM_SLOT_HEAD] == nil or (self.slots[AVALORE_ITEM_SLOT_HEAD]):GetName() ~= "item_slot_head") then
@@ -227,6 +242,7 @@ function Inventory:Remove(item)
     if item_slot < AVALORE_ITEM_SLOT_MISC1 then
         self.slots[item_slot]:SetDroppable(false)
     end
+
 end
 
 -- function Inventory:Combine(item_name)
