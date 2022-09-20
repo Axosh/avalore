@@ -32,10 +32,15 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         //"ID"                                                  "3013"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
-        "BaseClass"						                      "item_datadriven"            
+        "BaseClass"						                      "item_lua"            
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                                               "models/props_gameplay/boots_of_speed.vmdl"
+        "ScriptFile"                                          "items/shop/tier1/item_talaria.lua"
         "AbilityTextureName"                                  "items_01/talaria"
+
+        // Ability
+		//--------------------------------------------		
+		"AbilityCooldown"				"30"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -76,6 +81,11 @@
             {
                 "var_type"                      "FIELD_INTEGER"
                 "bonus_mana_regen"              "1.25"
+            }
+            "04"
+            {
+                "var_type"                                  "FIELD_FLOAT"
+                "flying_time"                               "3.0"
             }
         }
     }
