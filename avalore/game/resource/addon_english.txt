@@ -957,7 +957,7 @@
 		// Consumable
 		"DOTA_Tooltip_Ability_item_recipe_fairy_dust"		"Fairy Dust"
 		"DOTA_Tooltip_Ability_item_fairy_dust"				"Fairy Dust"
-		"DOTA_Tooltip_Ability_item_fairy_dust_description"	"<font color=\"#888888\"><b>SLOT</B>: Trinket</font>"
+		"DOTA_Tooltip_Ability_item_fairy_dust_description"	"<font color=\"#888888\"><b>SLOT</B>: Trinket</font><br /><br /><h1>Active: Flutter</h1>Grants flying movement for %flying_time% seconds."
 
 		// Essences
 		"DOTA_Tooltip_Ability_item_recipe_essence_of_frost"		"Essence of Frost"

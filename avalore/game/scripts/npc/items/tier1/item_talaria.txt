@@ -46,7 +46,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                                            "300"
         "ItemShopTags"                                        "move_speed"
-        "ItemQuality"                                         "component"
+        "ItemQuality"                                         "common"
         "ItemAliases"                                         "boots of speed"
 
         "ItemKillable"					"1"
