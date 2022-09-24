@@ -1,7 +1,7 @@
 item_talaria = class({})
 
 LinkLuaModifier( "modifier_fairy_dust_buff", "items/shop/base_materials/item_fairy_dust.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_talaria", "items/shop/tier1/modifier_item_talaria.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_talaria", "items/shop/tier1/item_talaria.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_talaria:GetBehavior() 
     return DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_NO_TARGET
@@ -43,6 +43,6 @@ function modifier_item_talaria:GetModifierConstantManaRegen()
     return self.bonus_mana_regen
 end
 
-function modifier_item_leather_boots:GetModifierMoveSpeedBonus_Constant()
+function modifier_item_talaria:GetModifierMoveSpeedBonus_Constant()
     return self.bonus_move_speed
 end
