@@ -1021,7 +1021,7 @@
 		//"DOTA_Tooltip_Ability_item_recipe_fairy_dust"		"Fairy Dust"
 		"DOTA_Tooltip_Ability_item_recipe_talaria"			"Talaria"
 		"DOTA_Tooltip_Ability_item_talaria"					"Talaria"
-		"DOTA_Tooltip_Ability_item_talaria_description"		"<font color=\"#888888\"><b>SLOT</B>: Feet</font><br /><br /><h1>Active: Flutter</h1>Grants flying movement for %flying_time% seconds."
+		"DOTA_Tooltip_Ability_item_talaria_description"		"<h1>Active: Flutter</h1>Grants flying movement for %flying_time% seconds.\n<h1>Upgrade: Feet Slot</h1>Requires the feet slot"
 		"DOTA_Tooltip_Ability_item_talaria_bonus_movement_speed" 		"+$move_speed"		
 		"DOTA_Tooltip_Ability_item_talaria_bonus_mana_regen" 		"+$mana_regen"		
 		"DOTA_Tooltip_Ability_item_talaria_Lore"					"Talaria are the romanized name for the winged boots of Hermes (Mercury), gifted to him by Zeus"
