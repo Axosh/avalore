@@ -957,13 +957,13 @@
 		// Consumable
 		"DOTA_Tooltip_Ability_item_recipe_fairy_dust"		"Fairy Dust"
 		"DOTA_Tooltip_Ability_item_fairy_dust"				"Fairy Dust"
-		"DOTA_Tooltip_Ability_item_fairy_dust_description"	"<font color=\"#888888\"><b>SLOT</B>: Trinket</font><br /><br /><h1>Active: Flutter</h1>Grants flying movement for %flying_time% seconds."
+		"DOTA_Tooltip_Ability_item_fairy_dust_description"	"<h1>Slot: Trinket</h1>Requires the trinket slot\n<h1>Active: Flutter</h1>Grants flying movement for %flying_time% seconds."
 		"DOTA_Tooltip_Ability_item_fairy_dust_Lore"			"Fairy Dust was used in Peter Pan to grant flight"
 
 		// Essences
 		"DOTA_Tooltip_Ability_item_recipe_essence_of_frost"		"Essence of Frost"
 		"DOTA_Tooltip_Ability_item_essence_of_frost"			"Essence of Frost"
-		"DOTA_Tooltip_Ability_item_essence_of_frost_description"		"<font color=\"#888888\"><b>SLOT</B>: Misc</font><br />Applies a move speed and attack speed slow on attack"
+		"DOTA_Tooltip_Ability_item_essence_of_frost_description"		"<h1>Slot: Misc</h1>Requires a misc slot\nA<h1>Attack Modifier: Frostbite</h1>Applies a move speed and attack speed slow on attack"
 		"DOTA_Tooltip_Ability_item_essence_of_frost_movespeed_slow"		"%MOVESPEED SLOW: "
 		"DOTA_Tooltip_Ability_item_essence_of_frost_attackspeed_slow"	"ATTACKSPEED SLOW: "
 		"DOTA_Tooltip_Ability_item_essence_of_frost_duration"			"DURATION: "
@@ -973,18 +973,18 @@
 
 		// Base Materials
 		"DOTA_Tooltip_Ability_item_sandals"									"Caster's Sandals"
-		"DOTA_Tooltip_Ability_item_sandals_description"						"<font color=\"#888888\"><b>SLOT</B>: Feet</font>"
+		"DOTA_Tooltip_Ability_item_sandals_description"						"<h1>Slot: Feet</h1>Requires the feet slot"
 
 		"DOTA_Tooltip_Ability_item_recipe_leather_boots"					"Leather Boots"
 		"DOTA_Tooltip_Ability_item_leather_boots"							"Leather Boots"
-		"DOTA_Tooltip_Ability_item_leather_boots_description"				"<font color=\"#888888\"><b>SLOT</B>: Feet</font>"
+		"DOTA_Tooltip_Ability_item_leather_boots_description"				"<h1>Slot: Feet</h1>Requires the feet slot"
 		"DOTA_Tooltip_Ability_item_leather_boots_bonus_movement_speed" 		"+$move_speed"				
 		"DOTA_Tooltip_Ability_item_leather_boots_bonus_armor"				"+$armor"
 		//"DOTA_Tooltip_Ability_item_leather_boots_Note0"						"SLOT: Feet"
 
 		"DOTA_Tooltip_Ability_item_recipe_adventurers_cloak"				"Adventurer's Cloak"
 		"DOTA_Tooltip_Ability_item_adventurers_cloak"						"Adventurer's Cloak"
-		"DOTA_Tooltip_Ability_item_adventurers_cloak_description"			"<font color=\"#888888\"><b>SLOT</B>: Back</font>"
+		"DOTA_Tooltip_Ability_item_adventurers_cloak_description"			"<h1>Slot: Back</h1>Requires the back slot"
 		"DOTA_Tooltip_Ability_item_adventurers_cloak_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_Ability_item_adventurers_cloak_bonus_str"				"+$str"
 		"DOTA_Tooltip_Ability_item_adventurers_cloak_bonus_agi"				"+$agi"
@@ -992,24 +992,24 @@
 
 		"DOTA_Tooltip_Ability_item_recipe_cloth_gloves"						"Cloth Gloves"
 		"DOTA_Tooltip_Ability_item_cloth_gloves"							"Cloth Gloves"
-		"DOTA_Tooltip_Ability_item_cloth_gloves_description"				"<font color=\"#888888\"><b>SLOT</B>: Hands</font>"
+		"DOTA_Tooltip_Ability_item_cloth_gloves_description"				"<h1>Slot: Hands</h1>Requires the hands slot"
 		"DOTA_Tooltip_Ability_item_cloth_gloves_bonus_int"					"+$int"
 
 		"DOTA_Tooltip_Ability_item_recipe_avalore_crown"					"Crown"
 		"DOTA_Tooltip_Ability_item_avalore_crown"							"Crown"
-		"DOTA_Tooltip_Ability_item_avalore_crown_description"				"<font color=\"#888888\"><b>SLOT</B>: Head</font>"
+		"DOTA_Tooltip_Ability_item_avalore_crown_description"				"<h1>Slot: Head</h1>Requires the head slot"
 		"DOTA_Tooltip_Ability_item_avalore_crown_bonus_armor"				"+$armor"
 
 		"DOTA_Tooltip_Ability_item_recipe_pauldrons"							"Pauldrons"
 		"DOTA_Tooltip_Ability_item_pauldrons"									"Pauldrons"
-		"DOTA_Tooltip_Ability_item_pauldrons_description"						"<font color=\"#888888\"><b>SLOT</B>: Chest</font>"
+		"DOTA_Tooltip_Ability_item_pauldrons_description"						"<h1>Slot: Chest</h1>Requires the chest slot"
 		"DOTA_Tooltip_Ability_item_pauldrons_bonus_armor"						"+$armor"
 
 		"DOTA_Tooltip_Ability_item_plate"									"Plate"
 		"DOTA_Tooltip_Ability_item_plate"									"Plate"
 		"DOTA_Tooltip_Ability_item_plate_bonus_armor"						"+$armor"
 		"DOTA_Tooltip_Ability_item_plate_damage_block"						"DAMAGE BLOCK: "
-		"DOTA_Tooltip_Ability_item_plate_description"						"<font color=\"#888888\"><b>SLOT</B>: Chest</font><br /><br />Provides armor and passively blocks %damage_block% damage per attack landed."
+		"DOTA_Tooltip_Ability_item_plate_description"						"<h1>Passive: Damage Block</h1>Provides armor and passively blocks %damage_block% damage per attack landed.\n<h1>Slot: Chest</h1>Requires the chest slot"
 		"DOTA_Tooltip_Ability_item_plate_note0"								"Multiple sources of damage block do not stack"
 
 		// Components
@@ -1021,7 +1021,7 @@
 		//"DOTA_Tooltip_Ability_item_recipe_fairy_dust"		"Fairy Dust"
 		"DOTA_Tooltip_Ability_item_recipe_talaria"			"Talaria"
 		"DOTA_Tooltip_Ability_item_talaria"					"Talaria"
-		"DOTA_Tooltip_Ability_item_talaria_description"		"<h1>Active: Flutter</h1>Grants flying movement for %flying_time% seconds.\n<h1>Upgrade: Feet Slot</h1>Requires the feet slot"
+		"DOTA_Tooltip_Ability_item_talaria_description"		"<h1>Active: Flutter</h1>Grants flying movement for %flying_time% seconds.\n<h1>Slot: Feet</h1>Requires the feet slot"
 		"DOTA_Tooltip_Ability_item_talaria_bonus_movement_speed" 		"+$move_speed"		
 		"DOTA_Tooltip_Ability_item_talaria_bonus_mana_regen" 		"+$mana_regen"		
 		"DOTA_Tooltip_Ability_item_talaria_Lore"					"Talaria are the romanized name for the winged boots of Hermes (Mercury), gifted to him by Zeus"
