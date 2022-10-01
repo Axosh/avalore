@@ -4,12 +4,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"							"2188"
     "BaseClass"						"item_datadriven"
-    "AbilityTextureName" 			"imba_recipe"
+    "AbilityTextureName" 			"items_01/helskor"
     "Model"							"models/props_gameplay/recipe.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"						"660"
+    "ItemCost"						"1000"
     "ItemShopTags"					""
 
     // Recipe
@@ -18,20 +18,13 @@
     "ItemResult"					"item_helskor"
     "ItemRequirements"
     {
-        "01"						"item_phase_boots;item_imba_occult_mask"
+        "01"						"item_leather_boots"
     }
 }
-
-//=================================================================================================================
-// Haste Boots
-//=================================================================================================================
 "item_helskor"
 {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"							"2189"
     "BaseClass"						"item_lua"
-    "AbilityTextureName" 			"imba_phase_boots_2"
+    "AbilityTextureName" 			"items_01/helskor"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "Effect"						"particles/generic_gameplay/dropped_item.vpcf"
     "ScriptFile"					"components/items/item_haste_boots"
