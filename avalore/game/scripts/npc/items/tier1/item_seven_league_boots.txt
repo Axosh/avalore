@@ -1,0 +1,107 @@
+"DOTAItems"
+{
+
+    "item_recipe_seven_league_boots"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"3010"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"items_01/seven_league_boots"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2000"
+		"ItemShopTags"					"bots,travel"
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_seven_league_boots"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_leather_boots"
+        }
+	}
+
+    "item_seven_league_boots"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        //"ID"                                                  "3013"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						                      "item_lua"            
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+        "Model"                                               "models/props_gameplay/boots_of_speed.vmdl"
+        "ScriptFile"                                          "items/shop/tier1/item_seven_league_boots.lua"
+        "AbilityTextureName"                                  "items_01/seven_league_boots"
+
+        // Ability
+		//--------------------------------------------		
+		"AbilityCooldown"				"40"
+        "AbilitySharedCooldown"			"teleport"
+        "AbilityChannelTime"			"2.0"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                            "2000"
+        "ItemShopTags"                                        "move_speed"
+        "ItemQuality"                                         "common"
+        "ItemAliases"                                         "bots"
+
+        "ItemKillable"					"1"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"0"
+
+        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        "SideShop"                                            "0"
+        "SecretShop"					"0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "4" //FEET
+            }
+            "02"
+            {
+                "var_type"                                        "FIELD_INTEGER"
+                "bonus_movement_speed"                            "90"
+            }
+            "03"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "bonus_armor"       "2"
+            }
+            "04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"maximum_distance"		"575"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"200"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"tooltip_channel_time"	"2.0"
+			}
+        }
+    }
+}
