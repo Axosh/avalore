@@ -13,6 +13,7 @@
 // TIER 1 Items
 #base "items/tier1/item_talaria.txt"
 #base "items/tier1/item_seven_league_boots.txt"
+#base "items/tier1/item_helskor.txt"
 
 
 #base "items/merc_demi_hero/item_merc_demi_hero_yeti.txt"

@@ -1024,14 +1024,19 @@
 		"DOTA_Tooltip_Ability_item_talaria_description"		"<h1>Active: Flutter</h1>Grants flying movement for %flying_time% seconds.\n<h1>Slot: Feet</h1>Requires the feet slot"
 		"DOTA_Tooltip_Ability_item_talaria_bonus_movement_speed" 		"+$move_speed"		
 		"DOTA_Tooltip_Ability_item_talaria_bonus_mana_regen" 		"+$mana_regen"		
-		"DOTA_Tooltip_Ability_item_talaria_Lore"					"Talaria are the romanized name for the winged boots of Hermes (Mercury), gifted to him by Zeus"
+		"DOTA_Tooltip_Ability_item_talaria_Lore"					"Greco-Roman Mythology: Talaria are the romanized name for the winged boots of Hermes (Mercury), gifted to him by Zeus"
 
 		"DOTA_Tooltip_Ability_item_recipe_seven_league_boots"					"Seven-League Boots"
 		"DOTA_Tooltip_Ability_item_seven_league_boots"							"Seven-League Boots"
 		"DOTA_Tooltip_Ability_item_seven_league_boots_description"				"<h1>Active: Teleport</h1>Teleports you to any allied structure or unit, including heroes. Teleporting to a unit is interrupted if the target unit dies.<br><br>Shares a cooldown with Town Portal Scroll.\n<h1>Slot: Feet</h1>Requires the feet slot"
 		"DOTA_Tooltip_Ability_item_seven_league_boots_bonus_movement_speed" 	"+$move_speed"		
 		"DOTA_Tooltip_Ability_item_seven_league_boots_bonus_armor" 				"+$armor"		
-		"DOTA_Tooltip_Ability_item_seven_league_boots_Lore"						"These boots appear throughout European folklore. There are many variations to what their abilities were, but the most common theme is dramatically increasing the wearer's walking pace."
+		"DOTA_Tooltip_Ability_item_seven_league_boots_Lore"						"European Folklore: There are many variations to what their abilities were, but the most common theme is dramatically increasing the wearer's walking pace."
+
+		"DOTA_Tooltip_Ability_item_recipe_helskor"			"Helskór"
+		"DOTA_Tooltip_Ability_item_helskor"					"Helskór"
+		"DOTA_Tooltip_Ability_item_helskor_description"		"<h1>Active: Ghost Walk</h1>Grants %phase_ms% extra movespeed, allows movement through units, immunity to physical damage, but take %magic_dmg_amp% increased magical damage.\n<h1>Slot: Feet</h1>Requires the feet slot"
+		"DOTA_Tooltip_Ability_item_helskor_Lore"			"Norse Mythology: placed on the deceased so they could travel to Valhalla"
 
 		//--------------------------------------------------------------------------------
 		// MODIFIERS
