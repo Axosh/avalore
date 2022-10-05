@@ -1,6 +1,7 @@
 item_seven_league_boots = class({})
 
 LinkLuaModifier( "modifier_item_seven_league_boots", "items/shop/tier1/item_seven_league_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_avalore_teleporting", "scripts/vscripts/modifiers/base_spell/modifier_avalore_teleporting.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_seven_league_boots:GetIntrinsicModifierName()
     return "modifier_item_seven_league_boots"
@@ -41,7 +42,7 @@ function item_seven_league_boots:OnSpellStart()
 	self.unit = CreateUnitByName("npc_dummy_unit", self.location, false, caster, caster, caster:GetTeamNumber())
 	EmitSoundOn("Portal.Loop_Appear", self.unit)
 	MinimapEvent(caster:GetTeamNumber(), caster, self.location.x, self.location.y, DOTA_MINIMAP_EVENT_TEAMMATE_TELEPORTING, ability:GetChannelTime())
-	self.buff = caster:AddNewModifier(caster, ability, "modifier_imba_teleporting", {duration = ability:GetSpecialValueFor("tooltip_channel_time")})
+	self.buff = caster:AddNewModifier(caster, ability, "modifier_avalore_teleporting", {duration = ability:GetSpecialValueFor("tooltip_channel_time")})
 	self.start_pfx = ParticleManager:CreateParticle(start_pfx_name, PATTACH_WORLDORIGIN, caster)
 	ParticleManager:SetParticleControl(self.start_pfx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(self.start_pfx, 2, Vector(255,255,0))

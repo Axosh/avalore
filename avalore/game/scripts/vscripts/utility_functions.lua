@@ -434,3 +434,16 @@ function IsDireBotLane(x, y)
     end
     return false
 end
+
+-- MISC
+
+-- FROM dota_imba
+-- Yahnich's calculate distance and direction functions
+function CalculateDistance(ent1, ent2)
+	local pos1 = ent1
+	local pos2 = ent2
+	if ent1.GetAbsOrigin then pos1 = ent1:GetAbsOrigin() end
+	if ent2.GetAbsOrigin then pos2 = ent2:GetAbsOrigin() end
+	local distance = (pos1 - pos2):Length2D()
+	return distance
+end
