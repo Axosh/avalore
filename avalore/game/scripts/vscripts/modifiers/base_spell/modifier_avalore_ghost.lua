@@ -5,7 +5,8 @@ function modifier_avalore_ghost:IsPurgable() return true end
 function modifier_avalore_ghost:IsDebuff() return false end
 
 function modifier_avalore_ghost:GetStatusEffectName()
-	return "particles/status_fx/status_effect_ghost.vpcf"
+    return "particles/status_fx/status_effect_purple_poison.vpcf"
+	--return "particles/status_fx/status_effect_ghost.vpcf"
 end
 
 function modifier_avalore_ghost:OnCreated()
@@ -16,7 +17,7 @@ function modifier_avalore_ghost:OnCreated()
 
     self.caster         = self:GetCaster()
 	self.ability        = self:GetAbility()
-	self.particle_boost = "particles/item/boots/haste_boots_speed_boost.vpcf"
+	self.particle_boost = "particles/econ/events/ti9/phase_boots_ti9.vpcf"
 
     self.phase_ms                       = self.ability:GetSpecialValueFor("phase_ms")
     self.extra_spell_damage_percent		= self.ability:GetSpecialValueFor("extra_spell_damage_percent")
@@ -49,10 +50,10 @@ function modifier_avalore_ghost:GetModifierMoveSpeedBonus_Percentage()
 	return self.phase_ms
 end
 
-function modifier_imba_ghost_state:GetModifierMagicalResistanceDecrepifyUnique()
+function modifier_avalore_ghost:GetModifierMagicalResistanceDecrepifyUnique()
     return self.extra_spell_damage_percent
 end
 
-function modifier_imba_ghost_state:OnAttackLanded(kv)
+function modifier_avalore_ghost:OnAttackLanded(kv)
     self:Destroy()
 end

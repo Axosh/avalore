@@ -29,6 +29,7 @@
 	{
 		"item"				"item_talaria"
 		"item"				"item_seven_league_boots"
+		"item"				"item_helskor"
 	}
  
 	// Level 2 - Blue Recipes

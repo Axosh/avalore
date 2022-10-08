@@ -1,99 +1,102 @@
-"item_recipe_helskor"
+"DOTAItems"
 {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"							"2188"
-    "BaseClass"						"item_datadriven"
-    "AbilityTextureName" 			"items_01/helskor"
-    "Model"							"models/props_gameplay/recipe.vmdl"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"						"1000"
-    "ItemShopTags"					""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"					"1"
-    "ItemResult"					"item_helskor"
-    "ItemRequirements"
+    "item_recipe_helskor"
     {
-        "01"						"item_leather_boots"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        //"ID"							"2188"
+        "BaseClass"						"item_datadriven"
+        "AbilityTextureName" 			"items_01/helskor"
+        "Model"							"models/props_gameplay/recipe.vmdl"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"						"1000"
+        "ItemShopTags"					""
+
+        // Recipe
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemRecipe"					"1"
+        "ItemResult"					"item_helskor"
+        "ItemRequirements"
+        {
+            "01"						"item_leather_boots"
+        }
     }
-}
-"item_helskor"
-{
-    "BaseClass"						"item_lua"
-    "AbilityTextureName" 			"items_01/helskor"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-    "ScriptFile"					"components/items/item_haste_boots"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"				"6"
-    "AbilitySharedCooldown"			"phase"
-
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
+    "item_helskor"
     {
-        "particle"					"particles/item/boots/haste_boots_speed_boost.vpcf"			
-        "particle"					"particles/item/boots/haste_boots_drain.vpcf"
-    }
+        "BaseClass"						"item_lua"
+        "AbilityTextureName" 			"items_01/helskor"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+        "Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+        "ScriptFile"                    "items/shop/tier1/item_helskor.lua"
+        
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"						"4000"
-    "ItemShopTags"					"damage;move_speed;hard_to_tag"
-    "ItemQuality"					"common"
-    "ItemAliases"					"haste boots"
-    "ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"				"6"
+        "AbilitySharedCooldown"			"phase"
 
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-        "01"
+        // Precache
+        //-------------------------------------------------------------------------------------------------------------
+        "precache"
         {
-            "var_type"				"FIELD_INTEGER"
-            "bonus_movement_speed"	"65"
+            "particle"					"particles/econ/events/ti9/phase_boots_ti9.vpcf"			
+            //"particle"					"particles/status_fx/status_effect_ghost.vpcf"
+            "particle"                  "particles/status_fx/status_effect_purple_poison.vpcf"
         }
-        "02"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"						"4000"
+        "ItemShopTags"					"damage;move_speed;hard_to_tag"
+        "ItemQuality"					"common"
+        "ItemAliases"					"phase, helskor"
+        "ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+
+        "SideShop"                      "0"
+        "SecretShop"					"0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
         {
-            "var_type"				"FIELD_INTEGER"
-            "bonus_damage"			"45"
-            "CalculateSpellDamageTooltip"	"0"
-        }
-        "03"
-        {
-            "var_type"				"FIELD_INTEGER"
-            "phase_ms"				"30"
-        }
-        "04"
-        {
-            "var_type"				"FIELD_INTEGER"
-            "phase_duration"		"3"
-        }
-        "05"
-        {
-            "var_type"				"FIELD_INTEGER"
-            "ms_limit"				"700"
-        }
-        "06"
-        {
-            "var_type"				"FIELD_INTEGER"
-            "bonus_strength"		"8"
-        }
-        "07"
-        {
-            "var_type"				"FIELD_INTEGER"
-            "drain_damage"			"120"
-        }
-        "08"
-        {
-            "var_type"				"FIELD_INTEGER"
-            "drain_radius"			"145"
+            "01"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "bonus_movement_speed"	"65"
+            }
+            "02"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "bonus_damage"			"45"
+                "CalculateSpellDamageTooltip"	"0"
+            }
+            "03"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "phase_ms"				"30"
+            }
+            "04"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "phase_duration"		"3"
+            }
+            // "05"
+            // {
+            //     "var_type"				"FIELD_INTEGER"
+            //     "ms_limit"				"700"
+            // }
+            "05"
+            {
+                "var_type"                      "FIELD_INTEGER"
+                "extra_spell_damage_percent"    "33"
+            }
+            "06"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "4" //FEET
+            }
         }
     }
 }

@@ -13,6 +13,10 @@ AVALORE_INVISIBLE_MODIFIERS = {
 	"modifier_rune_super_invis"
 }
 
+AVALORE_STATUS_MODIFIERS = {
+	"modifier_avalore_ghost"
+}
+
 --LinkLuaModifier( "modifier_rogueish_escape", "heroes/robin_hood/ability_rich_poor", LUA_MODIFIER_MOTION_NONE )
 
 -- Based on code from: dota imba
@@ -117,6 +121,22 @@ function modifier_wearable:OnIntervalThink()
 		if hero:HasModifier(v) and cosmetic:HasModifier(v) then
 			if hero:FindModifierByName(v):GetStackCount() ~= cosmetic:FindModifierByName(v) then
 				cosmetic:FindModifierByName(v):SetStackCount(hero:FindModifierByName(v):GetStackCount())
+			end
+		end
+	end
+
+	for _, v in pairs(AVALORE_STATUS_MODIFIERS) do
+		if not hero:HasModifier(v) then
+			if cosmetic:HasModifier(v) then
+				cosmetic:RemoveModifierByName(v)
+			end
+		else
+			if not cosmetic:HasModifier(v) then
+				local mod = hero:FindModifierByName(v)
+				print("Adding Modifier " .. tostring(v) .. " to " .. cosmetic:GetName() .. " for " .. hero:GetName())
+				-- need to make sure we include the ability so that it can pull SpecialValues
+				cosmetic:AddNewModifier(cosmetic, mod:GetAbility(), v, {isCosmetic = true})
+				break
 			end
 		end
 	end
