@@ -9,10 +9,18 @@ function modifier_avalore_ghost:GetStatusEffectName()
 	--return "particles/status_fx/status_effect_ghost.vpcf"
 end
 
+function modifier_avalore_ghost:GetTexture()
+    return "generic/ghost"
+end
+
+
 function modifier_avalore_ghost:OnCreated()
     -- need some values from the ability, so if we get here and don't have that, we should get out
     if IsServer() then
-        if not self:GetAbility() then self:Destroy() end
+        if not self:GetAbility() then
+            print("NO ABILITY!")
+            self:Destroy() 
+        end
     end
 
     self.caster         = self:GetCaster()
@@ -55,5 +63,10 @@ function modifier_avalore_ghost:GetModifierMagicalResistanceDecrepifyUnique()
 end
 
 function modifier_avalore_ghost:OnAttackLanded(kv)
-    self:Destroy()
+    if not IsServer() then return end
+
+    -- remove the buff if they attack anything
+    if kv.attacker == self:GetParent() then
+        self:Destroy()
+    end
 end
