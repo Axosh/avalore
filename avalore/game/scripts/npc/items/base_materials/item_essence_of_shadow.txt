@@ -1,0 +1,79 @@
+"DOTAItems"
+{
+    "item_recipe_essence_of_shadow"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"3010"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"base_materials/essence_of_shadow"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"500"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_essence_of_shadow"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_slot_misc"
+        }
+	}
+
+    "item_essence_of_shadow"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        //"ID"                            "3011"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						"item_lua"            
+        "ScriptFile"                    "items/shop/base_materials/item_essence_of_shadow.lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"                         "models/props_gameplay/red_box.vmdl"
+        "AbilityTextureName"            "base_materials/essence_of_shadow"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        "ItemShopTags"                  "invisibility"
+        "ItemQuality"                   "component"
+        "ItemAliases"                   "eos"
+
+        "ItemKillable"					                    "1"
+		"ItemSellable"					                    "1"
+		"ItemPurchasable"				                    "1"
+		"ItemDroppable"					                    "1"
+		"ItemShareability"				                    "ITEM_NOT_SHAREABLE"
+		"ItemStackable"					                    "0"
+		"ItemPermanent"					                    "0"
+
+        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        //"ItemSlot"                                          "feet"
+
+        "SideShop"                                          "0"
+        "SecretShop"					                    "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "30" //MISC
+            }
+            "02"
+            {
+                "var_type"                               "FIELD_INTEGER"
+                "invis_delay"                            "5"
+            }
+        }
+    }
+}
