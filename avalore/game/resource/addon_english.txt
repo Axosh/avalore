@@ -971,6 +971,10 @@
 		"DOTA_Tooltip_modifier_frostbite"						"Frostbite"
 		"DOTA_Tooltip_modifier_frostbite_description"			"-%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE% MS and -%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% AS"
 
+		"DOTA_Tooltip_Ability_item_recipe_essence_of_shadow"		"Essence of Shadow"
+		"DOTA_Tooltip_Ability_item_essence_of_shadow"				"Essence of Shadow"
+		"DOTA_Tooltip_Ability_item_essence_of_shadow_description"		"<h1>Slot: Misc</h1>Requires a misc slot\nA<h1>Passive: Shadow Meld</h1>After staying still for %invis_delay% seconds, become invisible. Broken by movement, attacking, or casting."
+
 		// Base Materials
 		"DOTA_Tooltip_Ability_item_sandals"									"Caster's Sandals"
 		"DOTA_Tooltip_Ability_item_sandals_description"						"<h1>Slot: Feet</h1>Requires the feet slot"
