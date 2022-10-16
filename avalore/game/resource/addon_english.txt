@@ -973,7 +973,10 @@
 
 		"DOTA_Tooltip_Ability_item_recipe_essence_of_shadow"		"Essence of Shadow"
 		"DOTA_Tooltip_Ability_item_essence_of_shadow"				"Essence of Shadow"
-		"DOTA_Tooltip_Ability_item_essence_of_shadow_description"		"<h1>Slot: Misc</h1>Requires a misc slot\nA<h1>Passive: Shadow Meld</h1>After staying still for %invis_delay% seconds, become invisible. Broken by movement, attacking, or casting."
+		"DOTA_Tooltip_Ability_item_essence_of_shadow_description"		"<h1>Slot: Misc</h1>Requires a misc slot\n<h1>Passive: Shadow Meld</h1>After staying still for %invis_delay% seconds, become invisible. Broken by movement, attacking, or casting."
+
+		"DOTA_Tooltip_modifier_item_essence_of_shadow"				"Shadow Meld"
+		"DOTA_Tooltip_modifier_item_essence_of_shadow_description"	"Invisible after a %invis_delay% delay while standing still."
 
 		// Base Materials
 		"DOTA_Tooltip_Ability_item_sandals"									"Caster's Sandals"

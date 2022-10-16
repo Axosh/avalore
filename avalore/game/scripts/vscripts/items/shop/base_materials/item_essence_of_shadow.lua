@@ -8,7 +8,7 @@ end
 
 modifier_item_essence_of_shadow = modifier_item_essence_of_shadow or class({})
 
-function modifier_item_essence_of_shadow:IsHidden() return true end
+function modifier_item_essence_of_shadow:IsHidden() return false end
 function modifier_item_essence_of_shadow:IsDebuff() return false end
 function modifier_item_essence_of_shadow:IsPurgable() return false end
 function modifier_item_essence_of_shadow:RemoveOnDeath() return false end
@@ -25,6 +25,10 @@ function modifier_item_essence_of_shadow:GetModifierInvisibilityLevel()
     else
         return 0 -- visible
     end
+end
+
+function modifier_item_essence_of_shadow:GetTexture()
+    return "items/essence_of_shadow_orig"
 end
 
 function modifier_item_essence_of_shadow:OnCreated(kv)
