@@ -12,6 +12,7 @@
     {
         "item"              "item_leather_boots"
         "item"              "item_sandals"
+		"item"				"item_greaves"
 		"item"              "item_adventurers_cloak"
 		"item"				"item_cloth_gloves"
 		"item"				"item_avalore_crown"
