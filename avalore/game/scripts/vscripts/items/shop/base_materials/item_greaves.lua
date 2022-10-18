@@ -1,8 +1,8 @@
-iteam_greaves = class({})
+item_greaves = class({})
 
-LinkLuaModifier( "modifier_item_greaves", "items/shop/base_materials/iteam_greaves.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_greaves", "items/shop/base_materials/item_greaves.lua", LUA_MODIFIER_MOTION_NONE )
 
-function iteam_greaves:GetIntrinsicModifierName()
+function item_greaves:GetIntrinsicModifierName()
     return "modifier_item_greaves"
 end
 
