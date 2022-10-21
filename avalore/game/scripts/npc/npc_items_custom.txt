@@ -9,6 +9,7 @@
 #base "items/base_materials/item_pauldrons.txt"
 #base "items/base_materials/item_plate.txt"
 #base "items/base_materials/item_fairy_dust.txt"
+#base "items/base_materials/item_hat.txt"
 
 // Essences
 #base "items/base_materials/item_essence_of_frost.txt"

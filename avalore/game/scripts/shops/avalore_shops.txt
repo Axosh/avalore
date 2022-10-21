@@ -18,6 +18,7 @@
 		"item"				"item_avalore_crown"
 		"item"				"item_pauldrons"
 		"item"				"item_plate"
+		"item"				"item_hat"
     }
     "misc"
 	{
