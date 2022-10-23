@@ -1,48 +1,48 @@
 "DOTAItems"
 {
-    "item_recipe_hat"
+    "item_recipe_leather_vest"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		//"ID"							"3010"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/hat"
+        "AbilityTextureName" 			"base_materials/leather_vest"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
+		"ItemCost"						"175"
 		"ItemShopTags"					""
 
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_hat"
+		"ItemResult"					"item_leather_vest"
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_head"
+            "01"                        "item_slot_chest"
         }
 	}
 
-    "item_hat"
+    "item_plate"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
         //"ID"                            "3011"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/base_materials/item_hat.lua"
+        "ScriptFile"                    "items/shop/base_materials/item_leather_vest.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
-        "AbilityTextureName"            "base_materials/hat"
+        "AbilityTextureName"            "base_materials/leather_vest"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "0"
-        "ItemShopTags"                  "int"
+        //"ItemShopTags"                  ""
         "ItemQuality"                   "component"
-        "ItemAliases"                   ""
+        "ItemAliases"                   "chest;armor"
 
         "ItemKillable"					                    "1"
 		"ItemSellable"					                    "1"
@@ -67,12 +67,12 @@
             "01"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "item_slot"                                 "0" //HEAD
+                "item_slot"                                 "1" //CHEST
             }
             "02"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "bonus_int"                                 "3"
+                "bonus_armor"                               "2"
             }
         }
     }
