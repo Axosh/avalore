@@ -21,6 +21,7 @@
 		"item"				"item_hat"
 		"item"				"item_gambeson"
 		"item"				"item_leather_vest"
+		"item"				"item_avalore_bracer"
     }
     "misc"
 	{

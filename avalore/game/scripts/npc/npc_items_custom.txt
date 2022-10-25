@@ -12,6 +12,7 @@
 #base "items/base_materials/item_hat.txt"
 #base "items/base_materials/item_gambeson.txt"
 #base "items/base_materials/item_leather_vest.txt"
+#base "items/base_materials/item_avalore_bracer.txt"
 
 // Essences
 #base "items/base_materials/item_essence_of_frost.txt"

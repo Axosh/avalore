@@ -1031,14 +1031,19 @@
 		"DOTA_Tooltip_Ability_item_hat_bonus_int"							"+$int"
 
 		"DOTA_Tooltip_Ability_item_recipe_leather_vest"							"Leather Vest"
-		"DOTA_Tooltip_Ability_item_leather_vest"									"Leather Vest"
-		"DOTA_Tooltip_Ability_item_leather_vest_description"						"<h1>Slot: Chest</h1>Requires the chest slot"
-		"DOTA_Tooltip_Ability_item_leather_vest_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_Ability_item_leather_vest"								"Leather Vest"
+		"DOTA_Tooltip_Ability_item_leather_vest_description"					"<h1>Slot: Chest</h1>Requires the chest slot"
+		"DOTA_Tooltip_Ability_item_leather_vest_bonus_armor"					"+$armor"
 
 		"DOTA_Tooltip_Ability_item_recipe_gambeson"								"Gambeson"
-		"DOTA_Tooltip_Ability_item_gambeson"										"Gambeson"
-		"DOTA_Tooltip_Ability_item_gambeson_description"							"<h1>Slot: Chest</h1>Requires the chest slot"
+		"DOTA_Tooltip_Ability_item_gambeson"									"Gambeson"
+		"DOTA_Tooltip_Ability_item_gambeson_description"						"<h1>Slot: Chest</h1>Requires the chest slot"
 		"DOTA_Tooltip_Ability_item_gambeson_bonus_agi"							"+$agi"
+
+		"DOTA_Tooltip_Ability_item_recipe_avalore_bracer"						"Bracer"
+		"DOTA_Tooltip_Ability_item_avalore_bracer"								"Bracer"
+		"DOTA_Tooltip_Ability_item_avalore_bracer_description"					"<h1>Slot: Hands</h1>Requires the chest slot"
+		"DOTA_Tooltip_Ability_item_avalore_bracer_bonus_str"					"+$str"
 
 		// Components
 		"DOTA_Tooltip_Ability_item_recipe_steel"							"Steel"
