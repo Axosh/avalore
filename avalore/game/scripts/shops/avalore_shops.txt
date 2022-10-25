@@ -19,6 +19,8 @@
 		"item"				"item_pauldrons"
 		"item"				"item_plate"
 		"item"				"item_hat"
+		"item"				"item_gambeson"
+		"item"				"item_leather_vest"
     }
     "misc"
 	{
