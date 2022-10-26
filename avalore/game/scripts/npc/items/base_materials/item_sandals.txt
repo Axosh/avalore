@@ -1,11 +1,38 @@
 "DOTAItems"
 {
+    "item_recipe_sandals"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3010"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"base_materials/sandals"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"600"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_sandals"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_slot_feet"
+        }
+	}
+
     "item_sandals"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                                                  "3013"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
-        "BaseClass"						                      "item_datadriven"            
+        "BaseClass"						                      "item_lua"            
+        "ScriptFile"                                          "items/shop/base_materials/item_sandals.lua"
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                                               "models/props_gameplay/boots_of_speed.vmdl"
         "AbilityTextureName"                                  "base_materials/sandals"
@@ -29,7 +56,7 @@
 		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
         "SideShop"                                            "0"
-        "SecretShop"					"0"
+        "SecretShop"					                      "0"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -42,13 +69,13 @@
             }
             "02"
             {
-                "var_type"                                        "FIELD_INTEGER"
-                "bonus_movement_speed"                            "40"
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_movement_speed"                      "40"
             }
             "03"
             {
-                "var_type"          "FIELD_INTEGER"
-                "bonus_mana_regen"       "1.25"
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_mana_regen"                          "1.25"
             }
         }
     }
