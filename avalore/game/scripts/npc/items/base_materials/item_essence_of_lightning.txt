@@ -1,13 +1,13 @@
 "DOTAItems"
 {
-    "item_recipe_essence_of_frost"
+    "item_recipe_essence_of_lightning"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		//"ID"							"3010"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/essence_of_frost"
+        "AbilityTextureName" 			"base_materials/essence_of_lightning"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
@@ -18,7 +18,7 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_essence_of_frost"
+		"ItemResult"					"item_essence_of_lightning"
 		// Recipe
         "ItemRequirements"
 		{
@@ -26,23 +26,23 @@
         }
 	}
 
-    "item_essence_of_frost"
+    "item_essence_of_lightning"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
         //"ID"                            "3011"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/base_materials/item_essence_of_frost.lua"
+        "ScriptFile"                    "items/shop/base_materials/item_essence_of_lightning.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"							"models/props_gameplay/red_box.vmdl"
-        "AbilityTextureName"            "base_materials/essence_of_frost"
+        "AbilityTextureName"            "base_materials/essence_of_lightning"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "0"
         "ItemShopTags"                  "slow"
         "ItemQuality"                   "component"
-        "ItemAliases"                   "frost"
+        "ItemAliases"                   "ember"
 
         "ItemKillable"					                    "1"
 		"ItemSellable"					                    "1"
@@ -69,20 +69,16 @@
                 "var_type"                                  "FIELD_INTEGER"
                 "item_slot"                                 "30" //MISC
             }
+            // Every X distance traveled "charge up" a mini-stun
             "02"
             {
                 "var_type"                                 "FIELD_INTEGER"
-                "movespeed_slow"                            "5"
+                "dist_to_charge"                           "1000"
             }
             "03"
             {
-                "var_type"                                  "FIELD_INTEGER"
-                "attackspeed_slow"                           "5"
-            }
-            "04"
-            {
-                "var_type"                                  "FIELD_FLOAT"   
-                "duration"                                  "3.0"
+                "var_type"                                 "FIELD_FLOAT"   
+                "mini_stun"                                "0.25"
             }
         }
     }

@@ -17,6 +17,7 @@
 // Essences
 #base "items/base_materials/item_essence_of_frost.txt"
 #base "items/base_materials/item_essence_of_shadow.txt"
+#base "items/base_materials/item_essence_of_ember.txt"
 
 // TIER 1 Items
 #base "items/tier1/item_talaria.txt"

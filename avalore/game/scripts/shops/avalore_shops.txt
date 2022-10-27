@@ -28,6 +28,7 @@
 		"item"				"item_steel"
 		"item"				"item_essence_of_frost"
 		"item"				"item_essence_of_shadow"
+		"item"				"item_essence_of_ember"
 	}	
  
 	// Level 1 - Green Recipes
