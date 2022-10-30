@@ -1,6 +1,7 @@
 item_essence_of_ember = class({})
 
 LinkLuaModifier( "modifier_item_essence_of_ember", "items/shop/base_materials/item_essence_of_ember.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_ember_burn", "items/shop/base_materials/item_essence_of_ember.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_essence_of_ember:GetIntrinsicModifierName()
     return "modifier_item_essence_of_ember"
@@ -56,6 +57,11 @@ function modifier_ember_burn:GetEffectName()
 	return "particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 end
 
+function modifier_ember_burn:DeclareFunctions()
+    return {    MODIFIER_PROPERTY_TOOLTIP } --,
+                --MODIFIER_PROPERTY_TOOLTIP2 }
+end
+
 function modifier_ember_burn:OnCreated(kv)
     self.burn_per_sec       = self:GetAbility():GetSpecialValueFor("burn_per_sec")
 
@@ -87,4 +93,8 @@ function modifier_ember_burn:OnIntervalThink()
 	self.damageTable.damage_type	= self.damage_type
 
 	ApplyDamage( self.damageTable )
+end
+
+function modifier_ember_burn:OnTooltip()
+    return (self:GetStackCount() * self.burn_per_sec)
 end
