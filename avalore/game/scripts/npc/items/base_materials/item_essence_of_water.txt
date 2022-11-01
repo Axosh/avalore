@@ -1,0 +1,85 @@
+"DOTAItems"
+{
+    "item_recipe_essence_of_water"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"3010"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"base_materials/essence_of_water"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"250"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_essence_of_water"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_slot_misc"
+        }
+	}
+
+    "item_essence_of_water"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        //"ID"                            "3011"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						"item_lua"            
+        "ScriptFile"                    "items/shop/base_materials/item_essence_of_water.lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"							"models/props_gameplay/red_box.vmdl"
+        "AbilityTextureName"            "base_materials/essence_of_water"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        "ItemShopTags"                  "water"
+        "ItemQuality"                   "component"
+        "ItemAliases"                   "eow"
+
+        "ItemKillable"					                    "1"
+		"ItemSellable"					                    "1"
+		"ItemPurchasable"				                    "1"
+		"ItemDroppable"					                    "1"
+		"ItemShareability"				                    "ITEM_NOT_SHAREABLE"
+		"ItemStackable"					                    "0"
+		"ItemPermanent"					                    "0"
+
+        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        //"ItemSlot"                                          "feet"
+
+        "SideShop"                                          "0"
+        "SecretShop"					                    "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "30" //MISC
+            }
+            // Every X distance traveled "charge up" a mini-stun
+            "02"
+            {
+                "var_type"                                 "FIELD_INTEGER"
+                "speed_in_water"                           "20"
+            }
+            "03"
+            {
+                "var_type"                                 "FIELD_FLOAT"   
+                "douse_duration"                           "3.0"
+            }
+        }
+    }
+}
