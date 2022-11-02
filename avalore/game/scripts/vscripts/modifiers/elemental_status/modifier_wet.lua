@@ -31,6 +31,14 @@ function modifier_wet:OnCreated(kv)
         self.spells_stacks = 1
         self.spell_stack_duration = 3
     --end
+    if self:GetAbility() and self:GetAbility():GetName() == "item_essence_of_water" then
+        print("Came from Essence of Water")
+        --self.override_linger = self:GetAbility():GetSpecialValueFor("douse_duration")
+        self.spells_stacks = 1
+        self.spell_stack_duration = self:GetAbility():GetSpecialValueFor("douse_duration")
+        print("DUR = " .. tostring(self.spell_stack_duration))
+    end
+
     self:StartIntervalThink(0.1)
 end
 
@@ -55,6 +63,9 @@ function modifier_wet:OnIntervalThink()
         --print("in water")
         self.natural_stacks = 2
         self.natural_linger = 2
+    -- elseif self.override_linger then
+    --     self.natural_linger = self.override_linger
+    --     self.override_linger = nil
     elseif self.natural_linger > 0 then
         self.natural_linger = self.natural_linger - 0.1
     else
