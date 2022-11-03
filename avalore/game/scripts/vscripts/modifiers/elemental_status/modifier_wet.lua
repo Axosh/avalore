@@ -75,6 +75,7 @@ function modifier_wet:OnIntervalThink()
     if self.spell_stacks > 0 then
         if self.spell_stack_duration > 0 then
             self.spell_stack_duration = self.spell_stack_duration - 0.1
+            print("Spell Stack Dur => " .. tostring(self.spell_stack_duration))
         else
             self.spell_stacks = self.spell_stacks - 1
         end
