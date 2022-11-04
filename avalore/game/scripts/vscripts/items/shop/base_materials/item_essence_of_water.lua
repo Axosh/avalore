@@ -56,12 +56,19 @@ function modifier_item_essence_of_water:OnAttackLanded(kv)
     
     if kv.attacker == self:GetParent() then
         print("Adding wet modifier to target: " .. kv.target:GetName())
-        kv.target:AddNewModifier(
+        local wet_mod = kv.target:FindModifierByName("modifier_wet")
+        if not wet_mod then
+            kv.target:AddNewModifier(
 					self:GetCaster(), -- player source
 					self.item_ability, -- ability source
 					"modifier_wet", -- modifier name
 					{ } -- kv
 				)
+        else
+            wet_mod:AddSpellDur(1, self.douse_duration)
+        end
+        
+
     end
 end
 

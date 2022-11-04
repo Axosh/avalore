@@ -2,6 +2,7 @@ modifier_wet = class({})
 
 function modifier_wet:IsHidden()
 --     return false
+    --return (self:GetAbility() == nil and self:GetStackCount() <= 0)
     return (self:GetStackCount() <= 0)
 end
 function modifier_wet:IsDebuff()        return true end
@@ -40,6 +41,11 @@ function modifier_wet:OnCreated(kv)
     end
 
     self:StartIntervalThink(0.1)
+end
+
+function modifier_wet:AddSpellDur(spell_stack, spell_dur)
+    self.spell_stacks = self.spell_stacks + spell_stack
+    self.spell_stack_duration = self.spell_stack_duration + spell_dur
 end
 
 -- if some spell douses a character, then add a stack
@@ -85,6 +91,13 @@ function modifier_wet:OnIntervalThink()
     self:SetStackCount(self.natural_stacks + self.spell_stacks)
     -- if self:GetStackCount() > 0 then
     --     print("We have stacks!")
+    -- end
+
+    -- if this is an ability then we need to destroy this if it expired
+    -- if self:GetAbility() then
+    --     if self.natural_stacks == 0 and self.spell_stacks == 0 and self.natural_linger == 0 and self.spell_stack_duration == 0 then
+    --         self:Destroy()
+    --     end
     -- end
 
     -- if unit is burning, then purge that
