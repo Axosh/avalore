@@ -999,7 +999,7 @@
 
 		"DOTA_Tooltip_Ability_item_recipe_essence_of_water"				"Essence of Water"
 		"DOTA_Tooltip_Ability_item_essence_of_water"					"Essence of Water"
-		"DOTA_Tooltip_Ability_item_essence_of_water_description"		"<h1>Slot: Misc</h1>Requires a misc slot\n<h1>Attack Modifier: Douse</h1>Each attack will apply the WET modifier to the target.\n<h1>Passive: Aquatic Agility</h1>When in water, passively gain %speed_in_water% movespeed."
+		"DOTA_Tooltip_Ability_item_essence_of_water_description"		"<h1>Slot: Misc</h1>Requires a misc slot\n<h1>Attack Modifier: Douse </h1> Each attack will apply the WET modifier to the target.\n<h1>Passive: Aquatic Agility</h1> When in water, passively gain %speed_in_water% movespeed."
 		"DOTA_Tooltip_Ability_item_essence_of_water_speed_in_water"		"BONUS MS IN WATER: "
 
 		"DOTA_Tooltip_modifier_aquatic_agility"							"Aquatic Agility"

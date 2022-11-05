@@ -9,9 +9,9 @@ function modifier_wet:IsDebuff()        return true end
 function modifier_wet:IsPurgable()      return false end
 function modifier_wet:RemoveOnDeath()   return false end
 
--- function modifier_wet:GetAttributes()
---     return MODIFIER_ATTRIBUTE_MULTIPLE -- allow stacking with self
--- end
+function modifier_wet:GetAttributes()
+    return MODIFIER_ATTRIBUTE_MULTIPLE -- allow stacking with self
+end
 
 
 function modifier_wet:GetTexture()
@@ -19,12 +19,13 @@ function modifier_wet:GetTexture()
 end
 
 function modifier_wet:OnCreated(kv)
-    
+    if not IsServer() then return end
 
-    print("Created modifier_wet for " .. self:GetParent():GetUnitName())
+    --print("Created modifier_wet for " .. self:GetParent():GetUnitName())
 
     self.spell_stacks = 0 -- stacks coming from spells that hit the owner
     self.spell_stack_duration = 0
+    self.spell_stack_linger = 0 
     self.natural_stacks = 0 -- basically just from being in the water
     self.natural_linger = 0
     --if kv.spell then 
@@ -47,22 +48,24 @@ function modifier_wet:OnCreated(kv)
 end
 
 function modifier_wet:AddSpellDur(spell_stack, spell_dur)
+    if not IsServer() then return end
     print("modifier_wet:AddSpellDur(spell_stack, spell_dur)")
     -- self.spell_stacks = self.spell_stacks + spell_stack
     -- self.spell_stack_duration = self.spell_stack_duration + spell_dur
-    if spell_stack > self.spell_stacks then
+    --if spell_stack > self.spell_stacks then
         self.spell_stacks = spell_stack
-    end
+    --end
 
-    if spell_dur > self.spell_stack_duration then
+    --if spell_dur > self.spell_stack_duration then
         self.spell_stack_duration = spell_dur
-    end
+        self.spell_stack_linger = self.spell_stack_duration
+    --end
 end
 
 -- if some spell douses a character, then add a stack
 -- don't impact current timer
 function modifier_wet:OnRefresh(kv)
-    --if not IsServer() then return end
+    if not IsServer() then return end
 
     if IsServer() then
         print("[SERVER] modifier_wet:OnRefresh(kv)")
@@ -81,7 +84,7 @@ function modifier_wet:OnRefresh(kv)
 end
 
 function modifier_wet:OnIntervalThink()
-    --if not IsServer() then return end
+    if not IsServer() then return end
 
     -- if standing in the river
     if self:GetParent():GetAbsOrigin().z <= 0.5 or self:GetParent():HasModifier("modifier_rainstorm_aura") then
@@ -91,19 +94,40 @@ function modifier_wet:OnIntervalThink()
     -- elseif self.override_linger then
     --     self.natural_linger = self.override_linger
     --     self.override_linger = nil
-    elseif self.natural_linger > 0 then
-        self.natural_linger = self.natural_linger - 0.1
-    else
-        self.natural_stacks = 0
+    -- elseif self.natural_linger > 0 then
+    --     self.natural_linger = self.natural_linger - 0.1
+    end
+    -- else
+    --     self.natural_stacks = 0
+    -- end
+
+    if self.natural_stacks > 0 then
+        if self.natural_linger > 0 then
+            self.natural_linger = self.natural_linger - 0.1
+        else
+            self.natural_stacks = self.natural_stacks - 1
+            if self.natural_stacks > 0 then
+                self.natural_linger = 2
+            end
+        end
     end
 
     if self.spell_stacks > 0 then
-        if self.spell_stack_duration > 0 then
-            self.spell_stack_duration = self.spell_stack_duration - 0.1
-            print("Spell Stack Dur => " .. tostring(self.spell_stack_duration))
+        if self.spell_stack_linger > 0 then
+            self.spell_stack_linger = self.spell_stack_linger - 0.1
         else
             self.spell_stacks = self.spell_stacks - 1
+            if self.spell_stacks > 0 then
+                self.spell_stack_linger = self.spell_stack_duration
+            end
         end
+    end
+
+    if self:GetParent():IsControllableByAnyPlayer() and self:GetParent():IsHero() then
+        print("Nat Stack => " .. tostring(self.natural_stacks))
+        print("Nat Linger => " .. tostring(self.natural_linger))
+        print("Spell Stack => " .. tostring(self.spell_stacks))
+        print("Spell Linger => " .. tostring(self.spell_stack_linger))
     end
 
     --print("Setting Stack Count to: " .. tostring(self.natural_stacks + self.spell_stacks))
@@ -120,7 +144,7 @@ function modifier_wet:OnIntervalThink()
     -- end
 
     -- if unit is burning, then purge that
-    if not IsServer() then return end
+    --if not IsServer() then return end
     local mod_burning = self:GetParent():FindModifierByName("modifier_conflagration")
     if mod_burning then
         self:GetParent():RemoveModifierByName("modifier_conflagration")

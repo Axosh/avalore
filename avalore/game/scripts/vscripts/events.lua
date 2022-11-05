@@ -38,6 +38,7 @@ LinkLuaModifier( "modifier_wet", "scripts/vscripts/modifiers/elemental_status/mo
 -- is_respawn: short
 -- 
 function CAvaloreGameMode:OnNPCSpawned(event)
+	if not IsServer() then return end
 	--PrintTable(event)
 	if event.is_respawn ~= 0 then return end
 	-- only doing some initial spawn stuff
@@ -45,8 +46,10 @@ function CAvaloreGameMode:OnNPCSpawned(event)
 
 	-- NOTE: This doesn't work, seems to be a race condition that makes the modifier not show up (even though it seems to work ok?)
 	-- Timers:CreateTimer(1.0, function()
-	--spawned_ent:AddNewModifier( spawned_ent, -- player source
-	spawned_ent:AddNewModifier( nil, -- player source
+
+	-- like 99% sure need to have some "caster" for it to show up
+	spawned_ent:AddNewModifier( spawned_ent, -- player source
+	--spawned_ent:AddNewModifier( nil, -- player source
 								nil, -- ability source
 								"modifier_wet", -- modifier name
 								{}) --kv
@@ -521,7 +524,7 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 			value:SetControllableByPlayer(hPlayerHero:GetPlayerOwnerID(), false)
 		end
 
-		hPlayerHero:AddNewModifier(nil, nil, "modifier_wet", {})
+		--hPlayerHero:AddNewModifier(nil, nil, "modifier_wet", {})
 	end
 
 	-- print("[CAvaloreGameMode:OnHeroFinishSpawn] hero name: " .. hPlayerHero:GetUnitName())

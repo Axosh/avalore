@@ -1,50 +1,50 @@
-"DOTAItems"
-{
-    "item_leather_boots"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                                                  "3010"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
-        "BaseClass"						                      "item_datadriven"            
-        "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "Model"                                               "models/props_gameplay/boots_of_speed.vmdl"
-        "AbilityTextureName"                                  "base_materials/leather_boots_rect"
+// "DOTAItems"
+// {
+//     "item_leather_boots"
+//     {
+//         // General
+//         //-------------------------------------------------------------------------------------------------------------
+//         "ID"                                                  "3010"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+//         "BaseClass"						                      "item_datadriven"            
+//         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+//         "Model"                                               "models/props_gameplay/boots_of_speed.vmdl"
+//         "AbilityTextureName"                                  "base_materials/leather_boots_rect"
 
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                                            "500"
-        "ItemShopTags"                                        "move_speed"
-        "ItemQuality"                                         "component"
-        "ItemAliases"                                         "boots of speed"
+//         // Item Info
+//         //-------------------------------------------------------------------------------------------------------------
+//         "ItemCost"                                            "500"
+//         "ItemShopTags"                                        "move_speed"
+//         "ItemQuality"                                         "component"
+//         "ItemAliases"                                         "boots of speed"
 
-        "ItemKillable"					"1"
-		"ItemSellable"					"1"
-		"ItemPurchasable"				"1"
-		"ItemDroppable"					"1"
-		"ItemShareability"				"ITEM_NOT_SHAREABLE"
-		"ItemStackable"					"0"
-		"ItemPermanent"					"0"
+//         "ItemKillable"					"1"
+// 		"ItemSellable"					"1"
+// 		"ItemPurchasable"				"1"
+// 		"ItemDroppable"					"1"
+// 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+// 		"ItemStackable"					"0"
+// 		"ItemPermanent"					"0"
 
-        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
-		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+//         "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
+// 		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
-        "SideShop"                                            "0"
-        "SecretShop"					"0"
+//         "SideShop"                                            "0"
+//         "SecretShop"					"0"
 
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"                                        "FIELD_INTEGER"
-                "bonus_movement_speed"                            "50"
-            }
-            "02"
-            {
-                "var_type"          "FIELD_INTEGER"
-                "bonus_armor"       "2"
-            }
-        }
-    }
-}
+//         // Special
+//         //-------------------------------------------------------------------------------------------------------------
+//         "AbilitySpecial"
+//         {
+//             "01"
+//             {
+//                 "var_type"                                        "FIELD_INTEGER"
+//                 "bonus_movement_speed"                            "50"
+//             }
+//             "02"
+//             {
+//                 "var_type"          "FIELD_INTEGER"
+//                 "bonus_armor"       "2"
+//             }
+//         }
+//     }
+// }
