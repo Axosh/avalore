@@ -52,23 +52,32 @@ function modifier_item_essence_of_water:OnIntervalThink()
 end
 
 function modifier_item_essence_of_water:OnAttackLanded(kv)
-    if not IsServer() then return end
+    --if not IsServer() then return end
     
     if kv.attacker == self:GetParent() then
-        print("Adding wet modifier to target: " .. kv.target:GetName())
-        local wet_mod = kv.target:FindModifierByName("modifier_wet")
-        if not wet_mod then
-            kv.target:AddNewModifier(
-					self:GetCaster(), -- player source
-					self.item_ability, -- ability source
-					"modifier_wet", -- modifier name
-					{ } -- kv
-				)
+        if IsServer() then
+            print("[SERVER] Adding wet modifier to target: " .. kv.target:GetName())
         else
-            wet_mod:AddSpellDur(1, self.douse_duration)
+            print("[CLIENT] Adding wet modifier to target: " .. kv.target:GetName())
         end
+        kv.target:AddNewModifier(
+            nil,
+            --EntIndexToHScript(kv.target:entindex()), -- player source (so we can refresh the main version)
+            nil, -- ability source
+            "modifier_wet", -- modifier name
+            { spell_stacks = 1, spell_dur = self.douse_duration } -- kv
+        )
+        --local wet_mod = kv.target:FindModifierByName("modifier_wet")
+        --if not wet_mod then
+            -- wet_mod = kv.target:AddNewModifier(
+            --             self:GetCaster(), -- player source
+            --             self.item_ability, -- ability source
+            --             "modifier_wet", -- modifier name
+            --             { } -- kv
+            --         )
+        --end
         
-
+        --wet_mod:AddSpellDur(1, self.douse_duration)
     end
 end
 

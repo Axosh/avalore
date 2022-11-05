@@ -45,7 +45,8 @@ function CAvaloreGameMode:OnNPCSpawned(event)
 
 	-- NOTE: This doesn't work, seems to be a race condition that makes the modifier not show up (even though it seems to work ok?)
 	-- Timers:CreateTimer(1.0, function()
-	spawned_ent:AddNewModifier( spawned_ent, -- player source
+	--spawned_ent:AddNewModifier( spawned_ent, -- player source
+	spawned_ent:AddNewModifier( nil, -- player source
 								nil, -- ability source
 								"modifier_wet", -- modifier name
 								{}) --kv
