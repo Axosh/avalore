@@ -1005,6 +1005,16 @@
 		"DOTA_Tooltip_modifier_aquatic_agility"							"Aquatic Agility"
 		"DOTA_Tooltip_modifier_aquatic_agility_description"				"Bonus %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% MS in water"
 
+		"DOTA_Tooltip_Ability_item_recipe_essence_of_arcane"				"Essence of Arcane"
+		"DOTA_Tooltip_Ability_item_essence_of_arcane"						"Essence of Arcane"
+		"DOTA_Tooltip_Ability_item_essence_of_arcane_description"			"<h1>Slot: Misc</h1>Requires a misc slot \n<h1>Attack Modifier: Arcane Amplification </h1>Each attack will apply a %magic_dmg_amp%% magic damage amplification debuff to the target."
+		"DOTA_Tooltip_Ability_item_essence_of_arcane_passive_mana_regen"	"%+$mana_regen"
+		"DOTA_Tooltip_Ability_item_essence_of_arcane_duration"				"DEBUFF DUR:"
+		"DOTA_Tooltip_Ability_item_essence_of_arcane_magic_dmg_amp"			"MAGIC DMG AMP:"
+
+		"DOTA_Tooltip_modifier_arcane_amplification"						"Arcane Amplification"
+		"DOTA_Tooltip_modifier_arcane_amplification_description"			"Taking bonus %dMODIFIER_PROPERTY_TOOLTIP%% more magic damage"
+
 		// Base Materials
 		"DOTA_Tooltip_Ability_item_recipe_sandals"							"Caster's Sandals"
 		"DOTA_Tooltip_Ability_item_sandals"									"Caster's Sandals"

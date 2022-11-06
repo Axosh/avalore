@@ -74,6 +74,16 @@
                 "var_type"                                 "FIELD_FLOAT"
                 "passive_mana_regen"                       "0.7"
             }
+            "03"
+            {
+                "var_type"                                 "FIELD_FLOAT"
+                "duration"                                 "2.0"
+            }
+            "04"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "magic_dmg_amp"                             "5"
+            }
         }
     }
 }

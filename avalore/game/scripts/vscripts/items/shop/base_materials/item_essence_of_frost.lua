@@ -67,8 +67,8 @@ function modifier_frostbite:DeclareFunctions()
 end
 
 function modifier_frostbite:OnCreated(kv)
-    print("AS Slow => " .. tostring(self:GetAbility():GetSpecialValueFor("attackspeed_slow")))
-    print("MS Slow => " .. tostring(self:GetAbility():GetSpecialValueFor("movespeed_slow")))
+    --print("AS Slow => " .. tostring(self:GetAbility():GetSpecialValueFor("attackspeed_slow")))
+    --print("MS Slow => " .. tostring(self:GetAbility():GetSpecialValueFor("movespeed_slow")))
     self.as_slow = self:GetAbility():GetSpecialValueFor("attackspeed_slow")
     self.ms_slow = self:GetAbility():GetSpecialValueFor("movespeed_slow")
 

@@ -22,7 +22,7 @@ function modifier_item_essence_of_ember:DeclareFunctions()
     return {    MODIFIER_EVENT_ON_ATTACK_LANDED }
 end
 
-function modifier_item_essence_of_ember:OnCreated(event)
+function modifier_item_essence_of_ember:OnCreated(kv)
     self.item_ability       = self:GetAbility()
     self.burn_per_sec       = self.item_ability:GetSpecialValueFor("burn_per_sec")
     self.duration           = self.item_ability:GetSpecialValueFor("burn_duration")
