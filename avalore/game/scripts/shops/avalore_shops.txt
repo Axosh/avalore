@@ -32,6 +32,7 @@
 		"item"				"item_essence_of_lightning"
 		"item"				"item_essence_of_water"
 		"item"				"item_essence_of_arcane"
+		"item"				"item_essence_of_regeneration"
 	}	
  
 	// Level 1 - Green Recipes

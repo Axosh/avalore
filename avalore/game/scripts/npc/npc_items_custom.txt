@@ -21,6 +21,7 @@
 #base "items/base_materials/item_essence_of_lightning.txt"
 #base "items/base_materials/item_essence_of_water.txt"
 #base "items/base_materials/item_essence_of_arcane.txt"
+#base "items/base_materials/item_essence_of_regeneration.txt"
 
 // TIER 1 Items
 #base "items/tier1/item_talaria.txt"
