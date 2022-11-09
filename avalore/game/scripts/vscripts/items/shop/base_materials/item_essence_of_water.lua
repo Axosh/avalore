@@ -2,7 +2,7 @@ item_essence_of_water = class({})
 
 LinkLuaModifier( "modifier_item_essence_of_water", "items/shop/base_materials/item_essence_of_water.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_aquatic_agility", "items/shop/base_materials/item_essence_of_water.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_wet", "scripts/vscripts/modifiers/elemental_status/modifier_wet.lua", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier( "modifier_wet", "scripts/vscripts/modifiers/elemental_status/modifier_wet.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_essence_of_water:GetIntrinsicModifierName()
     return "modifier_item_essence_of_water"
@@ -20,14 +20,14 @@ function modifier_item_essence_of_water:IsPurgable()    return false end
 function modifier_item_essence_of_water:RemoveOnDeath() return false end
 
 
-function modifier_item_essence_of_water:DeclareFunctions()
-    return { MODIFIER_EVENT_ON_ATTACK_LANDED }
-end
+-- function modifier_item_essence_of_water:DeclareFunctions()
+--     return { MODIFIER_EVENT_ON_ATTACK_LANDED }
+-- end
 
 function modifier_item_essence_of_water:OnCreated(kv)
     self.item_ability       = self:GetAbility()
     self.speed_in_water     = self.item_ability:GetSpecialValueFor("speed_in_water")
-    self.douse_duration     = self.item_ability:GetSpecialValueFor("douse_duration")
+    --self.douse_duration     = self.item_ability:GetSpecialValueFor("douse_duration")
 
     if not IsServer() then return end
     self:StartIntervalThink( FrameTime() )
@@ -51,36 +51,36 @@ function modifier_item_essence_of_water:OnIntervalThink()
     end
 end
 
-function modifier_item_essence_of_water:OnAttackLanded(kv)
-    if not IsServer() then return end
+-- function modifier_item_essence_of_water:OnAttackLanded(kv)
+--     if not IsServer() then return end
     
-    if kv.attacker == self:GetParent() then
-        -- if IsServer() then
-        --     print("[SERVER] Adding wet modifier to target: " .. kv.target:GetName())
-        -- else
-        --     print("[CLIENT] Adding wet modifier to target: " .. kv.target:GetName())
-        -- end
-        -- kv.target:AddNewModifier(
-        --     nil,
-        --     --EntIndexToHScript(kv.target:entindex()), -- player source (so we can refresh the main version)
-        --     nil, -- ability source
-        --     "modifier_wet", -- modifier name
-        --     { spell_stacks = 1, spell_dur = self.douse_duration } -- kv
-        -- )
-        local wet_mod = kv.target:FindModifierByName("modifier_wet")
-        if not wet_mod then
-            print("[SERVER] Adding wet modifier to target: " .. kv.target:GetName())
-            wet_mod = kv.target:AddNewModifier(
-                        self:GetCaster(), -- player source
-                        self.item_ability, -- ability source
-                        "modifier_wet", -- modifier name
-                        { } -- kv
-                    )
-        end
+--     if kv.attacker == self:GetParent() then
+--         -- if IsServer() then
+--         --     print("[SERVER] Adding wet modifier to target: " .. kv.target:GetName())
+--         -- else
+--         --     print("[CLIENT] Adding wet modifier to target: " .. kv.target:GetName())
+--         -- end
+--         -- kv.target:AddNewModifier(
+--         --     nil,
+--         --     --EntIndexToHScript(kv.target:entindex()), -- player source (so we can refresh the main version)
+--         --     nil, -- ability source
+--         --     "modifier_wet", -- modifier name
+--         --     { spell_stacks = 1, spell_dur = self.douse_duration } -- kv
+--         -- )
+--         local wet_mod = kv.target:FindModifierByName("modifier_wet")
+--         if not wet_mod then
+--             print("[SERVER] Adding wet modifier to target: " .. kv.target:GetName())
+--             wet_mod = kv.target:AddNewModifier(
+--                         self:GetCaster(), -- player source
+--                         self.item_ability, -- ability source
+--                         "modifier_wet", -- modifier name
+--                         { } -- kv
+--                     )
+--         end
         
-        wet_mod:AddSpellDur(1, self.douse_duration)
-    end
-end
+--         wet_mod:AddSpellDur(1, self.douse_duration)
+--     end
+-- end
 
 -- ====================================
 -- Buff Modifier

@@ -74,11 +74,11 @@
                 "var_type"                                 "FIELD_INTEGER"
                 "speed_in_water"                           "20"
             }
-            "03"
-            {
-                "var_type"                                 "FIELD_FLOAT"   
-                "douse_duration"                           "3.0"
-            }
+            // "03"
+            // {
+            //     "var_type"                                 "FIELD_FLOAT"   
+            //     "douse_duration"                           "3.0"
+            // }
         }
     }
 }
