@@ -5,7 +5,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		//"ID"							"3010"
+		"ID"							"3048"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
         "AbilityTextureName" 			"items_01/talaria"
@@ -13,7 +13,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"//"400"
+		"ItemCost"						"400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -31,7 +31,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        //"ID"                                                  "3013"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                                                  "3049"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                      "item_lua"            
         "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                                               "models/props_gameplay/boots_of_speed.vmdl"

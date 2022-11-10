@@ -5,7 +5,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		//"ID"							"3010"
+		"ID"							"3050"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
         "AbilityTextureName" 			"items_01/seven_league_boots"
@@ -31,7 +31,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        //"ID"                                                  "3013"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                                                  "3051"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                      "item_lua"            
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
