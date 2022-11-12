@@ -135,6 +135,7 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAvaloreGameMode, "OrderFilter"), self)
 	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CAvaloreGameMode, "GoldFilter"), self)
 	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter(Dynamic_Wrap(CAvaloreGameMode, "AbilityTuningFilter"), self)
+	GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(CAvaloreGameMode, "DamageFilter"), self)
 	
 	-- Custom Mode Framework Inits
 	if not _G.not_init then

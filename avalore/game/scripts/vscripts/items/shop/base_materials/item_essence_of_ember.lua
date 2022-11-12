@@ -88,9 +88,12 @@ function modifier_ember_burn:OnIntervalThink()
     if not IsServer() then return end
 
 	self.damage_type = DAMAGE_TYPE_MAGICAL
+    --self.damage_type = AVALORE_DAMAGE_TYPE_FIRE
 
 	self.damageTable.damage 		= self:GetStackCount() * self.burn_per_sec
 	self.damageTable.damage_type	= self.damage_type
+
+    print("Ember Burn => " .. tostring(self.damageTable.damage))
 
 	ApplyDamage( self.damageTable )
 end

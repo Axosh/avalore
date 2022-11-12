@@ -269,3 +269,10 @@ AVALORE_ITEM_SLOT_TP = 15
 AVALORE_ITEM_SLOT_NEUT = 16
 -- TEMP
 AVALORE_ITEM_SLOT_TEMP = 31
+
+-- ==========================================
+-- DAMAGE TYPES
+-- ==========================================
+-- NOTE: these come in from KVs as strings, so seemed easier to just store them as strings here
+--       to avoid the extra step each time to cast
+AVALORE_DAMAGE_TYPE_FIRE = "10"

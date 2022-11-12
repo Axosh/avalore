@@ -157,33 +157,79 @@ function CAvaloreGameMode:OrderFilter(keys)
 end
 
 
-    -- ===============================================================================
-    -- Handle Special Cases Involving Gold
-    -- ===============================================================================
-	-- USAGE: Modify the table and Return true to use new values, return false to cancel the event
-	-- =============================================
-	-- ModifyGoldFilterEvent
-	-- * player_id_const: PlayerID
-	-- * reason_const: EDOTA_ModifyGold_Reason
-	-- * reliable: 0 | 1
-	-- * gold: uint
-	-- ============================================
-	function CAvaloreGameMode:GoldFilter(keys)
-		-- if keys.gold <= 0 then
-		-- 	return false
-		-- end
+-- ===============================================================================
+-- Handle Special Cases Involving Gold
+-- ===============================================================================
+-- USAGE: Modify the table and Return true to use new values, return false to cancel the event
+-- =============================================
+-- ModifyGoldFilterEvent
+-- * player_id_const: PlayerID
+-- * reason_const: EDOTA_ModifyGold_Reason
+-- * reliable: 0 | 1
+-- * gold: uint
+-- ============================================
+function CAvaloreGameMode:GoldFilter(keys)
+	-- if keys.gold <= 0 then
+	-- 	return false
+	-- end
 
-		if PlayerResource:GetPlayer(keys.player_id_const) == nil then return end
-		local player = PlayerResource:GetPlayer(keys.player_id_const)
-		if player then
-			local hero = player:GetAssignedHero()
-			if hero == nil then return end
+	if PlayerResource:GetPlayer(keys.player_id_const) == nil then return end
+	local player = PlayerResource:GetPlayer(keys.player_id_const)
+	if player then
+		local hero = player:GetAssignedHero()
+		if hero == nil then return end
 
-			local mod_bleed_their_purse = hero:FindModifierByName("modifier_bleed_their_purse_debuff")
-			if mod_bleed_their_purse then
-				keys.gold = (keys.gold * (1 - mod_bleed_their_purse:GoldReduction()))
-				return true
+		local mod_bleed_their_purse = hero:FindModifierByName("modifier_bleed_their_purse_debuff")
+		if mod_bleed_their_purse then
+			keys.gold = (keys.gold * (1 - mod_bleed_their_purse:GoldReduction()))
+			return true
+		end
+	end
+	return true
+end
+
+-- DamageFilterEvent
+-- * entindex_attacker_const: EntityIndex
+-- * entindex_victim_const: EntityIndex
+-- * entindex_inflictor_const?: EntityIndex
+-- * damagetype_const: DAMAGE_TYPES
+-- * damage: float
+function CAvaloreGameMode:DamageFilter(keys)
+	if IsServer() then
+		local attacker
+		local victim
+		local inflictor
+
+		if keys.entindex_attacker_const and keys.entindex_victim_const then
+			attacker = EntIndexToHScript(keys.entindex_attacker_const)
+			victim = EntIndexToHScript(keys.entindex_victim_const)
+		else
+			return false
+		end
+
+		if keys.entindex_inflictor_const then
+			inflictor = EntIndexToHScript(keys.entindex_inflictor_const)
+		end
+
+		if inflictor and inflictor:IsItem() then
+			local item_kvs = inflictor:GetAbilityKeyValues()
+			--PrintTable(item_kvs)
+			if item_kvs["AvaloreDamageType"] then
+				if item_kvs["AvaloreDamageType"] == AVALORE_DAMAGE_TYPE_FIRE then
+					print("FIRE DAMAGE")
+				end
 			end
 		end
-		return true
+
+		--if keys.damagetype_const == AVALORE_DAMAGE_TYPE_FIRE then
+		if keys.damagetype_const == DAMAGE_TYPE_MAGICAL then
+			local inflictor_name = "NONE"
+			if inflictor then
+				inflictor_name = inflictor:GetName()
+			end
+			print("[" .. inflictor_name  .. "]" .. "FIRE DAMAGE OF " .. tostring(keys.damage))
+			keys.damagetype_const = DAMAGE_TYPE_MAGICAL
+		end
 	end
+	return true
+end

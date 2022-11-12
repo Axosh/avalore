@@ -67,11 +67,11 @@ end
 function modifier_wet:OnRefresh(kv)
     if not IsServer() then return end
 
-    if IsServer() then
-        print("[SERVER] modifier_wet:OnRefresh(kv)")
-    else
-        print("[CLIENT] modifier_wet:OnRefresh(kv)")
-    end
+    -- if IsServer() then
+    --     print("[SERVER] modifier_wet:OnRefresh(kv)")
+    -- else
+    --     print("[CLIENT] modifier_wet:OnRefresh(kv)")
+    -- end
 
     if kv.spell_stacks and kv.spell_dur then
         self:AddSpellDur(kv.spell_stacks, kv.spell_dur)
@@ -123,12 +123,12 @@ function modifier_wet:OnIntervalThink()
         end
     end
 
-    if self:GetParent():IsControllableByAnyPlayer() and self:GetParent():IsHero() then
-        print("Nat Stack => " .. tostring(self.natural_stacks))
-        print("Nat Linger => " .. tostring(self.natural_linger))
-        print("Spell Stack => " .. tostring(self.spell_stacks))
-        print("Spell Linger => " .. tostring(self.spell_stack_linger))
-    end
+    -- if self:GetParent():IsControllableByAnyPlayer() and self:GetParent():IsHero() then
+    --     print("Nat Stack => " .. tostring(self.natural_stacks))
+    --     print("Nat Linger => " .. tostring(self.natural_linger))
+    --     print("Spell Stack => " .. tostring(self.spell_stacks))
+    --     print("Spell Linger => " .. tostring(self.spell_stack_linger))
+    -- end
 
     --print("Setting Stack Count to: " .. tostring(self.natural_stacks + self.spell_stacks))
     self:SetStackCount(self.natural_stacks + self.spell_stacks)

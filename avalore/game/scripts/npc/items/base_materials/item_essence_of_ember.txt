@@ -60,6 +60,9 @@
         "SideShop"                                          "0"
         "SecretShop"					                    "0"
 
+        // AVALORE USAGE
+        "AvaloreDamageType"                                 "10"
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
