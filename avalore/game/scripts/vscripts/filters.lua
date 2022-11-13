@@ -211,15 +211,8 @@ function CAvaloreGameMode:DamageFilter(keys)
 			inflictor = EntIndexToHScript(keys.entindex_inflictor_const)
 		end
 
-		if inflictor and inflictor:IsItem() then
-			local item_kvs = inflictor:GetAbilityKeyValues()
-			--PrintTable(item_kvs)
-			if item_kvs["AvaloreDamageType"] then
-				if item_kvs["AvaloreDamageType"] == AVALORE_DAMAGE_TYPE_FIRE then
-					print("FIRE DAMAGE")
-				end
-			end
-		end
+		-- we're just looking for Abilities/Items here
+		if inflictor and (inflictor:IsNPC() or inflictor:IsDOTANPC() or inflictor:IsBaseNPC()) then return true end
 
 		--if keys.damagetype_const == AVALORE_DAMAGE_TYPE_FIRE then
 		if keys.damagetype_const == DAMAGE_TYPE_MAGICAL then
@@ -227,8 +220,23 @@ function CAvaloreGameMode:DamageFilter(keys)
 			if inflictor then
 				inflictor_name = inflictor:GetName()
 			end
-			print("[" .. inflictor_name  .. "]" .. "FIRE DAMAGE OF " .. tostring(keys.damage))
+			print(attacker:GetName() .. " Attacked " .. victim:GetName())
+			print("[" .. inflictor_name  .. "]" .. " MAGIC DAMAGE OF " .. tostring(keys.damage))
 			keys.damagetype_const = DAMAGE_TYPE_MAGICAL
+		end
+
+		--if inflictor and inflictor:IsItem() then
+		if inflictor then
+			print("INFLICTOR => " .. inflictor:GetName())
+			local item_kvs = inflictor:GetAbilityKeyValues()
+			--PrintTable(item_kvs)
+			if item_kvs["AvaloreDamageType"] then
+				if item_kvs["AvaloreDamageType"] == AVALORE_DAMAGE_TYPE_FIRE then
+					print("FIRE DAMAGE")
+				elseif item_kvs["AvaloreDamageType"] == AVALORE_DAMAGE_TYPE_LIGHTNING then
+					print("LIGHTNING DAMAGE")
+				end
+			end
 		end
 	end
 	return true
