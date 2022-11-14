@@ -233,8 +233,16 @@ function CAvaloreGameMode:DamageFilter(keys)
 			if item_kvs["AvaloreDamageType"] then
 				if item_kvs["AvaloreDamageType"] == AVALORE_DAMAGE_TYPE_FIRE then
 					print("FIRE DAMAGE")
+					if victim:HasModifier("modifier_wet") then
+						keys.damage = keys.damage * 0.5
+						SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, victim, keys.damage, nil)
+					end
 				elseif item_kvs["AvaloreDamageType"] == AVALORE_DAMAGE_TYPE_LIGHTNING then
 					print("LIGHTNING DAMAGE")
+					if victim:HasModifier("modifier_wet") then
+						keys.damage = keys.damage * 2
+						SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, victim, keys.damage, nil)
+					end
 				end
 			end
 		end
