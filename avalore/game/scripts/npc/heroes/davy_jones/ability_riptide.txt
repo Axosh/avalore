@@ -42,6 +42,8 @@
 		"AbilityCooldown"				"12"
 		"AbilityManaCost"				"90 100 110 120"
 
+		// Avalore Settings
+		"AvaloreDamageType"				"12" // AVALORE_DAMAGE_TYPE_WATER
         // Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"

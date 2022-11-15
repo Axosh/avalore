@@ -275,6 +275,7 @@ AVALORE_ITEM_SLOT_TEMP = 31
 -- ==========================================
 -- NOTE: these come in from KVs as strings, so seemed easier to just store them as strings here
 --       to avoid the extra step each time to cast
+-- "AvaloreDamageType"
 AVALORE_DAMAGE_TYPE_FIRE        = "10"
 AVALORE_DAMAGE_TYPE_LIGHTNING   = "11"
 AVALORE_DAMAGE_TYPE_WATER       = "12"
