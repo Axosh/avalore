@@ -222,7 +222,20 @@ function CAvaloreGameMode:DamageFilter(keys)
 			end
 			print(attacker:GetName() .. " Attacked " .. victim:GetName())
 			print("[" .. inflictor_name  .. "]" .. " MAGIC DAMAGE OF " .. tostring(keys.damage))
-			keys.damagetype_const = DAMAGE_TYPE_MAGICAL
+			--keys.damagetype_const = DAMAGE_TYPE_MAGICAL
+
+			local mods = victim:FindAllModifiers()
+			local fire_resist = 0
+			local water_resist = 0
+			for key, value in pairs(mods) do
+				if value:HasFunction("GetFireResist") then
+					fire_resist = fire_resist + value:GetFireResist()
+				end
+
+				if value:HasFunction("GetWaterResist") then
+					water_resist = water_resist + value:GetWaterResist()
+				end
+			end
 		end
 
 		--if inflictor and inflictor:IsItem() then
