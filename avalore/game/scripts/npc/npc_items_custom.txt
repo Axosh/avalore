@@ -28,6 +28,10 @@
 #base "items/tier1/item_seven_league_boots.txt"
 #base "items/tier1/item_helskor.txt"
 
+// TIER 4 Items
+#base "items/tier4/item_babr_e_bayan.txt"
+
+// MERCS
 
 #base "items/merc_demi_hero/item_merc_demi_hero_yeti.txt"
 #base "items/merc_super_creeps/item_merc_super_djinn.txt"

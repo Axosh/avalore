@@ -224,37 +224,52 @@ function CAvaloreGameMode:DamageFilter(keys)
 			print("[" .. inflictor_name  .. "]" .. " MAGIC DAMAGE OF " .. tostring(keys.damage))
 			--keys.damagetype_const = DAMAGE_TYPE_MAGICAL
 
-			local mods = victim:FindAllModifiers()
-			local fire_resist = 0
-			local water_resist = 0
-			for key, value in pairs(mods) do
-				if value:HasFunction("GetFireResist") then
-					fire_resist = fire_resist + value:GetFireResist()
-				end
+			--if inflictor and inflictor:IsItem() then
+			if inflictor then
+				print("INFLICTOR => " .. inflictor:GetName())
 
-				if value:HasFunction("GetWaterResist") then
-					water_resist = water_resist + value:GetWaterResist()
-				end
-			end
-		end
+				local item_kvs = inflictor:GetAbilityKeyValues()
+				
+				-- only do anything if this is a special magic damage type
+				if item_kvs["AvaloreDamageType"] then
+					-- find out whether the victim can resist any magic damage
+					local mods = victim:FindAllModifiers()
+					local fire_resist = 0
+					local water_resist = 0
 
-		--if inflictor and inflictor:IsItem() then
-		if inflictor then
-			print("INFLICTOR => " .. inflictor:GetName())
-			local item_kvs = inflictor:GetAbilityKeyValues()
-			--PrintTable(item_kvs)
-			if item_kvs["AvaloreDamageType"] then
-				if item_kvs["AvaloreDamageType"] == AVALORE_DAMAGE_TYPE_FIRE then
-					print("FIRE DAMAGE")
-					if victim:HasModifier("modifier_wet") then
-						keys.damage = keys.damage * 0.5
-						SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, victim, keys.damage, nil)
+					local lightning_amplify = 0
+					for key, value in pairs(mods) do
+						print("Working on Modifier..." .. value:GetName())
+						if value["GetFireResist"] then
+							fire_resist = fire_resist + value:GetFireResist()
+						end
+
+						if value["GetWaterResist"] then
+							water_resist = water_resist + value:GetWaterResist()
+						end
+
+						if value["GetLightningAmplify"] then
+							lightning_amplify = lightning_amplify + value:GetLightningAmplify()
+						end
 					end
-				elseif item_kvs["AvaloreDamageType"] == AVALORE_DAMAGE_TYPE_LIGHTNING then
-					print("LIGHTNING DAMAGE")
-					if victim:HasModifier("modifier_wet") then
-						keys.damage = keys.damage * 2
-						SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, victim, keys.damage, nil)
+
+					local resist = 0
+					if item_kvs["AvaloreDamageType"] == AVALORE_DAMAGE_TYPE_FIRE then
+						print("FIRE DAMAGE")
+						if fire_resist > 0 then
+							print("Before => " .. tostring(keys.damage))
+							keys.damage = keys.damage * (fire_resist/100)
+							print("After => " .. tostring(keys.damage))
+							SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, victim, keys.damage, nil)
+						end
+					elseif item_kvs["AvaloreDamageType"] == AVALORE_DAMAGE_TYPE_LIGHTNING then
+						print("LIGHTNING DAMAGE")
+						if lightning_amplify > 0 then
+							print("Before => " .. tostring(keys.damage))
+							keys.damage = keys.damage * lightning_amplify
+							print("After => " .. tostring(keys.damage))
+							SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, victim, keys.damage, nil)
+						end
 					end
 				end
 			end

@@ -35,9 +35,11 @@ function modifier_item_babr_e_bayan:GetModifierPhysicalArmorBonus()
 end
 
 function modifier_item_babr_e_bayan:GetFireResist()
+    print("modifier_item_babr_e_bayan:GetFireResist() => " .. tostring(self.fire_resist))
     return self.fire_resist
 end
 
 function modifier_item_babr_e_bayan:GetWaterResist()
+    print("modifier_item_babr_e_bayan:GetWaterResist() => " .. tostring(self.water_resist))
     return self.water_resist
 end

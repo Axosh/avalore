@@ -150,3 +150,19 @@ function modifier_wet:OnIntervalThink()
         self:GetParent():RemoveModifierByName("modifier_conflagration")
     end
 end
+
+function modifier_wet:GetWaterResist()
+    if self:GetStackCount() > 0 then
+        return 50
+    else
+        return 0
+    end
+end
+
+function modifier_wet:GetLightningAmplify()
+    if self:GetStackCount() > 0 then
+        return 2
+    else
+        return 0
+    end
+end

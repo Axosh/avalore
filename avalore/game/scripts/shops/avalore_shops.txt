@@ -57,7 +57,7 @@
 	// Level 3 - Purple Recipes
 	"defense"
 	{
- 
+		"item"				"item_babr_e_bayan"
 	}
  
 	"weapons"

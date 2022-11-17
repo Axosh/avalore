@@ -1119,6 +1119,15 @@
 		"DOTA_Tooltip_Ability_item_helskor_description"		"<h1>Active: Ghost Walk</h1>Grants %phase_ms% extra movespeed, allows movement through units, immunity to physical damage, but take %magic_dmg_amp% increased magical damage.\n<h1>Slot: Feet</h1>Requires the feet slot"
 		"DOTA_Tooltip_Ability_item_helskor_Lore"			"Norse Mythology: 'hel-shoes', placed on the deceased so they could travel to Valhalla"
 
+		// TIER 4
+		"DOTA_Tooltip_Ability_item_recipe_babr_e_bayan"			"Babr-e Bayān"
+		"DOTA_Tooltip_Ability_item_babr_e_bayan"				"Babr-e Bayān"
+		"DOTA_Tooltip_Ability_item_babr_e_bayan_description"	"<h1>Slot: Chest</h1>Requires the chest slot"
+		"DOTA_Tooltip_Ability_item_babr_e_bayan_bonus_armor"	"+$armor"
+		"DOTA_Tooltip_Ability_item_babr_e_bayan_fire_resist"	"%FIRE RESIST: "
+		"DOTA_Tooltip_Ability_item_babr_e_bayan_water_resist"	"%WATER RESIST: "
+		"DOTA_Tooltip_Ability_item_babr_e_bayan_Lore"			"Persian Mythology: The suit of Rostam wore in war. Invulnerable to fire, water, and weapons. Appeared to be hairy leopard skin. (AKA Palangina)"
+
 		//--------------------------------------------------------------------------------
 		// MODIFIERS
 		//--------------------------------------------------------------------------------

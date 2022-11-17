@@ -4,10 +4,10 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3030"
+		//"ID"							"3030"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/babr_e_bayan"
+        "AbilityTextureName" 			"items_04/babr_e_bayan"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
@@ -30,7 +30,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        /"ID"                            "3031"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        //"ID"                            "3031"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
         "ScriptFile"                    "items/shop/tier4/item_babr_e_bayan.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
