@@ -23,6 +23,9 @@
 #base "items/base_materials/item_essence_of_arcane.txt"
 #base "items/base_materials/item_essence_of_regeneration.txt"
 
+// MISC
+#base "items/base_materials/item_philosphers_stone.txt"
+
 // TIER 1 Items
 #base "items/tier1/item_talaria.txt"
 #base "items/tier1/item_seven_league_boots.txt"

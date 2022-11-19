@@ -6,7 +6,7 @@
     }
     "attributes"
 	{
-		
+		"item"				"item_philosphers_stone"
 	}
     "weapons_armor"
     {
