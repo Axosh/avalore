@@ -6,7 +6,7 @@
     }
     "attributes"
 	{
-		"item"				"item_philosphers_stone"
+		
 	}
     "weapons_armor"
     {
@@ -33,6 +33,7 @@
 		"item"				"item_essence_of_water"
 		"item"				"item_essence_of_arcane"
 		"item"				"item_essence_of_regeneration"
+		"item"				"item_philosophers_stone"
 	}	
  
 	// Level 1 - Green Recipes

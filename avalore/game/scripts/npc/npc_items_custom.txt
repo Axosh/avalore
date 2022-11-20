@@ -24,7 +24,7 @@
 #base "items/base_materials/item_essence_of_regeneration.txt"
 
 // MISC
-#base "items/base_materials/item_philosphers_stone.txt"
+#base "items/base_materials/item_philosophers_stone.txt"
 
 // TIER 1 Items
 #base "items/tier1/item_talaria.txt"
