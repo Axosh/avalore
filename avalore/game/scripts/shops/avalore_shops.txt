@@ -25,7 +25,7 @@
     }
     "misc"
 	{
-		"item"				"item_steel"
+		//"item"				"item_steel"
 		"item"				"item_essence_of_frost"
 		"item"				"item_essence_of_shadow"
 		"item"				"item_essence_of_ember"
@@ -33,7 +33,7 @@
 		"item"				"item_essence_of_water"
 		"item"				"item_essence_of_arcane"
 		"item"				"item_essence_of_regeneration"
-		"item"				"item_philosophers_stone"
+		"item"				"item_avalore_philosophers_stone"
 	}	
  
 	// Level 1 - Green Recipes
