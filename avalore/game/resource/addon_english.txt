@@ -1091,6 +1091,11 @@
 		"DOTA_Tooltip_Ability_item_avalore_bracer_description"					"<h1>Slot: Hands</h1>Requires the chest slot"
 		"DOTA_Tooltip_Ability_item_avalore_bracer_bonus_str"					"+$str"
 
+		"DOTA_Tooltip_Ability_item_recipe_avalore_ring"			"Ring"
+		"DOTA_Tooltip_Ability_item_avalore_ring"				"Ring"
+		"DOTA_Tooltip_Ability_item_avalore_ring_description"	"<h1>Slot: Trinket</h1>Requires the trinket slot"
+		"DOTA_Tooltip_Ability_item_avalore_ring_bonus_armor"				"+$armor"
+
 		// Components
 		"DOTA_Tooltip_Ability_item_recipe_steel"							"Steel"
 		"DOTA_Tooltip_Ability_item_steel"									"Steel"
