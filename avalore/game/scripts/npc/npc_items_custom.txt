@@ -32,6 +32,9 @@
 #base "items/tier1/item_seven_league_boots.txt"
 #base "items/tier1/item_helskor.txt"
 
+// TIER 2 Items
+#base "items/tier2/item_andvaranaut.txt"
+
 // TIER 4 Items
 #base "items/tier4/item_babr_e_bayan.txt"
 

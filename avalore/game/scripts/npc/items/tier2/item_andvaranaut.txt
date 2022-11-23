@@ -7,7 +7,7 @@
 		//"ID"							"3054"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/andvaranaut"
+        "AbilityTextureName" 			"items_02/andvaranaut"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
@@ -22,7 +22,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_trinket"
+            "01"                        "item_avalore_ring;item_avalore_philosophers_stone"
         }
 	}
 
@@ -32,10 +32,10 @@
         //-------------------------------------------------------------------------------------------------------------
         //"ID"                            "3055"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/base_materials/item_andvaranaut.lua"
+        "ScriptFile"                    "items/shop/tier2/item_andvaranaut.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
-        "AbilityTextureName"            "base_materials/andvaranaut"
+        "AbilityTextureName"            "items_02/andvaranaut"
 
         // Ability
 		//--------------------------------------------		
@@ -76,6 +76,11 @@
                 "item_slot"                                 "5" //trinket
             }
             "02"
+            {
+                "var_type"                                 "FIELD_INTEGER"
+                "bonus_armor"                              "2"
+            }
+            "03"
             {
                 "var_type"                                  "FIELD_INTEGER"
                 "bonus_gold_per_kill"                       "4"

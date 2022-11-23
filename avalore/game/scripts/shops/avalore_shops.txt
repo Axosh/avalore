@@ -47,7 +47,7 @@
 	// Level 2 - Blue Recipes
 	"support"
 	{
- 
+		"item"				"item_andvaranaut"
 	}
  
 	"magics"
