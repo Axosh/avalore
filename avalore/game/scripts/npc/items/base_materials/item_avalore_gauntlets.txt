@@ -1,0 +1,79 @@
+"DOTAItems"
+{
+    "item_recipe_avalore_gauntlets"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"3018"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"base_materials/gauntlet"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"400"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_avalore_gauntlets"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_slot_hands"
+        }
+	}
+
+    "item_avalore_gauntlets"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        //"ID"                            "3019"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						"item_lua"            
+        "ScriptFile"                    "items/shop/base_materials/item_avalore_gauntlets.lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"                         "models/props_gameplay/red_box.vmdl"
+        "AbilityTextureName"            "base_materials/gauntlet"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        "ItemShopTags"                  "int"
+        "ItemQuality"                   "component"
+        //"ItemAliases"                   "gloves;cloth"
+
+        "ItemKillable"					                    "1"
+		"ItemSellable"					                    "1"
+		"ItemPurchasable"				                    "1"
+		"ItemDroppable"					                    "1"
+		"ItemShareability"				                    "ITEM_NOT_SHAREABLE"
+		"ItemStackable"					                    "0"
+		"ItemPermanent"					                    "0"
+
+        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        //"ItemSlot"                                          "feet"
+
+        "SideShop"                                          "0"
+        "SecretShop"					                    "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "3" //HANDS
+            }
+            "02"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_amora"                               "4"
+            }
+        }
+    }
+}
