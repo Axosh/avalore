@@ -23,6 +23,7 @@
 		"item"				"item_leather_vest"
 		"item"				"item_avalore_bracer"
 		"item"				"item_avalore_ring"
+		"item"				"item_avalore_gauntlets"
     }
     "misc"
 	{
