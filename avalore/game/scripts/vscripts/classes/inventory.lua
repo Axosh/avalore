@@ -33,7 +33,7 @@ function Inventory:Init(playerID)
 
     self.slots[AVALORE_ITEM_SLOT_HEAD]      = (self.hero):AddItemByName("item_slot_head")
     self.slots[AVALORE_ITEM_SLOT_CHEST]     = (self.hero):AddItemByName("item_slot_chest")
-    self.slots[AVALORE_ITEM_SLOT_BACK]      = (self.hero):AddItemByName("item_slot_back")
+    self.slots[AVALORE_ITEM_SLOT_ACCESSORY]      = (self.hero):AddItemByName("item_slot_back")
     self.slots[AVALORE_ITEM_SLOT_HANDS]     = (self.hero):AddItemByName("item_slot_hands")
     self.slots[AVALORE_ITEM_SLOT_FEET]      = (self.hero):AddItemByName("item_slot_feet")
     self.slots[AVALORE_ITEM_SLOT_TRINKET]   = (self.hero):AddItemByName("item_slot_trinket")
@@ -213,8 +213,8 @@ function Inventory:Remove(item, destroyOnRemove)
         self.slots[AVALORE_ITEM_SLOT_HEAD]      = (self.hero):AddItemByName("item_slot_head")
     elseif item_slot == AVALORE_ITEM_SLOT_CHEST and (self.slots[AVALORE_ITEM_SLOT_CHEST] == nil or (self.slots[AVALORE_ITEM_SLOT_CHEST]):GetName() ~= "item_slot_chest") then
         self.slots[AVALORE_ITEM_SLOT_CHEST]     = (self.hero):AddItemByName("item_slot_chest")
-    elseif item_slot == AVALORE_ITEM_SLOT_BACK and (self.slots[AVALORE_ITEM_SLOT_BACK] == nil or (self.slots[AVALORE_ITEM_SLOT_BACK]):GetName() ~= "item_slot_back") then
-        self.slots[AVALORE_ITEM_SLOT_BACK]      = (self.hero):AddItemByName("item_slot_back")
+    elseif item_slot == AVALORE_ITEM_SLOT_ACCESSORY and (self.slots[AVALORE_ITEM_SLOT_ACCESSORY] == nil or (self.slots[AVALORE_ITEM_SLOT_ACCESSORY]):GetName() ~= "item_slot_back") then
+        self.slots[AVALORE_ITEM_SLOT_ACCESSORY]      = (self.hero):AddItemByName("item_slot_back")
     elseif item_slot == AVALORE_ITEM_SLOT_HANDS and (self.slots[AVALORE_ITEM_SLOT_HANDS] == nil or (self.slots[AVALORE_ITEM_SLOT_HANDS]):GetName() ~= "item_slot_hands") then
         self.slots[AVALORE_ITEM_SLOT_HANDS]     = (self.hero):AddItemByName("item_slot_hands")
     elseif item_slot == AVALORE_ITEM_SLOT_FEET and (self.slots[AVALORE_ITEM_SLOT_FEET] == nil or (self.slots[AVALORE_ITEM_SLOT_FEET]):GetName() ~= "item_slot_feet") then
