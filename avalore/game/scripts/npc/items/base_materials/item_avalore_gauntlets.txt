@@ -4,7 +4,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		//"ID"							"3018"
+		"ID"							"3056"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
         "AbilityTextureName" 			"base_materials/gauntlet"
@@ -30,7 +30,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        //"ID"                            "3019"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                            "3057"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
         "ScriptFile"                    "items/shop/base_materials/item_avalore_gauntlets.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
