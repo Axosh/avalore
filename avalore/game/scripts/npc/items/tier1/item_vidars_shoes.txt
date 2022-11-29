@@ -5,7 +5,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        //"ID"							"2188"
+        "ID"							"3062"
         "BaseClass"						"item_datadriven"
         "AbilityTextureName" 			"items_01/helskor"
         "Model"							"models/props_gameplay/recipe.vmdl"
@@ -26,6 +26,7 @@
     }
     "item_vidars_shoes"
     {
+        "ID"							"3063"
         "BaseClass"						"item_lua"
         "AbilityTextureName" 			"items_01/vidars_shoes"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -52,7 +53,7 @@
         "ItemCost"						"4000"
         "ItemShopTags"					"damage;move_speed;hard_to_tag"
         "ItemQuality"					"common"
-        "ItemAliases"					"phase, helskor"
+        "ItemAliases"					"vidar"
         "ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
         "SideShop"                      "0"
