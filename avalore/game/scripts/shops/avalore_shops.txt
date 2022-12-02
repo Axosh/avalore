@@ -49,6 +49,7 @@
 	"support"
 	{
 		"item"				"item_andvaranaut"
+		"item"				"item_midas_touch"
 	}
  
 	"magics"

@@ -35,6 +35,7 @@
 
 // TIER 2 Items
 #base "items/tier2/item_andvaranaut.txt"
+#base "items/tier2/item_midas_touch.txt"
 
 // TIER 4 Items
 #base "items/tier4/item_babr_e_bayan.txt"
