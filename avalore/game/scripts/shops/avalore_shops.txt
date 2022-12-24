@@ -86,6 +86,6 @@
  
 	"secretshop"
 	{
- 
+		"item"				"item_golden_fleece"
 	}
 }

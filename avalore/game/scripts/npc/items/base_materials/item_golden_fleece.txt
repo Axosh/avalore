@@ -1,0 +1,100 @@
+"DOTAItems"
+{
+    "item_recipe_golden_fleece"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3072"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"base_materials/golden_fleece"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"925"
+		"ItemShopTags"					""
+
+        "SideShop"                                          "0"
+        "SecretShop"					                    "1"
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_golden_fleece"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_slot_misc"
+        }
+	}
+
+    "item_golden_fleece"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "3073"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						"item_lua"            
+        "ScriptFile"                    "items/shop/base_materials/item_golden_fleece.lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"							"models/props_gameplay/red_box.vmdl"
+        "AbilityTextureName"            "base_materials/golden_fleece"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        "ItemShopTags"                  "aura"
+        "ItemQuality"                   "component"
+        "ItemAliases"                   "golden,gf,fleece"
+
+        "ItemKillable"					                    "1"
+		"ItemSellable"					                    "1"
+		"ItemPurchasable"				                    "1"
+		"ItemDroppable"					                    "1"
+		"ItemShareability"				                    "ITEM_NOT_SHAREABLE"
+		"ItemStackable"					                    "0"
+		"ItemPermanent"					                    "0"
+
+        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        //"ItemSlot"                                          "feet"
+
+        "SideShop"                                          "0"
+        "SecretShop"					                    "1"
+
+        // AVALORE USAGE
+        //"AvaloreDamageType"                                 "10"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "30" //MISC
+            }
+            "02"
+            {
+                "var_type"                                 "FIELD_INTEGER"
+                "as_aura"                                   "5"
+            }
+            "03"
+            {
+                "var_type"                                  "FIELD_INTEGER"   
+                "ms_aura"                                   "10"
+            }
+            "04"
+            {
+                "var_type"                                  "FIELD_INTEGER"   
+                "dmg_aura"                                   "5"
+            }
+            "05"
+            {
+                "var_type"                                  "FIELD_INTEGER"   
+                "aura_radius"                               "1200"
+            }
+        }
+    }
+}
