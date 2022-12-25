@@ -50,6 +50,7 @@
 	{
 		"item"				"item_andvaranaut"
 		"item"				"item_midas_touch"
+		"item"				"item_solar_crown"
 	}
  
 	"magics"

@@ -980,7 +980,7 @@
 
 		"DOTA_Tooltip_Ability_item_recipe_essence_of_ember"				"Essence of Ember"
 		"DOTA_Tooltip_Ability_item_essence_of_ember"					"Essence of Ember"
-		"DOTA_Tooltip_Ability_item_essence_of_ember_description"		"<h1>Slot: Misc</h1>Requires a misc slot\n<h1>Attack Modifier: Singe</h1>Applies a stacking damage over time effect for each attack that lands on the target."
+		"DOTA_Tooltip_Ability_item_essence_of_ember_description"		"<h1>Slot: Misc</h1>Requires a misc slot\n<h1>Attack Modifier: Singe</h1>Applies a %burn_per_sec% stacking fire damage over %burn_duration% sec effect for each attack that lands on the target."
 		"DOTA_Tooltip_Ability_item_essence_of_ember_burn_per_sec"		"BURN DMG PER SEC:"
 		"DOTA_Tooltip_Ability_item_essence_of_ember_burn_duration"		"BURN DURATION:"
 
@@ -1153,7 +1153,14 @@
 		"DOTA_Tooltip_Ability_item_recipe_midas_touch"				"Midas Touch"
 		"DOTA_Tooltip_Ability_item_midas_touch"						"Midas Touch"
 		"DOTA_Tooltip_Ability_item_midas_touch_description"			"<h1>Slot: Hands</h1>Requires the hands slot"
-		"DOTA_Tooltip_Ability_item_midas_touch_Lore"				"TODO"
+		"DOTA_Tooltip_Ability_item_midas_touch_Lore"				"Greek Mythology: King Midas treated Silenus (satyr companion of Dionysus) hospitably and was rewarded with a wish, he chose to turn anything he touched to gold."
+
+		"DOTA_Tooltip_Ability_item_recipe_solar_crown"				"Solar Crown"
+		"DOTA_Tooltip_Ability_item_solar_crown"						"Solar Crown"
+		"DOTA_Tooltip_Ability_item_solar_crown_description"			"<h1>Slot: Head</h1>Requires the head slot\n<h1>Attack Modifier: Singe</h1>Applies a %burn_per_sec% stacking fire damage over %burn_duration% sec effect for each attack that lands on the target.\n<h1>Active: Solar Flare</h1>Blinds enemies for %blind_duration% sec in a %blind_aoe% AoE\n<h1>Passive: Kingship Aura</h1>In a %aura_radius% radius: +%as_aura% attack speed, +%ms_aura% move speed, +%dmg_aura% damage to allies.\n<h1>Passive: Solar Sight</h1> Bonus +%bonus_day_vision% vision during day."
+		"DOTA_Tooltip_Ability_item_solar_crown_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_Ability_item_solar_crown_Lore"				"Egyptian/Roman Iconography: symbolic of the sun and associated powers. Worn by dieties (Horus, Hathor, Isis), pharaohs, and Roman emperors. In modern day, associated with Liberty (e.g. Statue of Liberty)"
+		
 
 		// TIER 4
 		"DOTA_Tooltip_Ability_item_recipe_babr_e_bayan"			"Babr-e Bayān"

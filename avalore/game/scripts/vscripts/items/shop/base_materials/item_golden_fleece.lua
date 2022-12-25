@@ -62,7 +62,11 @@ function modifier_item_golden_fleece_aura:IsPurgable()  return false end
 function modifier_item_golden_fleece_aura:IsDebuff()    return false end
 
 function modifier_item_golden_fleece_aura:GetTexture()
-    return "items/golden_fleece_orig"
+    if self.item_ability:GetName() == "modifier_item_solar_crown" then
+        return "items/solar_crown_orig"
+    else
+        return "items/golden_fleece_orig"
+    end
 end
 
 function modifier_item_golden_fleece_aura:DeclareFunctions()
@@ -74,6 +78,7 @@ end
 function modifier_item_golden_fleece_aura:OnCreated(event)
     if not self:GetAbility() then self:Destroy() return end
     self.item_ability = self:GetAbility()
+    print("Golden Fleece Ability => " .. self:GetAbility():GetName())
     self.bonus_as = self.item_ability:GetSpecialValueFor("as_aura")
     self.bonus_ms = self.item_ability:GetSpecialValueFor("ms_aura")
     self.bonus_dmg = self.item_ability:GetSpecialValueFor("dmg_aura")

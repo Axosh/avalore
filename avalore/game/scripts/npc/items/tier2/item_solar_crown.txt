@@ -1,0 +1,123 @@
+"DOTAItems"
+{
+    "item_recipe_solar_crown"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3070"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"base_materials/crown"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						""
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_solar_crown"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                      "item_avalore_crown;item_golden_fleece;item_essence_of_ember"
+        }
+	}
+
+    "item_solar_crown"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                                                "3071"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						                    "item_lua"            
+        "ScriptFile"                                        "items/shop/tier2/item_solar_crown.lua"
+        "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"                                             "models/props_gameplay/red_box.vmdl"
+        "AbilityTextureName"                                "items_02/solar_crown"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                          ""
+        "ItemShopTags"                                      "head,armor,blind"
+        "ItemQuality"                                       "component"
+        "ItemAliases"                                       "crown,solar,sc"
+
+        "ItemKillable"					                    "1"
+		"ItemSellable"					                    "1"
+		"ItemPurchasable"				                    "1"
+		"ItemDroppable"					                    "1"
+		"ItemShareability"				                    "ITEM_NOT_SHAREABLE"
+		"ItemStackable"					                    "0"
+		"ItemPermanent"					                    "0"
+
+        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+
+        "SideShop"                                          "0"
+        "SecretShop"					                    "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "0" //head
+            }
+            "02"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_armor"                               "3"
+            }
+            "03"
+            {
+                "var_type"                                 "FIELD_INTEGER"
+                "burn_per_sec"                             "8"
+            }
+            "04"
+            {
+                "var_type"                                  "FIELD_FLOAT"   
+                "burn_duration"                             "3.0"
+            }
+            "05"
+            {
+                "var_type"                                 "FIELD_FLOAT"
+                "blind_duration"                            "5.0"
+            }
+            "06"
+            {
+                "var_type"                                "FIELD_INTEGER"
+                "blind_aoe"                               "1200"
+            }
+            "07"
+            {
+                "var_type"                                 "FIELD_INTEGER"
+                "as_aura"                                   "5"
+            }
+            "08"
+            {
+                "var_type"                                  "FIELD_INTEGER"   
+                "ms_aura"                                   "10"
+            }
+            "09"
+            {
+                "var_type"                                  "FIELD_INTEGER"   
+                "dmg_aura"                                   "5"
+            }
+            "10"
+            {
+                "var_type"                                  "FIELD_INTEGER"   
+                "aura_radius"                               "1200"
+            }
+            "11"
+            {
+                "var_type"                                  "FIELD_INTEGER"   
+                "bonus_day_vision"                          "200"
+            }
+        }
+    }
+}
