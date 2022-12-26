@@ -118,6 +118,11 @@
                 "var_type"                                  "FIELD_INTEGER"   
                 "bonus_day_vision"                          "200"
             }
+            "12"
+            {
+                "var_type"                                  "FIELD_INTEGER"   
+                "miss_rate"                                 "100"
+            }
         }
     }
 }
