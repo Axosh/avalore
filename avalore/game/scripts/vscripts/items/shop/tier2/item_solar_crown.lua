@@ -3,6 +3,7 @@ item_solar_crown = class({})
 LinkLuaModifier( "modifier_item_solar_crown", "items/shop/tier2/item_solar_crown.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_golden_fleece_aura", "items/shop/base_materials/item_golden_fleece.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_ember_burn", "items/shop/base_materials/item_essence_of_ember.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_solar_flare", "items/shop/tier2/item_solar_crown.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_solar_crown:GetIntrinsicModifierName()
     return "modifier_item_solar_crown"
@@ -130,9 +131,24 @@ function modifier_solar_flare:OnCreated()
 	self.miss_rate				= self.ability:GetSpecialValueFor("miss_rate")
 end
 
+function modifier_solar_flare:OnAttackStart(kv)
+    if not IsServer () then return end
+    if kv.attacker == self:GetParent() then
+        SendOverheadEventMessage(
+                    nil,
+                    OVERHEAD_ALERT_MISS,
+                    kv.attacker,
+                    0,
+                    nil
+                )
+    end
+end
+
+
 function modifier_solar_flare:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_MISS_PERCENTAGE
+		MODIFIER_PROPERTY_MISS_PERCENTAGE,
+        MODIFIER_EVENT_ON_ATTACK_START
     }
 end
 
