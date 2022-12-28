@@ -33,9 +33,14 @@
         "ID"                                                "3071"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                    "item_lua"            
         "ScriptFile"                                        "items/shop/tier2/item_solar_crown.lua"
-        "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                                             "models/props_gameplay/red_box.vmdl"
+        "ItemQuality"					                    "rare"
+
+        // Ability
+        "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityTextureName"                                "items_02/solar_crown"
+        "AbilityCooldown"				                    "20.0"
+        "AbilityManaCost"				                    "100"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------

@@ -25,6 +25,9 @@
 #base "items/base_materials/item_essence_of_arcane.txt"
 #base "items/base_materials/item_essence_of_regeneration.txt"
 
+// Components
+#base "items/components/item_hair_of_samson.txt"
+
 // MISC
 #base "items/base_materials/item_avalore_philosophers_stone.txt"
 #base "items/base_materials/item_golden_fleece.txt"
