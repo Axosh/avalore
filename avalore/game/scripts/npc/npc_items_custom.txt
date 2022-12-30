@@ -15,6 +15,7 @@
 #base "items/base_materials/item_avalore_bracer.txt"
 #base "items/base_materials/item_avalore_ring.txt"
 #base "items/base_materials/item_avalore_gauntlets.txt"
+#base "items/base_materials/item_war_belt.txt"
 
 // Essences
 #base "items/base_materials/item_essence_of_frost.txt"

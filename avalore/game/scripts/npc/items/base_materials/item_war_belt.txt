@@ -7,7 +7,7 @@
 		"ID"							"3076"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/cloak"
+        "AbilityTextureName" 			"base_materials/war_belt"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info

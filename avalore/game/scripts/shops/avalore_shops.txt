@@ -25,6 +25,7 @@
 		"item"				"item_avalore_bracer"
 		"item"				"item_avalore_ring"
 		"item"				"item_avalore_gauntlets"
+		"item"				"item_war_belt"
     }
     "misc"
 	{
