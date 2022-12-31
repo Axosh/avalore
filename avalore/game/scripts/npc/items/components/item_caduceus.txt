@@ -1,0 +1,77 @@
+"DOTAItems"
+{
+    "item_recipe_caduceus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3078"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"components/caduceus"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"200"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_caduceus"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_slot_misc"
+        }
+	}
+
+    "item_caduceus"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                                                  "3079"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						                      "item_lua"            
+        "ScriptFile"                                          "items/shop/components/item_caduceus.lua"
+        "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"                                               "models/props_gameplay/boots_of_speed.vmdl"
+        "AbilityTextureName"                                  "components/caduceus"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                            "0"
+        "ItemShopTags"                                        "move_speed"
+        "ItemQuality"                                         "component"
+        "ItemAliases"                                         "boots of speed"
+
+        "ItemKillable"					"1"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"0"
+
+        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        "SideShop"                                            "0"
+        "SecretShop"					                      "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "30" //MISC
+            }
+            "02"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_movement_speed"                      "20"
+            }
+        }
+    }
+}

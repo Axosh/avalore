@@ -4,7 +4,7 @@
 #base "items/base_materials/item_greaves.txt"
 #base "items/base_materials/item_adventurers_cloak.txt"
 #base "items/base_materials/item_cloth_gloves.txt"
-#base "items/components/item_steel.txt"
+//#base "items/components/item_steel.txt"
 #base "items/base_materials/item_avalore_crown.txt"
 #base "items/base_materials/item_pauldrons.txt"
 #base "items/base_materials/item_plate.txt"
@@ -28,6 +28,7 @@
 
 // Components
 #base "items/components/item_hair_of_samson.txt"
+#base "items/components/item_caduceus.txt"
 
 // MISC
 #base "items/base_materials/item_avalore_philosophers_stone.txt"
