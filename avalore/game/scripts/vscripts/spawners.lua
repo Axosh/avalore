@@ -101,6 +101,7 @@ function Spawners:Init()
         local merc_item = value:AddItemByName("item_merc_demi_hero_yeti")
         merc_item:SetShareability(0) -- fully shareable
         merc_item = value:AddItemByName("item_merc_super_djinn")
+        merc_item = value:AddItemByName("item_merc_skeletons")
         merc_item:SetShareability(0) -- fully shareable
     end
     Spawners.MercCamps[DOTA_TEAM_BADGUYS] = {}
@@ -113,6 +114,7 @@ function Spawners:Init()
         local merc_item = value:AddItemByName("item_merc_demi_hero_yeti")
         merc_item:SetShareability(0) -- fully shareable
         merc_item = value:AddItemByName("item_merc_super_djinn")
+        merc_item = value:AddItemByName("item_merc_skeletons")
         merc_item:SetShareability(0) -- fully shareable
     end
 

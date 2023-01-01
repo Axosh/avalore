@@ -36,7 +36,7 @@ function CAvaloreGameMode:OrderFilter(keys)
 	local ability = EntIndexToHScript(keys.entindex_ability)
 	if ability ~= nil then
 		--print("Ability => " .. ability:GetName())
-	 	if ability:GetName() == "item_merc_super_djinn" then
+	 	if ability:GetName() == "item_merc_super_djinn" or ability:GetName() == "item_merc_skeletons" then
 			--ability = EntIndexToHScript(keys["entindex_ability"])
 			--print(ability:GetName())
 			--PrintTable(ability)

@@ -3,36 +3,28 @@ require("spawners")
 require(REQ_LIB_TIMERS)
 require(REQ_CONSTANTS)
 
-item_merc_super_djinn = class({})
+if MercSpawnCommon == nil then
+    MercSpawnCommon = {}
+end
 
-function item_merc_super_djinn:GetBehavior()
+function MercSpawnCommon:Merc_GetBehavior()
     return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_CHANNELLED
 end
 
--- check if the location vector is in a lane that this merc spawner can target
-function item_merc_super_djinn:CastFilterResultLocation(location)
-    --if not IsServer() then return end
-    --print("item_merc_super_djinn:CastFilterResult(location)")
-    --print("Item AbsOrigin => (" .. tostring(self:GetAbsOrigin().x) .. ", " .. tostring(self:GetAbsOrigin().y)  .. ")")
-    local team = self:GetCaster():GetTeamNumber()
+function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp)
+    local team = merc_camp:GetCaster():GetTeamNumber()
     local lane = ""
-    -- Item AbsOrigin is shared with its parent (i.e. the merc camp)
-    if self:GetAbsOrigin() ==  Vector(-7232, -5888, 256) then
+
+    -- determine which merc camp this is
+    if merc_camp:GetAbsOrigin() ==  Vector(-7232, -5888, 256) then
         lane = Constants.KEY_RADIANT_TOP
-    elseif self:GetAbsOrigin() ==  Vector(-5888, -7232, 256) then
+    elseif merc_camp:GetAbsOrigin() ==  Vector(-5888, -7232, 256) then
         lane = Constants.KEY_RADIANT_BOT
-    elseif self:GetAbsOrigin() ==  Vector(5888, 7232, 256) then
+    elseif merc_camp:GetAbsOrigin() ==  Vector(5888, 7232, 256) then
         lane = GetAbsOrigin.KEY_DIRE_TOP
-    elseif self:GetOriginAbs() ==  Vector(7232, 5888, 256) then
+    elseif merc_camp:GetOriginAbs() ==  Vector(7232, 5888, 256) then
         lane = Constants.KEY_DIRE_BOT
     end
-    -- for key, value in pairs(Spawners.MercCamps[team]) do
-    --     print("Value: " .. tostring(value))
-    --     -- check to see which merc camp this is
-    --     if self:GetOwner() == value then
-    --         lane = key
-    --     end
-    -- end
 
     if team == DOTA_TEAM_GOODGUYS then 
         if lane == Constants.KEY_RADIANT_TOP then
@@ -63,27 +55,26 @@ function item_merc_super_djinn:CastFilterResultLocation(location)
     return UF_FAIL_INVALID_LOCATION
 end
 
-function item_merc_super_djinn:OnSpellStart()
-    print("item_merc_super_djinn:OnSpellStart()")
+function MercSpawnCommon:Merc_OnSpellStart(item, unit, quantity)
     if not IsServer() then return end
+    print("Merc_OnSpellStart => " .. item:GetName() .. ", " .. unit .. ", " .. tostring(quantity))
 
-    local caster = self:GetCaster()
-    -- print("Caster is => " .. caster:GetName())
-    -- print("TEST => " .. tostring(caster.position_x))
-    local team = caster:GetTeam()
-    local unit = "npc_avalore_merc_djinn"
-    --local target = self:GetCursorPosition()--self:GetCursorTarget() --self:GetCursorPosition()
-    --local target = caster:GetCursorPosition()
+    --local caster = self:GetCaster()
+    local caster = item:GetCaster()
+    print("Caster => " .. caster:GetName())
+    local team = item:GetTeam()
+    print("Team => " .. tostring(team))
+
     local target_temp = Vector(caster.target_x, caster.target_y, 0) -- this comes in from the OrderFilter capturing the player's cursor
+    print("Target => " .. tostring(target_temp))
     local target = GetGroundPosition(target_temp, nil) -- get z-coord
-
 
     -- 1) validate location
     local lane = ""
     for key, value in pairs(Spawners.MercCamps[team]) do
         print("Value: " .. tostring(value))
         -- check to see which merc camp this is
-        if self:GetOwner() == value then
+        if item:GetOwner() == value then
             lane = key
         end
     end
@@ -123,35 +114,36 @@ function item_merc_super_djinn:OnSpellStart()
             end
         end
     end
+    print("init target => " .. init_target)
 
-    Timers:CreateTimer(2.0, function()
-        GridNav:DestroyTreesAroundPoint(target * 180, 180, false)
-    
-        self.unit = CreateUnitByName(unit, target, true, nil, nil, team)
-        -- local summon_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_summon_familiars.vpcf", PATTACH_ABSORIGIN, self.unit)
-        -- ParticleManager:ReleaseParticleIndex(summon_particle)
+    for i = quantity,1,-1 do      
+        print(tostring(i) .. ". Making " .. unit)
+        Timers:CreateTimer(2.0, function()
+            print("in callback")
+            GridNav:DestroyTreesAroundPoint(target * 180, 180, false)
+        
+                --self.temp_unit = CreateUnitByName(unit, target, true, nil, nil, team)
+                -- local summon_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_summon_familiars.vpcf", PATTACH_ABSORIGIN, self.unit)
+                -- ParticleManager:ReleaseParticleIndex(summon_particle)
 
-    -- 4) send unit to its first waypoint
-        -- hardcode this for now => later on search for closest or use heuristics with x,y pos
-        self.unit:SetInitialGoalEntity(Entities:FindByName(nil, init_target)) --dire_path_top_2
-    end)
+            -- 4) send unit to its first waypoint
+                -- hardcode this for now => later on search for closest or use heuristics with x,y pos
+                print("Unit => " .. unit)
+                print("Target => " .. tostring(target))
+                print("Team => " .. tostring(team))
+                print(Entities:FindByName(nil, init_target))
+                
+             --self.temp_unit:SetInitialGoalEntity(Entities:FindByName(nil, init_target)) --dire_path_top_2
+            CreateUnitByName(unit, target, true, nil, nil, team):SetInitialGoalEntity(Entities:FindByName(nil, init_target)) --dire_path_top_2
+        end)
+    end
 
     -- 5) make sure to update shared cooldowns
 
-    local items = Entities:FindAllByName(self:GetName())
-    for _,item in pairs(items) do
-        if item:GetTeamNumber() == self:GetTeamNumber() then
-            item:StartCooldown(self:GetCooldown(self:GetLevel()))
+    local items = Entities:FindAllByName(item:GetName())
+    for _,item_inst in pairs(items) do
+        if item_inst:GetTeamNumber() == item:GetTeamNumber() then
+            item_inst:StartCooldown(item:GetCooldown(item:GetLevel()))
         end
     end
 end
-
--- function FindLane(team)
---     local lane = ""
---     for key, value in pairs(Spawners.MercCamps[team]) do
---         print("Value: " .. tostring(value))
---         if merc_camp_building == value then
---             lane = key
---         end
---     end
--- end

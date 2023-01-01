@@ -18,7 +18,7 @@
         "AbilityUnitTargetType"                                 "DOTA_UNIT_TARGET_NONE"
         "AbilityUnitTargetTeam"                                 "DOTA_UNIT_TARGET_TEAM_NONE"
         //"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_CUSTOM"
-        "AbilityTextureName"                                  "merc_demi_hero/item_merc_super_djinn"
+        "AbilityTextureName"                                  "merc_demi_hero/item_merc_skeletons"
 
         // Stats
         "AbilityCastRange"				"0"

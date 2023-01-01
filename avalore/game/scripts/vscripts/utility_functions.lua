@@ -421,7 +421,7 @@ function IsRadiantBotLane(x, y)
     return false
 end
 
-function IsDireTopLan(x, y)
+function IsDireTopLane(x, y)
     if (x < 5800 and y < -3350) and (x > 7400 and y > 3850) then
         return true
     end

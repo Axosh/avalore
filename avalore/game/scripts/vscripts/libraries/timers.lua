@@ -119,6 +119,7 @@ function Timers:Think()
       -- Run the callback
       local status, nextCall
       if v.context then
+        print("has context")
         status, nextCall = xpcall(function() return v.callback(v.context, v) end, function (msg)
                                     return msg..'\n'..debug.traceback()..'\n'
                                   end)
