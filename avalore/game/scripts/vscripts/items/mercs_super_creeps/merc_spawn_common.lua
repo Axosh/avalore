@@ -133,7 +133,7 @@ function MercSpawnCommon:Merc_OnSpellStart(item, unit, quantity)
                 print("Team => " .. tostring(team))
                 print(Entities:FindByName(nil, init_target))
                 
-             --self.temp_unit:SetInitialGoalEntity(Entities:FindByName(nil, init_target)) --dire_path_top_2
+            --self.temp_unit:SetInitialGoalEntity(Entities:FindByName(nil, init_target)) --dire_path_top_2
             CreateUnitByName(unit, target, true, nil, nil, team):SetInitialGoalEntity(Entities:FindByName(nil, init_target)) --dire_path_top_2
         end)
     end
