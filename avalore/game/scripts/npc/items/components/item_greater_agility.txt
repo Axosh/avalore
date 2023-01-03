@@ -1,48 +1,49 @@
 "DOTAItems"
 {
-    "item_recipe_zoster_of_hippolyta"
+    // NOTE: This is a placeholder for now until I find something more suitable
+    "item_recipe_greater_agility"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3080"
+		"ID"							"3082"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"items_03/zoster_of_hippolyta"
+        "AbilityTextureName" 			"components/agility_placeholder"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
+		"ItemCost"						"300"
 		"ItemShopTags"					""
 
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_zoster_of_hippolyta"
+		"ItemResult"					"item_greater_agility"
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_caduceus;item_war_belt;item_golden_fleece;item_hair_of_samson;item_greater_agility"
+            "01"                        "item_slot_misc"
         }
 	}
 
-    "item_zoster_of_hippolyta"
+    "item_greater_agility"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "3081"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                            "3083"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/tier3/item_zoster_of_hippolyta.lua"
+        "ScriptFile"                    "items/shop/components/item_greater_agility.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
-        "AbilityTextureName"            "items_03/zoster_of_hippolyta"
+        "AbilityTextureName"            "components/agility_placeholder"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "0"
-        "ItemShopTags"                  "str"
+        "ItemShopTags"                  "agi"
         "ItemQuality"                   "component"
-        "ItemAliases"                   "zoster;hippo"
+        //"ItemAliases"                   "gloves;cloth"
 
         "ItemKillable"					                    "1"
 		"ItemSellable"					                    "1"
@@ -67,42 +68,12 @@
             "01"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "item_slot"                                 "2" //ACCESSORY
+                "item_slot"                                 "30" //MISC
             }
             "02"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "bonus_str"                                 "10"
-            }
-            "03"
-            {
-                "var_type"                                  "FIELD_INTEGER"
                 "bonus_agi"                                 "6"
-            }
-            "04"
-            {
-                "var_type"                                  "FIELD_INTEGER"
-                "bonus_ms"                                  "20"
-            }
-            "05"
-            {
-                "var_type"                                 "FIELD_INTEGER"
-                "as_aura"                                   "5"
-            }
-            "06"
-            {
-                "var_type"                                  "FIELD_INTEGER"   
-                "ms_aura"                                   "10"
-            }
-            "07"
-            {
-                "var_type"                                  "FIELD_INTEGER"   
-                "dmg_aura"                                   "5"
-            }
-            "08"
-            {
-                "var_type"                                  "FIELD_INTEGER"   
-                "aura_radius"                               "1200"
             }
         }
     }

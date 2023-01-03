@@ -7,7 +7,7 @@
 		"ID"							"3074"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/bracer"
+        "AbilityTextureName"            "components/hair_of_sampson"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
