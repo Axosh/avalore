@@ -16,7 +16,7 @@ end
 function item_solar_crown:OnSpellStart()
     self.radius = self:GetSpecialValueFor("blind_aoe")
     self.duration = self:GetSpecialValueFor("blind_duration")
-    local miss_rate = self:GetSpecialValueFor("miss_rate")
+    --local miss_rate = self:GetSpecialValueFor("miss_rate") --this is used in the solar flare mod
     self.caster		= self:GetCaster()
 
     if not IsServer() then return end

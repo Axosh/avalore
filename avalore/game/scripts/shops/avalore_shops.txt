@@ -9,6 +9,7 @@
 		"item"				"item_avalore_philosophers_stone"
 		"item"				"item_hair_of_samson"
 		"item"				"item_caduceus"
+		"item"				"item_greater_agility"
 	}
     "weapons_armor"
     {
@@ -69,7 +70,7 @@
  
 	"weapons"
 	{
- 
+		"item"				"item_zoster_of_hippolyta"
 	}
  
 	// Level 4 - Orange / Orb / Artifacts

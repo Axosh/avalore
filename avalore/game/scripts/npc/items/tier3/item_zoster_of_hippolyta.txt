@@ -60,6 +60,11 @@
         "SideShop"                                          "0"
         "SecretShop"					                    "0"
 
+        // Ability
+		//--------------------------------------------		
+		"AbilityCooldown"				"60"
+        "AbilityManaCost"				"75"
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
@@ -103,6 +108,16 @@
             {
                 "var_type"                                  "FIELD_INTEGER"   
                 "aura_radius"                               "1200"
+            }
+            "09"
+            {
+                "var_type"                                  "FIELD_INTEGER"   
+                "aura_multiplier"                           "4"
+            }
+            "10"
+            {
+                "var_type"                                  "FIELD_FLOAT"
+                "aura_mult_duration"                        "5.0"
             }
         }
     }

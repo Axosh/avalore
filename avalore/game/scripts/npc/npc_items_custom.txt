@@ -29,6 +29,7 @@
 // Components
 #base "items/components/item_hair_of_samson.txt"
 #base "items/components/item_caduceus.txt"
+#base "items/components/item_greater_agility.txt"
 
 // MISC
 #base "items/base_materials/item_avalore_philosophers_stone.txt"
@@ -43,6 +44,9 @@
 #base "items/tier2/item_andvaranaut.txt"
 #base "items/tier2/item_midas_touch.txt"
 #base "items/tier2/item_solar_crown.txt"
+
+// TIER 3 Items
+#base "items/tier3/item_zoster_of_hippolyta.txt"
 
 // TIER 4 Items
 #base "items/tier4/item_babr_e_bayan.txt"

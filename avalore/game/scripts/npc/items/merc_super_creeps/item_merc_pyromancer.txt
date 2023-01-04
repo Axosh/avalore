@@ -1,0 +1,39 @@
+"DOTAItems"
+{
+    //models/heroes/brewmaster/brewmaster_firespirit.vmdl
+    "item_merc_skeletons"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        //"ID"                                                  "9001"
+        "BaseClass"						                      "item_lua"            
+        "ScriptFile"					                      "items/mercs_super_creeps/item_merc_pyromancer.lua"
+        
+        "AbilityBehavior"                                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+        "AbilityUnitTargetType"                                 "DOTA_UNIT_TARGET_NONE"
+        "AbilityUnitTargetTeam"                                 "DOTA_UNIT_TARGET_TEAM_NONE"
+        "AbilityTextureName"                                    "merc_demi_hero/item_merc_skeletons"
+
+        // Stats
+        "AbilityCastRange"				"0"
+        "AbilityManaCost"				"0"
+        "AbilityChannelTime"			"2.0"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemKillable"					"0"
+		"ItemSellable"					"0"
+		"ItemPurchasable"				"0"
+		"ItemDroppable"					"0"
+		//"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"1"
+
+        "SideShop"                      "0"
+        "SecretShop"					"0"
+
+        //"AbilitySharedCooldown"         "demi_hero_yeti"
+        "AbilityCooldown"				"30.0"
+    }
+}
