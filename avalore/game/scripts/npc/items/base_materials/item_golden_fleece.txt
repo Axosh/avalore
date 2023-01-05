@@ -25,7 +25,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_misc"
+            "01"                        "item_slot_trinket"
         }
 	}
 
@@ -73,7 +73,7 @@
             "01"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "item_slot"                                 "30" //MISC
+                "item_slot"                                 "5" //TRINKET
             }
             "02"
             {

@@ -62,6 +62,8 @@ function modifier_item_golden_fleece_aura:IsPurgable()  return false end
 function modifier_item_golden_fleece_aura:IsDebuff()    return false end
 
 function modifier_item_golden_fleece_aura:GetTexture()
+    if not self.item_ability then return end --probably dropped the item/it is mid combination
+
     if self.item_ability:GetName() == "modifier_item_solar_crown" then
         return "items/solar_crown_orig"
     else

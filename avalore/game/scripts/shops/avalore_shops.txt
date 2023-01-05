@@ -66,11 +66,12 @@
 	"defense"
 	{
 		"item"				"item_babr_e_bayan"
+		"item"				"item_zoster_of_hippolyta"
 	}
  
 	"weapons"
 	{
-		"item"				"item_zoster_of_hippolyta"
+		
 	}
  
 	// Level 4 - Orange / Orb / Artifacts

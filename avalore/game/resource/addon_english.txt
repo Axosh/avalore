@@ -1190,10 +1190,14 @@
 		// TIER 3
 		"DOTA_Tooltip_Ability_item_recipe_zoster_of_hippolyta"			"Zoster of Hippolyta"
 		"DOTA_Tooltip_Ability_item_zoster_of_hippolyta"					"Zoster of Hippolyta"
-		"DOTA_Tooltip_Ability_item_zoster_of_hippolyta_description"		"<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_zoster_of_hippolyta_description"		"<h1>Active: Battlecry</h1>For %aura_mult_duration% sec, Amazon Aura provides %aura_multiplier%x its bonus to any unit in the %aura_radius% radius upon activation.\n<h1>Passive: Amazon Aura</h1>In a %aura_radius% radius: +%as_aura% attack speed, +%ms_aura% move speed, +%dmg_aura% damage to allies.\n<h1>Slot: Accessory</h1>Requires the accessory slot"
 		"DOTA_Tooltip_Ability_item_zoster_of_hippolyta_bonus_str"		"+$str"
 		"DOTA_Tooltip_Ability_item_zoster_of_hippolyta_bonus_agi"		"+$agi"
 		"DOTA_Tooltip_Ability_item_zoster_of_hippolyta_bonus_ms"		"+$move_speed"
+		"DOTA_Tooltip_Ability_item_zoster_of_hippolyta_lore"			"Greek Mythology: Hippolyta was an Amazonian Queen whose father was Ares. One of Heracles' labors was to obtain her magic Belt (Zoster)."
+
+		"DOTA_Tooltip_modifier_amazon_aura"						"Amazon Aura"
+		"DOTA_Tooltip_modifier_amazon_aura_description"			"+%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% Move Speed, +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% Attack Speed, +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% Damage"
 
 		// TIER 4
 		"DOTA_Tooltip_Ability_item_recipe_babr_e_bayan"			"Babr-e Bayān"

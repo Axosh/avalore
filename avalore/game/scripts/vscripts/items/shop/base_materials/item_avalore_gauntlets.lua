@@ -20,8 +20,7 @@ function modifier_item_avalore_gauntlets:GetAttributes()
 end
 
 function modifier_item_avalore_gauntlets:DeclareFunctions()
-    return {    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-                MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS      }
+    return {   MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS      }
 end
 
 function modifier_item_avalore_gauntlets:OnCreated(event)
