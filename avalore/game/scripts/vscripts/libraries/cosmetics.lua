@@ -494,7 +494,9 @@ function CosmeticLib:RemoveParticles(player)
 				wearable = handle_table["handle"]
 				--print(wearable:GetModelName())
 				--wearable:RemoveEffects(EF_NODRAW)
-				wearable:RemoveSelf()
+				if wearable then
+					wearable:RemoveSelf()
+				end
 			end
 		end
 	end

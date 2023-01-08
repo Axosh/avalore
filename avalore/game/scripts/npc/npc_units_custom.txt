@@ -60,7 +60,10 @@
 		"AttackAcquisitionRange"	"0"			// Range within a target can be acquired.
 		"AttackRange"				"0"			// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+		"ProjectileSpeed"			"0"			// Speed of projectile.		 
+
+		"WakesNeutrals"				"0"  
+		//"UseNeutralCreepBehavior"   "1"
 
 		// Bounds
 		//----------------------------------------------------------------

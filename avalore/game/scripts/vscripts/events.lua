@@ -606,7 +606,7 @@ function CAvaloreGameMode:InitCosmetics(heroindex)
 	--local hero = PlayerResource:GetPlayer( hPlayerHero:GetPlayerOwnerID() ):GetAssignedHero()
 	--CosmeticLib:PrintItemsFromPlayer(PlayerResource:GetPlayer(0))
 	if hero_name ~= "npc_dota_hero_rubick" then
-		CosmeticLib:RemoveParticles(PlayerResource:GetPlayer(0))
+		CosmeticLib:RemoveParticles(PlayerResource:GetPlayer(playernum))
 		--CAvaloreGameMode:RemoveAll(hero)
 		CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_HEAD )
 		CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_BODY_HEAD )

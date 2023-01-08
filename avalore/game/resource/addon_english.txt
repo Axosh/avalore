@@ -1113,7 +1113,12 @@
 		// Consumables
 		"DOTA_Tooltip_Ability_item_ambrosia"								"Ambrosia"
 		"DOTA_Tooltip_Ability_item_health_potion"							"Health Potion"
+
 		"DOTA_Tooltip_Ability_item_mana_potion"								"Mana Potion"
+		"DOTA_Tooltip_Ability_item_mana_potion_description"					"<h1>Use: Mana Regeneration</h1>Grants +%mp_regen% mana regen for %duration% seconds.\n\nDamage from any source other than self-inflicted will remove the buff\n<h1>Slot: Neutral</h1>Requires the neutral item slot"
+
+		"DOTA_Tooltip_modifier_mana_potion_buff"							"Mana Regeneration"
+		"DOTA_Tooltip_modifier_mana_potion_buff_description"				"Providing +%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration"
 
 		// Components
 		"DOTA_Tooltip_Ability_item_recipe_steel"							"Steel"
