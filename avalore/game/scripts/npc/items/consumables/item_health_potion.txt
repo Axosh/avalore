@@ -1,0 +1,90 @@
+"DOTAItems"
+{
+    "item_health_potion"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3087"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName" 			"consumable/health_potion"
+		"ScriptFile"					"items/shop/consumables/item_health_potion"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+		"Model"							"models/props_gameplay/salve.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"110"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"neutral"
+		"ItemAliases"					"healing salve"
+		"ItemStackable"					"1"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ShouldBeSuggested"				"1"
+		"IsTempestDoubleClonable"		"0"
+        "ItemIsNeutralDrop"				"1"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"0.0"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilitySpecial"
+		{
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "16" //neutral
+            }
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_regen"				"80"
+			}
+
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"8"
+			}
+
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"break_stacks"			"4"
+			}
+
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"flat_heal_reduction"	"10"
+			}
+
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_threshold_pct"		"50"
+			}
+
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal_multiplier"		"2"
+			}
+
+			"08"
+			{
+				"var_type"				 "FIELD_INTEGER"
+				"cast_range_tooltip"	 "400"
+			}
+		}
+	}
+}

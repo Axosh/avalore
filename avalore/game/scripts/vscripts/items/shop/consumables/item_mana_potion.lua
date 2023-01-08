@@ -1,0 +1,1 @@
+item_mana_potion = class({})

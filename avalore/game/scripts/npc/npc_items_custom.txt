@@ -18,6 +18,11 @@
 #base "items/base_materials/item_war_belt.txt"
 #base "items/base_materials/item_wooden_shield.txt"
 
+// CONSUMABLE
+#base "items/consumables/item_ambrosia.txt"
+#base "items/consumables/item_health_potion.txt"
+#base "items/consumables/item_mana_potion.txt"
+
 // Essences
 #base "items/base_materials/item_essence_of_frost.txt"
 #base "items/base_materials/item_essence_of_shadow.txt"

@@ -86,9 +86,18 @@ function Inventory:Add(item)
 
     local item_slot = item:GetSpecialValueFor("item_slot")
 
+    if item:GetName() == "item_bottle" then
+        item_slot = AVALORE_ITEM_SLOT_TRINKET
+    end
+
     -- we shouldn't be hitting this, but just in case
     if item_slot == nil then
         item_slot = AVALORE_ITEM_SLOT_MISC
+    end
+
+    -- these go in a special slot
+    if item_slot == AVALORE_ITEM_SLOT_NEUT then
+        return
     end
 
     print("Trying to add item " .. item:GetName() .. " to Slot: " .. tostring(item_slot))
@@ -186,9 +195,18 @@ function Inventory:Remove(item, destroyOnRemove)
     print("Inventory:Remove(item) -- " .. item:GetName())
     local item_slot = item:GetSpecialValueFor("item_slot")
 
+    if item:GetName() == "item_bottle" then
+        item_slot = AVALORE_ITEM_SLOT_TRINKET
+    end
+
     -- we shouldn't be hitting this, but just in case
     if item_slot == nil then
         item_slot = AVALORE_ITEM_SLOT_MISC
+    end
+
+    -- these go in a special slot
+    if item_slot == AVALORE_ITEM_SLOT_NEUT then
+        return
     end
     -- remove item
     --self.hero:RemoveItem(self.slots[item_slot])

@@ -3,6 +3,11 @@
     "consumables"
 	{
 		"item"				"item_fairy_dust"
+		"item"				"item_ambrosia"
+		"item"				"item_tpscroll"
+		"item"				"item_health_potion"
+		"item"				"item_mana_potion"
+		"item"				"item_bottle"
     }
     "attributes"
 	{
