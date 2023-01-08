@@ -498,8 +498,8 @@ end
 -- 		"hero"			"string"
 -- 	}
 function CAvaloreGameMode:OnHeroFinishSpawn(event)
-	-- print("==== OnHeroFinishSpawn ====")
-	-- PrintTable(event)
+	print("==== OnHeroFinishSpawn ====")
+	PrintTable(event)
 	local hPlayerHero = EntIndexToHScript( event.heroindex )
 	if hPlayerHero ~= nil and hPlayerHero:IsRealHero() then
 		if hPlayerHero.bFirstSpawnComplete == nil then
@@ -508,7 +508,8 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 			Score:InsertPlayerStatsRecord(hPlayerHero:GetPlayerOwnerID())
 		end
 		-- Init cosmetics
-		CAvaloreGameMode:InitCosmetics(hPlayerHero)
+		--CAvaloreGameMode:InitCosmetics(hPlayerHero)
+		CAvaloreGameMode:InitCosmetics(event.heroindex)
 		-- init inventory
 		--InventoryManager[hPlayerHero:GetPlayerOwnerID()] = Inventory:Create(hPlayerHero:GetPlayerOwnerID())
 		print("Creating Inventory for Player: " .. tostring(hPlayerHero:GetPlayerOwnerID()))
@@ -572,8 +573,9 @@ end
 
 
 -- hero = EntIndexToHScript( event.heroindex )
-function CAvaloreGameMode:InitCosmetics(unit)
-	local playernum = 0
+function CAvaloreGameMode:InitCosmetics(heroindex)
+	local hPlayerHero = EntIndexToHScript( heroindex )
+	local playernum = hPlayerHero:GetPlayerOwnerID()
 	local hero = PlayerResource:GetSelectedHeroEntity(playernum)
 
 	local hero_name = PlayerResource:GetSelectedHeroName(playernum)

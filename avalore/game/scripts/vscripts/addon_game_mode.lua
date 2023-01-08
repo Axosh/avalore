@@ -7,7 +7,8 @@ _G.Temp = false
 _G.round = 0
 _G.first_loop = true
 _G.time_offset = 0
-_G.round_1_init = false
+--_G.round_1_init = false
+_G.round_1_init_not_done = false --commenting this out prevents wisps from spawning entirely
 --[[
 _G.GoodScore = 0
 _G.BadScore = 0
@@ -131,7 +132,21 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 	GameRules:GetGameModeEntity():SetCustomBackpackCooldownPercent(1.0) -- no punishment
 	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(0.0) -- no cooldown
+	-- neutral items (consumables for avalore)
+	GameRules:GetGameModeEntity():SetAllowNeutralItemDrops(false)
+	GameRules:GetGameModeEntity():SetNeutralStashEnabled(false)
+	--GameMode:SetNeutralStashEnabled(false)
+	GameRules:GetGameModeEntity():SetSendToStashEnabled(false)
+	--GameMode:SetSendToStashEnabled(false)
 
+	-- Runes
+	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_DOUBLEDAMAGE, false)
+	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_HASTE, false)
+	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_ILLUSION, false)
+	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_INVISIBILITY, false)
+	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_REGENERATION, false)
+
+	-- Filters
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAvaloreGameMode, "OrderFilter"), self)
 	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CAvaloreGameMode, "GoldFilter"), self)
 	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter(Dynamic_Wrap(CAvaloreGameMode, "AbilityTuningFilter"), self)
