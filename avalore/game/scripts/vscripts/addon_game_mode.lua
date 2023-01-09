@@ -25,6 +25,7 @@ t_dire_outpost.direTime = 0
 
 -- IDK where to put these
 LinkLuaModifier("modifier_talent_might_of_zeus",       "heroes/zeus/modifier_talent_might_of_zeus.lua",       LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_avalore_not_auto_attackable", "scripts/vscripts/modifiers/modifier_avalore_not_auto_attackable.lua", LUA_MODIFIER_MOTION_NONE )
 
 ---------------------------------------------------------------------------
 -- CAvaloreGameMode class
@@ -401,6 +402,7 @@ function CAvaloreGameMode:InitRound1()
 		--wisp:AddParticle(particle_fx, false, false, -1, false, false)
 
 		wisp:StartGesture(ACT_DOTA_ATTACK)
+		wisp:AddNewModifier(wisp, nil, "modifier_avalore_not_auto_attackable", {})
 		table.insert(Score["wisps"], wisp)
 	end
 
