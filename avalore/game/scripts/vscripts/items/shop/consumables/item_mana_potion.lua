@@ -6,6 +6,7 @@ function item_mana_potion:GetBehavior()
     return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK
 end
 
+
 function item_mana_potion:OnSpellStart()
     local caster = self:GetCaster() 
 	local ability = self
@@ -38,6 +39,11 @@ function modifier_mana_potion_buff:IsPurgable() return true end
 function modifier_mana_potion_buff:GetTexture()
 	return "items/mana_potion_orig"
 end
+
+function modifier_mana_potion_buff:GetEffectName()
+	return "particles/items_fx/healing_clarity.vpcf"
+end
+
 
 function modifier_mana_potion_buff:OnCreated()
     self.caster = self:GetCaster()

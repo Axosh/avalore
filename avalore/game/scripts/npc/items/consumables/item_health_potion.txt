@@ -47,40 +47,14 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hp_regen"				"80"
+				"hp_regen"				"40"
 			}
-
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"8"
+				"duration"				"10"
 			}
-
 			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"break_stacks"			"4"
-			}
-
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"flat_heal_reduction"	"10"
-			}
-
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_threshold_pct"		"50"
-			}
-
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_multiplier"		"2"
-			}
-
-			"08"
 			{
 				"var_type"				 "FIELD_INTEGER"
 				"cast_range_tooltip"	 "400"
