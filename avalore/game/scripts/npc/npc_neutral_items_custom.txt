@@ -23,6 +23,7 @@
             "item_ambrosia"                 "0"
             "item_health_potion"            "0"
             "item_mana_potion"              "0"
+            "item_tango"                    "0"
         }
     }
 }

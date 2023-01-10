@@ -37,24 +37,24 @@ function item_merc_super_djinn:CastFilterResultLocation(location)
     if team == DOTA_TEAM_GOODGUYS then 
         if lane == Constants.KEY_RADIANT_TOP then
             if IsRadiantTopLane(location.x, location.y) then 
-                print("RADI TOP SUCCESS")
+                --print("RADI TOP SUCCESS")
                 return UF_SUCCESS
             end
         elseif lane == Constants.KEY_RADIANT_BOT then
             if IsRadiantBotLane(location.x, location.y) then 
-                print("RADI BOT SUCCESS")
+                --print("RADI BOT SUCCESS")
                 return UF_SUCCESS
             end
         end
     elseif team == DOTA_TEAM_BADGUYS then
         if lane == Constants.KEY_DIRE_TOP then
             if IsDireTopLane(location.x, location.y) then 
-                print("DIRE TOP SUCCESS")
+                --print("DIRE TOP SUCCESS")
                 return UF_SUCCESS
             end
         elseif lane == Constants.KEY_DIRE_BOT then
             if IsDireBotLane(location.x, location.y) then 
-                print("DIRE BOT SUCCESS")
+                --print("DIRE BOT SUCCESS")
                 return UF_SUCCESS
             end
         end

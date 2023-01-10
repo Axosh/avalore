@@ -4,9 +4,11 @@
     {
         // General
 		//
-		"BaseClass"					"npc_dota_creature"
+		//"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_creep_lane"
 		"Model"						"models/items/wraith_king/arcana/wk_arcana_skeleton.vmdl"
-		"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
+		//"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
+		"SoundSet"					"n_creep_Skeleton"
 		//"ModelScale" 				"0.9"
 		//"ModelScale" 				"0.7"
 		"Level"						"1"

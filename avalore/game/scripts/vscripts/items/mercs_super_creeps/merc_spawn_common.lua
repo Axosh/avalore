@@ -29,24 +29,24 @@ function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp)
     if team == DOTA_TEAM_GOODGUYS then 
         if lane == Constants.KEY_RADIANT_TOP then
             if IsRadiantTopLane(location.x, location.y) then 
-                print("RADI TOP SUCCESS")
+                --print("RADI TOP SUCCESS")
                 return UF_SUCCESS
             end
         elseif lane == Constants.KEY_RADIANT_BOT then
             if IsRadiantBotLane(location.x, location.y) then 
-                print("RADI BOT SUCCESS")
+                --print("RADI BOT SUCCESS")
                 return UF_SUCCESS
             end
         end
     elseif team == DOTA_TEAM_BADGUYS then
         if lane == Constants.KEY_DIRE_TOP then
             if IsDireTopLane(location.x, location.y) then 
-                print("DIRE TOP SUCCESS")
+                --print("DIRE TOP SUCCESS")
                 return UF_SUCCESS
             end
         elseif lane == Constants.KEY_DIRE_BOT then
             if IsDireBotLane(location.x, location.y) then 
-                print("DIRE BOT SUCCESS")
+                --print("DIRE BOT SUCCESS")
                 return UF_SUCCESS
             end
         end
@@ -116,6 +116,7 @@ function MercSpawnCommon:Merc_OnSpellStart(item, unit, quantity)
     end
     print("init target => " .. init_target)
 
+    local spawns = {}
     for i = quantity,1,-1 do      
         print(tostring(i) .. ". Making " .. unit)
         Timers:CreateTimer(2.0, function()
@@ -134,7 +135,11 @@ function MercSpawnCommon:Merc_OnSpellStart(item, unit, quantity)
                 print(Entities:FindByName(nil, init_target))
                 
             --self.temp_unit:SetInitialGoalEntity(Entities:FindByName(nil, init_target)) --dire_path_top_2
-            CreateUnitByName(unit, target, true, nil, nil, team):SetInitialGoalEntity(Entities:FindByName(nil, init_target)) --dire_path_top_2
+            -- trying arrays just in case there's some dumbassery going on with callbacks
+            spawns[i] = CreateUnitByName(unit, target, true, nil, nil, team)
+            --print(tostring(spawns[i]))
+            spawns[i]:SetMustReachEachGoalEntity(true)
+            spawns[i]:SetInitialGoalEntity(Entities:FindByName(nil, init_target)) --dire_path_top_2
         end)
     end
 

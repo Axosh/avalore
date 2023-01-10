@@ -1113,6 +1113,7 @@
 		// Consumables
 		"DOTA_Tooltip_Ability_item_ambrosia"								"Ambrosia"
 		"DOTA_Tooltip_Ability_item_ambrosia_description" 					"<h1>Use: Nectar of the Gods</h1>Grants +%hp_regen% health regen and +%mp_regen% mana regen for %duration% seconds.\n\nDamage from any source other than self-inflicted will remove the buff\n<h1>Slot: Neutral</h1>Requires the neutral item slot"
+		"DOTA_Tooltip_Ability_item_ambrosia_Lore"							"Greek Mythology: the 'nectar of the gods', which gave the gods their immortality and when consumed became the ichor in their veins."
 
 		"DOTA_Tooltip_modifier_ambrosia_buff"								"Nectar of the Gods"
 		"DOTA_Tooltip_modifier_ambrosia_buff_description"					"Providing +%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration and +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration"
