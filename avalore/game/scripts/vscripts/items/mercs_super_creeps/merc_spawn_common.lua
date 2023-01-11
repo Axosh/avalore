@@ -11,7 +11,8 @@ function MercSpawnCommon:Merc_GetBehavior()
     return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_CHANNELLED
 end
 
-function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp)
+function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp_index)
+    local merc_camp = EntIndexToHScript(merc_camp_index)
     local team = merc_camp:GetCaster():GetTeamNumber()
     local lane = ""
 

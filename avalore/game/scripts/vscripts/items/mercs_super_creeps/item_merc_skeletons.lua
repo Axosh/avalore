@@ -8,7 +8,7 @@ function item_merc_skeletons:GetBehavior()
 end
 
 function item_merc_skeletons:CastFilterResultLocation(location)
-    return MercSpawnCommon:Merc_CastFilterResultLocation(location, self)
+    return MercSpawnCommon:Merc_CastFilterResultLocation(location, self:GetEntityIndex())
 end
 
 function item_merc_skeletons:OnSpellStart()
