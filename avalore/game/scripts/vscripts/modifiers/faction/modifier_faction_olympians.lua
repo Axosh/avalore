@@ -36,7 +36,7 @@ function modifier_faction_olympians:RefreshFactionStacks(faction_team, modifier)
         if PlayerResource:IsValidPlayerID(playerID) then
             if not PlayerResource:IsBroadcaster(playerID) then
                 local hero = PlayerResource:GetPlayer(playerID):GetAssignedHero()
-                if hero:GetTeam() == faction_team then
+                if hero and hero:GetTeam() == faction_team then
                     -- if instance of modifier on team
                     if (hero:FindModifierByName(modifier:GetName())) then
                         --print("Found on Hero: " .. hero:GetName())

@@ -22,7 +22,7 @@ function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp)
         lane = Constants.KEY_RADIANT_BOT
     elseif merc_camp:GetAbsOrigin() ==  Vector(5888, 7232, 256) then
         lane = GetAbsOrigin.KEY_DIRE_TOP
-    elseif merc_camp:GetOriginAbs() ==  Vector(7232, 5888, 256) then
+    elseif merc_camp:GetAbsOrigin() ==  Vector(7232, 5888, 256) then
         lane = Constants.KEY_DIRE_BOT
     end
 

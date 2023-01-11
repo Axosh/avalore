@@ -68,7 +68,7 @@ function modifier_faction_water:RefreshFactionStacks(faction_team, modifier)
             if not PlayerResource:IsBroadcaster(playerID) then
                 --local hero = PlayerResource:GetSelectedHeroEntity(playerID)
                 local hero = PlayerResource:GetPlayer(playerID):GetAssignedHero()
-                if hero:GetTeam() == faction_team then
+                if hero and hero:GetTeam() == faction_team then
                     -- if instance of modifier on team
                     if (hero:FindModifierByName(modifier:GetName())) then
                         print("Found on Hero: " .. hero:GetName())
