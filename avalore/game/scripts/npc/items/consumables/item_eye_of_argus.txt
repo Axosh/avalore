@@ -6,9 +6,9 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3089"
-		//"BaseClass"						"item_lua"
+		"BaseClass"						"item_lua"
 		"AbilityTextureName" 			"consumable/eye_of_argus"
-		//"ScriptFile"					"items/shop/consumables/item_eye_of_argus"
+		"ScriptFile"					"items/shop/consumables/item_eye_of_argus"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -43,12 +43,13 @@
             "01"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "item_slot"                                 "16" //neutral
+				"item_slot"									"5" //TRINKET
+                //"item_slot"                                 "16" //neutral
             }
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"lifetime"				"420"
+				"lifetime"				"480"	//8 MIN
 			}
 			"03"
 			{
@@ -63,7 +64,7 @@
 			"05"
 			{
 				"var_type"				                "FIELD_INTEGER"
-				"duration_minutes_tooltip"				"7"
+				"duration_minutes_tooltip"				"8"
 			}
 		}
 	}

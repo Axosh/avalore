@@ -31,6 +31,7 @@ function modifier_wearable:CheckState()
         [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
         [MODIFIER_STATE_INVULNERABLE] = true,
         [MODIFIER_STATE_UNSELECTABLE] = true,
+		[MODIFIER_STATE_OUT_OF_GAME] = true
     } 
 end
 
@@ -62,6 +63,10 @@ function modifier_wearable:OnCreated(kv)
 	else
 		self.no_draw_mod = "modifier_dummy_no_draw" -- bogus value
 	end
+
+	-- if kv.destroy_on_death then
+	-- 	self.destroy_on_death = true
+	-- end
 
 	self:StartIntervalThink(FrameTime())
 	self.render_color = nil

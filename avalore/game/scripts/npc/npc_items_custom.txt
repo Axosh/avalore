@@ -22,6 +22,7 @@
 #base "items/consumables/item_ambrosia.txt"
 #base "items/consumables/item_health_potion.txt"
 #base "items/consumables/item_mana_potion.txt"
+#base "items/consumables/item_eye_of_argus.txt"
 
 // Essences
 #base "items/base_materials/item_essence_of_frost.txt"

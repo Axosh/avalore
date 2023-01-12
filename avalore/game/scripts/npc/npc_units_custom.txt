@@ -22,6 +22,8 @@
 #base "heroes/anubis/anubis_mummy_melee.txt"
 #base "heroes/anubis/anubis_mummy_ranged.txt"
 
+#base "units/npc_avalore_eye_of_argus.txt"
+
 // Units File
 "DOTAUnits"
 {
