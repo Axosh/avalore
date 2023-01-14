@@ -75,8 +75,15 @@ function Inventory:Add(item)
 
     --print("Adding Item: " .. item:GetName())
     --print("Find result - " .. tostring(string.find("item_slot", item:GetName())))
-    -- if we're adding the item slot dummy, just skip
-    if item:GetName():find("item_slot") then return end
+    -- if we're adding the item slot dummy, just make sure the slot becomes aware
+    -- (only need to do this for 0-5 because some base dota items go in those positions and screw up everything)
+    if item:GetName():find("item_slot") then 
+        local avalore_slot = item:GetSpecialValueFor("item_slot")
+        if avalore_slot < 6 then
+            self.slots[avalore_slot] = item
+        end
+       return
+    end
 
     --item:SetCanBeUsedOutOfInventory(true) -- temp test
 
@@ -86,9 +93,9 @@ function Inventory:Add(item)
 
     local item_slot = item:GetSpecialValueFor("item_slot")
 
-    if item:GetName() == "item_bottle" then
-        item_slot = AVALORE_ITEM_SLOT_TRINKET
-    end
+    -- if item:GetName() == "item_bottle" then
+    --     item_slot = AVALORE_ITEM_SLOT_TRINKET
+    -- end
 
     -- we shouldn't be hitting this, but just in case
     if item_slot == nil then
@@ -101,6 +108,12 @@ function Inventory:Add(item)
     end
 
     print("Trying to add item " .. item:GetName() .. " to Slot: " .. tostring(item_slot))
+    -- if item and self.hero then
+    --     print("Item and Hero Set")
+    -- end
+    -- if item:CanUnitPickUp(self.hero) then
+    --     print("In Range to Take")
+    -- end
 
     -- handle misc/backpack
     if item_slot == AVALORE_ITEM_SLOT_MISC then
@@ -126,8 +139,21 @@ function Inventory:Add(item)
             --print("Item is now in slot: " .. tostring(item:GetItemSlot()))
             --print("Dummy is now in slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
             --print("Item in Dummy's Old Slot: " .. self.hero:GetItemInSlot(slot_backup):GetName())
+
+            -- validate we actually got it (and it's not too far away/in stash) => only applicable for certain core dota items
+            if item:GetName() == "item_ward_observer" or item:GetName() == "item_bottle" then
+                print("Special Item at loc: " .. tostring(item:GetItemSlot()))
+                print("Dummy in Slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
+                print("Find Item Result => " .. tostring(self.hero:FindItemInInventory(item:GetName())))
+                if item:GetItemSlot() > DOTA_ITEM_SLOT_9 then
+                    -- if we get here, then the item is still in stash
+                    return
+                end
+            end
+
             self.hero:RemoveItem(self.slots[item_slot])
             self.slots[item_slot] = item
+
         --else
             --print("Couldn't Put in Inventory, at slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
         --     self.slots[item_slot]:slot
@@ -195,9 +221,9 @@ function Inventory:Remove(item, destroyOnRemove)
     print("Inventory:Remove(item) -- " .. item:GetName())
     local item_slot = item:GetSpecialValueFor("item_slot")
 
-    if item:GetName() == "item_bottle" then
-        item_slot = AVALORE_ITEM_SLOT_TRINKET
-    end
+    -- if item:GetName() == "item_bottle" then
+    --     item_slot = AVALORE_ITEM_SLOT_TRINKET
+    -- end
 
     -- we shouldn't be hitting this, but just in case
     if item_slot == nil then
@@ -226,20 +252,22 @@ function Inventory:Remove(item, destroyOnRemove)
         end
     end
 
+    -- MOVING THIS TO modifier_inventory_manager
     -- re-add placeholder (also check if it's not already been re-added since server seems to call this twice)
-    if item_slot == AVALORE_ITEM_SLOT_HEAD and (self.slots[AVALORE_ITEM_SLOT_HEAD] == nil or (self.slots[AVALORE_ITEM_SLOT_HEAD]):GetName() ~= "item_slot_head") then
-        self.slots[AVALORE_ITEM_SLOT_HEAD]      = (self.hero):AddItemByName("item_slot_head")
-    elseif item_slot == AVALORE_ITEM_SLOT_CHEST and (self.slots[AVALORE_ITEM_SLOT_CHEST] == nil or (self.slots[AVALORE_ITEM_SLOT_CHEST]):GetName() ~= "item_slot_chest") then
-        self.slots[AVALORE_ITEM_SLOT_CHEST]     = (self.hero):AddItemByName("item_slot_chest")
-    elseif item_slot == AVALORE_ITEM_SLOT_ACCESSORY and (self.slots[AVALORE_ITEM_SLOT_ACCESSORY] == nil or (self.slots[AVALORE_ITEM_SLOT_ACCESSORY]):GetName() ~= "item_slot_back") then
-        self.slots[AVALORE_ITEM_SLOT_ACCESSORY]      = (self.hero):AddItemByName("item_slot_back")
-    elseif item_slot == AVALORE_ITEM_SLOT_HANDS and (self.slots[AVALORE_ITEM_SLOT_HANDS] == nil or (self.slots[AVALORE_ITEM_SLOT_HANDS]):GetName() ~= "item_slot_hands") then
-        self.slots[AVALORE_ITEM_SLOT_HANDS]     = (self.hero):AddItemByName("item_slot_hands")
-    elseif item_slot == AVALORE_ITEM_SLOT_FEET and (self.slots[AVALORE_ITEM_SLOT_FEET] == nil or (self.slots[AVALORE_ITEM_SLOT_FEET]):GetName() ~= "item_slot_feet") then
-        self.slots[AVALORE_ITEM_SLOT_FEET]      = (self.hero):AddItemByName("item_slot_feet")
-    elseif item_slot == AVALORE_ITEM_SLOT_TRINKET and (self.slots[AVALORE_ITEM_SLOT_TRINKET] == nil or (self.slots[AVALORE_ITEM_SLOT_TRINKET]):GetName() ~= "item_slot_trinket") then
-        self.slots[AVALORE_ITEM_SLOT_TRINKET]   = (self.hero):AddItemByName("item_slot_trinket")
-    elseif item_slot == AVALORE_ITEM_SLOT_MISC then
+    -- if item_slot == AVALORE_ITEM_SLOT_HEAD and (self.slots[AVALORE_ITEM_SLOT_HEAD] == nil or (self.slots[AVALORE_ITEM_SLOT_HEAD]):GetName() ~= "item_slot_head") then
+    --     self.slots[AVALORE_ITEM_SLOT_HEAD]      = (self.hero):AddItemByName("item_slot_head")
+    -- elseif item_slot == AVALORE_ITEM_SLOT_CHEST and (self.slots[AVALORE_ITEM_SLOT_CHEST] == nil or (self.slots[AVALORE_ITEM_SLOT_CHEST]):GetName() ~= "item_slot_chest") then
+    --     self.slots[AVALORE_ITEM_SLOT_CHEST]     = (self.hero):AddItemByName("item_slot_chest")
+    -- elseif item_slot == AVALORE_ITEM_SLOT_ACCESSORY and (self.slots[AVALORE_ITEM_SLOT_ACCESSORY] == nil or (self.slots[AVALORE_ITEM_SLOT_ACCESSORY]):GetName() ~= "item_slot_back") then
+    --     self.slots[AVALORE_ITEM_SLOT_ACCESSORY]      = (self.hero):AddItemByName("item_slot_back")
+    -- elseif item_slot == AVALORE_ITEM_SLOT_HANDS and (self.slots[AVALORE_ITEM_SLOT_HANDS] == nil or (self.slots[AVALORE_ITEM_SLOT_HANDS]):GetName() ~= "item_slot_hands") then
+    --     self.slots[AVALORE_ITEM_SLOT_HANDS]     = (self.hero):AddItemByName("item_slot_hands")
+    -- elseif item_slot == AVALORE_ITEM_SLOT_FEET and (self.slots[AVALORE_ITEM_SLOT_FEET] == nil or (self.slots[AVALORE_ITEM_SLOT_FEET]):GetName() ~= "item_slot_feet") then
+    --     self.slots[AVALORE_ITEM_SLOT_FEET]      = (self.hero):AddItemByName("item_slot_feet")
+    -- elseif item_slot == AVALORE_ITEM_SLOT_TRINKET and (self.slots[AVALORE_ITEM_SLOT_TRINKET] == nil or (self.slots[AVALORE_ITEM_SLOT_TRINKET]):GetName() ~= "item_slot_trinket") then
+    --     self.slots[AVALORE_ITEM_SLOT_TRINKET]   = (self.hero):AddItemByName("item_slot_trinket")
+    -- elseif item_slot == AVALORE_ITEM_SLOT_MISC then
+    if item_slot == AVALORE_ITEM_SLOT_MISC then
         --print("RemoveFromMisc")
         self:RemoveFromMisc(item)
     end

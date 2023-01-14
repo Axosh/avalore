@@ -64,9 +64,9 @@ function modifier_wearable:OnCreated(kv)
 		self.no_draw_mod = "modifier_dummy_no_draw" -- bogus value
 	end
 
-	-- if kv.destroy_on_death then
-	-- 	self.destroy_on_death = true
-	-- end
+	if kv.destroy_on_death then
+		self.destroy_on_death = true
+	end
 
 	self:StartIntervalThink(FrameTime())
 	self.render_color = nil
@@ -85,7 +85,17 @@ function modifier_wearable:OnIntervalThink()
 	-- 	cosmetic:SetRenderColor(0,0,220)
 	-- end
 
-	if hero == nil then return end
+	if hero and hero:IsAlive() == false and self.destroy_on_death then
+		self:GetParent():RemoveSelf()
+		return
+	end
+
+	if hero == nil then
+		if self.destroy_on_death then
+			self:GetParent():RemoveSelf()
+		end
+		return
+	end
 
 	-- if self.illusion and not hero:IsAlive() then
 	-- 	cosmetic:AddNoDraw() -- if it was an illusion (poofs) don't draw the cosmetic until its garbage collected

@@ -89,8 +89,8 @@ end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 -- * is_courier: bool ==> NOTE: idk what this tracks, because it seems to ALWAYS BE TRUE
 function CAvaloreGameMode:OnItemAdded(event)
 	if not IsServer() then return end
-	--print("CAvaloreGameMode:OnItemAdded(event)")
-	--PrintTable(event)
+	print("CAvaloreGameMode:OnItemAdded(event)")
+	PrintTable(event)
 	local item = EntIndexToHScript( event.item_entindex )
 	local owner = EntIndexToHScript( event.inventory_parent_entindex )
 	-- if owner then
@@ -101,6 +101,16 @@ function CAvaloreGameMode:OnItemAdded(event)
 	local hero = PlayerResource:GetSelectedHeroEntity(event.inventory_player_id)
 	
 	if (not hero) or (not hero:IsRealHero()) then return end -- probably merc camp init
+
+	-- this is in the stash or transient slot
+	--if (event.item_slot > DOTA_ITEM_SLOT_9 and event.item_slot < DOTA_ITEM_TP_SCROLL) or () then
+	-- if event.item_slot > DOTA_ITEM_SLOT_9 then
+	-- 	return
+	-- end
+	-- if event.item_slot == DOTA_ITEM_TRANSIENT_ITEM then
+	-- 	return
+	-- end
+
 	--print("Inventory Owner: " .. owner:GetName())
 	local hEIndex = hero:GetEntityIndex()
 	--print("Hero Ent Index => " .. tostring(hEIndex))

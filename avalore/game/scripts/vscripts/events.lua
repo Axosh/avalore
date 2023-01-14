@@ -16,6 +16,8 @@ require(REQ_LIB_TIMERS)
 LinkLuaModifier( "modifier_inventory_manager", "scripts/vscripts/modifiers/modifier_inventory_manager", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA_MODIFIER_MOTION_NONE )
 
+LinkLuaModifier( "modifier_avalore_obs_ward", "scripts/vscripts/modifiers/modifier_avalore_obs_ward", LUA_MODIFIER_MOTION_NONE )
+
 -- Faction Stuff
 LinkLuaModifier("modifier_faction_forest",     "modifiers/faction/modifier_faction_forest.lua",       LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_water",      "modifiers/faction/modifier_faction_water.lua",        LUA_MODIFIER_MOTION_NONE)
@@ -38,7 +40,7 @@ LinkLuaModifier( "modifier_wet", "scripts/vscripts/modifiers/elemental_status/mo
 -- is_respawn: short
 -- 
 function CAvaloreGameMode:OnNPCSpawned(event)
-	if not IsServer() then return end
+	--if not IsServer() then return end
 	--PrintTable(event)
 	if event.is_respawn ~= 0 then return end
 	-- only doing some initial spawn stuff
@@ -54,7 +56,29 @@ function CAvaloreGameMode:OnNPCSpawned(event)
 								"modifier_wet", -- modifier name
 								{}) --kv
 	-- end)
-	
+	-- print("[OnNPCSpawned] Spawned " .. spawned_ent:GetName() .. " | " .. spawned_ent:GetUnitName() .. " | " .. spawned_ent:GetUnitLabel())
+	if spawned_ent:GetUnitName() == "npc_dota_observer_wards" then
+		CosmeticLib:RemoveFromSlot( spawned_ent, DOTA_LOADOUT_TYPE_BODY_HEAD )
+		CosmeticLib:RemoveFromSlot( spawned_ent, DOTA_LOADOUT_TYPE_WARD)
+		CosmeticLib:RemoveAll(spawned_ent)
+
+		spawned_ent:AddNewModifier(nil, nil, "modifier_avalore_obs_ward", {})
+		--print("[OnNPCSpawned] Ward Placed")
+		--spawned_ent:SetModel("models/items/wards/skywrath_sentinel/skywrath_sentinel.vmdl")
+		local obs_ward_cosmetics = {}
+		--obs_ward_cosmetics[0] = "models/items/wards/skywrath_sentinel/skywrath_sentinel.vmdl" --this doesn't work here
+		obs_ward_cosmetics[0] = "models/items/death_prophet/ti9_cache_dp_peacock_priest_skirt/ti9_cache_dp_peacock_priest_skirt.vmdl"
+		for k,wearable in pairs(obs_ward_cosmetics) do
+			local cosmetic = CreateUnitByName("wearable_dummy", spawned_ent:GetAbsOrigin(), false, nil, nil, spawned_ent:GetTeam())
+			cosmetic:SetOriginalModel(wearable)
+			cosmetic:SetModel(wearable)
+			cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {destroy_on_death=true})
+			cosmetic:SetParent(spawned_ent, nil)
+			cosmetic:SetOwner(spawned_ent)
+			cosmetic:FollowEntity(spawned_ent, true)
+			--cosmetic:SetForwardVector(Vector(0, -1, 0))
+		end
+	end
 
 end
 
@@ -611,6 +635,8 @@ function CAvaloreGameMode:InitCosmetics(heroindex)
 		CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_HEAD )
 		CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_BODY_HEAD )
 		CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_SHOULDER )
+
+		CosmeticLib:RemoveFromSlot( hero, DOTA_LOADOUT_TYPE_WARD )
 	end
 
 	--local selected_item = CosmeticLib._AllItemsByID[ "" .. CosmeticID ]

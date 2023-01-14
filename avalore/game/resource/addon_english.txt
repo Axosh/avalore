@@ -98,6 +98,10 @@
 
 		"npc_avalore_round4_melee_creep"	"Frozen Horde"
 
+		// ITEMS
+
+		"npc_dota_observer_wards"			"Eye of Argus"
+
 		//--------------------------------------------------------------------------------
 		// BUILDINGS
 		//--------------------------------------------------------------------------------
@@ -960,6 +964,29 @@
 		"DOTA_Tooltip_Ability_item_fairy_dust_description"	"<h1>Slot: Trinket</h1>Requires the trinket slot\n<h1>Active: Flutter</h1>Grants flying movement for %flying_time% seconds."
 		"DOTA_Tooltip_Ability_item_fairy_dust_Lore"			"Fairy Dust was used in Peter Pan to grant flight"
 
+		"DOTA_Tooltip_Ability_item_ambrosia"								"Ambrosia"
+		"DOTA_Tooltip_Ability_item_ambrosia_description" 					"<h1>Use: Nectar of the Gods</h1>Grants +%hp_regen% health regen and +%mp_regen% mana regen for %duration% seconds.\n\nDamage from any source other than self-inflicted will remove the buff\n<h1>Slot: Neutral</h1>Requires the neutral item slot"
+		"DOTA_Tooltip_Ability_item_ambrosia_Lore"							"Greek Mythology: the 'nectar of the gods', which gave the gods their immortality and when consumed became the ichor in their veins."
+
+		"DOTA_Tooltip_modifier_ambrosia_buff"								"Nectar of the Gods"
+		"DOTA_Tooltip_modifier_ambrosia_buff_description"					"Providing +%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration and +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration"
+
+		"DOTA_Tooltip_Ability_item_health_potion"							"Health Potion"
+		"DOTA_Tooltip_Ability_item_health_potion_description" 				"<h1>Use: Health Regeneration</h1>Grants +%hp_regen% health regen for %duration% seconds.\n\nDamage from any source other than self-inflicted will remove the buff\n<h1>Slot: Neutral</h1>Requires the neutral item slot"
+
+		"DOTA_Tooltip_modifier_health_potion_buff"							"Health Regeneration"
+		"DOTA_Tooltip_modifier_health_potion_buff_description"				"Providing +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration"
+
+		"DOTA_Tooltip_Ability_item_mana_potion"								"Mana Potion"
+		"DOTA_Tooltip_Ability_item_mana_potion_description"					"<h1>Use: Mana Regeneration</h1>Grants +%mp_regen% mana regen for %duration% seconds.\n\nDamage from any source other than self-inflicted will remove the buff\n<h1>Slot: Neutral</h1>Requires the neutral item slot"
+
+		"DOTA_Tooltip_modifier_mana_potion_buff"							"Mana Regeneration"
+		"DOTA_Tooltip_modifier_mana_potion_buff_description"				"Providing +%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration"
+
+		"DOTA_Tooltip_Ability_item_ward_observer"							"Eye of Argus"
+		"DOTA_Tooltip_Ability_item_ward_observer_description"				"<h1>Use: Plant</h1> Plants an Eye of Argus, an invisible watcher that gives ground vision in a %vision_range% radius to your team. Lasts %duration_minutes_tooltip% minutes.\n<h1>Slot: Trinket</h1>Requires the Trinket slot"
+		"DOTA_Tooltip_Ability_item_ward_observer_lore"						"Greco-Roman Mythology: Argus was a 100-eyed primordial giant, the 'all-seeing'. Upon his death, his eyes were preserved in a peacock's tail by Hera for being a faithful watchman."
+
 		// Essences
 		"DOTA_Tooltip_Ability_item_recipe_essence_of_frost"		"Essence of Frost"
 		"DOTA_Tooltip_Ability_item_essence_of_frost"			"Essence of Frost"
@@ -1109,26 +1136,6 @@
 		"DOTA_Tooltip_Ability_item_recipe_wooden_shield"					"Wooden Shield"
 		"DOTA_Tooltip_Ability_item_wooden_shield"							"Wooden Shield"
 		"DOTA_Tooltip_Ability_item_wooden_shield_description"				"<h1>Passive: Damage Block</h1>Passively block %damage_block% per attack landed\n<h1>Slot: Hands</h1>Requires the hands slot"
-
-		// Consumables
-		"DOTA_Tooltip_Ability_item_ambrosia"								"Ambrosia"
-		"DOTA_Tooltip_Ability_item_ambrosia_description" 					"<h1>Use: Nectar of the Gods</h1>Grants +%hp_regen% health regen and +%mp_regen% mana regen for %duration% seconds.\n\nDamage from any source other than self-inflicted will remove the buff\n<h1>Slot: Neutral</h1>Requires the neutral item slot"
-		"DOTA_Tooltip_Ability_item_ambrosia_Lore"							"Greek Mythology: the 'nectar of the gods', which gave the gods their immortality and when consumed became the ichor in their veins."
-
-		"DOTA_Tooltip_modifier_ambrosia_buff"								"Nectar of the Gods"
-		"DOTA_Tooltip_modifier_ambrosia_buff_description"					"Providing +%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration and +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration"
-
-		"DOTA_Tooltip_Ability_item_health_potion"							"Health Potion"
-		"DOTA_Tooltip_Ability_item_health_potion_description" 				"<h1>Use: Health Regeneration</h1>Grants +%hp_regen% health regen for %duration% seconds.\n\nDamage from any source other than self-inflicted will remove the buff\n<h1>Slot: Neutral</h1>Requires the neutral item slot"
-
-		"DOTA_Tooltip_modifier_health_potion_buff"							"Health Regeneration"
-		"DOTA_Tooltip_modifier_health_potion_buff_description"				"Providing +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration"
-
-		"DOTA_Tooltip_Ability_item_mana_potion"								"Mana Potion"
-		"DOTA_Tooltip_Ability_item_mana_potion_description"					"<h1>Use: Mana Regeneration</h1>Grants +%mp_regen% mana regen for %duration% seconds.\n\nDamage from any source other than self-inflicted will remove the buff\n<h1>Slot: Neutral</h1>Requires the neutral item slot"
-
-		"DOTA_Tooltip_modifier_mana_potion_buff"							"Mana Regeneration"
-		"DOTA_Tooltip_modifier_mana_potion_buff_description"				"Providing +%dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration"
 
 		// Components
 		"DOTA_Tooltip_Ability_item_recipe_steel"							"Steel"

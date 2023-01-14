@@ -26,6 +26,39 @@ function modifier_inventory_manager:OnIntervalThink()
     --     print("Inventory Owner is Dead!")
     -- end
 
+    -- cycle through slots, make sure they have items in them
+    local inv_validation = {-1, -1, -1, -1, -1, -1}
+    --print("=====SEEK")
+    for inv_slot=0,5 do
+        local item = hero:GetItemInSlot(inv_slot)
+        if item then
+            --print("[" .. tostring(inv_slot) .. "] = " .. item:GetName())
+            local avalore_slot = item:GetSpecialValueFor("item_slot")
+            if avalore_slot then
+                inv_validation[avalore_slot] = 1
+            end
+        end
+    end
+    --print("======VALIDATE")
+    for base_slot=0,5 do
+        --print("[" .. tostring(base_slot) .. "] = " .. tostring(inv_validation[base_slot]))
+        if inv_validation[base_slot] == -1 or inv_validation[base_slot] == nil then
+            if base_slot == AVALORE_ITEM_SLOT_HEAD then
+                hero:AddItemByName("item_slot_head")
+            elseif base_slot == AVALORE_ITEM_SLOT_CHEST then
+                hero:AddItemByName("item_slot_chest")
+            elseif base_slot == AVALORE_ITEM_SLOT_ACCESSORY then
+                hero:AddItemByName("item_slot_back")
+            elseif base_slot == AVALORE_ITEM_SLOT_HANDS then
+                hero:AddItemByName("item_slot_hands")
+            elseif base_slot == AVALORE_ITEM_SLOT_FEET then
+                hero:AddItemByName("item_slot_feet")
+            elseif base_slot == AVALORE_ITEM_SLOT_TRINKET then
+                hero:AddItemByName("item_slot_trinket")
+            end
+        end
+    end
+
     -- check for dummy items wrongly placed in the stash (need to fix this upstream some time)
     for stash_slot=9,14 do
         local item = hero:GetItemInSlot(stash_slot)
@@ -75,7 +108,10 @@ function modifier_inventory_manager:OnIntervalThink()
             -- make sure the item still exists
             local remove_modifier = false
             if item then
-                if not item:IsInBackpack() then
+                --print(tostring(item))
+                -- double check the C++ object exists before checking the backpack
+                -- happens when selling
+                if not item:IsNull() and (not item:IsInBackpack()) then
                     print("modifier_inventory_manager > Item " .. item:GetName() .. " no longer in backpack")
                     remove_modifier = true
                 end

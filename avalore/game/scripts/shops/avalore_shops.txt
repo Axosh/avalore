@@ -9,7 +9,7 @@
 		"item"				"item_mana_potion"
 		"item"				"item_bottle"
 		"item"				"item_tango"
-		"item"				"item_eye_of_argus"
+		//"item"				"item_eye_of_argus"
 		"item"				"item_ward_observer"
     }
     "attributes"

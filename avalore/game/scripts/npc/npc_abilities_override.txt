@@ -343,6 +343,40 @@
   //-----------------------------------------------------------------------------------------------------------------
   //=================================================================================================================
 
+  "item_bottle"
+  {
+	// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                                  "FIELD_INTEGER"
+				"item_slot"									"5" //TRINKET
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_restore"		"135"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_restore"			"70"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"restore_time"			"3"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_speed_percent_bonus"	"-30"
+			}
+		}
+  }
+
   "item_tango"
   {
 	"ItemIsNeutralDrop"				"1"
@@ -379,7 +413,17 @@
 
   "item_ward_observer"
   {
+		"ID"							"3089"
 		"ItemCost"						"0"
+		"ItemStockMax"					"2"
+		"ItemStockInitial"				"2"
+		"AbilityTextureName" 			"consumable/eye_of_argus"
+
+		"ItemRequirements"
+		{
+            "01"                        "item_slot_trinket"
+        }
+
 		"AbilitySpecial"
 		{
 			"01"
