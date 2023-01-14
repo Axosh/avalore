@@ -52,7 +52,7 @@
 	"item_flask"			"REMOVE"
 	"item_dust"			"REMOVE"
 	//"item_bottle"			"REMOVE"
-	"item_ward_observer"			"REMOVE"
+	//"item_ward_observer"			"REMOVE"
 	"item_ward_sentry"			"REMOVE"
 	//"item_tango"			"REMOVE"
 	"item_tango_single"			"REMOVE"
@@ -260,7 +260,7 @@
   "item_travel_boots_2"           "REMOVE"
   "item_basher"                   "REMOVE"
   "item_ward_sentry"              "REMOVE"
-  "item_ward_observer"            "REMOVE"
+  //"item_ward_observer"            "REMOVE"
   "item_ward_dispenser"           "REMOVE"
   // Neutral items
   "item_keen_optic"               "REMOVE"
@@ -375,5 +375,39 @@
 			"buff_duration"			"16.0"
 		}
 	}
+  }
+
+  "item_ward_observer"
+  {
+		"ItemCost"						"0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                                  "FIELD_INTEGER"
+				"item_slot"									"5" //TRINKET
+				//"item_slot"                                 "16" //neutral
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"lifetime"				"480"	//8 MIN
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_range"			"1600"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health"				"200"
+			}
+			"05"
+			{
+				"var_type"				                "FIELD_INTEGER"
+				"duration_minutes_tooltip"				"8"
+			}
+		}
   }
 } // end "DOTAAbilities"
