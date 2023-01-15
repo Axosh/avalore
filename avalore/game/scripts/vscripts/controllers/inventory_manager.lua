@@ -89,7 +89,7 @@ end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 -- * is_courier: bool ==> NOTE: idk what this tracks, because it seems to ALWAYS BE TRUE
 function CAvaloreGameMode:OnItemAdded(event)
 	if not IsServer() then return end
-	print("CAvaloreGameMode:OnItemAdded(event)")
+	print("[CAvaloreGameMode:OnItemAdded] Start")
 	PrintTable(event)
 	local item = EntIndexToHScript( event.item_entindex )
 	local owner = EntIndexToHScript( event.inventory_parent_entindex )
@@ -124,12 +124,18 @@ function CAvaloreGameMode:OnItemAdded(event)
 	if item then
 		if (string.find(item:GetName(), "item_recipe")) then return end
 
+		-- don't worry about transitory phase
+		if event.item_slot == DOTA_ITEM_TRANSIENT_ITEM then
+			print("[CAvaloreGameMode:OnItemAdded] Transient Item - Skipping")
+			return
+		end
+
 		--print("CAvaloreGameMode:OnItemAdded(event)")
 		-- if hero then --could be a spawner or something
 		-- 	print("Room for item? => " .. tostring(hero:HasRoomForItem(event.itemname, false, false)))
 		-- end
 		--print("Item: " .. item:GetName())
-    	--print("Item Slot: " .. item:GetItemSlot())
+		--print("Item Slot: " .. item:GetItemSlot())
 		
 
 		local inventory = InventoryManager[event.inventory_player_id]
@@ -139,15 +145,33 @@ function CAvaloreGameMode:OnItemAdded(event)
 		--if event.is_courier and not string.find(item:GetName(), "item_slot") then
 		if string.find(owner:GetName(), "courier") and not string.find(item:GetName(), "item_slot") then
 			--print("Added to Courier") -- idk 
-			 -- if they don't have an inventory, then it's not a hero
-			 
+			-- if they don't have an inventory, then it's not a hero
+
 			if inventory then
 				inventory:Remove(item) -- hero gave to something else, need to update
 			end
 		else
-			-- weird situations like giving items to buildings
+			-- filter weird situations like trying to give items to buildings by checking for presence of an
+			-- avalore inventory
 			if inventory then
-				inventory:Add(item)
+				local shop_trigger = nil
+				if hero:GetTeam() == DOTA_TEAM_BADGUYS then
+					shop_trigger = Entities:FindByName(nil, "dire_base")
+				else
+					shop_trigger = Entities:FindByName(nil, "radiant_base")
+				end
+				-- if the item is in stash, make sure we're in range
+				if (event.item_slot > DOTA_ITEM_SLOT_9 and event.item_slot < DOTA_ITEM_TP_SCROLL) then
+					if shop_trigger:IsTouching(hero) then
+						print("[CAvaloreGameMode:OnItemAdded] Stash item, but hero in range to transfer")
+						inventory:Add(item)
+					else
+						print("[CAvaloreGameMode:OnItemAdded] can't transfer")
+					end
+				else
+					print("[CAvaloreGameMode:OnItemAdded] adding non-stash item to inventory")
+					inventory:Add(item)
+				end
 			end
 		end
 
@@ -319,7 +343,7 @@ function CAvaloreGameMode:InventoryChangedQueryUnit(event)
     print("CAvaloreGameMode:InventoryChangedQueryUnit(event)")
 end
 
-function CAvaloreGameMode:InventoryChangedQueryUnit(event)
+function CAvaloreGameMode:ItemGifted(event)
     print("CAvaloreGameMode:ItemGifted(event)")
 end
 
@@ -367,4 +391,45 @@ function CAvaloreGameMode:OnItemSpawned(event)
 	-- local item = EntIndexToHScript( event.item_ent_index )
 	-- print("Item => " .. item:GetName())
 	-- local phys_item = item:GetContainer()
+end
+
+-- comes from the panorama UI
+function AvaloreTakeStash(index, data)
+    local hero = EntIndexToHScript(data.entindex)
+	print("AvaloreTakeStash(index, data) => " .. hero:GetName())
+	local shop_trigger = nil
+	if hero:GetTeam() == DOTA_TEAM_BADGUYS then
+		shop_trigger = Entities:FindByName(nil, "dire_base")
+	else
+		shop_trigger = Entities:FindByName(nil, "radiant_base")
+	end
+
+	print(shop_trigger:GetName() .. " | " .. tostring(shop_trigger:GetAbsOrigin()))
+	print(hero:GetName() .. " | " .. tostring(hero:GetAbsOrigin()))
+
+	-- only allow taking from stash if close enough
+	if shop_trigger:IsTouching(hero) then
+		print("In Range to Take From Stash")
+		local inventory = InventoryManager[hero:GetPlayerID()]
+		for stash_slot=DOTA_STASH_SLOT_1,DOTA_STASH_SLOT_6 do
+			local item = hero:GetItemInSlot(stash_slot)
+			if item and (not item:IsNull()) then
+				print(tostring(stash_slot) .. " | " .. item:GetName())
+				inventory:Add(item)
+				-- tps and neutral items are managed by dota
+				-- if item:GetSpecialValueFor("item_slot") > DOTA_STASH_SLOT_6 then
+				-- 	--hero:TakeItem(item) -- this drops it
+				-- 	hero:AddItem(item)
+				-- end
+				--if item:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_NEUT and hero:HasRoomForItem(item:GetName(), true, false) then
+				if item:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_NEUT and hero:GetItemInSlot(AVALORE_ITEM_SLOT_NEUT) == nil then
+					hero:SwapItems(item:GetItemSlot(), AVALORE_ITEM_SLOT_NEUT)
+				elseif item:GetName() == "item_tpscroll" then
+					print("Adding TP Scroll")
+					hero:AddItem(item)
+					--hero:SwapItems(item:GetItemSlot(), AVALORE_ITEM_SLOT_TP)
+				end
+			end
+		end
+	end
 end

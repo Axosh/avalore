@@ -60,7 +60,7 @@ function modifier_inventory_manager:OnIntervalThink()
     end
 
     -- check for dummy items wrongly placed in the stash (need to fix this upstream some time)
-    for stash_slot=9,14 do
+    for stash_slot=DOTA_STASH_SLOT_1 ,DOTA_STASH_SLOT_6  do
         local item = hero:GetItemInSlot(stash_slot)
         -- if item then
         --     print("[" .. tostring(stash_slot) .. "][" .. item:GetName() .. "]")
@@ -76,6 +76,7 @@ function modifier_inventory_manager:OnIntervalThink()
                     item:SetDroppable(true)
                     hero:SwapItems(stash_slot, item_slot)
                     item:SetDroppable(droppable)
+                    break;
                 end
             end
         end
@@ -86,6 +87,7 @@ function modifier_inventory_manager:OnIntervalThink()
         local item = hero:GetItemInSlot(slot)
         if item then
             if item:GetSpecialValueFor("item_slot") ~= AVALORE_ITEM_SLOT_MISC then
+                print("Found Item That Should Not Be in Backpack: " .. item:GetName())
                 for main_slot=AVALORE_ITEM_SLOT_HEAD,AVALORE_ITEM_SLOT_TRINKET do
                     local item_main = hero:GetItemInSlot(main_slot)
                     -- found a misplaced item, swap it

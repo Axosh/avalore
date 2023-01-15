@@ -52,6 +52,7 @@ require("avalore_debug")
 require('hero_extension')
 require('addon_init') -- client-side code/extension
 require('filters')
+--require("ui")
 
 flag_announce_curr = 1
 
@@ -110,6 +111,9 @@ function CAvaloreGameMode:InitGameMode()
 	ListenToGameEvent("dota_inventory_changed_query_unit", Dynamic_Wrap(CAvaloreGameMode, "InventoryChangedQueryUnit"), self)
 	ListenToGameEvent("dota_item_gifted", Dynamic_Wrap(CAvaloreGameMode, "ItemGifted"), self)
 	ListenToGameEvent("dota_item_purchased", Dynamic_Wrap(CAvaloreGameMode, "ItemPurchased"), self)
+
+	-- Stuff from Panorama
+	CustomGameEventManager:RegisterListener("Avalore_Take_Stash", AvaloreTakeStash)
 	
 	-- PLAYER CHAT (see avalore_debug.lua)
 	ListenToGameEvent("player_chat", Dynamic_Wrap(CAvaloreGameMode, "ProcessPlayerMessage"), self)
@@ -152,6 +156,7 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CAvaloreGameMode, "GoldFilter"), self)
 	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter(Dynamic_Wrap(CAvaloreGameMode, "AbilityTuningFilter"), self)
 	GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(CAvaloreGameMode, "DamageFilter"), self)
+	--GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter(Dynamic_Wrap(CAvaloreGameMode, "ItemAddedToInventoryFilter"), self)
 	
 	-- Custom Mode Framework Inits
 	if not _G.not_init then

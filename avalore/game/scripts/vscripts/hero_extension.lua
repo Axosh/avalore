@@ -56,3 +56,13 @@ function CDOTA_BaseNPC:FindTalentValue(talentName, key)
 
 	return 0
 end
+
+-- function CDOTA_BaseNPC_Hero:HasAnyAvailableInventorySpace()
+-- 	print("C_DOTA_BaseBPC_Hero:HasAnyAvailableInventorySpace()")
+-- 	return true
+-- end
+
+-- function CDOTA_BaseNPC_Hero:GetNumItemsInInventory()
+-- 	print("C_DOTA_BaseBPC_Hero:GetNumItemsInInventory()")
+-- 	return 0
+-- end

@@ -277,3 +277,20 @@ function CAvaloreGameMode:DamageFilter(keys)
 	end
 	return true
 end
+
+-- ==================================================
+-- ItemAddedToInventoryFilterEvent
+-- ==================================================
+-- inventory_parent_entindex_const: EntityIndex
+-- item_parent_entindex_const: EntityIndex
+-- item_entindex_const: EntityIndex
+-- suggested_slot: -1 | DOTAScriptInventorySlot_t
+-- ==================================================
+-- Set a filter function to control what happens to 
+-- items that are added to an inventory, return false to cancel the event.
+-- function CAvaloreGameMode:ItemAddedToInventoryFilter(kv)
+-- 	print("===============")
+-- 	print("CAvaloreGameMode:ItemAddedToInventoryFilter(kv)")
+-- 	PrintTable(kv)
+-- 	return true
+-- end

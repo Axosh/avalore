@@ -74,3 +74,13 @@ end
 -- 		end
 -- 	end
 -- end
+
+-- function C_DOTA_BaseNPC_Hero:HasAnyAvailableInventorySpace()
+-- 	print("C_DOTA_BaseBPC_Hero:HasAnyAvailableInventorySpace()")
+-- 	return true
+-- end
+
+-- function C_DOTA_BaseNPC_Hero:GetNumItemsInInventory()
+-- 	print("C_DOTA_BaseBPC_Hero:GetNumItemsInInventory()")
+-- 	return 0
+-- end
