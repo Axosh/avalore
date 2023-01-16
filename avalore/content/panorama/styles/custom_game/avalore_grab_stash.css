@@ -1,0 +1,31 @@
+.StashGrabContainer
+{
+    opacity: 0.8;
+    margin-right: 300px;
+    margin-bottom:100px;
+    
+    vertical-align: bottom;
+    horizontal-align: right;
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 30px;
+    color: white;
+    background-color: rgb(87, 87, 87);
+    text-overflow: clip;
+    visibility: visible;
+    flow-children: down;
+    box-shadow: 1px 1px 1px 1px black;
+    text-shadow: 2px 2px 2px #000000;
+    z-index: -100;
+}
+
+.StashGrabContainer:hover
+{
+    background-color: #383838cc;
+}
+
+.StashGrabContainer:active
+{
+	transform: translateX( -12px );
+	wash-color: white;
+}

@@ -1,0 +1,18 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/custom_game/avalore_grab_stash.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="s2r://panorama/styles/hudstyles.vcss_c" />
+        <include src="s2r://panorama/styles/hud/dota_hud_stash.vcss_c" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/avalore_overrides.js" />
+    </scripts>
+    <!-- <DOTAStash hittest="false"> -->
+        <Panel class="StashGrabContainer" hittest="false">
+            <Button id="grab_all_button_avalore" onactivate="AVALOREHUDStashGrabAll();" acceptsjoyfocus="true">
+                <Label text="#AVALORE_Stash_Grab_All" hittest="false" />
+            </Button>
+        </Panel>
+    <!-- </DOTAStash> -->
+</root>
