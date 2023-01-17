@@ -60,15 +60,34 @@ end
 function Inventory:Add(item)
     if not IsServer() then return end
 
+    -- case where item still exists in lua, but not in underlying C++ (e.g. moved to stack)
+    if item:IsNull() then return end
+
     -- make sure we haven't added it already (dota's inventory system is whack)
     for dota_slot=0,8 do
-        if self.hero:GetItemInSlot(dota_slot) == item then
-            return
-        else
-            if dota_slot < AVALORE_ITEM_SLOT_MISC1 and self.slots[dota_slot] == item then
+        local item_in_slot = self.hero:GetItemInSlot(dota_slot)
+        if item_in_slot and (not item_in_slot:IsNull()) then
+            if item_in_slot == item then
+                -- if item:IsStackable() then
+                --     --self.hero:GetItemInSlot(dota_slot):
+                --     --self.hero:AddItem(item)
+                -- end
                 return
-            elseif self.slots[AVALORE_ITEM_SLOT_MISC][dota_slot] == item then
-                return
+            elseif (not item:IsNull()) and item_in_slot:GetName() == item:GetName() then
+                if item:IsStackable() then
+                    print("Found stack in inventory - trying to stack")
+                    self.hero:AddItem(item)
+                    --item = self.hero:GetItemInSlot(dota_slot)
+                    -- -- update the avalore inventory (not sure if stacks are treated/referenced differently)
+                    -- self.slots[]
+                    return
+                end
+            else
+                if dota_slot < AVALORE_ITEM_SLOT_MISC1 and self.slots[dota_slot] == item then
+                    return
+                elseif self.slots[AVALORE_ITEM_SLOT_MISC][dota_slot] == item then
+                    return
+                end
             end
         end
     end
@@ -77,7 +96,7 @@ function Inventory:Add(item)
     --print("Find result - " .. tostring(string.find("item_slot", item:GetName())))
     -- if we're adding the item slot dummy, just make sure the slot becomes aware
     -- (only need to do this for 0-5 because some base dota items go in those positions and screw up everything)
-    if item:GetName():find("item_slot") then 
+    if item:GetName():find("item_slot") then
         local avalore_slot = item:GetSpecialValueFor("item_slot")
         if avalore_slot < 6 then
             self.slots[avalore_slot] = item

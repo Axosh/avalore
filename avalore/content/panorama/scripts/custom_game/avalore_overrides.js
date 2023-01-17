@@ -18,9 +18,14 @@ function AVALOREHUDStashGrabAll() {
 (function() {
 	$.Msg( "Hello from avalore_overrides, World! asdf" );
 
-    $("#grab_all_button").SetPanelEvent("onactivate", function() { 
-        AVALOREHUDStashGrabAll();
-     });
+    // $("#grab_all_button").SetPanelEvent("onactivate", function() { 
+    //     AVALOREHUDStashGrabAll();
+    //  });
+
+    var Parent = $.GetContextPanel().GetParent().GetParent()
+    Parent.FindChildTraverse("grab_all_button").SetPanelEvent("onactivate", function() { 
+            AVALOREHUDStashGrabAll();
+         });
 
 	//Init();
 })();

@@ -254,11 +254,12 @@ function InventoryManager:DebugDotaSlots(hero)
     --local owner = EntIndexToHScript( event.hero_entindex )
     for slot_num=0,20 do
         local item_name = "nil"
+		local item = hero:GetItemInSlot(slot_num)
         if (hero:GetItemInSlot(slot_num)) then
             item_name = hero:GetItemInSlot(slot_num):GetName()
         end
 
-        print("[" .. tostring(slot_num) .. "] = " .. item_name)
+        print("[" .. tostring(slot_num) .. "] = " .. item_name .. "(" .. tostring(item) .. ")")
     end
 end
 
@@ -267,19 +268,21 @@ function InventoryManager:DebugAvaloreSlots(player_id)
     local inventory = InventoryManager[player_id]
     for slot_num=AVALORE_ITEM_SLOT_HEAD,AVALORE_ITEM_SLOT_TRINKET do
         local item_name = "nil"
+		local item = inventory.slots[slot_num]
         if (inventory.slots[slot_num]) then
             item_name = inventory.slots[slot_num]:GetName()
         end
 
-        print("[" .. tostring(slot_num) .. "] = " .. item_name)
+        print("[" .. tostring(slot_num) .. "] = " .. item_name .. "(" .. tostring(item) .. ")")
     end
 	for misc_slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
 		local item_name = "nil"
+		local item = inventory.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]
         if (inventory.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]) then
             item_name = inventory.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]:GetName()
         end
 
-        print("[" .. tostring(misc_slot) .. "] = " .. item_name)
+        print("[" .. tostring(misc_slot) .. "] = " .. item_name .. "(" .. tostring(item) .. ")")
 	end
 end
 
@@ -422,12 +425,16 @@ function AvaloreTakeStash(index, data)
 				-- 	hero:AddItem(item)
 				-- end
 				--if item:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_NEUT and hero:HasRoomForItem(item:GetName(), true, false) then
-				if item:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_NEUT and hero:GetItemInSlot(AVALORE_ITEM_SLOT_NEUT) == nil then
-					hero:SwapItems(item:GetItemSlot(), AVALORE_ITEM_SLOT_NEUT)
-				elseif item:GetName() == "item_tpscroll" then
-					print("Adding TP Scroll")
-					hero:AddItem(item)
-					--hero:SwapItems(item:GetItemSlot(), AVALORE_ITEM_SLOT_TP)
+
+				--make sure we didn't eat the item during stacking already
+				if not item:IsNull() then
+					if item:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_NEUT and hero:GetItemInSlot(AVALORE_ITEM_SLOT_NEUT) == nil then
+						hero:SwapItems(item:GetItemSlot(), AVALORE_ITEM_SLOT_NEUT)
+					elseif item:GetName() == "item_tpscroll" then
+						print("Adding TP Scroll")
+						hero:AddItem(item)
+						--hero:SwapItems(item:GetItemSlot(), AVALORE_ITEM_SLOT_TP)
+					end
 				end
 			end
 		end

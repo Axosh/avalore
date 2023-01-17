@@ -478,7 +478,7 @@ function CAvaloreGameMode:InitRound2()
 	-- kill any remaining wisps
 	if Score["wisps"] then -- this check is mostly for debugging when init might get run twice
 		for _,wisp in pairs(Score["wisps"]) do
-			if wisp and wisp:IsAlive() then
+			if wisp and (not wisp:IsNull()) and wisp:IsAlive() then
 				wisp:ForceKill(false)
 			end
 		end
