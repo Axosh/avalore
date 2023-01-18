@@ -137,6 +137,8 @@ function CAvaloreGameMode:OnItemAdded(event)
 		--print("Item: " .. item:GetName())
 		--print("Item Slot: " .. item:GetItemSlot())
 		
+		print("INVENTORY MANAGER STATUS")
+		PrintTable(InventoryManager)
 
 		local inventory = InventoryManager[event.inventory_player_id]
 

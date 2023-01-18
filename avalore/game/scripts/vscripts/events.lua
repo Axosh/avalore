@@ -537,7 +537,14 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 		-- init inventory
 		--InventoryManager[hPlayerHero:GetPlayerOwnerID()] = Inventory:Create(hPlayerHero:GetPlayerOwnerID())
 		print("Creating Inventory for Player: " .. tostring(hPlayerHero:GetPlayerOwnerID()))
-		InventoryManager[hPlayerHero:GetPlayerOwnerID()] = Inventory:Create()
+		--local inv = {}
+		--InventoryManager[hPlayerHero:GetPlayerOwnerID()] = Inventory:Create()
+		--InventoryManager[hPlayerHero:GetPlayerOwnerID()] = Inventory:create(inv)
+		-- https://www.lua.org/manual/2.4/node36.html
+		--local inv = Inventory:create{}
+		local inv = Inventory.Create()
+		--PrintTable(inv)
+		InventoryManager[hPlayerHero:GetPlayerOwnerID()] = inv
 		InventoryManager[hPlayerHero:GetPlayerOwnerID()]:Init(hPlayerHero:GetPlayerOwnerID())
 
 		-- Init shared control of Merc Camps

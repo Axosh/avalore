@@ -1,9 +1,27 @@
 require("constants")
-Inventory = class({})
+--Inventory = class({})
+-- Inventory = {}
+-- -- https://stackoverflow.com/questions/40701370/lua-attempt-to-call-method-a-nil-value
+-- --Inventory.__index = Inventory
 
--- create a new instance / default constructor
-function Inventory:Create()
-    return self
+-- -- https://www.lua.org/manual/2.4/node36.html
+-- -- create a new instance / default constructor
+-- --function Inventory:Create()
+-- function Inventory:create(obj)
+--     --return self
+--     --return {}
+--     obj.parent = self
+--     return obj
+-- end
+
+-- https://stackoverflow.com/questions/40701370/lua-attempt-to-call-method-a-nil-value
+Inventory = {}
+Inventory.__index = Inventory
+
+function Inventory.Create()
+    local obj = {}
+    setmetatable(obj, Inventory)
+    return obj
 end
 
 -- fill everything out after we've got the instance
