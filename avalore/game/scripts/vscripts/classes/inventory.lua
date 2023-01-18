@@ -63,6 +63,8 @@ function Inventory:Add(item)
     -- case where item still exists in lua, but not in underlying C++ (e.g. moved to stack)
     if item:IsNull() then return end
 
+    print("Adding item : " .. item:GetName() .. " | for player: " .. self.hero:GetUnitName())
+
     -- make sure we haven't added it already (dota's inventory system is whack)
     for dota_slot=0,8 do
         local item_in_slot = self.hero:GetItemInSlot(dota_slot)
