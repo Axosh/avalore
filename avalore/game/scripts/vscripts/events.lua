@@ -523,7 +523,7 @@ end
 -- 	}
 function CAvaloreGameMode:OnHeroFinishSpawn(event)
 	print("==== OnHeroFinishSpawn ====")
-	PrintTable(event)
+	--PrintTable(event)
 	local hPlayerHero = EntIndexToHScript( event.heroindex )
 	if hPlayerHero ~= nil and hPlayerHero:IsRealHero() then
 		if hPlayerHero.bFirstSpawnComplete == nil then

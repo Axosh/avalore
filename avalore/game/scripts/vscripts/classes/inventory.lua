@@ -324,9 +324,9 @@ function Inventory:Remove(item, destroyOnRemove)
             end
         end
     end
-    if item_slot < AVALORE_ITEM_SLOT_MISC1 then
-        self.slots[item_slot]:SetDroppable(false)
-    end
+    -- if item_slot < AVALORE_ITEM_SLOT_MISC1 then
+    --     self.slots[item_slot]:SetDroppable(false)
+    -- end
 
 end
 

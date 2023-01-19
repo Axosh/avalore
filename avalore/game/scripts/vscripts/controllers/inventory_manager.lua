@@ -79,6 +79,54 @@ function CAvaloreGameMode:OnItemPickUp(event)
 end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 
 
+function CAvaloreGameMode:OnItemAdded(event)
+	if not IsServer() then return end
+	print("[CAvaloreGameMode:OnItemAdded] Start")
+	--PrintTable(event)
+	local item = EntIndexToHScript( event.item_entindex )
+	local owner = EntIndexToHScript( event.inventory_parent_entindex )
+	-- if owner then
+	-- 	print("Owner => " .. owner:GetName())
+	-- else
+	-- 	print("Owner => nil")
+	-- end
+	local hero = PlayerResource:GetSelectedHeroEntity(event.inventory_player_id)
+	
+	if (not hero) or (not hero:IsRealHero()) then return end -- probably merc camp init
+
+	local hEIndex = hero:GetEntityIndex()
+
+	-- this is probably an illusion
+	-- seems that when an illusion is created, the inventory is cloned
+	-- and we don't want to let that process interfere with Avalore's inventory tracking
+	if hEIndex ~= event.inventory_parent_entindex then return end
+
+	-- don't worry about recipes
+	if item and event.item_slot == DOTA_ITEM_TRANSIENT_ITEM then
+		if (string.find(item:GetName(), "item_recipe")) then return end
+
+		local inventory = InventoryManager[event.inventory_player_id]
+
+		-- this actually triggers when hero adds something to anything with slots (building, bear, courier, etc.)
+		-- also check this isn't an attempt to add the slot back (seems to keep the courier tag for some reason)
+		--if event.is_courier and not string.find(item:GetName(), "item_slot") then
+		if string.find(owner:GetName(), "courier") and not string.find(item:GetName(), "item_slot") then
+			--print("Added to Courier") -- idk 
+			-- if they don't have an inventory, then it's not a hero
+
+			if inventory then
+				inventory:Remove(item) -- hero gave to something else, need to update
+			end
+		else
+			-- filter weird situations like trying to give items to buildings by checking for presence of an
+			-- avalore inventory
+			if inventory then
+				inventory:Add(item)
+			end
+		end
+	end
+end
+
 -- https://moddota.com/api/#!/events/dota_inventory_item_added
 -- dota_inventory_item_added
 -- * item_slot: short
@@ -87,7 +135,7 @@ end -- end function: CAvaloreGameMode:OnItemPickUp(event)
 -- * item_entindex: EntityIndex
 -- * inventory_parent_entindex: EntityIndex
 -- * is_courier: bool ==> NOTE: idk what this tracks, because it seems to ALWAYS BE TRUE
-function CAvaloreGameMode:OnItemAdded(event)
+function CAvaloreGameMode:OnItemAdded_orig(event)
 	if not IsServer() then return end
 	print("[CAvaloreGameMode:OnItemAdded] Start")
 	PrintTable(event)
@@ -124,10 +172,18 @@ function CAvaloreGameMode:OnItemAdded(event)
 	if item then
 		if (string.find(item:GetName(), "item_recipe")) then return end
 
-		-- don't worry about transitory phase
+		-- don't worry about transitory phase (unless picking up an item)
 		if event.item_slot == DOTA_ITEM_TRANSIENT_ITEM then
-			print("[CAvaloreGameMode:OnItemAdded] Transient Item - Skipping")
-			return
+			if not item:GetContainer() then
+				print("[CAvaloreGameMode:OnItemAdded] Transient Item - Skipping")
+				--PrintTable(item)
+				-- if(item:GetOwner()) then
+				-- 	print(item:GetOwner():GetName())
+				-- end
+				-- print(tostring(item:GetItemState()))
+				-- print(tostring(item:GetContainer()))
+				return
+			end
 		end
 
 		--print("CAvaloreGameMode:OnItemAdded(event)")
@@ -137,8 +193,8 @@ function CAvaloreGameMode:OnItemAdded(event)
 		--print("Item: " .. item:GetName())
 		--print("Item Slot: " .. item:GetItemSlot())
 		
-		print("INVENTORY MANAGER STATUS")
-		PrintTable(InventoryManager)
+		--print("INVENTORY MANAGER STATUS")
+		--PrintTable(InventoryManager)
 
 		local inventory = InventoryManager[event.inventory_player_id]
 
