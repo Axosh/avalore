@@ -111,6 +111,7 @@ function CAvaloreGameMode:InitGameMode()
 	ListenToGameEvent("dota_inventory_changed_query_unit", Dynamic_Wrap(CAvaloreGameMode, "InventoryChangedQueryUnit"), self)
 	ListenToGameEvent("dota_item_gifted", Dynamic_Wrap(CAvaloreGameMode, "ItemGifted"), self)
 	ListenToGameEvent("dota_item_purchased", Dynamic_Wrap(CAvaloreGameMode, "ItemPurchased"), self)
+	ListenToGameEvent("dota_item_purchase", Dynamic_Wrap(CAvaloreGameMode, "ItemPurchase"), self)
 
 	-- Stuff from Panorama
 	CustomGameEventManager:RegisterListener("Avalore_Take_Stash", AvaloreTakeStash)

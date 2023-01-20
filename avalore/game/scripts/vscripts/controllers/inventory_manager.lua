@@ -426,7 +426,7 @@ end
 -- * itemname: string
 -- * itemcost: short
 function CAvaloreGameMode:ItemPurchased(event)
-	if not IsServer() then return end
+	--if not IsServer() then return end
 	print("CAvaloreGameMode:ItemPurchased(event) >> " .. event.itemname)
 	-- if event.itemname and event.itemname == "item_ambrosia" then
 		
@@ -442,6 +442,10 @@ function CAvaloreGameMode:ItemPurchased(event)
 	-- 	local inventory = InventoryManager[event.inventory_player_id]
 	-- 	inventory:Add(item)
 	-- end
+end
+
+function CAvaloreGameMode:ItemPurchase(event)
+	print("CAvaloreGameMode:ItemPurchase(event)")
 end
 
 -- dota_item_spawned
