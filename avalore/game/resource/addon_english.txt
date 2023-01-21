@@ -987,6 +987,13 @@
 		"DOTA_Tooltip_Ability_item_ward_observer_description"				"<h1>Use: Plant</h1> Plants an Eye of Argus, an invisible watcher that gives ground vision in a %vision_range% radius to your team. Lasts %duration_minutes_tooltip% minutes.\n<h1>Slot: Trinket</h1>Requires the Trinket slot"
 		"DOTA_Tooltip_Ability_item_ward_observer_lore"						"Greco-Roman Mythology: Argus was a 100-eyed primordial giant, the 'all-seeing'. Upon his death, his eyes were preserved in a peacock's tail by Hera for being a faithful watchman."
 
+		"DOTA_Tooltip_Ability_item_ward_sentry"								"Eye of Horus"
+		"DOTA_Tooltip_Ability_item_ward_sentry_description"					"<h1>Use: Plant</h1> Plants an Eye of Horus, an invisible watcher that grants True Sight, the ability to see invisible enemy units and wards, to any existing allied vision within a %true_sight_range% radius. Lasts %duration_minutes_tooltip% minutes.\n<h1>Slot: Trinket</h1>Requires the Trinket slot"
+		"DOTA_Tooltip_Ability_item_ward_sentry_Lore"						"Egyptian Mythology: eye of the falcon-headed sky god Horus that was offered to Osiris in the afterlife. It is the symbol associated with well-being, healing and protection. Believed to have protective magic power."
+
+		"DOTA_Tooltip_Ability_item_ward_dispenser"							"Eyes of Argus and Horus"
+		"DOTA_Tooltip_Ability_item_ward_dispenser_description"				"<h1>Use: Plant</h1> Plant the currently active Eye. Double-Click to switch the currently active Eye.\n<h1>Slot: Trinket</h1>Requires the Trinket slot"
+
 		// Essences
 		"DOTA_Tooltip_Ability_item_recipe_essence_of_frost"		"Essence of Frost"
 		"DOTA_Tooltip_Ability_item_essence_of_frost"			"Essence of Frost"

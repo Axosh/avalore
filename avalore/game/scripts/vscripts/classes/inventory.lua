@@ -169,7 +169,7 @@ function Inventory:Add(item)
         end
     -- if slot is empty, just swap it out
     -- null check is due to items like obs + sents (i.e. ward dispensor) that can lose charges and change into a different item
-    elseif self.slots[item_slot] and ((self.slots[item_slot]):GetName()):find("item_slot") then
+    elseif self.slots[item_slot] and (not self.slots[item_slot]:IsNull()) and ((self.slots[item_slot]):GetName()):find("item_slot") then
         --local slot_backup = self.slots[item_slot]:GetItemSlot()
         self.hero:SwapItems(item:GetItemSlot(), self.slots[item_slot]:GetItemSlot())
         -- if the item is no longer in the stash (9-14 or -1?), then the swap succeeded

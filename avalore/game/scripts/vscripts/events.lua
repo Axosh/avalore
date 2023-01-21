@@ -17,6 +17,7 @@ LinkLuaModifier( "modifier_inventory_manager", "scripts/vscripts/modifiers/modif
 LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA_MODIFIER_MOTION_NONE )
 
 LinkLuaModifier( "modifier_avalore_obs_ward", "scripts/vscripts/modifiers/modifier_avalore_obs_ward", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_avalore_sent_ward", "scripts/vscripts/modifiers/modifier_avalore_sent_ward", LUA_MODIFIER_MOTION_NONE )
 
 -- Faction Stuff
 LinkLuaModifier("modifier_faction_forest",     "modifiers/faction/modifier_faction_forest.lua",       LUA_MODIFIER_MOTION_NONE)
@@ -78,6 +79,27 @@ function CAvaloreGameMode:OnNPCSpawned(event)
 			cosmetic:FollowEntity(spawned_ent, true)
 			--cosmetic:SetForwardVector(Vector(0, -1, 0))
 		end
+	elseif spawned_ent:GetUnitName() ==  "npc_dota_sentry_wards" then
+		CosmeticLib:RemoveFromSlot( spawned_ent, DOTA_LOADOUT_TYPE_BODY_HEAD )
+		CosmeticLib:RemoveFromSlot( spawned_ent, DOTA_LOADOUT_TYPE_WARD)
+		CosmeticLib:RemoveAll(spawned_ent)
+
+		spawned_ent:AddNewModifier(spawned_ent, nil, "modifier_avalore_sent_ward", {})
+		--spawned_ent:SetRenderColor(0,0,255)
+		spawned_ent:SetRenderColor(74, 144, 226)
+		-- local sent_ward_cosmetics = {}
+		-- --sent_ward_cosmetics[0] = "maps/cavern_assets/models/wardspot/wardspot_cavern_00.vmdl"
+		-- sent_ward_cosmetics[0] = "models/effects/wardspot_00.vmdl"
+		-- for k,wearable in pairs(sent_ward_cosmetics) do
+		-- 	local cosmetic = CreateUnitByName("wearable_dummy", spawned_ent:GetAbsOrigin(), false, nil, nil, spawned_ent:GetTeam())
+		-- 	cosmetic:SetOriginalModel(wearable)
+		-- 	cosmetic:SetModel(wearable)
+		-- 	cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {destroy_on_death=true})
+		-- 	cosmetic:SetParent(spawned_ent, nil)
+		-- 	cosmetic:SetOwner(spawned_ent)
+		-- 	cosmetic:FollowEntity(spawned_ent, true)
+		-- 	--cosmetic:SetForwardVector(Vector(0, -1, 0))
+		-- end
 	end
 
 end
