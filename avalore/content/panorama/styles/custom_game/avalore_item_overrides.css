@@ -1,0 +1,17 @@
+.WardDisp
+{
+    background-image: url("file://{images}/items/ward_dispenser.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    visibility: collapse;
+}
+
+.WardDispSent
+{
+    background-image: url("file://{images}/items/ward_dispenser_sentry.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    visibility: collapse;
+}
