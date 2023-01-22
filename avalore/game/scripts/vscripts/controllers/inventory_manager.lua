@@ -469,8 +469,8 @@ function AvaloreTakeStash(index, data)
 		shop_trigger = Entities:FindByName(nil, "radiant_base")
 	end
 
-	print(shop_trigger:GetName() .. " | " .. tostring(shop_trigger:GetAbsOrigin()))
-	print(hero:GetName() .. " | " .. tostring(hero:GetAbsOrigin()))
+	-- print(shop_trigger:GetName() .. " | " .. tostring(shop_trigger:GetAbsOrigin()))
+	-- print(hero:GetName() .. " | " .. tostring(hero:GetAbsOrigin()))
 
 	-- only allow taking from stash if close enough
 	if shop_trigger:IsTouching(hero) then
@@ -497,6 +497,31 @@ function AvaloreTakeStash(index, data)
 						hero:AddItem(item)
 						--hero:SwapItems(item:GetItemSlot(), AVALORE_ITEM_SLOT_TP)
 					end
+				end
+			end
+		end
+	else
+		-- temp debug (apparently teams have 0 couriers, which I guess makes sense after the 7.23 changes)
+		-- local num_cour = PlayerResource:GetNumCouriersForTeam(hero:GetTeam())
+		-- print("Team Couriers = " .. tostring(num_cour))
+		-- for cour=0,num_cour do
+		-- 	print(tostring(cour) .. "] = " .. PlayerResource:GetNthCourierForTeam(cour, hero:GetTeam()):GetUnitName())
+		-- end
+
+		--local courier = PlayerResource:GetPreferredCourierForPlayer(hero:GetPlayerID())
+		local courier = EntIndexToHScript(_G.couriers[hero:GetPlayerID()])
+		-- print("Trying to load onto courier: " .. courier:GetName())
+		-- print(shop_trigger:GetName() .. " | " .. tostring(shop_trigger:GetAbsOrigin()))
+		-- print(courier:GetName() .. " | " .. tostring(courier:GetAbsOrigin()))
+		-- see if they're trying to load it onto the courier
+		if shop_trigger:IsTouching(courier) then
+			--print("Is Touching Courier")
+			for stash_slot=DOTA_STASH_SLOT_1,DOTA_STASH_SLOT_6 do
+				local item = hero:GetItemInSlot(stash_slot)
+				--if item and (not item:IsNull()) then
+				if item then
+					--print("Found Item: " .. item:GetUnitName())
+					courier:AddItem(hero:TakeItem(item))
 				end
 			end
 		end

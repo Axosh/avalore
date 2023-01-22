@@ -9,6 +9,8 @@ _G.first_loop = true
 _G.time_offset = 0
 --_G.round_1_init = false
 _G.round_1_init_not_done = true --commenting this out prevents wisps from spawning entirely
+
+_G.couriers = {}
 --[[
 _G.GoodScore = 0
 _G.BadScore = 0

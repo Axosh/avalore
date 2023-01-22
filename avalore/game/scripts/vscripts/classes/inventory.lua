@@ -31,6 +31,7 @@ function Inventory:Init(playerID)
     -- convenience
     self.playerId = playerID
     self.hero = PlayerResource:GetSelectedHeroEntity(playerID)
+    self.courier = PlayerResource:GetPreferredCourierForPlayer(playerID)
 
     self.slots = {}
     self.slots[AVALORE_ITEM_SLOT_MISC] = {}

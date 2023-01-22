@@ -100,6 +100,8 @@ function CAvaloreGameMode:OnNPCSpawned(event)
 		-- 	cosmetic:FollowEntity(spawned_ent, true)
 		-- 	--cosmetic:SetForwardVector(Vector(0, -1, 0))
 		-- end
+	elseif  spawned_ent:GetUnitName() == "npc_dota_courier" then
+		_G.couriers[spawned_ent:GetPlayerOwnerID()] = event.entindex
 	end
 
 end
