@@ -510,9 +510,9 @@ function AvaloreTakeStash(index, data)
 
 		--local courier = PlayerResource:GetPreferredCourierForPlayer(hero:GetPlayerID())
 		local courier = EntIndexToHScript(_G.couriers[hero:GetPlayerID()])
-		-- print("Trying to load onto courier: " .. courier:GetName())
-		-- print(shop_trigger:GetName() .. " | " .. tostring(shop_trigger:GetAbsOrigin()))
-		-- print(courier:GetName() .. " | " .. tostring(courier:GetAbsOrigin()))
+		print("Trying to load onto courier: " .. courier:GetName())
+		print(shop_trigger:GetName() .. " | " .. tostring(shop_trigger:GetAbsOrigin()))
+		print(courier:GetName() .. " | " .. tostring(courier:GetAbsOrigin()))
 		-- see if they're trying to load it onto the courier
 		if shop_trigger:IsTouching(courier) then
 			--print("Is Touching Courier")
