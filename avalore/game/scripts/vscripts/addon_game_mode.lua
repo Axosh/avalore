@@ -11,6 +11,11 @@ _G.time_offset = 0
 _G.round_1_init_not_done = true --commenting this out prevents wisps from spawning entirely
 
 _G.couriers = {}
+
+_G.radiant_spawn_particle = nil
+_G.dire_spawn_particle = nil
+
+_G.should_display_welcome = true
 --[[
 _G.GoodScore = 0
 _G.BadScore = 0
@@ -80,6 +85,7 @@ function Precache( context )
 	LinkLuaModifier( "modifier_knockback", "scripts/vscripts/modifiers/modifier_knockback.lua", LUA_MODIFIER_MOTION_BOTH )
 
 	PrecacheResource("particle", "particles/econ/wards/portal/ward_portal_core/ward_portal_eye_sentry.vpcf", context)
+	PrecacheResource("particle", Constants.BASE_BUBBLE_PARTICLE, context)
 end
 
 -- Create the game mode when we activate
@@ -93,6 +99,7 @@ end
 function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 )
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(CAvaloreGameMode, "OnEntityKilled"), self)
+	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(CAvaloreGameMode, '_OnGameRulesStateChange'), self)
 
 	-- SPAWNING
 	ListenToGameEvent("dota_on_hero_finish_spawn", Dynamic_Wrap(CAvaloreGameMode, "OnHeroFinishSpawn"), self)
@@ -134,9 +141,12 @@ function CAvaloreGameMode:InitGameMode()
 	ListenToGameEvent( "dota_item_spawned", Dynamic_Wrap( CAvaloreGameMode, "OnItemSpawned" ), self )
 	_G.nCOUNTDOWNTIMER = 2401
 	self.countdownEnabled = true
-	GameRules:SetPreGameTime( 10 )
-	GameRules:SetStrategyTime( 0.0 )
+	GameRules:SetPreGameTime( 120 ) -- time between pick and game start
+	--GameRules:SetStrategyTime( 20.0 ) -- time between picking and match start
+	GameRules:SetStrategyTime( 0.0 ) -- time between picking and match start
+	--GameRules:SetShowcaseTime( 10.0 )
 	GameRules:SetShowcaseTime( 0.0 )
+	GameRules:SetCustomGameBansPerTeam(0) -- only have 10 heroes right now
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride(true)
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
@@ -221,8 +231,11 @@ local temp = false
 function CAvaloreGameMode:OnThink()
 
 	--grab current time as a float, excluding pregame and negative time
-	curr_gametime = GameRules:GetDOTATime(false, false)
+	--curr_gametime = GameRules:GetDOTATime(false, false)
+	curr_gametime = GameRules:GetDOTATime(false, true)
 	curr_gametime = curr_gametime + _G.time_offset
+
+	print("Curr GameTime => " .. tostring(curr_gametime))
 
 	-- if self.countdownEnabled == true then
 	-- 	CountdownTimer()
@@ -244,7 +257,12 @@ function CAvaloreGameMode:OnThink()
 		
 	-- end
 
+	-- initialize 
+	-- if curr_gametime > Constants.TIME_PRE_GAME_START and _G.radiant_spawn_particle == nil then
+		
+	-- end
 
+	
 	if curr_gametime > Constants.TIME_ROUND_4_START then
 		if(_G.round < 4) then
 			print("Round 4 Start - Waves")
@@ -283,9 +301,18 @@ function CAvaloreGameMode:OnThink()
 			_G.round = 1
 			self:InitRound1()
 		end
+	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME and curr_gametime > Constants.TIME_FLAG_SPAWN then
+		if _G.radiant_spawn_particle then
+			ParticleManager:DestroyParticle(_G.radiant_spawn_particle, false)
+		end
+		if _G.dire_spawn_particle then
+			ParticleManager:DestroyParticle(_G.dire_spawn_particle, false)
+		end
+
 		-- spawn flags ping notification
 		if (flag_announce_curr == 1) then
 			Spawners:InitFlags()
+			self:FlagInit() -- start broadcast message
 		end
 		if (flag_announce_curr < 6) then 
 			local flag_temp
@@ -304,7 +331,21 @@ function CAvaloreGameMode:OnThink()
 			end
 			flag_announce_curr = flag_announce_curr + 1
 		end
-	elseif curr_gametime == 0 and _G.first_loop then
+	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME and _G.should_display_welcome then
+		print("============================================")
+		print("DOTA_GAMERULES_STATE_PRE_GAME")
+		print("============================================")
+		local broadcast_obj = 
+		{
+			msg = "#spawn_in",
+			time = 20,
+			elaboration = "#spawn_in_info"
+		}
+		CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
+		_G.should_display_welcome = false
+	end
+	--elseif curr_gametime == 0 and _G.first_loop then
+	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME and _G.first_loop then
 		self.GameStartInit()
 		_G.first_loop = false
 	end
@@ -362,6 +403,16 @@ end -- end function: CAvaloreGameMode:OnThink()
 function CAvaloreGameMode:GameStartInit()
 	Score.entities.dire_outpost:SetTeam(DOTA_TEAM_NOTEAM)
 	Score.entities.radi_outpost:SetTeam(DOTA_TEAM_NOTEAM)
+end
+
+function CAvaloreGameMode:FlagInit()
+	local broadcast_obj = 
+	{
+		msg = "#flag_spawn",
+		time = 10,
+		elaboration = "#flag_spawn_info"
+	}
+	CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
 end
 
 -- "dota_player_pick_hero"

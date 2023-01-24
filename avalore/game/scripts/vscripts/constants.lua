@@ -15,10 +15,15 @@ MELEE_ATTACK_RANGE = 150
 -- ROUND START TIMES (IN SECONDS)
 -- ==================================
 
+Constants.TIME_PRE_GAME_START = -120
+Constants.TIME_FLAG_SPAWN = -90
 Constants.TIME_ROUND_1_START = 0     --00 min
 Constants.TIME_ROUND_2_START = 600   --10 min
 Constants.TIME_ROUND_3_START = 1200  --20 min
 Constants.TIME_ROUND_4_START = 1800  --30 min
+
+-- "particles/units/heroes/hero_ogre_magi/ogre_magi_fire_shield_bubble_outer.vpcf"
+Constants.BASE_BUBBLE_PARTICLE = "particles/units/heroes/hero_arc_warden/arc_warden_magnetic.vpcf"
 
 -- ==================================
 -- SPAWNER KEY NAMES

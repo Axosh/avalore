@@ -16,6 +16,14 @@
 	"test"											"test test test"
 	"helloworld"									"hello world"
 
+	//SPAWN IN
+	"spawn_in"										"Pre-Game Time"
+	"spawn_in_info"									"30 Seconds Until Flags Spawn and Our Heroes May Leave The Fountain"
+
+	// FLAGS
+	"flag_spawn"									"Flag Spawn"
+	"flag_spawn_info"								"5 Flags Have Spawned Around The Map<br />Flags Are Worth 15 Points So Long As They Are On One of Your Base Beacons<br />Flags Can Be Stolen After Captured And The Points Will Transfer to the Other Team<br />While In Your Possession Each Flag Gives a Bonus To The Entire Team"
+
 	// ROUND ALERTS
 	"round1"										"Round 1 Start"
 	"round1info"									"7 Wisps have spawned around the map<br />Each capture is worth 3 points<br />Capture the most and your team gets bonus victory points at the end of the round."

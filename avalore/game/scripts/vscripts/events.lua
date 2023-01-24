@@ -36,6 +36,60 @@ LinkLuaModifier( "modifier_wearable", "scripts/vscripts/modifiers/modifier_weara
 -- Elemental
 LinkLuaModifier( "modifier_wet", "scripts/vscripts/modifiers/elemental_status/modifier_wet.lua", LUA_MODIFIER_MOTION_NONE )
 
+
+-- =================================================================
+-- DOTA_GameState
+-- =================================================================
+--   DOTA_GAMERULES_STATE_INIT = 0
+--   DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD = 1
+--   DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP = 2
+--   DOTA_GAMERULES_STATE_HERO_SELECTION = 3
+--   DOTA_GAMERULES_STATE_STRATEGY_TIME = 4
+--   DOTA_GAMERULES_STATE_TEAM_SHOWCASE = 5
+--   DOTA_GAMERULES_STATE_WAIT_FOR_MAP_TO_LOAD = 6
+--   DOTA_GAMERULES_STATE_PRE_GAME = 7
+--   DOTA_GAMERULES_STATE_SCENARIO_SETUP = 8
+--   DOTA_GAMERULES_STATE_GAME_IN_PROGRESS = 9
+--   DOTA_GAMERULES_STATE_POST_GAME = 10
+--   DOTA_GAMERULES_STATE_DISCONNECT = 11
+-- =================================================================
+function CAvaloreGameMode:_OnGameRulesStateChange(event)
+	-- if CAvaloreGameMode._reentrantCheck then
+	-- 	return
+	-- end
+
+	local newState = GameRules:State_Get()
+
+	if newState == DOTA_GAMERULES_STATE_PRE_GAME then
+		print("============================================")
+		print("DOTA_GAMERULES_STATE_PRE_GAME")
+		print("============================================")
+		local broadcast_obj = 
+		{
+			msg = "#spawn_in",
+			time = 10,
+			elaboration = "#spawn_in_info"
+		}
+		CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
+
+		local radiant_base = Entities:FindByName(nil, "radiant_base")
+		local radiant_base_dummy = CreateUnitByName("wearable_dummy", radiant_base:GetAbsOrigin() + Vector(50, 50, 50), false, nil, nil, DOTA_TEAM_GOODGUYS)
+		_G.radiant_spawn_particle = ParticleManager:CreateParticle(Constants.BASE_BUBBLE_PARTICLE, PATTACH_ABSORIGIN_FOLLOW, radiant_base_dummy)
+		ParticleManager:SetParticleControl(_G.radiant_spawn_particle, 1, Vector(900, 1, 1))
+		--radiant_base_dummy:AddParticle(_G.radiant_spawn_particle, false, false, 1, false, false)
+
+		local dire_base = Entities:FindByName(nil, "dire_base")
+		local dire_base_dummy = CreateUnitByName("wearable_dummy", dire_base:GetAbsOrigin() + Vector(-50, -50, -50), false, nil, nil, DOTA_TEAM_BADGUYS)
+		_G.dire_spawn_particle = ParticleManager:CreateParticle(Constants.BASE_BUBBLE_PARTICLE, PATTACH_ABSORIGIN_FOLLOW, dire_base_dummy)
+		ParticleManager:SetParticleControl(_G.dire_spawn_particle, 1, Vector(900, 1, 1))
+		--dire_base_dummy:AddParticle(_G.dire_spawn_particle, false, false, 1, false, false)
+	end
+
+	-- CAvaloreGameMode._reentrantCheck = true
+	-- CAvaloreGameMode:OnGameRulesStateChange(event)
+	-- CAvaloreGameMode._reentrantCheck = false
+end
+
 -- 
 -- entindex: EntityIndex
 -- is_respawn: short
