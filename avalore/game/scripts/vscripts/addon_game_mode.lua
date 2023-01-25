@@ -331,18 +331,18 @@ function CAvaloreGameMode:OnThink()
 			end
 			flag_announce_curr = flag_announce_curr + 1
 		end
-	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME and _G.should_display_welcome then
-		print("============================================")
-		print("DOTA_GAMERULES_STATE_PRE_GAME")
-		print("============================================")
-		local broadcast_obj = 
-		{
-			msg = "#spawn_in",
-			time = 20,
-			elaboration = "#spawn_in_info"
-		}
-		CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
-		_G.should_display_welcome = false
+	-- elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME and _G.should_display_welcome then
+	-- 	print("============================================")
+	-- 	print("DOTA_GAMERULES_STATE_PRE_GAME")
+	-- 	print("============================================")
+	-- 	local broadcast_obj = 
+	-- 	{
+	-- 		msg = "#spawn_in",
+	-- 		time = 20,
+	-- 		elaboration = "#spawn_in_info"
+	-- 	}
+	-- 	CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
+	-- 	_G.should_display_welcome = false
 	end
 	--elseif curr_gametime == 0 and _G.first_loop then
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME and _G.first_loop then

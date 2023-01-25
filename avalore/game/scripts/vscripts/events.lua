@@ -61,17 +61,6 @@ function CAvaloreGameMode:_OnGameRulesStateChange(event)
 	local newState = GameRules:State_Get()
 
 	if newState == DOTA_GAMERULES_STATE_PRE_GAME then
-		print("============================================")
-		print("DOTA_GAMERULES_STATE_PRE_GAME")
-		print("============================================")
-		local broadcast_obj = 
-		{
-			msg = "#spawn_in",
-			time = 10,
-			elaboration = "#spawn_in_info"
-		}
-		CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
-
 		local radiant_base = Entities:FindByName(nil, "radiant_base")
 		local radiant_base_dummy = CreateUnitByName("wearable_dummy", radiant_base:GetAbsOrigin() + Vector(50, 50, 50), false, nil, nil, DOTA_TEAM_GOODGUYS)
 		_G.radiant_spawn_particle = ParticleManager:CreateParticle(Constants.BASE_BUBBLE_PARTICLE, PATTACH_ABSORIGIN_FOLLOW, radiant_base_dummy)
@@ -634,6 +623,13 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 			value:SetControllableByPlayer(hPlayerHero:GetPlayerOwnerID(), false)
 		end
 
+		local broadcast_obj = 
+		{
+			msg = "#spawn_in",
+			time = 20,
+			elaboration = "#spawn_in_info"
+		}
+		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(hPlayerHero:GetPlayerOwnerID()), MESSAGE_EVENT_BROADCAST, broadcast_obj )
 		--hPlayerHero:AddNewModifier(nil, nil, "modifier_wet", {})
 	end
 
