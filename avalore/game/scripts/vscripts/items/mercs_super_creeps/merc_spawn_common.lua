@@ -11,7 +11,9 @@ function MercSpawnCommon:Merc_GetBehavior()
     return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_CHANNELLED
 end
 
+-- 
 function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp_index)
+    print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation => " .. tostring(location))
     local merc_camp = EntIndexToHScript(merc_camp_index)
     local team = merc_camp:GetCaster():GetTeamNumber()
     local lane = ""
@@ -25,6 +27,8 @@ function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp_index
         lane = GetAbsOrigin.KEY_DIRE_TOP
     elseif merc_camp:GetAbsOrigin() ==  Vector(7232, 5888, 256) then
         lane = Constants.KEY_DIRE_BOT
+    else
+        print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation => DOES NOT MATCH ANY MERC CAMP")
     end
 
     if team == DOTA_TEAM_GOODGUYS then 
