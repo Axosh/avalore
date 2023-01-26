@@ -407,6 +407,11 @@ end
 -- For Determining Merc Spawns
 -- //////////////////////////////
 
+-- These are all from at the foot of the base hill to the river
+
+
+-- Start: (-7400, -3850) => (-5800, -3850)
+-- End:   (-7400, 3350)  => (-5800, 3350)
 function IsRadiantTopLane(x, y)
     if (x < -5800 and y < 3350) and (x > -7400 and y > -3850) then
         return true
@@ -414,6 +419,8 @@ function IsRadiantTopLane(x, y)
     return false
 end
 
+-- Start: (-3800, -7450) => (-3800, -6100)
+-- End:   (5600, -7450)  => (5600, -6100)
 function IsRadiantBotLane(x, y)
     if (x < 5600 and y < -6100) and (x > -3800 and y > -7450) then
         return true
@@ -421,15 +428,21 @@ function IsRadiantBotLane(x, y)
     return false
 end
 
+-- Start: (3800, 7450)  => (3800, 6100)
+-- End:   (-5600, 7450) => (-5600, 6100)
 function IsDireTopLane(x, y)
-    if (x < 5800 and y < -3350) and (x > 7400 and y > 3850) then
+    --if (x < 5800 and y < -3350) and (x > 7400 and y > 3850) then
+    if (x > -5600 and y > 6100) and (x < 3800 and y < 7400) then
         return true
     end
     return false
 end
 
+-- Start: (7400, 3850) => (5800, 3850)
+-- End:   (7400, -3350)  => (5800, -3350)
 function IsDireBotLane(x, y)
-    if (x < -5600 and y < 6100) and (x > 3800 and y > 7450) then
+    --if (x < -5600 and y < 6100) and (x > 3800 and y > 7450) then
+    if (x > 5800 and y > -3350) and (x < 7400 and y < 3850) then
         return true
     end
     return false
