@@ -1,0 +1,33 @@
+"DOTAAbilities"
+{
+    "ability_merc_train_yeti"
+    {
+        //"BaseClass"             		"ability_datadriven"
+        "BaseClass"						"ability_lua"
+		"ScriptFile"                    "buildings/hire_queue.lua"
+        //"AbilityTextureName"			"factions/mercenary/melee"
+        "AbilityTextureName"			"factions/mercenary/ranged"
+        "MaxLevel" 						"1"
+		"FightRecapLevel"				"1"
+
+		//"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET" // | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"   
+		"AbilitySharedWithTeammates"			"1"
+
+        //"AbilityGoldCost"				"75"
+        
+
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityCastRange"				"0"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "gold_cost"				"100"
+            }
+        }
+    }
+}
