@@ -33,17 +33,17 @@
 
         // Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"
-		"MagicalResistance"			"0"
+		"ArmorPhysical"				"2.17"
+		"MagicalResistance"			"25"
 
         // Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"50"		// Damage range min.
-		"AttackDamageMax"			"50"		// Damage range max.
-		//"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		//"AttackRate"				"1"			// Speed of attack.
-		//"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackDamageMin"			"40"		// Damage range min.
+		"AttackDamageMax"			"40"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1"			// Speed of attack.
+		"AttackAnimationPoint"		"0.35"		// Normalized time in animation cycle to attack.
 		//"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
 		// "ProjectileModel"			"particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
@@ -51,12 +51,12 @@
 
 		// Attributes
 		//----------------------------------------------------------------
-		"AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributePrimary"				"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"			"23"
 		"AttributeStrengthGain"			"3.700000"
-		"AttributeBaseAgility"			"19"
+		"AttributeBaseAgility"			"21"
 		"AttributeAgilityGain"			"2.0000"
-		"AttributeBaseIntelligence"		"15"
+		"AttributeBaseIntelligence"		"17"
 		"AttributeIntelligenceGain"		"1.60000"
 
 		// Bounty
@@ -75,14 +75,14 @@
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
 		"MovementSpeed"				"310"		// Speed
-		"MovementTurnRate"			"0.5"		// Turning rate.
+		"MovementTurnRate"			"0.6"		// Turning rate.
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"400"		// Base health.
-		"StatusHealthRegen"			"4"			// Health regeneration rate.
-		"StatusMana"				"500"		// Base mana.
-		"StatusManaRegen"			"0.75"		// Mana regeneration rate.
+		"StatusHealth"				"200"		// Base health.
+		"StatusHealthRegen"			"2.8"			// Health regeneration rate.
+		"StatusMana"				"75"		// Base mana.
+		"StatusManaRegen"			"2.0"		// Mana regeneration rate.
 
 		// Team
 		//----------------------------------------------------------------

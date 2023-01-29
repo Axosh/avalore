@@ -41,8 +41,8 @@
 		//----------------------------------------------------------------
         
         "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-        "AttackDamageMin"           "61"
-        "AttackDamageMax"           "61"
+        "AttackDamageMin"           "42"
+        "AttackDamageMax"           "42"
         "AttackRange"               "150"
         "AttackRate"                "1.7"
         "BaseAttackSpeed"           "100"
@@ -51,23 +51,25 @@
         // Armor
         //----------------------------------------------------------------
 
-        "ArmorPhysical"             "2"                    // Physical protection.
-        "MagicalResistance"         "0.25"                 // Magical protection (percentage).
+        "ArmorPhysical"             "3"                    // Physical protection.
+        "MagicalResistance"         "25"                 // Magical protection (percentage).
 
         // Status
 		//----------------------------------------------------------------
-        "StatusHealthRegen"         "31.5"
-        "StatusHealth"              "695"
+        "StatusHealthRegen"         "1.5"
+        //"StatusHealth"              "695"
+        "StatusHealth"              "300"
         "StatusManaRegen"           "1.3"
-        "StatusMana"                "399"
+        //"StatusMana"                "399"
+        "StatusMana"                "75"
 
         // Attributes
 		//----------------------------------------------------------------
         "AttributePrimary"          "DOTA_ATTRIBUTE_INTELLECT"
         "AttributeBaseStrength"     "22"
         "AttributeStrengthGain"     "2.4"
-        "AttributeBaseAgility"      "13"
-        "AttributeAgilityGain"      "1.5"
+        "AttributeBaseAgility"      "16"
+        "AttributeAgilityGain"      "3.0"
         "AttributeBaseIntelligence" "27"
         "AttributeIntelligenceGain" "2.8"
 
