@@ -34,40 +34,40 @@
         // Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"310"		                        // Speed
-		"MovementTurnRate"			"0.5"		                        // Turning rate.
+		"MovementSpeed"				"315"		                        // Speed
+		"MovementTurnRate"			"0.6"		                        // Turning rate.
 
         // Attack
 		//----------------------------------------------------------------
         "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-        "AttackDamageMin"           "50"
-        "AttackDamageMax"           "50"
+        "AttackDamageMin"           "45"
+        "AttackDamageMax"           "45"
         "AttackRange"               "150"
-        "AttackRate"                "1.7"
+        "AttackRate"                "1.6"
         "BaseAttackSpeed"           "100"
         "AttackAnimationPoint"      "0.33"
 
         // Armor
 		//----------------------------------------------------------------
-        "ArmorPhysical"             "5"
+        "ArmorPhysical"             "3.33"
         "MagicalResistance"         "25"
 
         // Status
 		//----------------------------------------------------------------
-        "StatusHealthRegen"         "3.25"
+        "StatusHealthRegen"         "2.05"
         "StatusHealth"              "200"
-        "StatusManaRegen"           "0.0"
+        "StatusManaRegen"           "1.5"
         "StatusMana"                "75"
 
         // Attributes
 		//----------------------------------------------------------------
         "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
-        "AttributeBaseStrength"     "23"
-        "AttributeStrengthGain"     "4.5"
-        "AttributeBaseAgility"      "18"
-        "AttributeAgilityGain"      "1.5"
-        "AttributeBaseIntelligence" "15"
-        "AttributeIntelligenceGain" "1.5"
+        "AttributeBaseStrength"     "22"
+        "AttributeStrengthGain"     "2.5"
+        "AttributeBaseAgility"      "22"
+        "AttributeAgilityGain"      "2.8"
+        "AttributeBaseIntelligence" "13"
+        "AttributeIntelligenceGain" "1.4"
 
         // Bounds
 		//----------------------------------------------------------------

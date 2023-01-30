@@ -37,6 +37,12 @@ function modifier_inventory_manager:OnIntervalThink()
             if avalore_slot then
                 inv_validation[avalore_slot] = 1
             end
+
+            if string.find(item:GetName(), "item_slot") then
+                item:SetSellable(false)
+                item:SetDroppable(false)
+                item:SetItemState(1)
+            end
         end
     end
     --print("======VALIDATE")
@@ -86,6 +92,12 @@ function modifier_inventory_manager:OnIntervalThink()
     for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
         local item = hero:GetItemInSlot(slot)
         if item then
+            if string.find(item:GetName(), "item_slot") then
+                item:SetSellable(false)
+                item:SetDroppable(false)
+                item:SetItemState(1)
+            end
+            
             if item:GetSpecialValueFor("item_slot") ~= AVALORE_ITEM_SLOT_MISC then
                 print("Found Item That Should Not Be in Backpack: " .. item:GetName())
                 for main_slot=AVALORE_ITEM_SLOT_HEAD,AVALORE_ITEM_SLOT_TRINKET do

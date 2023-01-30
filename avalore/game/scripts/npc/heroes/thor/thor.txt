@@ -36,36 +36,36 @@
         // Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"310"		// Speed
-		"MovementTurnRate"			"0.5"		// Turning rate.
+		"MovementSpeed"				"320"		// Speed
+		"MovementTurnRate"			"0.6"		// Turning rate.
 
         // Attack
 		//----------------------------------------------------------------
         
         "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-        "AttackDamageMin"           "50"
-        "AttackDamageMax"           "50"
-        "AttackRange"               "250"
-        "AttackRate"                "1.7"
+        "AttackDamageMin"           "44"
+        "AttackDamageMax"           "44"
+        "AttackRange"               "150"
+        "AttackRate"                "1.9"
         "BaseAttackSpeed"           "100"
-        "AttackAnimationPoint"      "0.33"
+        "AttackAnimationPoint"      "0.4"
 
         // Status
 		//----------------------------------------------------------------
-        "StatusHealthRegen"         "3.25"
+        "StatusHealthRegen"         "2.8"
         "StatusHealth"              "200"
-        "StatusManaRegen"           "0.0"
+        "StatusManaRegen"           "1.5"
         "StatusMana"                "75"
 
         // Attributes
 		//----------------------------------------------------------------
-        "AttributePrimary"          "DOTA_ATTRIBUTE_AGILITY"
-        "AttributeBaseStrength"     "23"
-        "AttributeStrengthGain"     "4.5"
-        "AttributeBaseAgility"      "18"
-        "AttributeAgilityGain"      "1.5"
-        "AttributeBaseIntelligence" "15"
-        "AttributeIntelligenceGain" "1.5"
+        "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
+        "AttributeBaseStrength"     "22"
+        "AttributeStrengthGain"     "3.2"
+        "AttributeBaseAgility"      "21"
+        "AttributeAgilityGain"      "2.2"
+        "AttributeBaseIntelligence" "16"
+        "AttributeIntelligenceGain" "1.3"
 
         // Bounds
 		//----------------------------------------------------------------

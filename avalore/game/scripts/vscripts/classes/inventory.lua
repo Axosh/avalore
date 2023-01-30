@@ -51,16 +51,25 @@ function Inventory:Init(playerID)
     self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC3] = misc3
 
     self.slots[AVALORE_ITEM_SLOT_HEAD]      = (self.hero):AddItemByName("item_slot_head")
+    self.slots[AVALORE_ITEM_SLOT_HEAD]:SetSellable(false)
     self.slots[AVALORE_ITEM_SLOT_CHEST]     = (self.hero):AddItemByName("item_slot_chest")
+    self.slots[AVALORE_ITEM_SLOT_CHEST]:SetSellable(false)
     self.slots[AVALORE_ITEM_SLOT_ACCESSORY]      = (self.hero):AddItemByName("item_slot_back")
+    self.slots[AVALORE_ITEM_SLOT_ACCESSORY]:SetSellable(false)
     self.slots[AVALORE_ITEM_SLOT_HANDS]     = (self.hero):AddItemByName("item_slot_hands")
+    self.slots[AVALORE_ITEM_SLOT_HANDS]:SetSellable(false)
     self.slots[AVALORE_ITEM_SLOT_FEET]      = (self.hero):AddItemByName("item_slot_feet")
+    self.slots[AVALORE_ITEM_SLOT_FEET]:SetSellable(false)
     self.slots[AVALORE_ITEM_SLOT_TRINKET]   = (self.hero):AddItemByName("item_slot_trinket")
+    self.slots[AVALORE_ITEM_SLOT_TRINKET]:SetSellable(false)
 
     -- reset this, needed to clear it earlier to move them to the right starting spots
     misc1:SetDroppable(false)
+    misc1:SetSellable(false)
 	misc2:SetDroppable(false)
+    misc2:SetSellable(false)
 	misc3:SetDroppable(false)
+    misc3:SetSellable(false)
 
     --self.slots[AVALORE_ITEM_SLOT_TEMP] = {}
 
@@ -83,6 +92,11 @@ function Inventory:Add(item)
     if item:IsNull() then return end
 
     print("Adding item : " .. item:GetName() .. " | for player: " .. self.hero:GetUnitName())
+
+    -- try to disable base items from being able to be sold here
+    if string.find(item:GetName(), "item_slot") then
+        item:SetSellable(false)
+    end
 
     -- make sure we haven't added it already (dota's inventory system is whack)
     for dota_slot=0,8 do
@@ -422,7 +436,10 @@ function Inventory:RemoveFromMisc(item)
     for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
         if self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetName() == item:GetName() then
             self.slots[AVALORE_ITEM_SLOT_MISC][slot]   = (self.hero):AddItemByName("item_slot_misc")
-            self.slots[AVALORE_ITEM_SLOT_MISC][slot]:SetSellable(false)
+            -- trying to fix a potential race condition
+            if self.slots[AVALORE_ITEM_SLOT_MISC][slot]:IsSellable() then
+                self.slots[AVALORE_ITEM_SLOT_MISC][slot]:SetSellable(false)
+            end
             self.slots[AVALORE_ITEM_SLOT_MISC][slot]:SetDroppable(false)
             self.slots[AVALORE_ITEM_SLOT_MISC][slot]:SetItemState(1) -- ready?
             print("Added item_slot_misc to " .. tostring(slot))

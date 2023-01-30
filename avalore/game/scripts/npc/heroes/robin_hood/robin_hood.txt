@@ -15,31 +15,31 @@
     "BotImplemented"            "0"
 
     "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementTurnRate"          "1.5"
-    "MovementSpeed"             "320"
+    "MovementTurnRate"          "0.6"
+    "MovementSpeed"             "290"
 
     "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackDamageMin"           "31"
-    "AttackDamageMax"           "33"
+    "AttackDamageMax"           "31"
     "AttackRange"               "600"
     "AttackRate"                "1.7"
     "BaseAttackSpeed"           "100"
-    "AttackAnimationPoint"      "0.33"
-    "ArmorPhysical"             "5"
+    "AttackAnimationPoint"      "0.3"
+    "ArmorPhysical"             "-1"
     "MagicalResistance"         "25"
 
-    "StatusHealthRegen"         "3.25"
+    "StatusHealthRegen"         "2.35"
     "StatusHealth"              "200"
-    "StatusManaRegen"           "0.0"
+    "StatusManaRegen"           "1.5"
     "StatusMana"                "75"
 
     "AttributePrimary"          "DOTA_ATTRIBUTE_AGILITY"
-    "AttributeBaseStrength"     "23"
-    "AttributeStrengthGain"     "4.5"
-    "AttributeBaseAgility"      "18"
-    "AttributeAgilityGain"      "1.5"
+    "AttributeBaseStrength"     "18"
+    "AttributeStrengthGain"     "2.5"
+    "AttributeBaseAgility"      "21"
+    "AttributeAgilityGain"      "2.9"
     "AttributeBaseIntelligence" "15"
-    "AttributeIntelligenceGain" "1.5"
+    "AttributeIntelligenceGain" "1.0"
 
     "AbilityLayout"             "4"
     "Ability1"                  "ability_jack_of_all_trades"
@@ -69,6 +69,6 @@
     "HasInventory"              "1"
 
     "VisionDaytimeRange"        "1800"                            // Range of vision during day light.
-    "VisionNighttimeRange"      "1200"                            // Range of vision at night time.
+    "VisionNighttimeRange"      "800"                            // Range of vision at night time.
   }
 }

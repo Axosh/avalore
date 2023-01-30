@@ -37,36 +37,36 @@
         // Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"310"		// Speed
-		"MovementTurnRate"			"0.5"		// Turning rate.
+		"MovementSpeed"				"300"		// Speed
+		"MovementTurnRate"			"0.6"		// Turning rate.
 
         // Attack
 		//----------------------------------------------------------------
         
         "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-        "AttackDamageMin"           "50"
-        "AttackDamageMax"           "50"
-        "AttackRange"               "250"
+        "AttackDamageMin"           "33"
+        "AttackDamageMax"           "33"
+        "AttackRange"               "300"
         "AttackRate"                "1.7"
         "BaseAttackSpeed"           "100"
-        "AttackAnimationPoint"      "0.33"
+        "AttackAnimationPoint"      "0.45"
 
         // Status
 		//----------------------------------------------------------------
-        "StatusHealthRegen"         "3.25"
+        "StatusHealthRegen"         "2.8"
         "StatusHealth"              "200"
-        "StatusManaRegen"           "0.0"
+        "StatusManaRegen"           "1.2"
         "StatusMana"                "75"
 
         // Attributes
 		//----------------------------------------------------------------
         "AttributePrimary"          "DOTA_ATTRIBUTE_AGILITY"
-        "AttributeBaseStrength"     "23"
-        "AttributeStrengthGain"     "4.5"
-        "AttributeBaseAgility"      "18"
-        "AttributeAgilityGain"      "1.5"
-        "AttributeBaseIntelligence" "15"
-        "AttributeIntelligenceGain" "1.5"
+        "AttributeBaseStrength"     "20"
+        "AttributeStrengthGain"     "2.8"
+        "AttributeBaseAgility"      "24"
+        "AttributeAgilityGain"      "3.7"
+        "AttributeBaseIntelligence" "20"
+        "AttributeIntelligenceGain" "1.8"
 
         // Bounds
 		//----------------------------------------------------------------

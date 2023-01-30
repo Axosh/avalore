@@ -37,8 +37,8 @@
         // Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"310"		// Speed
-		"MovementTurnRate"			"0.5"		// Turning rate.
+		"MovementSpeed"				"315"		// Speed
+		"MovementTurnRate"			"0.6"		// Turning rate.
 
         // Attack
 		//----------------------------------------------------------------
@@ -46,36 +46,36 @@
         //"ProjectileModel"           "particles/units/heroes/hero_razor/razor_static_link_projectile_b.vpcf"
         "ProjectileModel"           "particles/econ/items/zeus/lightning_weapon_fx/zuus_base_attack_immortal_lightning.vpcf"
         //"ProjectileModel"            "particles/units/heroes/hero_shadowshaman/shadow_shaman_ward_base_attack.vpcf" //sanity check
-        "ProjectileSpeed"           "900"
+        "ProjectileSpeed"           "1100"
         "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
-        "AttackDamageMin"           "35"
-        "AttackDamageMax"           "35"
+        "AttackDamageMin"           "29"
+        "AttackDamageMax"           "29"
         "AttackRange"               "600"
         "AttackRate"                "1.7"
         "BaseAttackSpeed"           "100"
-        "AttackAnimationPoint"      "0.33"
+        "AttackAnimationPoint"      "0.35"
 
         // Armor
 		//----------------------------------------------------------------
-        "ArmorPhysical"             "5"
+        "ArmorPhysical"             "1"
         "MagicalResistance"         "25"
 
         // Status
 		//----------------------------------------------------------------
-        "StatusHealthRegen"         "3.25"
+        "StatusHealthRegen"         "2.15"
         "StatusHealth"              "200"
-        "StatusManaRegen"           "0.0"
+        "StatusManaRegen"           "1.2"
         "StatusMana"                "75"
 
         // Attributes
 		//----------------------------------------------------------------
         "AttributePrimary"          "DOTA_ATTRIBUTE_INTELLECT"
-        "AttributeBaseStrength"     "23"
-        "AttributeStrengthGain"     "4.5"
-        "AttributeBaseAgility"      "18"
-        "AttributeAgilityGain"      "1.5"
-        "AttributeBaseIntelligence" "15"
-        "AttributeIntelligenceGain" "1.5"
+        "AttributeBaseStrength"     "19"
+        "AttributeStrengthGain"     "2.1"
+        "AttributeBaseAgility"      "11"
+        "AttributeAgilityGain"      "1.2"
+        "AttributeBaseIntelligence" "22"
+        "AttributeIntelligenceGain" "3.3"
 
         // Bounds
 		//----------------------------------------------------------------

@@ -65,7 +65,7 @@
 
         // Attributes
 		//----------------------------------------------------------------
-        "AttributePrimary"          "DOTA_ATTRIBUTE_INTELLECT"
+        "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
         "AttributeBaseStrength"     "22"
         "AttributeStrengthGain"     "2.4"
         "AttributeBaseAgility"      "16"
