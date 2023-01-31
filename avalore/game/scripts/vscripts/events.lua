@@ -63,12 +63,18 @@ function CAvaloreGameMode:_OnGameRulesStateChange(event)
 	if newState == DOTA_GAMERULES_STATE_PRE_GAME then
 		local radiant_base = Entities:FindByName(nil, "radiant_base")
 		local radiant_base_dummy = CreateUnitByName("wearable_dummy", radiant_base:GetAbsOrigin() + Vector(50, 50, 50), false, nil, nil, DOTA_TEAM_GOODGUYS)
+		radiant_base_dummy:AddNewModifier(radiant_base_dummy, nil, "modifier_unselectable", {})
+		--radiant_base_dummy:AddNoDraw()
+		_G.radiant_base_dummy = radiant_base_dummy
 		_G.radiant_spawn_particle = ParticleManager:CreateParticle(Constants.BASE_BUBBLE_PARTICLE, PATTACH_ABSORIGIN_FOLLOW, radiant_base_dummy)
 		ParticleManager:SetParticleControl(_G.radiant_spawn_particle, 1, Vector(900, 1, 1))
 		--radiant_base_dummy:AddParticle(_G.radiant_spawn_particle, false, false, 1, false, false)
 
 		local dire_base = Entities:FindByName(nil, "dire_base")
 		local dire_base_dummy = CreateUnitByName("wearable_dummy", dire_base:GetAbsOrigin() + Vector(-50, -50, -50), false, nil, nil, DOTA_TEAM_BADGUYS)
+		dire_base_dummy:AddNewModifier(dire_base_dummy, nil, "modifier_unselectable", {})
+		--dire_base_dummy:AddNoDraw()
+		_G.dire_base_dummy = dire_base_dummy
 		_G.dire_spawn_particle = ParticleManager:CreateParticle(Constants.BASE_BUBBLE_PARTICLE, PATTACH_ABSORIGIN_FOLLOW, dire_base_dummy)
 		ParticleManager:SetParticleControl(_G.dire_spawn_particle, 1, Vector(900, 1, 1))
 		--dire_base_dummy:AddParticle(_G.dire_spawn_particle, false, false, 1, false, false)

@@ -305,8 +305,23 @@ function CAvaloreGameMode:OnThink()
 		if _G.radiant_spawn_particle then
 			ParticleManager:DestroyParticle(_G.radiant_spawn_particle, false)
 		end
+		if _G.radiant_base_dummy then
+			_G.radiant_base_dummy:ForceKill(false)
+			_G.radiant_base_dummy = nil
+		end
 		if _G.dire_spawn_particle then
 			ParticleManager:DestroyParticle(_G.dire_spawn_particle, false)
+		end
+		if _G.dire_base_dummy then
+			_G.dire_base_dummy:ForceKill(false)
+			_G.dire_base_dummy = nil
+		end
+
+		local blockers = Entities:FindAllByName("pregame_blocker*")
+		for i = 1, #blockers, 1 do
+			print("Clearing Blocker " .. tostring(i) .. " - " .. blockers[i]:GetName())
+			--blockers[i]:RemoveSelf()
+			UTIL_Remove(blockers[i])
 		end
 
 		-- spawn flags ping notification
