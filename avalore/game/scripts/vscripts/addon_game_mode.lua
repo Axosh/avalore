@@ -317,12 +317,12 @@ function CAvaloreGameMode:OnThink()
 			_G.dire_base_dummy = nil
 		end
 
-		local blockers = Entities:FindAllByName("pregame_blocker*")
-		for i = 1, #blockers, 1 do
-			print("Clearing Blocker " .. tostring(i) .. " - " .. blockers[i]:GetName())
-			--blockers[i]:RemoveSelf()
-			UTIL_Remove(blockers[i])
-		end
+		-- local blockers = Entities:FindAllByName("pregame_blocker*")
+		-- for i = 1, #blockers, 1 do
+		-- 	print("Clearing Blocker " .. tostring(i) .. " - " .. blockers[i]:GetName())
+		-- 	--blockers[i]:RemoveSelf()
+		-- 	UTIL_Remove(blockers[i])
+		-- end
 
 		-- spawn flags ping notification
 		if (flag_announce_curr == 1) then
