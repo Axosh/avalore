@@ -14,6 +14,7 @@ require(REQ_LIB_TIMERS)
 --require("scripts/vscripts/modifiers/modifier_wearable")
 
 LinkLuaModifier( "modifier_inventory_manager", "scripts/vscripts/modifiers/modifier_inventory_manager", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_pregame_bubble", "scripts/vscripts/modifiers/modifier_pregame_bubble.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA_MODIFIER_MOTION_NONE )
 
 LinkLuaModifier( "modifier_avalore_obs_ward", "scripts/vscripts/modifiers/modifier_avalore_obs_ward", LUA_MODIFIER_MOTION_NONE )
@@ -762,6 +763,7 @@ function CAvaloreGameMode:InitCosmetics(heroindex)
 	end
 
 	hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
+	hero:AddNewModifier(hero, nil, "modifier_pregame_bubble", nil)
 
 	-- -- populate inventory with placeholders
 	-- local misc1 = hero:AddItemByName("item_slot_misc1")

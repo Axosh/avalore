@@ -235,7 +235,7 @@ function CAvaloreGameMode:OnThink()
 	curr_gametime = GameRules:GetDOTATime(false, true)
 	curr_gametime = curr_gametime + _G.time_offset
 
-	print("Curr GameTime => " .. tostring(curr_gametime))
+	--print("Curr GameTime => " .. tostring(curr_gametime))
 
 	-- if self.countdownEnabled == true then
 	-- 	CountdownTimer()
