@@ -807,6 +807,9 @@
 		"DOTA_Tooltip_Ability_ability_toothgnashers_speed_per_goat"			"MS PER GOAT: "
 		"DOTA_Tooltip_Ability_ability_toothgnashers_Lore"					"Thor had two goats that pulled his chariot."
 
+		"DOTA_Tooltip_modifier_toothgnashers_counter"						"Toothgnasher Count"
+		"DOTA_Tooltip_modifier_toothgnashers_counter_description"			"Gaining bonus %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE% move speed"
+
 		"DOTA_Tooltip_Ability_ability_thunder_gods_strength"				"Thunder God's Strength"
 		"DOTA_Tooltip_Ability_ability_thunder_gods_strength_description"	"Summon's all Thor's strength for a short duration of time to give a massive damage amplification."
 		"DOTA_Tooltip_Ability_ability_thunder_gods_strength_duration"		"DURATION: "
@@ -833,6 +836,7 @@
 		"DOTA_Tooltip_Ability_talent_shared_sustenance_description"			"Consume Goat: heals allies within a {s:heal_radius} radius for the same amount"
 
 		"DOTA_Tooltip_Ability_talent_replenish"								"Replenish"
+		"DOTA_Tooltip_Ability_talent_replenish_description"					"Toothgnashers: able to store up to {s:max_stacks} charges of summoning, and have a bonus {s:bonus_healing} healing per tick"
 		"DOTA_Tooltip_modifier_replenish_counter"							"Replenish Summons"
 
 		"DOTA_Tooltip_Ability_talent_brute_strength"						"Brute Strength"

@@ -76,6 +76,7 @@ function ability_toothgnashers:SetupStacks()
 
     -- reset cooldown (server-side only function)
     if IsServer() then
+        print("end cd")
         self:EndCooldown()
     end
     

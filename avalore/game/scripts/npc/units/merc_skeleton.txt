@@ -13,6 +13,9 @@
 		//"ModelScale" 				"0.7"
 		"Level"						"1"
         "HasInventory"				"0"
+
+		// "AI"
+        "vscripts"                  "items/mercs_super_creeps/ai/ai_merc_troop.lua"
 		
 		// Abilities
 		//----------------------------------------------------------------

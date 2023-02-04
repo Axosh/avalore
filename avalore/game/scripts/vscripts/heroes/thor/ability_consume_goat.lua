@@ -3,6 +3,12 @@ ability_consume_goat = class({})
 LinkLuaModifier("modifier_consume_goat", "heroes/thor/modifier_consume_goat.lua", LUA_MODIFIER_MOTION_NONE)
 
 function ability_consume_goat:CastFilterResult()
+    if not self:GetCaster() then return end
+    
+    if not self:GetCaster():HasModifier("modifier_toothgnashers_counter") then
+        return UF_FAIL_CUSTOM
+    end
+
     local goat_count = self:GetCaster():FindModifierByName("modifier_toothgnashers_counter")
 
     if goat_count and goat_count:GetStackCount() > 0 then

@@ -380,6 +380,9 @@
 		"Level"						"10"
 		"ConsideredHero"            "0"
 
+		// "AI"
+        "vscripts"					"round4/ai/ai_round4_melee_creep.lua"
+
 		// Abilities
 		//----------------------------------------------------------------
 
