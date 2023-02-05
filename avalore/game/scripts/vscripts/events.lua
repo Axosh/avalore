@@ -1301,6 +1301,20 @@ end
 -- TALENTS
 -- =================================
 
+-- dota_player_gained_level
+-- player: short
+-- player_id: PlayerID
+-- level: short
+-- hero_entindex: EntityIndex
+-- PlayerID: PlayerID
+function CAvaloreGameMode:OnLevelUp(event)
+	local player = EntIndexToHScript(event.player)
+	local hero = player:GetAssignedHero()
+	if event.level == 4 then
+		
+	end
+end
+
 --LinkLuaModifier( "modifier_talent_parry", "heroes/robin_hood/modifier_talent_parry.lua", LUA_MODIFIER_MOTION_NONE )
 --LinkLuaModifier( "modifier_talent_bonus_range", "heroes/robin_hood/modifier_talent_bonus_range.lua", LUA_MODIFIER_MOTION_NONE )
 

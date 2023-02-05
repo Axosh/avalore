@@ -8,6 +8,8 @@
 		"AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
+        "RequiredLevel"                 "4"
+
         "LinkedAbilty"
         {
             "01" "ability_embalm"

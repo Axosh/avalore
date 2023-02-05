@@ -131,6 +131,7 @@ function CAvaloreGameMode:InitGameMode()
 	ListenToGameEvent("player_chat", Dynamic_Wrap(CAvaloreGameMode, "ProcessPlayerMessage"), self)
 
 	-- ABILITIES & TALENTS
+	ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(CAvaloreGameMode, 'OnLevelUp'), self)
 	ListenToGameEvent('dota_player_learned_ability', Dynamic_Wrap(CAvaloreGameMode, 'OnPlayerLearnedAbility'), self)
 
 	--ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(CAvaloreGameMode, "OnPlayerFirstSpawn"), self)
@@ -152,6 +153,36 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 	GameRules:GetGameModeEntity():SetCustomBackpackCooldownPercent(1.0) -- no punishment
 	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(0.0) -- no cooldown
+	GameRules:GetGameModeEntity():SetUseCustomHeroLevels ( true )
+	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(5) --doesn't seem to work
+
+	-- 3 ability x 4 level => 12
+	-- 1 ult x 3 level => 15
+	-- 4 talent x 1 level => 19
+	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(
+        {
+            [1] = 0,
+			[2] = 240,
+			[3] = 640,
+			[4] = 1160, -- talent 1
+			[5] = 1760, 
+			[6] = 2440, --ult 1
+			[7] = 3200,
+			[8] = 4000, -- talent 2
+			[9] = 4900,
+			[10] = 5900, 
+			[11] = 7000,
+			[12] = 8200, -- ult 2, talent 3
+			[13] = 9500,
+			[14] = 10900,
+			[15] = 12400, 
+			[16] = 14000, -- talent 4
+			[17] = 15700,
+			[18] = 17500, -- ult 3
+			[19] = 19400,
+			[20] = 21400
+        }
+    )
 	-- neutral items (consumables for avalore)
 	GameRules:GetGameModeEntity():SetAllowNeutralItemDrops(false)
 	GameRules:GetGameModeEntity():SetNeutralStashEnabled(false)
@@ -165,6 +196,9 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_ILLUSION, false)
 	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_INVISIBILITY, false)
 	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_REGENERATION, false)
+	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_ARCANE , false)
+	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_BOUNTY  , true)
+	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_WATER , true)
 
 	-- Filters
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAvaloreGameMode, "OrderFilter"), self)
@@ -262,6 +296,7 @@ function CAvaloreGameMode:OnThink()
 		
 	-- end
 
+	--print(tostring(GameRules:GetGameModeEntity():GetCustomHeroMaxLevel()))
 	
 	if curr_gametime > Constants.TIME_ROUND_4_START then
 		if(_G.round < 4) then
