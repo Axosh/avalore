@@ -1,0 +1,68 @@
+"DOTAAbilities"
+{
+    "ability_avalore_attributes"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					"ability_lua"
+        "ScriptFile"				"heroes/_shared/ability_avalore_attributes.lua"
+        "AbilityTextureName"	    "avalore_attributes"
+        "FightRecapLevel"			"1"
+		"MaxLevel"	                "6"
+
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+        
+        // Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		// "AbilityCastRange"				"900"
+		// "AbilityCastPoint"				"0.45 0.45 0.45 0.45"
+		// "AbilityChannelTime"			"5"
+		// "AbilityDuration"				"5.0"
+
+        // Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		// "AbilityCooldown"				"0 0 0" //"140.0 130.0 120.0"
+		// "AbilityManaCost"				"0 0 0"//"150 225 300"
+
+        // Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+            "01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"raw_dmg"				"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"raw_ms"				"15"
+			}
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "minor_stats"           "2"
+            }
+			"04"
+			{
+				"var_type"		 		"FIELD_INTEGER"
+				"attack_speed"			"15"
+			}
+			"05"
+			{
+				"var_type"	           "FIELD_INTEGER"
+				"mana_regen"           "3"
+			}
+            "06"
+            {
+                "var_type"	           "FIELD_INTEGER"
+                "major_stats"          "10"
+            }
+        }
+    }
+}

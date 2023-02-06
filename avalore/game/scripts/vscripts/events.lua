@@ -1310,9 +1310,9 @@ end
 function CAvaloreGameMode:OnLevelUp(event)
 	local player = EntIndexToHScript(event.player)
 	local hero = player:GetAssignedHero()
-	if event.level == 4 then
-		
-	end
+	-- if event.level == 4 then
+	-- 	hero:GetAbilityByIndex(9):CanAbilityBeUpgraded(true)
+	-- end
 end
 
 --LinkLuaModifier( "modifier_talent_parry", "heroes/robin_hood/modifier_talent_parry.lua", LUA_MODIFIER_MOTION_NONE )

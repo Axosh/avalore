@@ -154,33 +154,42 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetCustomBackpackCooldownPercent(1.0) -- no punishment
 	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(0.0) -- no cooldown
 	GameRules:GetGameModeEntity():SetUseCustomHeroLevels ( true )
-	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(5) --doesn't seem to work
+	--GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(20) --doesn't seem to work
+	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(25)
 
 	-- 3 ability x 4 level => 12
 	-- 1 ult x 3 level => 15
 	-- 4 talent x 1 level => 19
+	-- RIP - I'd wanted to use a talent system of 4/8/12/16, but doesn't appear to be any
+	--       support for that yet, and I don't want to write a whole bunch of front-end to handle
+	--       it, so I'll just revert to using lvl 25 cap
 	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(
         {
             [1] = 0,
 			[2] = 240,
-			[3] = 640,
-			[4] = 1160, -- talent 1
-			[5] = 1760, 
-			[6] = 2440, --ult 1
-			[7] = 3200,
-			[8] = 4000, -- talent 2
-			[9] = 4900,
-			[10] = 5900, 
-			[11] = 7000,
-			[12] = 8200, -- ult 2, talent 3
-			[13] = 9500,
-			[14] = 10900,
-			[15] = 12400, 
-			[16] = 14000, -- talent 4
-			[17] = 15700,
-			[18] = 17500, -- ult 3
-			[19] = 19400,
-			[20] = 21400
+			[3] = 400,
+			[4] = 520, -- talent 1
+			[5] = 600, 
+			[6] = 680, --ult 1
+			[7] = 760,
+			[8] = 800, -- talent 2
+			[9] = 900,
+			[10] = 1000, 
+			[11] = 1100,
+			[12] = 1200, -- ult 2, talent 3
+			[13] = 1300,
+			[14] = 1400,
+			[15] = 1500, 
+			[16] = 1600, -- talent 4
+			[17] = 1700,
+			[18] = 1800, -- ult 3
+			[19] = 1900,
+			[20] = 2000,
+			[21] = 2100,
+			[22] = 2200,
+			[23] = 2300,
+			[24] = 2400,
+			[25] = 2500,
         }
     )
 	-- neutral items (consumables for avalore)
