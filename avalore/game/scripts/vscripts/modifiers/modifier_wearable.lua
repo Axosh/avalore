@@ -35,6 +35,11 @@ function modifier_wearable:CheckState()
     } 
 end
 
+function modifier_wearable:DeclareFunctions()
+	return { 	MODIFIER_PROPERTY_IS_ILLUSION,
+				MODIFIER_PROPERTY_ILLUSION_LABEL  }
+end
+
 function modifier_wearable:IsPurgable() return false end
 function modifier_wearable:IsStunDebuff() return false end
 function modifier_wearable:IsPurgeException() return false end
@@ -70,15 +75,42 @@ function modifier_wearable:OnCreated(kv)
 
 	self:StartIntervalThink(FrameTime())
 	self.render_color = nil
+	self.illusion_check_complete = false
 	--self.illusion = self:GetParent():GetOwnerEntity():IsIllusion()
+
+	-- local hero = self:GetParent():GetOwnerEntity()
+
+	-- print("Wearable Parent => " .. self:GetParent():GetName())
+	-- print("Wearable Parent ILlu? => " .. tostring(self:GetParent():IsIllusion()))
+
+	-- if hero then
+	-- 	print("Wearable for Illusion => " .. tostring(hero:IsIllusion()))
+	-- 	self.illusion = hero:IsIllusion()
+	-- end
 end
+
+function modifier_wearable:GetIsIllusion()
+	return self.illusion
+end
+
+function modifier_wearable:GetModifierIllusionLabel()
+	return self.illusion
+end
+
 
 function modifier_wearable:OnIntervalThink()
 	local cosmetic = self:GetParent()
 	local hero = cosmetic:GetOwnerEntity()
 
-	if hero then
+	-- owner isn't set until after the cosmetic is created, so we need to do a check on the first pass here
+	-- otherwise illusion cosmetics won't render the right colors
+	if hero and (not self.illusion_check_complete) then
 		self.illusion = hero:IsIllusion()
+		if self.illusion then
+			cosmetic:AddNewModifier(cosmetic, nil, "modifier_illusion", {})
+		end
+
+		self.illusion_check_complete = true
 	end
 
 	-- if hero:IsIllusion() then

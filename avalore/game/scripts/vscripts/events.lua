@@ -156,6 +156,14 @@ function CAvaloreGameMode:OnNPCSpawned(event)
 		_G.couriers[spawned_ent:GetPlayerOwnerID()] = event.entindex
 	end
 
+
+	-- make sure illusions and spawns from a player stay in the pregame bubble
+	if spawned_ent:IsOwnedByAnyPlayer() then
+		if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME and GameRules:GetDOTATime(false, true) < Constants.TIME_FLAG_SPAWN then
+			spawned_ent:AddNewModifier(spawned_ent, nil, "modifier_pregame_bubble", nil)
+		end
+	end
+
 end
 
 --initialized with ListenToGameEvent("entity_killed", Dynamic_Wrap(CustomGameMode, "OnEntityKilled"), self)
@@ -1052,10 +1060,11 @@ function CAvaloreGameMode:InitSunWukong(hero, playernum, isIllu)
 		cosmetic:SetParent(unit, nil)
 		cosmetic:SetOwner(unit)
 		cosmetic:FollowEntity(unit, true)
-		if isIllu then
-			cosmetic:MakeIllusion()
-			cosmetic:SetRenderColor(0,0,255)
-		end
+		-- if isIllu then
+		-- 	cosmetic:MakeIllusion()
+		-- 	cosmetic:AddNewModifier(unit, nil, "modifier_illusion", {})
+		-- 	--cosmetic:SetRenderColor(0,0,255)
+		-- end
 		
 		if k > 3 then
 			print("No Draw added to: " .. cosmetic:GetModelName())
