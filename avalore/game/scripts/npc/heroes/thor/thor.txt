@@ -33,6 +33,8 @@
         "Ability16"                 "talent_brute_strength"
         "Ability17"                 "talent_toughness"
 
+        "Ability25"   "" //disable attributes
+
         // Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air

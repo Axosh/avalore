@@ -33,6 +33,8 @@
         "Ability15"                 "talent_lightning_strikes_twice"
         "Ability16"                 "talent_lightning_rod"
         "Ability17"                 "talent_might_of_zeus"
+
+        "Ability25"   "" //disable attributes
         
         // Movement
 		//----------------------------------------------------------------

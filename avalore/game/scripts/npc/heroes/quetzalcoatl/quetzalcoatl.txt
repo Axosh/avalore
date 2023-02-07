@@ -34,6 +34,8 @@
         "Ability15"                 "talent_overgrowth"
         "Ability16"                 "talent_rebirth"
         "Ability17"                 "talent_primal_force"
+
+        "Ability25"   "" //disable attributes
         
 
         // Movement

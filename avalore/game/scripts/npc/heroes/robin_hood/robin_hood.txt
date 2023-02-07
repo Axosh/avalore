@@ -63,6 +63,8 @@
     "Ability16"                 "talent_escape_artist"        
     "Ability17"                 "talent_acrobatic_swordplay"        
 
+    "Ability25"   "" //disable attributes
+
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"

@@ -31,6 +31,8 @@
 		"Ability16"					"talent_limit_break"
 		"Ability17"					"talent_ritual_madness"
 
+		"Ability25"   "" //disable attributes
+
         // Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"2.17"

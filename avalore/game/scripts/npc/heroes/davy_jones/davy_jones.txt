@@ -34,6 +34,8 @@
         "Ability16"       "talent_dead_never_die"
         "Ability17"       "talent_cannons"
 
+        "Ability25"   "" //disable attributes
+
         // Armor
         //----------------------------------------------------------------
         "ArmorPhysical"             "4.2"                 // Physical protection.

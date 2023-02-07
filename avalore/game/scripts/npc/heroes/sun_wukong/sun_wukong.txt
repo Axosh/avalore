@@ -34,6 +34,8 @@
         "Ability16"                 "talent_rez_no_mana"
         "Ability17"                 "talent_multiple_immortality"
 
+        "Ability25"   "" //disable attributes
+
         // Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air

@@ -62,6 +62,8 @@
         "Ability16"                 "talent_class_5_twister"        
         "Ability17"                 "talent_dust_devil"        
 
+        "Ability25"   "" //disable attributes
+
         "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
         "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
         "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
