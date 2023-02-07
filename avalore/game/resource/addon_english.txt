@@ -124,6 +124,16 @@
 		"DOTA_Tooltip_modifier_avalore_track_location"				"Tracked"
 		"DOTA_Tooltip_modifier_avalore_track_location_description"	"Location being revealed to enemies through Fog of War"
 
+		"DOTA_Tooltip_Ability_ability_avalore_attributes"				"Bonus Attributes"
+		"DOTA_Tooltip_Ability_ability_avalore_attributes_description"	"Each Level Grants Additional Attribute and Stat Bonuses"
+		"DOTA_Tooltip_Ability_ability_avalore_attributes_raw_dmg"		"LVL 1 - BONUS DAMAGE:"
+		"DOTA_Tooltip_Ability_ability_avalore_attributes_raw_ms"		"LVL 2 - BONUS MS:"
+		"DOTA_Tooltip_Ability_ability_avalore_attributes_minor_stats"	"LVL 3 - BONUS STATS:"
+		"DOTA_Tooltip_Ability_ability_avalore_attributes_attack_speed"	"LVL 4 - BONUS AS:"
+		"DOTA_Tooltip_Ability_ability_avalore_attributes_mana_regen"	"LVL 5 - BONUS MANA REGEN:"
+		"DOTA_Tooltip_Ability_ability_avalore_attributes_major_stats"	"LVL 6 - BONUS STATS:"
+		//"DOTA_Tooltip_Ability_ability_avalore_attributes_description"	"<font color=\"#c88423\">LVL 1:</font> +{s:raw_dmg} Attack Damage\n<font color=\"#c88423\">LVL 2:</font> +{s:raw_ms} Move Speed\n<font color=\"#c88423\">LVL 3:</font> +{s:minor_stats} STR/INT/AGI\n<font color=\"#c88423\">LVL 4:</font> +{s:attack_speed} Attack Speed\n<font color=\"#c88423\">LVL 5:</font> +{s:mana_regen} Mana Regen\n<font color=\"#c88423\">LVL 6:</font> +{s:major_stats} STR/INT/AGI"
+
 		// ==============================================
 		// ===== Davy Jones =====
 		// ==============================================

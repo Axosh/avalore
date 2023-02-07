@@ -21,8 +21,8 @@
 		"Ability4"					"generic_hidden"			// Ability 4.
 		"Ability5"					"generic_hidden"			// Ability 5.
 		"Ability6"					"ability_thunder_gods_wrath"			// Ability 6 - Extra.
-		 "Ability7"					"ability_eagle_cancel"			// Ability 7 - Extra.
-		// "Ability8"					""			// Ability 8 - Extra.
+		"Ability7"					"ability_eagle_cancel"			// Ability 7 - Extra.
+		"Ability8"					"ability_avalore_attributes"			// Ability 8 - Extra.
 
         //10-17 => Talents
         "Ability10"                 "talent_static_field"

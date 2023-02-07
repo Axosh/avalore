@@ -18,7 +18,7 @@
 		"Ability4"					"generic_hidden"			// Ability 4.
 		"Ability5"					"generic_hidden"			// Ability 5.
 		"Ability6"					"ability_maenadic_frenzy"			// Ability 6 - Extra.
-		// "Ability7"					""			// Ability 7 - Extra.
+		 "Ability7"					"ability_avalore_attributes"			// Ability 7 - Extra.
 		// "Ability8"					""			// Ability 8 - Extra.4
 
 		// Talents

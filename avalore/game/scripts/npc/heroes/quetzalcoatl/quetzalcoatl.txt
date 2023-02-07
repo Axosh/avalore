@@ -23,7 +23,7 @@
 		"Ability5"					"generic_hidden"			
 		"Ability6"					"ability_quetzalcoatls_blessing"			
 		"Ability7"					"ability_fertile_winds_cancel"			
-		//"Ability8"					""			
+		"Ability8"					"ability_avalore_attributes"			
 
         //10-17 => Talents
         "Ability10"                 "talent_culture_hero"

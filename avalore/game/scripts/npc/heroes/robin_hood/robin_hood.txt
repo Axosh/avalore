@@ -50,7 +50,7 @@
     "Ability6"                  "ability_grappling_hook"
 
     // Hidden
-    "Ability7"                  ""
+    "Ability7"                 "ability_avalore_attributes"
     "Ability8"                 "ability_rich_poor"                    
     "Ability9"                 "ability_swashbuckle"   
     // Talents

@@ -14,8 +14,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+        //"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		//"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
         
         // Ability Casting
 		//-------------------------------------------------------------------------------------------------------------

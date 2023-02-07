@@ -45,7 +45,7 @@
         "Ability4"                  "generic_hidden"
         "Ability5"                  "generic_hidden"
         "Ability6"                  "ability_ride_a_twister"
-        //"Ability7"				""	
+        "Ability7"				    "ability_avalore_attributes"	
         //"Ability8"				""	
         //"Ability9"				""	
 
