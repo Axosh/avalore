@@ -98,12 +98,14 @@ function Spawners:Init()
     Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_BOT]:SetForwardVector(Vector(0,1,0)) -- face towards top of map
     for key, value in pairs(Spawners.MercCamps[DOTA_TEAM_GOODGUYS]) do
         value:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
-        local merc_item = value:AddItemByName("item_merc_demi_hero_yeti")
-        merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
-        merc_item = value:AddItemByName("item_merc_super_djinn")
+        -- local merc_item = value:AddItemByName("item_merc_demi_hero_yeti")
+        -- merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
+        local merc_item = value:AddItemByName("item_merc_super_djinn")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
         merc_item = value:AddItemByName("item_merc_skeletons")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
+
+        value:SetControllableByPlayer(0, false)
     end
     Spawners.MercCamps[DOTA_TEAM_BADGUYS] = {}
     Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT] = CreateUnitByName( "mercenary_camp", Vector(7232, 5888, 256), true, nil, nil, DOTA_TEAM_BADGUYS )
@@ -112,9 +114,9 @@ function Spawners:Init()
     Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP]:SetForwardVector(Vector(0,-1,0)) -- face the left of the map
     for key, value in pairs(Spawners.MercCamps[DOTA_TEAM_BADGUYS]) do
         value:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
-        local merc_item = value:AddItemByName("item_merc_demi_hero_yeti")
-        merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
-        merc_item = value:AddItemByName("item_merc_super_djinn")
+        -- local merc_item = value:AddItemByName("item_merc_demi_hero_yeti")
+        -- merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
+        local merc_item = value:AddItemByName("item_merc_super_djinn")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
         merc_item = value:AddItemByName("item_merc_skeletons")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable

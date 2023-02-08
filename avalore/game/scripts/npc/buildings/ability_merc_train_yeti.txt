@@ -4,30 +4,39 @@
     {
         //"BaseClass"             		"ability_datadriven"
         "BaseClass"						"ability_lua"
-		"ScriptFile"                    "buildings/hire_queue.lua"
+		//"ScriptFile"                    "buildings/hire_queue.lua"
+        "ScriptFile"					"items/demi_hero_mercs/ability_merc_train_yeti.lua"
         //"AbilityTextureName"			"factions/mercenary/melee"
-        "AbilityTextureName"			"factions/mercenary/ranged"
+        //"AbilityTextureName"			"factions/mercenary/ranged"
+        "AbilityTextureName"            "factions/mercenary/merc_yeti"
         "MaxLevel" 						"1"
 		"FightRecapLevel"				"1"
 
-		//"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET" // | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"   
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        //"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET" // | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"   
+        //"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_NONE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_NONE"
 		"AbilitySharedWithTeammates"			"1"
 
         //"AbilityGoldCost"				"75"
+
+        "AbilityCastPoint"				"0.0"
         
 
-		"AbilityCooldown"				"0"
+		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"0"
-		"AbilityCastRange"				"0"
+		"AbilityCastRange"				"0" //global?
+        //"AbilityChannelTime"			"2.0"
 
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "gold_cost"				"100"
-            }
-        }
+        // "AbilitySpecial"
+        // {
+        //     "01"
+        //     {
+        //         "var_type"				"FIELD_INTEGER"
+        //         "gold_cost"				"100"
+        //     }
+        // }
     }
 }

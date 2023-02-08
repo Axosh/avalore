@@ -13,7 +13,7 @@ end
 
 -- 
 function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp_index)
-    print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation => " .. tostring(location))
+    --print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation => " .. tostring(location))
     local merc_camp = EntIndexToHScript(merc_camp_index)
     local team = merc_camp:GetCaster():GetTeamNumber()
     local lane = ""
@@ -57,6 +57,7 @@ function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp_index
         end
     end
 
+    print("FAILED")
     return UF_FAIL_INVALID_LOCATION
 end
 

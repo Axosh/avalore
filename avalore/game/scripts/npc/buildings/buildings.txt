@@ -27,6 +27,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"AbilityLayout"				"6"
+		"Ability1"						"ability_merc_train_yeti"
 		// "Ability1"					"avalore_merc_train_melee_creep"
 		// "Ability2"					"avalore_merc_train_ranged_creep"
 		// "Ability3"					"avalore_merc_train_hulk_creep"

@@ -1,9 +1,11 @@
 // Buildings
 
-#base "buildings/ability_merc_train_melee_creep.txt"
-#base "buildings/ability_merc_train_ranged_creep.txt"
-#base "buildings/ability_merc_train_hulk_creep.txt"
-#base "buildings/ability_merc_train_flying_creep.txt"
+// #base "buildings/ability_merc_train_melee_creep.txt"
+// #base "buildings/ability_merc_train_ranged_creep.txt"
+// #base "buildings/ability_merc_train_hulk_creep.txt"
+// #base "buildings/ability_merc_train_flying_creep.txt"
+
+#base "buildings/ability_merc_train_yeti.txt"
 
 // Dota Heroes File
 
