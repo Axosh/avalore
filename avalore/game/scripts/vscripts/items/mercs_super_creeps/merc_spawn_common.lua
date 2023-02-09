@@ -57,10 +57,14 @@ function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp_index
         end
     end
 
-    print("FAILED")
+    --print("FAILED")
     return UF_FAIL_INVALID_LOCATION
 end
 
+-- ========================================================================
+-- IMPORTANT!!!!!!!
+-- UPDATE CAvaloreGameMode:OrderFilter(keys) with new mercs
+-- ========================================================================
 function MercSpawnCommon:Merc_OnSpellStart(item, unit, quantity)
     if not IsServer() then return end
     print("Merc_OnSpellStart => " .. item:GetName() .. ", " .. unit .. ", " .. tostring(quantity))

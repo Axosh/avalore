@@ -33,10 +33,13 @@
     min-width: 40px;
     color: white;
     background-color: black;
+    border: 2px solid #c88423;
 	text-shadow: 2px 2px 2px #7b612b;
 	color: gradient( linear, 0% 0%, 0% 100%, from( #c88423 ), color-stop( 0.25, #c88423 ), color-stop( 0.5, #fffb84 ), color-stop( 0.75, #c88423 ), to( #9a6717 ) );
-    text-overflow: clip;
+    text-overflow: shrink;
     visibility: visible;
+    z-index: 0;
+    transition: position, transform
 }
 
 #DireContainer
@@ -60,10 +63,13 @@
     min-width: 40px;
     color: white;
     background-color: black;
+    border: 2px solid #c88423;
 	text-shadow: 2px 2px 2px #7b612b;
 	color: gradient( linear, 0% 0%, 0% 100%, from( #c88423 ), color-stop( 0.25, #c88423 ), color-stop( 0.5, #fffb84 ), color-stop( 0.75, #c88423 ), to( #9a6717 ) );
-    text-overflow: clip;
+    text-overflow: shrink;
     visibility: visible;
+    z-index: 0;
+    transition: position, transform
 }
 
 #time_spacer

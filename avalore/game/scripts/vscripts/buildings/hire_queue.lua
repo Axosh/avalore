@@ -83,85 +83,106 @@ function HireUnit(unit, team, gold_cost, merc_camp_building)
     PrintTable(Spawners.MercQueue[team][lane])
 end
 
--- ==================================================================
--- TRAIN MELEE
--- ==================================================================
+-- -- ==================================================================
+-- -- TRAIN YETI
+-- -- ==================================================================
 
-avalore_merc_train_melee_creep = class({})
+-- ability_merc_train_yeti = class({})
 
-function avalore_merc_train_melee_creep:OnSpellStart()
-    if not IsServer() then return end
-    print("HireQueue:OnSpellStart()")
-    local caster = self:GetCaster()
-    -- if caster then
-    --     print(caster:GetPlayer())
-    -- end
-    local team = caster:GetTeam()
-    local gold_cost = self:GetSpecialValueFor("gold_cost")
-    local unit = "npc_avalore_merc_melee_"
+-- function ability_merc_train_yeti:OnSpellStart()
+--     if not IsServer() then return end
+--     print("HireQueue:OnSpellStart()")
+--     local caster = self:GetCaster()
+--     -- if caster then
+--     --     print(caster:GetPlayer())
+--     -- end
+--     local team = caster:GetTeam()
+--     local gold_cost = self:GetSpecialValueFor("gold_cost")
+--     local unit = "npc_avalore_merc_demi_hero_yeti"
 
-   HireUnit(unit, team, gold_cost, self:GetOwner())
-end
+--    HireUnit(unit, team, gold_cost, self:GetOwner())
+-- end
 
--- ==================================================================
--- TRAIN RANGED
--- ==================================================================
 
-avalore_merc_train_ranged_creep = class({})
+-- -- ==================================================================
+-- -- TRAIN MELEE
+-- -- ==================================================================
 
-function avalore_merc_train_ranged_creep:OnSpellStart()
-    if not IsServer() then return end
-    print("HireQueue:OnSpellStart()")
-    local caster = self:GetCaster()
-    -- if caster then
-    --     print(caster:GetPlayer())
-    -- end
-    local team = caster:GetTeam()
-    local gold_cost = self:GetSpecialValueFor("gold_cost")
-    local unit = "npc_avalore_merc_ranged_"
+-- avalore_merc_train_melee_creep = class({})
 
-   HireUnit(unit, team, gold_cost, self:GetOwner())
-end
+-- function avalore_merc_train_melee_creep:OnSpellStart()
+--     if not IsServer() then return end
+--     print("HireQueue:OnSpellStart()")
+--     local caster = self:GetCaster()
+--     -- if caster then
+--     --     print(caster:GetPlayer())
+--     -- end
+--     local team = caster:GetTeam()
+--     local gold_cost = self:GetSpecialValueFor("gold_cost")
+--     local unit = "npc_avalore_merc_melee_"
 
--- ==================================================================
--- TRAIN HULK
--- ==================================================================
+--    HireUnit(unit, team, gold_cost, self:GetOwner())
+-- end
 
-avalore_merc_train_hulk_creep = class({})
+-- -- ==================================================================
+-- -- TRAIN RANGED
+-- -- ==================================================================
 
-function avalore_merc_train_hulk_creep:OnSpellStart()
-    if not IsServer() then return end
-    print("HireQueue:OnSpellStart()")
-    local caster = self:GetCaster()
-    -- if caster then
-    --     print(caster:GetPlayer())
-    -- end
-    local team = caster:GetTeam()
-    local gold_cost = self:GetSpecialValueFor("gold_cost")
-    local unit = "npc_avalore_merc_hulk_"
+-- avalore_merc_train_ranged_creep = class({})
 
-   HireUnit(unit, team, gold_cost, self:GetOwner())
-end
+-- function avalore_merc_train_ranged_creep:OnSpellStart()
+--     if not IsServer() then return end
+--     print("HireQueue:OnSpellStart()")
+--     local caster = self:GetCaster()
+--     -- if caster then
+--     --     print(caster:GetPlayer())
+--     -- end
+--     local team = caster:GetTeam()
+--     local gold_cost = self:GetSpecialValueFor("gold_cost")
+--     local unit = "npc_avalore_merc_ranged_"
 
--- ==================================================================
--- TRAIN Flying
--- ==================================================================
+--    HireUnit(unit, team, gold_cost, self:GetOwner())
+-- end
 
-avalore_merc_train_flying_creep = class({})
+-- -- ==================================================================
+-- -- TRAIN HULK
+-- -- ==================================================================
 
-function avalore_merc_train_flying_creep:OnSpellStart()
-    if not IsServer() then return end
+-- avalore_merc_train_hulk_creep = class({})
+
+-- function avalore_merc_train_hulk_creep:OnSpellStart()
+--     if not IsServer() then return end
+--     print("HireQueue:OnSpellStart()")
+--     local caster = self:GetCaster()
+--     -- if caster then
+--     --     print(caster:GetPlayer())
+--     -- end
+--     local team = caster:GetTeam()
+--     local gold_cost = self:GetSpecialValueFor("gold_cost")
+--     local unit = "npc_avalore_merc_hulk_"
+
+--    HireUnit(unit, team, gold_cost, self:GetOwner())
+-- end
+
+-- -- ==================================================================
+-- -- TRAIN Flying
+-- -- ==================================================================
+
+-- avalore_merc_train_flying_creep = class({})
+
+-- function avalore_merc_train_flying_creep:OnSpellStart()
+--     if not IsServer() then return end
     
-    local caster = self:GetCaster()
-    -- if caster then
-    --     print(caster:GetPlayer())
-    -- end
-    local team = caster:GetTeam()
-    local gold_cost = self:GetSpecialValueFor("gold_cost")
-    local unit = "npc_avalore_merc_flying_"
+--     local caster = self:GetCaster()
+--     -- if caster then
+--     --     print(caster:GetPlayer())
+--     -- end
+--     local team = caster:GetTeam()
+--     local gold_cost = self:GetSpecialValueFor("gold_cost")
+--     local unit = "npc_avalore_merc_flying_"
 
-   HireUnit(unit, team, gold_cost, self:GetOwner())
-end
+--    HireUnit(unit, team, gold_cost, self:GetOwner())
+-- end
 
 -- ==================================================================
 -- OTHER

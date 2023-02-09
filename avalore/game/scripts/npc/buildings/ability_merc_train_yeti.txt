@@ -12,12 +12,16 @@
         "MaxLevel" 						"1"
 		"FightRecapLevel"				"1"
 
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		//"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
         //"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET" // | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"   
-        //"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_NONE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_NONE"
+        "AbilityBehavior"                                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "AbilityUnitTargetType"                                 "DOTA_UNIT_TARGET_NONE"
+        "AbilityUnitTargetTeam"                                 "DOTA_UNIT_TARGET_TEAM_NONE"
+        //"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT"
+        //"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+        //"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        // "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_NONE"
+        // "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_NONE"
 		"AbilitySharedWithTeammates"			"1"
 
         //"AbilityGoldCost"				"75"
@@ -30,13 +34,13 @@
 		"AbilityCastRange"				"0" //global?
         //"AbilityChannelTime"			"2.0"
 
-        // "AbilitySpecial"
-        // {
-        //     "01"
-        //     {
-        //         "var_type"				"FIELD_INTEGER"
-        //         "gold_cost"				"100"
-        //     }
-        // }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "gold_cost"				"100"
+            }
+        }
     }
 }

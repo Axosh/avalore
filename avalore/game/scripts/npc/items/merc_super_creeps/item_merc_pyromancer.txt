@@ -1,7 +1,6 @@
 "DOTAItems"
 {
-    //models/heroes/brewmaster/brewmaster_firespirit.vmdl
-    "item_merc_skeletons"
+    "item_merc_pyromancer"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
@@ -13,7 +12,7 @@
 
         "AbilityUnitTargetType"                                 "DOTA_UNIT_TARGET_NONE"
         "AbilityUnitTargetTeam"                                 "DOTA_UNIT_TARGET_TEAM_NONE"
-        "AbilityTextureName"                                    "merc_demi_hero/item_merc_skeletons"
+        "AbilityTextureName"                                    "merc_demi_hero/pyromancer"
 
         // Stats
         "AbilityCastRange"				"0"

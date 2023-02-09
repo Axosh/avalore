@@ -30,15 +30,20 @@ ability_merc_train_yeti = class({})
 --     return MercSpawnCommon:Merc_GetBehavior()
 -- end
 
+-- function ability_merc_train_yeti:OnAbilityPhaseStart()
+--     print("TEST")
+--     return true
+-- end
+
 function ability_merc_train_yeti:CastFilterResultLocation(location)
     -- print("test")
-    --return MercSpawnCommon:Merc_CastFilterResultLocation(location, self:GetEntityIndex())
-    return UF_SUCCESS
+    return MercSpawnCommon:Merc_CastFilterResultLocation(location, self:GetEntityIndex())
+    --return UF_SUCCESS
 end
 
 function ability_merc_train_yeti:OnSpellStart()
     print("ability_merc_train_yeti:OnSpellStart()")
-    MercSpawnCommon:Merc_OnSpellStart(self:GetOwner(), "npc_avalore_merc_demi_hero_yeti", 1)
+    MercSpawnCommon:Merc_OnSpellStart(self, "npc_avalore_merc_demi_hero_yeti", 1)
 end
 
 -- function ability_merc_train_yeti:AbilitySharedWithTeammates()

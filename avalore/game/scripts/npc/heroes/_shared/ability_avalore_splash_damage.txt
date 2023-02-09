@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+    "ability_avalore_splash_damage"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					"ability_lua"
+        "ScriptFile"				"heroes/_shared/ability_avalore_splash_damage.lua"
+        "AbilityTextureName"	    "ability_avalore_splash_damage"
+        "FightRecapLevel"			"1"
+		"MaxLevel"	                "1"
+
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "AbilitySpecial"
+		{
+            "01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"splash_radius"			"300"
+			}
+            "02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"splash_damage_percent"		"75"
+			}
+        }
+    }
+}
