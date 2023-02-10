@@ -30,6 +30,20 @@ function TroopAIThink(self)
 		return 0.1
 	end
 
+    -- adding in some attack deteciton because apparently they don't see towers as targets
+    -- oof, nm - this was because towers are invuln before first wave spawns
+    -- local hVisibleEnemies = GetVisibleEnemiesNearby( thisEntity, nAggroRange )
+    -- if #hVisibleEnemies > 0 then
+    --     local hRandomEnemy = hVisibleEnemies[ RandomInt( 1, #hVisibleEnemies ) ]
+    --     ExecuteOrderFromTable({
+    --         UnitIndex = thisEntity:entindex(),
+    --         OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+    --         Position = hRandomEnemy:GetOrigin(),
+    --         AbilityIndex = nil,
+    --         Queue = false,
+    --     })
+    -- end
+
     local waypoint = Entities:FindByName(self.waypoints[self.currWaypoint])
     -- only update next waypoint if we're not on the last one
     if self.currWaypoint < 2 then

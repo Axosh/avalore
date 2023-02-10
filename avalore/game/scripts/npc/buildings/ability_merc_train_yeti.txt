@@ -9,7 +9,7 @@
         //"AbilityTextureName"			"factions/mercenary/melee"
         //"AbilityTextureName"			"factions/mercenary/ranged"
         "AbilityTextureName"            "factions/mercenary/merc_yeti"
-        "MaxLevel" 						"1"
+        "MaxLevel" 						"5"
 		"FightRecapLevel"				"1"
 
 		//"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"

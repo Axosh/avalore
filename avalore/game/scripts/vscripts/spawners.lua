@@ -124,6 +124,11 @@ function Spawners:Init()
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
     end
 
+    print("Spawning Arcaneries")
+    Spawners.MercCamps[DOTA_TEAM_GOODGUYS]["Arcanery"] = CreateUnitByName( "building_arcanery", Vector(-6000, -6000, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.MercCamps[DOTA_TEAM_GOODGUYS]["Arcanery"]:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS]["Arcanery"] = CreateUnitByName( "building_arcanery", Vector(6000, 6000, 256), true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS]["Arcanery"]:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
 
     --self:InitFlags()
     print("Spawners Initialized")

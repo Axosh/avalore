@@ -2,6 +2,7 @@ require("references")
 require("spawners")
 require(REQ_LIB_TIMERS)
 require(REQ_CONSTANTS)
+require("score")
 
 if MercSpawnCommon == nil then
     MercSpawnCommon = {}
@@ -92,6 +93,25 @@ function MercSpawnCommon:Merc_OnSpellStart(item, unit, quantity)
 
     -- 2) validate enough gold 
     --    and deal with gold and stuff later for this proof of concept
+    local gold_cost = item:GetSpecialValueFor("gold_cost")
+    local team_gold = {}
+    if team == DOTA_TEAM_GOODGUYS then
+        if not (Score.RadiSharedGoldCurr >= gold_cost) then
+            print("[MercSpawnCommon:Merc_OnSpellStart()] Not enough gold")
+            return
+        else
+            Score.RadiSharedGoldCurr = Score.RadiSharedGoldCurr - gold_cost
+            team_gold.gold = Score.RadiSharedGoldCurr
+        end
+    else
+        if not (Score.DireSharedGoldCurr >= gold_cost) then
+            print("[MercSpawnCommon:Merc_OnSpellStart()] Not enough gold")
+        else
+            Score.DireSharedGoldCurr = Score.DireSharedGoldCurr - gold_cost
+            team_gold.gold = Score.DireSharedGoldCurr
+        end
+    end
+    CustomGameEventManager:Send_ServerToTeam(team, "update_team_gold", team_gold)
 
     -- 3) create unit after a short spawn-in period
     local particle_cast = "particles/units/heroes/hero_lycan/lycan_shapeshift_cast.vpcf"
@@ -126,6 +146,15 @@ function MercSpawnCommon:Merc_OnSpellStart(item, unit, quantity)
     end
     print("init target => " .. init_target)
 
+    -- Handle Demi Hero Levels
+    if string.find(unit, "demi_hero") then
+        DemiHeroManager:HireDemiHero(team, unit)
+        if item:GetLevel() < item:GetMaxLevel() then
+            item:SetLevel(item:GetLevel() + 1)
+        end
+    end
+
+    -- SPAWNING
     local spawns = {}
     for i = quantity,1,-1 do      
         print(tostring(i) .. ". Making " .. unit)

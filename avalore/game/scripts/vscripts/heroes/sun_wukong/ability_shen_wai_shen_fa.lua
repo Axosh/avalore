@@ -1,8 +1,8 @@
 -- require("references")
 -- require("events")
--- if IsServer() then
---     require(REQ_LIB_COSMETICS)
--- end
+if IsServer() then
+    require(REQ_LIB_COSMETICS)
+end
 
 ability_shen_wai_shen_fa = class({})
 
@@ -49,7 +49,9 @@ function ability_shen_wai_shen_fa:OnSpellStart()
         for _, illusion in pairs(illusions) do
             -- Vanilla modifier to give the illusions that Terrorblade illusion texture
             --illusion:AddNewModifier(self:GetCaster(), self, "modifier_terrorblade_conjureimage", {})
+            CosmeticLib:RemoveParticlesUnit(illusion)
             CAvaloreGameMode:RemoveAll( illusion )
+            --CosmeticLib:RemoveParticles(PlayerResource:GetPlayer(playernum))
             CAvaloreGameMode:InitSunWukong(illusion, nil, true)
 
             illusion:StartGesture(ACT_DOTA_CAST_ABILITY_3_END)

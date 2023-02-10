@@ -100,7 +100,7 @@ function modifier_pregame_bubble:GetModifierMoveSpeed_Limit(kv)
 		-- facing and touching wall
 		if over_walls then
 			limit = self.min_speed
-			self:RemoveMotions()
+			--self:RemoveMotions()
 		else
 			-- interpolate
 			limit = (wall_distance/self.width)*self.max_min + self.min_speed

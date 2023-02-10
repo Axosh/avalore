@@ -6,7 +6,8 @@
 		//
 		"BaseClass"					"npc_dota_creature"
 		//"BaseClass"					"npc_dota_creep_lane"
-		"Model"						"models/heroes/brewmaster/brewmaster_firespirit.vmdl"
+		//"Model"						"models/heroes/brewmaster/brewmaster_firespirit.vmdl"
+        "Model"                     "models/heroes/lina/lina.vmdl"
 		//"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
 		"SoundSet"					"Creep_Bad_Range"
 		//"ModelScale" 				"0.9"
@@ -16,6 +17,12 @@
 
 		// "AI"
         "vscripts"                  "items/mercs_super_creeps/ai/ai_merc_troop.lua"
+
+        "precache"
+        {
+            //"particle"      "particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf"
+            "particle" "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+        }
 		
 		// Abilities
 		//----------------------------------------------------------------
@@ -36,7 +43,7 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"100"		// Damage range min.
 		"AttackDamageMax"			"100"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
@@ -44,8 +51,9 @@
 		"AttackAnimationPoint"		"0.467"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"600"		// Range within a target can be attacked.
-		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			""			// Speed of projectile.
+		"ProjectileModel"			"particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf"			// Particle system model for projectile.
+        //"ProjectileModel"           "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+		"ProjectileSpeed"			"900"			// Speed of projectile.
 
 		// Attributes
 		//----------------------------------------------------------------
@@ -93,5 +101,18 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+
+        // Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+            "AttachWearables"
+            {
+                "Wearable1" { "ItemDef" "8990" } // Headress of the Divine Flame (models/items/lina/esl_divine_flame_head/esl_divine_flame_head.vmdl)
+                "Wearable2" { "ItemDef" "12217" } // The Scarlet Flare Belt (models/items/lina/the_scarlet_flare_belt/the_scarlet_flare_belt.vmdl)
+                "Wearable3" { "ItemDef" "5270" } // Sleeves of the Scorching Princess (models/items/lina/sleeves_of_the_scorching_princess/sleeves_of_the_scorching_princess.vmdl)
+            }
+        }
     }
 }

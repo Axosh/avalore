@@ -484,13 +484,28 @@ function CosmeticLib:RemoveFromSlot( unit, slot_name )
 	print( "[CosmeticLib:Remove] Error: Invalid input." )
 end
 
+function CosmeticLib:RemoveParticlesUnit(unit)
+	if CosmeticLib:_Identify( unit )then
+		--print( "[CosmeticLib] Current cosmetics: " )
+		for item_slot, handle_table in pairs( unit._cosmeticlib_wearables_slots ) do
+			--print( "[CosmeticLib] Item ID: " .. handle_table[ "item_id" ] .. "\tSlot: " .. item_slot )
+			wearable = handle_table["handle"]
+			--print(wearable:GetModelName())
+			--wearable:RemoveEffects(EF_NODRAW)
+			if wearable then
+				wearable:RemoveSelf()
+			end
+		end
+	end
+end
+
 function CosmeticLib:RemoveParticles(player)
 	local hero = player:GetAssignedHero()
 	if hero and hero:IsRealHero() then
 		if CosmeticLib:_Identify( hero )then
 			--print( "[CosmeticLib] Current cosmetics: " )
 			for item_slot, handle_table in pairs( hero._cosmeticlib_wearables_slots ) do
-				--print( "[CosmeticLib] Item ID: " .. handle_table[ "item_id" ] .. "\tSlot: " .. item_slot )
+				print( "[CosmeticLib] Item ID: " .. handle_table[ "item_id" ] .. "\tSlot: " .. item_slot )
 				wearable = handle_table["handle"]
 				--print(wearable:GetModelName())
 				--wearable:RemoveEffects(EF_NODRAW)
@@ -554,6 +569,7 @@ function CosmeticLib:_Replace( handle_table, new_item_id )
 	print("CosmeticLib:_Replace( handle_table, new_item_id )")
 	--PrintTable(handle_table)
 	local item = CosmeticLib._AllItemsByID[ "" .. new_item_id ]
+	if not handle_table[ "handle" ] or handle_table[ "handle" ]:IsNull() then return end
 	handle_table[ "handle" ]:SetModel( item[ "model_player" ] )
 	handle_table[ "item_id" ] = new_item_id
 	

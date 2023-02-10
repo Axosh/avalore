@@ -15,6 +15,13 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
+		"precache"
+		{
+			//"particle" "particles/units/heroes/hero_lina/lina_spell_light_strike_array_glow_burnmark_glow.vpcf"
+			//"particle"	"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+			"particle"		"particles/neutral_fx/black_dragon_fireball.vpcf"
+		}
+
         "AbilitySpecial"
 		{
             "01"

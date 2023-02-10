@@ -93,4 +93,100 @@
 		"AttackType"				"normal"
 		"ArmorType"					"fortified"
 	}
+
+	"building_arcanery"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		//"Model"						"models/props/landing_page/armadillo/armadillo_house.vmdl"
+		//"ModelScale"				".25"
+		//"Model"						"models/props_structures/tower_good4.vmdl"
+		"Model"						"models/props_structures/tower_upgrade/tower_upgrade.vmdl"
+		"ModelScale"				"1"
+		"Level"						"20"
+		"HealthBarOffset"			"140"
+		//"HasInventory"				"1"
+		"HasInventory"				"0"	// eventually we'll probably need one when we implement demi-hero purchasing
+		"ConsideredHero"			"1"
+
+		//"RenderTeamColor"			"1"
+		"HasQueue"					"1"
+
+		// Research
+		// "Upgrades"
+		// {
+		// 	"" 	""
+		// }
+		
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"						""
+		// "Ability1"					"avalore_merc_train_melee_creep"
+		// "Ability2"					"avalore_merc_train_ranged_creep"
+		// "Ability3"					"avalore_merc_train_hulk_creep"
+		// "Ability4"					"avalore_merc_train_flying_creep"
+		// "Ability5"					"avalore_hire_merc_2"
+		// "Ability6"					"avalore_hire_merc_3"
+		
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"
+		"MagicalResistance"			"0"
+		
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyGoldMin"				"500"
+		"BountyGoldMax"				"500"
+		
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_BARRACKS"
+		"RingRadius"				"200"
+		"CollisionSize"				"144"
+
+		// Building Size
+		//----------------------------------------------------------------
+		"ConstructionSize"			"5"
+		"BlockPathingSize"			"3"
+		
+		// Movement
+		//----------------------------------------------------------------
+		//"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"	// Needed to cast Point abilities
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"4000"
+		"StatusHealthRegen"			"2"
+		"HealthBarOffset"			"300"
+
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"900"
+		"VisionNighttimeRange"		"600"
+
+		// Team
+		//----------------------------------------------------------------
+		//"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+		// Attack Damage types
+		//----------------------------------------------------------------
+		"AttackType"				"normal"
+		"ArmorType"					"fortified"
+	}
+
 }
