@@ -1,0 +1,59 @@
+"DOTAAbilities"
+{
+    "ability_arcanery_fireball"
+    {
+        "BaseClass"						"ability_lua"
+        "ScriptFile"                "buildings/ability_arcanery_fireball.lua"
+        "AbilityTextureName"        "arcanery_fireball"
+        "MaxLevel"                  "5"
+        "FightRecapLevel"           "1"
+
+        "AbilityBehavior"                                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "AbilityUnitTargetType"                                 "DOTA_UNIT_TARGET_NONE"
+        "AbilityUnitTargetTeam"                                 "DOTA_UNIT_TARGET_TEAM_NONE"
+
+        "AbilitySharedWithTeammates"			"1"
+
+        "AbilityCastPoint"                      "0.0"
+
+        "AbilityCooldown"                       "30"
+        "AbilityManaCost"                       "100"
+        "AbilityCastRange"                      "0" //global
+
+        "AvaloreDamageType"                     "10" // AVALORE_DAMAGE_TYPE_FIRE
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"      "FIELD_INTEGER"
+                "gold_cost"     "100"
+            }
+            "02"
+            {
+                "var_type"      "FIELD_INTEGER"
+                "projectile_speed" "1500"
+            }
+            "03"
+            {
+                "var_type" "FIELD_INTEGER"
+                "damage"    "400 500 600 700 800"
+            }
+            "04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"vision"			"200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"knockback_duration"	"2"
+			}
+            "06"
+			{
+				"var_type"			        "FIELD_FLOAT"
+				"knockback_distance_max"	"450"
+			}
+        }
+    }
+}

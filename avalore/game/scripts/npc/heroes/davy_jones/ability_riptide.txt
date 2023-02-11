@@ -85,7 +85,7 @@
 				"var_type"			"FIELD_INTEGER"
 				"vision"			"200"
 			}
-			"07"
+			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"knockback_duration"	"2"
