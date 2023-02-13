@@ -134,6 +134,10 @@
 		"DOTA_Tooltip_Ability_ability_avalore_attributes_major_stats"	"LVL 6 - BONUS STATS:"
 		//"DOTA_Tooltip_Ability_ability_avalore_attributes_description"	"<font color=\"#c88423\">LVL 1:</font> +{s:raw_dmg} Attack Damage\n<font color=\"#c88423\">LVL 2:</font> +{s:raw_ms} Move Speed\n<font color=\"#c88423\">LVL 3:</font> +{s:minor_stats} STR/INT/AGI\n<font color=\"#c88423\">LVL 4:</font> +{s:attack_speed} Attack Speed\n<font color=\"#c88423\">LVL 5:</font> +{s:mana_regen} Mana Regen\n<font color=\"#c88423\">LVL 6:</font> +{s:major_stats} STR/INT/AGI"
 
+
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball"			"Fireball"
+		
+
 		// ==============================================
 		// ===== Davy Jones =====
 		// ==============================================
