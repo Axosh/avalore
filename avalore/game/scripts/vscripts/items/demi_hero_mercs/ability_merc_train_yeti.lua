@@ -5,7 +5,7 @@ require(REQ_LIB_TIMERS)
 
 ability_merc_train_yeti = class({})
 
--- function ability_merc_train_yeti:OnSpellStart()
+-- function _train_yeti:OnSpellStart()
 --     if not IsServer() then return end
     
 --     local caster = self:GetCaster()

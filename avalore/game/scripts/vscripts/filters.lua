@@ -39,7 +39,8 @@ function CAvaloreGameMode:OrderFilter(keys)
 	 	if (	ability:GetName() == "item_merc_super_djinn" 
 			or 	ability:GetName() == "item_merc_skeletons" 
 			or 	ability:GetName() == "item_merc_pyromancer" 
-			or 	ability:GetName() == "ability_merc_train_yeti" 
+			or 	ability:GetName() == "ability_merc_train_yeti"
+			or 	ability:GetName() == "ability_arcanery_fireball"
 		) then
 			--ability = EntIndexToHScript(keys["entindex_ability"])
 			--print(ability:GetName())

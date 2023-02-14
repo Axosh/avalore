@@ -6,6 +6,7 @@
 // #base "buildings/ability_merc_train_flying_creep.txt"
 
 #base "buildings/ability_merc_train_yeti.txt"
+#base "buildings/ability_arcanery_fireball.txt"
 
 // Dota Heroes File
 

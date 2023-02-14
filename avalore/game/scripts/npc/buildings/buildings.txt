@@ -122,7 +122,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"AbilityLayout"				"6"
-		"Ability1"						""
+		"Ability1"						"ability_arcanery_fireball"
 		// "Ability1"					"avalore_merc_train_melee_creep"
 		// "Ability2"					"avalore_merc_train_ranged_creep"
 		// "Ability3"					"avalore_merc_train_hulk_creep"
@@ -170,8 +170,8 @@
 		"StatusHealthRegen"			"2"
 		"HealthBarOffset"			"300"
 
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
+		"StatusMana"				"500"
+		"StatusManaRegen"			"2"
 		
 		// Vision
 		//----------------------------------------------------------------
