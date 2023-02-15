@@ -21,13 +21,27 @@ function ability_arcanery_fireball:OnSpellStart()
 	-- 	self:GetCaster():SetCursorPosition(self:GetCursorPosition() + self:GetCaster():GetForwardVector())
 	-- end
 
-    local fireball_target = CreateModifierThinker(self:GetCaster(), self, nil, {
-            duration = GameRules:GetGameTime() + 20,
-            --duration		= FrameTime() -- Don't really need these things to be existing at all except to be a target to go towards
-        },
-        target, self:GetCaster():GetTeamNumber(), false)
+    local fireball_target = CreateModifierThinker(	self:GetCaster(), --player source
+													self, --ability
+													nil, --modifier name
+													-- param table
+													{
+            											--duration = GameRules:GetGameTime() + 20,
+            											duration		= FrameTime() -- Don't really need these things to be existing at all except to be a target to go towards
+													},
+													target, --origin
+													self:GetCaster():GetTeamNumber(), --team
+													false --phantom blocker
+												);
 
-    local fireball_dummy = CreateModifierThinker(self:GetCaster(), self, nil, {},	self:GetCaster():GetAbsOrigin(), self:GetCaster():GetTeamNumber(), false)
+    local fireball_dummy = CreateModifierThinker(  	self:GetCaster(),
+													self,
+													nil,
+													{},
+													self:GetCaster():GetAbsOrigin(),
+													self:GetCaster():GetTeamNumber(),
+													false
+												)
 
     local fireball_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_snapfire/snapfire_lizard_blobs_arced.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl(fireball_particle, 0, self:GetCaster():GetAttachmentOrigin(self:GetCaster():ScriptLookupAttachment("attach_rocket")))
@@ -39,7 +53,7 @@ function ability_arcanery_fireball:OnSpellStart()
             Target 				= fireball_target,
             Source 				= self:GetCaster(),
             Ability 			= self,
-            iMoveSpeed			= self:GetTalentSpecialValueFor("speed"),
+            iMoveSpeed			= self:GetTalentSpecialValueFor("projectile_speed"),
             --vSourceLoc 			= self:GetCaster():GetAttachmentOrigin(self:GetCaster():ScriptLookupAttachment("attach_rocket")),
             vSourceLoc          = self:GetCaster():GetOrigin(),
             bDrawsOnMinimap 	= true,
@@ -52,7 +66,17 @@ function ability_arcanery_fireball:OnSpellStart()
             iVisionRadius 		= self:GetSpecialValueFor("vision"),
             iVisionTeamNumber 	= self:GetCaster():GetTeamNumber(),
 
-            ExtraData = {fireball_dummy = fireball_dummy:entindex(), fireball_particle = fireball_particle, x = self:GetCaster():GetAbsOrigin().x, y = self:GetCaster():GetAbsOrigin().y, z = self:GetCaster():GetAbsOrigin().z}
+			-- iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			-- iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+			-- iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+
+            ExtraData = 
+						{ fireball_dummy = fireball_dummy:entindex(),
+						  fireball_particle = fireball_particle,
+						  x = self:GetCaster():GetAbsOrigin().x,
+						  y = self:GetCaster():GetAbsOrigin().y,
+						  z = self:GetCaster():GetAbsOrigin().z
+						}
         }
 
     self:GetCaster():EmitSound("Hero_Snapfire.MortimerBlob.Launch")		
@@ -61,14 +85,18 @@ function ability_arcanery_fireball:OnSpellStart()
     --     fireball_dummy:EmitSound("Hero_Rattletrap.Rocket_Flare.Travel")
     -- end		
 
-    ProjectileManager:CreateTrackingProjectile(fireball)
+    self.projectile = ProjectileManager:CreateTrackingProjectile(fireball)
+	self.target = target
 
     -- Just in case this thing isn't destroying itself
-    --fireball_target:RemoveSelf()
+    fireball_target:RemoveSelf()
 end
 
 function ability_arcanery_fireball:OnProjectileThink_ExtraData(vLocation, ExtraData)
-	EntIndexToHScript(ExtraData.fireball_dummy):SetAbsOrigin(vLocation)
+	local unit = EntIndexToHScript(ExtraData.fireball_dummy)
+	local location_to_ground_level = GetGroundPosition(vLocation, unit)
+	unit:SetAbsOrigin(location_to_ground_level)
+	--EntIndexToHScript(ExtraData.fireball_dummy):SetAbsOrigin(vLocation)
 end
 
 -- Projectile has collided with a given target or reached its destination. If 'true` is returned, projectile would be destroyed.
@@ -92,26 +120,31 @@ function ability_arcanery_fireball:OnProjectileHit_ExtraData(hTarget, vLocation,
 	ParticleManager:SetParticleControl( effect_cast, 0, vLocation )
 	ParticleManager:SetParticleControl( effect_cast, 1, vLocation )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
+
+	print("Radi => " .. tostring(self:GetSpecialValueFor("radius")))
 	
-	local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), vLocation, nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), 
+										vLocation, 
+										nil, 
+										self:GetSpecialValueFor("radius"), 
+										DOTA_UNIT_TARGET_TEAM_ENEMY, 
+										DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 
+										DOTA_UNIT_TARGET_FLAG_NONE, 
+										FIND_ANY_ORDER, false)
 	
-	local damage = self:GetAbilityDamage()
-	
-	-- Retrieve where the Rocket Flare was originally fired from to check for System Critical IMBAfication
-	local cast_position = Vector(ExtraData.x, ExtraData.y, ExtraData.z)
+	local damage = self:GetSpecialValueFor( "damage" )
+	print("damage => " .. tostring(damage))
 	
 	for _, enemy in pairs(enemies) do
+		print("Hit Enemy " .. enemy:GetName())
 		-- Standard damage
 		local fireball_damage		= damage
-		
-		local travel_distance	= (enemy:GetAbsOrigin() - cast_position):Length2D()
-		local target_distance	= (enemy:GetAbsOrigin() - vLocation):Length2D()
 
 		local damageTable = {
 			victim 			= enemy,
 			damage 			= fireball_damage,
 			damage_type		= self:GetAbilityDamageType(),
-			damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
+			--damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
 			attacker 		= self:GetCaster(),
 			ability 		= self
 		}

@@ -20,6 +20,7 @@
         "AbilityManaCost"                       "100"
         "AbilityCastRange"                      "0" //global
 
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
         "AvaloreDamageType"                     "10" // AVALORE_DAMAGE_TYPE_FIRE
 
         "AbilitySpecial"
@@ -57,7 +58,7 @@
             "07"
             {
                 "var_type"          "FIELD_INTEGER"
-                "raidus"            "400"
+                "radius"            "400"
             }
         }
     }

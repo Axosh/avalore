@@ -39,7 +39,8 @@
 
 	// ERRORS
 	"multi_flag"									"You may only carry one flag at a time"
-	"error_not_enough_gold_radiant"					"Not enough Radiant shared gold to hire mercenary"
+	//"error_not_enough_gold_radiant"					"Not enough Radiant shared gold to hire mercenary"
+	"error_not_enough_team_gold_mercenary"			"Not enough shared team gold to hire mercenary"
 
 	// OBJECTIVES
 	"objective_wisp"								"Wisp Captured +3 Points"
