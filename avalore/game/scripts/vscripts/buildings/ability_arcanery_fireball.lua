@@ -1,5 +1,7 @@
 ability_arcanery_fireball = class({})
 
+LinkLuaModifier( "modifier_knockback_avalore", "scripts/vscripts/modifiers/modifier_knockback_avalore", LUA_MODIFIER_MOTION_BOTH )
+
 function ability_arcanery_fireball:GetBehavior()
 	return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
 end
@@ -8,11 +10,20 @@ function ability_arcanery_fireball:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end
 
+-- the built in kv didn't seem to be working for a building
+function ability_arcanery_fireball:GetManaCost(iLevel)
+	return self:GetSpecialValueFor("mana_cost")
+end
+
 function ability_arcanery_fireball:OnSpellStart()
     local caster = self:GetCaster()
     local target_temp = Vector(caster.target_x, caster.target_y, 0) -- this comes in from the OrderFilter capturing the player's cursor
     print("Target => " .. tostring(target_temp))
     local target = GetGroundPosition(target_temp, nil) -- get z-coord
+
+	-- mana isn't updating correctly
+	self:GetCaster():SetMana( self:GetCaster():GetMana() -  self:GetSpecialValueFor("mana_cost"))
+	-- Set the mana on this unit.
 
     -- self:SetCursorPosition(target)
 
@@ -121,22 +132,23 @@ function ability_arcanery_fireball:OnProjectileHit_ExtraData(hTarget, vLocation,
 	ParticleManager:SetParticleControl( effect_cast, 1, vLocation )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
-	print("Radi => " .. tostring(self:GetSpecialValueFor("radius")))
+--	print("Radi => " .. tostring(self:GetSpecialValueFor("radius")))
+	local radius = self:GetSpecialValueFor("radius")
 	
 	local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), 
 										vLocation, 
 										nil, 
-										self:GetSpecialValueFor("radius"), 
+										radius, 
 										DOTA_UNIT_TARGET_TEAM_ENEMY, 
 										DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 
 										DOTA_UNIT_TARGET_FLAG_NONE, 
 										FIND_ANY_ORDER, false)
 	
 	local damage = self:GetSpecialValueFor( "damage" )
-	print("damage => " .. tostring(damage))
+	--print("damage => " .. tostring(damage))
 	
 	for _, enemy in pairs(enemies) do
-		print("Hit Enemy " .. enemy:GetName())
+		--print("Hit Enemy " .. enemy:GetName())
 		-- Standard damage
 		local fireball_damage		= damage
 
@@ -150,6 +162,31 @@ function ability_arcanery_fireball:OnProjectileHit_ExtraData(hTarget, vLocation,
 		}
 		
 		ApplyDamage(damageTable)
+
+		-- knockback
+		local knockbackMax = self:GetSpecialValueFor("knockback_distance_max")
+		local knockbackDur = self:GetSpecialValueFor("knockback_duration")
+		--print("Enemy Vect => " .. tostring(enemy:GetOrigin()))
+		local distFromImpact = enemy:GetOrigin()-Vector(vLocation.x,vLocation.y,0)
+		distFromImpact.z = 0
+		local dist2d = distFromImpact:Length2D()
+		--print("len 2d => " .. tostring(dist2d))
+		--dist = (1 - dist / radius) * knockbackMax
+		local dist = (((radius - dist2d) + 1) / radius) * knockbackMax
+		--print("dist => " .. tostring(dist))
+
+		-- apply knockback
+		enemy:AddNewModifier(
+			self:GetCaster(), -- player source
+			self, -- ability source
+			"modifier_knockback_avalore", -- modifier name
+			{
+				duration = knockbackDur,
+				distance = dist,
+				direction_x = distFromImpact.x,
+				direction_y = distFromImpact.y,
+			} -- kv
+		)
 	end
 	
 	AddFOWViewer(self:GetCaster():GetTeamNumber(), vLocation, self:GetSpecialValueFor("radius"), self:GetSpecialValueFor("duration"), false)

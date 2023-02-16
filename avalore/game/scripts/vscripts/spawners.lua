@@ -158,6 +158,7 @@ function Spawners:InitFlags()
         -- Make the flag bases invincible and not show health bars
         value:AddNewModifier(value, nil, "modifier_flagbase", {})
         value:AddNewModifier(value, nil, "modifier_no_healthbar", {})
+        -- value:GetOrigin().z = (value:GetOrigin().z + 15)
         --local hFlagTrigger = CreateTrigger(value:GetBoundingMins(), value:GetBoundingMaxs())
         --local vPos = 
         --local hFlagTrigger = CreateTriggerRadiusApproximate(value:GetOrigin(), 200)
@@ -174,6 +175,7 @@ function Spawners:InitFlags()
         -- Make the flag bases invincible and not show health bars
         value:AddNewModifier(value, nil, "modifier_flagbase", {})
         value:AddNewModifier(value, nil, "modifier_no_healthbar", {})
+        -- value:GetOrigin().z = (value:GetOrigin().z + 15)
         --value:MakeVisibleToTeam(DOTA_TEAM_GOODGUYS, 0.1)
     end
     print("Flags Bases Initialized")
