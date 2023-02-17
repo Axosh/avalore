@@ -93,42 +93,9 @@ function MercSpawnCommon:Merc_OnSpellStart(item, unit, quantity)
 
     -- 2) validate enough gold 
     --    and deal with gold and stuff later for this proof of concept
-    local gold_cost = item:GetSpecialValueFor("gold_cost")
-    local team_gold = {}
-    local bNotEnoughGold = false
-    if team == DOTA_TEAM_GOODGUYS then
-        if not (Score.RadiSharedGoldCurr >= gold_cost) then
-            print("[MercSpawnCommon:Merc_OnSpellStart()] Not enough gold")
-            bNotEnoughGold = true
-        else
-            Score.RadiSharedGoldCurr = Score.RadiSharedGoldCurr - gold_cost
-            team_gold.gold = Score.RadiSharedGoldCurr
-        end
-    else
-        if not (Score.DireSharedGoldCurr >= gold_cost) then
-            print("[MercSpawnCommon:Merc_OnSpellStart()] Not enough gold")
-            bNotEnoughGold = true
-        else
-            Score.DireSharedGoldCurr = Score.DireSharedGoldCurr - gold_cost
-            team_gold.gold = Score.DireSharedGoldCurr
-        end
-    end
-
-    print("Player Issuer => " .. tostring(item.PlayerCaster))
-    if bNotEnoughGold then
-        local broadcast_obj = 
-                {
-                    msg = "#error_not_enough_team_gold_mercenary",
-                    time = 5,
-                    elaboration = "",
-                    type = MSG_TYPE_ERROR
-                };
-                CustomGameEventManager:Send_ServerToTeam(team, "broadcast_message", broadcast_obj )
-                --CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(item.PlayerCaster), "broadcast_message", broadcast_obj )
+    if not (self:GoldTransactionSucceeded(item, team)) then
         return
     end
-
-    CustomGameEventManager:Send_ServerToTeam(team, "update_team_gold", team_gold)
 
     -- 3) create unit after a short spawn-in period
     local particle_cast = "particles/units/heroes/hero_lycan/lycan_shapeshift_cast.vpcf"
@@ -207,4 +174,44 @@ function MercSpawnCommon:Merc_OnSpellStart(item, unit, quantity)
             item_inst:StartCooldown(item:GetCooldown(item:GetLevel()))
         end
     end
+end
+
+function MercSpawnCommon:GoldTransactionSucceeded(itemOrAbility, team)
+    local gold_cost = itemOrAbility:GetSpecialValueFor("gold_cost")
+    local team_gold = {}
+    local bNotEnoughGold = false
+    if team == DOTA_TEAM_GOODGUYS then
+        if not (Score.RadiSharedGoldCurr >= gold_cost) then
+            print("[MercSpawnCommon:Merc_OnSpellStart()] Not enough gold")
+            bNotEnoughGold = true
+        else
+            Score.RadiSharedGoldCurr = Score.RadiSharedGoldCurr - gold_cost
+            team_gold.gold = Score.RadiSharedGoldCurr
+        end
+    else
+        if not (Score.DireSharedGoldCurr >= gold_cost) then
+            print("[MercSpawnCommon:Merc_OnSpellStart()] Not enough gold")
+            bNotEnoughGold = true
+        else
+            Score.DireSharedGoldCurr = Score.DireSharedGoldCurr - gold_cost
+            team_gold.gold = Score.DireSharedGoldCurr
+        end
+    end
+
+    print("Player Issuer => " .. tostring(itemOrAbility.PlayerCaster))
+    if bNotEnoughGold then
+        local broadcast_obj = 
+                {
+                    msg = "#error_not_enough_team_gold_mercenary",
+                    time = 5,
+                    elaboration = "",
+                    type = MSG_TYPE_ERROR
+                };
+                CustomGameEventManager:Send_ServerToTeam(team, "broadcast_message", broadcast_obj )
+                --CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(itemOrAbility.PlayerCaster), "broadcast_message", broadcast_obj )
+        return false
+    end
+
+    CustomGameEventManager:Send_ServerToTeam(team, "update_team_gold", team_gold)
+    return true
 end

@@ -1,3 +1,5 @@
+require("scripts/vscripts/items/mercs_super_creeps/merc_spawn_common")
+
 ability_arcanery_fireball = class({})
 
 LinkLuaModifier( "modifier_knockback_avalore", "scripts/vscripts/modifiers/modifier_knockback_avalore", LUA_MODIFIER_MOTION_BOTH )
@@ -20,6 +22,12 @@ function ability_arcanery_fireball:OnSpellStart()
     local target_temp = Vector(caster.target_x, caster.target_y, 0) -- this comes in from the OrderFilter capturing the player's cursor
     print("Target => " .. tostring(target_temp))
     local target = GetGroundPosition(target_temp, nil) -- get z-coord
+
+	-- 2) validate enough gold 
+    --    and deal with gold and stuff later for this proof of concept
+    if not (MercSpawnCommon:GoldTransactionSucceeded(self, self:GetCaster():GetTeamNumber())) then
+        return
+    end
 
 	-- mana isn't updating correctly
 	self:GetCaster():SetMana( self:GetCaster():GetMana() -  self:GetSpecialValueFor("mana_cost"))

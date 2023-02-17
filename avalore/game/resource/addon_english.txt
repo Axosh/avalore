@@ -135,8 +135,13 @@
 		//"DOTA_Tooltip_Ability_ability_avalore_attributes_description"	"<font color=\"#c88423\">LVL 1:</font> +{s:raw_dmg} Attack Damage\n<font color=\"#c88423\">LVL 2:</font> +{s:raw_ms} Move Speed\n<font color=\"#c88423\">LVL 3:</font> +{s:minor_stats} STR/INT/AGI\n<font color=\"#c88423\">LVL 4:</font> +{s:attack_speed} Attack Speed\n<font color=\"#c88423\">LVL 5:</font> +{s:mana_regen} Mana Regen\n<font color=\"#c88423\">LVL 6:</font> +{s:major_stats} STR/INT/AGI"
 
 
-		"DOTA_Tooltip_Ability_ability_arcanery_fireball"			"Fireball"
-		
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball"				"Fireball"
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball_description"	"Conjures a fireball that can target an AoE anywhere on the map. Enemies hit will take nuke damage and be knocked backwards based on how close to the center of the impact they were.<br /><font color=\"#c88423\">Requires Team Gold</font>"
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball_gold_cost"		"TEAM GOLD COST:"
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball_damage"			"FIRE DAMAGE:"
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball_knockback_duration"				"KNOCKBACK DURATION:"
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball_radius"				"RADIUS:"
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball_projectile_speed"				"PROJECTILE SPEED:"
 
 		// ==============================================
 		// ===== Davy Jones =====
