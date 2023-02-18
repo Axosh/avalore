@@ -9,7 +9,7 @@
 		//"ModelScale"				".25"
 		"Model"						"models/props_structures/tent_dk_large.vmdl"
 		"ModelScale"				".75"
-		"Level"						"20"
+		"Level"						"1"
 		"HealthBarOffset"			"140"
 		//"HasInventory"				"1"
 		"HasInventory"				"0"	// eventually we'll probably need one when we implement demi-hero purchasing

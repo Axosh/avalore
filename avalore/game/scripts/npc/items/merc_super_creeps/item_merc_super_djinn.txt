@@ -40,5 +40,24 @@
 
         //"AbilitySharedCooldown"         "demi_hero_yeti"
         "AbilityCooldown"				"30.0"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "gold_cost"				"750"
+            }
+            "02"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "tooltip_channel_time"  "2"
+            }
+            "03"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "troop_count"           "1"
+            }
+        }
     }
 }

@@ -22,7 +22,7 @@
         //"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         // "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_NONE"
         // "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_NONE"
-		"AbilitySharedWithTeammates"			"1"
+    "AbilitySharedWithTeammates"			"1"
 
         //"AbilityGoldCost"				"75"
 
@@ -32,14 +32,19 @@
 		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"0"
 		"AbilityCastRange"				"0" //global?
-        //"AbilityChannelTime"			"2.0"
+        "AbilityChannelTime"			"2.0"
 
         "AbilitySpecial"
         {
             "01"
             {
                 "var_type"				"FIELD_INTEGER"
-                "gold_cost"				"100"
+                "gold_cost"				"1000"
+            }
+            "02"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "tooltip_channel_time"  "2"
             }
         }
     }

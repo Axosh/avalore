@@ -106,11 +106,51 @@
 		// BUILDINGS
 		//--------------------------------------------------------------------------------
 
+		// ====== MERC CAMP ===== //
 		"mercenary_camp"													"Mercenary Camp"
-		"DOTA_Tooltip_Ability_avalore_merc_train_melee_creep"				"Hire Melee Mercenary Troop"
-		"DOTA_Tooltip_Ability_avalore_merc_train_ranged_creep"				"Hire Ranged Mercenary Troop"
-		"DOTA_Tooltip_Ability_avalore_merc_train_hulk_creep"				"Hire Hulk Mercenary Troop"
-		"DOTA_Tooltip_Ability_avalore_merc_train_hulk_creep_Description"	"Hulks are melee siege units"
+
+		// "DOTA_Tooltip_Ability_avalore_merc_train_melee_creep"				"Hire Melee Mercenary Troop"
+		// "DOTA_Tooltip_Ability_avalore_merc_train_ranged_creep"				"Hire Ranged Mercenary Troop"
+		// "DOTA_Tooltip_Ability_avalore_merc_train_hulk_creep"				"Hire Hulk Mercenary Troop"
+		// "DOTA_Tooltip_Ability_avalore_merc_train_hulk_creep_Description"	"Hulks are melee siege units"
+
+		"DOTA_Tooltip_Ability_ability_merc_train_yeti"					"Yeti"
+		"DOTA_Tooltip_Ability_ability_merc_train_yeti_description"		"<h1>Active: Hire Demi Hero</h1>Hire the <font color='#FFA14F'>YETI Demi Hero</font>.<br><br>Takes %tooltip_channel_time% seconds to summon to the battlefield.<br><br><font color='#c88423'>Requires %gold_cost% Team Gold</font>\n<h1>Demi Heroes</h1>• Uncontrollable AI Fighter that will push down the lane with your creeps<br />• Can only be deployed to the lane the Merc Camp is next to (Top/Bottom) up to that lane's Tier 1 Tower.<br />• Each time a <font color='#c88423'>Demi Hero</font> is hired, they level up (max level 5)<br />• Starts the cooldown for BOTH merc camps\n<h1>Abilities</h1>• LVL 1 - None<br />• LVL 2 - Ice Shards<br />• LVL 3 - Snowball<br />• LVL 4 - Crystal Nova<br />• LVL 5 - Freezing Field\n"
+		"DOTA_Tooltip_Ability_ability_merc_train_yeti_gold_cost"		"TEAM GOLD COST:"
+
+		"npc_avalore_merc_demi_hero_yeti"								"Yeti"
+
+		"DOTA_Tooltip_Ability_item_merc_skeletons"						"Skeletons"
+		"DOTA_Tooltip_Ability_item_merc_skeletons_description"			"<h1>Active: Hire Common Troop</h1>Hire %troop_count% <font color='#FFFFFF'>SKELETON Common Troops</font>.<br><br>Takes %tooltip_channel_time% seconds to summon to the battlefield.<br><br><font color='#c88423'>Requires %gold_cost% Team Gold</font>\n<h1>Troops</h1>• Uncontrollable AI Fighter(s) that will push down the lane with your creeps<br />• Can only be deployed to the lane the Merc Camp is next to (Top/Bottom) up to that lane's Tier 1 Tower.<br />• Starts the cooldown for BOTH merc camps\n"
+		"DOTA_Tooltip_Ability_item_merc_skeletons_gold_cost"			"TEAM GOLD COST:"
+		"DOTA_Tooltip_Ability_item_merc_skeletons_troop_count"			"TROOP COUNT:"
+
+		"npc_avalore_merc_skeleton"										"Skeleton"
+
+		"DOTA_Tooltip_Ability_item_merc_super_djinn"						"Djinn"
+		"DOTA_Tooltip_Ability_item_merc_super_djinn_description"			"<h1>Active: Hire Champion Troop</h1>Hire %troop_count% <font color='#cc00ff'>DJINN Champion Troop</font>.<br><br>Takes %tooltip_channel_time% seconds to summon to the battlefield.<br><br><font color='#c88423'>Requires %gold_cost% Team Gold</font>\n<h1>Troops</h1>• Uncontrollable AI Fighter(s) that will push down the lane with your creeps<br />• Can only be deployed to the lane the Merc Camp is next to (Top/Bottom) up to that lane's Tier 1 Tower.<br />• Starts the cooldown for BOTH merc camps\n<h1>Abilities</h1>• Flaming Fists<br>• Permanent Immolation"
+		"DOTA_Tooltip_Ability_item_merc_super_djinn_gold_cost"				"TEAM GOLD COST:"
+		"DOTA_Tooltip_Ability_item_merc_super_djinn_troop_count"			"TROOP COUNT:"
+
+		"npc_avalore_merc_djinn"										"Djinn"
+
+		"DOTA_Tooltip_Ability_item_merc_pyromancer"						"Pyromancer"
+		"DOTA_Tooltip_Ability_item_merc_pyromancer_description"			"<h1>Active: Hire Champion Troop</h1>Hire %troop_count% <font color='#cc00ff'>PYROMANCER Champion Troop</font>.<br><br>Takes %tooltip_channel_time% seconds to summon to the battlefield.<br><br><font color='#c88423'>Requires %gold_cost% Team Gold</font>\n<h1>Troops</h1>• Uncontrollable AI Fighter(s) that will push down the lane with your creeps<br />• Can only be deployed to the lane the Merc Camp is next to (Top/Bottom) up to that lane's Tier 1 Tower.<br />• Starts the cooldown for BOTH merc camps\n<h1>Abilities</h1>• Ranged<br>• Splash Damage Attacks"
+		"DOTA_Tooltip_Ability_item_merc_pyromancer_gold_cost"			"TEAM GOLD COST:"
+		"DOTA_Tooltip_Ability_item_merc_pyromancer_troop_count"			"TROOP COUNT:"
+
+		"npc_avalore_merc_pyromancer"									"Pyromancer"
+
+		// ===== ARCANERY ===== //
+		"building_arcanery"							"Arcanery"
+
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball"				"Fireball"
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball_description"	"Conjures a fireball that can target an AoE anywhere on the map. Enemies hit will take nuke damage and be knocked backwards based on how close to the center of the impact they were.<br /><font color=\"#c88423\">Requires %gold_cost% Team Gold</font>"
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball_gold_cost"		"TEAM GOLD COST:"
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball_damage"			"FIRE DAMAGE:"
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball_knockback_duration"				"KNOCKBACK DURATION:"
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball_radius"				"RADIUS:"
+		"DOTA_Tooltip_Ability_ability_arcanery_fireball_projectile_speed"				"PROJECTILE SPEED:"
 
 		//--------------------------------------------------------------------------------
 		// ABILITIES
@@ -134,14 +174,6 @@
 		"DOTA_Tooltip_Ability_ability_avalore_attributes_major_stats"	"LVL 6 - BONUS STATS:"
 		//"DOTA_Tooltip_Ability_ability_avalore_attributes_description"	"<font color=\"#c88423\">LVL 1:</font> +{s:raw_dmg} Attack Damage\n<font color=\"#c88423\">LVL 2:</font> +{s:raw_ms} Move Speed\n<font color=\"#c88423\">LVL 3:</font> +{s:minor_stats} STR/INT/AGI\n<font color=\"#c88423\">LVL 4:</font> +{s:attack_speed} Attack Speed\n<font color=\"#c88423\">LVL 5:</font> +{s:mana_regen} Mana Regen\n<font color=\"#c88423\">LVL 6:</font> +{s:major_stats} STR/INT/AGI"
 
-
-		"DOTA_Tooltip_Ability_ability_arcanery_fireball"				"Fireball"
-		"DOTA_Tooltip_Ability_ability_arcanery_fireball_description"	"Conjures a fireball that can target an AoE anywhere on the map. Enemies hit will take nuke damage and be knocked backwards based on how close to the center of the impact they were.<br /><font color=\"#c88423\">Requires Team Gold</font>"
-		"DOTA_Tooltip_Ability_ability_arcanery_fireball_gold_cost"		"TEAM GOLD COST:"
-		"DOTA_Tooltip_Ability_ability_arcanery_fireball_damage"			"FIRE DAMAGE:"
-		"DOTA_Tooltip_Ability_ability_arcanery_fireball_knockback_duration"				"KNOCKBACK DURATION:"
-		"DOTA_Tooltip_Ability_ability_arcanery_fireball_radius"				"RADIUS:"
-		"DOTA_Tooltip_Ability_ability_arcanery_fireball_projectile_speed"				"PROJECTILE SPEED:"
 
 		// ==============================================
 		// ===== Davy Jones =====
@@ -435,6 +467,8 @@
 		"DOTA_Tooltip_Ability_ability_summon_storm_ranged_hero_attack"			"RANGED HITS TO KILL:"
 		"DOTA_Tooltip_Ability_ability_summon_storm_non_hero_attack"				"CREEP HITS TO KILL"
 		"DOTA_Tooltip_Ability_ability_summon_storm_Lore"						"A God of the sky, thunder, a \"cloud-gatherer\". He could control weather by bringing rain and storms."
+
+		"avalore_unit_storm_cloud"												"Storm Cloud"
 
 		"DOTA_Tooltip_Ability_ability_thunder_gods_wrath"						"Thunder God's Wrath"
 		"DOTA_Tooltip_Ability_ability_thunder_gods_wrath_description"			"Strikes all enemy heroes with a more powerful lightning bolt anywhere on the map. Provides True Sight around each hero struck. If an enemy hero is invisible, it takes no damage, but the True Sight is still created at that hero's location."
