@@ -824,4 +824,11 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 	}
+
+	// override the AI because it doesn't work in this game mode
+	"npc_dota_roshan"
+	{
+		// "AI"
+        "vscripts"                  "round2/ai/ai_rosh.lua"
+	}
 }

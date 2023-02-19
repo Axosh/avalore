@@ -326,7 +326,8 @@ function CAvaloreGameMode:OnThink()
 			self:InitRound2()
 		end
 		-- spawn boss after creeps have had a minute to finish splitting
-		if math.floor(curr_gametime)  == (Constants.TIME_ROUND_2_START + 60) then
+		if (not _G.rosh_spawned) and (math.floor(curr_gametime)  > (Constants.TIME_ROUND_2_START + 60)) then
+			_G.rosh_spawned = true
 			CreateUnitByName( "npc_dota_roshan", Entities:FindByName(nil, "spawner_map_center"):GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
 		end
 

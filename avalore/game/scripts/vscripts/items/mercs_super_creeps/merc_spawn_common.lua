@@ -132,9 +132,15 @@ function MercSpawnCommon:Merc_OnSpellStart(item, unit, quantity)
 
     -- Handle Demi Hero Levels
     if string.find(unit, "demi_hero") then
+        print("is demi hero")
         DemiHeroManager:HireDemiHero(team, unit)
-        if item:GetLevel() < item:GetMaxLevel() then
-            item:SetLevel(item:GetLevel() + 1)
+
+        for key, value in pairs(Spawners.MercCamps[team]) do
+            local item_ability = value:FindAbilityByName(item:GetName())
+            -- check item_ability to filter out arcanery
+            if item_ability and item_ability:GetLevel() < item_ability:GetMaxLevel() then
+                item_ability:SetLevel(item_ability:GetLevel() + 1)
+            end
         end
     end
 
@@ -163,6 +169,11 @@ function MercSpawnCommon:Merc_OnSpellStart(item, unit, quantity)
             --print(tostring(spawns[i]))
             spawns[i]:SetMustReachEachGoalEntity(true)
             spawns[i]:SetInitialGoalEntity(Entities:FindByName(nil, init_target)) --dire_path_top_2
+
+            -- for demi-heroes, make sure they're the right level
+            if string.find(spawns[i]:GetUnitName(), "demi_hero") then
+                spawns[i]:CreatureLevelUp(DemiHeroManager:GetDemiHeroLevel(team, spawns[i]:GetUnitName()) - 1)
+            end
         end)
     end
 

@@ -636,7 +636,7 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 		-- print("Player Team: " .. tostring(hPlayerHero:GetTeam()))
 		-- PrintTable(Spawners.MercCamps[hPlayerHero:GetTeam()])
 		for key, value in pairs(Spawners.MercCamps[hPlayerHero:GetTeam()]) do
-			--print("Giving Player " .. tostring(hPlayerHero:GetPlayerOwnerID()) .. " shared control of " .. tostring(key))
+			print("Giving Player " .. tostring(hPlayerHero:GetPlayerOwnerID()) .. " shared control of " .. tostring(key))
 			value:SetControllableByPlayer(hPlayerHero:GetPlayerOwnerID(), false)
 		end
 

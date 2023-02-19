@@ -17,6 +17,14 @@ function Spawn(entityKeyValues)
     if thisEntity:GetLevel() < 4 then
         hNova:SetLevel(0)
     end
+
+    if thisEntity:GetLevel() < 3 then
+        hSnowball:SetLevel(0)
+    end
+
+    if thisEntity:GetLevel() < 2 then
+        hIceShards:SetLevel(0)
+    end
     
     thisEntity:SetContextThink("YetiAIThink", YetiAIThink, 1)
 end
