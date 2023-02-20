@@ -12,8 +12,22 @@ function MercSpawnCommon:Merc_GetBehavior()
     return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_CHANNELLED
 end
 
+function MercSpawnCommon:OnAbilityPhaseInterrupted()
+    print("MercSpawnCommon:OnAbilityPhaseInterrupted()")
+end
+
+function MercSpawnCommon:OnAbilityPhaseStart()
+    print("MercSpawnCommon:OnAbilityPhaseStart()")
+end
+
 -- 
 function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp_index)
+    -- this happens when someone tries to drag/drop an item in another inventory
+    -- just throw the command out so it doesn't produce the error message
+    if location and location == Vector(0,0,0) then
+        return
+    end
+
     --print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation => " .. tostring(location))
     local merc_camp = EntIndexToHScript(merc_camp_index)
     local team = merc_camp:GetCaster():GetTeamNumber()
@@ -193,7 +207,7 @@ function MercSpawnCommon:GoldTransactionSucceeded(itemOrAbility, team)
     local bNotEnoughGold = false
     if team == DOTA_TEAM_GOODGUYS then
         if not (Score.RadiSharedGoldCurr >= gold_cost) then
-            print("[MercSpawnCommon:Merc_OnSpellStart()] Not enough gold")
+            print("[MercSpawnCommon:GoldTransactionSucceeded()] Not enough gold")
             bNotEnoughGold = true
         else
             Score.RadiSharedGoldCurr = Score.RadiSharedGoldCurr - gold_cost
@@ -201,7 +215,7 @@ function MercSpawnCommon:GoldTransactionSucceeded(itemOrAbility, team)
         end
     else
         if not (Score.DireSharedGoldCurr >= gold_cost) then
-            print("[MercSpawnCommon:Merc_OnSpellStart()] Not enough gold")
+            print("[MercSpawnCommon:GoldTransactionSucceeded()] Not enough gold")
             bNotEnoughGold = true
         else
             Score.DireSharedGoldCurr = Score.DireSharedGoldCurr - gold_cost

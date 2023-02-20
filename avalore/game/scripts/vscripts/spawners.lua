@@ -90,11 +90,16 @@ function Spawners:Init()
     DemiHeroManager:AddTeam(DOTA_TEAM_BADGUYS)
 
     print("Spawning Merc Camps")
+    local merc_radi_owner = DOTA_TEAM_GOODGUYS
+    --local merc_radi_owner = PlayerResource:GetPlayer()
+    local merc_dire_owner = DOTA_TEAM_BADGUYS
+    --local merc_dire_owner = 12
     Spawners.MercCamps = {}
     Spawners.MercCamps[DOTA_TEAM_GOODGUYS] = {}
-    Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_TOP] = CreateUnitByName( "mercenary_camp", Vector(-7232, -5888, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_TOP] = CreateUnitByName( "mercenary_camp", Vector(-7232, -5888, 256), true, nil, nil, merc_radi_owner )
+    print("Merc Owner => " .. tostring(Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_TOP]:GetOwner()))
     -- no rotation needed here
-    Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_BOT] = CreateUnitByName( "mercenary_camp", Vector(-5888, -7232, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_BOT] = CreateUnitByName( "mercenary_camp", Vector(-5888, -7232, 256), true, nil, nil, merc_radi_owner )
     Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_BOT]:SetForwardVector(Vector(0,1,0)) -- face towards top of map
     for key, value in pairs(Spawners.MercCamps[DOTA_TEAM_GOODGUYS]) do
         value:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
@@ -108,9 +113,9 @@ function Spawners:Init()
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
     end
     Spawners.MercCamps[DOTA_TEAM_BADGUYS] = {}
-    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT] = CreateUnitByName( "mercenary_camp", Vector(7232, 5888, 256), true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT] = CreateUnitByName( "mercenary_camp", Vector(7232, 5888, 256), true, nil, nil, merc_dire_owner )
     Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT]:SetForwardVector(Vector(-1,0,0)) -- face bottom of map
-    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP] = CreateUnitByName( "mercenary_camp", Vector(5888, 7232, 256), true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP] = CreateUnitByName( "mercenary_camp", Vector(5888, 7232, 256), true, nil, nil, merc_dire_owner )
     Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP]:SetForwardVector(Vector(0,-1,0)) -- face the left of the map
     for key, value in pairs(Spawners.MercCamps[DOTA_TEAM_BADGUYS]) do
         value:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
@@ -125,9 +130,9 @@ function Spawners:Init()
     end
 
     print("Spawning Arcaneries")
-    Spawners.MercCamps[DOTA_TEAM_GOODGUYS]["Arcanery"] = CreateUnitByName( "building_arcanery", Vector(-6000, -6000, 256), true, nil, nil, DOTA_TEAM_GOODGUYS )
+    Spawners.MercCamps[DOTA_TEAM_GOODGUYS]["Arcanery"] = CreateUnitByName( "building_arcanery", Vector(-6000, -6000, 256), true, nil, nil, merc_radi_owner )
     Spawners.MercCamps[DOTA_TEAM_GOODGUYS]["Arcanery"]:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
-    Spawners.MercCamps[DOTA_TEAM_BADGUYS]["Arcanery"] = CreateUnitByName( "building_arcanery", Vector(6000, 6000, 256), true, nil, nil, DOTA_TEAM_BADGUYS )
+    Spawners.MercCamps[DOTA_TEAM_BADGUYS]["Arcanery"] = CreateUnitByName( "building_arcanery", Vector(6000, 6000, 256), true, nil, nil, merc_dire_owner )
     Spawners.MercCamps[DOTA_TEAM_BADGUYS]["Arcanery"]:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
 
     --self:InitFlags()

@@ -39,6 +39,14 @@ function item_merc_demi_hero_yeti:GetBehavior()
     return MercSpawnCommon:Merc_GetBehavior()
 end
 
+function item_merc_demi_hero_yeti:OnAbilityPhaseInterrupted()
+    return MercSpawnCommon:OnAbilityPhaseInterrupted()
+end
+
+function item_merc_demi_hero_yeti:OnAbilityPhaseStart()
+    return MercSpawnCommon:OnAbilityPhaseStart()
+end
+
 function item_merc_demi_hero_yeti:CastFilterResultLocation(location)
     return MercSpawnCommon:Merc_CastFilterResultLocation(location, self:GetEntityIndex())
 end

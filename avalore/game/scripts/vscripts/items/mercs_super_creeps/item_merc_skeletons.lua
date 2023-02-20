@@ -7,6 +7,14 @@ function item_merc_skeletons:GetBehavior()
     return MercSpawnCommon:Merc_GetBehavior()
 end
 
+function item_merc_skeletons:OnAbilityPhaseInterrupted()
+    return MercSpawnCommon:OnAbilityPhaseInterrupted()
+end
+
+function item_merc_skeletons:OnAbilityPhaseStart()
+    return MercSpawnCommon:OnAbilityPhaseStart()
+end
+
 function item_merc_skeletons:CastFilterResultLocation(location)
     return MercSpawnCommon:Merc_CastFilterResultLocation(location, self:GetEntityIndex())
 end

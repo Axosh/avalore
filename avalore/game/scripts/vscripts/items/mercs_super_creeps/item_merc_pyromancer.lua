@@ -7,6 +7,14 @@ function item_merc_pyromancer:GetBehavior()
     return MercSpawnCommon:Merc_GetBehavior()
 end
 
+function item_merc_pyromancer:OnAbilityPhaseInterrupted()
+    return MercSpawnCommon:OnAbilityPhaseInterrupted()
+end
+
+function item_merc_pyromancer:OnAbilityPhaseStart()
+    return MercSpawnCommon:OnAbilityPhaseStart()
+end
+
 function item_merc_pyromancer:CastFilterResultLocation(location)
     return MercSpawnCommon:Merc_CastFilterResultLocation(location, self:GetEntityIndex())
 end

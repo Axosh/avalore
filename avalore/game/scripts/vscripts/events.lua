@@ -607,6 +607,13 @@ end
 -- 	}
 function CAvaloreGameMode:OnHeroFinishSpawn(event)
 	print("==== OnHeroFinishSpawn ====")
+
+	for playerId = 0,19 do
+        local player = PlayerResource:GetPlayer(playerId)
+        if player ~= nil then
+            print("Player " .. tostring(playerId) .. " found")
+        end
+    end
 	--PrintTable(event)
 	local hPlayerHero = EntIndexToHScript( event.heroindex )
 	if hPlayerHero ~= nil and hPlayerHero:IsRealHero() then
@@ -635,9 +642,16 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 		-- print("---- Give Shared Control to Merc Camps ----")
 		-- print("Player Team: " .. tostring(hPlayerHero:GetTeam()))
 		-- PrintTable(Spawners.MercCamps[hPlayerHero:GetTeam()])
+		-- PlayerResource:SetUnitShareMaskForPlayer(DOTA_TEAM_CUSTOM_7, 			--player
+		-- 										hPlayerHero:GetPlayerOwnerID(), --other player
+		-- 										2,								-- 	bitmask; 1 shares heroes, 2 shares units, 4 disables help
+		-- 										true							-- state
+		-- 										);
 		for key, value in pairs(Spawners.MercCamps[hPlayerHero:GetTeam()]) do
 			print("Giving Player " .. tostring(hPlayerHero:GetPlayerOwnerID()) .. " shared control of " .. tostring(key))
-			value:SetControllableByPlayer(hPlayerHero:GetPlayerOwnerID(), false)
+			value:SetControllableByPlayer(hPlayerHero:GetPlayerOwnerID(), true)
+			--value:SetControllableByPlayer(hPlayerHero:GetTeam(), true)
+			--print("IsControllable? => " .. tostring(value:IsControllableByAnyPlayer()))
 		end
 
 		local broadcast_obj = 
@@ -1389,4 +1403,8 @@ function CAvaloreGameMode:OnPlayerLearnedAbility(event)
 	-- for _,mod in pairs(hero:FindAllModifiers()) do
 	-- 	print(mod:GetName())
 	--end
+end
+
+function AvaloreBuildingCast(index, data)
+
 end

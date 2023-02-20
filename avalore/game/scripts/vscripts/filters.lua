@@ -43,8 +43,8 @@ function CAvaloreGameMode:OrderFilter(keys)
 			or 	ability:GetName() == "ability_arcanery_fireball"
 		) then
 			--ability = EntIndexToHScript(keys["entindex_ability"])
-			--print(ability:GetName())
-			--PrintTable(ability)
+			print(ability:GetName())
+			PrintTable(ability)
 			--print("keys issued by: " .. tostring(keys.issuer_player_id_const))
 			--print("unit issued by: " .. tostring(unit.issuer_player_id_const))
 			-- temporarily set owner to player to capture caster correctly

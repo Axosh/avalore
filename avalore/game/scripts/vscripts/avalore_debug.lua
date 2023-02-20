@@ -116,6 +116,9 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
         IsOnRadiantSide(hero:GetAbsOrigin().x, hero:GetAbsOrigin().y)
     elseif input == "status resist" then
         print("Status Resist = " .. tostring(hero:GetStatusResistance()))
+    elseif input == "get xp" then
+        print("Curr XP => " .. tostring(hero:GetCurrentXP()))
+        --print("Next Level in => " .. tostring(hero:GetXPNeededToReachNextLevel(int_1)))
     end
     
 end
