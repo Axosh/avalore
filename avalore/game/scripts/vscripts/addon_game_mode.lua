@@ -126,6 +126,7 @@ function CAvaloreGameMode:InitGameMode()
 
 	-- Stuff from Panorama
 	CustomGameEventManager:RegisterListener("Avalore_Take_Stash", AvaloreTakeStash)
+	CustomGameEventManager:RegisterListener("Avalore_Building_Cast", AvaloreBuildingCast)
 	
 	-- PLAYER CHAT (see avalore_debug.lua)
 	ListenToGameEvent("player_chat", Dynamic_Wrap(CAvaloreGameMode, "ProcessPlayerMessage"), self)

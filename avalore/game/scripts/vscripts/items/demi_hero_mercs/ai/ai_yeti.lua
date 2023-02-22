@@ -38,8 +38,8 @@ function YetiAIThink(self)
 	end
 
     -- no spells at level 1, thus no special logic
-    --if self:GetLevel() > 1 then
-    if self:GetLevel() > 0 then -- for testing
+    if self:GetLevel() > 1 then
+    --if self:GetLevel() > 0 then -- for testing
         local hVisiblePlayers = GetVisibleEnemyHeroesInRange( thisEntity, nAggroRange )
         -- only try to do stuff if we see enemy heroes
         if #hVisiblePlayers > 0 then
@@ -56,25 +56,47 @@ function YetiAIThink(self)
                     Queue = false,
                 })
                 return 1
-            end
-
-            
+            end           
         end
 
-        local hVisibleEnemies = GetVisibleEnemiesNearby( thisEntity, nAggroRange )
-        print("Visible Enemies = " .. tostring(#hVisibleEnemies))
-        if #hVisibleEnemies > 3 then
-            local hRandomEnemy = hVisibleEnemies[ RandomInt( 1, #hVisibleEnemies ) ]
-            print("Casting Nova on " .. hRandomEnemy:GetUnitName())
-            ExecuteOrderFromTable({
-                UnitIndex = thisEntity:entindex(),
-                OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-                Position = hRandomEnemy:GetOrigin(),
-                AbilityIndex = hNova:entindex(),
-                Queue = false,
-            })
-            hNova:RefundManaCost()
-            return 1
+        if self:GetLevel() > 2 then
+            local hVisiblePlayers = GetVisibleEnemyHeroesInRange( thisEntity, hSnowball:GetCastRange() )
+            if #hVisiblePlayers > 0 then
+                local hRandomPlayer = hVisiblePlayers[ RandomInt( 1, #hVisiblePlayers ) ]
+    
+                -- TODO: make better (just need some working prototype for now)
+                if hSnowball:IsCooldownReady() and hSnowball:IsFullyCastable() then
+                    print("Casting Snowball on " .. hRandomPlayer:GetUnitName())
+                    ExecuteOrderFromTable({
+                        UnitIndex = thisEntity:entindex(),
+                        OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+                        --Position = hTarget:GetOrigin(),
+                        AbilityIndex = hSnowball:entindex(),
+                        TargetIndex = hRandomPlayer:GetEntityIndex(),
+                        Queue = false,
+                    })
+                    return 1
+                end
+            end
+
+            if self:GetLevel() > 3 then
+                --TODO: make this check if they're clustered before casting
+                local hVisibleEnemies = GetVisibleEnemiesNearby( thisEntity, nAggroRange )
+                print("Visible Enemies = " .. tostring(#hVisibleEnemies))
+                if #hVisibleEnemies > 3 then
+                    local hRandomEnemy = hVisibleEnemies[ RandomInt( 1, #hVisibleEnemies ) ]
+                    print("Casting Nova on " .. hRandomEnemy:GetUnitName())
+                    ExecuteOrderFromTable({
+                        UnitIndex = thisEntity:entindex(),
+                        OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+                        Position = hRandomEnemy:GetOrigin(),
+                        AbilityIndex = hNova:entindex(),
+                        Queue = false,
+                    })
+                    hNova:RefundManaCost()
+                    return 1
+                end
+            end
         end
     end
     return RandomFloat( 0.5, 1.5 )
