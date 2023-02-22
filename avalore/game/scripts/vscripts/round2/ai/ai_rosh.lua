@@ -41,7 +41,7 @@ function RoshAIThink(self)
 	local distanceFromSpawn = math.sqrt( (xDist ^ 2) + (yDist ^ 2) )
 
     -- if there are no visible targets and we're not at spawn, go back to spawn
-	local hVisiblePlayers = GetVisibleEnemyHeroesInRange( thisEntity, nAggroRange )
+	local hVisiblePlayers = GetVisibleEnemyHeroesInRangeForNeutrals( thisEntity, nAggroRange )
 	if #hVisiblePlayers <= 0 then
 		-- See if we were hunting a target that's not too far off our spawn location
 		if thisEntity.LastTarget ~= nil then
@@ -87,7 +87,7 @@ function RoshAIThink(self)
 		end
 
         -- CAST SPELLS (if applicable)
-        local hSlamTargets = GetVisibleEnemyHeroesInRange( thisEntity, 350 ) --350 is the radius of slam
+        local hSlamTargets = GetVisibleEnemyHeroesInRangeForNeutrals( thisEntity, 350 ) --350 is the radius of slam
         if #hSlamTargets > 2 then
             ExecuteOrderFromTable({
                 UnitIndex = thisEntity:entindex(),

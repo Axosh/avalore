@@ -41,7 +41,7 @@ function Round4BossAIThink( self )
 	local distanceFromSpawn = math.sqrt( (xDist ^ 2) + (yDist ^ 2) )
 
 	-- if there are no visible targets and we're not at spawn, go back to spawn
-	local hVisiblePlayers = GetVisibleEnemyHeroesInRange( thisEntity, nAggroRange )
+	local hVisiblePlayers = GetVisibleEnemyHeroesInRangeForNeutrals( thisEntity, nAggroRange )
 	if #hVisiblePlayers <= 0 then
 		--print("Round 4 Boss ==> No Players Around || Aggro Range = " .. tostring(nAggroRange))
 		-- See if we were hunting a target that's not too far off our spawn location

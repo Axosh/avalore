@@ -80,7 +80,7 @@ function GemKeeperAIThink( self )
 		-- 	return 1
 		-- end
 
-		local hVisiblePlayers = GetVisibleEnemyHeroesInRange( thisEntity, nAggroRange )
+		local hVisiblePlayers = GetVisibleEnemyHeroesInRangeForNeutrals( thisEntity, nAggroRange )
 		if #hVisiblePlayers <= 0 then
 			return 0.5
 		end
