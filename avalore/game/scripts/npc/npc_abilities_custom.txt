@@ -8,6 +8,9 @@
 #base "buildings/ability_merc_train_yeti.txt"
 #base "buildings/ability_arcanery_fireball.txt"
 
+#base "units/ability_wendigo_psychosis.txt"
+#base "units/ability_wendigo_cannibal.txt"
+
 // Dota Heroes File
 
 #base "heroes/_shared/ability_avalore_attributes.txt"

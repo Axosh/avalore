@@ -1,0 +1,33 @@
+"DOTAAbilities"
+{
+    "ability_wendigo_cannibal"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					"ability_lua"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"		"wendigo_cannibal"
+		"ScriptFile"				"items/mercs_super_creeps/ability_wendigo_cannibal.lua"
+
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"heal_pct"			            "25"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_max_hp_pct"			    "5"
+			}
+		}
+    }
+}

@@ -141,6 +141,22 @@
 
 		"npc_avalore_merc_pyromancer"									"Pyromancer"
 
+		"DOTA_Tooltip_Ability_item_merc_wendigo"						"Wendigo"
+		"DOTA_Tooltip_Ability_item_merc_wendigo_description"			"<h1>Active: Hire Champion Troop</h1>Hire %troop_count% <font color='#cc00ff'>WENDIGO Champion Troop</font>.<br><br>Takes %tooltip_channel_time% seconds to summon to the battlefield.<br><br><font color='#c88423'>Requires %gold_cost% Team Gold</font>\n<h1>Troops</h1>• Uncontrollable AI Fighter(s) that will push down the lane with your creeps<br />• Can only be deployed to the lane the Merc Camp is next to (Top/Bottom) up to that lane's Tier 1 Tower.<br />• Starts the cooldown for BOTH merc camps\n<h1>Abilities</h1>• Wendigo Psychosis<br>• Blood Bath"
+		"DOTA_Tooltip_Ability_item_merc_wendigo_gold_cost"				"TEAM GOLD COST:"
+		"DOTA_Tooltip_Ability_item_merc_wendigo_troop_count"			"TROOP COUNT:"
+		"DOTA_Tooltip_Ability_item_merc_wendigo_lore"					"Native American (Algonquin) Lendary Creature - malevolent cannibalistic being associated with the winter and starvation, supposedly giant and having insatiable, while also invoking greed and cannibalistic hunger in others."
+
+		"npc_avalore_merc_wendigo"										"Wendigo"
+
+		"DOTA_Tooltip_Ability_ability_wendigo_psychosis"				"Wendigo Psychosis"
+
+		"DOTA_Tooltip_modifier_wendigo_psychosis_debuff"				"Wendigo Psychosis"
+
+		"DOTA_Tooltip_Ability_ability_wendigo_cannibal"					"Cannibal"
+
+		"DOTA_Tooltip_modifier_wendigo_cannibal_passive"				"Insatiable Hunger"
+
 		// ===== ARCANERY ===== //
 		"building_arcanery"							"Arcanery"
 

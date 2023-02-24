@@ -11,6 +11,7 @@
 #base "units/merc_djinn.txt"
 #base "units/merc_skeleton.txt"
 #base "units/merc_pyromancer.txt"
+#base "units/merc_wendigo.txt"
 
 #base "heroes/zeus/avalore_unit_storm_cloud.txt"
 

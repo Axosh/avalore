@@ -111,6 +111,8 @@ function Spawners:Init()
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
         merc_item = value:AddItemByName("item_merc_pyromancer")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
+        merc_item = value:AddItemByName("item_merc_wendigo")
+        merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
     end
     Spawners.MercCamps[DOTA_TEAM_BADGUYS] = {}
     Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT] = CreateUnitByName( "mercenary_camp", Vector(7232, 5888, 256), true, nil, nil, merc_dire_owner )
@@ -126,6 +128,8 @@ function Spawners:Init()
         merc_item = value:AddItemByName("item_merc_skeletons")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
         merc_item = value:AddItemByName("item_merc_pyromancer")
+        merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
+        merc_item = value:AddItemByName("item_merc_wendigo")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
     end
 

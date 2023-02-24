@@ -4,18 +4,18 @@
     {
         // General
 		//
-		//"BaseClass"					"npc_dota_creature"
-        "BaseClass"					"npc_dota_creep_siege"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_creature"
+        //"BaseClass"					"npc_dota_creep_siege"	// Class of entity of link to.
 		//"BaseClass"					"npc_dota_creep_lane"
 		//"Model"						"models/heroes/brewmaster/brewmaster_firespirit.vmdl"
         "Model"                     "models/creeps/lane_creeps/creep_dire_hulk/creep_dire_winter_ancient_hulk.vmdl"
-		//"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
-		"SoundSet"					"Creep_Bad_Range"
+		"SoundSet"					"Creep_Bad_Melee"					// Name of sound set.
+		//"SoundSet"					"Creep_Bad_Range"
 		//"ModelScale" 				"0.9"
 		//"ModelScale" 				"0.7"
 		"Level"						"1"
         "HasInventory"				"0"
-        "MinimapIcon"				"minimap_siege"
+        "MinimapIcon"				"minimap_enemyicon"
         "MinimapIconSize"				"350"
 		"ModelScale" 					"1.2"
 		"Level"						    "1"
@@ -24,17 +24,17 @@
 		// "AI"
         "vscripts"                  "items/mercs_super_creeps/ai/ai_merc_troop.lua"
 
-        "precache"
-        {
-            //"particle"      "particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf"
-            "particle" "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
-        }
+        // "precache"
+        // {
+        //     //"particle"      "particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf"
+        //     "particle" "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+        // }
 		
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					""			// Ability 1.
-		"Ability2"					""			// Ability 2.
+		"Ability1"					"ability_wendigo_psychosis"			// Ability 1.
+		"Ability2"					"ability_wendigo_cannibal"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -56,7 +56,7 @@
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.467"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-		"AttackRange"				"600"		// Range within a target can be attacked.
+		"AttackRange"				"150"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf"			// Particle system model for projectile.
         //"ProjectileModel"           "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"			// Speed of projectile.
