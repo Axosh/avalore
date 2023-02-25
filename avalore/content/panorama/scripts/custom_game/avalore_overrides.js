@@ -27,6 +27,6 @@ function AVALOREHUDStashGrabAll() {
             AVALOREHUDStashGrabAll();
          });
 
-    //Parent.FindChildTraverse()
+    var ability_images = Parent.FindChildTraverse("AbilityImage");
 	//Init();
 })();

@@ -64,7 +64,7 @@ function modifier_wendigo_psychosis_debuff:IsPurgable() return true end
 function modifier_wendigo_psychosis_debuff:IsDebuff() return true end
 
 function modifier_wendigo_psychosis_debuff:OnCreated(kv)
-    local damage = self:GetAbility():GetSpecialValueFor( "damage_per_second" )
+    self.damage = self:GetAbility():GetSpecialValueFor( "damage_per_second" )
     local interval = 1
 
     if not IsServer() then return end
@@ -72,7 +72,7 @@ function modifier_wendigo_psychosis_debuff:OnCreated(kv)
     self.damageTable = {
         victim = self:GetParent(),
         attacker = self:GetCaster(),
-        damage = damage,
+        damage = self.damage,
         damage_type = DAMAGE_TYPE_MAGICAL,
         ability = self:GetAbility(), --Optional.
         damage_flags = DOTA_DAMAGE_FLAG_NONE, --Optional.
@@ -84,7 +84,8 @@ function modifier_wendigo_psychosis_debuff:OnCreated(kv)
 end
 
 function modifier_wendigo_psychosis_debuff:DeclareFunctions()
-	return { MODIFIER_EVENT_ON_DEATH }
+	return { MODIFIER_EVENT_ON_DEATH,
+            MODIFIER_PROPERTY_TOOLTIP }
 end
 
 function modifier_wendigo_psychosis_debuff:OnDeath( params )
@@ -109,4 +110,8 @@ end
 
 function modifier_wendigo_psychosis_debuff:GetEffectAttachType()
 	return PATTACH_OVERHEAD_FOLLOW
+end
+
+function modifier_wendigo_psychosis_debuff:OnTooltip()
+    return self.damage
 end

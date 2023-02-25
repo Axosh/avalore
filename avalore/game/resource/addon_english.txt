@@ -150,10 +150,21 @@
 		"npc_avalore_merc_wendigo"										"Wendigo"
 
 		"DOTA_Tooltip_Ability_ability_wendigo_psychosis"				"Wendigo Psychosis"
+		"DOTA_Tooltip_Ability_ability_wendigo_psychosis_description"	"<h1>Passive: Invoke Psychosis</h1>Every %pulse_cooldown% seconds, any enemy unit in a %radius% radius will gain the Wendigo Psychosis Debuff.<br><br>Wendigo Psychosis Debuff  - deals %damage_per_second% damage per second for %duration% seconds or until the unit kills another unit."
+		"DOTA_Tooltip_Ability_ability_wendigo_psychosis_radius"			"RADIUS:"
+		"DOTA_Tooltip_Ability_ability_wendigo_psychosis_duration"		"DURATION:"
+		"DOTA_Tooltip_Ability_ability_wendigo_psychosis_damage_per_second"	"DPS:"
+		"DOTA_Tooltip_Ability_ability_wendigo_psychosis_pulse_cooldown"		"TRIGGER INTERVAL:"
+		"DOTA_Tooltip_Ability_ability_wendigo_psychosis_lore"				"Wendigos invoked feelings of cannibalistic hunger, a term coined in modern psychiatry 'Wendigo Psychosis' meaning intense craving for human flesh and fear of becoming a cannibal."
 
 		"DOTA_Tooltip_modifier_wendigo_psychosis_debuff"				"Wendigo Psychosis"
+		"DOTA_Tooltip_modifier_wendigo_psychosis_debuff_description"	"Dealing %dMODIFIER_PROPERTY_TOOLTIP% damage per second until unit kills another unit, or the duration has elapsed."
 
 		"DOTA_Tooltip_Ability_ability_wendigo_cannibal"					"Cannibal"
+		"DOTA_Tooltip_Ability_ability_wendigo_cannibal_description"		"<h1>Passive: Cannibal</h1>Every unit killed heals Wendigo %heal_pct%% of that unit's max HP\n<h1>Passive: Insatiable Hunger</h1>Each unit killed increases Wendigo's max HP by %bonus_max_hp_pct%% of the killed unit's max HP"
+		"DOTA_Tooltip_Ability_ability_wendigo_cannibal_heal_pct"			"HEAL PCT:"
+		"DOTA_Tooltip_Ability_ability_wendigo_cannibal_bonus_max_hp_pct" 	"BONUS HP PCT:"
+		"DOTA_Tooltip_Ability_ability_wendigo_cannibal_lore"				"When the Wendigo consumes another being, it grows proportionally so its appetite is never satisfied."
 
 		"DOTA_Tooltip_modifier_wendigo_cannibal_passive"				"Insatiable Hunger"
 
