@@ -59,4 +59,7 @@
 	"DOTA_HUD_Error_no_goats"						"No goats to consume!"
 
 	"AVALORE_Stash_Grab_All"						"Grab All In Stash"
+
+	// BUTTONS
+	"ControlBuilding"								"Control Building"
 }

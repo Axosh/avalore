@@ -27,6 +27,22 @@ function AVALOREHUDStashGrabAll() {
             AVALOREHUDStashGrabAll();
          });
 
-    var ability_images = Parent.FindChildTraverse("AbilityImage");
-	//Init();
+    // let abilities = Parent.FindChildTraverse("abilities");
+    // for (let ability of abilities.Children()) {
+    //     //if (ability.FindChildTraverse("AbilityImage").src.includes("mercenary")) {
+    //         $.Msg( "Found " +  ability.FindChildTraverse("AbilityImage").src);
+    //     //}
+    //     ReplaceDOTAAbilitySpecialValues
+    // }
+
+    // GameEvents.Subscribe("dota_player_begin_cast", OnBeginCast)
+    // GameEvents.Subscribe( "dota_player_update_query_unit", OnUpdateQueryUnit );
 })();
+
+// function OnBeginCast() {
+//     $.Msg("Began Cast!!")
+// }
+
+// function OnUpdateQueryUnit() {
+//     $.Msg("OnUpdateQueryUnit")
+// }

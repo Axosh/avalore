@@ -17,5 +17,6 @@
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/avalore_item_override.xml" />
 		<!-- <CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/avalore_grab_stash.xml" /> -->
 		<!-- <CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/avalore_stash.xml" /> -->
+		<!-- <CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/avalore_control_building.xml" /> -->
 	</Panel>
 </root>
