@@ -63,6 +63,8 @@ end
 function modifier_pregame_bubble:GetModifierMoveSpeed_Limit(kv)
     if not IsServer() then return end
 
+	if not self.parent then return end --seems to happen occasionally
+
     local parent_vector = self.parent:GetOrigin()-self.aura_origin
 	local parent_direction = parent_vector:Normalized()
 

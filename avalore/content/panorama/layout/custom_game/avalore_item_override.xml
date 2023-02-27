@@ -5,10 +5,12 @@
     <scripts>
         <include src="file://{resources}/scripts/custom_game/avalore_item_overrides.js" />
     </scripts>
-    <Panel class="WardDisp">
-        <!-- <Image src="file://{images}/items/ward_dispenser.png" style="visibility: collapse;" /> -->
-    </Panel>
-    <Panel class="WardDispSent">
-        <!-- <Image src="file://{images}/items/ward_dispenser_sentry.png" style="visibility: collapse;" /> -->
+    <Panel>
+        <Panel class="WardDisp">
+            <!-- <Image src="file://{images}/items/ward_dispenser.png" style="visibility: collapse;" /> -->
+        </Panel>
+        <Panel class="WardDispSent">
+            <!-- <Image src="file://{images}/items/ward_dispenser_sentry.png" style="visibility: collapse;" /> -->
+        </Panel>
     </Panel>
 </root>

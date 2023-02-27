@@ -2,13 +2,21 @@
 	<styles>
         <include src="file://{resources}/styles/custom_game/avalore_control_building.css" />
     </styles>
-    <!-- <scripts>
+    <scripts>
         <include src="file://{resources}/scripts/custom_game/avalore_control_building.js" />
-    </scripts> -->
-    <Button id="control_building" class="ControlBuildingClass">
-        <Panel class="Contents">
-            <Panel class="CustomIcon"/>
-            <Label id="ControlBuildingLabel" text="#ControlBuilding"/>
+    </scripts>
+    <Panel class="ControlBuildingContainer">
+        <Panel id="TakeControlDisplay" class="TakeControlContainer">
+            <Button id="control_building" class="ControlBuildingClass">
+                <Panel id="AbilityImage" class="CustomIcon"/>
+                <Label id="ControlBuildingLabel" text="#ControlBuilding"/>
+                
+                <!-- <Image src="file://{images}/ui/take_control.png" /> -->
+                <!-- <Panel class="Contents">
+                    <Panel class="CustomIcon"/>
+                    <Label id="ControlBuildingLabel" text="#ControlBuilding"/>
+                </Panel> -->
+            </Button>
         </Panel>
-    </Button>
+    </Panel>
 </root>

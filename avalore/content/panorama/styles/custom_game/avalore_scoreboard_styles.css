@@ -5,6 +5,11 @@
     flow-children: right;
 }
 
+/* #time_spacer
+{
+
+} */
+
 #TopBarScoreboard
 {
     flow-children: right;
@@ -39,7 +44,7 @@
     text-overflow: shrink;
     visibility: visible;
     z-index: 0;
-    transition: position, transform
+    /* transition: position, transform; */
 }
 
 #DireContainer
@@ -69,10 +74,5 @@
     text-overflow: shrink;
     visibility: visible;
     z-index: 0;
-    transition: position, transform
-}
-
-#time_spacer
-{
-
+    /* transition: position, transform; */
 }

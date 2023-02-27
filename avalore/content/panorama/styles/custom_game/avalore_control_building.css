@@ -1,9 +1,40 @@
-#control_building
+.ControlBuildingContainer
+{
+    opacity: 0.8;
+    margin-right: 650px;
+    margin-bottom: 160px;
+
+    vertical-align: bottom;
+    horizontal-align: right;
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 30px;
+    color: white;
+    background-color: rgb(87, 87, 87);
+    text-overflow: clip;
+    visibility: visible;
+    flow-children: down;
+    box-shadow: 1px 1px 1px 1px black;
+    text-shadow: 2px 2px 2px #000000;
+    z-index: -100;
+}
+
+.TakeControlContainer
+{
+    flow-children: right;
+    visibility: visible;
+    vertical-align: bottom;
+    /* padding-left: 5px; */
+    padding-bottom: 0px;
+}
+
+/* #control_building
 {
     horizontal-align: center;
     vertical-align: bottom;
     margin-bottom: 22px;
-}
+    margin-left: 10px;
+} */
 .ControlBuildingClass
 {
     background-color: gradient( linear, 0% 0%, 0% 100%, from( #6b211c ), to( #8e2b19 ) );
@@ -13,26 +44,34 @@
     transition-duration: 0.1s;
     transition-timing-function: linear;
     overflow: noclip;
-    min-width: 300px;
+    text-overflow: noclip;
+    min-width: 180px;
     min-height: 45px;
 }
-.Contents
+#ControlBuildingLabel
+{
+    text-align: right;
+    horizontal-align: right;
+    /* margin-left: 40px; */
+}
+/* .Contents
 {
     horizontal-align: center;
     vertical-align: middle;
     flow-children: right;
     margin: 0px 20px;
-}
+} */
 .CustomIcon 
 {
-    background-image: url("file://{images}/ui/take_control.png");
+    background-image: url("file://{images}/ui/take_control_40px.png");
     background-size: contain;
-    width: 26px;
-    height: 26px;
-    margin-top: 4px;
-    margin-right: 4px;
-    horizontal-align: center;   
+    width: 40px;
+    height: 40px;
+    /* margin-top: 4px;
+    margin-right: 4px; */
+    horizontal-align: left;   
     vertical-align: middle;
+    border: 2px solid #333333;
 }
 .ControlBuildingClass:hover
 {
@@ -54,11 +93,11 @@
     margin-top: 2px;
     text-transform: uppercase;
     color: white;
-    horizontal-align: center;
-    font-weight: bold;
-    font-size: 24px;
-    letter-spacing: 2px;
-    text-align: center;
+    /* horizontal-align: center; */
+    /* font-weight: bold;
+    font-size: 24px; */
+    /* letter-spacing: 2px; */
+    /* text-align: center; */
     vertical-align: middle;
     text-shadow: 0px 0px 6px 1.0 #000000;
     padding-left: 8px;

@@ -1,7 +1,7 @@
 <root>
 	<styles>
         <include src="file://{resources}/styles/custom_game/avalore_hire_queue.css" />
-        <include src="file://{resources}/styles/custom_game/avalore_control_building.css" />
+        <!-- <include src="file://{resources}/styles/custom_game/avalore_control_building.css" /> -->
     </styles>
     <scripts>
         <include src="file://{resources}/scripts/custom_game/avalore_hire_queue.js" />
@@ -17,12 +17,12 @@
         <Panel id="HireQueue_Bot" class="HireQueue_Bot">
             <Label id="BotQueueIcon" text="" />
         </Panel> -->
-        <Button id="control_building" class="ControlBuildingClass">
+        <!-- <Button id="control_building" class="ControlBuildingClass">
             <Panel class="Contents">
                 <Panel class="CustomIcon"/>
                 <Label id="ControlBuildingLabel" text="#ControlBuilding"/>
             </Panel>
-        </Button>
+        </Button> -->
     </Panel>
     
 </root>
