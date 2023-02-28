@@ -54,6 +54,11 @@
     horizontal-align: right;
     /* margin-left: 40px; */
 }
+
+.Hidden
+{
+    visibility: collapse;
+}
 /* .Contents
 {
     horizontal-align: center;

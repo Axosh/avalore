@@ -6,7 +6,7 @@
         <include src="file://{resources}/scripts/custom_game/avalore_control_building.js" />
     </scripts>
     <Panel class="ControlBuildingContainer">
-        <Panel id="TakeControlDisplay" class="TakeControlContainer">
+        <Panel id="TakeControlDisplay" class="TakeControlContainer Hidden">
             <Button id="control_building" class="ControlBuildingClass">
                 <Panel id="AbilityImage" class="CustomIcon"/>
                 <Label id="ControlBuildingLabel" text="#ControlBuilding"/>
