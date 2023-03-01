@@ -81,6 +81,18 @@ function CAvaloreGameMode:_OnGameRulesStateChange(event)
 		_G.dire_spawn_particle = ParticleManager:CreateParticle(Constants.BASE_BUBBLE_PARTICLE, PATTACH_ABSORIGIN_FOLLOW, dire_base_dummy)
 		ParticleManager:SetParticleControl(_G.dire_spawn_particle, 1, Vector(900, 1, 1))
 		--dire_base_dummy:AddParticle(_G.dire_spawn_particle, false, false, 1, false, false)
+	elseif newState == DOTA_GAMERULES_STATE_HERO_SELECTION then
+		local color = TEAM_COLORS[DOTA_TEAM_GOODGUYS]
+		SetTeamCustomHealthbarColor(DOTA_TEAM_GOODGUYS, color[1], color[2], color[3])
+		color = TEAM_COLORS[DOTA_TEAM_BADGUYS]
+		SetTeamCustomHealthbarColor(DOTA_TEAM_BADGUYS, color[1], color[2], color[3])
+
+		for i=0,9 do
+			if PlayerResource:IsValidPlayer(i) then
+				color = PLAYER_COLORS[i]
+				PlayerResource:SetCustomPlayerColor(i, color[1], color[2], color[3])
+			end
+		end
 	end
 
 	-- CAvaloreGameMode._reentrantCheck = true
@@ -647,12 +659,14 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 		-- 										2,								-- 	bitmask; 1 shares heroes, 2 shares units, 4 disables help
 		-- 										true							-- state
 		-- 										);
-		for key, value in pairs(Spawners.MercCamps[hPlayerHero:GetTeam()]) do
-			print("Giving Player " .. tostring(hPlayerHero:GetPlayerOwnerID()) .. " shared control of " .. tostring(key))
-			value:SetControllableByPlayer(hPlayerHero:GetPlayerOwnerID(), true)
-			--value:SetControllableByPlayer(hPlayerHero:GetTeam(), true)
-			--print("IsControllable? => " .. tostring(value:IsControllableByAnyPlayer()))
-		end
+
+		-- NOTE: this is now handled by a button on the front end since this approach only shared with the last player to spawn in
+		-- for key, value in pairs(Spawners.MercCamps[hPlayerHero:GetTeam()]) do
+		-- 	print("Giving Player " .. tostring(hPlayerHero:GetPlayerOwnerID()) .. " shared control of " .. tostring(key))
+		-- 	value:SetControllableByPlayer(hPlayerHero:GetPlayerOwnerID(), true)
+		-- 	--value:SetControllableByPlayer(hPlayerHero:GetTeam(), true)
+		-- 	--print("IsControllable? => " .. tostring(value:IsControllableByAnyPlayer()))
+		-- end
 
 		local broadcast_obj = 
 		{
@@ -1405,6 +1419,16 @@ function CAvaloreGameMode:OnPlayerLearnedAbility(event)
 	--end
 end
 
-function AvaloreBuildingCast(index, data)
+-- Data comes from avalore_control_building.js => Avalore_Control_Building
+function AvaloreControlBuilding(index, data)
+	local building = EntIndexToHScript(data.entindex)
+	local hero = EntIndexToHScript(data.playerHeroEntId)
+	print("AvaloreTakeStash(index, data) => " .. building:GetName() .. " | " .. hero:GetName())
 
+	-- verify they can control the building
+	if building:GetTeamNumber() == hero:GetTeamNumber() then
+		building:SetControllableByPlayer(hero:GetPlayerOwnerID(), true)
+		local color = PLAYER_COLORS[hero:GetPlayerOwnerID()]
+		building:SetRenderColor(color[1], color[2], color[3])
+	end
 end

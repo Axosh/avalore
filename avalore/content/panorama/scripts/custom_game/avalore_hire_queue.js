@@ -69,10 +69,12 @@ function ClearQueue(queue_obj) {
     //var id = GetQueueId(queue_obj.loc);
     //var queue_panel = $(`${id}`);
     var queue_panel = GetQueuePanel(queue_obj.loc);
-    queue_panel.RemoveAndDeleteChildren();
-    // add back in the anchor
-    //queue_panel.BCreateChildren(`<Label id='${GetLocationString(queue_obj.loc)}QueueIcon' />`);
-    var queue = $.CreatePanel("Label", queue_panel, `${GetLocationString(queue_obj.loc)}QueueIcon`);
+    if (queue_panel) {
+        queue_panel.RemoveAndDeleteChildren();
+        // add back in the anchor
+        //queue_panel.BCreateChildren(`<Label id='${GetLocationString(queue_obj.loc)}QueueIcon' />`);
+        var queue = $.CreatePanel("Label", queue_panel, `${GetLocationString(queue_obj.loc)}QueueIcon`);
+    }
 }
 
 // wireup string-id to javascript function

@@ -285,3 +285,32 @@ AVALORE_DAMAGE_TYPE_FIRE        = "10"
 AVALORE_DAMAGE_TYPE_LIGHTNING   = "11"
 AVALORE_DAMAGE_TYPE_WATER       = "12"
 AVALORE_DAMAGE_TYPE_FLORA       = "13"
+
+-- ============================================
+-- COLORS
+-- ============================================
+
+PLAYER_COLORS = {}
+PLAYER_COLORS[0] = { 128, 202, 255 } -- cornflower blue
+PLAYER_COLORS[1] = { 128, 255, 236 } -- cyan
+PLAYER_COLORS[2] = { 255, 240, 128 } -- pale yellow
+PLAYER_COLORS[3] = { 179, 255, 128 } -- lime green
+PLAYER_COLORS[4] = { 128, 227, 255 } -- baby blue
+
+PLAYER_COLORS[5] = { 255, 128, 128 } -- pale red
+PLAYER_COLORS[6] = { 255, 128, 251 } -- pink
+PLAYER_COLORS[7] = { 255, 170, 128 } -- salmon
+PLAYER_COLORS[8] = { 128, 147, 255 } -- ultramarine
+PLAYER_COLORS[9] = { 255, 128, 166 } -- peach
+
+TEAM_COLORS = {}
+TEAM_COLORS[DOTA_TEAM_GOODGUYS] = { 51, 255, 204 }    -- cyanish
+TEAM_COLORS[DOTA_TEAM_BADGUYS]  = { 144, 19, 254 }    -- Purple
+-- TEAM_COLORS[DOTA_TEAM_CUSTOM_1] = { 30, 144, 225 }    --  Blue
+-- TEAM_COLORS[DOTA_TEAM_CUSTOM_2] = { 212, 212, 37 }    --  Yellow
+-- TEAM_COLORS[DOTA_TEAM_CUSTOM_3] = { 0, 0, 0 }    --        
+-- TEAM_COLORS[DOTA_TEAM_CUSTOM_4] = { 0, 0, 0 }    --        
+-- TEAM_COLORS[DOTA_TEAM_CUSTOM_5] = { 0, 0, 0 }    --
+-- TEAM_COLORS[DOTA_TEAM_CUSTOM_6] = { 0, 0, 0 }    --
+-- TEAM_COLORS[DOTA_TEAM_CUSTOM_7] = { 0, 0, 0 }    --
+-- TEAM_COLORS[DOTA_TEAM_CUSTOM_8] = { 0, 0, 0 }    --

@@ -139,6 +139,9 @@ function Spawners:Init()
     Spawners.MercCamps[DOTA_TEAM_BADGUYS]["Arcanery"] = CreateUnitByName( "building_arcanery", Vector(6000, 6000, 256), true, nil, nil, merc_dire_owner )
     Spawners.MercCamps[DOTA_TEAM_BADGUYS]["Arcanery"]:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
 
+    --print("Good Owner => " .. tostring(Spawners.MercCamps[DOTA_TEAM_GOODGUYS]["Arcanery"]:GetPlayerOwnerID()))
+    --print("BAD Owner => " .. tostring(Spawners.MercCamps[DOTA_TEAM_BADGUYS]["Arcanery"]:GetPlayerOwnerID()))
+
     --self:InitFlags()
     print("Spawners Initialized")
 end
