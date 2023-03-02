@@ -1,0 +1,117 @@
+"DOTAUnits"
+{
+    "npc_avalore_merc_imp_archer"
+    {
+        // General
+		//
+		"BaseClass"					"npc_dota_creature"
+		//"BaseClass"					"npc_dota_creep_lane"
+		//"Model"						"models/heroes/brewmaster/brewmaster_firespirit.vmdl"
+        "Model"                     "models/creeps/item_creeps/i_creep_necro_archer/necro_archer.vmdl"
+		//"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
+		"SoundSet"					"Creep_Bad_Range"
+		//"ModelScale" 				"0.9"
+		//"ModelScale" 				"0.7"
+		"Level"						"1"
+        "HasInventory"				"0"
+
+		// "AI"
+        "vscripts"                  "items/mercs_super_creeps/ai/ai_merc_troop.lua"
+
+        "precache"
+        {
+            "particle" "particles/items2_fx/necronomicon_archer_projectile.vpcf"
+        }
+		
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					""			// Ability 1.
+		"Ability2"					""			// Ability 2.
+		"Ability3"					""			// Ability 3.
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""			// Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"			// Physical protection.
+		"MagicalResistance"			"0"			// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"60"		// Damage range min.
+		"AttackDamageMax"			"60"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1"			// Speed of attack.
+		"AttackAnimationPoint"		"0.7"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
+		"AttackRange"				"500"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf"			// Particle system model for projectile.
+        //"ProjectileModel"           "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+		"ProjectileSpeed"			"900"			// Speed of projectile.
+
+		// Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"0"			// Base strength
+		"AttributeStrengthGain"		"0"			// Strength bonus per level.
+		"AttributeBaseIntelligence"	"0"			// Base intelligence
+		"AttributeIntelligenceGain"	"0"			// Intelligence bonus per level.
+		"AttributeBaseAgility"		"0"			// Base agility
+		"AttributeAgilityGain"		"0"			// Agility bonus per level.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"100"		// Experience earn.
+		"BountyGoldMin"				"100"		// Gold earned min.
+		"BountyGoldMax"				"100"		// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"			// Hull type used for navigation/locomotion.
+		"RingRadius"				"45"
+		"HealthBarOffset"			"150"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"325"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"150"		// Base health.
+		"StatusHealthRegen"			"0"		    // Health regeneration rate.
+		"StatusMana"				"0"			// Base mana.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"750"		// Range of vision during day light.
+		"VisionNighttimeRange"		"750"		// Range of vision at night time.
+
+        // Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+            "AttachWearables"
+            {
+                "Wearable1" { "ItemDef" "8990" } // Headress of the Divine Flame (models/items/lina/esl_divine_flame_head/esl_divine_flame_head.vmdl)
+                "Wearable2" { "ItemDef" "12217" } // The Scarlet Flare Belt (models/items/lina/the_scarlet_flare_belt/the_scarlet_flare_belt.vmdl)
+                "Wearable3" { "ItemDef" "5270" } // Sleeves of the Scorching Princess (models/items/lina/sleeves_of_the_scorching_princess/sleeves_of_the_scorching_princess.vmdl)
+            }
+        }
+    }
+}
