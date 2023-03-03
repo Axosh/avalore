@@ -23,8 +23,8 @@
 		{
 			"item_elixer"					"0"
 			"item_keen_optic"				"0"
-//			"item_poor_mans_shield"			"0" // Item purchasable in shop
-//			"item_iron_talon"				"0" // Item purchasable in shop
+			"item_poor_mans_shield"			"0" 
+			"item_iron_talon"				"0" 
 			"item_ironwood_tree"			"0"
 			"item_royal_jelly"				"0"
 			"item_mango_tree"				"0"
@@ -61,7 +61,7 @@
 		{
 			"item_grove_bow"				"0"
 			"item_vampire_fangs"			"0"
-			//"item_ring_of_aquila"			"0" // Item purchasable in shop
+			"item_ring_of_aquila"			"0" 
 			"item_pupils_gift"				"0"
 			"item_imp_claw"					"0"
 			"item_philosophers_stone"		"0"
@@ -104,11 +104,11 @@
 			"item_enchanted_quiver"				"0"
 			"item_paladin_sword"				"0"
 			"item_orb_of_destruction"			"0"
-//			"item_third_eye"					"0"
+			"item_third_eye"					"0"
 			"item_titan_sliver"					"0"
 			"item_mind_breaker"					"0"
 			"item_elven_tunic"					"0"
-//			"item_cloak_of_flames"				"0" // Item purchasable in shop
+			"item_cloak_of_flames"				"0" 
 			"item_ceremonial_robe"				"0"
 			"item_psychic_headband"				"0"
 		}
@@ -145,7 +145,7 @@
 			"item_panic_button"					"0"
 			"item_the_leveller"					"0"
 			"item_spy_gadget"					"0"
-//			"item_minotaur_horn"				"0" // Item purchasable in shop
+			"item_minotaur_horn"				"0"
 			"item_trickster_cloak"				"0"
 			"item_stormcrafter"					"0"
 			"item_penta_edged_sword"			"0"
@@ -173,7 +173,7 @@
 		"items"
 		{
 			"item_force_boots"					"0"
-//			"item_desolator_2"					"0" // Item purchasable in shop
+			"item_desolator_2"					"0" 
 			"item_phoenix_ash"					"0"
 			"item_seer_stone"					"0"
 			"item_mirror_shield"				"0"
@@ -181,13 +181,13 @@
 			"item_apex"							"0"
 			"item_ballista"						"0"
 			"item_woodland_striders"			"0"
-//			"item_recipe_trident"				"0" // Item purchasable in shop
+			"item_recipe_trident"				"0" 
 			"item_demonicon"					"0"
 			"item_fallen_sky"					"0"
 			"item_pirate_hat"					"0"
 			"item_ex_machina"					"0"
 			"item_giants_ring"					"0"
-//			"item_vengeances_shadow"			"0" // Unreleased tier 5 item?
+			"item_vengeances_shadow"			"0"
 			"item_book_of_shadows"				"0"
 		}
 	}

@@ -109,6 +109,10 @@ function Spawners:Init()
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
         merc_item = value:AddItemByName("item_merc_skeletons")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
+        merc_item = value:AddItemByName("item_merc_imp_archers")
+        merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
+        merc_item = value:AddItemByName("item_merc_ent")
+        merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
         merc_item = value:AddItemByName("item_merc_pyromancer")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
         merc_item = value:AddItemByName("item_merc_wendigo")
@@ -126,6 +130,10 @@ function Spawners:Init()
         local merc_item = value:AddItemByName("item_merc_super_djinn")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
         merc_item = value:AddItemByName("item_merc_skeletons")
+        merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
+        merc_item = value:AddItemByName("item_merc_imp_archers")
+        merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
+        merc_item = value:AddItemByName("item_merc_ent")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
         merc_item = value:AddItemByName("item_merc_pyromancer")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable

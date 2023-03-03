@@ -1,24 +1,18 @@
 "DOTAItems"
 {
-    "item_merc_imp_archers"
+    "item_merc_ent"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
         //"ID"                                                  "9001"
         "BaseClass"						                      "item_lua"            
-        "ScriptFile"					                      "items/mercs_super_creeps/item_merc_imp_archers.lua"
-        //"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_AOE"
+        "ScriptFile"					                      "items/mercs_super_creeps/item_merc_ent.lua"
         
         "AbilityBehavior"                                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-        //"AbilityBehavior"                                       "DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-        //"AbilityBehavior"                                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
-        //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-        //"AbilityUnitTargetType"                                "DOTA_UNIT_TARGET_CUSTOM"
         "AbilityUnitTargetType"                                 "DOTA_UNIT_TARGET_NONE"
         "AbilityUnitTargetTeam"                                 "DOTA_UNIT_TARGET_TEAM_NONE"
-        //"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_CUSTOM"
-        "AbilityTextureName"                                  "merc_demi_hero/item_merc_imp_archers"
+        "AbilityTextureName"                                    "merc_demi_hero/item_merc_ent"
 
         // Stats
         "AbilityCastRange"				"0"
@@ -47,7 +41,7 @@
             {
                 "var_type"				"FIELD_INTEGER"
                 "gold_cost"				"0"
-                //"gold_cost"				"500"
+                //"gold_cost"				"1200"
             }
             "02"
             {
@@ -57,7 +51,12 @@
             "03"
             {
                 "var_type"				"FIELD_INTEGER"
-                "troop_count"           "2"
+                "troop_count"           "1"
+            }
+            "04"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "siege"                 "1"
             }
         }
     }
