@@ -40,8 +40,8 @@
             "01"
             {
                 "var_type"				"FIELD_INTEGER"
-                "gold_cost"				"0"
-                //"gold_cost"				"1200"
+                //"gold_cost"				"0"
+                "gold_cost"				"1200"
             }
             "02"
             {

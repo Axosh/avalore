@@ -51,7 +51,7 @@
 		"AttackAnimationPoint"		"0.7"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"500"		// Range within a target can be attacked.
-		"ProjectileModel"			"particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf"			// Particle system model for projectile.
+		"ProjectileModel"			"particles/items2_fx/necronomicon_archer_projectile.vpcf"			// Particle system model for projectile.
         //"ProjectileModel"           "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"			// Speed of projectile.
 

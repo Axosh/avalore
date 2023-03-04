@@ -34,6 +34,33 @@ function GetReadyAbilitiesAndItems( self )
 end
 
 
+-- I don't think this table remove thing works
+function GetBuildingsNearby(hUnit, flRange)
+	local enemies = GetVisibleEnemiesNearby(hUnit, flRange)
+	if #enemies > 1 then
+		for index, enemy in pairs(enemies) do
+			local targetName = enemy:GetUnitName()
+			if not targetName then
+				targetName = enemy:GetName()
+			end
+			--print("[GetBuildingsNearby] Evaluating " .. targetName)
+
+			if ( (string.find(targetName, "tower") == nil and -- towers
+				    string.find(targetName, "_rax_") == nil and --melee/ranged rax
+					string.find(targetName, "_fort") == nil and --ancient
+					targetName ~= "building_arcanery" and
+					targetName ~= "mercenary_camp")
+				) then
+					--print("[GetBuildingsNearby] Removing " .. targetName)
+					table.remove(enemies, index)
+			end
+		end
+	end
+
+	return enemies
+end
+
+
 --------------------------------------------------------------------------------
 
 function GetVisibleEnemiesNearby( hUnit, flRange )
@@ -48,7 +75,7 @@ function GetVisibleEnemiesNearby( hUnit, flRange )
 		sTeam = "RADIANT"
 	end
 
-	print("[GetVisibleEnemiesNearby] " .. hUnit:GetUnitLabel() .. "(" .. sTeam .. ")" .. " finding visible enemies in nearby range of " .. tostring(flRange))
+	--print("[GetVisibleEnemiesNearby] " .. hUnit:GetUnitLabel() .. "(" .. sTeam .. ")" .. " finding visible enemies in nearby range of " .. tostring(flRange))
 
 	--local eTARGETED_UNITS = DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO
 	local eTARGETED_UNITS = DOTA_UNIT_TARGET_TEAM_ENEMY

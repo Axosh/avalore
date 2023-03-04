@@ -10,7 +10,7 @@
 		"SoundSet"					"Creep_Good_Engine"					// Name of sound set.
 		"MinimapIcon"				"minimap_siege"
 		"MinimapIconSize"				"350"
-		"ModelScale" 					"1"
+		"ModelScale" 					"1.2"
 		"Level"						    "1"
 		"CanBeDominated"				"0"
 
