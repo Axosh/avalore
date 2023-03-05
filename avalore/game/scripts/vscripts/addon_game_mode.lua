@@ -97,7 +97,6 @@ end
 -- Initializer
 ---------------------------------------------------------------------------
 function CAvaloreGameMode:InitGameMode()
-	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 )
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(CAvaloreGameMode, "OnEntityKilled"), self)
 	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(CAvaloreGameMode, '_OnGameRulesStateChange'), self)
 
@@ -164,35 +163,65 @@ function CAvaloreGameMode:InitGameMode()
 	-- RIP - I'd wanted to use a talent system of 4/8/12/16, but doesn't appear to be any
 	--       support for that yet, and I don't want to write a whole bunch of front-end to handle
 	--       it, so I'll just revert to using lvl 25 cap
-	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(
-        {
-            [1] = 0,
-			[2] = 240,
-			[3] = 400,
-			[4] = 520, -- talent 1
-			[5] = 600, 
-			[6] = 680, --ult 1
-			[7] = 760,
-			[8] = 800, -- talent 2
-			[9] = 900,
-			[10] = 1000, 
-			[11] = 1100,
-			[12] = 1200, -- ult 2, talent 3
-			[13] = 1300,
-			[14] = 1400,
-			[15] = 1500, 
-			[16] = 1600, -- talent 4
-			[17] = 1700,
-			[18] = 1800, -- ult 3
-			[19] = 1900,
-			[20] = 2000,
-			[21] = 2100,
-			[22] = 2200,
-			[23] = 2300,
-			[24] = 2400,
-			[25] = 2500,
-        }
-    )
+	--GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(
+
+	-- NOTE: seems that this table is TOTAL XP at those levels, not XP UNTIL next level
+		local XP_TABLE = {}
+        XP_TABLE[1] = 0
+		XP_TABLE[2] = 240
+		XP_TABLE[3] = 640 --400
+		XP_TABLE[4] = 1160 --520 
+		XP_TABLE[5] = 1760 --600 
+		XP_TABLE[6] = 2440 --680 
+		XP_TABLE[7] = 3200 --760
+		XP_TABLE[8] = 4000 --800 
+		XP_TABLE[9] = 4900 --900
+		XP_TABLE[10] = 5900 --1000 
+		XP_TABLE[11] = 7000 --1100
+		XP_TABLE[12] = 8200 --1200 
+		XP_TABLE[13] = 9500 --1300
+		XP_TABLE[14] = 10900 --1400
+		XP_TABLE[15] = 12400 --1500 
+		XP_TABLE[16] = 14000 --1600 
+		XP_TABLE[17] = 15700 --1700
+		XP_TABLE[18] = 17500 --1800 
+		XP_TABLE[19] = 19400 --1900
+		XP_TABLE[20] = 21400 --2000
+		XP_TABLE[21] = 23600 --2100
+		XP_TABLE[22] = 26000 --2200
+		XP_TABLE[23] = 28600 --2300
+		XP_TABLE[24] = 31400 --2400
+		XP_TABLE[25] = 34400 --2500
+		GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(XP_TABLE)
+
+        -- {
+        --     [1] = 0,
+		-- 	[2] = 240,
+		-- 	[3] = 400,
+		-- 	[4] = 520, -- talent 1
+		-- 	[5] = 600, 
+		-- 	[6] = 680, --ult 1
+		-- 	[7] = 760,
+		-- 	[8] = 800, -- talent 2
+		-- 	[9] = 900,
+		-- 	[10] = 1000, 
+		-- 	[11] = 1100,
+		-- 	[12] = 1200, -- ult 2, talent 3
+		-- 	[13] = 1300,
+		-- 	[14] = 1400,
+		-- 	[15] = 1500, 
+		-- 	[16] = 1600, -- talent 4
+		-- 	[17] = 1700,
+		-- 	[18] = 1800, -- ult 3
+		-- 	[19] = 1900,
+		-- 	[20] = 2000,
+		-- 	[21] = 2100,
+		-- 	[22] = 2200,
+		-- 	[23] = 2300,
+		-- 	[24] = 2400,
+		-- 	[25] = 2500,
+        -- }
+    --)
 	-- neutral items (consumables for avalore)
 	GameRules:GetGameModeEntity():SetAllowNeutralItemDrops(false)
 	GameRules:GetGameModeEntity():SetNeutralStashEnabled(false)
@@ -263,6 +292,7 @@ function CAvaloreGameMode:InitGameMode()
 	}
 	CustomGameEventManager:Send_ServerToAllClients( "refresh_score", score_obj )
 	--]]
+	GameRules:GetGameModeEntity():SetThink( "OnThink", self, 1 )
 end
 
 -- function CAvaloreGameMode:OnAllPlayersLoaded()
