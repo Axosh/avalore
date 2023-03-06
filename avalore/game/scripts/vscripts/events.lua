@@ -19,6 +19,7 @@ LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA
 
 LinkLuaModifier( "modifier_avalore_obs_ward", "scripts/vscripts/modifiers/modifier_avalore_obs_ward", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_avalore_sent_ward", "scripts/vscripts/modifiers/modifier_avalore_sent_ward", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_avalore_merc_building", "scripts/vscripts/modifiers/modifier_avalore_merc_building", LUA_MODIFIER_MOTION_NONE )
 
 -- Faction Stuff
 LinkLuaModifier("modifier_faction_forest",     "modifiers/faction/modifier_faction_forest.lua",       LUA_MODIFIER_MOTION_NONE)
@@ -164,6 +165,22 @@ function CAvaloreGameMode:OnNPCSpawned(event)
 		-- 	cosmetic:FollowEntity(spawned_ent, true)
 		-- 	--cosmetic:SetForwardVector(Vector(0, -1, 0))
 		-- end
+	elseif spawned_ent:GetUnitName() == "npc_avalore_merc_building_watch_tower" then
+		spawned_ent:AddNewModifier(spawned_ent, nil, "modifier_avalore_merc_building", {})
+
+		local cosmetics = {}
+		cosmetics[0] = "models/props_structures/wooden_sentry_tower001.vmdl"
+		for k,wearable in pairs(cosmetics) do
+			local cosmetic = CreateUnitByName("wearable_dummy", spawned_ent:GetAbsOrigin(), false, nil, nil, spawned_ent:GetTeam())
+			cosmetic:SetOriginalModel(wearable)
+			cosmetic:SetModel(wearable)
+			cosmetic:AddNewModifier(nil, nil, "modifier_wearable", {destroy_on_death=true})
+			cosmetic:SetParent(spawned_ent, nil)
+			cosmetic:SetOwner(spawned_ent)
+			cosmetic:FollowEntity(spawned_ent, true)
+			--cosmetic:SetModelScale(0.25) -- doesn't seem to work
+			--cosmetic:SetForwardVector(Vector(0, -1, 0))
+		end
 	elseif  spawned_ent:GetUnitName() == "npc_dota_courier" then
 		_G.couriers[spawned_ent:GetPlayerOwnerID()] = event.entindex
 	end
@@ -407,7 +424,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	--============================
 
 	-- ***** TOWER ****
-	if string.find(string.lower(killedEntity:GetUnitName()), "tower") then
+	if string.find(string.lower(killedEntity:GetUnitName()), "tower") and not string.find(string.lower(killedEntity:GetUnitName()), "watch") then
 		-- Round 4 Towers
 		if string.find(string.lower(killedEntity:GetUnitName()), "round4") then
 			local side = ""

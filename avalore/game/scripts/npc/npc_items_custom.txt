@@ -67,6 +67,7 @@
 #base "items/merc_super_creeps/item_merc_wendigo.txt"
 #base "items/merc_super_creeps/item_merc_imp_archers.txt"
 #base "items/merc_super_creeps/item_merc_ent.txt"
+#base "items/merc_super_creeps/item_merc_tower.txt"
 
 "DOTAAbilities"
 {

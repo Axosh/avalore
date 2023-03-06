@@ -105,9 +105,9 @@ function Spawners:Init()
         value:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
         -- local merc_item = value:AddItemByName("item_merc_demi_hero_yeti")
         -- merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
-        local merc_item = value:AddItemByName("item_merc_super_djinn")
-        merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
-        merc_item = value:AddItemByName("item_merc_skeletons")
+        -- local merc_item = value:AddItemByName("item_merc_super_djinn")
+        -- merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
+        local merc_item = value:AddItemByName("item_merc_skeletons")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
         merc_item = value:AddItemByName("item_merc_imp_archers")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
@@ -116,6 +116,8 @@ function Spawners:Init()
         merc_item = value:AddItemByName("item_merc_pyromancer")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
         merc_item = value:AddItemByName("item_merc_wendigo")
+        merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
+        merc_item = value:AddItemByName("item_merc_tower")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
     end
     Spawners.MercCamps[DOTA_TEAM_BADGUYS] = {}
@@ -127,9 +129,9 @@ function Spawners:Init()
         value:AddNewModifier(value, nil, "modifier_shows_through_fog", {})
         -- local merc_item = value:AddItemByName("item_merc_demi_hero_yeti")
         -- merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
-        local merc_item = value:AddItemByName("item_merc_super_djinn")
-        merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
-        merc_item = value:AddItemByName("item_merc_skeletons")
+        -- local merc_item = value:AddItemByName("item_merc_super_djinn")
+        -- merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
+        local merc_item = value:AddItemByName("item_merc_skeletons")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
         merc_item = value:AddItemByName("item_merc_imp_archers")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
@@ -138,6 +140,8 @@ function Spawners:Init()
         merc_item = value:AddItemByName("item_merc_pyromancer")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
         merc_item = value:AddItemByName("item_merc_wendigo")
+        merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
+        merc_item = value:AddItemByName("item_merc_tower")
         merc_item:SetShareability(ITEM_FULLY_SHAREABLE) -- fully shareable
     end
 

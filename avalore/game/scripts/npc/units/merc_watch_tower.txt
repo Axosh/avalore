@@ -7,13 +7,16 @@
 		"BaseClass"					"npc_dota_creature"
 		//"Model"						"models/props/landing_page/armadillo/armadillo_house.vmdl"
 		//"ModelScale"				".25"
-		"Model"						"models/props_structures/wooden_sentry_tower001.vmdl"
-		"ModelScale"				"1"
+		//"Model"						"models/development/invisiblebox.vmdl" //"models/props_structures/wooden_sentry_tower001.vmdl"
+        //"Model"                     "models/props_structures/tower_bad.vmdl" //swapped out in OnNPCSpawn
+        //"Model"                     "models/items/witchdoctor/wd_ward/wd_father_of_spirits_death_ward/wd_father_of_spirits_death_ward.vmdl"
+        "Model"                     "models/heroes/witchdoctor/witchdoctor_ward.vmdl"
+		"ModelScale"				"0.5"
 		"Level"						"1"
 		"HealthBarOffset"			"140"
 		//"HasInventory"				"1"
 		"HasInventory"				"0"	// eventually we'll probably need one when we implement demi-hero purchasing
-		"ConsideredHero"			"1"
+		"ConsideredHero"			"0"
 
 		//"RenderTeamColor"			"1"
 		//"HasQueue"					"1"
@@ -23,6 +26,11 @@
 		// {
 		// 	"" 	""
 		// }
+
+        "precache"
+        {
+            "particle" "particles/items2_fx/necronomicon_archer_projectile.vpcf"
+        }
 		
 		// Abilities
 		//----------------------------------------------------------------
@@ -46,6 +54,13 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackDamageMin"			"60"
 		"AttackDamageMax"			"60"
+        "AttackRate"				"1"			// Speed of attack.
+		"AttackAnimationPoint"		"0.7"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
+		"AttackRange"				"700"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/items2_fx/necronomicon_archer_projectile.vpcf"			// Particle system model for projectile.
+        //"ProjectileModel"           "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+		"ProjectileSpeed"			"900"			// Speed of projectile.
 		
 		// Bounty
 		//----------------------------------------------------------------
@@ -54,8 +69,8 @@
 		
 		// Bounds
 		//----------------------------------------------------------------
-		"BoundsHullName"			"DOTA_HULL_SIZE_BARRACKS"
-		"RingRadius"				"200"
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"100"
 		"CollisionSize"				"144"
 
 		// Building Size
@@ -68,6 +83,7 @@
 		//"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"	// Needed to cast Point abilities
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
 		"MovementSpeed"				"0"
+        "MovementTurnRate"			"0"
 		
 		// Status
 		//----------------------------------------------------------------
