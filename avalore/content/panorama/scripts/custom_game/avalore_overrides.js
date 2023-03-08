@@ -64,16 +64,15 @@ function OverrideWardDispenser() {
             var itemImage = slot.FindChildTraverse("ItemImage");
             //itemImage.SetImage('file://{images}/ui/hulk.png')
             $.Msg("Curr Image => " + itemImage.itemname)
-            if (itemImage.GetAttributeString("src", "") != "") {
-                //$.Msg(itemImage.src)
-                if (itemImage.itemname == 'item_ward_dispenser') {
-                    //itemImage.attr('src', 'file://{images}/items/test.png');
-                    itemImage.SetImage('file://{images}/items/avalore_ward_dispenser.png');
-                }
-                else if (itemImage.itemname == 'item_ward_dispenser_sentry') {
-                    //itemImage.attr('src', 'file://{images}/items/test.png');
-                    itemImage.SetImage('file://{images}/items/avalore_ward_dispenser_sentry.png');
-                }
+            if (itemImage.itemname == 'item_ward_dispenser') {
+                $.Msg("Swapping item_ward_dispenser");
+                //itemImage.attr('src', 'file://{images}/items/test.png');
+                itemImage.SetImage('file://{images}/items/avalore_ward_dispenser.png');
+            }
+            else if (itemImage.itemname == 'item_ward_dispenser_sentry') {
+                $.Msg("Swapping item_ward_dispenser_sentry");
+                //itemImage.attr('src', 'file://{images}/items/test.png');
+                itemImage.SetImage('file://{images}/items/avalore_ward_dispenser_sentry.png');
             }
         }
     }
