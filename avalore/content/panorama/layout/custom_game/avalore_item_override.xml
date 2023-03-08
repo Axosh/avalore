@@ -7,10 +7,16 @@
     </scripts>
     <Panel>
         <Panel class="WardDisp">
-            <!-- <Image src="file://{images}/items/ward_dispenser.png" style="visibility: collapse;" /> -->
+            <Image src="file://{images}/items/ward_dispenser.png" style="visibility: collapse;" />
         </Panel>
         <Panel class="WardDispSent">
-            <!-- <Image src="file://{images}/items/ward_dispenser_sentry.png" style="visibility: collapse;" /> -->
+            <Image src="file://{images}/items/ward_dispenser_sentry.png" style="visibility: collapse;" />
+        </Panel>
+        <Panel class="WardDispAvalore">
+            <Image src="file://{images}/items/avalore_ward_dispenser.png" style="visibility: collapse;" />
+        </Panel>
+        <Panel class="WardDispSentAvalore">
+            <Image src="file://{images}/items/avalore_ward_dispenser_sentry.png" style="visibility: collapse;" />
         </Panel>
     </Panel>
 </root>

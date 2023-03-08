@@ -94,6 +94,13 @@ function CAvaloreGameMode:_OnGameRulesStateChange(event)
 				PlayerResource:SetCustomPlayerColor(i, color[1], color[2], color[3])
 			end
 		end
+	elseif newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+		for i=0,9 do
+			-- if this player is in the game and has not selected, then force a random
+			if PlayerResource:IsValidPlayer(i) and (not PlayerResource:HasSelectedHero(i)) then
+				PlayerResource:GetPlayer(i):MakeRandomHeroSelection()
+			end
+		end
 	end
 
 	-- CAvaloreGameMode._reentrantCheck = true

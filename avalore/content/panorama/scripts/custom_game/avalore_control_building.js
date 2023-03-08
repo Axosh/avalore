@@ -1,19 +1,19 @@
 function OnUpdateSelectedUnit() {
     var mainSelected = Players.GetLocalPlayerPortraitUnit()
     var unitName = Entities.GetUnitName(mainSelected)
-    $.Msg("Selected Unit => " + unitName)
-    $.Msg("Selected Team => " + Entities.GetTeamNumber(mainSelected))
-    $.Msg("Player Team => " + Entities.GetTeamNumber(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())))
+    // $.Msg("Selected Unit => " + unitName)
+    // $.Msg("Selected Team => " + Entities.GetTeamNumber(mainSelected))
+    // $.Msg("Player Team => " + Entities.GetTeamNumber(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())))
     // If not a building a user can control
     if (Entities.GetTeamNumber(mainSelected) == Entities.GetTeamNumber(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) 
             && (unitName.indexOf("mercenary_camp") > -1 
             || unitName.indexOf("building_arcanery") > -1)) {
-        $.Msg("VISIBLE")
+        //$.Msg("VISIBLE")
         $("#TakeControlDisplay").SetHasClass("Hidden", false);
         //$(".ControlBuildingContainer").hittest = false;
     }
     else {
-        $.Msg("Should Hide")
+        //$.Msg("Should Hide")
         $("#TakeControlDisplay").SetHasClass("Hidden", true);
         
         //$(".ControlBuildingContainer").hittest = true;

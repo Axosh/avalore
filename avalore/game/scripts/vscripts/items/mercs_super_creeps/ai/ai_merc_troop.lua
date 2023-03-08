@@ -4,8 +4,11 @@ require(REQ_AI_SHARED)
 AI_WAYPOINTS = {}
 AI_WAYPOINTS["raditop"] = {"radiant_path_top_1", "radiant_path_top_2", "radiant_path_end"}
 AI_WAYPOINTS["radibot"] = {"radiant_path_bot_1", "radiant_path_bot_2", "radiant_path_end"}
+--AI_WAYPOINTS["radibot"] = {"radi_merc_path_1", "radiant_path_bot_2", "radiant_path_end"}
 AI_WAYPOINTS["diretop"] = {"dire_path_top_1", "dire_path_top_2", "dire_path_end"}
+--AI_WAYPOINTS["diretop"] = {"dire_merc_path_1", "dire_path_top_2", "dire_path_end"}
 AI_WAYPOINTS["direbot"] = {"dire_path_bot_1", "dire_path_bot_2", "dire_path_end"}
+--AI_WAYPOINTS["direbot"] = {"dire_merc_path_1", "dire_path_bot_2", "dire_path_end"}
 
 function Spawn(entityKeyValues)
     if (not IsServer()) or (thisEntity == nil) then return end
