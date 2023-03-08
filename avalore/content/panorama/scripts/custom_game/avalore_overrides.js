@@ -68,11 +68,11 @@ function OverrideWardDispenser() {
                 //$.Msg(itemImage.src)
                 if (itemImage.itemname == 'item_ward_dispenser') {
                     //itemImage.attr('src', 'file://{images}/items/test.png');
-                    itemImage.SetImage('file://{images}/items/test.png');
+                    itemImage.SetImage('file://{images}/items/avalore_ward_dispenser.png');
                 }
                 else if (itemImage.itemname == 'item_ward_dispenser_sentry') {
                     //itemImage.attr('src', 'file://{images}/items/test.png');
-                    itemImage.SetImage('file://{images}/items/test.png');
+                    itemImage.SetImage('file://{images}/items/avalore_ward_dispenser_sentry.png');
                 }
             }
         }
