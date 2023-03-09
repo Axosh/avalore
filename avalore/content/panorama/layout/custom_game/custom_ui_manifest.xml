@@ -16,6 +16,7 @@
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/avalore_notification.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/avalore_hire_queue.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/avalore_item_override.xml" />
+		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/avalore_portrait_override.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/avalore_control_building.xml" />
 		<!-- <CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/avalore_grab_stash.xml" /> -->
 		<!-- <CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/avalore_stash.xml" /> -->

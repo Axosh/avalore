@@ -18,5 +18,8 @@
         <Panel class="WardDispSentAvalore">
             <Image src="file://{images}/items/avalore_ward_dispenser_sentry.png" style="visibility: collapse;" />
         </Panel>
+        <Panel class="AvaloreTest">
+            <Image src="file://{images}/items/test.png" style="visibility: collapse;" />
+        </Panel>
     </Panel>
 </root>

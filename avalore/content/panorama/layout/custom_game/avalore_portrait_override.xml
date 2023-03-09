@@ -1,0 +1,10 @@
+<root>
+    <Panel>
+        <Panel class="DavyJones">
+            <Image src="file://{images}/portrait/davy_jones.png" style="visibility: collapse;" />
+        </Panel>
+        <Panel class="RobinHood">
+            <Image src="file://{images}/portrait/robin_hood.png" style="visibility: collapse;" />
+        </Panel>
+    </Panel>
+</root>
