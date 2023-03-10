@@ -15,3 +15,20 @@
     min-height: 40px;
     visibility: collapse;
 }
+
+/* .DavyJones */
+.npc_dota_hero_kunkka
+{
+    background-image: url("file://{images}/portrait/davy_jones.png");
+    overflow: clip;
+    /* min-width: 40px;
+    min-height: 40px;
+    visibility: collapse; */
+}
+
+.DavyJones
+{
+    background-image: url("file://{images}/portrait/davy_jones.png");
+    overflow: clip;
+    z-index: 0;
+}

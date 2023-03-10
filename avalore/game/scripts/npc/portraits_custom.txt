@@ -84,4 +84,8 @@
 		"PortraitDesaturateHero"		"1"
 		"PortraitVignetteItem"		"0"
     }
+	"models/heroes/kunkka/kunkka.vmdl"
+	{
+		"PortraitBackgroundTexture"		"materials/portrait/davy_jones.vmat"
+	}
 }

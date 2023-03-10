@@ -63,11 +63,13 @@ function OnUpdateQueryUnit(){
     $.Msg("OnUpdateQueryUnit");
     //GameUI.SelectUnit(Players.GetSelectedEntities(Players.GetLocalPlayer())[0], false)
     OverrideWardDispenser();
+    OverrideHeroPortrait();
 }
 
 function OnUpdateSelectedUnit() {
     $.Msg("OnUpdateSelectedUnit");
     OverrideWardDispenser();
+    OverrideHeroPortrait();
 }
 
 function GameUIActivated() {
@@ -108,6 +110,25 @@ function OverrideWardDispenser() {
             }
         }
     }
+}
+
+function OverrideHeroPortrait() {
+    var hero = Players.GetLocalPlayerPortraitUnit()
+    var heroName = Entities.GetUnitName(hero)
+    $.Msg("Portrait Unit => " + heroName);
+    //var portraitContainer = GetDotaHud().FindChildTraverse("PortraitContainer");
+    // var portraitGroup = GetDotaHud().FindChildTraverse("PortraitGroup");
+    // // Kunkka
+    // //if (hero == 283) {
+    // //if (portraitGroup.BHasClass("npc_dota_hero_kunkka")) {
+    // if (heroName == "npc_dota_hero_kunkka") {
+    //     $.Msg("Is Kunkka")
+    //     portraitGroup.AddClass("DavyJones")
+    //     portraitGroup.RemoveClass("npc_dota_hero_kunkka")
+    //     // var heroImg = $.CreatePanel('DOTAHeroImage', portraitGroup, '');
+    //     // heroImg.SetImage('file://{images}/portrait/davy_jones.png');
+    //     // heroImg.AddClass("DavyJones");
+    // }
 }
 
 function printObject(o) {
