@@ -535,6 +535,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"AbilityTextureName"			"consumeable/ward_stack_2"
 
 
 		// Item Info
@@ -612,5 +613,9 @@
 				"sentry_duration_minutes_tooltip"		"4"
 			}
 		}
+	}
+	"item_ward_dispenser_sentry"
+	{
+		"AbilityTextureName"			"consumeable/ward_stack_1"
 	}
 } // end "DOTAAbilities"

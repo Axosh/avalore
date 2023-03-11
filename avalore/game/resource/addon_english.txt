@@ -20,6 +20,9 @@
 		"DOTA_Tooltip_modifier_faction_olympians"				"Olympians Faction"
 		"DOTA_Tooltip_modifier_faction_olympians_description"	"Faction Bonus - Ichor of the Gods - Bonus HP Regen, and Return Damage"
 
+		"DOTA_Tooltip_modifier_faction_storm"					"Storm Faction"
+		"DOTA_Tooltip_modifier_faction_storm_description"		"Faction Bonus - Zap lowest hp unit in 500 radius for 20/30/40 Electric Magic Damage"
+
 		//--------------------------------------------------------------------------------
 		// Heroes
 		//--------------------------------------------------------------------------------

@@ -62,14 +62,14 @@ function OnInventoryItemChange() {
 function OnUpdateQueryUnit(){
     $.Msg("OnUpdateQueryUnit");
     //GameUI.SelectUnit(Players.GetSelectedEntities(Players.GetLocalPlayer())[0], false)
-    OverrideWardDispenser();
-    OverrideHeroPortrait();
+    //OverrideWardDispenser();
+    //OverrideHeroPortrait();
 }
 
 function OnUpdateSelectedUnit() {
     $.Msg("OnUpdateSelectedUnit");
-    OverrideWardDispenser();
-    OverrideHeroPortrait();
+    //OverrideWardDispenser();
+    //OverrideHeroPortrait();
 }
 
 function GameUIActivated() {

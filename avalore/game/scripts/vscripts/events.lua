@@ -25,6 +25,7 @@ LinkLuaModifier( "modifier_avalore_merc_building", "scripts/vscripts/modifiers/m
 LinkLuaModifier("modifier_faction_forest",     "modifiers/faction/modifier_faction_forest.lua",       LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_water",      "modifiers/faction/modifier_faction_water.lua",        LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_olympians",  "modifiers/faction/modifier_faction_olympians.lua",    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faction_storm",  "modifiers/faction/modifier_faction_storm.lua",    LUA_MODIFIER_MOTION_NONE)
 
 -- Talents that can be activated later
 LinkLuaModifier("modifier_talent_static_field", "heroes/zeus/modifier_talent_static_field.lua",                    LUA_MODIFIER_MOTION_NONE)
@@ -969,6 +970,7 @@ function CAvaloreGameMode:InitZeus(hero, playernum)
 	--print("Ability Index 10: " .. hero:GetAbilityByIndex(10):GetName())
 	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
 	unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
+	unit:AddNewModifier(unit, nil, "modifier_faction_storm", nil)
 
 	local talent_static_field = hero:GetAbilityByName("talent_static_field")
 	print("Found Static Field - " .. talent_static_field:GetName())
@@ -1134,6 +1136,7 @@ function CAvaloreGameMode:InitThor(hero, playernum)
 	if unit == nil and playernum ~= nil then
 		unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
 	end
+	unit:AddNewModifier(unit, nil, "modifier_faction_storm", nil)
 	local HEAD = 2
 	local HAT = 4
 
