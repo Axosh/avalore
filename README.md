@@ -3,6 +3,16 @@ dota 2 mod
 
 Check out the <a href="https://github.com/Axosh/avalore/wiki">github wiki</a> for more info.
 
+# Pre-Alpha Testers
+
+1. [Workshop Page](https://steamcommunity.com/sharedfiles/filedetails/?id=2914437440)
+2. Subscribe
+3. Go into Dota 2
+4. Arcade
+5. Library
+6. Avalore
+7. Install/Update
+
 # Credits
 
 ## Game Icons
