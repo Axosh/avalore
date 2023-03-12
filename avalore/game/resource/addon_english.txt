@@ -15,39 +15,63 @@
 		"DOTA_Tooltip_modifier_faction_forest_fade_description"	"Fade to invisibility when around trees"
 
 		"DOTA_Tooltip_modifier_faction_water"					"Water Faction"
-		"DOTA_Tooltip_modifier_faction_water_description"		"Faction Bonus - Extra %MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE% movespeed in the water"
+		"DOTA_Tooltip_modifier_faction_water_description"		"Faction Bonus - Extra %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%% movespeed in the water"
 
 		"DOTA_Tooltip_modifier_faction_olympians"				"Olympians Faction"
-		"DOTA_Tooltip_modifier_faction_olympians_description"	"Faction Bonus - Ichor of the Gods - Bonus HP Regen, and Return Damage"
+		"DOTA_Tooltip_modifier_faction_olympians_description"	"Faction Bonus - Ichor of the Gods - Bonus %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP Regen, and %dMODIFIER_PROPERTY_TOOLTIP% Return Damage"
 
 		"DOTA_Tooltip_modifier_faction_storm"					"Storm Faction"
 		"DOTA_Tooltip_modifier_faction_storm_description"		"Faction Bonus - Zap lowest hp unit in 500 radius for 20/30/40 Electric Magic Damage"
+
+		"DOTA_Tooltip_modifier_faction_creator"					"Creator Faction"
+		"DOTA_Tooltip_modifier_faction_creator_description"		"Faction Bonus - HP regen aura in a 600 radius granting 1/2/3 HP per second"
+
+		"DOTA_Tooltip_modifier_faction_creator_buff"				"Blessing of the Creator"
+		"DOTA_Tooltip_modifier_faction_creator_buff_description"	"Bonus %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP/sec regen"
+
+
 
 		//--------------------------------------------------------------------------------
 		// Heroes
 		//--------------------------------------------------------------------------------
 		"npc_dota_hero_kunkka" 									"Davy Jones"
-		"npc_dota_hero_kunkka_npedesc1"							"The metaphorical sailor's devil who holds the souls of deceased sailors in his Locker."
+		"npc_dota_hero_kunkka_npedesc1"							"The metaphorical sailor's devil who holds the souls of deceased sailors in his Locker.\n\nFACTION:\n- Water: +10/20/30 MS and no unit collision in water"
 		//"npc_dota_hero_kunkka_hype" //idk what this does but I think it does something
 
 		"npc_dota_hero_keeper_of_the_light"						"Merlin"
 		"npc_dota_hero_rubick"									"Debuggy Boi"
 
 		"npc_dota_hero_windrunner"								"Robin Hood"
-		"npc_dota_hero_windrunner_npedesc1"						"The legendary heroic outlaw from English folklore. A swordsman, archer, and rogue that steals from the rich to give to the poor."
+		"npc_dota_hero_windrunner_npedesc1"						"The legendary heroic outlaw from English folklore. A swordsman, archer, and rogue that steals from the rich to give to the poor.\n\nFACTION:\n- Forest: when within 200 units of a tree, will fade to invisibility in 5/4/3 seconds"
 		
 		"npc_dota_hero_brewmaster"								"Dionysus"
-		"npc_dota_hero_brewmaster_npedesc1"						"Dionysus (Bacchus in the Roman Pantheon) is the Greek god associated with wine, fertility, religious ecstasy, and festivity."
+		"npc_dota_hero_brewmaster_npedesc1"						"Dionysus (Bacchus in the Roman Pantheon) is the Greek god associated with wine, fertility, religious ecstasy, and festivity.\n\nFACTION:\n- Olympians: Gains Ichor of the Gods buff -- +2/4/6 HP regen and 10/20/30 return damage"
 
 		"npc_dota_hero_viper"									"Quetzalcoatl"
+		"npc_dota_hero_viper_npedesc1"							"In Mayan/Aztec Mythology, Quetzalcoatl (aka Kulkulcan) was a creator god, one of life-giving winds, culture, and wisdom\n\nFACTION:\n- Creators: Allies within 600 units gain +1/2/3 HP/sec"
+
 		"npc_dota_hero_lone_druid"								"Gilgamesh"
+		"npc_dota_hero_lone_druid_npedesc1"						"The Epic of Gilgamesh is an ancient epic poem from Mesopotamia and one of the world's oldest works of writing. He befriends Enkidu, a wild man, and they become close allies and partners in battle until the death of Enkidu which causes Gilgamesh great grief.\n\nFACTION\n- TBD"
+
 		"npc_avalore_enkidu1"									"Enkidu"
 		"npc_avalore_enkidu2"									"Enkidu"
 		"npc_avalore_enkidu3"									"Enkidu"
 		"npc_avalore_enkidu4"									"Enkidu"
+
 		"npc_dota_hero_sniper"									"Pecos Bill"
+		"npc_dota_hero_sniper_npedesc1"							"An American cowboy folk hero/tall tale that came about in the early 20th century.\n\nFACTION:\n- TBD"
+
 		"npc_dota_hero_dawnbreaker"								"Thor"
+		"npc_dota_hero_dawnbreaker_npedesc1"					"The Thunder God of Norse Mythology, weilder of the hammer Mjölni, and immensely strong.\n\nFACTION:\n- Storm: a single enemy within 500 units will be zapped for 20/30/40 damage every 5 seconds"
+
 		"npc_dota_hero_phantom_lancer"							"Anubis"
+		"npc_dota_hero_phantom_lancer_npedesc1"					"The Egyptian God of Death, the Underworld, and later elmbalming, guiding souls, and later still gained an association with necromancers. In Egyptian, known as Anpu or Inpu, as Anubis is the Greek version of the name meaning 'to decay'.\n\nFACTION:\n- TBD"
+
+		"npc_dota_hero_zuus"									"Zeus"
+		"npc_dota_hero_zuus_npedesc1"							"The Greek god of the sky and thunder, king of the gods of Mount Olympus, and also known as Jupiter in the Roman Pantheon.\n\nFACTION:\n- Olympians: Gains Ichor of the Gods buff -- +2/4/6 HP regen and 10/20/30 return damage\n- Storm: a single enemy within 500 units will be zapped for 20/30/40 damage every 5 seconds"
+
+		"npc_dota_hero_monkey_king"								"Sun Wukong"
+		"npc_dota_hero_monkey_king_npedesc1"					"The mythological Monkey King in the Chinese novel Journey to the West and various other stories and adaptations.\n\nFACTION:\n- TBD"
 
 
 		//--------------------------------------------------------------------------------

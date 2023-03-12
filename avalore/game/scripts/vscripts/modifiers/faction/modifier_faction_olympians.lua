@@ -13,7 +13,8 @@ function modifier_faction_olympians:DeclareFunctions()
 	return {
         --MODIFIER_EVENT_ON_ATTACKED,
         MODIFIER_EVENT_ON_TAKEDAMAGE,
-        MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
+        MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+        MODIFIER_PROPERTY_TOOLTIP
     }
 end
 
@@ -56,6 +57,10 @@ function modifier_faction_olympians:RefreshFactionStacks(faction_team, modifier)
     for _, hero in ipairs(faction_heroes) do
         hero:FindModifierByName(modifier:GetName()):SetStackCount(stack_count)
     end
+end
+
+function modifier_faction_olympians:OnTooltip()
+    return self.base_return_dmg * self:GetStackCount()
 end
 
 --function modifier_faction_olympians:OnAttacked( kv )
