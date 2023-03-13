@@ -27,6 +27,7 @@ LinkLuaModifier("modifier_faction_water",      "modifiers/faction/modifier_facti
 LinkLuaModifier("modifier_faction_olympians",  "modifiers/faction/modifier_faction_olympians.lua",    LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_storm",  	   "modifiers/faction/modifier_faction_storm.lua",    LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_creator",    "modifiers/faction/modifier_faction_creator.lua",    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faction_mesoamerican",    "modifiers/faction/modifier_faction_mesoamerican.lua",    LUA_MODIFIER_MOTION_NONE)
 
 -- Talents that can be activated later
 LinkLuaModifier("modifier_talent_static_field", "heroes/zeus/modifier_talent_static_field.lua",                    LUA_MODIFIER_MOTION_NONE)
@@ -1018,6 +1019,7 @@ end
 function CAvaloreGameMode:InitQuetalcoatl(hero, playernum)
 	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
 	unit:AddNewModifier(unit, nil, "modifier_faction_creator", nil)
+	unit:AddNewModifier(unit, nil, "modifier_faction_mesoamerican", nil)
 	local quetzalcoatl_cosmetics = {}
 	quetzalcoatl_cosmetics[0] = "models/items/viper/blight_wyrm_back/blight_wyrm_back.vmdl"
 	quetzalcoatl_cosmetics[1] = "models/items/viper/spring2021_king_of_corrupted_nest_head/spring2021_king_of_corrupted_nest_head.vmdl"

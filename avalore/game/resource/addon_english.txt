@@ -29,7 +29,8 @@
 		"DOTA_Tooltip_modifier_faction_creator_buff"				"Blessing of the Creator"
 		"DOTA_Tooltip_modifier_faction_creator_buff_description"	"Bonus %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP/sec regen"
 
-
+		"DOTA_Tooltip_modifier_faction_mesoamerican"					"Mesoamerican Faction"
+		"DOTA_Tooltip_modifier_faction_mesoamerican_description"		"Faction Bonus - Grants 5/10/15 HP and Mana restored per kill"
 
 		//--------------------------------------------------------------------------------
 		// Heroes
@@ -48,7 +49,7 @@
 		"npc_dota_hero_brewmaster_npedesc1"						"Dionysus (Bacchus in the Roman Pantheon) is the Greek god associated with wine, fertility, religious ecstasy, and festivity.\n\nFACTION:\n- Olympians: Gains Ichor of the Gods buff -- +2/4/6 HP regen and 10/20/30 return damage"
 
 		"npc_dota_hero_viper"									"Quetzalcoatl"
-		"npc_dota_hero_viper_npedesc1"							"In Mayan/Aztec Mythology, Quetzalcoatl (aka Kulkulcan) was a creator god, one of life-giving winds, culture, and wisdom\n\nFACTION:\n- Creators: Allies within 600 units gain +1/2/3 HP/sec"
+		"npc_dota_hero_viper_npedesc1"							"In Mayan/Aztec Mythology, Quetzalcoatl (aka Kulkulcan) was a creator god, one of life-giving winds, culture, and wisdom\n\nFACTION:\n- Creators: Allies within 600 units gain +1/2/3 HP/sec\n-Mesoamerican: Grants 5/10/15 HP and Mana restored per kill"
 
 		"npc_dota_hero_lone_druid"								"Gilgamesh"
 		"npc_dota_hero_lone_druid_npedesc1"						"The Epic of Gilgamesh is an ancient epic poem from Mesopotamia and one of the world's oldest works of writing. He befriends Enkidu, a wild man, and they become close allies and partners in battle until the death of Enkidu which causes Gilgamesh great grief.\n\nFACTION\n- TBD"
