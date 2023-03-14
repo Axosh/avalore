@@ -1,0 +1,96 @@
+require("references")
+require(REQ_UTIL)
+modifier_faction_psychopomp = class({})
+
+function modifier_faction_psychopomp:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIPLE end
+
+function modifier_faction_psychopomp:IsHidden() return false end
+function modifier_faction_psychopomp:IsDebuff() return false end
+function modifier_faction_psychopomp:IsPurgable() return false end
+function modifier_faction_psychopomp:RemoveOnDeath() return false end
+
+function modifier_faction_psychopomp:GetTexture()
+    return "factions/psychopomp/modifier_faction_psychopomp"
+end
+
+function modifier_faction_psychopomp:OnCreated( kv )
+	self.bonus_speed_base = 10
+
+    if not IsServer() then return end
+
+    local player_team = self:GetCaster():GetTeamNumber()
+    -- find how many allied heroes are part of this alliance
+    self:RefreshFactionStacks(player_team, self)
+end
+
+function modifier_faction_psychopomp:RefreshFactionStacks2(faction_team, modifier)
+    local heroes = HeroList:GetAllHeroes()
+    self.allies = {}
+
+    for _, unit in pairs(heroes) do
+        if unit:GetTeam() == faction_team and unit:IsRealHero() and not unit:IsClone() and not unit:IsTempestDouble() then
+            table.insert(self.allies, unit)
+        end
+    end
+end
+
+function modifier_faction_psychopomp:RefreshFactionStacks(faction_team, modifier)
+    --print()
+    local stack_count = 0
+    local faction_heroes = {} -- track heroes in array
+    for playerID = 0, DOTA_MAX_PLAYERS do
+        if PlayerResource:IsValidPlayerID(playerID) then
+            if not PlayerResource:IsBroadcaster(playerID) then
+                --local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+                local hero = PlayerResource:GetPlayer(playerID):GetAssignedHero()
+                if hero and hero:GetTeam() == faction_team then
+                    -- if instance of modifier on team
+                    if (hero:FindModifierByName(modifier:GetName())) then
+                        print("Found on Hero: " .. hero:GetName())
+                        --faction_heroes[stack_count] = hero --store ref to hero so we can update last_targeted
+                        table.insert(faction_heroes, hero)
+                        -- max of 3 stacks
+                        if stack_count < 3 then
+                            stack_count = stack_count + 1
+                        end
+                    end
+                end
+            end
+        end
+    end
+    print("Stack Count = " .. tostring(stack_count))
+
+    -- make sure all heroes of the faction have same stack count
+    for _, hero in ipairs(faction_heroes) do
+        hero:FindModifierByName(modifier:GetName()):SetStackCount(stack_count)
+    end
+end
+
+function modifier_faction_psychopomp:DeclareFunctions()
+	return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE }
+end
+
+function modifier_faction_psychopomp:GetModifierMoveSpeedBonus_Percentage()
+    if self:IsActive() then
+        return self.bonus_speed * self:GetStackCount()
+    end
+end
+
+function modifier_faction_psychopomp:CheckState()
+	local state = {
+	    [MODIFIER_STATE_NO_UNIT_COLLISION] = self:IsActive(),
+	}
+
+	return state
+end
+
+-- function modifier_faction_psychopomp:GetEffectName()
+--     if self:IsActive() then
+--         return "particles/units/heroes/hero_slardar/slardar_sprint_river.vpcf"
+-- 	    --return "particles/units/heroes/hero_slardar/slardar_sprint.vpcf"
+--     end
+-- end
+
+-- function modifier_faction_psychopomp:GetEffectAttachType()
+-- 	return PATTACH_ABSORIGIN_FOLLOW
+-- end
