@@ -14,13 +14,32 @@ function modifier_faction_psychopomp:GetTexture()
 end
 
 function modifier_faction_psychopomp:OnCreated( kv )
-	self.bonus_speed_base = 10
+--	self.bonus_speed_base = 10
+    self.radius = 900
+    self.buff_stack_duration = 5.0
 
     if not IsServer() then return end
 
     local player_team = self:GetCaster():GetTeamNumber()
     -- find how many allied heroes are part of this alliance
     self:RefreshFactionStacks(player_team, self)
+end
+
+function modifier_faction_psychopomp:DecalreFunctions()
+    return { MODIFIER_EVENT_ON_DEATH }
+end
+
+function modifier_faction_psychopomp:OnDeath(params)
+    -- only regular units
+    if not params.unit:IsIllusion() and not params.unit:IsTempestDouble() and not params.unit:IsRoshan() and not params.unit:IsOther() and not params.unit:IsBuilding() then
+        -- make sure its not the parent
+        if not (params.unit == self:GetParent()) then
+            -- check radius
+            if DistanceBetweenVectors(self:GetParent():GetAbsOrigin(), params.unit:GetAbsOrigin()) <= self.radius then
+                self:GetParent():AddNewModifier(self:GetOwner(), nil, "modifier_soul_guide", {duration = self.buff_stack_duration})
+            end
+        end
+    end
 end
 
 function modifier_faction_psychopomp:RefreshFactionStacks2(faction_team, modifier)
@@ -66,31 +85,21 @@ function modifier_faction_psychopomp:RefreshFactionStacks(faction_team, modifier
     end
 end
 
-function modifier_faction_psychopomp:DeclareFunctions()
+-- =========================================================
+-- INTRINSIC MOD
+-- =========================================================
+modifier_soul_guide = modifier_soul_guide or class({})
+
+function modifier_soul_guide:IsHidden() return false end
+function modifier_soul_guide:IsDebuff() return false end
+function modifier_soul_guide:IsPurgable() return false end
+--function modifier_soul_guide:RemoveOnDeath() return false end
+function modifier_soul_guide:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIPLE end
+
+function modifier_soul_guide:DeclareFunctions()
 	return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE }
 end
 
-function modifier_faction_psychopomp:GetModifierMoveSpeedBonus_Percentage()
-    if self:IsActive() then
-        return self.bonus_speed * self:GetStackCount()
-    end
+function modifier_soul_guide:GetModifierMoveSpeedBonus_Percentage()
+    return self.bonus_speed * self:GetStackCount()
 end
-
-function modifier_faction_psychopomp:CheckState()
-	local state = {
-	    [MODIFIER_STATE_NO_UNIT_COLLISION] = self:IsActive(),
-	}
-
-	return state
-end
-
--- function modifier_faction_psychopomp:GetEffectName()
---     if self:IsActive() then
---         return "particles/units/heroes/hero_slardar/slardar_sprint_river.vpcf"
--- 	    --return "particles/units/heroes/hero_slardar/slardar_sprint.vpcf"
---     end
--- end
-
--- function modifier_faction_psychopomp:GetEffectAttachType()
--- 	return PATTACH_ABSORIGIN_FOLLOW
--- end
