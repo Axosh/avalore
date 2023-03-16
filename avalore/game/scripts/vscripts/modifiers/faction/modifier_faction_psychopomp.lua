@@ -96,6 +96,16 @@ function modifier_soul_guide:IsPurgable() return false end
 --function modifier_soul_guide:RemoveOnDeath() return false end
 function modifier_soul_guide:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIPLE end
 
+function modifier_soul_guide:OnCreated(kv)
+    self.bonus_speed_base = 5
+    -- find stack count this way so it's accessible client-side
+    self.bonus_speed = (self.bonus_speed_base * self:GetParent():GetModifierStackCount("modifier_faction_psychopomp", self:GetParent()))
+end
+
+function modifier_soul_guide:OnRefresh()
+    self:OnCreated()
+end
+
 function modifier_soul_guide:DeclareFunctions()
 	return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE }
 end
