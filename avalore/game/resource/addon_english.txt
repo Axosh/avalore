@@ -32,6 +32,12 @@
 		"DOTA_Tooltip_modifier_faction_mesoamerican"					"Mesoamerican Faction"
 		"DOTA_Tooltip_modifier_faction_mesoamerican_description"		"Faction Bonus - Grants 5/10/15 HP and Mana restored per kill"
 
+		"DOTA_Tooltip_modifier_faction_psychopomp"					"Psychopomp Faction"
+		"DOTA_Tooltip_modifier_faction_psychopomp_description"		"Faction Bonus - everytime a unit dies nearby, grants a stack of Soul Guide which gives 5/10/15 MS per stack (max of 5)"
+
+		"DOTA_Tooltip_modifier_soul_guide"						"Soul Guide"
+		"DOTA_Tooltip_modifier_soul_guide_description"			"Providing +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% MS"
+
 		//--------------------------------------------------------------------------------
 		// Heroes
 		//--------------------------------------------------------------------------------
@@ -66,7 +72,7 @@
 		"npc_dota_hero_dawnbreaker_npedesc1"					"The Thunder God of Norse Mythology, weilder of the hammer Mjölni, and immensely strong.\n\nFACTION:\n- Storm: a single enemy within 500 units will be zapped for 20/30/40 damage every 5 seconds"
 
 		"npc_dota_hero_phantom_lancer"							"Anubis"
-		"npc_dota_hero_phantom_lancer_npedesc1"					"The Egyptian God of Death, the Underworld, and later elmbalming, guiding souls, and later still gained an association with necromancers. In Egyptian, known as Anpu or Inpu, as Anubis is the Greek version of the name meaning 'to decay'.\n\nFACTION:\n- TBD"
+		"npc_dota_hero_phantom_lancer_npedesc1"					"The Egyptian God of Death, the Underworld, and later elmbalming, guiding souls, and later still gained an association with necromancers. In Egyptian, known as Anpu or Inpu, as Anubis is the Greek version of the name meaning 'to decay'.\n\nFACTION:\n- Psychopomp: everytime a unit dies nearby, grants a stack of Soul Guide which gives 5/10/15 MS per stack (max of 5)"
 
 		"npc_dota_hero_zuus"									"Zeus"
 		"npc_dota_hero_zuus_npedesc1"							"The Greek god of the sky and thunder, king of the gods of Mount Olympus, and also known as Jupiter in the Roman Pantheon.\n\nFACTION:\n- Olympians: Gains Ichor of the Gods buff -- +2/4/6 HP regen and 10/20/30 return damage\n- Storm: a single enemy within 500 units will be zapped for 20/30/40 damage every 5 seconds"

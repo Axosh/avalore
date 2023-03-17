@@ -28,6 +28,8 @@ LinkLuaModifier("modifier_faction_olympians",  "modifiers/faction/modifier_facti
 LinkLuaModifier("modifier_faction_storm",  	   "modifiers/faction/modifier_faction_storm.lua",    LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_creator",    "modifiers/faction/modifier_faction_creator.lua",    LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_mesoamerican",    "modifiers/faction/modifier_faction_mesoamerican.lua",    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faction_psychopomp",    "modifiers/faction/modifier_faction_psychopomp.lua",    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faction_psychopomp_helper",    "modifiers/faction/modifier_faction_psychopomp.lua",    LUA_MODIFIER_MOTION_NONE)
 
 -- Talents that can be activated later
 LinkLuaModifier("modifier_talent_static_field", "heroes/zeus/modifier_talent_static_field.lua",                    LUA_MODIFIER_MOTION_NONE)
@@ -280,6 +282,14 @@ function CAvaloreGameMode:OnEntityKilled(event)
 			print("[Events] Hit CS Theshold to trigger score update")
 			refreshScores = true
 		end
+	end
+
+	-- ==========================
+	-- ODD CASES
+	-- ========================== 
+	if killedEntity:HasModifier("modifier_faction_psychopomp_helper") then
+		local mod = killedEntity:FindModifierByName("modifier_faction_psychopomp_helper")
+		mod:GetAuraOwner():AddNewModifier(mod:GetAuraOwner(), nil, "modifier_soul_guide", {duration = 5.0})
 	end
 
 	--Check for bonus points due to quest objective
@@ -1229,6 +1239,8 @@ function CAvaloreGameMode:InitAnubis(hero, playernum)
 	if unit == nil and playernum ~= nil then
 		unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
 	end
+
+	unit:AddNewModifier(unit, nil, "modifier_faction_psychopomp", nil)
 
 	local anubis_cosmetics = {}
 	anubis_cosmetics[0] = "models/items/phantom_lancer/anubis_phantom_lancer_head/anubis_phantom_lancer_head.vmdl"
