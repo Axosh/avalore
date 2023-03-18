@@ -38,6 +38,9 @@
 		"DOTA_Tooltip_modifier_soul_guide"						"Soul Guide"
 		"DOTA_Tooltip_modifier_soul_guide_description"			"Providing +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% MS"
 
+		"DOTA_Tooltip_modifier_faction_sharpshooter"				"Sharpshooter Faction"
+		"DOTA_Tooltip_modifier_faction_sharpshooter_description"	"Faction Bonus - provides +%dMODIFIER_PROPERTY_TOOLTIP% Range per Sharpshooter Hero on your team. Current Bonus: +%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS% Attack Range (only applies while using Ranged attacks)"
+
 		//--------------------------------------------------------------------------------
 		// Heroes
 		//--------------------------------------------------------------------------------
@@ -49,7 +52,7 @@
 		"npc_dota_hero_rubick"									"Debuggy Boi"
 
 		"npc_dota_hero_windrunner"								"Robin Hood"
-		"npc_dota_hero_windrunner_npedesc1"						"The legendary heroic outlaw from English folklore. A swordsman, archer, and rogue that steals from the rich to give to the poor.\n\nFACTION:\n- Forest: when within 200 units of a tree, will fade to invisibility in 5/4/3 seconds"
+		"npc_dota_hero_windrunner_npedesc1"						"The legendary heroic outlaw from English folklore. A swordsman, archer, and rogue that steals from the rich to give to the poor.\n\nFACTION:\n- Forest: when within 200 units of a tree, will fade to invisibility in 5/4/3 seconds\n- Sharpshooter: +50/100/150 Attack Range"
 		
 		"npc_dota_hero_brewmaster"								"Dionysus"
 		"npc_dota_hero_brewmaster_npedesc1"						"Dionysus (Bacchus in the Roman Pantheon) is the Greek god associated with wine, fertility, religious ecstasy, and festivity.\n\nFACTION:\n- Olympians: Gains Ichor of the Gods buff -- +2/4/6 HP regen and 10/20/30 return damage"
@@ -66,10 +69,10 @@
 		"npc_avalore_enkidu4"									"Enkidu"
 
 		"npc_dota_hero_sniper"									"Pecos Bill"
-		"npc_dota_hero_sniper_npedesc1"							"An American cowboy folk hero/tall tale that came about in the early 20th century.\n\nFACTION:\n- TBD"
+		"npc_dota_hero_sniper_npedesc1"							"An American cowboy folk hero/tall tale that came about in the early 20th century.\n\nFACTION:\n- Sharpshooter: +50/100/150 Attack Range"
 
 		"npc_dota_hero_dawnbreaker"								"Thor"
-		"npc_dota_hero_dawnbreaker_npedesc1"					"The Thunder God of Norse Mythology, weilder of the hammer Mjölni, and immensely strong.\n\nFACTION:\n- Storm: a single enemy within 500 units will be zapped for 20/30/40 damage every 5 seconds"
+		"npc_dota_hero_dawnbreaker_npedesc1"					"The Thunder God of Norse Mythology, weilder of the hammer Mjölnir, and immensely strong.\n\nFACTION:\n- Storm: a single enemy within 500 units will be zapped for 20/30/40 damage every 5 seconds"
 
 		"npc_dota_hero_phantom_lancer"							"Anubis"
 		"npc_dota_hero_phantom_lancer_npedesc1"					"The Egyptian God of Death, the Underworld, and later elmbalming, guiding souls, and later still gained an association with necromancers. In Egyptian, known as Anpu or Inpu, as Anubis is the Greek version of the name meaning 'to decay'.\n\nFACTION:\n- Psychopomp: everytime a unit dies nearby, grants a stack of Soul Guide which gives 5/10/15 MS per stack (max of 5)"

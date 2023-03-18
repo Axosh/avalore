@@ -30,6 +30,7 @@ LinkLuaModifier("modifier_faction_creator",    "modifiers/faction/modifier_facti
 LinkLuaModifier("modifier_faction_mesoamerican",    "modifiers/faction/modifier_faction_mesoamerican.lua",    LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_psychopomp",    "modifiers/faction/modifier_faction_psychopomp.lua",    LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_psychopomp_helper",    "modifiers/faction/modifier_faction_psychopomp.lua",    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faction_sharpshooter",    "modifiers/faction/modifier_faction_sharpshooter.lua",    LUA_MODIFIER_MOTION_NONE)
 
 -- Talents that can be activated later
 LinkLuaModifier("modifier_talent_static_field", "heroes/zeus/modifier_talent_static_field.lua",                    LUA_MODIFIER_MOTION_NONE)
@@ -915,6 +916,7 @@ end
 function CAvaloreGameMode:InitRobinHood(unit_temp, playernum)
 	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
 	unit:AddNewModifier(unit, nil, "modifier_faction_forest", nil)
+	unit:AddNewModifier(unit, nil, "modifier_faction_sharpshooter", nil)
 	local robin_hood_cosmetics = {}
 	--robin_hood_cosmetics[0] = "models/items/windrunner/sparrowhawk_cape/sparrowhawk_cape.vmdl"
 	robin_hood_cosmetics[0] = "models/items/windrunner/ti6_windranger_back/ti6_windranger_back_refit.vmdl"
@@ -1076,7 +1078,7 @@ end
 
 function CAvaloreGameMode:InitPecosBill(hero, playernum)
 	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
-	--unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
+	unit:AddNewModifier(unit, nil, "modifier_faction_sharpshooter", nil)
 	local pecos_bill_cosmetics = {}
 	pecos_bill_cosmetics[0] = "models/items/sniper/the_marksman_arms/the_marksman_arms.vmdl"
 	pecos_bill_cosmetics[1] = "models/items/sniper/wildwest_head/wildwest_head.vmdl"
