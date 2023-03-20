@@ -3,6 +3,9 @@
 		<include src="file://{resources}/scripts/custom_game/libraries/vector_target.js" />
 		<include src="file://{resources}/scripts/custom_game/avalore_overrides.js" />
 	</scripts>
+	<styles>
+        <include src="file://{resources}/styles/custom_game/avalore_pick_screen_overrides.css" />
+	</styles>
 	<script>
 		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_TIMEOFDAY, true );
 		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_HEROES, true );

@@ -41,6 +41,12 @@
 		"DOTA_Tooltip_modifier_faction_sharpshooter"				"Sharpshooter Faction"
 		"DOTA_Tooltip_modifier_faction_sharpshooter_description"	"Faction Bonus - provides +%dMODIFIER_PROPERTY_TOOLTIP% Range per Sharpshooter Hero on your team. Current Bonus: +%dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS% Attack Range (only applies while using Ranged attacks)"
 
+		"DOTA_Tooltip_modifier_faction_demigod"					"Demigod Faction"
+		"DOTA_Tooltip_modifier_faction_demigod_description"		"Faction Bonus - provides a 5/10/15% damage aura in a 900 radius"
+
+		"DOTA_Tooltip_modifier_faction_demigod_buff"				"Inspiring Presence"
+		"DOTA_Tooltip_modifier_faction_demigod_buff_description"	"+%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% outgoing damage"
+
 		//--------------------------------------------------------------------------------
 		// Heroes
 		//--------------------------------------------------------------------------------
@@ -61,7 +67,7 @@
 		"npc_dota_hero_viper_npedesc1"							"In Mayan/Aztec Mythology, Quetzalcoatl (aka Kulkulcan) was a creator god, one of life-giving winds, culture, and wisdom\n\nFACTION:\n- Creators: Allies within 600 units gain +1/2/3 HP/sec\n-Mesoamerican: Grants 5/10/15 HP and Mana restored per kill"
 
 		"npc_dota_hero_lone_druid"								"Gilgamesh"
-		"npc_dota_hero_lone_druid_npedesc1"						"The Epic of Gilgamesh is an ancient epic poem from Mesopotamia and one of the world's oldest works of writing. He befriends Enkidu, a wild man, and they become close allies and partners in battle until the death of Enkidu which causes Gilgamesh great grief.\n\nFACTION\n- TBD"
+		"npc_dota_hero_lone_druid_npedesc1"						"The Epic of Gilgamesh is an ancient epic poem from Mesopotamia and one of the world's oldest works of writing. He befriends Enkidu, a wild man, and they become close allies and partners in battle until the death of Enkidu which causes Gilgamesh great grief.\n\nFACTION\n- Demigod: provides a 5/10/15% damage aura in a 900 radius"
 
 		"npc_avalore_enkidu1"									"Enkidu"
 		"npc_avalore_enkidu2"									"Enkidu"

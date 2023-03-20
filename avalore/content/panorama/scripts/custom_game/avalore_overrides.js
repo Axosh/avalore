@@ -131,6 +131,53 @@ function OverrideHeroPortrait() {
     // }
 }
 
+function GameRulesStateChange() {
+    $.Msg("State Change")
+    // var desc = GetDotaHud().FindChildTraverse("HeroSimpleDescription");
+    // for (let list of desc.Children()) {
+    //     $.Msg("Found One");
+    // }
+}
+
+function BindPanelOpen() {
+    $.Msg("Bind Panel Open");
+}
+
+function UpdateHeroSelection() {
+    $.Msg("UpdateHeroSelection");
+}
+
+function UpdateAssignedHero() {
+    $.Msg("UpdateAssignedHero");
+}
+
+function HeroSelectionDirty() {
+    $.Msg("HeroSelectionDirty");
+    var desc = GetDotaHud().FindChildTraverse("HeroSimpleDescription");
+    // Loop through: HeroTipHeader, HeroTipContainer, SimlarHeroes
+    for (let heroTip of desc.Children()) {
+        // Loop through: FirstParagraph, SecondParagraph
+        if (heroTip.BHasClass("HeroTipContainer")){
+            for (let panel of heroTip.Children()) {
+                if (panel.BHasClass("FirstParagraph")) {
+                    // Loop through: HeroImage, HeroDescriptionText
+                    for (let child of panel.Children()) {
+                        if (child.BHasClass("HeroDescriptionText")) {
+                            $.Msg("Adding Description Font Change");
+                            child.AddClass("AvaloreHeroDescriptionText");
+                            child.RemoveClass("HeroDescriptionText")
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+function HeroSelectorPreviewSet() {
+    $.Msg("HeroSelectorPreviewSet");
+}
+
 function printObject(o) {
     var out = '';
     for (var p in o) {
@@ -177,6 +224,14 @@ function printObject(o) {
     GameEvents.Subscribe( "item_purchased", OverrideWardDispenser );
     GameEvents.Subscribe( "gameui_activated", GameUIActivated );
     GameEvents.Subscribe( "dota_inventory_changed_query_unit", InventoryChangedQueryUnit );
+
+    GameEvents.Subscribe( "game_rules_state_change", GameRulesStateChange );
+    GameEvents.Subscribe( "bindpanel_open", BindPanelOpen );
+    GameEvents.Subscribe( "dota_player_update_hero_selection", UpdateHeroSelection );
+    GameEvents.Subscribe( "dota_player_update_assigned_hero", UpdateAssignedHero );
+    GameEvents.Subscribe( "dota_player_hero_selection_dirty", HeroSelectionDirty );
+    GameEvents.Subscribe( "hero_selector_preview_set", HeroSelectorPreviewSet );
+    
 
     GameUI.CustomUIConfig().team_colors = {}
     GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_GOODGUYS] = "#33FFCC;"; // { 51, 255, 204 }    -- cyanish

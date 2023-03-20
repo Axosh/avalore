@@ -31,6 +31,7 @@ LinkLuaModifier("modifier_faction_mesoamerican",    "modifiers/faction/modifier_
 LinkLuaModifier("modifier_faction_psychopomp",    "modifiers/faction/modifier_faction_psychopomp.lua",    LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_psychopomp_helper",    "modifiers/faction/modifier_faction_psychopomp.lua",    LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_sharpshooter",    "modifiers/faction/modifier_faction_sharpshooter.lua",    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faction_demigod",    "modifiers/faction/modifier_faction_demigod.lua",    LUA_MODIFIER_MOTION_NONE)
 
 -- Talents that can be activated later
 LinkLuaModifier("modifier_talent_static_field", "heroes/zeus/modifier_talent_static_field.lua",                    LUA_MODIFIER_MOTION_NONE)
@@ -1052,7 +1053,7 @@ end
 
 function CAvaloreGameMode:InitGilgamesh(hero, playernum)
 	local unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
-	--unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
+	unit:AddNewModifier(unit, nil, "modifier_faction_demigod", nil)
 	local gilgamesh_cosmetics = {}
 	gilgamesh_cosmetics[0] = "models/items/beastmaster/beast_heart_marauder_belt/beast_heart_marauder_belt.vmdl"
 	gilgamesh_cosmetics[1] = "models/items/beastmaster/chimeras_anger_head/chimeras_anger_head.vmdl"

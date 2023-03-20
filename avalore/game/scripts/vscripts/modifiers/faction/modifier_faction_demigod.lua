@@ -25,7 +25,7 @@ function modifier_faction_demigod:GetModifierAura()
 end
 
 function modifier_faction_demigod:GetAuraRadius()
-    return 600
+    return 900
 end
 
 
@@ -113,7 +113,7 @@ function modifier_faction_demigod_buff:GetTexture()
 end
 
 function modifier_faction_demigod_buff:OnCreated()
-    self.regen_aura_base = 1
+    self.dmg_pct_base = 5
     self.modifier = nil
     
     -- stuff that only is available server-side (not client-side)
@@ -122,10 +122,18 @@ function modifier_faction_demigod_buff:OnCreated()
     self:SetStackCount(self.modifier:GetStackCount())
 end
 
+-- function modifier_faction_demigod_buff:DeclareFunctions()
+--     return { MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE }
+-- end
+
+-- function modifier_faction_demigod_buff:GetModifierPreAttack_BonusDamage()
+--     return (self.regen_aura_base * self:GetStackCount())
+-- end
+
 function modifier_faction_demigod_buff:DeclareFunctions()
-    return { MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE }
+    return { MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE }
 end
 
-function modifier_faction_demigod_buff:GetModifierPreAttack_BonusDamage()
-    return (self.regen_aura_base * self:GetStackCount())
+function modifier_faction_demigod_buff:GetModifierDamageOutgoing_Percentage()
+    return (self.dmg_pct_base * self:GetStackCount())
 end

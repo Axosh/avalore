@@ -25,7 +25,7 @@ function modifier_faction_creator:GetModifierAura()
 end
 
 function modifier_faction_creator:GetAuraRadius()
-    return 600
+    return 900
 end
 
 
