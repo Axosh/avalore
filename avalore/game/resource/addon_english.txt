@@ -47,6 +47,9 @@
 		"DOTA_Tooltip_modifier_faction_demigod_buff"				"Inspiring Presence"
 		"DOTA_Tooltip_modifier_faction_demigod_buff_description"	"+%dMODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE%%% outgoing damage"
 
+		"DOTA_Tooltip_modifier_faction_middle_kingdom"					"Middle Kingdom Faction"
+		"DOTA_Tooltip_modifier_faction_middle_kingdom_description"		"Faction Bonus - 5/10/15% Status Resistance"
+
 		//--------------------------------------------------------------------------------
 		// Heroes
 		//--------------------------------------------------------------------------------
@@ -87,7 +90,7 @@
 		"npc_dota_hero_zuus_npedesc1"							"The Greek god of the sky and thunder, king of the gods of Mount Olympus, and also known as Jupiter in the Roman Pantheon.\n\nFACTION:\n- Olympians: Gains Ichor of the Gods buff -- +2/4/6 HP regen and 10/20/30 return damage\n- Storm: a single enemy within 500 units will be zapped for 20/30/40 damage every 5 seconds"
 
 		"npc_dota_hero_monkey_king"								"Sun Wukong"
-		"npc_dota_hero_monkey_king_npedesc1"					"The mythological Monkey King in the Chinese novel Journey to the West and various other stories and adaptations.\n\nFACTION:\n- TBD"
+		"npc_dota_hero_monkey_king_npedesc1"					"The mythological Monkey King in the Chinese novel Journey to the West and various other stories and adaptations.\n\nFACTION:\n- Middle Kingdom: 5/10/15% Status Resistance"
 
 
 		//--------------------------------------------------------------------------------

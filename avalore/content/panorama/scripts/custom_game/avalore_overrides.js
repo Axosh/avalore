@@ -152,24 +152,35 @@ function UpdateAssignedHero() {
 }
 
 function HeroSelectionDirty() {
-    $.Msg("HeroSelectionDirty");
+    //$.Msg("HeroSelectionDirty");
     var desc = GetDotaHud().FindChildTraverse("HeroSimpleDescription");
+    //$.Msg("Desc => " + desc)
     // Loop through: HeroTipHeader, HeroTipContainer, SimlarHeroes
     for (let heroTip of desc.Children()) {
+        //$.Msg("HeroTip => " + heroTip)
         // Loop through: FirstParagraph, SecondParagraph
         if (heroTip.BHasClass("HeroTipContainer")){
             for (let panel of heroTip.Children()) {
+                //$.Msg("panel => " + panel)
                 if (panel.BHasClass("FirstParagraph")) {
                     // Loop through: HeroImage, HeroDescriptionText
                     for (let child of panel.Children()) {
+                        //$.Msg("child => " + child)
                         if (child.BHasClass("HeroDescriptionText")) {
-                            $.Msg("Adding Description Font Change");
+                            //$.Msg("Adding Description Font Change");
                             child.AddClass("AvaloreHeroDescriptionText");
                             child.RemoveClass("HeroDescriptionText")
                         }
                     }
                 }
             }
+        }
+        else if (heroTip.BHasClass("SimilarHeroes")) {
+            //$.Msg("Has SimilarHeroes Class -- Removing")
+            heroTip.visible = false;
+            // Deleting this throws errors, so maybe just hide it?
+            // heroTip.RemoveAndDeleteChildren();
+            // heroTip.DeleteAsync(0.0);
         }
     }
 }

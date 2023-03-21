@@ -32,6 +32,7 @@ LinkLuaModifier("modifier_faction_psychopomp",    "modifiers/faction/modifier_fa
 LinkLuaModifier("modifier_faction_psychopomp_helper",    "modifiers/faction/modifier_faction_psychopomp.lua",    LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_sharpshooter",    "modifiers/faction/modifier_faction_sharpshooter.lua",    LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faction_demigod",    "modifiers/faction/modifier_faction_demigod.lua",    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faction_middle_kingdom",    "modifiers/faction/modifier_faction_middle_kingdom.lua",    LUA_MODIFIER_MOTION_NONE)
 
 -- Talents that can be activated later
 LinkLuaModifier("modifier_talent_static_field", "heroes/zeus/modifier_talent_static_field.lua",                    LUA_MODIFIER_MOTION_NONE)
@@ -1108,7 +1109,7 @@ function CAvaloreGameMode:InitSunWukong(hero, playernum, isIllu)
 		unit = PlayerResource:GetPlayer(playernum):GetAssignedHero()
 	end
 
-	--unit:AddNewModifier(unit, nil, "modifier_faction_olympians", nil)
+	unit:AddNewModifier(unit, nil, "modifier_faction_middle_kingdom", nil)
 	local sun_wukong_cosmetics = {}
 	--sun_wukong_cosmetics[0] = "models/items/siren/luminous_warrior_head/luminous_warrior_head.vmdl"
 	sun_wukong_cosmetics[0] = "models/items/monkey_king/monkey_king_arcana_head/mesh/monkey_king_arcana.vmdl"
