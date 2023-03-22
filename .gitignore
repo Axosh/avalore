@@ -17,6 +17,8 @@
 *.vxml_c
 *.vcss_c
 *.vmdl_c
+*.vanim_c
+*.vsvg_c
 
 # Scans
 /.scannerwork
@@ -26,3 +28,9 @@
 /wiki/LocalSettings.php
 /wiki/wikidata/*
 /wiki/dbdata/*
+
+# IDE
+*.code-workspace
+
+# Debug
+game/panorama_debugger.cfg
