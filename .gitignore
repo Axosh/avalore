@@ -1,3 +1,5 @@
+node_modules
+
 # Valve Generated Stuff
 *.bin
 *.cfg
