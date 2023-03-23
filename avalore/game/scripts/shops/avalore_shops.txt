@@ -17,6 +17,7 @@
 	{
 		"item"				"item_avalore_philosophers_stone"
 		"item"				"item_hair_of_samson"
+		"item"				"item_carnyx"
 		"item"				"item_caduceus"
 		"item"				"item_greater_agility"
 	}

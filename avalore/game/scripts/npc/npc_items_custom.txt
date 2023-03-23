@@ -35,6 +35,7 @@
 
 // Components
 #base "items/components/item_hair_of_samson.txt"
+#base "items/components/item_carnyx.txt"
 #base "items/components/item_caduceus.txt"
 #base "items/components/item_greater_agility.txt"
 
