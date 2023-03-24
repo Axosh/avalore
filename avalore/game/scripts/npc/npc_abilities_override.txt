@@ -40,7 +40,7 @@
 	"item_ring_of_regen"			"REMOVE"
 	"item_sobi_mask"			"REMOVE"
 	"item_boots"			"REMOVE"
-	"item_gem"			"REMOVE"
+	//"item_gem"			"REMOVE"
 	"item_cloak"			"REMOVE"
 	"item_talisman_of_evasion"			"REMOVE"
 	"item_cheese"			"REMOVE"
@@ -618,4 +618,65 @@
 	// {
 	// 	"AbilityTextureName"			"consumeable/ward_stack_1"
 	// }
+
+	// https://github.com/dotabuff/d2vpkr/blob/master/dota/scripts/npc/items.txt
+	"item_gem"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"30"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/gem01.mdl"
+		"Effect"						"dropped_gem"
+
+		"AbilityTextureName" 			"consumable/eye_of_providence"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"900"
+		"ItemShopTags"					"see_invis"
+		"ItemQuality"					"component"
+		"ItemAliases"					"gem of true sight;eye"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"600.0"
+		"ItemSupport"					"1"
+		"ItemKillable"					"0"
+		"ItemContributesToNetWorthWhenDropped"	"0"
+		
+		// Sound
+		//-------------------------------------------------------------------------------------------------------------			
+		"UIPickupSound"					"Item.PickUpGemShop"
+		"UIDropSound"					"Item.DropGemShop"
+		"WorldDropSound"				"Item.DropGemWorld"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                                  "FIELD_INTEGER"
+				//"item_slot"									"30" //MISC -- had trouble getting it to actually move here with inventory manager
+				"item_slot"									"5" //TRINKET
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"900"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"active_radius"				"300"
+			}
+			"42"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"4"
+			}
+		}
+	}
 } // end "DOTAAbilities"

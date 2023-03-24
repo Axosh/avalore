@@ -12,6 +12,16 @@
         "ModelScale"                "1.0"
         "BotImplemented"            "0"
 
+         // Precache
+		//-------------------------------------------------------------------------------------------------------------
+        "precache"
+		{
+			//"particle"	"particles/econ/items/terrorblade/terrorblade_ti9_immortal/terrorblade_ti9_immortal_metamorphosis_projectile.vpcf"
+            //"particle"      "particles/hw_fx/hw_candy_projectile_trail.vpcf"
+            //"particle"      "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
+            "particle"      "particles/units/heroes/hero_chen/chen_base_attack.vpcf"
+		}
+
         // Abilities
 		//----------------------------------------------------------------
 		"AbilityLayout"     "4"
@@ -53,6 +63,11 @@
         "AttackRate"                "1.7"
         "BaseAttackSpeed"           "100"
         "AttackAnimationPoint"      "0.45"
+
+        //"ProjectileModel"           "particles/econ/items/terrorblade/terrorblade_ti9_immortal/terrorblade_ti9_immortal_metamorphosis_projectile.vpcf"
+        "ProjectileModel"           "particles/units/heroes/hero_chen/chen_base_attack.vpcf"
+        //"ProjectileModel"           "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
+        "ProjectileSpeed"	"900"
 
         // Armor
 		//----------------------------------------------------------------

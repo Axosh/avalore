@@ -1145,6 +1145,12 @@
 		"DOTA_Tooltip_Ability_item_ward_dispenser"							"Eyes of Argus and Horus"
 		"DOTA_Tooltip_Ability_item_ward_dispenser_description"				"<h1>Use: Plant</h1> Plant the currently active Eye. Double-Click to switch the currently active Eye.\n<h1>Slot: Trinket</h1>Requires the Trinket slot"
 
+		//https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/resource/dota_english.txt
+		"DOTA_Tooltip_Ability_item_gem"										"Eye of Providence"
+		"DOTA_Tooltip_Ability_item_gem_description"							"<h1>Active: Reveal</h1>Gives True Sight over a %active_radius% radius revealing wards and units even in Fog of War.\n<h1>Passive: True Sight</h1> Grants the ability to see invisible units and wards to any allied vision within %radius% range of its carrier. \n<h1>Passive: Everlasting</h1><font color='#e03e2e'>Dropped on death, and cannot be destroyed.</font>\n<h1>Slot: Trinket</h1>Requires the Trinket slot"
+		"DOTA_Tooltip_ability_item_gem_Note0"								"Disabled while on a courier."
+		"DOTA_Tooltip_Ability_item_gem_Lore"								"Also known as the 'All-Seeing Eye', representative of watchful eye of the divine over the mortal realm"
+
 		// Essences
 		"DOTA_Tooltip_Ability_item_recipe_essence_of_frost"		"Essence of Frost"
 		"DOTA_Tooltip_Ability_item_essence_of_frost"			"Essence of Frost"

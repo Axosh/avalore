@@ -12,6 +12,7 @@
 		//"item"				"item_eye_of_argus"
 		"item"				"item_ward_observer"
 		"item"				"item_ward_sentry"
+		"item"				"item_gem"
     }
     "attributes"
 	{
