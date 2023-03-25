@@ -21,6 +21,7 @@
 		"item"				"item_carnyx"
 		"item"				"item_caduceus"
 		"item"				"item_greater_agility"
+		"item"				"item_lesser_agility"
 	}
     "weapons_armor"
     {

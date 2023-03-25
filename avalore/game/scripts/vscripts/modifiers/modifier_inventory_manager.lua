@@ -151,6 +151,17 @@ function modifier_inventory_manager:OnIntervalThink()
             -- if intr_mod then
             --     print("Intrinsic Mod: " .. intr_mod)
             -- end
+
+            -- check for data-driven
+            -- if not intr_mod then
+            --     print("Checking for Data Driven")
+            --     local has_intr = item:GetSpecialValueFor("HasIntrinsicModifier")
+            --     print("Intrinsic Check => " .. tostring(has_intr))
+            --     if has_intr and (has_intr == 1) then
+            --         intr_mod = "modifier_" .. item:GetName()
+            --         print("Generating Modifier Name => " .. intr_mod)
+            --     end
+            -- end
             if intr_mod then
                 if not hero:FindModifierByName(intr_mod) then
                     print("modifier_inventory_manager > Adding (" .. item:GetName() .. ", " .. intr_mod .. ")")
@@ -161,6 +172,14 @@ function modifier_inventory_manager:OnIntervalThink()
 
                 -- start or continue tracking this backpacked item
                 backpack_state[intr_mod] = item
+            else
+                local has_intr = item:GetSpecialValueFor("HasIntrinsicModifier")
+                if has_intr and (has_intr == 1) then
+                    local data_driven_mod = "modifier_" .. item:GetName()
+                    if not hero:FindModifierByName(data_driven_mod) then
+                        item:ApplyDataDrivenModifier(hero, hero, data_driven_mod, {})
+                    end
+                end
             end
         end
     end
