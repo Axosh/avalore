@@ -15,6 +15,7 @@ function modifier_inventory_manager:OnCreated()
 	if not IsServer() then return end
     -- track (modifier:item) so we can clean up modifiers if the item is null/no longer in backpack
     self.curr_backpack = {}
+    self.backpack_mod_count = {}
     self:StartIntervalThink(FrameTime())
 end
 
@@ -116,7 +117,9 @@ function modifier_inventory_manager:OnIntervalThink()
     end
     
     -- loop through known backpack items to see if they're still in backpack
-    for mod,item in pairs(self.curr_backpack) do
+    --for mod,item in pairs(self.curr_backpack) do
+    for itemEntIndex,mod in pairs(self.curr_backpack) do
+        local item = EntIndexToHScript(itemEntIndex)
         -- only worry about this if it has a modifier
         if mod then
             -- make sure the item still exists
@@ -136,13 +139,29 @@ function modifier_inventory_manager:OnIntervalThink()
 
             if remove_modifier then
                 print("modifier_inventory_manager > Removing Modifier " .. mod)
-                hero:RemoveModifierByName(mod)
+                local mod_instance = hero:FindModifierByName(mod)
+                if mod_instance:GetStackCount() > 1 then
+                    mod_instance:DecrementStackCount()
+                else
+                    hero:RemoveModifierByName(mod)
+                end
+                self.backpack_mod_count[mod] = self.backpack_mod_count[mod] - 1
+            -- else
+            --     -- keep track of how many stacks we have of this
+            --     if mod_count[mod] then
+            --         mod_count[mod] = mod_count[mod] + 1
+            --     else
+            --         mod_count[mod] = 1
+            --     end
             end
         end
     end
 
     -- loop through actual backpack (not the Avalore one)
     local backpack_state = {}
+    local curr_mods = {}
+    local curr_data_driven = {}
+    local mod_to_item = {}
     for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
         local item = hero:GetItemInSlot(slot)
         if item then
@@ -163,26 +182,95 @@ function modifier_inventory_manager:OnIntervalThink()
             --     end
             -- end
             if intr_mod then
-                if not hero:FindModifierByName(intr_mod) then
-                    print("modifier_inventory_manager > Adding (" .. item:GetName() .. ", " .. intr_mod .. ")")
-                    --hero:AddNewModifier(self, item, intr_mod, {})
-                    hero:AddNewModifier(hero, item, intr_mod, {})
-                    --backpack_state[intr_mod] = item
-                end
+                curr_mods = IncrementTableKey(curr_mods, intr_mod)
+                mod_to_item[intr_mod] = item
+                -- if not hero:FindModifierByName(intr_mod)  then
+                --     print("modifier_inventory_manager > Adding (" .. item:GetName() .. ", " .. intr_mod .. ")")
+                --     curr_mods[intr_mod] = 1
+                --     --hero:AddNewModifier(self, item, intr_mod, {})
+                --     -- hero:AddNewModifier(hero, item, intr_mod, {})
+                --     -- --backpack_state[intr_mod] = item
+                --     -- self.backpack_mod_count[intr_mod] = 1
+                -- else
+                --     -- check to see if this can stack
+                --     if hero:FindModifierByName(intr_mod):GetAttributes() == MODIFIER_ATTRIBUTE_MULTIPLE then
+                        
+                --     end
+                -- end
 
                 -- start or continue tracking this backpacked item
-                backpack_state[intr_mod] = item
+                --backpack_state[intr_mod] = item
+                backpack_state[item:GetEntityIndex()] = intr_mod
             else
-                local has_intr = item:GetSpecialValueFor("HasIntrinsicModifier")
-                if has_intr and (has_intr == 1) then
-                    local data_driven_mod = "modifier_" .. item:GetName()
-                    if not hero:FindModifierByName(data_driven_mod) then
-                        item:ApplyDataDrivenModifier(hero, hero, data_driven_mod, {})
-                    end
+                local data_driven_mod = GetAvaloreDataDrivenIntrinsicModifier(item)
+                if data_driven_mod then
+                    curr_data_driven = IncrementTableKey(curr_data_driven, data_driven_mod)
+                    mod_to_item[data_driven_mod] = item
+                    backpack_state[item:GetEntityIndex()] = data_driven_mod
                 end
+                -- local has_intr = item:GetSpecialValueFor("HasIntrinsicModifier")
+                -- if has_intr and (has_intr == 1) then
+                --     local data_driven_mod = "modifier_" .. item:GetName()
+                --     if not hero:FindModifierByName(data_driven_mod) then
+                --         item:ApplyDataDrivenModifier(hero, hero, data_driven_mod, {})
+                --         backpack_state[item:GetEntityIndex()] = data_driven_mod
+                --     end
+                -- end
             end
         end
     end
+
+    -- compare known mods to counted mods
+    for currMod, currModCount in pairs(curr_mods) do
+        print("Looking at " .. currMod)
+        if self.backpack_mod_count[currMod] and self.backpack_mod_count[currMod] > 0 then
+            print("Found Instance of " .. currMod)
+            local tempMod = hero:FindModifierByName(currMod)
+            print(tempMod:GetName())
+            print("Attrs => " .. tostring(tempMod:GetAttributes()))
+            -- see if we can stack multiple instances
+            if tempMod:GetAttributes() == MODIFIER_ATTRIBUTE_MULTIPLE then
+                print("Can Stack")
+                -- compare counts
+                if tempMod:GetStackCount() ~= currModCount then
+                    tempMod:SetStackCount(currModCount)
+                    self.backpack_mod_count[currMod] = currModCount
+                end
+            end
+        else
+            -- if new, just add it
+            local item = mod_to_item[currMod]
+            hero:AddNewModifier(self, item, currMod, {})
+            self.backpack_mod_count[currMod] = 1
+        end
+    end
+
+    -- -- compare known mods to counted data-driven mods
+    -- for currMod, currModCount in pairs(curr_data_driven) do
+    --     --print("CurrMod = " .. currMod)
+    --     if self.backpack_mod_count[currMod] and self.backpack_mod_count[currMod] > 0 then
+    --         --print("Already Known")
+    --         local tempMod = hero:FindModifierByName(currMod)
+    --         print("Attrs => " .. tostring(tempMod:GetAttributes()))
+    --         -- see if we can stack multiple instances
+    --         if tempMod:GetAttributes() == MODIFIER_ATTRIBUTE_MULTIPLE then
+    --             print("Can Stack")
+    --             -- compare counts
+    --             if tempMod:GetStackCount() ~= currModCount then
+    --                 tempMod:SetStackCount(currModCount)
+    --                 self.backpack_mod_count[currMod] = currModCount
+    --             end
+    --         end
+    --     else
+    --         -- if new, just add it
+    --         print("New Mod Detected so Adding 1 to " .. currMod)
+    --         --hero:AddNewModifier(self, item, currMod, {})
+    --         local item = mod_to_item[currMod]
+    --         item:ApplyDataDrivenModifier(hero, hero, currMod, {})
+    --         self.backpack_mod_count[currMod] = 1
+    --     end
+    -- end
+
 
     -- print("==== BACKPACK STATE ====")
     -- for mod,item in pairs(backpack_state) do
@@ -193,4 +281,39 @@ function modifier_inventory_manager:OnIntervalThink()
     -- remake the backpack
     self.curr_backpack = nil -- garbage collect
     self.curr_backpack = backpack_state -- set to new object
+end
+
+-- Look for the Item's Intrinsic Mod, or Data-Driven Intrinsic Mod
+-- returns the name of the modifier, or nil
+-- nm this won't work because regular mods and data driven ones are applied differently
+function GetIntrinsicOrDataDrivenMod(item)
+    local intr_mod = item:GetIntrinsicModifierName()
+    if intr_mod then
+        return intr_mod
+    else
+        local has_intr = item:GetSpecialValueFor("HasIntrinsicModifier")
+        if has_intr and (has_intr == 1) then
+            local data_driven_mod = "modifier_" .. item:GetName()
+        else
+            return nil
+        end
+    end
+end
+
+function GetAvaloreDataDrivenIntrinsicModifier(item)
+    local has_intr = item:GetSpecialValueFor("HasIntrinsicModifier")
+    if has_intr and (has_intr == 1) then
+        return ("modifier_" .. item:GetName())
+    else
+        return nil
+    end
+end
+
+function IncrementTableKey(table, key)
+    if table[key] then
+        table[key] = table[key] + 1
+    else
+        table[key] = 1
+    end
+    return table
 end
