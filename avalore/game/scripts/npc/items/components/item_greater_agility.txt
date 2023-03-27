@@ -36,7 +36,8 @@
         "ScriptFile"                    "items/shop/components/item_greater_agility.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
-        "AbilityTextureName"            "components/agility_placeholder"
+        // "AbilityTextureName"            "components/agility_placeholder"
+        "AbilityTextureName"            "components/greater_agi"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------

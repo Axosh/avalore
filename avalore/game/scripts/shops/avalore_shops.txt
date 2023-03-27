@@ -20,8 +20,8 @@
 		"item"				"item_hair_of_samson"
 		"item"				"item_carnyx"
 		"item"				"item_caduceus"
-		"item"				"item_greater_agility"
 		"item"				"item_lesser_agility"
+		"item"				"item_greater_agility"
 	}
     "weapons_armor"
     {

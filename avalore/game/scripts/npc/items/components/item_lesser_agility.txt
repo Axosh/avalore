@@ -32,8 +32,9 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         //"ID"                            "3083"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
-        "BaseClass"						"item_datadriven"            
-        //"ScriptFile"                    "items/shop/components/item_lesser_agility.lua"
+        //"BaseClass"						"item_datadriven" 
+        "BaseClass"						"item_lua"                       
+        "ScriptFile"                    "items/shop/components/item_lesser_agility.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
         "AbilityTextureName"            "components/lesser_agi"
@@ -61,23 +62,23 @@
         "SideShop"                                          "0"
         "SecretShop"					                    "0"
 
-        "Modifiers"
-        {
-            "modifier_item_lesser_agility"
-            {
-                "Passive"				"1"
-				"IsHidden"				"1"
-				//"IsBuff"				"1"
-				"IsPurgable"			"0"
+        // "Modifiers"
+        // {
+        //     "modifier_item_lesser_agility"
+        //     {
+        //         "Passive"				"1"
+		// 		"IsHidden"				"1"
+		// 		//"IsBuff"				"1"
+		// 		"IsPurgable"			"0"
 
-                "Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+        //         "Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 
-                "Properties"
-				{
-                    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agi"
-                }
-            }
-        }
+        //         "Properties"
+		// 		{
+        //             "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agi"
+        //         }
+        //     }
+        // }
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -94,11 +95,11 @@
                 "var_type"                                  "FIELD_INTEGER"
                 "bonus_agi"                                 "3"
             }
-            "03"
-            {
-                "var_type"                              "FIELD_INTEGER"
-                "HasIntrinsicModifier"                  "1"
-            }
+            // "03"
+            // {
+            //     "var_type"                              "FIELD_INTEGER"
+            //     "HasIntrinsicModifier"                  "1"
+            // }
         }
     }
 }
