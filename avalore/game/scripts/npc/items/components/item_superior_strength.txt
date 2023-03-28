@@ -1,14 +1,14 @@
 "DOTAItems"
 {
     // // NOTE: This is a placeholder for now until I find something more suitable
-    "item_recipe_superior_agility"
+    "item_recipe_superior_strength"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		//"ID"							"3082"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"components/superior_agi"
+        "AbilityTextureName" 			"components/superior_str"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
@@ -19,7 +19,7 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_superior_agility"
+		"ItemResult"					"item_superior_strength"
 		// Recipe
         "ItemRequirements"
 		{
@@ -27,22 +27,22 @@
         }
 	}
 
-    "item_superior_agility"
+    "item_superior_strength"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
         //"ID"                            "3083"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/components/item_superior_agility.lua"
+        "ScriptFile"                    "items/shop/components/item_superior_strength.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
         // "AbilityTextureName"            "components/agility_placeholder"
-        "AbilityTextureName"            "components/superior_agi"
+        "AbilityTextureName"            "components/superior_str"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "0"
-        "ItemShopTags"                  "agi"
+        "ItemShopTags"                  "str"
         "ItemQuality"                   "component"
         //"ItemAliases"                   "gloves;cloth"
 
@@ -74,7 +74,7 @@
             "02"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "bonus_agi"                                 "10"
+                "bonus_str"                                 "10"
             }
         }
     }

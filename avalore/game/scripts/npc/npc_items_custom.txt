@@ -40,6 +40,13 @@
 #base "items/components/item_greater_agility.txt"
 #base "items/components/item_lesser_agility.txt"
 #base "items/components/item_superior_agility.txt"
+#base "items/components/item_superior_agility.txt"
+#base "items/components/item_lesser_intelligence.txt"
+#base "items/components/item_greater_intelligence.txt"
+#base "items/components/item_superior_intelligence.txt"
+#base "items/components/item_lesser_strength.txt"
+#base "items/components/item_greater_strength.txt"
+#base "items/components/item_superior_strength.txt"
 
 // MISC
 #base "items/base_materials/item_avalore_philosophers_stone.txt"

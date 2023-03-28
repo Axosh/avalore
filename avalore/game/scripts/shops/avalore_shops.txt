@@ -23,6 +23,12 @@
 		"item"				"item_lesser_agility"
 		"item"				"item_greater_agility"
 		"item"				"item_superior_agility"
+		"item"				"item_lesser_intelligence"
+		"item"				"item_greater_intelligence"
+		"item"				"item_superior_intelligence"
+		"item"				"item_lesser_strength"
+		"item"				"item_greater_strength"
+		"item"				"item_superior_strength"
 	}
     "weapons_armor"
     {
