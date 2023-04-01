@@ -29,6 +29,9 @@
 		"item"				"item_lesser_strength"
 		"item"				"item_greater_strength"
 		"item"				"item_superior_strength"
+		"item"				"item_lesser_damage"
+		"item"				"item_greater_damage"
+		"item"				"item_superior_damage"
 	}
     "weapons_armor"
     {

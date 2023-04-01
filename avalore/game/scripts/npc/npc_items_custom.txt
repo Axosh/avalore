@@ -47,6 +47,9 @@
 #base "items/components/item_lesser_strength.txt"
 #base "items/components/item_greater_strength.txt"
 #base "items/components/item_superior_strength.txt"
+#base "items/components/item_lesser_damage.txt"
+#base "items/components/item_greater_damage.txt"
+#base "items/components/item_superior_damage.txt"
 
 // MISC
 #base "items/base_materials/item_avalore_philosophers_stone.txt"
