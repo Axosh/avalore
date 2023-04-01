@@ -12,7 +12,8 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"600"
+		//"ItemCost"						"600"
+        "ItemCost"                      "300"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -70,13 +71,13 @@
             "02"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "bonus_movement_speed"                      "40"
+                "bonus_movement_speed"                      "30"
             }
-            "03"
-            {
-                "var_type"                                  "FIELD_INTEGER"
-                "bonus_mana_regen"                          "1.25"
-            }
+            // "03"
+            // {
+            //     "var_type"                                  "FIELD_INTEGER"
+            //     "bonus_mana_regen"                          "1.25"
+            // }
         }
     }
 }

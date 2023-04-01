@@ -15,15 +15,18 @@ MELEE_ATTACK_RANGE = 150
 -- ROUND START TIMES (IN SECONDS)
 -- ==================================
 
-Constants.TIME_PRE_GAME_START = -120
-Constants.TIME_FLAG_SPAWN = -90
-Constants.TIME_ROUND_1_START = 0     --00 min
-Constants.TIME_ROUND_2_START = 600   --10 min
-Constants.TIME_ROUND_3_START = 1200  --20 min
-Constants.TIME_ROUND_4_START = 1800  --30 min
+Constants.TIME_PRE_GAME_START   = -120
+Constants.TIME_FLAG_SPAWN       = -90
+Constants.TIME_ROUND_1_START    = 0     --00 min
+Constants.TIME_ROUND_2_START    = 600   --10 min
+Constants.TIME_ROUND_3_START    = 1200  --20 min
+Constants.TIME_ROUND_4_START    = 1800  --30 min
 
 -- "particles/units/heroes/hero_ogre_magi/ogre_magi_fire_shield_bubble_outer.vpcf"
 Constants.BASE_BUBBLE_PARTICLE = "particles/units/heroes/hero_arc_warden/arc_warden_magnetic.vpcf"
+--Constants.BASE_BUBBLE_PARTICLE = "particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7sphere.vpcf"
+--Constants.BASE_BUBBLE_PARTICLE = "particles/radiant_fx2/fs_altardestruction_growinitsphere.vpcf"
+--Constants.BASE_BUBBLE_PARTICLE = "particles/units/heroes/hero_rubick/rubick_faceless_void_chronosphere_sphere.vpcf"
 
 -- ==================================
 -- SPAWNER KEY NAMES

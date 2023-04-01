@@ -1101,6 +1101,8 @@ function CAvaloreGameMode:InitPecosBill(hero, playernum)
 		cosmetic:SetOwner(unit)
 		cosmetic:FollowEntity(unit, true)
 	end
+	unit:SetRenderColor(166,42,42) -- brown #a56729
+	--unit:SetRenderColor(183, 124, 82) -- tan #b77c52
 end
 
 function CAvaloreGameMode:InitSunWukong(hero, playernum, isIllu)

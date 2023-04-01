@@ -50,8 +50,11 @@ function OnInventoryItemChange() {
     // make backpack items not gray
     $.Msg("Has class? " + GetDotaHud().FindChildTraverse("inventory_slot_6").BHasClass("inactive_item"))
     GetDotaHud().FindChildTraverse("inventory_slot_6").RemoveClass("inactive_item")
-    GetDotaHud().FindChildTraverse("inventory_slot_7").RemoveClass("inactive_item")
-    GetDotaHud().FindChildTraverse("inventory_slot_8").RemoveClass("inactive_item")
+    GetDotaHud().FindChildTraverse("inventory_slot_6").AddClass("AvaloreBackpack")
+    GetDotaHud().FindChildTraverse("inventory_slot_6").RemoveClass("inactive_item")
+    GetDotaHud().FindChildTraverse("inventory_slot_6").AddClass("AvaloreBackpack")
+    GetDotaHud().FindChildTraverse("inventory_slot_6").RemoveClass("inactive_item")
+    GetDotaHud().FindChildTraverse("inventory_slot_6").AddClass("AvaloreBackpack")
 }
 
 // function OverrideWardDispenser() {
