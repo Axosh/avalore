@@ -222,15 +222,15 @@ function modifier_inventory_manager:OnIntervalThink()
 
     -- compare known mods to counted mods
     for currMod, currModCount in pairs(curr_mods) do
-        print("Looking at " .. currMod)
+        --print("Looking at " .. currMod)
         if self.backpack_mod_count[currMod] and self.backpack_mod_count[currMod] > 0 then
-            print("Found Instance of " .. currMod)
+            --print("Found Instance of " .. currMod)
             local tempMod = hero:FindModifierByName(currMod)
-            print(tempMod:GetName())
-            print("Attrs => " .. tostring(tempMod:GetAttributes()))
+            --print(tempMod:GetName())
+            --print("Attrs => " .. tostring(tempMod:GetAttributes()))
             -- see if we can stack multiple instances
             if tempMod:GetAttributes() == MODIFIER_ATTRIBUTE_MULTIPLE then
-                print("Can Stack")
+                --print("Can Stack")
                 -- compare counts
                 if tempMod:GetStackCount() ~= currModCount then
                     tempMod:SetStackCount(currModCount)
@@ -240,7 +240,7 @@ function modifier_inventory_manager:OnIntervalThink()
         else
             -- if new, just add it
             local item = mod_to_item[currMod]
-            hero:AddNewModifier(self, item, currMod, {})
+            hero:AddNewModifier(self:GetParent(), item, currMod, {})
             self.backpack_mod_count[currMod] = 1
         end
     end

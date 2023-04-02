@@ -1396,6 +1396,12 @@
 		"DOTA_Tooltip_Ability_item_superior_damage_bonus_dmg"				"+$damage"
 		"DOTA_Tooltip_Ability_item_superior_damage_lore"					"PLACEHOLDER ITEM"
 
+		"DOTA_Tooltip_Ability_item_recipe_lesser_attack_speed"				"Lesser Attackspeed"
+		"DOTA_Tooltip_Ability_item_lesser_attack_speed"						"Lesser Attackspeed"
+		"DOTA_Tooltip_Ability_item_lesser_attack_speed_description"			"<h1>Slot: Misc</h1>Requires a misc slot"
+		"DOTA_Tooltip_Ability_item_lesser_attack_speed_bonus_as"			"+$attack"
+		"DOTA_Tooltip_Ability_item_lesser_attack_speed_lore"				"PLACEHOLDER ITEM"
+
 		// Attributes
 		"DOTA_Tooltip_Ability_item_recipe_avalore_philosophers_stone"				"Philosophers Stone"
 		"DOTA_Tooltip_Ability_item_avalore_philosophers_stone"						"Philosophers Stone"

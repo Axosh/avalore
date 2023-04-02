@@ -50,6 +50,7 @@
 #base "items/components/item_lesser_damage.txt"
 #base "items/components/item_greater_damage.txt"
 #base "items/components/item_superior_damage.txt"
+#base "items/components/item_lesser_attack_speed.txt"
 
 // MISC
 #base "items/base_materials/item_avalore_philosophers_stone.txt"
