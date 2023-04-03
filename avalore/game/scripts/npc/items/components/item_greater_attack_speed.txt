@@ -1,0 +1,81 @@
+"DOTAItems"
+{
+    // // NOTE: This is a placeholder for now until I find something more suitable
+    "item_recipe_greater_attack_speed"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"3082"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"components/greater_as"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"600"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_greater_attack_speed"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_slot_misc"
+        }
+	}
+
+    "item_greater_attack_speed"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        //"ID"                            "3083"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						"item_lua"            
+        "ScriptFile"                    "items/shop/components/item_greater_attack_speed.lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"                         "models/props_gameplay/red_box.vmdl"
+        // "AbilityTextureName"            "components/agility_placeholder"
+        "AbilityTextureName"            "components/greater_as"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        "ItemShopTags"                  "as"
+        "ItemQuality"                   "component"
+        //"ItemAliases"                   "gloves;cloth"
+
+        "ItemKillable"					                    "1"
+		"ItemSellable"					                    "1"
+		"ItemPurchasable"				                    "1"
+		"ItemDroppable"					                    "1"
+		"ItemShareability"				                    "ITEM_NOT_SHAREABLE"
+		"ItemStackable"					                    "0"
+		"ItemPermanent"					                    "0"
+
+        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        //"ItemSlot"                                          "feet"
+
+        "SideShop"                                          "0"
+        "SecretShop"					                    "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "30" //MISC
+            }
+            "02"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_as"                                 "30"
+            }
+        }
+    }
+}

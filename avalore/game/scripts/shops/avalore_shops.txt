@@ -33,6 +33,7 @@
 		"item"				"item_greater_damage"
 		"item"				"item_superior_damage"
 		"item"				"item_lesser_attack_speed"
+		"item"				"item_greater_attack_speed"
 	}
     "weapons_armor"
     {
