@@ -8,7 +8,7 @@
 		//"ID"							"3082"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"components/raw_mana_regen"
+        "AbilityTextureName" 			"components/lesser_mana_regen"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
@@ -37,7 +37,7 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
         // "AbilityTextureName"            "components/agility_placeholder"
-        "AbilityTextureName"            "components/raw_mana_regen"
+        "AbilityTextureName"            "components/lesser_mana_regen"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------

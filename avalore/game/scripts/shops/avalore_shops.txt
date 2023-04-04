@@ -34,6 +34,7 @@
 		"item"				"item_superior_damage"
 		"item"				"item_lesser_attack_speed"
 		"item"				"item_greater_attack_speed"
+		"item"				"item_lesser_mana_regen"
 	}
     "weapons_armor"
     {
