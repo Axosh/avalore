@@ -13,7 +13,8 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"400"
+		//"ItemCost"						"400"
+        "ItemCost"                      ""
 		"ItemShopTags"					""
 
 		// Recipe
@@ -23,7 +24,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_fairy_dust;item_sandals"
+            "01"                        "item_fairy_dust;item_sandals;item_lesser_mana_regen;item_caduceus"
         }
 	}
 
@@ -75,7 +76,7 @@
             "02"
             {
                 "var_type"                                        "FIELD_INTEGER"
-                "bonus_movement_speed"                            "40"
+                "bonus_movement_speed"                            "60"
             }
             "03"
             {
