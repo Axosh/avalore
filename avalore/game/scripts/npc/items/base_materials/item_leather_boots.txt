@@ -74,11 +74,6 @@
                 "var_type"                                  "FIELD_INTEGER"
                 "bonus_movement_speed"                      "50"
             }
-            "03"
-            {
-                "var_type"                                  "FIELD_INTEGER"
-                "bonus_armor"                               "2"
-            }
         }
     }
 }

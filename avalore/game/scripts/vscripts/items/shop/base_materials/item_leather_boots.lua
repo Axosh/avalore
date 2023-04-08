@@ -6,24 +6,6 @@ function item_leather_boots:GetIntrinsicModifierName()
     return "modifier_item_leather_boots"
 end
 
--- function item_leather_boots:CanBeUsedOutOfInventory()
---     if self:IsInBackpack() then
---         return true
---     end
---     return false
--- end
-
--- function item_leather_boots:OnEquip()
---     print("Leather Boots Equipped")
--- end
-
--- function item_leather_boots:OnUnequip()
---     print("Leather Boots Unequipped")
--- end
--- function item_leather_boots:IsInBackpack()
---     return false
--- end
-
 -- ====================================
 -- INTRINSIC MOD
 -- ====================================
@@ -38,8 +20,7 @@ function modifier_item_leather_boots:GetAttributes()
 end
 
 function modifier_item_leather_boots:DeclareFunctions()
-    return {    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-                MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS      }
+    return {    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT }
 end
 
 function modifier_item_leather_boots:OnCreated(event)
@@ -51,8 +32,4 @@ end
 
 function modifier_item_leather_boots:GetModifierMoveSpeedBonus_Constant()
     return self.bonus_move_speed
-end
-
-function modifier_item_leather_boots:GetModifierPhysicalArmorBonus()
-    return self.bonus_armor
 end

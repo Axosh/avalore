@@ -11,7 +11,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"1000"
+        "ItemCost"						"0"
         "ItemShopTags"					""
 
         // Recipe
@@ -20,7 +20,7 @@
         "ItemResult"					"item_helskor"
         "ItemRequirements"
         {
-            "01"						"item_leather_boots"
+            "01"						"item_leather_boots;item_caduceus;item_lesser_damage;item_superior_damage"
         }
     }
     "item_helskor"
@@ -70,7 +70,7 @@
             "02"
             {
                 "var_type"				"FIELD_INTEGER"
-                "bonus_damage"			"45"
+                "bonus_damage"			"20"
                 "CalculateSpellDamageTooltip"	"0"
             }
             "03"
