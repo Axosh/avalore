@@ -22,7 +22,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_misc"
+            "01"                        "item_slot_back" //accessory
         }
 	}
 
@@ -30,7 +30,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "1099"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                            "3099"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
         "ScriptFile"                    "items/shop/base_materials/item_bonemace.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -42,7 +42,7 @@
         "ItemCost"                      "0"
         "ItemShopTags"                  "bash"
         "ItemQuality"                   "component"
-        "ItemAliases"                   "bash"
+        "ItemAliases"                   "skull;basher;bone;bash"
 
         "ItemKillable"					                    "1"
 		"ItemSellable"					                    "1"
@@ -60,6 +60,11 @@
         "SideShop"                                          "0"
         "SecretShop"					                    "0"
 
+        // Casting
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"				
+		"AbilityCooldown"				"30"
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
@@ -67,7 +72,7 @@
             "01"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "item_slot"                                 "30" //MISC
+                "item_slot"                                 "2" //ACCESSORY
             }
             // Every X distance traveled "charge up" a mini-stun
             "02"

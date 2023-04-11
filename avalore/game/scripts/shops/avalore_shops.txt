@@ -98,7 +98,7 @@
  
 	"weapons"
 	{
-		
+		"item" 				"item_bonemace"
 	}
  
 	// Level 4 - Orange / Orb / Artifacts
