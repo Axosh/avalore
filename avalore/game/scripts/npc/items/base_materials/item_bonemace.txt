@@ -74,7 +74,6 @@
                 "var_type"                                  "FIELD_INTEGER"
                 "item_slot"                                 "2" //ACCESSORY
             }
-            // Every X distance traveled "charge up" a mini-stun
             "02"
             {
                 "var_type"                                 "FIELD_INTEGER"

@@ -48,14 +48,12 @@ function modifier_item_bonemace_ready:OnAttack(keys)
         not keys.target:IsBuilding() and
         not keys.target:IsOther())
     then
-        print("BASH READY")
         self.bash_ready = true
     end
 end
 
 function modifier_item_bonemace_ready:OnAttackLanded(keys)
     if self:GetAbility() and keys.attacker == self:GetParent() and self.bash_ready then
-        print("PROC BASH")
         -- reset bash proc
 		self.bash_ready = false
 

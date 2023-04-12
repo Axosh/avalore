@@ -12,7 +12,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
+		"ItemCost"						"0"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -22,7 +22,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_misc"
+            "01"                        "item_bonemace;item_superior_strength;item_superior_damage"
         }
 	}
 
@@ -60,6 +60,19 @@
         "SideShop"                                          "0"
         "SecretShop"					                    "0"
 
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"				
+
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		"AbilityCastRange"				"550"
+		"AbilityCooldown"				"30.0"
+
+        "AbilityManaCost"				"75"
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
@@ -67,12 +80,32 @@
             "01"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "item_slot"                                 "30" //MISC
+                "item_slot"                                 "2" //ACCESSORY
             }
             "02"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "bonus_str"                                 "3"
+                "bonus_str"                                 "10"
+            }
+            "03"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_dmg"                                 "15"
+            }
+            "04"
+            {
+                "var_type"                                 "FIELD_INTEGER"
+                "cooldown"                                 "30"
+            }
+            "05"
+            {
+                "var_type"                                 "FIELD_FLOAT"   
+                "mini_bash"                                "0.5"
+            }
+            "06"
+            {
+                "var_type"                                 "FIELD_INTEGER"
+                "bash_dmg"                                "100"
             }
         }
     }
