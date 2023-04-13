@@ -86,7 +86,7 @@
  
 	"magics"
 	{
- 
+		"item"				"item_vidars_shoes"
 	}
  
 	// Level 3 - Purple Recipes

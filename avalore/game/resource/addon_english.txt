@@ -1428,6 +1428,15 @@
 		"DOTA_Tooltip_Ability_item_bonemace_bash_dmg"						"MINI-BASH PROD DMG:"
 		"DOTA_Tooltip_Ability_item_bonemace_lore"							"A stone-age blunt weapon to deliver powerful blows to an opponent"
 
+		"DOTA_Tooltip_Ability_item_recipe_vidars_shoes"					"Vidar's Shoes"
+		"DOTA_Tooltip_Ability_item_vidars_shoes"						"Vidar's Shoes"
+		"DOTA_Tooltip_Ability_item_vidars_shoes_description"			"<h1>Active: Overwhelming Kick</h1>Gap-closing mini-blink that delivers a %mini_bash% sec mini-bash that also deals %bash_dmg% physical damage.<br><br>Pierces Spell Immunity.<br><br>Range: %abilitycastrange%\n<h1>Slot: Legs</h1>Requires the legs slot"
+		"DOTA_Tooltip_Ability_item_vidars_shoes_bonus_str"				"+$str"
+		"DOTA_Tooltip_Ability_item_vidars_shoes_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_Ability_item_vidars_shoes_bonus_movement_speed"	"+$move_speed"
+		"DOTA_Tooltip_Ability_item_vidars_shoes_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_Ability_item_vidars_shoes_lore"					"Norse: Vidar was a son of Odin, nearly equal in strength to Thor, and slayer of Fenriswolf. He delivered a powerful kick that opened Fenriswolf's jaw and gave opportunity to cut the beast down."
+
 		// Attributes
 		"DOTA_Tooltip_Ability_item_recipe_avalore_philosophers_stone"				"Philosophers Stone"
 		"DOTA_Tooltip_Ability_item_avalore_philosophers_stone"						"Philosophers Stone"
