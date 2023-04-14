@@ -1296,6 +1296,8 @@
 		"DOTA_Tooltip_Ability_item_war_belt"								"War Belt"
 		"DOTA_Tooltip_Ability_item_war_belt_description"					"<h1>Slot: Accessory</h1>Requires the accessory slot"
 		"DOTA_Tooltip_Ability_item_war_belt_bonus_str"						"+$str"
+		"DOTA_Tooltip_Ability_item_war_belt_bonus_agi"						"+$agi"
+		"DOTA_Tooltip_Ability_item_war_belt_Lore"							"Sometimes called zosters or girdles, these belts that were a display of fighting prowess"
 
 		"DOTA_Tooltip_Ability_item_recipe_wooden_shield"					"Wooden Shield"
 		"DOTA_Tooltip_Ability_item_wooden_shield"							"Wooden Shield"
@@ -1472,7 +1474,9 @@
 		"DOTA_Tooltip_Ability_item_helskor"					"Helskór"
 		// "DOTA_Tooltip_Ability_item_recipe_helskor"			"Helskor"
 		// "DOTA_Tooltip_Ability_item_helskor"					"Helskor"
-		"DOTA_Tooltip_Ability_item_helskor_description"		"<h1>Active: Ghost Walk</h1>Grants %phase_ms% extra movespeed, allows movement through units, immunity to physical damage, but take %magic_dmg_amp% increased magical damage.\n<h1>Slot: Feet</h1>Requires the feet slot"
+		"DOTA_Tooltip_Ability_item_helskor_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_Ability_item_helskor_bonus_movement_speed"	"+$move_speed"
+		"DOTA_Tooltip_Ability_item_helskor_description"		"<h1>Active: Ghost Walk</h1>Grants %phase_ms% extra movespeed, allows movement through units, immunity to physical damage, but take %extra_spell_damage_percent%%% increased magical damage.\n<h1>Slot: Feet</h1>Requires the feet slot"
 		"DOTA_Tooltip_Ability_item_helskor_Lore"			"Norse Mythology: 'hel-shoes', placed on the deceased so they could travel to Valhalla"
 
 		// TIER 2
