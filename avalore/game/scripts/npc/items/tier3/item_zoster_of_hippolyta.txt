@@ -22,7 +22,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_caduceus;item_war_belt;item_golden_fleece;item_hair_of_samson;item_greater_agility"
+            "01"                        "item_caduceus;item_war_belt;item_golden_fleece;item_greater_strength;item_lesser_agility"
         }
 	}
 
@@ -77,7 +77,7 @@
             "02"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "bonus_str"                                 "10"
+                "bonus_str"                                 "9"
             }
             "03"
             {
