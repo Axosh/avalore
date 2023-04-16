@@ -17,7 +17,7 @@
     "attributes"
 	{
 		"item"				"item_avalore_philosophers_stone"
-		"item"				"item_hair_of_samson"
+		//"item"				"item_hair_of_samson"
 		"item"				"item_carnyx"
 		"item"				"item_caduceus"
 		"item"				"item_lesser_agility"
@@ -94,6 +94,7 @@
 	{
 		"item"				"item_babr_e_bayan"
 		"item"				"item_zoster_of_hippolyta"
+		"item"				"item_brunhilds_girdle"
 	}
  
 	"weapons"
