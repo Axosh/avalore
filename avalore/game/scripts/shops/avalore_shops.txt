@@ -121,5 +121,6 @@
 	"secretshop"
 	{
 		"item"				"item_golden_fleece"
+		"item"				"item_megingjoro"
 	}
 }

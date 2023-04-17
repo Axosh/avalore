@@ -80,6 +80,9 @@
 #base "items/tier4/item_babr_e_bayan.txt"
 #base "items/tier4/item_brunhilds_girdle.txt"
 
+// TIER 5 Items
+#base "items/tier5/item_megingjoro.txt"
+
 // MERCS
 
 #base "items/merc_demi_hero/item_merc_demi_hero_yeti.txt"
