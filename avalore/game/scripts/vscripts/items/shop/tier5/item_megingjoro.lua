@@ -31,7 +31,7 @@ function modifier_item_megingjoro:OnCreated(event)
 end
 
 function modifier_item_megingjoro:GetModifierBonusStats_Strength()
-    return self.bonus_str + self:GetParent():GetBaseStrength()
+    return self.bonus_str + (self:GetParent():GetBaseStrength() * (self.bonus_str_mult - 1))
 end
 
 function modifier_item_megingjoro:GetModifierBonusStats_Agility()

@@ -393,6 +393,21 @@ function Inventory:Combine(item_name)
                 self.slots[item_slot] = item
                 --return
             end
+
+            -- Check to see if they completed an Artifact
+            if item:GetSpecialValueFor("IsArtifact") == 1 then
+                print("Someone Completed: " .. item:GetName())
+                -- find all instances of purchased recipes for this artifact
+                local recipe_name = string.gsub(item:GetName(), "item_", "item_recipe_")
+                print("Recipe => " .. recipe_name)
+                local artifact_recipes = Entities:FindAllByName(recipe_name)
+                for _,recipe in pairs(artifact_recipes) do
+                    recipe:RemoveSelf()
+                end
+
+                -- TODO: SetItemStockCount(count: int, team: DOTATeam_t, itemName: string, playerId: PlayerID): nil
+
+            end
          end
     end
     -- make sure we didn't eat items while combining and not give the base slot back

@@ -21,7 +21,7 @@
 		"ItemResult"					"item_megingjoro"
 
         "SecretShop"					                    "1"
-        
+
 		// Recipe
         "ItemRequirements"
 		{
@@ -86,6 +86,11 @@
             {
                 "var_type"                                  "FIELD_FLOAT"
                 "bonus_str_mult"                            "2.0"
+            }
+            "05"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "IsArtifact"                                "1"
             }
         }
     }
