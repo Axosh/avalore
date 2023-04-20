@@ -33,6 +33,9 @@
 #base "items/base_materials/item_essence_of_arcane.txt"
 #base "items/base_materials/item_essence_of_regeneration.txt"
 
+#base "items/components/item_lesser_mana_regen.txt"
+#base "items/components/item_greater_mana_regen.txt"
+
 // Components
 #base "items/components/item_hair_of_samson.txt"
 #base "items/components/item_carnyx.txt"
@@ -52,7 +55,6 @@
 #base "items/components/item_superior_damage.txt"
 #base "items/components/item_lesser_attack_speed.txt"
 #base "items/components/item_greater_attack_speed.txt"
-#base "items/components/item_lesser_mana_regen.txt"
 #base "items/components/item_vitality.txt"
 
 // EQUIPMENT

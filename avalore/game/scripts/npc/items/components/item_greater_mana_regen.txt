@@ -1,25 +1,25 @@
 "DOTAItems"
 {
     // // NOTE: This is a placeholder for now until I find something more suitable
-    "item_recipe_superior_intelligence"
+    "item_recipe_greater_mana_regen"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3108"
+		"ID"							"3110"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"components/superior_int"
+        "AbilityTextureName" 			"components/greater_mana_regen"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"500"
+		"ItemCost"						"325"
 		"ItemShopTags"					""
 
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_superior_intelligence"
+		"ItemResult"					"item_greater_mana_regen"
 		// Recipe
         "ItemRequirements"
 		{
@@ -27,22 +27,22 @@
         }
 	}
 
-    "item_superior_intelligence"
+    "item_greater_mana_regen"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "3109"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                            "3111"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/components/item_superior_intelligence.lua"
+        "ScriptFile"                    "items/shop/components/item_greater_mana_regen.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
         // "AbilityTextureName"            "components/agility_placeholder"
-        "AbilityTextureName"            "components/superior_int"
+        "AbilityTextureName"            "components/greater_mana_regen"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "0"
-        "ItemShopTags"                  "int"
+        "ItemShopTags"                  "regen"
         "ItemQuality"                   "component"
         //"ItemAliases"                   "gloves;cloth"
 
@@ -73,8 +73,8 @@
             }
             "02"
             {
-                "var_type"                                  "FIELD_INTEGER"
-                "bonus_int"                                 "10"
+                "var_type"                                  "FIELD_FLOAT"
+                "bonus_mana_regen"                          "1.3"
             }
         }
     }
