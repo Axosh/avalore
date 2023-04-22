@@ -17,6 +17,7 @@
 #base "items/base_materials/item_avalore_gauntlets.txt"
 #base "items/base_materials/item_war_belt.txt"
 #base "items/base_materials/item_wooden_shield.txt"
+#base "items/tier1/item_staff_of_sorcery.txt"
 
 // CONSUMABLE
 #base "items/consumables/item_ambrosia.txt"

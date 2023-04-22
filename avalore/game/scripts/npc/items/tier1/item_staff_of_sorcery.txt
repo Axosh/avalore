@@ -5,15 +5,15 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3092"
+		"ID"							"3114"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"components/staff_of_sorcery"
+        "AbilityTextureName" 			"base_materials/staff_of_sorcery"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"125"
+		"ItemCost"						""
 		"ItemShopTags"					""
 
 		// Recipe
@@ -23,7 +23,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_misc"
+            "01"                        "item_greater_mana_regen;item_superior_intelligence"
         }
 	}
 
@@ -31,19 +31,19 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "3093"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                            "3115"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/components/item_staff_of_sorcery.lua"
+        "ScriptFile"                    "items/shop/tier1/item_staff_of_sorcery.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
         // "AbilityTextureName"            "components/agility_placeholder"
-        "AbilityTextureName"            "components/staff_of_sorcery"
+        "AbilityTextureName"            "base_materials/staff_of_sorcery"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "0"
-        "ItemShopTags"                  "regen"
-        "ItemQuality"                   "component"
+        "ItemShopTags"                  "regen;int"
+        "ItemQuality"                   "common"
         //"ItemAliases"                   "gloves;cloth"
 
         "ItemKillable"					                    "1"
@@ -74,7 +74,12 @@
             "02"
             {
                 "var_type"                                  "FIELD_FLOAT"
-                "bonus_mana_regen"                          "0.5"
+                "bonus_mana_regen"                          "1.3"
+            }
+            "03"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_int"                                 "10"
             }
         }
     }
