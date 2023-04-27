@@ -147,6 +147,7 @@
 		// ITEMS
 
 		"npc_dota_observer_wards"			"Eye of Argus"
+		"npc_dota_sentry_wards"				"Eye of Horus"
 
 		//--------------------------------------------------------------------------------
 		// BUILDINGS
@@ -1452,6 +1453,12 @@
 		"DOTA_Tooltip_Ability_item_vitality_description"					"<h1>Slot: Misc</h1>Requires a misc slot"
 		"DOTA_Tooltip_Ability_item_vitality_bonus_hp"						"+$health"
 		"DOTA_Tooltip_Ability_item_vitality_lore"							"PLACEHOLDER ITEM"
+
+		"DOTA_Tooltip_Ability_item_recipe_rauoskinna"						"Rauðskinna"
+		"DOTA_Tooltip_Ability_item_rauoskinna"								"Rauðskinna"
+		"DOTA_Tooltip_Ability_item_rauoskinna_description"					"<h1>Slot: Misc</h1>Requires a misc slot"
+		"DOTA_Tooltip_Ability_item_rauoskinna_bonus_mana"					"+$mana"
+		"DOTA_Tooltip_Ability_item_rauoskinna_lore"							"PLACEHOLDER ITEM"
 
 		"DOTA_Tooltip_Ability_item_recipe_staff_of_sorcery"				"Staff of Sorcery"
 		"DOTA_Tooltip_Ability_item_staff_of_sorcery"						"Staff of Sorcery"

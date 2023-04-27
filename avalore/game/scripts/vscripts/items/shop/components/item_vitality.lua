@@ -24,8 +24,9 @@ end
 function modifier_item_vitality:OnCreated(event)
     self.item_ability = self:GetAbility()
     self.bonus_hp = self.item_ability:GetSpecialValueFor("bonus_hp")
+    self:SetStackCount( 1 )
 end
 
 function modifier_item_vitality:GetModifierHealthBonus()
-    return self.bonus_hp
+    return self.bonus_hp * self:GetStackCount()
 end

@@ -174,7 +174,7 @@ function Inventory:Add(item)
         -- find an empty slot
         local placed = false
         for misc_slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
-            if not placed and (not self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]:GetName():IsNull()) and self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]:GetName() == "item_slot_misc" then
+            if not placed and (not self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]:IsNull()) and self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]:GetName() == "item_slot_misc" then
                 self.hero:SwapItems(item:GetItemSlot(), self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]:GetItemSlot())
                 self.hero:RemoveItem(self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot])
                 self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot] = item

@@ -61,6 +61,7 @@
 #base "items/components/item_lesser_stats.txt"
 #base "items/components/item_greater_stats.txt"
 #base "items/components/item_superior_stats.txt"
+#base "items/components/item_rauoskinna.txt"
 
 // EQUIPMENT
 #base "items/base_materials/item_bonemace.txt"

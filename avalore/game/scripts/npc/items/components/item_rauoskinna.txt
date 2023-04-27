@@ -42,7 +42,7 @@
         "ItemCost"                      "0"
         "ItemShopTags"                  "mana"
         "ItemQuality"                   "component"
-        //"ItemAliases"                   "gloves;cloth"
+        "ItemAliases"                   "rauoskinna;energy booster"
 
         "ItemKillable"					                    "1"
 		"ItemSellable"					                    "1"
