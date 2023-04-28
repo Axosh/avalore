@@ -2,14 +2,14 @@
 {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    //"ID"							"2027"
+    "ID"							"3124"
     "BaseClass"						"item_datadriven"
     "AbilityTextureName" 			"items_04/circes_staff"
     "Model"							"models/props_gameplay/recipe.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"						"0"
+    "ItemCost"						"1000"
     "ItemShopTags"					""
 
     // Recipe
@@ -26,7 +26,7 @@
 {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    //"ID"							"2028"
+    "ID"							"3125"
     "BaseClass"						"item_lua"
     "ScriptFile"					"items/shop/tier4/item_circes_staff.lua"
     "Model"                         "models/props_gameplay/red_box.vmdl"
