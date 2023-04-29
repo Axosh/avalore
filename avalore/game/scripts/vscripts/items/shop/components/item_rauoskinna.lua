@@ -23,10 +23,10 @@ end
 
 function modifier_item_rauoskinna:OnCreated(event)
     self.item_ability = self:GetAbility()
-    self.bonus_hp = self.item_ability:GetSpecialValueFor("bonus_mana")
+    self.bonus_mana = self.item_ability:GetSpecialValueFor("bonus_mana")
     self:SetStackCount( 1 )
 end
 
 function modifier_item_rauoskinna:GetModifierManaBonus()
-    return self.bonus_hp * self:GetStackCount()
+    return self.bonus_mana * self:GetStackCount()
 end

@@ -18,7 +18,7 @@
     "ItemResult"					"item_circes_staff"
     "ItemRequirements"
     {
-        "01"						"item_staff_of_sorcery;item_superior_stats"
+        "01"						"item_staff_of_sorcery;item_superior_stats;item_rauoskinna"
     }
 }
 
@@ -54,10 +54,10 @@
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
-    // "precache"
-    // {
-    //     "model" 					"models/items/courier/mighty_chicken/mighty_chicken_flying.vmdl"
-    // }
+    "precache"
+    {
+        "model" 					"models/props_gameplay/pig.vmdl"
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
