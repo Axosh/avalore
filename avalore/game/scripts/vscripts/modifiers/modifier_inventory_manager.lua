@@ -101,17 +101,23 @@ function modifier_inventory_manager:OnIntervalThink()
             
             if item:GetSpecialValueFor("item_slot") ~= AVALORE_ITEM_SLOT_MISC then
                 print("Found Item That Should Not Be in Backpack: " .. item:GetName())
-                for main_slot=AVALORE_ITEM_SLOT_HEAD,AVALORE_ITEM_SLOT_TRINKET do
-                    local item_main = hero:GetItemInSlot(main_slot)
-                    -- found a misplaced item, swap it
-                    if item_main:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_MISC then
-                        print("modifier_inventory_manager > Returning Item to Backpack")
-                        local droppable = item_main:IsDroppable()
-                        item_main:SetDroppable(true)
-                        hero:SwapItems(slot, main_slot)
-                        item_main:SetDroppable(droppable)
+                -- see if the item slot it should be in is already empty
+                -- if string.find(hero:GetItemInSlot(item:GetSpecialValueFor("item_slot")):GetName(), "item_slot") then
+                --     hero:RemoveItem(hero:GetItemInSlot(item:GetSpecialValueFor("item_slot")))
+                --     hero:SwapItems()
+                -- else
+                    for main_slot=AVALORE_ITEM_SLOT_HEAD,AVALORE_ITEM_SLOT_TRINKET do
+                        local item_main = hero:GetItemInSlot(main_slot)
+                        -- found a misplaced item, swap it
+                        if item_main:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_MISC then
+                            print("modifier_inventory_manager > Returning Item to Backpack")
+                            local droppable = item_main:IsDroppable()
+                            item_main:SetDroppable(true)
+                            hero:SwapItems(slot, main_slot)
+                            item_main:SetDroppable(droppable)
+                        end
                     end
-                end
+                -- end
             end
         end
     end

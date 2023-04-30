@@ -102,6 +102,7 @@
 		"item"				"item_babr_e_bayan"
 		"item"				"item_zoster_of_hippolyta"
 		"item"				"item_brunhilds_girdle"
+		"item"				"item_circes_staff"
 	}
  
 	"weapons"

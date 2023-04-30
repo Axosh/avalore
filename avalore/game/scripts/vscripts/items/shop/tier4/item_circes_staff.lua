@@ -1,6 +1,7 @@
 item_circes_staff = class({})
 
-LinkLuaModifier( "modifier_item_circes_staff", "items/shop/tier1/item_circes_staff.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_circes_staff", "items/shop/tier4/item_circes_staff.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_avalore_hex",     "modifiers/base_spell/modifier_avalore_hex.lua", LUA_MODIFIER_MOTION_NONE)
 
 function item_circes_staff:GetIntrinsicModifierName()
     return "modifier_item_circes_staff"
@@ -31,9 +32,37 @@ function item_circes_staff:OnSpellStart()
 
     local caster = self:GetCaster()
     local target = self:GetCursorTarget()
-    local hex_duration = self:GetSpecialValueFor("hex_duration")
-    local modified_duration = hex_duration
 
+    if target:IsMagicImmune() then
+        return nil
+    end
+
+    if target:GetTeam() ~= caster:GetTeam() then
+        if target:TriggerSpellAbsorb(self) then
+            return nil
+        end
+    end
+
+    target:EmitSound("DOTA_Item.Sheepstick.Activate")
+
+    -- insta-pop illusions
+    if target:IsIllusion() and not target:IsStrongIllusion(target) then
+        target:ForceKill(true)
+        return
+    end
+
+
+    local hex_duration = self:GetSpecialValueFor("hex_duration")
+    local modified_duration = hex_duration * (1 - target:GetStatusResistance())
+
+    target:AddNewModifier(caster, self, "modifier_item_imba_sheepstick_debuff", {duration = modified_duration * (1 - target:GetStatusResistance())})
+
+    target:AddNewModifier(caster, self, "modifier_avalore_hex",
+                                        {
+                                            duration = modified_duration,
+                                            texture = "circes_staff",
+                                            model = "models/props_gameplay/pig.vmdl"
+                                        });
 end
 
 -- ====================================

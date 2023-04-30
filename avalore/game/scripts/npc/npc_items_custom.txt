@@ -87,6 +87,7 @@
 // TIER 4 Items
 #base "items/tier4/item_babr_e_bayan.txt"
 #base "items/tier4/item_brunhilds_girdle.txt"
+#base "items/tier4/item_circes_staff.txt"
 
 // TIER 5 Items
 #base "items/tier5/item_megingjoro.txt"
