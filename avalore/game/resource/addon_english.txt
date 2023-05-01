@@ -1483,6 +1483,15 @@
 		"DOTA_Tooltip_Ability_item_vidars_shoes_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_Ability_item_vidars_shoes_lore"					"Norse: Vidar was a son of Odin, nearly equal in strength to Thor, and slayer of Fenriswolf. He delivered a powerful kick that opened Fenriswolf's jaw and gave opportunity to cut the beast down."
 
+		"DOTA_Tooltip_Ability_item_recipe_circes_staff"				"Circe's Staff"
+		"DOTA_Tooltip_Ability_item_circes_staff"						"Circe's Staff"
+		"DOTA_Tooltip_Ability_item_circes_staff_description"			"<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_circes_staff_bonus_mana_regen"		"+$mana_regen"
+		"DOTA_Tooltip_Ability_item_circes_staff_bonus_intellect"		"+$int"
+		"DOTA_Tooltip_Ability_item_circes_staff_bonus_strength"			"+$str"
+		"DOTA_Tooltip_Ability_item_circes_staff_bonus_agility"			"+$agi"
+		"DOTA_Tooltip_Ability_item_circes_staff_lore"					"PLACEHOLDER ITEM"
+
 		// Attributes
 		"DOTA_Tooltip_Ability_item_recipe_avalore_philosophers_stone"				"Philosophers Stone"
 		"DOTA_Tooltip_Ability_item_avalore_philosophers_stone"						"Philosophers Stone"
