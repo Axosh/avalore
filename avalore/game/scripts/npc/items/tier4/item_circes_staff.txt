@@ -100,6 +100,26 @@
                 "var_type"				"FIELD_INTEGER"
                 "enemy_move_speed"		"140"
             }
+            "07"
+            {
+                "var_type"				"FIELD_INTEGER"
+                "bonus_mana"            "100"
+            }
+            // "07"
+            // {
+            //     "var_type"				"FIELD_INTEGER"
+            //     "death_lifesteal"       "20"
+            // }
         }
+    }
+}
+
+"DOTAAbilities"
+{
+    // this is just to get the hex icon to compile
+    "item_circes_staff_texture"
+    {
+        "BaseClass"						"ability_datadriven"
+        "AbilityTextureName" 			"circes_staff"
     }
 }

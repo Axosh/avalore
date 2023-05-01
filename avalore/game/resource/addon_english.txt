@@ -1483,14 +1483,16 @@
 		"DOTA_Tooltip_Ability_item_vidars_shoes_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_Ability_item_vidars_shoes_lore"					"Norse: Vidar was a son of Odin, nearly equal in strength to Thor, and slayer of Fenriswolf. He delivered a powerful kick that opened Fenriswolf's jaw and gave opportunity to cut the beast down."
 
-		"DOTA_Tooltip_Ability_item_recipe_circes_staff"				"Circe's Staff"
+		"DOTA_Tooltip_Ability_item_recipe_circes_staff"					"Circe's Staff"
 		"DOTA_Tooltip_Ability_item_circes_staff"						"Circe's Staff"
-		"DOTA_Tooltip_Ability_item_circes_staff_description"			"<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_circes_staff_description"			"<h1>Active: Feast for Swine</h1><font color=\"#ffa500\">Hexes</font> the target into a harmless pig for %hex_duration% seconds. The target has a base movement speed of %enemy_move_speed% and will be silenced, muted, and disarmed. Destroys illusions.\n<h1>Slot: Accessory</h1>Requires the accessory slot"
+		//<br><br>If the target dies while under the effect, their killer gets %death_lifesteal%%% of target's Max HP in healing.
 		"DOTA_Tooltip_Ability_item_circes_staff_bonus_mana_regen"		"+$mana_regen"
 		"DOTA_Tooltip_Ability_item_circes_staff_bonus_intellect"		"+$int"
 		"DOTA_Tooltip_Ability_item_circes_staff_bonus_strength"			"+$str"
 		"DOTA_Tooltip_Ability_item_circes_staff_bonus_agility"			"+$agi"
-		"DOTA_Tooltip_Ability_item_circes_staff_lore"					"PLACEHOLDER ITEM"
+		"DOTA_Tooltip_Ability_item_circes_staff_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_Ability_item_circes_staff_lore"					"Greek Mythology: in Homer's Odyssey, Circe is a lesser goddess who lures Osysseus' crew to her island and transforms them into swine after they feast on her food."
 
 		// Attributes
 		"DOTA_Tooltip_Ability_item_recipe_avalore_philosophers_stone"				"Philosophers Stone"
@@ -1642,5 +1644,7 @@
 		//***************
 		"DOTA_Tooltip_modifier_avalore_stunned"					"Stunned"
 		"DOTA_Tooltip_modifier_avalore_disarmed"				"Disarmed"
+		"DOTA_Tooltip_modifier_avalore_hex"						"Hexed"
+		"DOTA_Tooltip_modifier_avalore_hex_description"			"Silenced, muted, and disarmed"
 	}
 }

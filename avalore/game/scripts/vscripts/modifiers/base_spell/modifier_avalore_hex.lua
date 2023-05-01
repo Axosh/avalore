@@ -23,6 +23,9 @@ end
 
 
 function modifier_avalore_hex:GetTexture()
+    if self:GetAbility() and self:GetAbility():GetName() == "item_circes_staff" then
+        return "circes_staff"
+    end
     return self.texture
 end
 
@@ -50,6 +53,7 @@ end
 -- ====================================================================
 function modifier_avalore_hex:OnCreated( kv )
     if not IsServer() then return end
+    print("Hex Parent => " .. self:GetAbility():GetName())
 
     -- instantly destroy illusions and return (no need to process anything else)
     if self:GetParent():IsIllusion() then
