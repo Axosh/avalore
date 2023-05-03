@@ -103,6 +103,7 @@
 		"item"				"item_zoster_of_hippolyta"
 		"item"				"item_brunhilds_girdle"
 		"item"				"item_circes_staff"
+		"item"				"item_nemean_lions_hide"
 	}
  
 	"weapons"

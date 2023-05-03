@@ -1,0 +1,88 @@
+"DOTAItems"
+{
+    "item_recipe_nemean_lions_hide"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3126"	
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"items_04/nemean_lion_hide"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_nemean_lions_hide"
+		"ItemRequirements"
+		{
+			"01"						"item_babr_e_bayan;item_superior_strength;item_superior_damage"
+		}
+	}	
+
+    "item_nemean_lions_hide"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3127"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"FightRecapLevel"				"2"
+		"BaseClass"                     "item_lua"
+        "AbilityTextureName"            "items_04/nemean_lion_hide"
+        "ScriptFile"                    "items/shop/tier4/item_nemean_lions_hide.lua"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"70"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		//"ItemCost"						"4050"
+		"ItemShopTags"					"str;damage;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"bkb;black king bar;nlh;lion;hide"
+		"ItemSellable"					"1"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "1" //CHEST
+            }
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"15"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"7"
+			}
+            "05"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_armor"                               "6"
+            }
+            "06"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "magic_resist"                               "50"
+            }
+		}
+	}
+}
