@@ -12,7 +12,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
+		"ItemCost"						""
 		"ItemShopTags"					""
 
 		// Recipe
@@ -22,7 +22,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_hands"
+            "01"                        "item_slot_hands;item_lesser_strength;item_lesser_stats"
         }
 	}
 
@@ -72,7 +72,17 @@
             "02"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "bonus_str"                                 "3"
+                "bonus_str"                                 "6"
+            }
+            "03"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_agi"                                 "3"
+            }
+            "04"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_int"                                 "3"
             }
         }
     }

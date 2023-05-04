@@ -18,14 +18,26 @@ function modifier_item_avalore_bracer:IsPurgable() return false end
 function modifier_item_avalore_bracer:RemoveOnDeath() return false end
 
 function modifier_item_avalore_bracer:DeclareFunctions()
-    return {    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS }
+    return {    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+                MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+                MODIFIER_PROPERTY_STATS_INTELLECT_BONUS }
 end
 
 function modifier_item_avalore_bracer:OnCreated(event)
     self.item_ability = self:GetAbility()
     self.bonus_str = self.item_ability:GetSpecialValueFor("bonus_str")
+    self.bonus_agi = self.item_ability:GetSpecialValueFor("bonus_agi")
+    self.bonus_int = self.item_ability:GetSpecialValueFor("bonus_int")
 end
 
 function modifier_item_avalore_bracer:GetModifierBonusStats_Strength()
     return self.bonus_str
+end
+
+function modifier_item_avalore_bracer:GetModifierBonusStats_Agility()
+    return self.bonus_agi
+end
+
+function modifier_item_avalore_bracer:GetModifierBonusStats_Intellect()
+    return self.bonus_int
 end
