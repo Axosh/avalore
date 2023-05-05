@@ -5,7 +5,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		//"ID"							"3082"
+		"ID"							"3128"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
         "AbilityTextureName" 			"components/greater_as"
@@ -31,7 +31,7 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        //"ID"                            "3083"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                            "3129"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
         "ScriptFile"                    "items/shop/components/item_greater_attack_speed.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"

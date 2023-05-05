@@ -1,0 +1,86 @@
+"DOTAItems"
+{
+    "item_recipe_armor_of_achilles"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3130"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"imba_recipe"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1300"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_imba_assault"
+		"ItemRequirements"
+		{
+			"01"						"item_platemail;item_hyperstone;item_buckler"
+		}
+	}
+
+    "item_armor_of_achilles"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3131"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName" 			"item_assault"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ScriptFile"					"components/items/item_assault_cuirass.lua"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"5100"
+		"ItemShopTags"					"attack_speed;armor;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"ac;assault cuirass"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_as"				"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"5" // disabled
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_as_ally"			"30"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_armor_ally"		"5"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"aura_armor_reduction_enemy"	"5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"1200"
+			}
+		}
+	}
+}
