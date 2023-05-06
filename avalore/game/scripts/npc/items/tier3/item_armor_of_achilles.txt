@@ -48,38 +48,58 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_as"				"30"
+				"var_type"				                    "FIELD_INTEGER"
+				"bonus_as"				                    "30"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"10"
+				"var_type"				                    "FIELD_INTEGER"
+				"bonus_armor"			                    "11"
 			}
 			"03"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_str"                                 "6"
+            }
+            "04"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_agi"                                 "3"
+            }
+            "05"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_int"                                 "3"
+            }
+            "06"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_movement_speed"                      "15"
+            }
+            "07"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "damage_block"                              "20"
+            }
+			"08"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"5" // disabled
+				"var_type"				                    "FIELD_INTEGER"
+				"aura_as_ally"			                    "30"
 			}
-			"04"
+			"09"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_as_ally"			"30"
+				"var_type"				                    "FIELD_INTEGER"
+				"aura_armor_ally"		                    "5"
 			}
-			"05"
+			"10"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_armor_ally"		"5"
+				"var_type"						            "FIELD_INTEGER"
+				"aura_armor_reduction_enemy"	            "5"
 			}
-			"06"
+			"11"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"aura_armor_reduction_enemy"	"5"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"1200"
+				"var_type"				                    "FIELD_INTEGER"
+				"radius"				                    "1200"
 			}
 		}
 	}
