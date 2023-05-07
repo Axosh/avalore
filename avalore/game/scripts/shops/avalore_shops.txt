@@ -104,6 +104,7 @@
 		"item"				"item_brunhilds_girdle"
 		"item"				"item_circes_staff"
 		"item"				"item_nemean_lions_hide"
+		"item"				"item_armor_of_achilles"
 	}
  
 	"weapons"

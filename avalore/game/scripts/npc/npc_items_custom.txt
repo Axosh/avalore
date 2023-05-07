@@ -89,6 +89,7 @@
 #base "items/tier4/item_brunhilds_girdle.txt"
 #base "items/tier4/item_circes_staff.txt"
 #base "items/tier4/item_nemean_lion_hide.txt"
+#base "items/tier4/item_armor_of_achilles.txt"
 
 // TIER 5 Items
 #base "items/tier5/item_megingjoro.txt"
