@@ -6,21 +6,21 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3130"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName" 			"imba_recipe"
+		"AbilityTextureName" 			"items_04/armor_of_achilles"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1300"
+		"ItemCost"						""
 		"ItemShopTags"					""
 
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_imba_assault"
+		"ItemResult"					"item_armor_of_achilles"
 		"ItemRequirements"
 		{
-			"01"						"item_platemail;item_hyperstone;item_buckler"
+			"01"						"item_plate;item_greaves;item_avalore_bracer"
 		}
 	}
 
@@ -30,16 +30,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3131"
 		"BaseClass"						"item_lua"
-		"AbilityTextureName" 			"item_assault"
+		"AbilityTextureName" 			"items_04/armor_of_achilles"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ScriptFile"					"components/items/item_assault_cuirass.lua"
+		"ScriptFile"					"items/shop/tier4/item_armor_of_achilles.lua"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5100"
+		"ItemCost"						""
 		"ItemShopTags"					"attack_speed;armor;hard_to_tag"
 		"ItemQuality"					"epic"
-		"ItemAliases"					"ac;assault cuirass"
+		"ItemAliases"					"ac;assault cuirass;aoa"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
 		// Special
