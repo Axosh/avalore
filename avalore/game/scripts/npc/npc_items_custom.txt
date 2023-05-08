@@ -62,6 +62,7 @@
 #base "items/components/item_greater_stats.txt"
 #base "items/components/item_superior_stats.txt"
 #base "items/components/item_rauoskinna.txt"
+#base "items/components/item_magic_armor.txt"
 
 // EQUIPMENT
 #base "items/base_materials/item_bonemace.txt"

@@ -1462,6 +1462,12 @@
 		"DOTA_Tooltip_Ability_item_rauoskinna_bonus_mana"					"+$mana"
 		"DOTA_Tooltip_Ability_item_rauoskinna_lore"							"Icelandic Folklore: translates to 'Red Skin', and also known as 'The Book of Power'. A grimoire of black magic that mastering would allegedly give the user the ability to control Satan himself."
 
+		"DOTA_Tooltip_Ability_item_recipe_magic_armor"						"Magic Armor"
+		"DOTA_Tooltip_Ability_item_magic_armor"								"Magic Armor"
+		"DOTA_Tooltip_Ability_item_magic_armor_description"					"<h1>Slot: Misc</h1>Requires a misc slot"
+		"DOTA_Tooltip_Ability_item_magic_armor_magic_resist"				"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_magic_armor_lore"						"PLACEHOLDER ITEM"
+
 		"DOTA_Tooltip_Ability_item_recipe_staff_of_sorcery"				"Staff of Sorcery"
 		"DOTA_Tooltip_Ability_item_staff_of_sorcery"						"Staff of Sorcery"
 		"DOTA_Tooltip_Ability_item_staff_of_sorcery_description"			"<h1>Slot: Misc</h1>Requires a misc slot"

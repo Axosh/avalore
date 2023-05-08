@@ -39,6 +39,7 @@
 		"item"				"item_greater_attack_speed"
 		"item"				"item_vitality"
 		"item"				"item_rauoskinna"
+		"item"				"item_magic_armor"
 	}
     "weapons_armor"
     {
