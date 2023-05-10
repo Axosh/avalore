@@ -39,6 +39,7 @@
 #base "items/components/item_superior_mana_regen.txt"
 
 #base "items/components/item_lesser_hp_regen.txt"
+#base "items/components/item_greater_hp_regen.txt"
 
 // Components
 #base "items/components/item_hair_of_samson.txt"

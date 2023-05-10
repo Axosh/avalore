@@ -75,6 +75,7 @@
 		"item"				"item_greater_mana_regen"
 		"item"				"item_superior_mana_regen"
 		"item"				"item_lesser_hp_regen"
+		"item"				"item_greater_hp_regen"
 	}	
  
 	// Level 1 - Green Recipes
