@@ -1462,6 +1462,12 @@
 		"DOTA_Tooltip_Ability_item_greater_hp_regen_bonus_hp_regen"		"+$hp_regen"
 		"DOTA_Tooltip_Ability_item_greater_hp_regen_lore"				"PLACEHOLDER ITEM"
 
+		"DOTA_Tooltip_Ability_item_recipe_superior_hp_regen"				"Superior HP Regen"
+		"DOTA_Tooltip_Ability_item_superior_hp_regen"						"Superior HP Regen"
+		"DOTA_Tooltip_Ability_item_superior_hp_regen_description"			"<h1>Slot: Misc</h1>Requires a misc slot"
+		"DOTA_Tooltip_Ability_item_superior_hp_regen_bonus_hp_regen"		"+$hp_regen"
+		"DOTA_Tooltip_Ability_item_superior_hp_regen_lore"				"PLACEHOLDER ITEM"
+
 		"DOTA_Tooltip_Ability_item_recipe_vitality"							"Vitality"
 		"DOTA_Tooltip_Ability_item_vitality"								"Vitality"
 		"DOTA_Tooltip_Ability_item_vitality_description"					"<h1>Slot: Misc</h1>Requires a misc slot"
