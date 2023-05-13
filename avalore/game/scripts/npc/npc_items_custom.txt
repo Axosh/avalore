@@ -85,6 +85,7 @@
 #base "items/tier2/item_midas_touch.txt"
 #base "items/tier2/item_solar_crown.txt"
 #base "items/tier1/item_vidars_shoes.txt"
+#base "items/tier2/item_adder_stone.txt"
 
 // TIER 3 Items
 #base "items/tier3/item_zoster_of_hippolyta.txt"

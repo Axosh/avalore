@@ -1579,6 +1579,14 @@
 
 		"DOTA_Tooltip_modifier_solar_flare"							"Solar Flare"
 		"DOTA_Tooltip_modifier_solar_flare_description"				"Blinded by the sun, missing %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% of attacks!"
+
+		"DOTA_Tooltip_Ability_item_recipe_adder_stone"				"Adder Stone"
+		"DOTA_Tooltip_Ability_item_adder_stone"						"Adder Stone"
+		"DOTA_Tooltip_Ability_item_adder_stone_description"			"<h1>Passive: Prevent Evil</h1>Blocks most targeted spells once every %cooldown_tooltip% seconds.\n<h1>Slot: Trinket</h1>Requires the trinket slot"
+		"DOTA_Tooltip_Ability_item_adder_stone_magic_resist"		"%+$spell_resist"
+		"DOTA_Tooltip_Ability_item_adder_stone_bonus_mana_regen"	"+$mana_regen"
+		"DOTA_Tooltip_Ability_item_adder_stone_bonus_hp_regen"		"+$hp_regen"
+		"DOTA_Tooltip_Ability_item_adder_stone_Lore"				"Druidism: believed to possess magical traits to prevent diseases, sickness, nightmares and evil charms."
 		
 		// TIER 3
 		"DOTA_Tooltip_Ability_item_recipe_zoster_of_hippolyta"			"Zoster of Hippolyta"

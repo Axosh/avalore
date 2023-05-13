@@ -5,15 +5,15 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3138"
+		"ID"							"3140"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"item_02/adder_stone"
+        "AbilityTextureName" 			"items_02/adder_stone"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"715"
+		"ItemCost"						"0"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -23,7 +23,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_trinket"
+            "01"                        "item_slot_trinket;item_greater_hp_regen;item_greater_mana_regen;item_magic_armor"
         }
 	}
 
@@ -31,13 +31,13 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "3139"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                            "3141"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/components/item_adder_stone.lua"
+        "ScriptFile"                    "items/shop/tier2/item_adder_stone.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
         // "AbilityTextureName"            "components/agility_placeholder"
-        "AbilityTextureName"            "item_02/adder_stone"
+        "AbilityTextureName"            "items_02/adder_stone"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -62,6 +62,8 @@
         "SideShop"                                          "0"
         "SecretShop"					                    "0"
 
+        "AbilityCooldown"				"60.0"
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
@@ -81,10 +83,15 @@
                 "var_type"                                "FIELD_FLOAT"
                 "bonus_hp_regen"                          "3.0"
             }
-            "03"
+            "04"
             {
                 "var_type"                                  "FIELD_FLOAT"
                 "bonus_mana_regen"                          "1.3"
+            }
+            "05"
+            {
+                "var_type"                              "FIELD_INTEGER"
+                "cooldown_tooltip"                      "60"
             }
         }
     }

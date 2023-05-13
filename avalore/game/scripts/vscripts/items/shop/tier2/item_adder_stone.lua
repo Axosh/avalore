@@ -1,6 +1,6 @@
 item_adder_stone = class({})
 
-LinkLuaModifier( "modifier_item_adder_stone", "items/shop/components/item_adder_stone.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_adder_stone", "items/shop/tier2/item_adder_stone.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_adder_stone:GetIntrinsicModifierName()
     return "modifier_item_adder_stone"
@@ -22,8 +22,9 @@ function modifier_item_adder_stone:GetAttributes() return MODIFIER_ATTRIBUTE_MUL
 
 function modifier_item_adder_stone:DeclareFunctions()
     return {    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT }
+                MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+                MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, 
+                MODIFIER_PROPERTY_ABSORB_SPELL }
 end
 
 function modifier_item_adder_stone:OnCreated(event)
@@ -43,4 +44,20 @@ end
 
 function modifier_item_adder_stone:GetModifierConstantHealthRegen()
     return self.bonus_hp_regen
+end
+
+function modifier_item_adder_stone:GetAbsorbSpell(params)
+    if params.ability:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then
+        print("same team - skipping")
+		return nil
+	end
+
+    -- check if we can absorb
+    if not self.item_ability:IsCooldownReady() then return 0 end
+
+    self:GetCaster():EmitSound("Item.LinkensSphere.Activate")
+    -- start item cooldown
+    self.item_ability:UseResources(false, false, false, true)
+
+    return 1
 end

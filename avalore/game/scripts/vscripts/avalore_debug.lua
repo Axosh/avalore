@@ -59,7 +59,8 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
         end
         --local temp_hero = CreateUnitByName("npc_dota_hero_rubick", Vector(7232, 7232, 256), true, nil, hero:GetOwner(), DOTA_TEAM_BADGUYS)
         --local temp_hero = CreateUnitByName("npc_dota_hero_rubick", Vector(0, 0, 0), true, nil, hero:GetOwner(), enemy_team)
-        local temp_hero = CreateUnitByName("npc_dota_hero_sniper", Vector(0, 0, 0), true, nil, hero:GetOwner(), enemy_team)
+        --npc_dota_hero_sniper
+        local temp_hero = CreateUnitByName("npc_dota_hero_lone_druid", Vector(0, 0, 0), true, nil, hero:GetOwner(), enemy_team)
         temp_hero:SetControllableByPlayer(0, false)
         temp_hero:AddNewModifier(nil, nil, "modifier_provide_vision", {})
         local level = 30

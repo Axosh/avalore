@@ -54,9 +54,9 @@ function ability_gilgamesh_grapple:OnSpellStart()
     local dur = self:GetSpecialValueFor("channel_time") + self.main_hero:FindTalentValue("talent_endurance", "bonus_duration")
     --print("Ability Dur = ")
 
-    if not self.target:TriggerSpellAbsorb(self) then
-        self.target:AddNewModifier(self:GetCaster(), self, "modifier_grapple_target", {duration = dur})
-    end
+    if self.target:TriggerSpellAbsorb(self) then return end
+    
+    self.target:AddNewModifier(self:GetCaster(), self, "modifier_grapple_target", {duration = dur})
 end
 
 function ability_gilgamesh_grapple:OnUpgrade()
