@@ -1,30 +1,31 @@
 "DOTAItems"
 {
-    "item_recipe_avalore_ring"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3060"
-		"BaseClass"						"item_datadriven"
-		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/avalore_ring"
-		"Model"							"models/props_gameplay/red_box.vmdl"
+    // "item_recipe_avalore_ring"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ID"							"3060"
+	// 	"BaseClass"						"item_datadriven"
+	// 	//"AbilityTextureName" 			"base_materials/recipe"
+    //     "AbilityTextureName" 			"base_materials/avalore_ring"
+	// 	"Model"							"models/props_gameplay/red_box.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"200"
-		//"ItemShopTags"					""
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemCost"						"200"
+	// 	//"ItemShopTags"					""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_avalore_ring"
-		// Recipe
-        "ItemRequirements"
-		{
-            "01"                        "item_slot_trinket"
-        }
-	}
+	// 	// Recipe
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemRecipe"					"1"
+	// 	"ItemResult"					"item_avalore_ring"
+	// 	// Recipe
+    //     "ItemRequirements"
+	// 	{
+    //         "01"                        "item_slot_trinket"
+    //         //"02"                        "item_slot_misc"
+    //     }
+	// }
 
     "item_avalore_ring"
     {
@@ -39,7 +40,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
+        "ItemCost"                      "200"
         //"ItemShopTags"                  "gold"
         "ItemQuality"                   "component"
         //"ItemAliases"                   ""
@@ -71,6 +72,7 @@
             {
                 "var_type"                                  "FIELD_INTEGER"
                 "item_slot"                                 "5" //TRINKET
+                //"item_slot"                                 "25" // Trinket or Misc
             }
             "02"
             {
