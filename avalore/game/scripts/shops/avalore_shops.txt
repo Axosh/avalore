@@ -99,6 +99,7 @@
 	"magics"
 	{
 		"item"				"item_vidars_shoes"
+		"item"				"item_ring_of_dispel"
 	}
  
 	// Level 3 - Purple Recipes

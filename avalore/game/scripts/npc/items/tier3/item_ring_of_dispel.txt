@@ -34,7 +34,15 @@
         "ID"                            "3143"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
         "ScriptFile"                    "items/shop/tier2/item_ring_of_dispel.lua"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+        "FightRecapLevel"				"1"
+        "AbilityCooldown"				"15.0"
+        "AbilityCastRange"				"900"
+		"AbilityManaCost"				"175"
+
+
         "Model"                         "models/props_gameplay/red_box.vmdl"
         // "AbilityTextureName"            "components/agility_placeholder"
         "AbilityTextureName"            "items_03/ring_of_dispel"
@@ -61,8 +69,6 @@
 
         "SideShop"                                          "0"
         "SecretShop"					                    "0"
-
-        "AbilityCooldown"				                    "15.0"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -91,8 +97,18 @@
             "05"
             {
                 "var_type"                              "FIELD_INTEGER"
-                "cooldown_tooltip"                      "15"
+                "passive_cooldown_tooltip"                      "15"
             }
+            "06"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_mana"                                 "100"
+            }
+            "07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"active_duration"		"7"
+			}
         }
     }
 }
