@@ -39,6 +39,11 @@
         // "AbilityTextureName"            "components/agility_placeholder"
         "AbilityTextureName"            "items_02/adder_stone"
 
+        "precache"
+		{
+			"particle"				"particles/prototype_fx/item_linkens_buff.vpcf"
+		}
+
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "0"
