@@ -41,7 +41,8 @@ function modifier_item_ring_of_dispel:OnCreated(event)
     self.magic_resist = self.item_ability:GetSpecialValueFor("magic_resist")
     self.bonus_hp_regen = self.item_ability:GetSpecialValueFor("bonus_hp_regen")
     self.bonus_mana = self.item_ability:GetSpecialValueFor("bonus_mana")
-    self.pfx = "particles/prototype_fx/item_linkens_buff.vpcf"
+    self.particle = "particles/prototype_fx/item_linkens_buff.vpcf"
+    --self.pfx = "particles/items3_fx/lotus_orb_shield.vpcf"
 end
 
 function modifier_item_ring_of_dispel:GetModifierConstantManaRegen()
@@ -61,6 +62,7 @@ function modifier_item_ring_of_dispel:GetModifierManaBonus()
 end
 
 function modifier_item_ring_of_dispel:GetAbsorbSpell(params)
+    print("modifier_item_ring_of_dispel_active:GetAbsorbSpell(params)")
     if params.ability:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then
         print("same team - skipping")
 		return nil
@@ -70,7 +72,7 @@ function modifier_item_ring_of_dispel:GetAbsorbSpell(params)
     if not self.item_ability:IsCooldownReady() then return 0 end
 
     self:GetCaster():EmitSound("Item.LinkensSphere.Activate")
-    self.pfx = ParticleManager:CreateParticle(shield_pfx, PATTACH_POINT_FOLLOW, self:GetParent())
+    self.pfx = ParticleManager:CreateParticle(self.particle, PATTACH_POINT_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControlEnt(self.pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 
     -- start item cooldown
@@ -94,14 +96,15 @@ end
 
 function modifier_item_ring_of_dispel_active:OnCreated(params)
     self.item_ability = self:GetAbility()
-    
+
     if not IsServer() then return end
 
     if params.dispel then
 		self:GetParent():Purge(false, true, false, false, false)
 	end
 
-    local shield_pfx = "particles/prototype_fx/item_linkens_buff.vpcf"
+    --local shield_pfx = "particles/prototype_fx/item_linkens_buff.vpcf"
+    local shield_pfx = "particles/items3_fx/lotus_orb_shield.vpcf"
 
     self.pfx = ParticleManager:CreateParticle(shield_pfx, PATTACH_POINT_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControlEnt(self.pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
@@ -109,6 +112,9 @@ function modifier_item_ring_of_dispel_active:OnCreated(params)
 end
 
 function modifier_item_ring_of_dispel_active:GetAbsorbSpell(params)
+    -- print("modifier_item_ring_of_dispel_active:GetAbsorbSpell(params)")
+    -- --PrintTable(params)
+    -- print("")
     if params.ability:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then
         print("same team - skipping")
 		return nil
@@ -118,8 +124,8 @@ function modifier_item_ring_of_dispel_active:GetAbsorbSpell(params)
     if not self.item_ability:IsCooldownReady() then return 0 end
 
     self:GetCaster():EmitSound("Item.LinkensSphere.Activate")
-    self.pfx = ParticleManager:CreateParticle(shield_pfx, PATTACH_POINT_FOLLOW, self:GetParent())
-	ParticleManager:SetParticleControlEnt(self.pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
+    --self.pfx = ParticleManager:CreateParticle(shield_pfx, PATTACH_POINT_FOLLOW, self:GetParent())
+	--ParticleManager:SetParticleControlEnt(self.pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 
     -- this is a single-use modifier, so destroy it
     self:Destroy()

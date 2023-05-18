@@ -32,7 +32,7 @@ function modifier_item_adder_stone:OnCreated(event)
     self.bonus_mana_regen = self.item_ability:GetSpecialValueFor("bonus_mana_regen")
     self.magic_resist = self.item_ability:GetSpecialValueFor("magic_resist")
     self.bonus_hp_regen = self.item_ability:GetSpecialValueFor("bonus_hp_regen")
-    self.pfx = "particles/prototype_fx/item_linkens_buff.vpcf"
+    self.particle = "particles/prototype_fx/item_linkens_buff.vpcf"
 end
 
 function modifier_item_adder_stone:GetModifierConstantManaRegen()
@@ -59,7 +59,7 @@ function modifier_item_adder_stone:GetAbsorbSpell(params)
     -- Effects
     self:GetCaster():EmitSound("Item.LinkensSphere.Activate")
 
-    self.pfx = ParticleManager:CreateParticle(shield_pfx, PATTACH_POINT_FOLLOW, self:GetParent())
+    self.pfx = ParticleManager:CreateParticle(self.particle, PATTACH_POINT_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControlEnt(self.pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 
     -- start item cooldown
