@@ -1612,6 +1612,18 @@
 		"DOTA_Tooltip_modifier_item_ring_of_dispel_active"					"Dispel"
 		"DOTA_Tooltip_modifier_item_ring_of_dispel_active_description"		"Absorbs a single targeted spell"
 
+		"DOTA_Tooltip_Ability_item_recipe_jarngreipr"				"Járngreipr"
+		"DOTA_Tooltip_Ability_item_jarngreipr"						"Járngreipr"
+		"DOTA_Tooltip_Ability_item_jarngreipr_description"			"<h1>Active: Damage Absorb</h1>When cast on self or an ally, grants a barrier that absorbs %active_shield_capacity% physical damage.<br><br>Duration: %active_duration% seconds\n<h1>Slot: Hands</h1>Requires the hands slot"
+		"DOTA_Tooltip_Ability_item_jarngreipr_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_Ability_item_jarngreipr_bonus_mana_regen"		"+$mana_regen"
+		"DOTA_Tooltip_Ability_item_jarngreipr_bonus_str"			"+$str"
+		"DOTA_Tooltip_Ability_item_jarngreipr_Lore"					"Norse: the iron gauntlets of Thor that allowed him to handle the backlash from his hammer and use its magic."
+
+		"DOTA_Tooltip_modifier_item_jarngreipr_active"				"Damage Absorb"
+		"DOTA_Tooltip_modifier_item_jarngreipr_active"				"Absorbs physical damage until shield is consumed, or timer runs out"
+
+
 		// TIER 4
 		"DOTA_Tooltip_Ability_item_recipe_babr_e_bayan"			"Babr-e Bayān"
 		"DOTA_Tooltip_Ability_item_babr_e_bayan"				"Babr-e Bayān"

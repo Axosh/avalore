@@ -22,7 +22,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_hands"
+            "01"                        "item_superior_mana_regen;item_greater_strength;item_avalore_gauntlets"
         }
 	}
 
@@ -39,7 +39,7 @@
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "0"
-        "ItemShopTags"                  "str"
+        "ItemShopTags"                  "str,jarngreipr"
         "ItemQuality"                   "component"
         //"ItemAliases"                   "gloves;cloth"
 

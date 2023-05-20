@@ -94,6 +94,7 @@
 		"item"				"item_midas_touch"
 		"item"				"item_solar_crown"
 		"item"				"item_adder_stone"
+		"item"				"item_jarngreipr"
 	}
  
 	"magics"
