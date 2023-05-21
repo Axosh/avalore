@@ -1,0 +1,45 @@
+"DOTAItems"
+{
+    "item_avalore_lifesteal"
+	{
+		//"ID"							"2230"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"components/lifesteal"
+		"ScriptFile"                    "items/shop/components/item_avalore_lifesteal.lua"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost" 						"750"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemShopTags"					"damage;hard_to_tag"
+		"ItemQuality"					"common"
+		"ItemAliases"					"lifesteal"
+		"SideShop" 						"0"
+		"SecretShop" 					"0"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/item/lifesteal_mask/lifesteal_particle.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilitySpecial"
+		{
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "30" //MISC
+            }
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"lifesteal_pct"					"15"
+			}
+		}
+	}
+}
