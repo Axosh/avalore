@@ -117,6 +117,7 @@
  
 	"weapons"
 	{
+		"item" 				"item_hatchet"
 		"item" 				"item_bonemace"
 	}
  
