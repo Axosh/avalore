@@ -1,0 +1,100 @@
+"DOTAItems"
+{
+    "item_recipe_paul_bunyans_axe"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3148"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"items_03/paul_bunyans_axe"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_paul_bunyans_axe"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_hatchet;item_superior_damage;item_greater_damage;item_superior_hp_regen;item_superior_strength"
+        }
+	}
+
+    "item_paul_bunyans_axe"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"							"3149"
+        "BaseClass"						"item_lua"
+        "ScriptFile"					"items/shop/tier3/item_paul_bunyans_axe.lua"
+        "Model"                         "models/props_gameplay/red_box.vmdl"
+        "AbilityTextureName"			"item_03/paul_bunyans_axe"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"				"2"
+
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"20.0"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        //"ItemCost"						"150"
+        "ItemShopTags"					"damage;hard_to_tag"
+        "ItemQuality"					"common"
+        "ItemAliases"					"qb;quelling blade"
+        "ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "2" //ACCESSORY
+            }
+            "02"
+            {
+                "var_type"				"FIELD_INTEGER"
+				"quelling_bonus"		"8"
+            }
+            "03"
+            {
+                "var_type"				"FIELD_INTEGER"
+				"fell_tree_cooldown"	"4"
+            }
+            "04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fell_tree_cast_range"	"350"
+			}
+            "05"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_dmg"                                 "25"
+            }
+            "06"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_str"                                 "10"
+            }
+            "07"
+            {
+                "var_type"                                  "FIELD_FLOAT"
+                "bonus_hp_regen"                          "5.5"
+            }
+        }
+    }
+}
