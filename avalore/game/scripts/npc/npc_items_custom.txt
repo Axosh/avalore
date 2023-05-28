@@ -93,6 +93,7 @@
 #base "items/tier3/item_zoster_of_hippolyta.txt"
 #base "items/tier3/item_ring_of_dispel.txt"
 #base "items/tier3/item_jarngreipr.txt"
+#base "items/tier3/item_paul_bunyans_axe.txt"
 
 // TIER 4 Items
 #base "items/tier4/item_babr_e_bayan.txt"

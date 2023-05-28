@@ -1,31 +1,31 @@
 "DOTAItems"
 {
     // // NOTE: This is a placeholder for now until I find something more suitable
-    "item_recipe_greater_damage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		//"ID"							"3082"
-		"BaseClass"						"item_datadriven"
-		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"components/greater_damage"
-		"Model"							"models/props_gameplay/red_box.vmdl"
+    // "item_recipe_greater_damage"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	//"ID"							"3082"
+	// 	"BaseClass"						"item_datadriven"
+	// 	//"AbilityTextureName" 			"base_materials/recipe"
+    //     "AbilityTextureName" 			"components/greater_damage"
+	// 	"Model"							"models/props_gameplay/red_box.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"650"
-		"ItemShopTags"					""
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemCost"						"650"
+	// 	"ItemShopTags"					""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_damage"
-		// Recipe
-        "ItemRequirements"
-		{
-            "01"                        "item_slot_misc"
-        }
-	}
+	// 	// Recipe
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemRecipe"					"1"
+	// 	"ItemResult"					"item_greater_damage"
+	// 	// Recipe
+    //     "ItemRequirements"
+	// 	{
+    //         "01"                        "item_slot_misc"
+    //     }
+	// }
 
     "item_greater_damage"
     {
@@ -41,7 +41,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
+        "ItemCost"                      "650"
         "ItemShopTags"                  "dmg"
         "ItemQuality"                   "component"
         //"ItemAliases"                   "gloves;cloth"

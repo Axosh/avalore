@@ -62,6 +62,8 @@ function item_paul_bunyans_axe:OnSpellStart()
     --     if not self:GetCursorTarget().IsCreep then
     --         print("THROW paul_bunyans_axe")
     --     end
+    else
+        -- they ground targeted => find nearby trees
     end
 end
 
@@ -81,18 +83,26 @@ end
 function modifier_item_paul_bunyans_axe:DeclareFunctions()
     return {    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT      }
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_EVENT_ON_ATTACK_LANDED      }
 end
 
 function modifier_item_paul_bunyans_axe:OnCreated(event)
-    self.item_ability = self:GetAbility()
-    self.damage_bonus = self.item_ability:GetSpecialValueFor("damage_bonus")
-    self.bonus_str = self.item_ability:GetSpecialValueFor("bonus_str")
-    self.bonus_hp_regen = self.item_ability:GetSpecialValueFor("bonus_hp_regen")
+    self.item_ability           = self:GetAbility()
+    self.bonus_dmg              = self.item_ability:GetSpecialValueFor("bonus_dmg")
+    self.bonus_str              = self.item_ability:GetSpecialValueFor("bonus_str")
+    self.bonus_hp_regen         = self.item_ability:GetSpecialValueFor("bonus_hp_regen")
+    -- Cleave (if item owner is melee) ==> this is handled in the check before DoCleave
+    --if self:GetParent():GetAttackCapability() == DOTA_UNIT_CAP_MELEE_ATTACK then
+    self.cleave_damage_percent  = self.item_ability:GetSpecialValueFor("cleave_damage_percent")
+    self.cleave_starting_width  = self.item_ability:GetSpecialValueFor("cleave_starting_width")
+    self.cleave_ending_width    = self.item_ability:GetSpecialValueFor("cleave_ending_width")
+    self.cleave_distance        = self.item_ability:GetSpecialValueFor("cleave_distance")
+    --end
 end
 
 function modifier_item_paul_bunyans_axe:GetModifierPreAttack_BonusDamage(keys)
-	return self.damage_bonus
+	return self.bonus_dmg
 end
 
 function modifier_item_paul_bunyans_axe:GetModifierBonusStats_Strength()
@@ -101,4 +111,25 @@ end
 
 function modifier_item_paul_bunyans_axe:GetModifierConstantHealthRegen()
     return self.bonus_hp_regen
+end
+
+function modifier_item_paul_bunyans_axe:OnAttackLanded(keys)
+    if (self:GetAbility():GetName() == "item_paul_bunyans_axe"
+        and keys.attacker == self:GetParent()
+        and not self:GetParent():IsRangedAttacker()
+        and self:GetParent():IsAlive()
+        and not self:GetParent():IsIllusion()
+        and not keys.target:IsBuilding()
+        and not keys.target:IsOther()
+        and self:GetParent():GetTeamNumber() ~= keys.target:GetTeamNumber()
+    ) then
+        DoCleaveAttack( self:GetParent(),
+                        keys.target,
+                        self.item_ability,
+                        keys.damage * self.cleave_damage_percent * 0.01,
+                        self.cleave_starting_width,
+                        self.cleave_ending_width,
+                        self.cleave_distance,
+                        "particles/items_fx/battlefury_cleave.vpcf")
+    end
 end

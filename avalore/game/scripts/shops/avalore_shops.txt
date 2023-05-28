@@ -113,6 +113,7 @@
 		"item"				"item_circes_staff"
 		"item"				"item_nemean_lions_hide"
 		"item"				"item_armor_of_achilles"
+		"item"				"item_paul_bunyans_axe"
 	}
  
 	"weapons"
