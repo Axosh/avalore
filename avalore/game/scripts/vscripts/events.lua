@@ -71,6 +71,7 @@ function CAvaloreGameMode:_OnGameRulesStateChange(event)
 	local newState = GameRules:State_Get()
 
 	if newState == DOTA_GAMERULES_STATE_PRE_GAME then
+		print("PRE GAME")
 		local radiant_base = Entities:FindByName(nil, "radiant_base")
 		local radiant_base_dummy = CreateUnitByName("wearable_dummy", radiant_base:GetAbsOrigin() + Vector(50, 50, 50), false, nil, nil, DOTA_TEAM_GOODGUYS)
 		radiant_base_dummy:AddNewModifier(radiant_base_dummy, nil, "modifier_unselectable", {})
@@ -109,6 +110,8 @@ function CAvaloreGameMode:_OnGameRulesStateChange(event)
 				PlayerResource:GetPlayer(i):MakeRandomHeroSelection()
 			end
 		end
+	elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+		print("DEBUG DOTA_GAMERULES_STATE_GAME_IN_PROGRESS")
 	end
 
 	-- CAvaloreGameMode._reentrantCheck = true

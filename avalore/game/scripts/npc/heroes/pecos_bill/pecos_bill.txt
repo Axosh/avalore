@@ -3,8 +3,20 @@
     "npc_dota_hero_pecos_bill"
     {
         "override_hero"             "npc_dota_hero_sniper"
+
         "Model"                     "models/heroes/sniper/sniper.vmdl"
         "ModelScale"				"1.25"
+
+        "precache"
+        {
+            "model"     "models/items/sniper/the_marksman_arms/the_marksman_arms.vmdl"
+            "model"     "models/items/sniper/wildwest_head/wildwest_head.vmdl"
+            "model"     "models/items/sniper/wildwest_shoulders/wildwest_shoulders.vmdl"
+            "model"     "models/items/sniper/wildwest_back/wildwest_back.vmdl"
+            "model"     "models/items/sniper/wildwest_weapon/wildwest_weapon.vmdl"
+            "model"     "models/items/sniper/wildwest_arms/wildwest_arms.vmdl"
+            "model"     "models/items/sniper/mlg_hunters_origin_shoulder/mlg_hunters_origin_shoulder.vmdl"
+        }
 
         "BotImplemented"            "0"
 

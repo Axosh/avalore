@@ -375,6 +375,10 @@ end
 
 -- Loop through the spawn configs and create the creep waves
 function Spawners:SpawnLaneCreeps(iGameTimeSeconds)
+    -- TEMPDEBUG
+    if DEBUG_START_GAME_CRASH == 1 then
+        return
+    end
     --print("GameTime = " .. tostring(iGameTimeSeconds) .. ", \tEval = " .. tostring(math.floor(iGameTimeSeconds) % 30))
     print("Start Spawning Waves...")
     if (not Spawners.lanesAreSplit) and (iGameTimeSeconds > self.iSplitTime) then

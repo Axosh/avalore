@@ -142,7 +142,12 @@ function CAvaloreGameMode:InitGameMode()
 	ListenToGameEvent( "dota_item_spawned", Dynamic_Wrap( CAvaloreGameMode, "OnItemSpawned" ), self )
 	_G.nCOUNTDOWNTIMER = 2401
 	self.countdownEnabled = true
-	GameRules:SetPreGameTime( 120 ) -- time between pick and game start
+
+	if DEBUG_START_GAME_CRASH == 1 then
+		GameRules:SetPreGameTime( 30 ) --for temp debug
+	else
+		GameRules:SetPreGameTime( 120 ) -- time between pick and game start
+	end
 	--GameRules:SetStrategyTime( 20.0 ) -- time between picking and match start
 	GameRules:SetStrategyTime( 0.0 ) -- time between picking and match start
 	--GameRules:SetShowcaseTime( 10.0 )
@@ -524,6 +529,10 @@ end
 -- end
 
 function CAvaloreGameMode:InitRound1()
+	 -- TEMPDEBUG
+	 if DEBUG_START_GAME_CRASH == 1 then
+        return
+    end
 	-- only init this once so we don't spawn a billion wisps when debugging
 	if not _G.round_1_init_not_done then return end
 

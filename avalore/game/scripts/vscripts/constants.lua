@@ -317,3 +317,9 @@ TEAM_COLORS[DOTA_TEAM_BADGUYS]  = { 144, 19, 254 }    -- Purple
 -- TEAM_COLORS[DOTA_TEAM_CUSTOM_6] = { 0, 0, 0 }    --
 -- TEAM_COLORS[DOTA_TEAM_CUSTOM_7] = { 0, 0, 0 }    --
 -- TEAM_COLORS[DOTA_TEAM_CUSTOM_8] = { 0, 0, 0 }    --
+
+-- =======================================================
+-- DEBUG
+-- =======================================================
+
+DEBUG_START_GAME_CRASH = 0
