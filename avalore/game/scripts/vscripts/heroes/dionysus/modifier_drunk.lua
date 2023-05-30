@@ -133,9 +133,9 @@ end
 
 function modifier_drunk:GetModifierMiss_Percentage(kv)
     if kv.attacker == self:GetParent() then
-        if self.miss_rate >  0 then
-            local result = self.miss_rate
-            self.miss_rate = 0
+        if self.miss_chance >  0 then
+            local result = self.miss_chance
+            self.miss_chance = 0
             return result
         end
         return 0
