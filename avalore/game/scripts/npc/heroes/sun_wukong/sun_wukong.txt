@@ -9,6 +9,16 @@
         "ModelScale"				"1"
         "BotImplemented"            "0"
 
+        "precache"
+        {
+            "model"     "models/items/monkey_king/monkey_king_arcana_head/mesh/monkey_king_arcana.vmdl"
+            "model"     "models/items/monkey_king/mk_ti9_immortal_armor/mk_ti9_immortal_armor.vmdl"
+            "model"     "models/heroes/monkey_king/monkey_king_base_weapon.vmdl"
+            "model"      "models/items/monkey_king/mk_ti9_immortal_shoulder/mk_ti9_immortal_shoulder.vmdl"
+            "model"     "models/items/siren/naga_ti8_immortal_tail/naga_ti8_immortal_tail.vmdl"
+            "model"     "models/items/siren/luminous_warrior_head/luminous_warrior_head.vmdl"
+        }
+
         // Abilities
 		//----------------------------------------------------------------
 		"AbilityLayout"             "4"

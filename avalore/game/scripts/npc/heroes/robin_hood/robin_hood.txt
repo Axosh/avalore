@@ -12,6 +12,16 @@
     //"GameSoundsFile"            ""
     //"particle_folder"           ""
 
+    "precache"
+    {
+      "model"     "models/items/windrunner/ti6_windranger_back/ti6_windranger_back_refit.vmdl"
+      "model"     "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_bow/the_swift_pathfinder_swift_pathfinders_bow.vmdl"
+      "model"     "models/items/windrunner/quiver_of_the_northern_wind/quiver_of_the_northern_wind.vmdl"
+      "model"     "models/items/windrunner/the_swift_pathfinder_swift_pathfinders_hat_v2/the_swift_pathfinder_swift_pathfinders_hat_v2.vmdl"
+      "model"     "models/items/windrunner/ti6_windranger_shoulder/ti6_windranger_shoulder_arc_refit.vmdl"
+      "model"     "models/items/kunkka/ti9_cache_kunkka_kunkkquistador_weapon/ti9_cache_kunkka_kunkkquistador_weapon.vmdl"
+    }
+
     "BotImplemented"            "0"
 
     "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"

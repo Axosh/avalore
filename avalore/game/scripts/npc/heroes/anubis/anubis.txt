@@ -7,6 +7,15 @@
         "ModelScale"				"1"
         "BotImplemented"            "0"
 
+        "precache"
+        {
+            "model"  "models/items/phantom_lancer/anubis_phantom_lancer_head/anubis_phantom_lancer_head.vmdl"
+            "model" "models/items/phantom_lancer/anubis_phantom_lancer_arms/anubis_phantom_lancer_arms.vmdl"
+            "model" "models/items/phantom_lancer/anubis_phantom_lancer_belt/anubis_phantom_lancer_belt.vmdl"
+            "model" "models/items/phantom_lancer/anubis_phantom_lancer_shoulder/anubis_phantom_lancer_shoulder.vmdl"
+            "model" "models/items/phantom_lancer/anubis_phantom_lancer_weapon/anubis_phantom_lancer_weapon.vmdl"
+        }
+
         // Abilities
 		//----------------------------------------------------------------
 

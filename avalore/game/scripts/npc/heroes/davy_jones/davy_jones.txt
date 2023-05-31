@@ -14,6 +14,17 @@
         "ModelScale"		"1.15"
         //"SoundSet"          "0" 
 
+        "precache"
+        {
+            "model"      "models/items/kunkka/medallion_of_the_divine_anchor/medallion_of_the_divine_anchor.vmdl"
+            "model"      "models/items/kunkka/vengeful_ghost_captain_shoulder/vengeful_ghost_captain_shoulder.vmdl"
+            "model"      "models/items/kunkka/arm_lev_admiral_shawl/arm_lev_admiral_shawl.vmdl"
+            "model"      "models/items/kunkka/whaleblade/ti8_kunkka_whaleblade.vmdl"
+            "model"      "models/items/kunkka/kunkka_shoes/kunkka_shoes.vmdl"
+            "model"      "models/items/kunkka/vengeful_ghost_captain_head/vengeful_ghost_captain_head.vmdl"
+            "model"      "models/items/kunkka/vengeful_ghost_captain_back/vengeful_ghost_captain_back.vmdl"
+            "model"      "models/items/kunkka/vengeful_ghost_captain_gloves/vengeful_ghost_captain_gloves.vmdl"
+        }
 
         "Ability1"        "ability_deadly_fog"
         "Ability2"        "ability_riptide" //"ability_whirlpool"

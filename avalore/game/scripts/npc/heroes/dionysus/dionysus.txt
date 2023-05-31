@@ -9,6 +9,15 @@
         "Model"             "models/heroes/brewmaster/brewmaster.vmdl"
         //"SoundSet"          "Hero_Brewmaster" 
 
+		"precache"
+		{
+			"model"      "models/items/brewmaster/barrel_vice.vmdl"
+			"model"      "models/items/brewmaster/coffeemaster_weapon/coffeemaster_weapon.vmdl"
+			"model"      "models/items/brewmaster/honorable_brawler_arms/honorable_brawler_arms.vmdl"
+			"model"      "models/items/brewmaster/gifts_of_the_northern_lands_shoulder/gifts_of_the_northern_lands_shoulder.vmdl"
+			"model"      "models/items/brewmaster/the_bell_of_seclusion_head/the_bell_of_seclusion_head.vmdl"
+		}
+
         // Abilities
 		//----------------------------------------------------------------
 		"AbilityLayout"     "4"

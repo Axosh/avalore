@@ -86,6 +86,43 @@ function Precache( context )
 
 	PrecacheResource("particle", "particles/econ/wards/portal/ward_portal_core/ward_portal_eye_sentry.vpcf", context)
 	PrecacheResource("particle", Constants.BASE_BUBBLE_PARTICLE, context)
+
+	-- Anubis
+	PrecacheResource("model_folder", "models/heroes/phantom_lancer", context)
+
+	-- Davy Jones
+	PrecacheResource("model_folder", "models/items/kunkka", context)
+
+	-- Dionysus
+	PrecacheResource("model_folder", "models/items/brewmaster", context)
+
+	-- Gilgamesh
+	PrecacheResource("model_folder", "models/items/beastmaster", context)
+
+	-- Pecos Bill
+	PrecacheResource("model_folder", "models/items/sniper", context)
+	
+	-- Quetzalcoatl
+	PrecacheResource("model_folder", "models/items/viper", context)
+
+	-- Robin Hood
+	PrecacheResource("model_folder", "models/items/windrunner", context)
+	--PrecacheResource("model_folder", "models/items/kunkka", context)
+
+	-- Sun Wukong
+	PrecacheResource("model_folder", "models/items/monkey_king", context)
+	PrecacheResource("model_folder", "models/items/siren", context)
+	PrecacheResource("model_folder", "models/heroes/monkey_king", context)
+
+	-- Thor
+	PrecacheResource("model_folder", "models/heroes/dawnbreaker", context)
+	PrecacheResource("model_folder", "models/items/dawnbreaker", context)
+	PrecacheResource("model_folder", "models/items/omniknight", context)
+
+	-- Zeus
+	PrecacheResource("particle_folder", "particles/econ/items/zeus/arcana_chariot", context)
+	PrecacheResource("model_folder", "models/heroes/zeus", context)
+	PrecacheResource("model_folder", "models/items/zeus", context)
 end
 
 -- Create the game mode when we activate

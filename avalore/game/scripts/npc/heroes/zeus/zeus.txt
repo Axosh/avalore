@@ -12,6 +12,14 @@
         "ModelScale"				"1.25"
         "BotImplemented"            "0"
 
+        "precache"
+        {
+            "model"     "models/heroes/zeus/zeus_hair_arcana.vmdl"
+            "model"     "models/items/zeus/zeus_ti8_immortal_arms/zeus_ti8_immortal_arms.vmdl"
+            "model"     "models/heroes/zeus/zeus_belt.vmdl"
+            "model"     "models/items/zeus/lightning_weapon/mesh/zeus_lightning_weapon_model.vmdl"
+        }
+
         // Abilities
 		//----------------------------------------------------------------
 		"AbilityLayout"     "4"

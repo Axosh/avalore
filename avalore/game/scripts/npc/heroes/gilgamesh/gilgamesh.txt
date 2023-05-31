@@ -9,6 +9,16 @@
         "ModelScale"				"1.00"
         "BotImplemented"            "0"
 
+        "precache"
+        {
+            "model"     "models/items/beastmaster/beast_heart_marauder_belt/beast_heart_marauder_belt.vmdl"
+            "model"     "models/items/beastmaster/chimeras_anger_head/chimeras_anger_head.vmdl"
+            "model"     "models/items/beastmaster/bm_2021_immortal/bm_2021_single_axe.vmdl"
+            "model"     "models/items/beastmaster/fotw_shoulders/fotw_shoulders.vmdl"
+            "model"     "models/items/beastmaster/ti9_cache_bm_chieftain_of_the_primal_tribes_arms/ti9_cache_bm_chieftain_of_the_primal_tribes_arms.vmdl"
+            "model"     "models/items/beastmaster/red_talon_shoulder/red_talon_shoulder.vmdl"
+        }
+
         // Abilities
 		//----------------------------------------------------------------
 		"AbilityLayout"     "4"

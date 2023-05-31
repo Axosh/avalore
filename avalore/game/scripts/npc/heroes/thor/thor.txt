@@ -11,6 +11,16 @@
         "ModelScale"				"1"
         "BotImplemented"            "0"
 
+        "precache"
+        {
+            "model"     "models/heroes/dawnbreaker/dawnbreaker_weapon.vmdl"
+            "model"     "models/items/dawnbreaker/first_light_armor/first_light_armor.vmdl"
+            "model"     "models/items/dawnbreaker/first_light_head/first_light_head.vmdl"
+            "model"     "models/heroes/dawnbreaker/dawnbreaker_arms.vmdl"
+            "model"     "models/items/omniknight/omni_fall20_immortal_shoulders/omni_fall20_immortal_shoulders.vmdl"
+            "model"     "models/heroes/dawnbreaker/dawnbreaker_head.vmdl"
+        }
+
         // Abilities
 		//----------------------------------------------------------------
 		"AbilityLayout"             "4"

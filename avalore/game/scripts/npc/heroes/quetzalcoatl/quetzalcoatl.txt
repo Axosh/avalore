@@ -16,9 +16,10 @@
 		//-------------------------------------------------------------------------------------------------------------
         "precache"
 		{
-			//"particle"	"particles/econ/items/terrorblade/terrorblade_ti9_immortal/terrorblade_ti9_immortal_metamorphosis_projectile.vpcf"
-            //"particle"      "particles/hw_fx/hw_candy_projectile_trail.vpcf"
-            //"particle"      "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
+			"model"     "models/items/viper/blight_wyrm_back/blight_wyrm_back.vmdl"
+            "model"     "models/items/viper/spring2021_king_of_corrupted_nest_head/spring2021_king_of_corrupted_nest_head.vmdl"
+            "model"     "models/items/viper/viper_immortal_head_ti7/viper_immortal_head_ti7.vmdl"
+            "model"     "models/items/viper/viper_beetle_tail/viper_beetle_tail.vmdl"
             "particle"      "particles/units/heroes/hero_chen/chen_base_attack.vpcf"
 		}
 
