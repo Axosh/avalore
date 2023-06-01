@@ -35,7 +35,7 @@
         "ScriptFile"					"items/shop/tier3/item_paul_bunyans_axe.lua"
         "Model"                         "models/props_gameplay/red_box.vmdl"
         "AbilityTextureName"			"items_03/paul_bunyans_axe"
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
         "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_NONE"
         "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
@@ -116,6 +116,16 @@
             {
                 "var_type"				    "FIELD_INTEGER"
 				"cleave_distance"			"650"
+            }
+            "12"
+            {
+                "var_type"				    "FIELD_INTEGER"
+				"trees_for_stun"		    "3"
+            }
+            "13"
+            {
+                "var_type"				"FIELD_FLOAT"
+				"tree_stun_dur"		    "1.5"
             }
         }
     }

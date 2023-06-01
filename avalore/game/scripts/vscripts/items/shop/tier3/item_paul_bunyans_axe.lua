@@ -5,6 +5,7 @@
 item_paul_bunyans_axe = class({})
 
 LinkLuaModifier( "modifier_item_paul_bunyans_axe", "items/shop/tier3/item_paul_bunyans_axe.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
 
 function item_paul_bunyans_axe:GetIntrinsicModifierName()
     return "modifier_item_paul_bunyans_axe"
@@ -56,14 +57,67 @@ function item_paul_bunyans_axe:GetCooldown(level)
 end
 
 function item_paul_bunyans_axe:OnSpellStart()
-    if self:GetCursorTarget().CutDown then
+    if self:GetCursorTarget() and self:GetCursorTarget().CutDown then
 		self:GetCursorTarget():CutDown(self:GetCaster():GetTeamNumber())
     -- else
     --     if not self:GetCursorTarget().IsCreep then
     --         print("THROW paul_bunyans_axe")
     --     end
     else
+        print("item_paul_bunyans_axe:OnSpellStart() => Ground Target")
         -- they ground targeted => find nearby trees
+        local direction = (self:GetCursorPosition() - self:GetCaster():GetAbsOrigin()):Normalized()
+        local dist = self:GetSpecialValueFor("cleave_distance")
+        local path_radius = self:GetSpecialValueFor("cleave_ending_width")
+        local target_vector = self:GetCaster():GetAbsOrigin() + (direction * dist)
+        
+        -- local trees = FindUnitsInLine(self:GetCaster():GetTeamNumber(), -- team: DOTATeam_t
+        --                                 self:GetCaster():GetAbsOrigin(), --startPos: Vector
+        --                                 target_vector, -- endPos: Vector
+        --                                 nil, -- cacheUnit: CBaseEntity | nil
+        --                                 path_radius, -- width: float
+        --                                 DOTA_UNIT_TARGET_TEAM_NONE , -- teamFilter: DOTA_UNIT_TARGET_TEAM
+        --                                 DOTA_UNIT_TARGET_ALL, --DOTA_UNIT_TARGET_TREE, -- typeFilter: DOTA_UNIT_TARGET_TYPE
+        --                                 DOTA_UNIT_TARGET_FLAG_NONE -- flagFilter: DOTA_UNIT_TARGET_FLAGS
+        --                                 )
+        local trees = GridNav:GetAllTreesAroundPoint(target_vector, path_radius, false)
+        
+        local trees_for_stun = self:GetSpecialValueFor("trees_for_stun")
+        local tree_stun_dur = self:GetSpecialValueFor("tree_stun_dur")
+
+        local tree_count = 0
+        for _,target in pairs(trees) do
+            if target.CutDown then
+                print("TREE")
+                tree_count = tree_count + 1
+                --target:Destroy()
+            end
+        end
+
+        GridNav:DestroyTreesAroundPoint(target_vector, path_radius, false)
+
+        if tree_count > (trees_for_stun - 1) then
+            local targets = FindUnitsInLine(self:GetCaster():GetTeamNumber(), -- team: DOTATeam_t
+                                        self:GetCaster():GetAbsOrigin(), --startPos: Vector
+                                        target_vector, -- endPos: Vector
+                                        nil, -- cacheUnit: CBaseEntity | nil
+                                        path_radius, -- width: float
+                                        DOTA_UNIT_TARGET_TEAM_ENEMY, -- teamFilter: DOTA_UNIT_TARGET_TEAM
+                                        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, -- typeFilter: DOTA_UNIT_TARGET_TYPE
+                                        DOTA_UNIT_TARGET_FLAG_NONE -- flagFilter: DOTA_UNIT_TARGET_FLAGS
+                                        )
+
+            for _,target in pairs(targets) do
+                if not target.CutDown then
+                    target:AddNewModifier(
+					self:GetCaster(), -- player source
+					self, -- ability source
+					"modifier_avalore_stunned", -- modifier name
+					{ duration = tree_stun_dur } -- kv
+				)
+                end
+            end
+        end
     end
 end
 
