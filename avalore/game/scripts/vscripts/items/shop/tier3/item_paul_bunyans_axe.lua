@@ -64,12 +64,18 @@ function item_paul_bunyans_axe:OnSpellStart()
     --         print("THROW paul_bunyans_axe")
     --     end
     else
-        print("item_paul_bunyans_axe:OnSpellStart() => Ground Target")
+        --print("item_paul_bunyans_axe:OnSpellStart() => Ground Target")
         -- they ground targeted => find nearby trees
         local direction = (self:GetCursorPosition() - self:GetCaster():GetAbsOrigin()):Normalized()
         local dist = self:GetSpecialValueFor("cleave_distance")
         local path_radius = self:GetSpecialValueFor("cleave_ending_width")
         local target_vector = self:GetCaster():GetAbsOrigin() + (direction * dist)
+
+        local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_craggy_cleave.vpcf", PATTACH_POINT, self:GetCaster())
+        ParticleManager:SetParticleControl(pfx, 0, target_vector)
+        ParticleManager:SetParticleControl(pfx, 1, target_vector)
+        ParticleManager:SetParticleControlForward(pfx, 2, direction)
+        ParticleManager:ReleaseParticleIndex(pfx)
         
         -- local trees = FindUnitsInLine(self:GetCaster():GetTeamNumber(), -- team: DOTATeam_t
         --                                 self:GetCaster():GetAbsOrigin(), --startPos: Vector
