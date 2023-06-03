@@ -1,33 +1,33 @@
 "DOTAItems"
 {
-    "item_recipe_golden_fleece"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3072"
-		"BaseClass"						"item_datadriven"
-		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/golden_fleece"
-		"Model"							"models/props_gameplay/red_box.vmdl"
+    // "item_recipe_golden_fleece"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ID"							"3072"
+	// 	"BaseClass"						"item_datadriven"
+	// 	//"AbilityTextureName" 			"base_materials/recipe"
+    //     "AbilityTextureName" 			"base_materials/golden_fleece"
+	// 	"Model"							"models/props_gameplay/red_box.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"925"
-		"ItemShopTags"					""
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemCost"						"925"
+	// 	"ItemShopTags"					""
 
-        "SideShop"                                          "0"
-        "SecretShop"					                    "1"
+    //     "SideShop"                                          "0"
+    //     "SecretShop"					                    "1"
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_golden_fleece"
-		// Recipe
-        "ItemRequirements"
-		{
-            "01"                        "item_slot_trinket"
-        }
-	}
+	// 	// Recipe
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemRecipe"					"1"
+	// 	"ItemResult"					"item_golden_fleece"
+	// 	// Recipe
+    //     "ItemRequirements"
+	// 	{
+    //         "01"                        "item_slot_trinket"
+    //     }
+	// }
 
     "item_golden_fleece"
     {
@@ -42,7 +42,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
+        "ItemCost"                      "925"
         "ItemShopTags"                  "aura"
         "ItemQuality"                   "component"
         "ItemAliases"                   "golden,gf,fleece"

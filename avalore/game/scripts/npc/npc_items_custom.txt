@@ -61,6 +61,7 @@
 #base "items/components/item_superior_damage.txt"
 #base "items/components/item_lesser_attack_speed.txt"
 #base "items/components/item_greater_attack_speed.txt"
+#base "items/components/item_superior_attack_speed.txt"
 #base "items/components/item_vitality.txt"
 #base "items/components/item_lesser_stats.txt"
 #base "items/components/item_greater_stats.txt"
@@ -68,6 +69,9 @@
 #base "items/components/item_rauoskinna.txt"
 #base "items/components/item_magic_armor.txt"
 #base "items/components/item_avalore_lifesteal.txt"
+
+// COMPONENTS - SECRET SHOP
+#base "items/components/item_scope.txt"
 
 // EQUIPMENT
 #base "items/base_materials/item_bonemace.txt"
@@ -101,6 +105,7 @@
 #base "items/tier4/item_circes_staff.txt"
 #base "items/tier4/item_nemean_lion_hide.txt"
 #base "items/tier4/item_armor_of_achilles.txt"
+#base "items/tier4/item_apollos_bow.txt"
 
 // TIER 5 Items
 #base "items/tier5/item_megingjoro.txt"

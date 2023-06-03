@@ -37,6 +37,7 @@
 		"item"				"item_superior_damage"
 		"item"				"item_lesser_attack_speed"
 		"item"				"item_greater_attack_speed"
+		"item"				"item_superior_attack_speed"
 		"item"				"item_vitality"
 		"item"				"item_rauoskinna"
 		"item"				"item_magic_armor"
@@ -114,6 +115,7 @@
 		"item"				"item_nemean_lions_hide"
 		"item"				"item_armor_of_achilles"
 		"item"				"item_paul_bunyans_axe"
+		"item"				"item_apollos_bow"
 	}
  
 	"weapons"
@@ -142,5 +144,6 @@
 	{
 		"item"				"item_golden_fleece"
 		"item"				"item_megingjoro"
+		"item"				"item_scope"
 	}
 }
