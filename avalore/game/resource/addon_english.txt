@@ -534,7 +534,7 @@
 		// ===== ZEUS =====
 		// ==============================================
 		"DOTA_Tooltip_Ability_ability_shapeshift"						"Shapeshift"
-		"DOTA_Tooltip_Ability_ability_shapeshift_Description"			"<b>When cast on self:</b> turn into an eagle with flying movement and bonus vision. Can be cancelled any time.\n<b>When cast on enemy:</b> <font color=\"#ffa500\">Hexes</font> target into a wolf"
+		"DOTA_Tooltip_Ability_ability_shapeshift_Description"			"<b>When cast on self:</b> turn into an eagle with flying movement and bonus vision. Can be cancelled any time.\n<b>When cast on enemy:</b> <font color=\"#ffa500\">Hexes</font> target into a wolf. (Range: %tooltip_range%)"
 		"DOTA_Tooltip_Ability_ability_shapeshift_duration_self"			"DURATION (SELF):"
 		"DOTA_Tooltip_Ability_ability_shapeshift_duration_enemy"		"DURATION (ENEMY):"
 		"DOTA_Tooltip_Ability_ability_shapeshift_speed_self"			"SPEED (SELF):"
@@ -545,6 +545,9 @@
 
 		"DOTA_Tooltip_Ability_ability_eagle_cancel"								"Shapeshift (Cancel)"
 		"DOTA_Tooltip_Ability_ability_eagle_cancel_description"					"Revert back to Zeus form"
+
+		"DOTA_Tooltip_modifier_shapeshift_eagle"								"Eagle Form"
+		"DOTA_Tooltip_modifier_shapeshift_eagle_description"					"Flying movement, with enhanced speed and vision"
 
 		"DOTA_Tooltip_Ability_ability_lightning_bolt"							"Lightning Bolt"
 		"DOTA_Tooltip_Ability_ability_lightning_bolt_description"				"Nukes a unit, mini-stuns, and provides True Sight for a brief amount of time in an AoE"
@@ -1578,6 +1581,13 @@
 		"DOTA_Tooltip_Ability_item_helskor_description"		"<h1>Active: Ghost Walk</h1>Grants %phase_ms% extra movespeed, allows movement through units, immunity to physical damage, but take %extra_spell_damage_percent%%% increased magical damage.\n<h1>Slot: Feet</h1>Requires the feet slot"
 		"DOTA_Tooltip_Ability_item_helskor_Lore"			"Norse Mythology: 'hel-shoes', placed on the deceased so they could travel to Valhalla"
 
+		"DOTA_Tooltip_Ability_item_recipe_recurve_bow"				"Recurve Bow"
+		"DOTA_Tooltip_Ability_item_recurve_bow"						"Recurve Bow"
+		"DOTA_Tooltip_Ability_item_recurve_bow_description"			"<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_recurve_bow_bonus_as"			"+$attack"
+		"DOTA_Tooltip_Ability_item_recurve_bow_bonus_agi"			"+$agi"
+		"DOTA_Tooltip_Ability_item_recurve_bow_lore"				"Basic bow that bends towards the archer, and curves away at the tips. Shorter, but quicker than a Longbow"
+
 		// TIER 2
 		"DOTA_Tooltip_Ability_item_recipe_andvaranaut"				"Andvaranaut"
 		"DOTA_Tooltip_Ability_item_andvaranaut"						"Andvaranaut"
@@ -1696,8 +1706,9 @@
 		"DOTA_Tooltip_modifier_item_armor_of_achilles_ally_aura_buff" "Heroic Presence"
 		"DOTA_Tooltip_modifier_item_armor_of_achilles_ally_aura_buff_description" "Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nAttack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 		
-		"DOTA_Tooltip_Ability_item_apollos_bow"						"Apollo's_Bow"
-		"DOTA_Tooltip_Ability_item_apollos_bow_description"			"<h1>Passive: Godly Precision</h1>Provides +%bonus_range% attack range <br><br><b>Ranged Only</b>\n<h1>Slot: Misc</h1>Requires a misc slot"
+		"DOTA_Tooltip_Ability_item_recipe_apollos_bow"				"Apollo's Bow"
+		"DOTA_Tooltip_Ability_item_apollos_bow"						"Apollo's Bow"
+		"DOTA_Tooltip_Ability_item_apollos_bow_description"			"<h1>Passive: Godly Precision</h1>Provides +%bonus_range% attack range <br><br><b>Ranged Only</b>\n<h1>Slot: Accessory</h1>Requires the accessory slot"
 		"DOTA_Tooltip_Ability_item_apollos_bow_bonus_as"			"+$attack"
 		"DOTA_Tooltip_Ability_item_apollos_bow_bonus_agi"			"+$agi"
 		"DOTA_Tooltip_Ability_item_apollos_bow_lore"				"Greek Mythology: Apollo was associated with archery, his silver bow being symbolic of agility and precision"

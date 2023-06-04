@@ -1,14 +1,14 @@
 "DOTAItems"
 {
     // // NOTE: This is a placeholder for now until I find something more suitable
-    "item_recipe_apollos_bow"
+    "item_recipe_recurve_bow"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3150"
+		"ID"							"3154"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"items_04/apollos_bow"
+        "AbilityTextureName" 			"items_01/recurve_bow"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
@@ -19,31 +19,31 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_apollos_bow"
+		"ItemResult"					"item_recurve_bow"
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_scope;item_superior_agility;item_superior_agility;item_recurve_bow"
+            "01"                        "item_slot_back;item_superior_agility;item_superior_attack_speed"
         }
 	}
 
-    "item_apollos_bow"
+    "item_recurve_bow"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "3151"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                            "3155"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/tier4/item_apollos_bow.lua"
+        "ScriptFile"                    "items/shop/tier1/item_recurve_bow.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
         // "AbilityTextureName"            "components/agility_placeholder"
-        "AbilityTextureName"            "items_04/apollos_bow"
+        "AbilityTextureName"            "items_01/recurve_bow"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "3300"
+        "ItemCost"                      "800"
         "ItemShopTags"                  "as"
-        "ItemQuality"                   "epic"
+        "ItemQuality"                   "common"
         //"ItemAliases"                   "gloves;cloth"
 
         "ItemKillable"					                    "1"
@@ -74,17 +74,12 @@
             "02"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "bonus_as"                                 "60"
+                "bonus_as"                                 "15"
             }
             "03"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "bonus_agi"                                 "30"
-            }
-            "03"
-            {
-                "var_type"                                  "FIELD_INTEGER"
-                "bonus_range"                               "150"
+                "bonus_agi"                                 "20"
             }
         }
     }

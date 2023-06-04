@@ -408,7 +408,7 @@ function Inventory:Combine(item_name)
                 -- TODO: SetItemStockCount(count: int, team: DOTATeam_t, itemName: string, playerId: PlayerID): nil
 
             end
-         end
+        end
     end
     -- make sure we didn't eat items while combining and not give the base slot back
     for slot=0,5 do

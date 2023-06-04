@@ -65,7 +65,12 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"transformation_time"		"0.1"
-			}			
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"tooltip_range"		        "500"
+			}
 		}
     }
 }
