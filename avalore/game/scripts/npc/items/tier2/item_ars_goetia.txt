@@ -34,10 +34,18 @@
         "ID"                            "3159"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
         "ScriptFile"                    "items/shop/tier2/item_ars_goetia.lua"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
         // "AbilityTextureName"            "components/agility_placeholder"
         "AbilityTextureName"            "items_02/ars_goetia"
+
+        "precache"
+		{
+			"particle"	"particles/items2_fx/rod_of_atos.vpcf"
+			"particle"	"particles/items2_fx/rod_of_atos_attack.vpcf"
+			"particle"	"particles/items2_fx/rod_of_atos_attack_radiant.vpcf"
+			"particle"	"particles/items2_fx/rod_of_atos_attack_dire.vpcf"
+		}
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -61,6 +69,18 @@
 
         "SideShop"                                          "0"
         "SecretShop"					                    "0"
+
+        // CAST
+        "AbilityManaCost"				"50"
+        "AbilityCooldown"				"18"
+		"AbilityCastRange"				"1400"
+		"AbilityCastPoint"				"0.0"
+
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -106,6 +126,16 @@
                 "var_type"                                 "FIELD_FLOAT"
                 "cast_duration"                            "2.0"
             }
+            "09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_range"			"1400"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"1500"
+			}
         }
     }
 }

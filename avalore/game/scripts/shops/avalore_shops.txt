@@ -98,6 +98,7 @@
 		"item"				"item_solar_crown"
 		"item"				"item_adder_stone"
 		"item"				"item_jarngreipr"
+		"item"				"item_ars_goetia"
 	}
  
 	"magics"
