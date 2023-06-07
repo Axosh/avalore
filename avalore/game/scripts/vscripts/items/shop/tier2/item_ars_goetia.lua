@@ -55,8 +55,9 @@ function item_ars_goetia:OnProjectileHit(target, location)
         target:AddNewModifier(self.caster, self, "modifier_item_ars_goetia_debuff", {duration = self.duration * (1 - target:GetStatusResistance())})
         self.magic_dmg_amp      = self:GetSpecialValueFor("magic_dmg_amp")
         self.orb_duration       = self:GetSpecialValueFor("orb_duration")
+
         local dur_resist        = self.orb_duration * (1 - target:GetStatusResistance())
-        target:AddNewModifier(self.caster, self:GetAbility(), "modifier_arcane_amplification", {duration = dur_resist, magic_dmg_amp = self.magic_dmg_amp})
+        target:AddNewModifier(self.caster, self, "modifier_arcane_amplification", {duration = dur_resist, magic_dmg_amp = self.magic_dmg_amp})
     end
 end
 
@@ -118,6 +119,10 @@ end
 -- ====================================
 
 modifier_item_ars_goetia_debuff = modifier_item_ars_goetia_debuff or class({})
+
+function modifier_item_ars_goetia_debuff:GetTexture()
+    return "items/ars_goetia_orig"
+end
 
 function modifier_item_ars_goetia_debuff:GetEffectName()
 	return "particles/items2_fx/rod_of_atos.vpcf"
