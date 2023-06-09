@@ -1,14 +1,14 @@
 "DOTAItems"
 {
     // // NOTE: This is a placeholder for now until I find something more suitable
-    "item_recipe_seal_of_soloman"
+    "item_recipe_seal_of_solomon"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3156"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"items_04/seal_of_soloman"
+        "AbilityTextureName" 			"items_04/seal_of_solomon"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
@@ -19,44 +19,51 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_seal_of_soloman"
+		"ItemResult"					"item_seal_of_solomon"
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_avalore_ring"
+            "01"                        "item_avalore_ring;item_ars_goetia;item_superior_damage"
         }
 	}
 
-    "item_seal_of_soloman"
+    "item_seal_of_solomon"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3157"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/tier4/item_seal_of_soloman.lua"
+        "ScriptFile"                    "items/shop/tier4/item_seal_of_solomon.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
         "FightRecapLevel"				"1"
-        "AbilityCooldown"				"15.0"
-        "AbilityCastRange"				"900"
-		"AbilityManaCost"				"175"
+
+
+        "AbilityCooldown"				"11.0"
+		"AbilityCastRange"				"900"
+		"AbilityManaCost"				"75"
 
         "precache"
 		{
-			"particle"				"particles/prototype_fx/item_linkens_buff.vpcf"
+			"particle"				"particles/items4_fx/nullifier_proj.vpcf"
+            "particle"				"particles/items2_fx/rod_of_atos.vpcf"
+            "particle"              "particles/status_fx/status_effect_nullifier.vpcf"
+            "particle"              "particles/items4_fx/nullifier_mute.vpcf"
+            "particle"              "particles/status_fx/status_effect_nullifier_slow.vpcf"
 		}
 
 
         "Model"                         "models/props_gameplay/red_box.vmdl"
         // "AbilityTextureName"            "components/agility_placeholder"
-        "AbilityTextureName"            "items_03/seal_of_soloman"
+        "AbilityTextureName"            "items_04/seal_of_solomon"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "0"
-        "ItemShopTags"                  "regen"
-        "ItemQuality"                   "component"
+        //"ItemShopTags"                  "regen"
+        "ItemQuality"                   "epic"
         //"ItemAliases"                   "gloves;cloth"
 
         "ItemKillable"					                    "1"
@@ -68,7 +75,7 @@
 		"ItemPermanent"					                    "0"
 
         "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
-		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
         //"ItemSlot"                                          "feet"
 
@@ -122,13 +129,38 @@
             "09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_range"			"1400"
+				"tooltip_range"			"900"
 			}
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"		"1500"
+				"projectile_speed"		"900"
 			}
+            "11"
+            {
+                "var_type"				"FIELD_FLOAT"
+				"mute_duration"			"5.0"
+            }
+            "12"
+            {
+                "var_type"				"FIELD_INTEGER"
+				"slow_pct"				"80"
+            }
+            "13"
+            {
+                "var_type"				"FIELD_FLOAT"
+				"slow_interval_duration"	"0.5"
+            }
+            "14"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_dmg"                                 "15"
+            }
+            "15"
+            {
+                "var_type"                                 "FIELD_INTEGER"
+                "bonus_armor"                              "2"
+            }
         }
     }
 }

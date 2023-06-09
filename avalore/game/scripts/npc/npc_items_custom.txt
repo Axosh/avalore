@@ -108,6 +108,7 @@
 #base "items/tier4/item_nemean_lion_hide.txt"
 #base "items/tier4/item_armor_of_achilles.txt"
 #base "items/tier4/item_apollos_bow.txt"
+#base "items/tier4/item_seal_of_solomon.txt"
 
 // TIER 5 Items
 #base "items/tier5/item_megingjoro.txt"
