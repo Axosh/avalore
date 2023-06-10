@@ -215,6 +215,10 @@
 
 		"DOTA_Tooltip_modifier_wendigo_cannibal_passive"				"Insatiable Hunger"
 
+		"DOTA_Tooltip_Ability_ability_ent_trample"						"Trample"
+		"DOTA_Tooltip_Ability_ability_ent_trample_description"			"<h1>Passive: Trample</h1> deals %damage_per_sec% damage per second to units you are standing on top of (in a %damage_radius% radius)"
+		"DOTA_Tooltip_Ability_ability_ent_trample_lore"					"The term 'Ent' derives from an old English word for 'giant' and thusly are prone to crushing smaller beings in their path"
+
     	"npc_avalore_merc_imp_archer"									"Imp Archer"
 
 		"DOTA_Tooltip_Ability_item_merc_imp_archers"					"Imp Archers"

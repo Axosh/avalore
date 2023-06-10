@@ -1,0 +1,38 @@
+"DOTAAbilities"
+{
+    "ability_ent_trample"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"					"ability_lua"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"		"ent_trample"
+		"ScriptFile"				"items/mercs_super_creeps/ability_ent_trample.lua"
+
+        // Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "precache"
+        {
+            "particle"              "particles/econ/items/centaur/centaur_2022_immortal/centaur_2022_immortal_stampede_cast_gold_burst.vpcf"
+        }
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_per_sec"			    "50"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_radius"			        "100"
+			}
+		}
+    }
+}
