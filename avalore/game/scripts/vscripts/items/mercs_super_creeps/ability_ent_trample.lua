@@ -26,6 +26,12 @@ function modifier_ent_trample_passive:OnCreated()
     self:StartIntervalThink(1)
 end
 
+function modifier_ent_trample_passive:CheckState()
+    return {
+        [MODIFIER_STATE_NO_UNIT_COLLISION] = true
+    }
+end
+
 function modifier_ent_trample_passive:OnIntervalThink()
     if not IsServer() then return end
 

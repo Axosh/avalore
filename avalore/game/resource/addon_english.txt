@@ -229,7 +229,7 @@
 		"npc_avalore_merc_ent"											"Ent"
 
 		"DOTA_Tooltip_Ability_item_merc_ent"							"Ent"
-		"DOTA_Tooltip_Ability_item_merc_ent_description"				"<h1>Active: Hire Common Troop</h1>Hire %troop_count% <font color='#FFFFFF'>ENT Common Troops</font>.<br><br>Takes %tooltip_channel_time% seconds to summon to the battlefield.<br><br>SIEGE UNIT - Only Targets Buildings<br><br><font color='#c88423'>Requires %gold_cost% Team Gold</font>\n<h1>Troops</h1>• Uncontrollable AI Fighter(s) that will push down the lane with your creeps<br />• Can only be deployed to the lane the Merc Camp is next to (Top/Bottom) up to that lane's Tier 1 Tower.<br />• Starts the cooldown for BOTH merc camps\n"
+		"DOTA_Tooltip_Ability_item_merc_ent_description"				"<h1>Active: Hire Common Troop</h1>Hire %troop_count% <font color='#FFFFFF'>ENT Common Troops</font>.<br><br>Takes %tooltip_channel_time% seconds to summon to the battlefield.<br><br>SIEGE UNIT - Only Targets Buildings<br><br>GIANT - Tramples surrounding enemy units (DoT while touching) and paths through them<br><br><font color='#c88423'>Requires %gold_cost% Team Gold</font>\n<h1>Troops</h1>• Uncontrollable AI Fighter(s) that will push down the lane with your creeps<br />• Can only be deployed to the lane the Merc Camp is next to (Top/Bottom) up to that lane's Tier 1 Tower.<br />• Starts the cooldown for BOTH merc camps\n"
 		"DOTA_Tooltip_Ability_item_merc_ent_gold_cost"					"TEAM GOLD COST:"
 		"DOTA_Tooltip_Ability_item_merc_ent_troop_count"				"TROOP COUNT:"
 
