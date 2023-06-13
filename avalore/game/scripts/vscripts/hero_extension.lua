@@ -66,3 +66,49 @@ end
 -- 	print("C_DOTA_BaseBPC_Hero:GetNumItemsInInventory()")
 -- 	return 0
 -- end
+
+-- borrowed from DOTA_IMBA
+function CDOTA_BaseNPC:Blink(position, bTeamOnlyParticle, bPlaySound)
+	if self:IsNull() then return end
+
+	if bPlaySound == true then EmitSoundOn("DOTA_Item.BlinkDagger.Activate", self) end
+
+	local blink_pfx
+	local blink_pfx_name = "particles/econ/events/fall_2022/blink/blink_dagger_start_fall2022.vpcf"
+
+	if bTeamOnlyParticle == true then
+		blink_pfx = ParticleManager:CreateParticleForTeam(blink_pfx_name, PATTACH_CUSTOMORIGIN, nil, self:GetTeamNumber())
+		ParticleManager:SetParticleControl(blink_pfx, 0, self:GetAbsOrigin())
+	else
+		blink_pfx = ParticleManager:CreateParticle(blink_pfx_name, PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(blink_pfx, 0, self:GetAbsOrigin())
+	end
+
+	ParticleManager:ReleaseParticleIndex(blink_pfx)
+	FindClearSpaceForUnit(self, position, true)
+	ProjectileManager:ProjectileDodge( self )
+
+	local blink_end_pfx
+	local blink_end_pfx_name = "particles/econ/events/fall_2022/blink/blink_dagger_end_blur_player_fall2022.vpcf"
+
+	if bTeamOnlyParticle == true then
+		blink_end_pfx = ParticleManager:CreateParticleForTeam(blink_end_pfx_name, PATTACH_ABSORIGIN, self, self:GetTeamNumber())
+	else
+		blink_end_pfx = ParticleManager:CreateParticle(blink_end_pfx_name, PATTACH_ABSORIGIN, self)
+	end
+
+	ParticleManager:ReleaseParticleIndex(blink_end_pfx)
+
+	if bPlaySound == true then EmitSoundOn("DOTA_Item.BlinkDagger.NailedIt", self) end
+end
+
+-- Borrowed from DOTA_IMBA
+function CDOTA_BaseNPC:IsHeroDamage(damage)
+	if damage > 0 then
+		if self:GetName() == "npc_dota_roshan" or self:IsControllableByAnyPlayer() then
+			return true
+		end
+	end
+
+	return false
+end

@@ -123,6 +123,14 @@ function Precache( context )
 	PrecacheResource("particle_folder", "particles/econ/items/zeus/arcana_chariot", context)
 	PrecacheResource("model_folder", "models/heroes/zeus", context)
 	PrecacheResource("model_folder", "models/items/zeus", context)
+
+	-- =============
+	-- ITEMS
+	-- =============
+
+	-- Blink
+	PrecacheResource("particle", "particles/econ/events/fall_2022/blink/blink_dagger_start_fall2022.vpcf", context)
+	PrecacheResource("particle", "particles/econ/events/fall_2022/blink/blink_dagger_end_blur_player_fall2022.vpcf", context)
 end
 
 -- Create the game mode when we activate

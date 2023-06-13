@@ -13,7 +13,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
+		"ItemCost"						"2200"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -41,7 +41,8 @@
 
         "precache"
 		{
-			"particle"					"particles/item/blink/blink_dagger_start_imba.vpcf"
+			"particle"					"particles/econ/events/fall_2022/blink/blink_dagger_start_fall2022.vpcf"
+            "particle"                  "particles/econ/events/fall_2022/blink/blink_dagger_end_blur_player_fall2022.vpcf"
 		}
 
         // Item Info
@@ -84,7 +85,7 @@
             "01"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "item_slot"                                 "2" //ACCESSORY
+                "item_slot"                                 "0" //HEAD
             }
             "02"
             {

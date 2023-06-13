@@ -1673,9 +1673,13 @@
 		"DOTA_Tooltip_Ability_item_paul_bunyans_axe_bonus_str"		"+$str"
 		"DOTA_Tooltip_Ability_item_paul_bunyans_axe_bonus_hp"		"+$health"
 		"DOTA_Tooltip_Ability_item_paul_bunyans_axe_bonus_dmg"		"+$damage"
-		"DOTA_Tooltip_Ability_item_paul_bunyans_axe_description"	"<h1>Active: Active: Timber!</h1>Target a tree to cut it down<br><br>Target ground to swing and knock down multiple trees in an arc. Any enemy in that arc will be stunned for %tree_stun_dur% seconds, so long as %trees_for_stun%+ tress are cut.\n<h1>Passive: Wide Swing</h1>Cleaves in a wide arc damaging enemies nearby primary target.<br><br>Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target. (Melee Only)\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %quelling_bonus%\n<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_paul_bunyans_axe_description"	"<h1>Active: Timber!</h1>Target a tree to cut it down<br><br>Target ground to swing and knock down multiple trees in an arc. Any enemy in that arc will be stunned for %tree_stun_dur% seconds, so long as %trees_for_stun%+ tress are cut.\n<h1>Passive: Wide Swing</h1>Cleaves in a wide arc damaging enemies nearby primary target.<br><br>Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target. (Melee Only)\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %quelling_bonus%\n<h1>Slot: Accessory</h1>Requires the accessory slot"
 		"DOTA_Tooltip_Ability_item_paul_bunyans_axe_Lore"			"American Folklore: a giant lumberjack folk hero. He wielded a giant axe that could fell multiple trees in one swing"
 
+		"DOTA_Tooltip_Ability_item_recipe_sacis_cap"			"Saci's Cap"
+		"DOTA_Tooltip_Ability_item_sacis_cap"					"Saci's Cap"
+		"DOTA_Tooltip_Ability_item_sacis_cap_description"		"<h1>Active: Reappear</h1>Instantly teleport to a target point up to %max_blink_range% units away. If hero-based damage is taken, Saci's Cap cannot be used for %blink_damage_cooldown% seconds.\n<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_sacis_cap_Lore"				"Brazilian Folklore: Saci had a magical red cap that was the source of his powers, like the ability to appear and disappear as he wished."
 
 		// TIER 4
 		"DOTA_Tooltip_Ability_item_recipe_babr_e_bayan"			"Babr-e Bayān"
