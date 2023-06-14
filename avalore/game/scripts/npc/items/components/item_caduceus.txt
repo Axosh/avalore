@@ -1,30 +1,30 @@
 "DOTAItems"
 {
-    "item_recipe_caduceus"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3078"
-		"BaseClass"						"item_datadriven"
-		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"components/caduceus"
-		"Model"							"models/props_gameplay/red_box.vmdl"
+    // "item_recipe_caduceus"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ID"							"3078"
+	// 	"BaseClass"						"item_datadriven"
+	// 	//"AbilityTextureName" 			"base_materials/recipe"
+    //     "AbilityTextureName" 			"components/caduceus"
+	// 	"Model"							"models/props_gameplay/red_box.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"200"
-		"ItemShopTags"					""
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemCost"						"200"
+	// 	"ItemShopTags"					""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_caduceus"
-		// Recipe
-        "ItemRequirements"
-		{
-            "01"                        "item_slot_misc"
-        }
-	}
+	// 	// Recipe
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemRecipe"					"1"
+	// 	"ItemResult"					"item_caduceus"
+	// 	// Recipe
+    //     "ItemRequirements"
+	// 	{
+    //         "01"                        "item_slot_misc"
+    //     }
+	// }
 
     "item_caduceus"
     {
@@ -39,7 +39,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                                            "0"
+        "ItemCost"                                            "200"
         "ItemShopTags"                                        "move_speed"
         "ItemQuality"                                         "component"
         "ItemAliases"                                         "boots of speed"

@@ -1,31 +1,31 @@
 "DOTAItems"
 {
     // // NOTE: This is a placeholder for now until I find something more suitable
-    "item_recipe_lesser_hp_regen"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3134"
-		"BaseClass"						"item_datadriven"
-		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"components/lesser_hp_regen"
-		"Model"							"models/props_gameplay/red_box.vmdl"
+    // "item_recipe_lesser_hp_regen"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ID"							"3134"
+	// 	"BaseClass"						"item_datadriven"
+	// 	//"AbilityTextureName" 			"base_materials/recipe"
+    //     "AbilityTextureName" 			"components/lesser_hp_regen"
+	// 	"Model"							"models/props_gameplay/red_box.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"170"
-		"ItemShopTags"					""
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemCost"						"170"
+	// 	"ItemShopTags"					""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_lesser_hp_regen"
-		// Recipe
-        "ItemRequirements"
-		{
-            "01"                        "item_slot_misc"
-        }
-	}
+	// 	// Recipe
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemRecipe"					"1"
+	// 	"ItemResult"					"item_lesser_hp_regen"
+	// 	// Recipe
+    //     "ItemRequirements"
+	// 	{
+    //         "01"                        "item_slot_misc"
+    //     }
+	// }
 
     "item_lesser_hp_regen"
     {
@@ -41,7 +41,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
+        "ItemCost"                      "170"
         "ItemShopTags"                  "regen"
         "ItemQuality"                   "component"
         //"ItemAliases"                   "gloves;cloth"

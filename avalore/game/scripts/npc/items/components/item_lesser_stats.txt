@@ -1,32 +1,32 @@
 "DOTAItems"
 {
     // // NOTE: This is a placeholder for now until I find something more suitable
-    "item_recipe_lesser_stats"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3116"
-		"BaseClass"						"item_datadriven"
-		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"components/lesser_stats"
-		"Model"							"models/props_gameplay/red_box.vmdl"
+    // "item_recipe_lesser_stats"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ID"							"3116"
+	// 	"BaseClass"						"item_datadriven"
+	// 	//"AbilityTextureName" 			"base_materials/recipe"
+    //     "AbilityTextureName" 			"components/lesser_stats"
+	// 	"Model"							"models/props_gameplay/red_box.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"450"
-		"ItemShopTags"					""
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemCost"						"450"
+	// 	"ItemShopTags"					""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_lesser_stats"
-		// Recipe
-        "ItemRequirements"
-		{
-            //"01"                        "item_lesser_strength;item_lesser_agility;item_lesser_intelligence"
-            "01"                        "item_slot_misc" //has to change this because some of these combine into other items and locking is annoying af
-        }
-	}
+	// 	// Recipe
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemRecipe"					"1"
+	// 	"ItemResult"					"item_lesser_stats"
+	// 	// Recipe
+    //     "ItemRequirements"
+	// 	{
+    //         //"01"                        "item_lesser_strength;item_lesser_agility;item_lesser_intelligence"
+    //         "01"                        "item_slot_misc" //has to change this because some of these combine into other items and locking is annoying af
+    //     }
+	// }
 
     "item_lesser_stats"
     {
@@ -42,7 +42,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
+        "ItemCost"                      "450"
         "ItemShopTags"                  "stats"
         "ItemQuality"                   "component"
         //"ItemAliases"                   "gloves;cloth"
