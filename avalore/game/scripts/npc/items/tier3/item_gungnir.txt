@@ -1,0 +1,95 @@
+"DOTAItems"
+{
+    "item_recipe_gungnir"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3162"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"items_03/gungnir"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						""
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_gungnir"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_superior_damage;item_greater_attack_speed;item_scope;item_spear"
+        }
+	}
+
+    "item_gungnir"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "3163"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						"item_lua"            
+        "ScriptFile"                    "items/shop/tier3/item_gungnir.lua"
+        "Model"                         "models/props_gameplay/red_box.vmdl"
+        "AbilityTextureName"            "items_03/gungnir"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        //"ItemShopTags"                  ""
+        "ItemQuality"                   "rare"
+        //"ItemAliases"                   "gloves;cloth"
+
+        "ItemKillable"					                    "1"
+		"ItemSellable"					                    "1"
+		"ItemPurchasable"				                    "1"
+		"ItemDroppable"					                    "1"
+		"ItemShareability"				                    "ITEM_NOT_SHAREABLE"
+		"ItemStackable"					                    "0"
+		"ItemPermanent"					                    "0"
+
+        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        //"ItemSlot"                                          "feet"
+
+        "SideShop"                                          "0"
+        "SecretShop"					                    "0"
+
+        // ABILITY
+        // "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        // "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		// "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+        // "AbilityCooldown"				"20"
+		// "AbilityManaCost"				"75"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "2" // ACCESSORY
+            }
+            "02"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_dmg"                                 "30"
+            }
+            "03"
+            {
+                "var_type"                                  "FIELD_FLOAT"
+                "bonus_as"                                  "30"
+            }
+            "04"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_range"                               "150"
+            }
+        }
+    }
+}
