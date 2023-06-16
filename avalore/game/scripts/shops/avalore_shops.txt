@@ -61,6 +61,7 @@
 		"item"				"item_war_belt"
 		"item"              "item_wooden_shield"
 		"item"				"item_staff_of_sorcery"
+		"item"				"item_spear"
     }
     "misc"
 	{
@@ -106,6 +107,7 @@
 		"item"				"item_vidars_shoes"
 		"item"				"item_ring_of_dispel"
 		"item"				"item_sacis_cap"
+		"item"				"item_gungnir"
 	}
  
 	// Level 3 - Purple Recipes

@@ -17,6 +17,7 @@
 #base "items/base_materials/item_avalore_gauntlets.txt"
 #base "items/base_materials/item_war_belt.txt"
 #base "items/base_materials/item_wooden_shield.txt"
+#base "items/base_materials/item_spear.txt"
 #base "items/tier1/item_staff_of_sorcery.txt"
 
 // CONSUMABLE
@@ -101,6 +102,7 @@
 #base "items/tier3/item_jarngreipr.txt"
 #base "items/tier3/item_paul_bunyans_axe.txt"
 #base "items/tier3/item_sacis_cap.txt"
+#base "items/tier3/item_gungnir.txt"
 
 // TIER 4 Items
 #base "items/tier4/item_babr_e_bayan.txt"

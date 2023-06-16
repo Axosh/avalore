@@ -1313,6 +1313,13 @@
 		"DOTA_Tooltip_Ability_item_wooden_shield"							"Wooden Shield"
 		"DOTA_Tooltip_Ability_item_wooden_shield_description"				"<h1>Passive: Damage Block</h1>Passively block %damage_block% per attack landed\n<h1>Slot: Hands</h1>Requires the hands slot"
 
+		"DOTA_Tooltip_Ability_item_recipe_spear"					"Spear"
+		"DOTA_Tooltip_Ability_item_spear"							"Spear"
+		"DOTA_Tooltip_Ability_item_spear_description"				"<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_spear_bonus_dmg"				"+$damage"
+		"DOTA_Tooltip_Ability_item_spear_bonus_as"				"+$attack"
+		"DOTA_Tooltip_Ability_item_spear_lore"					"PLACEHOLDER ITEM"
+
 		// Components
 		"DOTA_Tooltip_Ability_item_recipe_steel"							"Steel"
 		"DOTA_Tooltip_Ability_item_steel"									"Steel"
@@ -1678,8 +1685,15 @@
 
 		"DOTA_Tooltip_Ability_item_recipe_sacis_cap"			"Saci's Cap"
 		"DOTA_Tooltip_Ability_item_sacis_cap"					"Saci's Cap"
-		"DOTA_Tooltip_Ability_item_sacis_cap_description"		"<h1>Active: Reappear</h1>Instantly teleport to a target point up to %max_blink_range% units away. If hero-based damage is taken, Saci's Cap cannot be used for %blink_damage_cooldown% seconds.\n<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_sacis_cap_description"		"<h1>Active: Reappear</h1>Instantly teleport to a target point up to %max_blink_range% units away. If hero-based damage is taken, Saci's Cap cannot be used for %blink_damage_cooldown% seconds.\n<h1>Slot: Head</h1>Requires the head slot"
 		"DOTA_Tooltip_Ability_item_sacis_cap_Lore"				"Brazilian Folklore: Saci had a magical red cap that was the source of his powers, like the ability to appear and disappear as he wished."
+
+		"DOTA_Tooltip_Ability_item_recipe_gungnir"					"Gungnir"
+		"DOTA_Tooltip_Ability_item_gungnir"							"Gungnir"
+		"DOTA_Tooltip_Ability_item_gungnir_description"				"<h1>Passive: Truestrike</h1>Prevents your attacks from missing enemy units.\n<h1>Passive: Striking Distance</h1>Provides +%bonus_range% attack range\n<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_gungnir_bonus_dmg"				"+$damage"
+		"DOTA_Tooltip_Ability_item_gungnir_bonus_as"				"+$attack"
+		"DOTA_Tooltip_Ability_item_gungnir_lore"					"Norse: created by the dwarven blacksmiths, the Sons of Ivaldi, for Odin. Gungnir would always find its target, moving in flight to do so."
 
 		// TIER 4
 		"DOTA_Tooltip_Ability_item_recipe_babr_e_bayan"			"Babr-e Bayān"
