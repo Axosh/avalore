@@ -1,0 +1,148 @@
+"DOTAItems"
+{
+    // // NOTE: This is a placeholder for now until I find something more suitable
+    "item_recipe_avalore_gleipnir"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3167"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"items_04/avalore_gleipnir"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_avalore_gleipnir"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_ars_goetia;item_superior_mana_regen;item_superior_hp_regen;item_vitality"
+        }
+	}
+
+    "item_avalore_gleipnir"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "3168"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						"item_lua"            
+        "ScriptFile"                    "items/shop/tier4/item_avalore_gleipnir.lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+        "FightRecapLevel"				"1"
+
+
+        "AbilityCooldown"				"18.0"
+		"AbilityCastRange"				"1400"
+		"AbilityManaCost"				"200"
+
+        "precache"
+		{
+			"particle"				"particles/items3_fx/gleipnir_projectile.vpcf"
+            "particle"				"particles/items3_fx/gleipnir_root.vpcf"
+		}
+
+
+        "Model"                         "models/props_gameplay/red_box.vmdl"
+        // "AbilityTextureName"            "components/agility_placeholder"
+        "AbilityTextureName"            "items_04/avalore_gleipnir"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        //"ItemShopTags"                  "regen"
+        "ItemQuality"                   "epic"
+        //"ItemAliases"                   "gloves;cloth"
+
+        "ItemKillable"					                    "1"
+		"ItemSellable"					                    "1"
+		"ItemPurchasable"				                    "1"
+		"ItemDroppable"					                    "1"
+		"ItemShareability"				                    "ITEM_NOT_SHAREABLE"
+		"ItemStackable"					                    "0"
+		"ItemPermanent"					                    "0"
+
+        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        //"ItemSlot"                                          "feet"
+
+        "SideShop"                                          "0"
+        "SecretShop"					                    "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "5" //Trinket
+            }
+            "02"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_str"                                 "6"
+            }
+            "03"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_agi"                                 "6"
+            }
+            "04"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_int"                                 "26"
+            }
+            "05"
+            {
+                "var_type"                                 "FIELD_FLOAT"
+                "passive_mana_regen"                       "3.2"
+            }
+            "06"
+            {
+                "var_type"                                 "FIELD_FLOAT"
+                "orb_duration"                             "2.0"
+            }
+            "07"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "magic_dmg_amp"                             "5"
+            }
+            "08"
+            {
+                "var_type"                                 "FIELD_FLOAT"
+                "cast_duration"                            "2.0"
+            }
+            "09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_range"			"900"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"900"
+			}
+            "11"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_hp"                                 "100"
+            }
+            "12"
+            {
+                "var_type"                                  "FIELD_FLOAT"
+                "bonus_hp_regen"                          "5.5"
+            }
+        }
+    }
+}
