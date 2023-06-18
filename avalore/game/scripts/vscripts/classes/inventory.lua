@@ -413,13 +413,13 @@ function Inventory:Combine(item_name)
     -- make sure we didn't eat items while combining and not give the base slot back
     for slot=0,5 do
         local item = self.slots[slot]
-        if item:GetItemSlot() == -1 then
+        if item:IsNull() or item:GetItemSlot() == -1 then
             self:Remove(item)
         end
     end
     for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
         local item = self.slots[AVALORE_ITEM_SLOT_MISC][slot]
-        if item:GetItemSlot() == -1 then
+        if item:IsNull() or item:GetItemSlot() == -1 then
             self:Remove(item)
         end
     end

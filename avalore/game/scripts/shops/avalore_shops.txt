@@ -122,6 +122,7 @@
 		"item"				"item_paul_bunyans_axe"
 		"item"				"item_apollos_bow"
 		"item"				"item_seal_of_solomon"
+		"item"				"item_avalore_gleipnir"
 	}
  
 	"weapons"

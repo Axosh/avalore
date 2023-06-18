@@ -21,6 +21,9 @@ require("controllers/inventory_manager")
 -- text: string
 -- ===================================================
 function CAvaloreGameMode:ProcessPlayerMessage(event)
+    local steamid = tostring(PlayerResource:GetSteamID(event.playerid))
+    --print("SteamID => " .. tostring(steamid))
+    if tostring(steamid) ~= "76561198048133590" then return end
     local input = event.text
     input = string.lower(input) -- sanitize
     local hero = PlayerResource:GetSelectedHeroEntity(event.playerid)

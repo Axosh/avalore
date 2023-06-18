@@ -1749,7 +1749,7 @@
 
 		"DOTA_Tooltip_Ability_item_recipe_seal_of_solomon"				"Seal of Solomon"
 		"DOTA_Tooltip_Ability_item_seal_of_solomon"						"Seal of Solomon"
-		"DOTA_Tooltip_Ability_item_seal_of_solomon_description"			"<h1>Active: Seal</h1>Root target unit for %cast_duration% seconds and apply the effects of <b>Essence of Arcane. Dispels the target and applies a debuff for %mute_duration% seconds. Mutes and continuously dispels the target. Anytime the target is attacked, it will be slowed by %slow_pct%%% for %slow_interval_duration% seconds.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>.</b><br><br>Range: %tooltip_range%\n<h1>Slot: Trinket</h1>Requires the trinket slot"
+		"DOTA_Tooltip_Ability_item_seal_of_solomon_description"			"<h1>Active: Seal</h1>Root target unit for %cast_duration% seconds and apply the effects of <b>Essence of Arcane</b>. Dispels the target and applies a debuff for %mute_duration% seconds. Mutes and continuously dispels the target. Anytime the target is attacked, it will be slowed by %slow_pct%%% for %slow_interval_duration% seconds.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>.<br><br>Range: %tooltip_range%\n<h1>Slot: Trinket</h1>Requires the trinket slot"
 		"DOTA_Tooltip_Ability_item_seal_of_solomon_bonus_str"			"+$str"
 		"DOTA_Tooltip_Ability_item_seal_of_solomon_bonus_agi"			"+$agi"
 		"DOTA_Tooltip_Ability_item_seal_of_solomon_bonus_int"			"+$int"
@@ -1769,6 +1769,20 @@
 
 		"DOTA_Tooltip_modifier_item_seal_of_solomon_mute" 				"Seal of Solomon Mute"
 		"DOTA_Tooltip_modifier_item_seal_of_solomon_mute_description" 	"Muted."
+
+		"DOTA_Tooltip_Ability_item_recipe_avalore_gleipnir"				"Gleipnir"
+		"DOTA_Tooltip_Ability_item_avalore_gleipnir"						"Gleipnir"
+		"DOTA_Tooltip_Ability_item_avalore_gleipnir_description"			"<h1>Active: Bind</h1>Root all enemy units in a %debuff_radius% for %cast_duration% seconds and apply the effects of <b>Essence of Arcane</b>.\n<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_avalore_gleipnir_bonus_str"			"+$str"
+		"DOTA_Tooltip_Ability_item_avalore_gleipnir_bonus_agi"			"+$agi"
+		"DOTA_Tooltip_Ability_item_avalore_gleipnir_bonus_int"			"+$int"
+		"DOTA_Tooltip_Ability_item_avalore_gleipnir_bonus_hp_regen"		"+$hp_regen"
+		"DOTA_Tooltip_Ability_item_avalore_gleipnir_passive_mana_regen"	"+$mana_regen"
+		"DOTA_Tooltip_Ability_item_avalore_gleipnir_bonus_hp"			"+$health"
+		"DOTA_Tooltip_Ability_item_avalore_gleipnir_Lore"				"Norse: Dwarven forged bindings that were thin as silk, stronger than any metal, and created to bind Fenrir until Ragnarök"
+
+		"DOTA_Tooltip_modifier_item_avalore_gleipnir_debuff"			 "Gleipnir's Bind"
+		"DOTA_Tooltip_modifier_item_avalore_gleipnir_debuff_description" "Rooted"
 
 		// TIER 5
 
