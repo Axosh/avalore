@@ -5,7 +5,7 @@ function Spawn(entityKeyValues)
     if (not IsServer()) or (thisEntity == nil) then return end
 
     -- figure out if we're on dire or radiant side
-    local dire_spawn = Entities:FindByName("spawner_round4_dire")
+    local dire_spawn = Entities:FindByName(nil, "spawner_round4_dire")
     local dist = thisEntity:GetAbsOrigin() - dire_spawn:GetAbsOrigin()
 
     thisEntity.waypoint = "dire_path_end"
@@ -26,7 +26,7 @@ function Round4CreepAIThink(self)
 		return 0.1
 	end
 
-    local waypoint = Entities:FindByName(thisEntity.waypoint)
+    local waypoint = Entities:FindByName(nil, thisEntity.waypoint)
 
     ExecuteOrderFromTable({
         UnitIndex = thisEntity:entindex(),

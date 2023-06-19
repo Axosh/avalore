@@ -50,7 +50,7 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
             print("Error parsing number")
         end
     elseif input == "gametime" then
-        local curr_gametime = GameRules:GetDOTATime(false, false)
+        local curr_gametime = GameRules:GetDOTATime(false, true)
         curr_gametime = curr_gametime + _G.time_offset
         print("Current Gametime + Offset = " .. tostring(curr_gametime))
     elseif input == "spawn enemy" then
@@ -85,6 +85,10 @@ function CAvaloreGameMode:ProcessPlayerMessage(event)
         unit:AddNewModifier(nil, nil, "modifier_provide_vision", {})
         print("Created ... " .. unit:GetUnitName())
         PrintVector(unit:GetAbsOrigin(), "at location")
+    elseif string.find(input, "ggradi") then
+        GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+    elseif string.find(input, "ggdire") then
+        GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
     elseif input == "black sheep wall" then
         AddFOWViewer(hero:GetTeamNumber(), Vector(0,0,0), 8000, 600, false)
         AddFOWViewer(hero:GetTeamNumber(), Vector(1000,6000,0), 8000, 600, false)

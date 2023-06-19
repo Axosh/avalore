@@ -9,7 +9,7 @@ function ability_maenadic_fervor:OnSpellStart()
 	local target = self:GetCursorTarget()
     local duration = self:GetSpecialValueFor("duration")
 
-    if target:IsRealHero() then
+    if target:IsRealHero() or target:IsAncient() or target:IsBoss() or target:IsBossCreature() or target:IsCreepHero() or target:IsRoshan() then
         -- dispel target
 		target:Purge( true, false, false, false, false )
 

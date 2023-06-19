@@ -125,6 +125,11 @@ function Precache( context )
 	PrecacheResource("model_folder", "models/items/zeus", context)
 
 	-- =============
+	-- CREEPS
+	-- =============
+	PrecacheResource("particle_folder", "particles/creeps/lane_creeps", context)
+
+	-- =============
 	-- ITEMS
 	-- =============
 
@@ -288,6 +293,8 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_ARCANE , false)
 	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_BOUNTY  , true)
 	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_WATER , true)
+	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_XP  , true)
+	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_SHIELD  , false)
 
 	-- Filters
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAvaloreGameMode, "OrderFilter"), self)
@@ -295,6 +302,11 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter(Dynamic_Wrap(CAvaloreGameMode, "AbilityTuningFilter"), self)
 	GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(CAvaloreGameMode, "DamageFilter"), self)
 	--GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter(Dynamic_Wrap(CAvaloreGameMode, "ItemAddedToInventoryFilter"), self)
+
+	-- https://dota2.fandom.com/wiki/River_Vials???
+	-- 2 = dry
+	-- 6 = potion
+	GameRules:SetRiverPaint(6, 2400)
 	
 	-- Custom Mode Framework Inits
 	if not _G.not_init then
@@ -387,8 +399,21 @@ function CAvaloreGameMode:OnThink()
 	-- end
 
 	--print(tostring(GameRules:GetGameModeEntity():GetCustomHeroMaxLevel()))
-	
-	if curr_gametime > Constants.TIME_ROUND_4_START then
+	if curr_gametime > Constants.TIME_END_GAME then
+		if(_G.round < 5) then
+			_G.round = 5
+			print("End Game")
+			if Score.RadiScore > Score.DireScore then
+				GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+			elseif Score.DireScore > Score.RadiScore then
+				GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+			else
+				-- idk how to "draw" the match
+				GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
+				GameRules:SetSafeToLeave(true)
+			end
+		end
+	elseif curr_gametime > Constants.TIME_ROUND_4_START then
 		if(_G.round < 4) then
 			print("Round 4 Start - Waves")
 			_G.round = 4
