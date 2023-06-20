@@ -37,6 +37,10 @@
 	"round4"										"Round 4 Start"
 	"round4info"									"The Beast has spawned in the center<br />Waves will head towards your base until it is defeated"
 
+	"roundsuddendeath"								"SUDDEN DEATH"
+	//"roundsuddendeathinfo"							"Next Point Wins"
+	"roundsuddendeathinfo"							"Next Kill Wins"
+
 	// ERRORS
 	"multi_flag"									"You may only carry one flag at a time"
 	//"error_not_enough_gold_radiant"					"Not enough Radiant shared gold to hire mercenary"

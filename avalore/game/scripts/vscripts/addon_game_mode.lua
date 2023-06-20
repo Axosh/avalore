@@ -16,6 +16,8 @@ _G.radiant_spawn_particle = nil
 _G.dire_spawn_particle = nil
 
 _G.should_display_welcome = true
+
+_G.sudden_death = false
 --[[
 _G.GoodScore = 0
 _G.BadScore = 0
@@ -408,9 +410,12 @@ function CAvaloreGameMode:OnThink()
 			elseif Score.DireScore > Score.RadiScore then
 				GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 			else
-				-- idk how to "draw" the match
-				GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
-				GameRules:SetSafeToLeave(true)
+				-- -- idk how to "draw" the match
+				-- GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
+				-- GameRules:SetSafeToLeave(true)
+				print("Sudden Death")
+				_G.sudden_death = true
+				self:InitSuddenDeath()
 			end
 		end
 	elseif curr_gametime > Constants.TIME_ROUND_4_START then
@@ -791,5 +796,16 @@ function CAvaloreGameMode:InitRound4()
 	Score.round4.boss_handle = CreateUnitByName( ROUND4_BOSS_UNIT, boss_spawner:GetOrigin(),        true, nil, nil, DOTA_TEAM_CUSTOM_1 )
 	Score.round4.boss_handle:AddNewModifier(nil, nil, "modifier_invuln_tower_based", {})
 
+end
+
+function CAvaloreGameMode:InitSuddenDeath()
+	local broadcast_obj = 
+	{
+		msg = "#RoundSuddenDeath",
+		time = 10,
+		elaboration = "#RoundSuddenDeathInfo"
+	}
+	CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
+	GameRules:GetGameModeEntity():SetCustomTerrainWeatherEffect("particles/rain_fx/econ_weather_ash.vpcf")
 end
 

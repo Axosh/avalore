@@ -441,6 +441,9 @@ function CAvaloreGameMode:OnEntityKilled(event)
 
 	--Hero Kills, excluding denies
 	if killedEntity:IsRealHero() and attackerTeam ~= killedTeam then
+		if _G.sudden_death then
+			GameRules:SetGameWinner(attackerTeam)
+		end
 		--objectivePoints = 1
 		refreshScores = true
 	end
@@ -583,7 +586,8 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	--============================
 
 	-- only update front-end if score changed
-	if refreshScores then
+	-- don't bother updating in sudden death => only looking for next kill
+	if refreshScores and (not _G.sudden_death) then
 		if winnning_team ~= nil then
 			print("[Events] Winning Team = " .. tostring(winnning_team))
 			if isPlayer and not isDeny then
