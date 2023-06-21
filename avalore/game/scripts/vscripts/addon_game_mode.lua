@@ -138,6 +138,11 @@ function Precache( context )
 	-- Blink
 	PrecacheResource("particle", "particles/econ/events/fall_2022/blink/blink_dagger_start_fall2022.vpcf", context)
 	PrecacheResource("particle", "particles/econ/events/fall_2022/blink/blink_dagger_end_blur_player_fall2022.vpcf", context)
+
+	-- =============
+	-- MISC
+	-- =============
+	PrecacheResource("particle", "particles/rain_fx/econ_weather_ash.vpcf")
 end
 
 -- Create the game mode when we activate
@@ -806,6 +811,7 @@ function CAvaloreGameMode:InitSuddenDeath()
 		elaboration = "#RoundSuddenDeathInfo"
 	}
 	CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
+	GameRules:GetGameModeEntity():SetWeatherEffectsDisabled(false)
 	GameRules:GetGameModeEntity():SetCustomTerrainWeatherEffect("particles/rain_fx/econ_weather_ash.vpcf")
 end
 

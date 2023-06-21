@@ -1,0 +1,71 @@
+"DOTAItems"
+{
+    "item_recipe_chrysaor"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3170"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName"            "item_04/chrysaor"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_chrysaor"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_adamant;item_superior_damage;item_sword"
+        }
+	}
+    "item_chrysaor"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3171"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"tier4/item_chrysaor.lua"
+		"AbilityTextureName"			"item_04/chrysaor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemShopTags"					"hard_to_tag"
+		"ItemQuality"					"component"
+		"ItemAliases"					"blight stone"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "2" //ACCESSORY
+            }
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduction"		"6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"8"
+			}
+			"03"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_dmg"                                 "40"
+            }
+		}
+    }
+}

@@ -1,0 +1,41 @@
+"DOTAItems"
+{
+    "item_adamant"
+    {
+        // General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3169"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"components/item_adamant.lua"
+		"AbilityTextureName"			"components/adamant"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"300"
+		"ItemShopTags"					"hard_to_tag"
+		"ItemQuality"					"component"
+		"ItemAliases"					"blight stone"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "30" //MISC
+            }
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduction"		"3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"8"
+			}
+		}
+    }
+}
