@@ -142,7 +142,7 @@ function Precache( context )
 	-- =============
 	-- MISC
 	-- =============
-	PrecacheResource("particle", "particles/rain_fx/econ_weather_ash.vpcf")
+	PrecacheResource("particle", "particles/rain_fx/econ_weather_ash.vpcf", context)
 end
 
 -- Create the game mode when we activate

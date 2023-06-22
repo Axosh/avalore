@@ -6,8 +6,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3169"
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"components/item_adamant.lua"
-		"AbilityTextureName"			"components/adamant"
+		"ScriptFile"					"items/shop/components/item_adamant.lua"
+		"AbilityTextureName"			"base_materials/adamant"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		// Item Info
