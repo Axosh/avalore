@@ -1328,6 +1328,11 @@
 		"DOTA_Tooltip_Ability_item_spear_bonus_as"				"+$attack"
 		"DOTA_Tooltip_Ability_item_spear_lore"					"PLACEHOLDER ITEM"
 
+		"DOTA_Tooltip_Ability_item_recipe_avalore_broadsword"				"Broadsword"
+		"DOTA_Tooltip_Ability_item_avalore_broadsword"						"Broadsword"
+		"DOTA_Tooltip_Ability_item_avalore_broadsword_description"			"<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_avalore_broadsword_bonus_dmg"			"+$damage"
+
 		// Components
 		"DOTA_Tooltip_Ability_item_recipe_steel"							"Steel"
 		"DOTA_Tooltip_Ability_item_steel"									"Steel"
