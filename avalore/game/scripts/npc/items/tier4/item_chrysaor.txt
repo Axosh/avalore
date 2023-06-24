@@ -7,7 +7,7 @@
 		"ID"							"3170"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName"            "item_04/chrysaor"
+        "AbilityTextureName"            "items_04/chrysaor"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
@@ -31,8 +31,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3171"
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"tier4/item_chrysaor.lua"
-		"AbilityTextureName"			"item_04/chrysaor"
+		"ScriptFile"					"items/shop/tier4/item_chrysaor.lua"
+		"AbilityTextureName"			"items_04/chrysaor"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		// Item Info
@@ -40,7 +40,7 @@
 		"ItemCost"						"0"
 		"ItemShopTags"					"hard_to_tag"
 		"ItemQuality"					"component"
-		"ItemAliases"					"blight stone"
+		"ItemAliases"					"deso;desolator"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

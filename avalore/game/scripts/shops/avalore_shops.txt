@@ -125,6 +125,7 @@
 		"item"				"item_apollos_bow"
 		"item"				"item_seal_of_solomon"
 		"item"				"item_avalore_gleipnir"
+		"item"				"item_chrysaor"
 	}
  
 	"weapons"

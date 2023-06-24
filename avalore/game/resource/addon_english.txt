@@ -1797,6 +1797,16 @@
 		"DOTA_Tooltip_modifier_item_avalore_gleipnir_debuff"			 "Gleipnir's Bind"
 		"DOTA_Tooltip_modifier_item_avalore_gleipnir_debuff_description" "Rooted"
 
+		"DOTA_Tooltip_Ability_item_recipe_chrysaor"			"Chrysaor"
+		"DOTA_Tooltip_Ability_item_chrysaor"				"Chrysaor"
+		"DOTA_Tooltip_Ability_item_chrysaor_description"	"<h1>Passive: Pierce</h1>Your attacks reduce the target's armor by %armor_reduction% for %duration% seconds.\n<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_chrysaor_bonus_dmg"		"+$damage"
+		"DOTA_Tooltip_Ability_item_chrysaor_note0"			"Works on buildings."
+		"DOTA_Tooltip_Ability_item_chrysaor_lore"			"English Folklore/Greco-Roman: from the epic poem 'The Faerie Queene', a golden sword belonging to Sir Artegal. Tempered with Adamant allowing it to cleave through anyting. Also the favorite weapon of the Greek goddess Demeter"
+
+		"DOTA_Tooltip_modifier_item_chrysaor_debuff"				"Pierce"
+		"DOTA_Tooltip_modifier_item_chrysaor_debuff_description"	"Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
+
 		// TIER 5
 
 		"DOTA_Tooltip_Ability_item_recipe_megingjoro"			"Megingjörd"
