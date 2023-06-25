@@ -346,6 +346,21 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	end
 
 	-- ==========================
+	-- ROSHAN
+	-- ==========================
+
+	if killedEntity:GetUnitName() == "npc_dota_roshan" then
+		refreshScores = true
+		objectiveMsg = "objective_rosh" -- see addon_english.txt (panorama/localization)
+		if attackerTeam == DOTA_TEAM_GOODGUYS then
+			Score.roshkills.radi = Score.roshkills.radi + 1
+			-- TODO: augment player stats
+		elseif attackerTeam == DOTA_TEAM_BADGUYS then
+			Score.roshkills.dire = Score.roshkills.dire + 1
+		end
+	end
+
+	-- ==========================
 	-- ROUND 3 OBJECTIVES
 	-- ==========================
 

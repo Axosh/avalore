@@ -114,6 +114,10 @@ function Score:Init()
     Score.towers.dire.t4top = true
     Score.towers.dire.t4bot = true
 
+    Score.roshkills = {}
+    Score.roshkills.radi = 0
+    Score.roshkills.dire = 0
+
     -- Raxes
     -- Note: Tracks whether or not that rax is alive
     Score.raxes = {}
@@ -281,6 +285,8 @@ function Score:RecalculateScores()
     end
 
     -- PLACEHOLDER: rosh checks
+    Score.RadiScore = Score.RadiScore + (Score.roshkills.radi * SCORE_MULTIPLIER_ROSH)
+    Score.DireScore = Score.DireScore + (Score.roshkills.dire * SCORE_MULTIPLIER_ROSH)
 
     -- PLACEHOLDER: outposts/king of the hill
     Score.RadiScore = Score.RadiScore + Score.round2.radi.time_intervals -- 30s intervals

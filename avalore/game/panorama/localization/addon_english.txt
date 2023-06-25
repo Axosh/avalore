@@ -52,6 +52,7 @@
 	"objective_tower"								"Tower Destroyed +10 Points"
 	"objective_rax"									"Rax Destroyed +15 Points"
 	"objective_round3_boss"							"Gem Keeper Slain +30 Points"
+	"objective_rosh"								"Roshan Slain +20 Points"
 
 	"objective_round3_part2_intro"					"The Gem has been found"
 	"objective_round3_part2_elaboration"			"Take it to the opposing team's island<br />to summon the Gem Keeper Boss"

@@ -30,7 +30,14 @@ function modifier_item_chrysaor:OnCreated(event)
     self.item_ability = self:GetAbility()
     self.duration = self.item_ability:GetSpecialValueFor("duration")
     self.bonus_dmg = self.item_ability:GetSpecialValueFor("bonus_dmg")
+
+    --local particle_deso = "particles/items_fx/desolator_projectile.vpcf"
+    -- handle the particle stuff in the future
 end
+
+-- function modifier_item_chrysaor:OnDestroy()
+
+-- end
 
 function modifier_item_chrysaor:OnAttackLanded( keys )
     if not IsServer() then return end
@@ -49,6 +56,9 @@ function modifier_item_chrysaor:OnAttackLanded( keys )
     --TODO: check for higher priority armor reducers
     
     -- Apply Debuff
+    if not target:HasModifier("modifier_item_chrysaor_debuff") then
+		target:EmitSound("Item_Desolator.Target")
+	end
     target:AddNewModifier(owner, self.item_ability, "modifier_item_chrysaor_debuff", {duration = self.duration * (1 - target:GetStatusResistance())})
 end
 
