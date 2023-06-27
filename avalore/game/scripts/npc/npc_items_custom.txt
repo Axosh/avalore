@@ -20,6 +20,7 @@
 #base "items/base_materials/item_spear.txt"
 #base "items/tier1/item_staff_of_sorcery.txt"
 #base "items/base_materials/item_avalore_broadsword.txt"
+#base "items/base_materials/item_helm.txt"
 
 // CONSUMABLE
 #base "items/consumables/item_ambrosia.txt"

@@ -63,6 +63,7 @@
 		"item"				"item_staff_of_sorcery"
 		"item"				"item_spear"
 		"item"				"item_avalore_broadsword"
+		"item"				"item_helm"
     }
     "misc"
 	{
