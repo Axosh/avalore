@@ -16,6 +16,7 @@
         "ItemCost"                                          "1100"
         "ItemShopTags"                                      "armor"
         "ItemQuality"                                       "component"
+        "ItemShopTags"                                      "head;armor;as;int"
         //"ItemAliases"                                       ""
 
         "ItemKillable"					                    "1"
