@@ -146,7 +146,7 @@ function modifier_inventory_manager:OnIntervalThink()
             if remove_modifier then
                 print("modifier_inventory_manager > Removing Modifier " .. mod)
                 local mod_instance = hero:FindModifierByName(mod)
-                if mod_instance:GetStackCount() > 1 then
+                if mod_instance:GetStackCount() > 1 and (not mod == "modifier_item_essence_of_shadow") then
                     mod_instance:DecrementStackCount()
                 else
                     hero:RemoveModifierByName(mod)

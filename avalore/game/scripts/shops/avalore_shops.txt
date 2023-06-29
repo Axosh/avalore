@@ -127,6 +127,7 @@
 		"item"				"item_seal_of_solomon"
 		"item"				"item_avalore_gleipnir"
 		"item"				"item_chrysaor"
+		"item"				"item_helm_of_hades"
 	}
  
 	"weapons"

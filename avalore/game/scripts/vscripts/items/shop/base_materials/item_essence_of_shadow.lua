@@ -32,6 +32,7 @@ function modifier_item_essence_of_shadow:GetTexture()
 end
 
 function modifier_item_essence_of_shadow:OnCreated(kv)
+    if not self:GetAbility() then self:Destroy() return end
     self.invis_fade = self:GetAbility():GetSpecialValueFor("invis_delay")
     self.prev_loc = self:GetCaster():GetAbsOrigin()
 

@@ -1714,6 +1714,14 @@
 		"DOTA_Tooltip_Ability_item_gungnir_bonus_as"				"+$attack"
 		"DOTA_Tooltip_Ability_item_gungnir_lore"					"Norse: created by the dwarven blacksmiths, the Sons of Ivaldi, for Odin. Gungnir would always find its target, moving in flight to do so."
 
+		"DOTA_Tooltip_Ability_item_recipe_helm_of_hades"		"Helm of Hades"
+		"DOTA_Tooltip_Ability_item_helm_of_hades"				"Helm of Hades"
+		"DOTA_Tooltip_Ability_item_helm_of_hades_description"	"<h1>Active: Shroud of Mist</h1>After a %invis_fade_time% second delay, become shrouded in mist for %invis_duration% seconds.<br><br>Attacking, casting, and item use do not break<br>IMMUNE TO DETECTION\n<h1>Slot: Head</h1>Requires the head slot"
+		"DOTA_Tooltip_Ability_item_helm_of_hades_bonus_armor"	"+$armor"
+		"DOTA_Tooltip_Ability_item_helm_of_hades_bonus_as"		"+$attack"
+		"DOTA_Tooltip_Ability_item_helm_of_hades_bonus_int"		"+$int"
+		"DOTA_Tooltip_Ability_item_helm_of_hades_lore"			"Greco-Roman: those wearing the helm became shrouded in mist and were undetectable to other supernatural beings"
+
 		// TIER 4
 		"DOTA_Tooltip_Ability_item_recipe_babr_e_bayan"			"Babr-e Bayān"
 		"DOTA_Tooltip_Ability_item_babr_e_bayan"				"Babr-e Bayān"

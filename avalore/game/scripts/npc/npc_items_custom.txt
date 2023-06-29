@@ -117,6 +117,7 @@
 #base "items/tier4/item_seal_of_solomon.txt"
 #base "items/tier4/item_avalore_gleipnir.txt"
 #base "items/tier4/item_chrysaor.txt"
+#base "items/tier4/item_helm_of_hades.txt"
 
 // TIER 5 Items
 #base "items/tier5/item_megingjoro.txt"

@@ -11,7 +11,8 @@ AVALORE_INVISIBLE_MODIFIERS = {
 	"modifier_invisible_truesight_immune",
 	"modifier_rune_invis",
 	"modifier_rune_super_invis",
-	"modifier_item_essence_of_shadow"
+	"modifier_item_essence_of_shadow",
+	"modifier_item_helm_of_hades_invis"
 }
 
 AVALORE_STATUS_MODIFIERS = {

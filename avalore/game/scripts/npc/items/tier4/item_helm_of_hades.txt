@@ -7,22 +7,22 @@
 		"ID"							"3175"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"items_03/helm_of_hades"
+        "AbilityTextureName" 			"items_04/helm_of_hades"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"500"
+		"ItemCost"						""
 		"ItemShopTags"					""
 
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_leather_boots"
+		"ItemResult"					"item_helm_of_hades"
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_helm;item_essence_of_shadow"
+            "01"                        "item_helm;item_essence_of_shadow;item_lesser_attack_speed"
         }
 	}
     "item_helm_of_hades"
@@ -31,18 +31,26 @@
         //-------------------------------------------------------------------------------------------------------------
         "ID"                                                "3176"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                    "item_lua"            
-        "ScriptFile"                                        "items/shop/base_materials/item_helm.lua"
+        "ScriptFile"                                        "items/shop/tier4/item_helm_of_hades.lua"
         "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                                             "models/props_gameplay/red_box.vmdl"
-        "AbilityTextureName"                                "items_03/helm_of_hades"
+        "AbilityTextureName"                                "items_04/helm_of_hades"
+
+        "precache"
+        {
+            "particle"          "particles/units/heroes/hero_slark/slark_dark_pact_start.vpcf"
+            "particle"          "particles/status_fx/status_effect_slark_shadow_dance.vpcf"
+            "particle"          "particles/units/heroes/hero_slark/slark_shadow_dance.vpcf"
+        }
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                                          "1100"
+        "ItemCost"                                          ""
         "ItemShopTags"                                      "armor"
-        "ItemQuality"                                       "component"
+        "ItemQuality"                                       "epic"
         "ItemShopTags"                                      "head;armor;as;int"
-        //"ItemAliases"                                       ""
+        "ItemAliases"					                    "hoh;sb;invis;shadow blade"
+
 
         "ItemKillable"					                    "1"
 		"ItemSellable"					                    "1"
@@ -58,6 +66,11 @@
 
         "SideShop"                                          "0"
         "SecretShop"					                    "0"
+
+
+        "AbilityCooldown"				"30"
+		"AbilityManaCost"				"100"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -76,13 +89,23 @@
             "03"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "bonus_as"                                  "20"
+                "bonus_as"                                  "35"
             }
             "04"
             {
                 "var_type"                                "FIELD_INTEGER"
                 "bonus_int"                               "6"
             }
+            "05"
+            {
+                "var_type"                              "FIELD_FLOAT"
+                "invis_duration"                        "6.0"      
+            }
+            "06"
+			{
+				"var_type"					            "FIELD_FLOAT"
+				"invis_fade_time"			            "0.3"
+			}
         }
     }
 }
