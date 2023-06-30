@@ -37,3 +37,6 @@ node_modules
 # Debug
 game/panorama_debugger.cfg
 balancing/~$item_balance.xlsx
+balancing/.~lock.item_balance.xlsx#
+diagrams/.$item_tree.drawio.bkp
+diagrams/.$item_tree.drawio.dtmp
