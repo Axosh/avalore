@@ -36,13 +36,6 @@
         "Model"                                             "models/props_gameplay/red_box.vmdl"
         "AbilityTextureName"                                "items_04/ring_of_gyges"
 
-        "precache"
-        {
-            "particle"          "particles/units/heroes/hero_slark/slark_dark_pact_start.vpcf"
-            "particle"          "particles/status_fx/status_effect_slark_shadow_dance.vpcf"
-            "particle"          "particles/units/heroes/hero_slark/slark_shadow_dance.vpcf"
-        }
-
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                                          ""
