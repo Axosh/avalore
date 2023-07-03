@@ -103,8 +103,7 @@ end
 
 function modifier_item_helm_of_hades_invis:CheckState()
 	return {
-		[MODIFIER_STATE_INVISIBLE]			= true,
-		[MODIFIER_STATE_TRUESIGHT_IMMUNE]	= true
+		[MODIFIER_STATE_INVISIBLE]			= true
 	}
 end
 
