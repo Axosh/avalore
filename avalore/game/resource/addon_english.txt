@@ -1730,6 +1730,18 @@
 		"DOTA_Tooltip_Ability_item_ring_of_gyges_bonus_int"		"+$int"
 		"DOTA_Tooltip_Ability_item_ring_of_gyges_lore"			"Greek Philosophy: a thought experiment in Plato's The Republic as to whether a person would act justly when faced with a lack of consequences"
 
+		"DOTA_Tooltip_Ability_item_recipe_mantle_of_invsibility"				"Mantle of Invisibility"
+		"DOTA_Tooltip_Ability_item_mantle_of_invsibility"						"Mantle of Invisibility"		
+		"DOTA_Tooltip_Ability_item_mantle_of_invsibility_description"			"<h1>Active: Invisibility</h1>Makes you invisible for %invis_duration% seconds, or until you attack or cast a spell. Gain additional %invis_ms_pct%%% move speed boost while invisible and can walk through units.\n<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_mantle_of_invsibility_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_Ability_item_mantle_of_invsibility_bonus_str"				"+$all"
+		//"DOTA_Tooltip_Ability_item_mantle_of_invsibility_bonus_str"				"+$str"
+		//"DOTA_Tooltip_Ability_item_mantle_of_invsibility_bonus_agi"				"+$agi"
+		//"DOTA_Tooltip_Ability_item_mantle_of_invsibility_bonus_int"				"+$int"
+		"DOTA_Tooltip_Ability_item_mantle_of_invsibility_bonus_movement_speed"	"+$move_speed"
+		"DOTA_Tooltip_Ability_item_mantle_of_invsibility_bonus_dmg"				"+$damage"
+		"DOTA_Tooltip_Ability_item_mantle_of_invsibility_lore"					"Arthurian/Welsh/English: described as a prized possession of King Arthur, but also appears in Jack the Giant Killer and other fairy tales"
+
 		// TIER 4
 		"DOTA_Tooltip_Ability_item_recipe_babr_e_bayan"			"Babr-e Bayān"
 		"DOTA_Tooltip_Ability_item_babr_e_bayan"				"Babr-e Bayān"

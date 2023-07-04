@@ -61,8 +61,8 @@
         "SecretShop"					                    "0"
 
 
-        "AbilityCooldown"				"40"
-		"AbilityManaCost"				"150"
+        "AbilityCooldown"				"25"
+		"AbilityManaCost"				"75"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 
         // Special
@@ -107,13 +107,18 @@
             "08"
             {
                 "var_type"                              "FIELD_FLOAT"
-                "invis_duration"                        "6.0"      
+                "invis_duration"                        "15.0"      
             }
             "09"
 			{
 				"var_type"					            "FIELD_FLOAT"
 				"invis_fade_time"			            "0.3"
 			}
+            "10"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "invis_ms_pct"                                  "20"
+            }
         }
     }
 }
