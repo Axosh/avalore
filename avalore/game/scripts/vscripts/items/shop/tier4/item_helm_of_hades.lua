@@ -79,6 +79,10 @@ function modifier_item_helm_of_hades_invis:GetStatusEffectName()
 	return "particles/status_fx/status_effect_slark_shadow_dance.vpcf"
 end
 
+function modifier_item_helm_of_hades_invis:GetTexture()
+    return "items/helm_of_hades_orig"
+end
+
 function modifier_item_helm_of_hades_invis:OnCreated(params)
     if not IsServer() then return end
 

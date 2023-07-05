@@ -106,7 +106,7 @@
 #base "items/tier3/item_paul_bunyans_axe.txt"
 #base "items/tier3/item_sacis_cap.txt"
 #base "items/tier3/item_gungnir.txt"
-#base "items/tier3/item_mangle_of_insibility.txt"
+#base "items/tier3/item_mantle_of_invisibility.txt"
 
 // TIER 4 Items
 #base "items/tier4/item_babr_e_bayan.txt"

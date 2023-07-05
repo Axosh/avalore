@@ -22,7 +22,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_avalore_ring;item_essence_of_shadow;item_superior_damage;item_caduceus"
+            "01"                        "item_adventurers_cloak;item_essence_of_shadow;item_superior_damage;item_caduceus"
         }
 	}
     "item_mantle_of_invisibility"

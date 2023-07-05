@@ -13,7 +13,8 @@ AVALORE_INVISIBLE_MODIFIERS = {
 	"modifier_rune_super_invis",
 	"modifier_item_essence_of_shadow",
 	"modifier_item_helm_of_hades_invis",
-	"modifier_item_ring_of_gyges_invis"
+	"modifier_item_ring_of_gyges_invis",
+	"modifier_item_mantle_of_invisibility_invis"
 }
 
 AVALORE_STATUS_MODIFIERS = {

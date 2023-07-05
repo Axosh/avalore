@@ -97,3 +97,7 @@ end
 function modifier_item_ring_of_gyges_invis:GetModifierInvisibilityLevel()
 	return 1
 end
+
+function modifier_item_ring_of_gyges_invis:GetTexture()
+    return "items/ring_of_gyges_orig"
+end
