@@ -1,13 +1,13 @@
 "DOTAItems"
 {
-    "item_recipe_mantle_of_invisibility"
+    "item_recipe_tarnkappe"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3179"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"items_03/mantle_of_invisibility"
+        "AbilityTextureName" 			"items_04/tarnkappe"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
@@ -18,23 +18,23 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_mantle_of_invisibility"
+		"ItemResult"					"item_tarnkappe"
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_avalore_ring;item_essence_of_shadow;item_superior_damage;item_caduceus"
+            "01"                        "item_mantle_of_invisibility;"
         }
 	}
-    "item_mantle_of_invisibility"
+    "item_tarnkappe"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                                                "3180"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                    "item_lua"            
-        "ScriptFile"                                        "items/shop/tier3/item_mantle_of_invisibility.lua"
+        "ScriptFile"                                        "items/shop/tier4/item_tarnkappe.lua"
         "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                                             "models/props_gameplay/red_box.vmdl"
-        "AbilityTextureName"                                "items_03/mantle_of_invisibility"
+        "AbilityTextureName"                                "items_04/tarnkappe"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------

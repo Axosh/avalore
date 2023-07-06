@@ -98,7 +98,7 @@ function modifier_item_mantle_of_invisibility_invis:OnCreated(params)
 end
 
 function modifier_item_mantle_of_invisibility_invis:GetTexture()
-    return "mantle_of_invisibility_orig"
+    return "items/mantle_of_invisibility_orig"
 end
 
 function modifier_item_mantle_of_invisibility_invis:CheckState()
