@@ -1657,6 +1657,14 @@
 
 		"DOTA_Tooltip_modifier_item_ars_goetia_debuff"						"Demonic Seal"
 		"DOTA_Tooltip_modifier_item_ars_goetia_debuff_description"			"Rooted"
+
+		"DOTA_Tooltip_Ability_item_recipe_amulet_of_agility"					"Amulet Agility"
+		"DOTA_Tooltip_Ability_item_amulet_of_agility"						"Amulet Agility"
+		"DOTA_Tooltip_Ability_item_amulet_of_agility_description"			"<h1>Slot: Trinket</h1>Requires the trinket slot"
+		"DOTA_Tooltip_Ability_item_amulet_of_agility_bonus_agi"				"+$agi"
+		"DOTA_Tooltip_Ability_item_amulet_of_agility_bonus_as"				"+$attack"
+		"DOTA_Tooltip_Ability_item_amulet_of_agility_bonus_ms_pct"			"%+$move_speed"
+		"DOTA_Tooltip_Ability_item_amulet_of_agility_lore"					"PLACEHOLDER ITEM"
 		
 		// TIER 3
 		"DOTA_Tooltip_Ability_item_recipe_zoster_of_hippolyta"			"Zoster of Hippolyta"

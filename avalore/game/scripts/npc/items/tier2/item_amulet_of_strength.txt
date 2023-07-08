@@ -1,0 +1,95 @@
+"DOTAItems"
+{
+    "item_recipe_amulet_of_strength"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3185"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"items_02/amulet_of_strength"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_amulet_of_strength"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_lesser_strength;item_greater_strength;item_superior_strength"
+        }
+	}
+
+    "item_amulet_of_strength"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "3186"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						"item_lua"            
+        "ScriptFile"                    "items/shop/tier2/item_amulet_of_strength.lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"                         "models/props_gameplay/red_box.vmdl"
+        "AbilityTextureName"            "items_02/amulet_of_strength"
+
+        // Ability
+		//--------------------------------------------		
+		"AbilityCooldown"				"30"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        //"ItemShopTags"                  ""
+        "ItemQuality"                   "component"
+        "ItemSupport"					"1"
+        "ItemAliases"                   "gold"
+        //"ItemInitialCharges"            "3"
+
+        "ItemKillable"					                    "1"
+		"ItemSellable"					                    "1"
+		"ItemPurchasable"				                    "1"
+		"ItemDroppable"					                    "1"
+		"ItemShareability"				                    "ITEM_NOT_SHAREABLE"
+		"ItemStackable"					                    "1"
+		"ItemPermanent"					                    "0"
+
+        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        //"ItemSlot"                                          "item_slot_trinket"
+
+        "SideShop"                                          "0"
+        "SecretShop"					                    "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "5" //trinket
+            }
+            "02"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_str"                                 "20"
+            }
+            "03"
+            {
+                "var_type"                                 "FIELD_FLOAT"
+                "bonus_hp_regen"                             "1.5"
+            }
+            "03"
+            {
+                "var_type"                                 "FIELD_INTEGER"
+                "bonus_hp"                                 "100"
+            }
+        }
+    }
+}

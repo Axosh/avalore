@@ -98,6 +98,7 @@
 #base "items/tier1/item_vidars_shoes.txt"
 #base "items/tier2/item_adder_stone.txt"
 #base "items/tier2/item_ars_goetia.txt"
+#base "items/tier2/item_amulet_of_agility.txt"
 
 // TIER 3 Items
 #base "items/tier3/item_zoster_of_hippolyta.txt"
