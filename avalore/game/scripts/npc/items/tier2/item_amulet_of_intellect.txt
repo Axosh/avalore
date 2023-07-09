@@ -1,13 +1,13 @@
 "DOTAItems"
 {
-    "item_recipe_amulet_of_strength"
+    "item_recipe_amulet_of_intellect"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3185"
+		"ID"							"3188"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"items_02/amulet_of_strength"
+        "AbilityTextureName" 			"items_02/amulet_of_intellect"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
 		// Item Info
@@ -18,24 +18,24 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_amulet_of_strength"
+		"ItemResult"					"item_amulet_of_intellect"
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_lesser_strength;item_greater_strength;item_superior_strength"
+            "01"                        "item_lesser_intellect;item_greater_intellect;item_superior_intellect"
         }
 	}
 
-    "item_amulet_of_strength"
+    "item_amulet_of_intellect"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "3186"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                            "3189"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/tier2/item_amulet_of_strength.lua"
+        "ScriptFile"                    "items/shop/tier2/item_amulet_of_intellect.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
-        "AbilityTextureName"            "items_02/amulet_of_strength"
+        "AbilityTextureName"            "items_02/amulet_of_intellect"
 
         // Ability
 		//--------------------------------------------		
@@ -78,12 +78,12 @@
             "02"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "bonus_str"                                 "20"
+                "bonus_int"                                 "20"
             }
             "03"
             {
                 "var_type"                                 "FIELD_FLOAT"
-                "bonus_hp_regen_pct"                       "1.1"
+                "cooldown_reduction"                       "1.1"
             }
         }
     }
