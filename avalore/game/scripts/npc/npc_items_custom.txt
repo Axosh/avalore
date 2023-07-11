@@ -99,6 +99,8 @@
 #base "items/tier2/item_adder_stone.txt"
 #base "items/tier2/item_ars_goetia.txt"
 #base "items/tier2/item_amulet_of_agility.txt"
+#base "items/tier2/item_amulet_of_strength.txt"
+#base "items/tier2/item_amulet_of_intellect.txt"
 
 // TIER 3 Items
 #base "items/tier3/item_zoster_of_hippolyta.txt"

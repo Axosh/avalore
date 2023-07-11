@@ -1658,13 +1658,28 @@
 		"DOTA_Tooltip_modifier_item_ars_goetia_debuff"						"Demonic Seal"
 		"DOTA_Tooltip_modifier_item_ars_goetia_debuff_description"			"Rooted"
 
-		"DOTA_Tooltip_Ability_item_recipe_amulet_of_agility"					"Amulet Agility"
-		"DOTA_Tooltip_Ability_item_amulet_of_agility"						"Amulet Agility"
+		"DOTA_Tooltip_Ability_item_recipe_amulet_of_agility"					"Amulet of Agility"
+		"DOTA_Tooltip_Ability_item_amulet_of_agility"						"Amulet of Agility"
 		"DOTA_Tooltip_Ability_item_amulet_of_agility_description"			"<h1>Slot: Trinket</h1>Requires the trinket slot"
 		"DOTA_Tooltip_Ability_item_amulet_of_agility_bonus_agi"				"+$agi"
 		"DOTA_Tooltip_Ability_item_amulet_of_agility_bonus_as"				"+$attack"
 		"DOTA_Tooltip_Ability_item_amulet_of_agility_bonus_ms_pct"			"%+$move_speed"
 		"DOTA_Tooltip_Ability_item_amulet_of_agility_lore"					"PLACEHOLDER ITEM"
+
+		"DOTA_Tooltip_Ability_item_recipe_amulet_of_strength"					"Amulet of Strength"
+		"DOTA_Tooltip_Ability_item_amulet_of_strength"						"Amulet of Strength"
+		"DOTA_Tooltip_Ability_item_amulet_of_strength_description"			"<h1>Slot: Trinket</h1>Requires the trinket slot"
+		"DOTA_Tooltip_Ability_item_amulet_of_strength_bonus_str"				"+$str"
+		"DOTA_Tooltip_Ability_item_amulet_of_strength_bonus_hp_regen_pct"	"%+Max HP Health Regen"
+		"DOTA_Tooltip_Ability_item_amulet_of_strength_lore"					"PLACEHOLDER ITEM"
+
+		"DOTA_Tooltip_Ability_item_recipe_amulet_of_intellect"					"Amulet of Intellect"
+		"DOTA_Tooltip_Ability_item_amulet_of_intellect"						"Amulet of Intellect"
+		"DOTA_Tooltip_Ability_item_amulet_of_intellect_description"			"<h1>Slot: Trinket</h1>Requires the trinket slot"
+		"DOTA_Tooltip_Ability_item_amulet_of_intellect_bonus_int"				"+$int"
+		"DOTA_Tooltip_Ability_item_amulet_of_intellect_cooldown_reduction"		"%-Cooldown Reduction"
+		"DOTA_Tooltip_Ability_item_amulet_of_intellect_passive_mana_regen"		"+$mana_regen"
+		"DOTA_Tooltip_Ability_item_amulet_of_intellect_lore"					"PLACEHOLDER ITEM"
 		
 		// TIER 3
 		"DOTA_Tooltip_Ability_item_recipe_zoster_of_hippolyta"			"Zoster of Hippolyta"
