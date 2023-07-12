@@ -87,7 +87,7 @@
             "04"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "bonus_str"                                 "2"
+                "bonus_str"                                 "22"
             }
             "05"
             {
@@ -118,6 +118,31 @@
             {
                 "var_type"                                  "FIELD_INTEGER"
                 "invis_ms_pct"                                  "20"
+            }
+            // "11"
+            // {
+            //     "var_type"                                  "FIELD_INTEGER"
+            //     "bonus_str"                                 "20"
+            // }
+            "11"
+            {
+                "var_type"                                 "FIELD_FLOAT"
+                "bonus_hp_regen_pct"                       "1.1"
+            }
+            "12"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_dmg_crit"                            "150"
+            }
+            "13"
+            {
+                "var_type"                              "FIELD_FLOAT"
+                "debuff_duration"                       "4.0"
+            }
+            "14"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "debuff_dmg_reduction"                      "20"
             }
         }
     }
