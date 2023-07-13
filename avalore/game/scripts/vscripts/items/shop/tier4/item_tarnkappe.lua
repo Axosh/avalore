@@ -180,6 +180,10 @@ function modifier_item_tarnkappe_debuff:IsDebuff() return false end
 function modifier_item_tarnkappe_debuff:IsHidden() return false end
 function modifier_item_tarnkappe_debuff:IsPurgable() return false end
 
+function modifier_item_tarnkappe_debuff:GetTexture()
+    return "items/tarnkappe_orig"
+end
+
 function modifier_item_tarnkappe_debuff:OnCreated()
     self.debuff_dmg_reduction = self:GetAbility():GetSpecialValueFor("debuff_dmg_reduction")
 end

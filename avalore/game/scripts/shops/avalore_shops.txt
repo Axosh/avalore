@@ -133,6 +133,7 @@
 		"item"				"item_chrysaor"
 		"item"				"item_helm_of_hades"
 		"item"				"item_ring_of_gyges"
+		"item"				"item_tarnkappe"
 	}
  
 	"weapons"

@@ -1772,7 +1772,25 @@
 		"DOTA_Tooltip_Ability_item_mantle_of_invisibility_lore"					"Arthurian/Welsh/English: described as a prized possession of King Arthur, but also appears in Jack the Giant Killer and other fairy tales"
 
 		"DOTA_Tooltip_modifier_item_mantle_of_invisibility_invis"				"Invisibility"
-		"DOTA_Tooltip_modifier_item_mantle_of_invisibility_invis_description"	"Invisible. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and you can move through units and terrain. Attacking to break invisibility."
+		"DOTA_Tooltip_modifier_item_mantle_of_invisibility_invis_description"	"Invisible. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and you can move through units and terrain. Attacking and casting will break invisibility."
+
+		"DOTA_Tooltip_Ability_item_recipe_tarnkappe"				"Tarnkappe"
+		"DOTA_Tooltip_Ability_item_tarnkappe"						"Tarnkappe"		
+		"DOTA_Tooltip_Ability_item_tarnkappe_description"			"<h1>Active: Deceive and Overpower</h1>Makes you invisible for %invis_duration% seconds, or until you attack or cast a spell. Gain additional %invis_ms_pct%%% move speed boost while invisible and can walk through units.<br><br>Upon attacking out of invisibilty, deals %bonus_dmg_crit% bonus pre-attack damage, and applies a debuff that breaks and reduces the target's outgoing damage by %debuff_dmg_reduction%%% for %debuff_duration% seconds.\n<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_tarnkappe_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_Ability_item_tarnkappe_bonus_str"				"+$str"
+		"DOTA_Tooltip_Ability_item_tarnkappe_bonus_agi"				"+$agi"
+		"DOTA_Tooltip_Ability_item_tarnkappe_bonus_int"				"+$int"
+		"DOTA_Tooltip_Ability_item_tarnkappe_bonus_movement_speed"	"+$move_speed"
+		"DOTA_Tooltip_Ability_item_tarnkappe_bonus_dmg"				"+$damage"
+		"DOTA_Tooltip_Ability_item_tarnkappe_bonus_hp_regen_pct"	"%+Max HP Health Regen"
+		"DOTA_Tooltip_Ability_item_tarnkappe_lore"					"Norse: a cloak of invisbility that increased strength substantially. Used by Siegfried to deceive and overpower Brünhild"
+
+		"DOTA_Tooltip_modifier_item_tarnkappe_invis"				"Invisibility"
+		"DOTA_Tooltip_modifier_item_tarnkappe_invis_description"	"Invisible. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and have no unit collision. Attacking and casting will break invisibility."
+		
+		"DOTA_Tooltip_modifier_item_tarnkappe_debuff"				"Overpowered"
+		"DOTA_Tooltip_modifier_item_tarnkappe_debuff_decription"				"Broken (passives disabled), and outgoing damage decreased by %MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%"
 
 		// TIER 4
 		"DOTA_Tooltip_Ability_item_recipe_babr_e_bayan"			"Babr-e Bayān"
