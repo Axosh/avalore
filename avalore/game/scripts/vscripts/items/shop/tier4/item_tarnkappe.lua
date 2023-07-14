@@ -106,6 +106,7 @@ function modifier_item_tarnkappe_invis:OnCreated(params)
     if not self:GetAbility() then self:Destroy() return end
     self.invis_ms_pct = self:GetAbility():GetSpecialValueFor("invis_ms_pct")
     self.bonus_dmg_crit = self:GetAbility():GetSpecialValueFor("bonus_dmg_crit")
+    self.debuff_duration = self:GetAbility():GetSpecialValueFor("debuff_duration")
 end
 
 function modifier_item_tarnkappe_invis:GetTexture()
@@ -142,11 +143,11 @@ function modifier_item_tarnkappe_invis:OnAttackLanded(params)
 	if IsServer() then
 		if params.attacker == self:GetParent() then
 
-            params.target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_item_tarnkappe_debuff", {duration = break_duration * (1 - params.target:GetStatusResistance())})
+            params.target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_item_tarnkappe_debuff", {duration = self.debuff_duration * (1 - params.target:GetStatusResistance())})
 
             self:GetParent():EmitSound("Imba.SilverEdgeInvisAttack")
 
-            local attack_particle	=	"particles/item/silver_edge/imba_silver_edge.vpcf"
+            local attack_particle	=	"particles/items3_fx/silver_edge.vpcf"
             local particle_fx = ParticleManager:CreateParticle(attack_particle, PATTACH_ABSORIGIN, self:GetParent())
 			ParticleManager:SetParticleControl(particle_fx, 0, params.target:GetAbsOrigin())
 			ParticleManager:ReleaseParticleIndex(particle_fx)

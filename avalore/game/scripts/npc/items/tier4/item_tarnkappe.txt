@@ -4,7 +4,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3179"
+		"ID"							"3181"
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
         "AbilityTextureName" 			"items_04/tarnkappe"
@@ -22,14 +22,14 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_mantle_of_invisibility;"
+            "01"                        "item_mantle_of_invisibility;item_amulet_of_strength"
         }
 	}
     "item_tarnkappe"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                                                "3180"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                                                "3182"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						                    "item_lua"            
         "ScriptFile"                                        "items/shop/tier4/item_tarnkappe.lua"
         "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"

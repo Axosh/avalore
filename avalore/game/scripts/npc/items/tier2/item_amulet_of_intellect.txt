@@ -22,7 +22,7 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_lesser_intellect;item_greater_intellect;item_superior_intellect"
+            "01"                        "item_lesser_intelligence;item_greaterintelligence;item_superior_intelligence"
         }
 	}
 
