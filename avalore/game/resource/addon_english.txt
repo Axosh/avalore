@@ -1776,7 +1776,7 @@
 
 		"DOTA_Tooltip_Ability_item_recipe_tarnkappe"				"Tarnkappe"
 		"DOTA_Tooltip_Ability_item_tarnkappe"						"Tarnkappe"		
-		"DOTA_Tooltip_Ability_item_tarnkappe_description"			"<h1>Active: Deceive and Overpower</h1>Makes you invisible for %invis_duration% seconds, or until you attack or cast a spell. Gain additional %invis_ms_pct%%% move speed boost while invisible and can walk through units.<br><br>Upon attacking out of invisibilty, deals %bonus_dmg_crit% bonus pre-attack damage, and applies a debuff that breaks and reduces the target's outgoing damage by %debuff_dmg_reduction%%% for %debuff_duration% seconds.\n<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_tarnkappe_description"			"<h1>Active: Deceive and Overpower</h1>Makes you invisible for %invis_duration% seconds, or until you attack or cast a spell. Gain additional %invis_ms_pct%%% move speed boost while invisible and can walk through units.<br><br>Upon attacking out of invisibilty, deals %bonus_dmg_crit% bonus pre-attack damage, and applies a debuff that <font color='#FF7800'>break</font> and reduces the target's outgoing damage by %debuff_dmg_reduction%%% for %debuff_duration% seconds.\n<h1>Slot: Accessory</h1>Requires the accessory slot"
 		"DOTA_Tooltip_Ability_item_tarnkappe_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_Ability_item_tarnkappe_bonus_str"				"+$str"
 		"DOTA_Tooltip_Ability_item_tarnkappe_bonus_agi"				"+$agi"
@@ -1790,7 +1790,7 @@
 		"DOTA_Tooltip_modifier_item_tarnkappe_invis_description"	"Invisible. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and have no unit collision. Attacking and casting will break invisibility."
 		
 		"DOTA_Tooltip_modifier_item_tarnkappe_debuff"				"Overpowered"
-		"DOTA_Tooltip_modifier_item_tarnkappe_debuff_decription"				"Broken (passives disabled), and outgoing damage decreased by %MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%"
+		"DOTA_Tooltip_modifier_item_tarnkappe_debuff_decription"	"Broken (passives disabled), and outgoing damage decreased by %MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%"
 
 		// TIER 4
 		"DOTA_Tooltip_Ability_item_recipe_babr_e_bayan"			"Babr-e Bayān"
