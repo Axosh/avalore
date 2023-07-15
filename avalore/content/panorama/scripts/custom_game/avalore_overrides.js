@@ -66,7 +66,7 @@ function OnInventoryItemChange() {
 
 function RepaintInventory()
 {
-    $.Msg("RepaintInventory()")
+    $.Msg("RepaintInventory()");
     OverrideWardDispenser();
 
     var hud = GetDotaHud();
