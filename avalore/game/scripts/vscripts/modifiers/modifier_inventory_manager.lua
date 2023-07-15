@@ -47,24 +47,24 @@ function modifier_inventory_manager:OnIntervalThink()
         end
     end
     --print("======VALIDATE")
-    for base_slot=0,5 do
-        --print("[" .. tostring(base_slot) .. "] = " .. tostring(inv_validation[base_slot]))
-        if inv_validation[base_slot] == -1 or inv_validation[base_slot] == nil then
-            if base_slot == AVALORE_ITEM_SLOT_HEAD then
-                hero:AddItemByName("item_slot_head")
-            elseif base_slot == AVALORE_ITEM_SLOT_CHEST then
-                hero:AddItemByName("item_slot_chest")
-            elseif base_slot == AVALORE_ITEM_SLOT_ACCESSORY then
-                hero:AddItemByName("item_slot_back")
-            elseif base_slot == AVALORE_ITEM_SLOT_HANDS then
-                hero:AddItemByName("item_slot_hands")
-            elseif base_slot == AVALORE_ITEM_SLOT_FEET then
-                hero:AddItemByName("item_slot_feet")
-            elseif base_slot == AVALORE_ITEM_SLOT_TRINKET then
-                hero:AddItemByName("item_slot_trinket")
-            end
-        end
-    end
+    -- for base_slot=0,5 do
+    --     --print("[" .. tostring(base_slot) .. "] = " .. tostring(inv_validation[base_slot]))
+    --     if inv_validation[base_slot] == -1 or inv_validation[base_slot] == nil then
+    --         if base_slot == AVALORE_ITEM_SLOT_HEAD then
+    --             hero:AddItemByName("item_slot_head")
+    --         elseif base_slot == AVALORE_ITEM_SLOT_CHEST then
+    --             hero:AddItemByName("item_slot_chest")
+    --         elseif base_slot == AVALORE_ITEM_SLOT_ACCESSORY then
+    --             hero:AddItemByName("item_slot_back")
+    --         elseif base_slot == AVALORE_ITEM_SLOT_HANDS then
+    --             hero:AddItemByName("item_slot_hands")
+    --         elseif base_slot == AVALORE_ITEM_SLOT_FEET then
+    --             hero:AddItemByName("item_slot_feet")
+    --         elseif base_slot == AVALORE_ITEM_SLOT_TRINKET then
+    --             hero:AddItemByName("item_slot_trinket")
+    --         end
+    --     end
+    -- end
 
     -- check for dummy items wrongly placed in the stash (need to fix this upstream some time)
     for stash_slot=DOTA_STASH_SLOT_1 ,DOTA_STASH_SLOT_6  do

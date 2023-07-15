@@ -45,17 +45,48 @@ function GetDotaHud() {
 
 function OnInventoryItemChange() {
     $.Msg("OnInventoryItemChange");
+    RepaintInventory();
+    // make backpack items not gray
+    // $.Msg("Has class? " + GetDotaHud().FindChildTraverse("inventory_slot_6").BHasClass("inactive_item"))
+    // GetDotaHud().FindChildTraverse("inventory_slot_6").RemoveClass("inactive_item")
+    // GetDotaHud().FindChildTraverse("inventory_slot_6").AddClass("AvaloreBackpack")
+    // var img = GetDotaHud().FindChildTraverse("inventory_slot_6").FindChildTraverse("ItemImage")
+    // $.Msg("Inv 6 Icon => '" + img.itemname + "'")
+    // //if (img.GetAttributeString("src", "").includes("empty.png"))
+    // if (img.itemname == '')
+    // {
+    //     $.Msg("inv 6 empty")
+    //     img.SetImage("file://{images}/ui/slot_misc.png")
+    // }
+    // GetDotaHud().FindChildTraverse("inventory_slot_7").RemoveClass("inactive_item")
+    // GetDotaHud().FindChildTraverse("inventory_slot_7").AddClass("AvaloreBackpack")
+    // GetDotaHud().FindChildTraverse("inventory_slot_8").RemoveClass("inactive_item")
+    // GetDotaHud().FindChildTraverse("inventory_slot_8").AddClass("AvaloreBackpack")
+}
+
+function RepaintInventory()
+{
+    $.Msg("RepaintInventory()")
     OverrideWardDispenser();
 
-    // make backpack items not gray
-    $.Msg("Has class? " + GetDotaHud().FindChildTraverse("inventory_slot_6").BHasClass("inactive_item"))
-    GetDotaHud().FindChildTraverse("inventory_slot_6").RemoveClass("inactive_item")
-    GetDotaHud().FindChildTraverse("inventory_slot_6").AddClass("AvaloreBackpack")
-    GetDotaHud().FindChildTraverse("inventory_slot_6").RemoveClass("inactive_item")
-    GetDotaHud().FindChildTraverse("inventory_slot_6").AddClass("AvaloreBackpack")
-    GetDotaHud().FindChildTraverse("inventory_slot_6").RemoveClass("inactive_item")
-    GetDotaHud().FindChildTraverse("inventory_slot_6").AddClass("AvaloreBackpack")
+    var hud = GetDotaHud();
+    var slots =         ['inventory_slot_0',                 'inventory_slot_1',                  'inventory_slot_2',                 'inventory_slot_3',                  'inventory_slot_4',                 'inventory_slot_5',                    'inventory_slot_6',                 'inventory_slot_7',                 'inventory_slot_8']
+    var slot_images =   ['file://{images}/ui/slot_head.png', 'file://{images}/ui/slot_chest.png', 'file://{images}/ui/slot_back.png', 'file://{images}/ui/slot_hands.png', 'file://{images}/ui/slot_feet.png', 'file://{images}/ui/slot_trinket.png', 'file://{images}/ui/slot_misc.png', 'file://{images}/ui/slot_misc.png', 'file://{images}/ui/slot_misc.png']
+
+    for (let i = 0; i < slots.length; i++) {
+        var abilityPanel = hud.FindChildTraverse(slots[i]);
+        if (i > 5) {
+            abilityPanel.RemoveClass("inactive_item");
+            abilityPanel.RemoveClass("BackpackSlot");
+        }
+
+        var img = abilityPanel.FindChildTraverse("ItemImage")
+        if (img.itemname == '') {
+            img.SetImage(slot_images[i]);
+        }
+    }
 }
+
 
 // function OverrideWardDispenser() {
 //     //var Parent = $.GetContextPanel().GetParent().GetParent()
@@ -70,6 +101,7 @@ function OnInventoryItemChange() {
 
 function OnUpdateQueryUnit(){
     $.Msg("OnUpdateQueryUnit");
+    RepaintInventory()
     //GameUI.SelectUnit(Players.GetSelectedEntities(Players.GetLocalPlayer())[0], false)
     //OverrideWardDispenser();
     //OverrideHeroPortrait();
@@ -77,6 +109,7 @@ function OnUpdateQueryUnit(){
 
 function OnUpdateSelectedUnit() {
     $.Msg("OnUpdateSelectedUnit");
+    RepaintInventory()
     //OverrideWardDispenser();
     //OverrideHeroPortrait();
 }
@@ -87,10 +120,16 @@ function GameUIActivated() {
 
 function InventoryChangedQueryUnit() {
     $.Msg("InventoryChangedQueryUnit");
+    RepaintInventory()
 }
 
 function OnInventoryUpdated() {
     $.Msg("OnInventoryUpdated");
+}
+
+function ItemDragEnd() {
+    $.Msg("ItemDragEnd");
+    RepaintInventory()
 }
 
 function OverrideWardDispenser() {
@@ -251,6 +290,8 @@ function printObject(o) {
     GameEvents.Subscribe( "dota_player_update_assigned_hero", UpdateAssignedHero );
     GameEvents.Subscribe( "dota_player_hero_selection_dirty", HeroSelectionDirty );
     GameEvents.Subscribe( "hero_selector_preview_set", HeroSelectorPreviewSet );
+    GameEvents.Subscribe( "dota_item_drag_end", ItemDragEnd );
+    
     
 
     GameUI.CustomUIConfig().team_colors = {}

@@ -36,40 +36,40 @@ function Inventory:Init(playerID)
     self.slots = {}
     self.slots[AVALORE_ITEM_SLOT_MISC] = {}
     
-    local misc1 = (self.hero):AddItemByName("item_slot_misc")
-	misc1:SetDroppable(true);
-    (self.hero):SwapItems(0,6); -- put in 1st backpack slot
-    --self.slots[AVALORE_ITEM_SLOT_MISC1] = misc1
-    self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC1] = misc1
-    local misc2 = (self.hero):AddItemByName("item_slot_misc");
-	(self.hero):SwapItems(0,7)
-    --self.slots[AVALORE_ITEM_SLOT_MISC2] = misc2
-    self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC2] = misc2
-	local misc3 = (self.hero):AddItemByName("item_slot_misc");
-	(self.hero):SwapItems(0,8)
-    --self.slots[AVALORE_ITEM_SLOT_MISC3] = misc3
-    self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC3] = misc3
+    -- local misc1 = (self.hero):AddItemByName("item_slot_misc")
+	-- misc1:SetDroppable(true);
+    -- (self.hero):SwapItems(0,6); -- put in 1st backpack slot
+    -- --self.slots[AVALORE_ITEM_SLOT_MISC1] = misc1
+    -- self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC1] = misc1
+    -- local misc2 = (self.hero):AddItemByName("item_slot_misc");
+	-- (self.hero):SwapItems(0,7)
+    -- --self.slots[AVALORE_ITEM_SLOT_MISC2] = misc2
+    -- self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC2] = misc2
+	-- local misc3 = (self.hero):AddItemByName("item_slot_misc");
+	-- (self.hero):SwapItems(0,8)
+    -- --self.slots[AVALORE_ITEM_SLOT_MISC3] = misc3
+    -- self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC3] = misc3
 
-    self.slots[AVALORE_ITEM_SLOT_HEAD]      = (self.hero):AddItemByName("item_slot_head")
-    self.slots[AVALORE_ITEM_SLOT_HEAD]:SetSellable(false)
-    self.slots[AVALORE_ITEM_SLOT_CHEST]     = (self.hero):AddItemByName("item_slot_chest")
-    self.slots[AVALORE_ITEM_SLOT_CHEST]:SetSellable(false)
-    self.slots[AVALORE_ITEM_SLOT_ACCESSORY]      = (self.hero):AddItemByName("item_slot_back")
-    self.slots[AVALORE_ITEM_SLOT_ACCESSORY]:SetSellable(false)
-    self.slots[AVALORE_ITEM_SLOT_HANDS]     = (self.hero):AddItemByName("item_slot_hands")
-    self.slots[AVALORE_ITEM_SLOT_HANDS]:SetSellable(false)
-    self.slots[AVALORE_ITEM_SLOT_FEET]      = (self.hero):AddItemByName("item_slot_feet")
-    self.slots[AVALORE_ITEM_SLOT_FEET]:SetSellable(false)
-    self.slots[AVALORE_ITEM_SLOT_TRINKET]   = (self.hero):AddItemByName("item_slot_trinket")
-    self.slots[AVALORE_ITEM_SLOT_TRINKET]:SetSellable(false)
+    -- self.slots[AVALORE_ITEM_SLOT_HEAD]      = (self.hero):AddItemByName("item_slot_head")
+    -- self.slots[AVALORE_ITEM_SLOT_HEAD]:SetSellable(false)
+    -- self.slots[AVALORE_ITEM_SLOT_CHEST]     = (self.hero):AddItemByName("item_slot_chest")
+    -- self.slots[AVALORE_ITEM_SLOT_CHEST]:SetSellable(false)
+    -- self.slots[AVALORE_ITEM_SLOT_ACCESSORY]      = (self.hero):AddItemByName("item_slot_back")
+    -- self.slots[AVALORE_ITEM_SLOT_ACCESSORY]:SetSellable(false)
+    -- self.slots[AVALORE_ITEM_SLOT_HANDS]     = (self.hero):AddItemByName("item_slot_hands")
+    -- self.slots[AVALORE_ITEM_SLOT_HANDS]:SetSellable(false)
+    -- self.slots[AVALORE_ITEM_SLOT_FEET]      = (self.hero):AddItemByName("item_slot_feet")
+    -- self.slots[AVALORE_ITEM_SLOT_FEET]:SetSellable(false)
+    -- self.slots[AVALORE_ITEM_SLOT_TRINKET]   = (self.hero):AddItemByName("item_slot_trinket")
+    -- self.slots[AVALORE_ITEM_SLOT_TRINKET]:SetSellable(false)
 
-    -- reset this, needed to clear it earlier to move them to the right starting spots
-    misc1:SetDroppable(false)
-    misc1:SetSellable(false)
-	misc2:SetDroppable(false)
-    misc2:SetSellable(false)
-	misc3:SetDroppable(false)
-    misc3:SetSellable(false)
+    -- -- reset this, needed to clear it earlier to move them to the right starting spots
+    -- misc1:SetDroppable(false)
+    -- misc1:SetSellable(false)
+	-- misc2:SetDroppable(false)
+    -- misc2:SetSellable(false)
+	-- misc3:SetDroppable(false)
+    -- misc3:SetSellable(false)
 
     --self.slots[AVALORE_ITEM_SLOT_TEMP] = {}
 
