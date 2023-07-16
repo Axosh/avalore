@@ -34,7 +34,16 @@ function Inventory:Init(playerID)
     self.courier = PlayerResource:GetPreferredCourierForPlayer(playerID)
 
     self.slots = {}
+    self.slots[AVALORE_ITEM_SLOT_HEAD] = nil
+    self.slots[AVALORE_ITEM_SLOT_CHEST] = nil
+    self.slots[AVALORE_ITEM_SLOT_ACCESSORY] = nil
+    self.slots[AVALORE_ITEM_SLOT_HANDS] = nil
+    self.slots[AVALORE_ITEM_SLOT_FEET] = nil
+    self.slots[AVALORE_ITEM_SLOT_TRINKET] = nil
     self.slots[AVALORE_ITEM_SLOT_MISC] = {}
+    self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC1] = nil
+    self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC2] = nil
+    self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC3] = nil
     
     -- local misc1 = (self.hero):AddItemByName("item_slot_misc")
 	-- misc1:SetDroppable(true);

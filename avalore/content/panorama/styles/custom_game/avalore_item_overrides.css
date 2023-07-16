@@ -43,7 +43,8 @@
  * so they can be used in JavaScript
  **********************************************************************************/
 
-.HeadSlot
+ /* .HeadSlot */
+#inventory_slot_0 DOTAAbilityImage
 {
     background-image: url("file://{images}/ui/slot_head.png");
     background-size: 40px;
