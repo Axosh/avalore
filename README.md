@@ -17,15 +17,17 @@ Check out the <a href="https://github.com/Axosh/avalore/wiki">github wiki</a> fo
 
 ## Game Icons
 
-Almost all are via:
-
-[Game-icons.net](https://game-icons.net/) - They are provided under the CC-BY license (or even Public Domain for some of them), which means that you can use them freely in your projects as long as you credit back the authors.
-
-
 One is provided by:
 
 [flaticon](https://www.flaticon.com/) - Free for personal and commercial use with attribution
 - <a href="https://www.flaticon.com/free-icons/veil" title="veil icons">Veil icons created by Freepik - Flaticon</a>
+
+Almost all others are via:
+
+[Game-icons.net](https://game-icons.net/) - They are provided under the CC-BY license (or even Public Domain for some of them), which means that you can use them freely in your projects as long as you credit back the authors.
+
+- Icons by [Lorc](https://lorcblog.blogspot.com/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+  - [Broadsword](https://game-icons.net/1x1/lorc/broadsword.html)
 
 ## ModDota
 
