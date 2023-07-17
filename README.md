@@ -21,6 +21,7 @@ One is provided by:
 
 [flaticon](https://www.flaticon.com/) - Free for personal and commercial use with attribution
 - <a href="https://www.flaticon.com/free-icons/veil" title="veil icons">Veil icons created by Freepik - Flaticon</a>
+- [Veil icon](https://www.flaticon.com/free-icon/wedding_2538816?term=veil&page=1&position=61&origin=tag&related_id=2538816)
 
 Almost all others are via:
 
@@ -28,6 +29,10 @@ Almost all others are via:
 
 - Icons by [Lorc](https://lorcblog.blogspot.com/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
   - [Broadsword](https://game-icons.net/1x1/lorc/broadsword.html)
+  - [Cut Diamond](https://game-icons.net/1x1/lorc/cut-diamond.html)
+  - [Gem chain](https://game-icons.net/1x1/lorc/gem-chain.html)
+  - [Gem nacklace](https://game-icons.net/1x1/lorc/gem-necklace.html)
+  - [Gem pendant](https://game-icons.net/1x1/lorc/gem-pendant.html)
 
 ## ModDota
 
