@@ -28,6 +28,7 @@ end
 -- otherwise the lookup in inventory_manager will point
 -- to a null
 function Inventory:Init(playerID)
+    print("Initializing Inventory for Player " ..tostring(playerID))
     -- convenience
     self.playerId = playerID
     self.hero = PlayerResource:GetSelectedHeroEntity(playerID)
@@ -45,44 +46,12 @@ function Inventory:Init(playerID)
     self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC2] = nil
     self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC3] = nil
     
-    -- local misc1 = (self.hero):AddItemByName("item_slot_misc")
-	-- misc1:SetDroppable(true);
-    -- (self.hero):SwapItems(0,6); -- put in 1st backpack slot
-    -- --self.slots[AVALORE_ITEM_SLOT_MISC1] = misc1
-    -- self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC1] = misc1
-    -- local misc2 = (self.hero):AddItemByName("item_slot_misc");
-	-- (self.hero):SwapItems(0,7)
-    -- --self.slots[AVALORE_ITEM_SLOT_MISC2] = misc2
-    -- self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC2] = misc2
-	-- local misc3 = (self.hero):AddItemByName("item_slot_misc");
-	-- (self.hero):SwapItems(0,8)
-    -- --self.slots[AVALORE_ITEM_SLOT_MISC3] = misc3
-    -- self.slots[AVALORE_ITEM_SLOT_MISC][AVALORE_ITEM_SLOT_MISC3] = misc3
-
-    -- self.slots[AVALORE_ITEM_SLOT_HEAD]      = (self.hero):AddItemByName("item_slot_head")
-    -- self.slots[AVALORE_ITEM_SLOT_HEAD]:SetSellable(false)
-    -- self.slots[AVALORE_ITEM_SLOT_CHEST]     = (self.hero):AddItemByName("item_slot_chest")
-    -- self.slots[AVALORE_ITEM_SLOT_CHEST]:SetSellable(false)
-    -- self.slots[AVALORE_ITEM_SLOT_ACCESSORY]      = (self.hero):AddItemByName("item_slot_back")
-    -- self.slots[AVALORE_ITEM_SLOT_ACCESSORY]:SetSellable(false)
-    -- self.slots[AVALORE_ITEM_SLOT_HANDS]     = (self.hero):AddItemByName("item_slot_hands")
-    -- self.slots[AVALORE_ITEM_SLOT_HANDS]:SetSellable(false)
-    -- self.slots[AVALORE_ITEM_SLOT_FEET]      = (self.hero):AddItemByName("item_slot_feet")
-    -- self.slots[AVALORE_ITEM_SLOT_FEET]:SetSellable(false)
-    -- self.slots[AVALORE_ITEM_SLOT_TRINKET]   = (self.hero):AddItemByName("item_slot_trinket")
-    -- self.slots[AVALORE_ITEM_SLOT_TRINKET]:SetSellable(false)
-
-    -- -- reset this, needed to clear it earlier to move them to the right starting spots
-    -- misc1:SetDroppable(false)
-    -- misc1:SetSellable(false)
-	-- misc2:SetDroppable(false)
-    -- misc2:SetSellable(false)
-	-- misc3:SetDroppable(false)
-    -- misc3:SetSellable(false)
-
-    --self.slots[AVALORE_ITEM_SLOT_TEMP] = {}
 
     return self
+end
+
+function Inventory:GetSlots()
+    return self.slots
 end
 
 function Inventory:GetPlayerID()
@@ -93,8 +62,57 @@ function Inventory:GetHero()
     return self.hero
 end
 
--- seems like item pickups come from here too so guess we'll have to handle it
 function Inventory:Add(item)
+    if not IsServer() then return end
+    -- case where item still exists in lua, but not in underlying C++ (e.g. moved to stack)
+    if item:IsNull() then return end
+
+    local item_slot = item:GetSpecialValueFor("item_slot")
+    print("Item Slot > " .. tostring(item_slot))
+
+    -- See if we've got something in the slot already or not
+    if item_slot < 6 then
+        -- make sure this hasn't already been somehow indexed
+        if self.slots[item_slot] == item then
+            if item:IsStackable() then
+                self.hero:AddItem(item)
+            else
+                return --assume this is dota engine doing whatever it does
+            end
+        elseif self.slots[item_slot] ~= nil then
+            local broadcast_obj = 
+			{
+				msg = ("#error_slot_" .. tostring(item_slot)),
+				time = 10,
+				elaboration = "",
+				type = MSG_TYPE_ERROR
+			}
+			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(item:GetOwner():GetPlayerID()), "broadcast_message", broadcast_obj )
+        else
+            self.slots[item_slot] = item
+            self.hero:SwapItems(item:GetItemSlot(), item_slot) --make sure this is in parity with the virtual item slot
+        end
+    elseif item_slot == AVALORE_ITEM_SLOT_MISC then
+        -- find an empty slot
+        local placed = false
+        for misc_slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
+            if not placed and self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot] == nil then -- == nil and (not self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]:IsNull()) then
+                --self.hero:SwapItems(item:GetItemSlot(), self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot]:GetItemSlot())
+                --self.hero:RemoveItem(self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot])
+                self.slots[AVALORE_ITEM_SLOT_MISC][misc_slot] = item
+                self.hero:SwapItems(item:GetItemSlot(), misc_slot) --make sure this is in parity with the virtual item slot
+                placed = true
+                break
+            end
+        end
+        -- if not placed then
+            
+        -- end
+    end
+end
+
+-- seems like item pickups come from here too so guess we'll have to handle it
+function Inventory:Add_old(item)
     if not IsServer() then return end
 
     -- case where item still exists in lua, but not in underlying C++ (e.g. moved to stack)
@@ -112,18 +130,11 @@ function Inventory:Add(item)
         local item_in_slot = self.hero:GetItemInSlot(dota_slot)
         if item_in_slot and (not item_in_slot:IsNull()) then
             if item_in_slot == item then
-                -- if item:IsStackable() then
-                --     --self.hero:GetItemInSlot(dota_slot):
-                --     --self.hero:AddItem(item)
-                -- end
                 return
             elseif (not item:IsNull()) and item_in_slot:GetName() == item:GetName() then
                 if item:IsStackable() then
                     print("Found stack in inventory - trying to stack")
                     self.hero:AddItem(item)
-                    --item = self.hero:GetItemInSlot(dota_slot)
-                    -- -- update the avalore inventory (not sure if stacks are treated/referenced differently)
-                    -- self.slots[]
                     return
                 end
             else
@@ -136,8 +147,6 @@ function Inventory:Add(item)
         end
     end
 
-    --print("Adding Item: " .. item:GetName())
-    --print("Find result - " .. tostring(string.find("item_slot", item:GetName())))
     -- if we're adding the item slot dummy, just make sure the slot becomes aware
     -- (only need to do this for 0-5 because some base dota items go in those positions and screw up everything)
     if item:GetName():find("item_slot") then
@@ -145,20 +154,10 @@ function Inventory:Add(item)
         if avalore_slot < 6 then
             self.slots[avalore_slot] = item
         end
-       return
+        return
     end
 
-    --item:SetCanBeUsedOutOfInventory(true) -- temp test
-
-    -- add here for now, let combine sort it out ==> this doesn't work with new
-    -- recipe focused system
-    --table.insert(self.slots[AVALORE_ITEM_SLOT_TEMP], item)
-
     local item_slot = item:GetSpecialValueFor("item_slot")
-
-    -- if item:GetName() == "item_bottle" then
-    --     item_slot = AVALORE_ITEM_SLOT_TRINKET
-    -- end
 
     -- we shouldn't be hitting this, but just in case
     if item_slot == nil then
@@ -171,12 +170,6 @@ function Inventory:Add(item)
     end
 
     print("Trying to add item " .. item:GetName() .. " to Slot: " .. tostring(item_slot))
-    -- if item and self.hero then
-    --     print("Item and Hero Set")
-    -- end
-    -- if item:CanUnitPickUp(self.hero) then
-    --     print("In Range to Take")
-    -- end
 
     -- handle misc/backpack
     if item_slot == AVALORE_ITEM_SLOT_MISC then
@@ -199,10 +192,6 @@ function Inventory:Add(item)
         -- if the item is no longer in the stash (9-14 or -1?), then the swap succeeded
         -- and is now in our inventory. If it didn't, then we weren't able to grab it
         -- because we were too far away;
-        --if not (item:GetItemSlot() == -1 or (item:GetItemSlot() > 8 and item:GetItemSlot() < 15))  then
-            --print("Item is now in slot: " .. tostring(item:GetItemSlot()))
-            --print("Dummy is now in slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
-            --print("Item in Dummy's Old Slot: " .. self.hero:GetItemInSlot(slot_backup):GetName())
 
             -- validate we actually got it (and it's not too far away/in stash) => only applicable for certain core dota items
             if item:GetName() == "item_ward_observer" or item:GetName() == "item_bottle" then
@@ -217,11 +206,6 @@ function Inventory:Add(item)
 
             self.hero:RemoveItem(self.slots[item_slot])
             self.slots[item_slot] = item
-
-        --else
-            --print("Couldn't Put in Inventory, at slot: " .. tostring(self.slots[item_slot]:GetItemSlot()))
-        --     self.slots[item_slot]:slot
-        --end
         
     end
     -- -- TODO: Other cases

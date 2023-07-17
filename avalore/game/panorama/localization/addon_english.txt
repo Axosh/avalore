@@ -46,6 +46,13 @@
 	//"error_not_enough_gold_radiant"					"Not enough Radiant shared gold to hire mercenary"
 	"error_not_enough_team_gold_mercenary"			"Not enough shared team gold to hire mercenary"
 
+	"error_slot_0"									"Head Slot Already Filled"
+	"error_slot_1"									"Chest Slot Already Filled"
+	"error_slot_2"									"Accessory Slot Already Filled"
+	"error_slot_3"									"Hands Slot Already Filled"
+	"error_slot_4"									"Feet Slot Already Filled"
+	"error_slot_5"									"Trinket Slot Already Filled"
+
 	// OBJECTIVES
 	"objective_wisp"								"Wisp Captured +3 Points"
 	"objective_flag"								"Flag Captured +15 Points"
