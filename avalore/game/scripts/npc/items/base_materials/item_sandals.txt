@@ -1,31 +1,31 @@
 "DOTAItems"
 {
-    "item_recipe_sandals"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3012"
-		"BaseClass"						"item_datadriven"
-		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/sandals"
-		"Model"							"models/props_gameplay/red_box.vmdl"
+    // "item_recipe_sandals"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ID"							"3012"
+	// 	"BaseClass"						"item_datadriven"
+	// 	//"AbilityTextureName" 			"base_materials/recipe"
+    //     "AbilityTextureName" 			"base_materials/sandals"
+	// 	"Model"							"models/props_gameplay/red_box.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		//"ItemCost"						"600"
-        "ItemCost"                      "300"
-		"ItemShopTags"					""
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	//"ItemCost"						"600"
+    //     "ItemCost"                      "300"
+	// 	"ItemShopTags"					""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_sandals"
-		// Recipe
-        "ItemRequirements"
-		{
-            "01"                        "item_slot_feet"
-        }
-	}
+	// 	// Recipe
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemRecipe"					"1"
+	// 	"ItemResult"					"item_sandals"
+	// 	// Recipe
+    //     "ItemRequirements"
+	// 	{
+    //         "01"                        "item_slot_feet"
+    //     }
+	// }
 
     "item_sandals"
     {

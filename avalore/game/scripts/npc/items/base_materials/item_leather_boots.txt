@@ -1,30 +1,30 @@
 "DOTAItems"
 {
-    "item_recipe_leather_boots"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3010"
-		"BaseClass"						"item_datadriven"
-		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/leather_boots_rect"
-		"Model"							"models/props_gameplay/red_box.vmdl"
+    // "item_recipe_leather_boots"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ID"							"3010"
+	// 	"BaseClass"						"item_datadriven"
+	// 	//"AbilityTextureName" 			"base_materials/recipe"
+    //     "AbilityTextureName" 			"base_materials/leather_boots_rect"
+	// 	"Model"							"models/props_gameplay/red_box.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"500"
-		"ItemShopTags"					""
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemCost"						"500"
+	// 	"ItemShopTags"					""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_leather_boots"
-		// Recipe
-        "ItemRequirements"
-		{
-            "01"                        "item_slot_feet"
-        }
-	}
+	// 	// Recipe
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemRecipe"					"1"
+	// 	"ItemResult"					"item_leather_boots"
+	// 	// Recipe
+    //     "ItemRequirements"
+	// 	{
+    //         "01"                        "item_slot_feet"
+    //     }
+	// }
 
     "item_leather_boots"
     {

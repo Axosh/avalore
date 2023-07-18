@@ -28,24 +28,24 @@ function modifier_inventory_manager:OnIntervalThink()
     -- end
 
     -- cycle through slots, make sure they have items in them
-    local inv_validation = {-1, -1, -1, -1, -1, -1}
-    --print("=====SEEK")
-    for inv_slot=0,5 do
-        local item = hero:GetItemInSlot(inv_slot)
-        if item then
-            --print("[" .. tostring(inv_slot) .. "] = " .. item:GetName())
-            local avalore_slot = item:GetSpecialValueFor("item_slot")
-            if avalore_slot then
-                inv_validation[avalore_slot] = 1
-            end
+    -- local inv_validation = {-1, -1, -1, -1, -1, -1}
+    -- --print("=====SEEK")
+    -- for inv_slot=0,5 do
+    --     local item = hero:GetItemInSlot(inv_slot)
+    --     if item then
+    --         --print("[" .. tostring(inv_slot) .. "] = " .. item:GetName())
+    --         local avalore_slot = item:GetSpecialValueFor("item_slot")
+    --         if avalore_slot then
+    --             inv_validation[avalore_slot] = 1
+    --         end
 
-            if string.find(item:GetName(), "item_slot") then
-                item:SetSellable(false)
-                item:SetDroppable(false)
-                item:SetItemState(1)
-            end
-        end
-    end
+    --         if string.find(item:GetName(), "item_slot") then
+    --             item:SetSellable(false)
+    --             item:SetDroppable(false)
+    --             item:SetItemState(1)
+    --         end
+    --     end
+    -- end
     --print("======VALIDATE")
     -- for base_slot=0,5 do
     --     --print("[" .. tostring(base_slot) .. "] = " .. tostring(inv_validation[base_slot]))
@@ -67,60 +67,60 @@ function modifier_inventory_manager:OnIntervalThink()
     -- end
 
     -- check for dummy items wrongly placed in the stash (need to fix this upstream some time)
-    for stash_slot=DOTA_STASH_SLOT_1 ,DOTA_STASH_SLOT_6  do
-        local item = hero:GetItemInSlot(stash_slot)
-        -- if item then
-        --     print("[" .. tostring(stash_slot) .. "][" .. item:GetName() .. "]")
-        -- end
-        if item and string.find(item:GetName(), "item_slot") then
-            print("Found dummy item in stash [" .. tostring(stash_slot) .. "][" .. item:GetName() .. "]" )
-            -- find the item slot that's nil
-            for item_slot=0,8 do
-                local inv_item = hero:GetItemInSlot(item_slot)
-                if not inv_item then
-                    print("Trying to Move to Slot: " .. tostring(item_slot))
-                    local droppable = item:IsDroppable()
-                    item:SetDroppable(true)
-                    hero:SwapItems(stash_slot, item_slot)
-                    item:SetDroppable(droppable)
-                    break;
-                end
-            end
-        end
-    end
+    -- for stash_slot=DOTA_STASH_SLOT_1 ,DOTA_STASH_SLOT_6  do
+    --     local item = hero:GetItemInSlot(stash_slot)
+    --     -- if item then
+    --     --     print("[" .. tostring(stash_slot) .. "][" .. item:GetName() .. "]")
+    --     -- end
+    --     if item and string.find(item:GetName(), "item_slot") then
+    --         print("Found dummy item in stash [" .. tostring(stash_slot) .. "][" .. item:GetName() .. "]" )
+    --         -- find the item slot that's nil
+    --         for item_slot=0,8 do
+    --             local inv_item = hero:GetItemInSlot(item_slot)
+    --             if not inv_item then
+    --                 print("Trying to Move to Slot: " .. tostring(item_slot))
+    --                 local droppable = item:IsDroppable()
+    --                 item:SetDroppable(true)
+    --                 hero:SwapItems(stash_slot, item_slot)
+    --                 item:SetDroppable(droppable)
+    --                 break;
+    --             end
+    --         end
+    --     end
+    -- end
     
     -- check to see if anything that is in the backpack shouldn't be there
-    for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
-        local item = hero:GetItemInSlot(slot)
-        if item then
-            if string.find(item:GetName(), "item_slot") then
-                item:SetSellable(false)
-                item:SetDroppable(false)
-                item:SetItemState(1)
-            end
+    -- for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
+    --     local item = hero:GetItemInSlot(slot)
+    --     if item then
+    --         if string.find(item:GetName(), "item_slot") then
+    --             item:SetSellable(false)
+    --             item:SetDroppable(false)
+    --             item:SetItemState(1)
+    --         end
             
-            if item:GetSpecialValueFor("item_slot") ~= AVALORE_ITEM_SLOT_MISC then
-                print("Found Item That Should Not Be in Backpack: " .. item:GetName())
-                -- see if the item slot it should be in is already empty
-                -- if string.find(hero:GetItemInSlot(item:GetSpecialValueFor("item_slot")):GetName(), "item_slot") then
-                --     hero:RemoveItem(hero:GetItemInSlot(item:GetSpecialValueFor("item_slot")))
-                --     hero:SwapItems()
-                -- else
-                    for main_slot=AVALORE_ITEM_SLOT_HEAD,AVALORE_ITEM_SLOT_TRINKET do
-                        local item_main = hero:GetItemInSlot(main_slot)
-                        -- found a misplaced item, swap it
-                        if item_main:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_MISC then
-                            print("modifier_inventory_manager > Returning Item to Backpack")
-                            local droppable = item_main:IsDroppable()
-                            item_main:SetDroppable(true)
-                            hero:SwapItems(slot, main_slot)
-                            item_main:SetDroppable(droppable)
-                        end
-                    end
-                -- end
-            end
-        end
-    end
+    --         if item:GetSpecialValueFor("item_slot") ~= AVALORE_ITEM_SLOT_MISC then
+    --             print("Found Item That Should Not Be in Backpack: " .. item:GetName())
+    --             -- see if the item slot it should be in is already empty
+    --             -- if string.find(hero:GetItemInSlot(item:GetSpecialValueFor("item_slot")):GetName(), "item_slot") then
+    --             --     hero:RemoveItem(hero:GetItemInSlot(item:GetSpecialValueFor("item_slot")))
+    --             --     hero:SwapItems()
+    --             -- else
+    --                 for main_slot=AVALORE_ITEM_SLOT_HEAD,AVALORE_ITEM_SLOT_TRINKET do
+    --                     local item_main = hero:GetItemInSlot(main_slot)
+    --                     -- found a misplaced item, swap it
+    --                     if item_main:GetSpecialValueFor("item_slot") == AVALORE_ITEM_SLOT_MISC then
+    --                         print("modifier_inventory_manager > Returning Item to Backpack")
+    --                         local droppable = item_main:IsDroppable()
+    --                         item_main:SetDroppable(true)
+    --                         hero:SwapItems(slot, main_slot)
+    --                         item_main:SetDroppable(droppable)
+    --                     end
+    --                 end
+    --             -- end
+    --         end
+    --     end
+    -- end
     
     -- loop through known backpack items to see if they're still in backpack
     --for mod,item in pairs(self.curr_backpack) do
@@ -146,12 +146,16 @@ function modifier_inventory_manager:OnIntervalThink()
             if remove_modifier then
                 print("modifier_inventory_manager > Removing Modifier " .. mod)
                 local mod_instance = hero:FindModifierByName(mod)
-                if mod_instance:GetStackCount() > 1 and (not mod == "modifier_item_essence_of_shadow") then
-                    mod_instance:DecrementStackCount()
-                else
-                    hero:RemoveModifierByName(mod)
+                if mod_instance then
+                    if mod_instance:GetStackCount() > 1 and (not mod == "modifier_item_essence_of_shadow") then
+                        mod_instance:DecrementStackCount()
+                    else
+                        hero:RemoveModifierByName(mod)
+                    end
                 end
-                self.backpack_mod_count[mod] = self.backpack_mod_count[mod] - 1
+                if self.backpack_mod_count[mod] > 0 then
+                    self.backpack_mod_count[mod] = self.backpack_mod_count[mod] - 1
+                end
             -- else
             --     -- keep track of how many stacks we have of this
             --     if mod_count[mod] then

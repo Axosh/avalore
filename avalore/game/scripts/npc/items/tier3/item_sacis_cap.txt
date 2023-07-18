@@ -1,31 +1,31 @@
 "DOTAItems"
 {
     // // NOTE: This is a placeholder for now until I find something more suitable
-    "item_recipe_sacis_cap"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3160"
-		"BaseClass"						"item_datadriven"
-		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"items_03/sacis_cap"
-		"Model"							"models/props_gameplay/red_box.vmdl"
+    // "item_recipe_sacis_cap"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ID"							"3160"
+	// 	"BaseClass"						"item_datadriven"
+	// 	//"AbilityTextureName" 			"base_materials/recipe"
+    //     "AbilityTextureName" 			"items_03/sacis_cap"
+	// 	"Model"							"models/props_gameplay/red_box.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2200"
-		"ItemShopTags"					""
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemCost"						"2200"
+	// 	"ItemShopTags"					""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_sacis_cap"
-		// Recipe
-        "ItemRequirements"
-		{
-            "01"                        "item_slot_head"
-        }
-	}
+	// 	// Recipe
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemRecipe"					"1"
+	// 	"ItemResult"					"item_sacis_cap"
+	// 	// Recipe
+    //     "ItemRequirements"
+	// 	{
+    //         "01"                        "item_slot_head"
+    //     }
+	// }
 
     "item_sacis_cap"
     {

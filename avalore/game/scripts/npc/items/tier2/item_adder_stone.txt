@@ -23,7 +23,8 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_trinket;item_greater_hp_regen;item_greater_mana_regen;item_magic_armor"
+            //"01"                        "item_slot_trinket;item_greater_hp_regen;item_greater_mana_regen;item_magic_armor"
+            "01"                        "item_greater_hp_regen;item_greater_mana_regen;item_magic_armor"
         }
 	}
 

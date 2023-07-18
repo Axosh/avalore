@@ -22,7 +22,8 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_back;item_lesser_strength;item_lesser_agility"
+            //"01"                        "item_slot_back;item_lesser_strength;item_lesser_agility"
+            "01"                        "item_lesser_strength;item_lesser_agility"
         }
 	}
 

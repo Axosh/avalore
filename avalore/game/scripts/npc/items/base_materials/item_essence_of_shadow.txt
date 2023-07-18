@@ -1,30 +1,30 @@
 "DOTAItems"
 {
-    "item_recipe_essence_of_shadow"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3036"
-		"BaseClass"						"item_datadriven"
-		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/essence_of_shadow"
-		"Model"							"models/props_gameplay/red_box.vmdl"
+    // "item_recipe_essence_of_shadow"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ID"							"3036"
+	// 	"BaseClass"						"item_datadriven"
+	// 	//"AbilityTextureName" 			"base_materials/recipe"
+    //     "AbilityTextureName" 			"base_materials/essence_of_shadow"
+	// 	"Model"							"models/props_gameplay/red_box.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"500"
-		"ItemShopTags"					""
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemCost"						"500"
+	// 	"ItemShopTags"					""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_essence_of_shadow"
-		// Recipe
-        "ItemRequirements"
-		{
-            "01"                        "item_slot_misc"
-        }
-	}
+	// 	// Recipe
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemRecipe"					"1"
+	// 	"ItemResult"					"item_essence_of_shadow"
+	// 	// Recipe
+    //     "ItemRequirements"
+	// 	{
+    //         "01"                        "item_slot_misc"
+    //     }
+	// }
 
     "item_essence_of_shadow"
     {

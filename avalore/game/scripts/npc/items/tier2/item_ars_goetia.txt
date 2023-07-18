@@ -23,7 +23,8 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_back;item_superior_intelligence;item_superior_intelligence;item_essence_of_arcane;item_greater_stats"
+            //"01"                        "item_slot_back;item_superior_intelligence;item_superior_intelligence;item_essence_of_arcane;item_greater_stats"
+            "01"                        "item_superior_intelligence;item_superior_intelligence;item_essence_of_arcane;item_greater_stats"
         }
 	}
 

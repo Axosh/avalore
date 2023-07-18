@@ -862,7 +862,7 @@ function CAvaloreGameMode:InitCosmetics(heroindex)
 		CAvaloreGameMode:InitAnubis(hero, playernum)
 	end
 
-	--hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
+	hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
 	hero:AddNewModifier(hero, nil, "modifier_pregame_bubble", nil)
 
 	-- -- populate inventory with placeholders

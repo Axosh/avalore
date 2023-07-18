@@ -309,7 +309,7 @@ function CAvaloreGameMode:ItemAddedToInventoryFilter(event)
 		return true
 	end
 	print("Parent > " .. parent:GetName())
-	PrintTable(parent)
+	--PrintTable(parent)
 	if (parent:IsBaseNPC() and not (parent:IsRealHero() and parent:IsOwnedByAnyPlayer())) then
 		print("no parent / not player")
 		return true
