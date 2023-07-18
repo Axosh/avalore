@@ -27,6 +27,10 @@ Almost all others are via:
 
 [Game-icons.net](https://game-icons.net/) - They are provided under the CC-BY license (or even Public Domain for some of them), which means that you can use them freely in your projects as long as you credit back the authors.
 
+- Icons by [Delapouite](https://delapouite.com/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+  - [Animal Hide](https://game-icons.net/1x1/delapouite/animal-hide.html)
+- Icons by [Lucas](https://game-icons.net/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+  - [Shirt](https://game-icons.net/1x1/lucasms/shirt.html)
 - Icons by [Lorc](https://lorcblog.blogspot.com/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
   - [Broadsword](https://game-icons.net/1x1/lorc/broadsword.html)
   - [Cut Diamond](https://game-icons.net/1x1/lorc/cut-diamond.html)
