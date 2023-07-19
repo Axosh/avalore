@@ -448,7 +448,7 @@ function Inventory:RemoveFromMisc(item)
             if self.slots[AVALORE_ITEM_SLOT_MISC][slot]:IsSellable() then
                 self.slots[AVALORE_ITEM_SLOT_MISC][slot]:SetSellable(false)
             end
-            self.slots[AVALORE_ITEM_SLOT_MISC][slot]:SetDroppable(false)
+            --self.slots[AVALORE_ITEM_SLOT_MISC][slot]:SetDroppable(false)
             self.slots[AVALORE_ITEM_SLOT_MISC][slot]:SetItemState(1) -- ready?
             print("Added item_slot_misc to " .. tostring(slot))
             print("IsSellable? " .. tostring(self.slots[AVALORE_ITEM_SLOT_MISC][slot]:IsSellable()))

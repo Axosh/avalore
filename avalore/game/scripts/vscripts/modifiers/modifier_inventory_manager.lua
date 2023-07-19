@@ -27,6 +27,40 @@ function modifier_inventory_manager:OnIntervalThink()
     --     print("Inventory Owner is Dead!")
     -- end
 
+    for inv_slot=0,8 do
+        local item = hero:GetItemInSlot(inv_slot)
+        if item then
+            local avalore_slot = item:GetSpecialValueFor("item_slot")
+            if avalore_slot then
+                -- if regular item and not in right spot
+                if inv_slot < 6 and inv_slot ~= avalore_slot and avalore_slot ~= AVALORE_ITEM_SLOT_MISC then
+                    hero:SwapItems(inv_slot, avalore_slot)
+                -- if something is in the backpack that shouldn't be
+                elseif inv_slot > 5 and avalore_slot ~= AVALORE_ITEM_SLOT_MISC then
+                    hero:SwapItems(inv_slot, avalore_slot)
+                -- if something is in main that should be in backpack
+                elseif inv_slot < 6 and inv_slot ~= avalore_slot and avalore_slot == AVALORE_ITEM_SLOT_MISC then
+                    local swap_target = nil
+                    for swap_tmp=6,8 do
+                        local item_tmp = hero:GetItemInSlot(swap_tmp)
+                        if not item_tmp then
+                            swap_target = swap_tmp
+                            break
+                        elseif item_tmp:GetSpecialValueFor("item_slot") ~= AVALORE_ITEM_SLOT_MISC then
+                            swap_target = swap_tmp
+                            break
+                        end
+                    end
+                    if swap_target then
+                        hero:SwapItems(inv_slot, swap_target)
+                    else
+                        hero:DropItemAtPositionImmediate(item, hero:GetOrigin())
+                    end
+                end
+            end
+        end
+    end
+
     -- cycle through slots, make sure they have items in them
     -- local inv_validation = {-1, -1, -1, -1, -1, -1}
     -- --print("=====SEEK")
