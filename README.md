@@ -29,14 +29,25 @@ Almost all others are via:
 
 - Icons by [Delapouite](https://delapouite.com/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
   - [Animal Hide](https://game-icons.net/1x1/delapouite/animal-hide.html)
+  - [Bone mace](https://game-icons.net/1x1/delapouite/bone-mace.html)
+  - [Bracer](https://game-icons.net/1x1/delapouite/bracer.html)
+  - [Gloves](https://game-icons.net/1x1/delapouite/gloves.html)
+  - [Ring](https://game-icons.net/1x1/delapouite/ring.html)
 - Icons by [Lucas](https://game-icons.net/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+  - [Cloak](https://game-icons.net/1x1/lucasms/cloak.html)
   - [Shirt](https://game-icons.net/1x1/lucasms/shirt.html)
 - Icons by [Lorc](https://lorcblog.blogspot.com/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
   - [Broadsword](https://game-icons.net/1x1/lorc/broadsword.html)
   - [Cut Diamond](https://game-icons.net/1x1/lorc/cut-diamond.html)
+  - [Crown](https://game-icons.net/1x1/lorc/crown.html)
   - [Gem chain](https://game-icons.net/1x1/lorc/gem-chain.html)
   - [Gem nacklace](https://game-icons.net/1x1/lorc/gem-necklace.html)
   - [Gem pendant](https://game-icons.net/1x1/lorc/gem-pendant.html)
+  - [Orbital](https://game-icons.net/1x1/lorc/orbital.html)
+  - [Rune stone](https://game-icons.net/1x1/lorc/rune-stone.html)
+  - [Scale mail](https://game-icons.net/1x1/lorc/scale-mail.html)
+- Icons by [sbed](http://opengameart.org/content/95-game-icons) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+  - [Fireflake](https://game-icons.net/1x1/sbed/fireflake.html)
 
 ## ModDota
 
