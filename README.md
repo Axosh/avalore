@@ -40,14 +40,17 @@ Almost all others are via:
   - [Broadsword](https://game-icons.net/1x1/lorc/broadsword.html)
   - [Cut Diamond](https://game-icons.net/1x1/lorc/cut-diamond.html)
   - [Crown](https://game-icons.net/1x1/lorc/crown.html)
+  - [Frozen orb](https://game-icons.net/1x1/lorc/frozen-orb.html)
   - [Gem chain](https://game-icons.net/1x1/lorc/gem-chain.html)
   - [Gem nacklace](https://game-icons.net/1x1/lorc/gem-necklace.html)
   - [Gem pendant](https://game-icons.net/1x1/lorc/gem-pendant.html)
   - [Orbital](https://game-icons.net/1x1/lorc/orbital.html)
   - [Rune stone](https://game-icons.net/1x1/lorc/rune-stone.html)
   - [Scale mail](https://game-icons.net/1x1/lorc/scale-mail.html)
+  - [Unstable orb](https://game-icons.net/1x1/lorc/unstable-orb.html)
 - Icons by [sbed](http://opengameart.org/content/95-game-icons) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
   - [Fireflake](https://game-icons.net/1x1/sbed/fireflake.html)
+  - [Regeneration](https://game-icons.net/1x1/sbed/regeneration.html)
 
 ## ModDota
 
