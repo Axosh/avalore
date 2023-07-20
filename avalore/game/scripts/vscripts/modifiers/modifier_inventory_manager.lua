@@ -14,6 +14,7 @@ end
 function modifier_inventory_manager:OnCreated()
 	if not IsServer() then return end
     -- track (modifier:item) so we can clean up modifiers if the item is null/no longer in backpack
+    self.inventory = InventoryManager[self:GetPlayerOwnerID()]
     self.curr_backpack = {}
     self.backpack_mod_count = {}
     self:StartIntervalThink(FrameTime())
@@ -54,7 +55,20 @@ function modifier_inventory_manager:OnIntervalThink()
                     if swap_target then
                         hero:SwapItems(inv_slot, swap_target)
                     else
-                        hero:DropItemAtPositionImmediate(item, hero:GetOrigin())
+                        local moved_to_stash = false
+                        if hero:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
+                            for stash_slot=9,14 do
+                                if not hero:GetItemInSlot(stash_slot) then
+                                    hero:SwapItems(inv_slot, stash_slot)
+                                    moved_to_stash = true
+                                    break
+                                end
+                            end
+                        end
+                        if not moved_to_stash then
+                            hero:DropItemAtPositionImmediate(item, hero:GetOrigin())
+                            -- TODO: error message
+                        end
                     end
                 end
             end
