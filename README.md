@@ -33,6 +33,7 @@ Almost all others are via:
   - [Bracer](https://game-icons.net/1x1/delapouite/bracer.html)
   - [Gauntlet](https://game-icons.net/1x1/delapouite/gauntlet.html)
   - [Gloves](https://game-icons.net/1x1/delapouite/gloves.html)
+  - [Leather armor](https://game-icons.net/1x1/delapouite/leather-armor.html)
   - [Leg armor](https://game-icons.net/1x1/delapouite/leg-armor.html)
   - [Light helm](https://game-icons.net/1x1/delapouite/light-helm.html)
   - [Ring](https://game-icons.net/1x1/delapouite/ring.html)
@@ -42,6 +43,8 @@ Almost all others are via:
   - [Cloak](https://game-icons.net/1x1/lucasms/cloak.html)
   - [Shirt](https://game-icons.net/1x1/lucasms/shirt.html)
 - Icons by [Lorc](https://lorcblog.blogspot.com/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+  - [Boots](https://game-icons.net/1x1/lorc/boots.html)
+  - [Breastplate](https://game-icons.net/1x1/lorc/breastplate.html)
   - [Broadsword](https://game-icons.net/1x1/lorc/broadsword.html)
   - [Cut Diamond](https://game-icons.net/1x1/lorc/cut-diamond.html)
   - [Crown](https://game-icons.net/1x1/lorc/crown.html)
@@ -59,6 +62,10 @@ Almost all others are via:
 - Icons by [sbed](http://opengameart.org/content/95-game-icons) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
   - [Fireflake](https://game-icons.net/1x1/sbed/fireflake.html)
   - [Regeneration](https://game-icons.net/1x1/sbed/regeneration.html)
+- Icons by [Skoll](https://game-icons.net/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+  - [Pauldrons](https://game-icons.net/1x1/skoll/pauldrons.html)
+- Icons by [Willdabeast](https://wjbstories.blogspot.com/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+  - [Gold bar](https://game-icons.net/1x1/willdabeast/gold-bar.html)
 
 ## ModDota
 
