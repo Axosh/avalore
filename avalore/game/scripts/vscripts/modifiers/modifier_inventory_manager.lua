@@ -1,4 +1,5 @@
 require("constants")
+--require("../controllers/inventory_manager")
 modifier_inventory_manager = class({})
 
 --LinkLuaModifier( "modifier_item_leather_boots", "items/shop/base_materials/item_leather_boots.lua", LUA_MODIFIER_MOTION_NONE )
@@ -11,16 +12,20 @@ function modifier_inventory_manager:GetAttributes()
     return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_inventory_manager:OnCreated()
-	if not IsServer() then return end
+function modifier_inventory_manager:OnCreated(kv)
+    if not IsServer() then return end
+    print("modifier_inventory_manager:OnCreated(kv)")
     -- track (modifier:item) so we can clean up modifiers if the item is null/no longer in backpack
-    self.inventory = InventoryManager[self:GetPlayerOwnerID()]
+    self.inventory = InventoryManager:GetPlayerInventory(self:GetParent():GetPlayerOwnerID()) --InventoryManager[self:GetParent():GetPlayerOwnerID()]
+    --self.inventory = kv.inventory
+    PrintTable(self.inventory:GetSlots())
     self.curr_backpack = {}
     self.backpack_mod_count = {}
     self:StartIntervalThink(FrameTime())
 end
 
 function modifier_inventory_manager:OnIntervalThink()
+    if not IsServer() then return end
     --print("modifier_inventory_manager:OnIntervalThink()")
     local hero = self:GetParent()
     if hero == nil then return end
@@ -72,6 +77,11 @@ function modifier_inventory_manager:OnIntervalThink()
                     end
                 end
             end
+        end
+        if inv_slot < 6 then
+            self.inventory:GetSlots()[inv_slot] = hero:GetItemInSlot(inv_slot)
+        else
+            self.inventory:GetSlots()[AVALORE_ITEM_SLOT_MISC][inv_slot] = hero:GetItemInSlot(inv_slot)
         end
     end
 

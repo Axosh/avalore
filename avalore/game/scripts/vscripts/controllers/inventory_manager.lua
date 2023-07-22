@@ -307,6 +307,10 @@ function CAvaloreGameMode:OnInventoryChanged(event)
 
 end
 
+function InventoryManager:GetPlayerInventory(player_id)
+	return InventoryManager[player_id]
+end
+
 function InventoryManager:DebugDotaSlots(hero)
     print("===== DEBUG DOTA INVENTORY =====")
     --local owner = EntIndexToHScript( event.hero_entindex )

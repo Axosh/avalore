@@ -712,6 +712,8 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 		InventoryManager[hPlayerHero:GetPlayerOwnerID()] = inv
 		InventoryManager[hPlayerHero:GetPlayerOwnerID()]:Init(hPlayerHero:GetPlayerOwnerID())
 
+		hPlayerHero:AddNewModifier(hPlayerHero, nil, "modifier_inventory_manager", {inventory = inv})
+
 		-- Init shared control of Merc Camps
 		-- print("---- Give Shared Control to Merc Camps ----")
 		-- print("Player Team: " .. tostring(hPlayerHero:GetTeam()))
@@ -862,7 +864,8 @@ function CAvaloreGameMode:InitCosmetics(heroindex)
 		CAvaloreGameMode:InitAnubis(hero, playernum)
 	end
 
-	hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
+	--hero:AddNewModifier(hero, nil, "modifier_inventory_manager", nil)
+	--hero:AddNewModifier(hero, nil, "modifier_inventory_manager", {inventory = InventoryManager:GetPlayerInventory(playernum)})
 	hero:AddNewModifier(hero, nil, "modifier_pregame_bubble", nil)
 
 	-- -- populate inventory with placeholders
