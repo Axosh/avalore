@@ -326,15 +326,27 @@ function CAvaloreGameMode:ItemAddedToInventoryFilter(event)
                 return true
             end
         elseif slots[item_slot] ~= nil then
-			print("Slot already used!")
-            local broadcast_obj = 
-			{
-				msg = ("#error_slot_" .. tostring(item_slot)),
-				time = 10,
-				elaboration = "",
-				type = MSG_TYPE_ERROR
-			}
-			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(item:GetOwner():GetPlayerID()), "broadcast_message", broadcast_obj )
+			-- slot on hero used => see if we can put in stash
+			print("Slot already used - seeing if we can put in stash")
+			local placed_in_stash = false
+			for stash_slot=9,14 do
+				if not parent:GetItemInSlot(stash_slot) then
+					print("Suggested stash slot: " .. tostring(stash_slot))
+					event.suggested_slot = stash_slot
+					placed_in_stash = true
+					return true
+				end
+			end
+			if not placed_in_stash then
+				local broadcast_obj =
+				{
+					msg = ("#error_slot_" .. tostring(item_slot)),
+					time = 10,
+					elaboration = "",
+					type = MSG_TYPE_ERROR
+				}
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(item:GetOwner():GetPlayerID()), "broadcast_message", broadcast_obj )
+			end
 			return false
         else
 			print("suggesting slot: " .. tostring(item_slot))

@@ -65,9 +65,10 @@ end
 function Inventory:Add(item)
     if not IsServer() then return end
     -- case where item still exists in lua, but not in underlying C++ (e.g. moved to stack)
-    if item:IsNull() then return end
+    if not item or item:IsNull() then return end
 
     local item_slot = item:GetSpecialValueFor("item_slot")
+    local player = PlayerResource:GetPlayer(self.hero:GetOwner():GetPlayerID())
     print("Item Slot > " .. tostring(item_slot))
 
     -- See if we've got something in the slot already or not
@@ -87,7 +88,7 @@ function Inventory:Add(item)
 				elaboration = "",
 				type = MSG_TYPE_ERROR
 			}
-			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(item:GetOwner():GetPlayerID()), "broadcast_message", broadcast_obj )
+			CustomGameEventManager:Send_ServerToPlayer(player, "broadcast_message", broadcast_obj )
         else
             self.slots[item_slot] = item
             self.hero:SwapItems(item:GetItemSlot(), item_slot) --make sure this is in parity with the virtual item slot
@@ -264,7 +265,7 @@ end
 function Inventory:Remove(item, destroyOnRemove)
     if not IsServer() then return end
     -- don't do anything special for the placeholders
-    if item:GetName():find("item_slot") then return end
+    if not item or item:GetName():find("item_slot") then return end
 
     print("Inventory:Remove(item) -- " .. item:GetName())
     local item_slot = item:GetSpecialValueFor("item_slot")
@@ -406,13 +407,13 @@ function Inventory:Combine(item_name)
     -- make sure we didn't eat items while combining and not give the base slot back
     for slot=0,5 do
         local item = self.slots[slot]
-        if item:IsNull() or item:GetItemSlot() == -1 then
+        if not item or item:IsNull() or item:GetItemSlot() == -1 then
             self:Remove(item)
         end
     end
     for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
         local item = self.slots[AVALORE_ITEM_SLOT_MISC][slot]
-        if item:IsNull() or item:GetItemSlot() == -1 then
+        if not item or item:IsNull() or item:GetItemSlot() == -1 then
             self:Remove(item)
         end
     end

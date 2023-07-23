@@ -60,6 +60,7 @@ function modifier_inventory_manager:OnIntervalThink()
                     if swap_target then
                         hero:SwapItems(inv_slot, swap_target)
                     else
+                        -- if hero is in range of shop, then just move it to the stash
                         local moved_to_stash = false
                         if hero:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
                             for stash_slot=9,14 do
@@ -297,7 +298,7 @@ function modifier_inventory_manager:OnIntervalThink()
             --print(tempMod:GetName())
             --print("Attrs => " .. tostring(tempMod:GetAttributes()))
             -- see if we can stack multiple instances
-            if tempMod:GetAttributes() == MODIFIER_ATTRIBUTE_MULTIPLE then
+            if tempMod and tempMod:GetAttributes() == MODIFIER_ATTRIBUTE_MULTIPLE then
                 --print("Can Stack")
                 -- compare counts
                 if tempMod:GetStackCount() ~= currModCount then
