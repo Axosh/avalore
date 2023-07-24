@@ -27,6 +27,8 @@ Almost all others are via:
 
 [Game-icons.net](https://game-icons.net/) - They are provided under the CC-BY license (or even Public Domain for some of them), which means that you can use them freely in your projects as long as you credit back the authors.
 
+- Icons by [Carl Olsen](https://twitter.com/unstoppableCarl) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+  - [Brutal helm](https://game-icons.net/1x1/carl-olsen/brutal-helm.html)
 - Icons by [Delapouite](https://delapouite.com/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
   - [Animal Hide](https://game-icons.net/1x1/delapouite/animal-hide.html)
   - [Bone mace](https://game-icons.net/1x1/delapouite/bone-mace.html)
@@ -45,6 +47,7 @@ Almost all others are via:
   - [Cloak](https://game-icons.net/1x1/lucasms/cloak.html)
   - [Shirt](https://game-icons.net/1x1/lucasms/shirt.html)
 - Icons by [Lorc](https://lorcblog.blogspot.com/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+  - [Barefoot](https://game-icons.net/1x1/lorc/barefoot.html)
   - [Boots](https://game-icons.net/1x1/lorc/boots.html)
   - [Breastplate](https://game-icons.net/1x1/lorc/breastplate.html)
   - [Broadsword](https://game-icons.net/1x1/lorc/broadsword.html)
