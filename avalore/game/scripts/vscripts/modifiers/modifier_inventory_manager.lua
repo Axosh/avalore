@@ -33,6 +33,7 @@ function modifier_inventory_manager:OnIntervalThink()
     --     print("Inventory Owner is Dead!")
     -- end
 
+    local move_to_stash_or_drop = false
     for inv_slot=0,8 do
         local item = hero:GetItemInSlot(inv_slot)
         if item then
@@ -40,7 +41,13 @@ function modifier_inventory_manager:OnIntervalThink()
             if avalore_slot then
                 -- if regular item and not in right spot
                 if inv_slot < 6 and inv_slot ~= avalore_slot and avalore_slot ~= AVALORE_ITEM_SLOT_MISC then
-                    hero:SwapItems(inv_slot, avalore_slot)
+                    local item_tmp = hero:GetItemInSlot(avalore_slot)
+                    -- make sure the item slot isn't filled (e.g. something combined in an odd way)
+                    if item_tmp:GetSpecialValueFor("item_slot") == inv_slot then
+                        move_to_stash_or_drop = true
+                    else
+                        hero:SwapItems(inv_slot, avalore_slot)
+                    end
                 -- if something is in the backpack that shouldn't be
                 elseif inv_slot > 5 and avalore_slot ~= AVALORE_ITEM_SLOT_MISC then
                     hero:SwapItems(inv_slot, avalore_slot)
@@ -60,25 +67,31 @@ function modifier_inventory_manager:OnIntervalThink()
                     if swap_target then
                         hero:SwapItems(inv_slot, swap_target)
                     else
-                        -- if hero is in range of shop, then just move it to the stash
-                        local moved_to_stash = false
-                        if hero:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
-                            for stash_slot=9,14 do
-                                if not hero:GetItemInSlot(stash_slot) then
-                                    hero:SwapItems(inv_slot, stash_slot)
-                                    moved_to_stash = true
-                                    break
-                                end
-                            end
-                        end
-                        if not moved_to_stash then
-                            hero:DropItemAtPositionImmediate(item, hero:GetOrigin())
-                            -- TODO: error message
-                        end
+                        move_to_stash_or_drop = true
                     end
                 end
             end
         end
+
+        -- if we've got no valid options, try to move to the stash, otherwise drop it
+        if move_to_stash_or_drop then
+            -- if hero is in range of shop, then just move it to the stash
+            local moved_to_stash = false
+            if hero:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
+                for stash_slot=9,14 do
+                    if not hero:GetItemInSlot(stash_slot) then
+                        hero:SwapItems(inv_slot, stash_slot)
+                        moved_to_stash = true
+                        break
+                    end
+                end
+            end
+            if not moved_to_stash then
+                hero:DropItemAtPositionImmediate(item, hero:GetOrigin())
+                -- TODO: error message
+            end
+        end
+
         if inv_slot < 6 then
             self.inventory:GetSlots()[inv_slot] = hero:GetItemInSlot(inv_slot)
         else
