@@ -43,7 +43,7 @@ function modifier_inventory_manager:OnIntervalThink()
                 if inv_slot < 6 and inv_slot ~= avalore_slot and avalore_slot ~= AVALORE_ITEM_SLOT_MISC then
                     local item_tmp = hero:GetItemInSlot(avalore_slot)
                     -- make sure the item slot isn't filled (e.g. something combined in an odd way)
-                    if item_tmp:GetSpecialValueFor("item_slot") == inv_slot then
+                    if item_tmp and not item_tmp:IsNull() and item_tmp:GetSpecialValueFor("item_slot") == inv_slot then
                         move_to_stash_or_drop = true
                     else
                         hero:SwapItems(inv_slot, avalore_slot)
@@ -80,6 +80,7 @@ function modifier_inventory_manager:OnIntervalThink()
             if hero:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
                 for stash_slot=9,14 do
                     if not hero:GetItemInSlot(stash_slot) then
+                        print("Swap " .. tostring(inv_slot) .. " to " .. tostring(stash_slot))
                         hero:SwapItems(inv_slot, stash_slot)
                         moved_to_stash = true
                         break
@@ -88,6 +89,7 @@ function modifier_inventory_manager:OnIntervalThink()
             end
             if not moved_to_stash then
                 hero:DropItemAtPositionImmediate(item, hero:GetOrigin())
+                print("Dropping item due to no space")
                 -- TODO: error message
             end
         end

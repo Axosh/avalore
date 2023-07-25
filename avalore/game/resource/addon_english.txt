@@ -1626,7 +1626,7 @@
 
 		"DOTA_Tooltip_Ability_item_recipe_midas_touch"				"Midas Touch"
 		"DOTA_Tooltip_Ability_item_midas_touch"						"Midas Touch"
-		"DOTA_Tooltip_Ability_item_midas_touch_description"			"<h1>Slot: Hands</h1>Requires the hands slot"
+		"DOTA_Tooltip_Ability_item_midas_touch_description"			"<h1>Active: TODO</h1>\n<h1>Slot: Hands</h1>Requires the hands slot"
 		"DOTA_Tooltip_Ability_item_midas_touch_Lore"				"Greek Mythology: King Midas treated Silenus (satyr companion of Dionysus) hospitably and was rewarded with a wish, he chose to turn anything he touched to gold."
 
 		"DOTA_Tooltip_Ability_item_recipe_solar_crown"				"Solar Crown"
