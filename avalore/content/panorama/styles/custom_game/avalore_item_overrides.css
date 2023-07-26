@@ -37,3 +37,73 @@
 {
     wash-color: none;
 }
+
+/**********************************************************************************
+ * These Don't Get Used => they are just here to force the engine to pull them in
+ * so they can be used in JavaScript
+ **********************************************************************************/
+
+ /* .HeadSlot */
+#inventory_slot_0 DOTAAbilityImage
+{
+    background-image: url("file://{images}/ui/slot_head.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    visibility: collapse;
+}
+
+.ChestSlot
+{
+    background-image: url("file://{images}/ui/slot_chest.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    visibility: collapse;
+}
+
+.AccessorySlot
+{
+    background-image: url("file://{images}/ui/slot_back.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    visibility: collapse;
+}
+
+.HandsSlot
+{
+    background-image: url("file://{images}/ui/slot_hands.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    visibility: collapse;
+}
+
+.FeetSlot
+{
+    background-image: url("file://{images}/ui/slot_feet.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    visibility: collapse;
+}
+
+.TrinketSlot
+{
+    background-image: url("file://{images}/ui/slot_trinket.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    visibility: collapse;
+}
+
+
+.MiscSlot
+{
+    background-image: url("file://{images}/ui/slot_misc.png");
+    background-size: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    visibility: collapse;
+}

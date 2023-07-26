@@ -20,7 +20,8 @@
         "ItemResult"					"item_circes_staff"
         "ItemRequirements"
         {
-            "01"						"item_staff_of_sorcery;item_superior_stats;item_rauoskinna;item_slot_back"
+            //"01"						"item_staff_of_sorcery;item_superior_stats;item_rauoskinna;item_slot_back"
+            "01"						"item_staff_of_sorcery;item_superior_stats;item_rauoskinna"
         }
     }
 

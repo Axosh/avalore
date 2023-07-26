@@ -308,7 +308,7 @@ function CAvaloreGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CAvaloreGameMode, "GoldFilter"), self)
 	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter(Dynamic_Wrap(CAvaloreGameMode, "AbilityTuningFilter"), self)
 	GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(CAvaloreGameMode, "DamageFilter"), self)
-	--GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter(Dynamic_Wrap(CAvaloreGameMode, "ItemAddedToInventoryFilter"), self)
+	GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter(Dynamic_Wrap(CAvaloreGameMode, "ItemAddedToInventoryFilter"), self)
 
 	-- https://dota2.fandom.com/wiki/River_Vials???
 	-- 2 = dry

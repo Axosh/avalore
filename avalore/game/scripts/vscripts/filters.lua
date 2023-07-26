@@ -297,9 +297,72 @@ end
 -- ==================================================
 -- Set a filter function to control what happens to 
 -- items that are added to an inventory, return false to cancel the event.
--- function CAvaloreGameMode:ItemAddedToInventoryFilter(kv)
--- 	print("===============")
--- 	print("CAvaloreGameMode:ItemAddedToInventoryFilter(kv)")
--- 	PrintTable(kv)
--- 	return true
--- end
+function CAvaloreGameMode:ItemAddedToInventoryFilter(event)
+	print("===============")
+	print("CAvaloreGameMode:ItemAddedToInventoryFilter(kv)")
+	--PrintTable(kv)
+	local item = EntIndexToHScript(event.item_entindex_const)
+	local item_slot = item:GetSpecialValueFor("item_slot")
+	print("Item " .. item:GetName() .. " | Slot > " .. tostring(item_slot))
+	local parent = EntIndexToHScript(event.inventory_parent_entindex_const)
+	if (not parent) then
+		return true
+	end
+	print("Parent > " .. parent:GetName())
+	--PrintTable(parent)
+	if (parent:IsBaseNPC() and not (parent:IsRealHero() and parent:IsOwnedByAnyPlayer())) then
+		print("no parent / not player")
+		return true
+	end
+	print("Owner > " .. parent:GetOwner():GetName())
+	local inventory = InventoryManager[parent:GetOwner():GetPlayerID()]
+	local slots = inventory:GetSlots()
+
+	if item_slot < 6 then
+        -- make sure this hasn't already been somehow indexed
+        if slots[item_slot] == item then
+			print("item already in place!")
+            if item:IsStackable() then
+                return true
+            end
+        elseif slots[item_slot] ~= nil then
+			-- slot on hero used => see if we can put in stash
+			print("Slot already used - seeing if we can put in stash")
+			local placed_in_stash = false
+			for stash_slot=9,14 do
+				if not parent:GetItemInSlot(stash_slot) then
+					print("Suggested stash slot: " .. tostring(stash_slot))
+					event.suggested_slot = stash_slot
+					placed_in_stash = true
+					return true
+				end
+			end
+			if not placed_in_stash then
+				local broadcast_obj =
+				{
+					msg = ("#error_slot_" .. tostring(item_slot)),
+					time = 10,
+					elaboration = "",
+					type = MSG_TYPE_ERROR
+				}
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(item:GetOwner():GetPlayerID()), "broadcast_message", broadcast_obj )
+			end
+			return false
+        else
+			print("suggesting slot: " .. tostring(item_slot))
+			event.suggested_slot = item_slot
+			PrintTable(event)
+			return true
+		end
+	elseif item_slot == AVALORE_ITEM_SLOT_MISC then
+		for misc_slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
+			if slots[AVALORE_ITEM_SLOT_MISC][misc_slot] == nil then
+				event.suggested_slot = misc_slot
+				PrintTable(event)
+				return true
+			end
+		end
+	end
+
+	return true
+end

@@ -23,7 +23,8 @@
 		// Recipe
         "ItemRequirements"
 		{
-            "01"                        "item_slot_back;item_superior_agility;item_superior_attack_speed"
+            //"01"                        "item_slot_back;item_superior_agility;item_superior_attack_speed"
+            "01"                        "item_superior_agility;item_superior_attack_speed"
         }
 	}
 

@@ -1,30 +1,30 @@
 "DOTAItems"
 {
-    "item_recipe_avalore_crown"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3020"
-		"BaseClass"						"item_datadriven"
-		//"AbilityTextureName" 			"base_materials/recipe"
-        "AbilityTextureName" 			"base_materials/crown"
-		"Model"							"models/props_gameplay/red_box.vmdl"
+    // "item_recipe_avalore_crown"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ID"							"3020"
+	// 	"BaseClass"						"item_datadriven"
+	// 	//"AbilityTextureName" 			"base_materials/recipe"
+    //     "AbilityTextureName" 			"base_materials/crown"
+	// 	"Model"							"models/props_gameplay/red_box.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"200"
-		"ItemShopTags"					""
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemCost"						"200"
+	// 	"ItemShopTags"					""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_avalore_crown"
-		// Recipe
-        "ItemRequirements"
-		{
-            "01"                      "item_slot_head"
-        }
-	}
+	// 	// Recipe
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemRecipe"					"1"
+	// 	"ItemResult"					"item_avalore_crown"
+	// 	// Recipe
+    //     "ItemRequirements"
+	// 	{
+    //         "01"                      "item_slot_head"
+    //     }
+	// }
 
     "item_avalore_crown"
     {

@@ -73,7 +73,8 @@
             "01"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "item_slot"                                 "5" //trinket
+                "item_slot"                                 "3" //HANDS
+                //"item_slot"                                 "5" //trinket
             }
             "02"
             {
