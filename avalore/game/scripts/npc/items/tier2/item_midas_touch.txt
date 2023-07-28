@@ -39,7 +39,11 @@
 
         // Ability
 		//--------------------------------------------		
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"90.0"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +51,7 @@
         //"ItemShopTags"                  ""
         "ItemQuality"                   "component"
         "ItemSupport"					"1"
-        "ItemAliases"                   "gold"
+        "ItemAliases"                   "midas; hom; hand of midas"
         //"ItemInitialCharges"            "3"
 
         "ItemKillable"					                    "1"

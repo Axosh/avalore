@@ -318,48 +318,50 @@ function CAvaloreGameMode:ItemAddedToInventoryFilter(event)
 	local inventory = InventoryManager[parent:GetOwner():GetPlayerID()]
 	local slots = inventory:GetSlots()
 
-	if item_slot < 6 then
-        -- make sure this hasn't already been somehow indexed
-        if slots[item_slot] == item then
-			print("item already in place!")
-            if item:IsStackable() then
-                return true
-            end
-        elseif slots[item_slot] ~= nil then
-			-- slot on hero used => see if we can put in stash
-			print("Slot already used - seeing if we can put in stash")
-			local placed_in_stash = false
-			for stash_slot=9,14 do
-				if not parent:GetItemInSlot(stash_slot) then
-					print("Suggested stash slot: " .. tostring(stash_slot))
-					event.suggested_slot = stash_slot
-					placed_in_stash = true
+	if parent:IsInRangeOfShop(DOTA_SHOP_HOME, true) or parent:IsInRangeOfShop(DOTA_SHOP_SECRET, true) then
+		if item_slot < 6 then
+			-- make sure this hasn't already been somehow indexed
+			if slots[item_slot] == item then
+				print("item already in place!")
+				if item:IsStackable() then
 					return true
 				end
-			end
-			if not placed_in_stash then
-				local broadcast_obj =
-				{
-					msg = ("#error_slot_" .. tostring(item_slot)),
-					time = 10,
-					elaboration = "",
-					type = MSG_TYPE_ERROR
-				}
-				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(item:GetOwner():GetPlayerID()), "broadcast_message", broadcast_obj )
-			end
-			return false
-        else
-			print("suggesting slot: " .. tostring(item_slot))
-			event.suggested_slot = item_slot
-			PrintTable(event)
-			return true
-		end
-	elseif item_slot == AVALORE_ITEM_SLOT_MISC then
-		for misc_slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
-			if slots[AVALORE_ITEM_SLOT_MISC][misc_slot] == nil then
-				event.suggested_slot = misc_slot
+			elseif slots[item_slot] ~= nil then
+				-- slot on hero used => see if we can put in stash
+				print("Slot already used - seeing if we can put in stash")
+				local placed_in_stash = false
+				for stash_slot=9,14 do
+					if not parent:GetItemInSlot(stash_slot) then
+						print("Suggested stash slot: " .. tostring(stash_slot))
+						event.suggested_slot = stash_slot
+						placed_in_stash = true
+						return true
+					end
+				end
+				if not placed_in_stash then
+					local broadcast_obj =
+					{
+						msg = ("#error_slot_" .. tostring(item_slot)),
+						time = 10,
+						elaboration = "",
+						type = MSG_TYPE_ERROR
+					}
+					CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(item:GetOwner():GetPlayerID()), "broadcast_message", broadcast_obj )
+				end
+				return false
+			else
+				print("suggesting slot: " .. tostring(item_slot))
+				event.suggested_slot = item_slot
 				PrintTable(event)
 				return true
+			end
+		elseif item_slot == AVALORE_ITEM_SLOT_MISC then
+			for misc_slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
+				if slots[AVALORE_ITEM_SLOT_MISC][misc_slot] == nil then
+					event.suggested_slot = misc_slot
+					PrintTable(event)
+					return true
+				end
 			end
 		end
 	end
