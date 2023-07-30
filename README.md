@@ -22,6 +22,7 @@ One is provided by:
 [flaticon](https://www.flaticon.com/) - Free for personal and commercial use with attribution
 - <a href="https://www.flaticon.com/free-icons/veil" title="veil icons">Veil icons created by Freepik - Flaticon</a>
 - [Veil icon](https://www.flaticon.com/free-icon/wedding_2538816?term=veil&page=1&position=61&origin=tag&related_id=2538816)
+- [Guandao](https://www.flaticon.com/free-icon/guandao_1488069?term=guandao&related_id=1488069) by [berkahicon](https://www.flaticon.com/authors/berkahicon)
 
 Almost all others are via:
 
