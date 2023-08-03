@@ -18,6 +18,8 @@ _G.dire_spawn_particle = nil
 _G.should_display_welcome = true
 
 _G.sudden_death = false
+
+_G.frost_fair_stacks = 0
 --[[
 _G.GoodScore = 0
 _G.BadScore = 0
