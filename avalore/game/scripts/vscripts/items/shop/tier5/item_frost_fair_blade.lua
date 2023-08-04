@@ -82,6 +82,14 @@ function modifier_item_frost_fair_blade_debuff:OnCreated(kv)
     self.as_slow = self:GetAbility():GetSpecialValueFor("attackspeed_slow")
     self.ms_slow = self:GetAbility():GetSpecialValueFor("movespeed_slow")
 
+    self.attackspeed_slow_per_stack = self:GetAbility():GetSpecialValueFor("attackspeed_slow_per_stack")
+    self.movespeed_slow_per_stack = self:GetAbility():GetSpecialValueFor("movespeed_slow_per_stack")
+
+    self.attackspeed_slow_max = self:GetAbility():GetSpecialValueFor("attackspeed_slow_max")
+    self.movespeed_slow_max = self:GetAbility():GetSpecialValueFor("movespeed_slow_max")
+    
+    self.tracker_mod = self:GetParent():FindModifierByName("modifier_item_frost_fair_blade_kill_tracker")
+
     if not IsServer() then return end
     
     self.slow_hit_particle 		= ParticleManager:CreateParticle("particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_slow.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent());
@@ -90,11 +98,19 @@ function modifier_item_frost_fair_blade_debuff:OnCreated(kv)
 end
 
 function modifier_item_frost_fair_blade_debuff:GetModifierMoveSpeedBonus_Percentage()
-    return (-1 * self.ms_slow)
+    local kill_bonus = (self.tracker_mod:GetStackCount() * self.movespeed_slow_per_stack)
+    if kill_bonus > self.movespeed_slow_max then
+        kill_bonus = self.movespeed_slow_max
+    end
+    return (-1 * (self.ms_slow + kill_bonus))
 end
 
 function modifier_item_frost_fair_blade_debuff:GetModifierAttackSpeedBonus_Constant()
-    return (-1 * self.as_slow)
+    local kill_bonus = (self.tracker_mod:GetStackCount() * self.attackspeed_slow_per_stack)
+    if kill_bonus > self.attackspeed_slow_max then
+        kill_bonus = self.attackspeed_slow_max
+    end
+    return (-1 * (self.as_slow + kill_bonus))
 end
 
 function modifier_item_frost_fair_blade_debuff:OnRemove()

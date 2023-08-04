@@ -95,6 +95,26 @@
                 "var_type"                                  "FIELD_FLOAT"   
                 "duration"                                  "3.0"
             }
+            "07"
+            {
+                "var_type"                                 "FIELD_INTEGER"
+                "movespeed_slow_per_stack"                 "1"
+            }
+            "08"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "attackspeed_slow_per_stack"                "1"
+            }
+            "09"
+            {
+                "var_type"                                 "FIELD_INTEGER"
+                "movespeed_slow_max"                        "30"
+            }
+            "10"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "attackspeed_slow_max"                     "30"
+            }
         }
     }
 }
