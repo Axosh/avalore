@@ -115,6 +115,11 @@
                 "var_type"                                  "FIELD_INTEGER"
                 "attackspeed_slow_max"                     "30"
             }
+            "11"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "IsArtifact"                                "1"
+            }
         }
     }
 }

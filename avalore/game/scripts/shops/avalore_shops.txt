@@ -163,5 +163,6 @@
 		"item"				"item_golden_fleece"
 		"item"				"item_megingjoro"
 		"item"				"item_scope"
+		"item"				"item_frost_fair_blade"
 	}
 }

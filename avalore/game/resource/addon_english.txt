@@ -1902,6 +1902,15 @@
 		"DOTA_Tooltip_Ability_item_megingjoro_bonus_str_mult"	"BASE STR MULT: "
 		"DOTA_Tooltip_Ability_item_megingjoro_Lore"				"Norse: One of Thor's primary three possessions in the Prose Edda. It's name translates roughly to 'power-belt' and is said to double his strength."
 
+		"DOTA_Tooltip_Ability_item_recipe_frost_fair_blade"			"Frost Fair Blade"
+		"DOTA_Tooltip_Ability_item_frost_fair_blade"				"Frost Fair Blade"
+		"DOTA_Tooltip_Ability_item_frost_fair_blade_description"	"<h1>Passive: Blood Frost</h1><font color='#e03e2e'>Dropped on death, and cannot be destroyed.</font><br><br>Each hero kill gives an additional +%bonus_per_kill% damage, %movespeed_slow_per_stack% ms slow debuff (max of %movespeed_slow_max%), %attackspeed_slow_per_stack% as slow defbuff (max of %attackspeed_slow_max%). These stacks carry over between weilders.\n<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_frost_fair_blade_bonus_dmg"		"+$damage"
+		"DOTA_Tooltip_Ability_item_frost_fair_blade_movespeed_slow"		"%MOVESPEED SLOW: "
+		"DOTA_Tooltip_Ability_item_frost_fair_blade_attackspeed_slow"	"ATTACKSPEED SLOW: "
+		"DOTA_Tooltip_Ability_item_frost_fair_blade_duration"			"DEBUFF DURATION: "
+		"DOTA_Tooltip_Ability_item_frost_fair_blade_lore"		"Chinese Legend: The blade weilded by Guan Yu in Romance of the Three Kingdoms. During a battle in the snow, the blade was repeatedly drenched in blood which froze into frost."
+
 		//--------------------------------------------------------------------------------
 		// MODIFIERS
 		//--------------------------------------------------------------------------------

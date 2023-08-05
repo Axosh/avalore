@@ -127,6 +127,7 @@
 
 // TIER 5 Items
 #base "items/tier5/item_megingjoro.txt"
+#base "items/tier5/item_frost_fair_blade.txt"
 
 // MERCS
 

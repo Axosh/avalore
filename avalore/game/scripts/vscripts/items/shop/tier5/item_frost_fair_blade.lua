@@ -2,6 +2,7 @@ item_frost_fair_blade = class({})
 
 LinkLuaModifier( "modifier_item_frost_fair_blade", "items/shop/tier5/item_frost_fair_blade.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_frost_fair_blade_debuff", "items/shop/tier5/item_frost_fair_blade.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_frost_fair_blade_kill_tracker", "items/shop/tier5/item_frost_fair_blade.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_frost_fair_blade:GetIntrinsicModifierName()
     return "modifier_item_frost_fair_blade"
@@ -27,8 +28,11 @@ function modifier_item_frost_fair_blade:OnCreated(event)
     self.item_ability = self:GetAbility()
     self.bonus_dmg = self.item_ability:GetSpecialValueFor("bonus_dmg")
     self.bonus_per_kill = self.item_ability:GetSpecialValueFor("bonus_per_kill")
-    self.tracker_mod = self:GetParent():AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_item_frost_fair_blade_kill_tracker", nil )
-    self.tracker_mod:SetStackCount(_G.frost_fair_stacks)
+
+    if IsServer() then
+        self.tracker_mod = self:GetParent():AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_item_frost_fair_blade_kill_tracker", nil )
+        self.tracker_mod:SetStackCount(_G.frost_fair_stacks)
+    end
 end
 
 function modifier_item_frost_fair_blade:GetModifierPreAttack_BonusDamage()
@@ -56,6 +60,19 @@ function modifier_item_frost_fair_blade:OnDeath(params)
         _G.frost_fair_stacks = _G.frost_fair_stacks + 1
         self.tracker_mod:IncrementStackCount()
     end
+end
+
+function modifier_item_frost_fair_blade:OnOwnerDied(kv)
+    local hOwner = self:GetOwner()
+	
+	if not hOwner:IsRealHero() then
+		hOwner:DropItem(self, true, true)
+		return
+	end
+	
+	if not hOwner:IsReincarnating() then
+		hOwner:DropItem(self, true, true)
+	end
 end
 
 -- ====================================
@@ -127,9 +144,9 @@ modifier_item_frost_fair_blade_kill_tracker = modifier_item_frost_fair_blade_kil
 function modifier_item_frost_fair_blade_kill_tracker:IsHidden() return false end
 function modifier_item_frost_fair_blade_kill_tracker:IsDebuff() return true end
 function modifier_item_frost_fair_blade_kill_tracker:IsPurgable() return true end
-function modifier_item_frost_fair_blade_kill_tracker:RemoveOnDeath() return true end
+--function modifier_item_frost_fair_blade_kill_tracker:RemoveOnDeath() return true end
 
 
-function modifier_item_frost_fair_blade_kill_tracker:OnCreated(kv)
+-- function modifier_item_frost_fair_blade_kill_tracker:OnCreated(kv)
 
-end
+-- end
