@@ -30,9 +30,12 @@ function modifier_item_frost_fair_blade:OnCreated(event)
     self.bonus_per_kill = self.item_ability:GetSpecialValueFor("bonus_per_kill")
 
     if IsServer() then
-        self.tracker_mod = self:GetParent():AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_item_frost_fair_blade_kill_tracker", nil )
+        self.tracker_mod = self:GetCaster():AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_frost_fair_blade_kill_tracker", nil )
         self.tracker_mod:SetStackCount(_G.frost_fair_stacks)
     end
+
+    -- make accessible on client side too
+    self.tracker_mod = self:GetCaster():FindModifierByName("modifier_item_frost_fair_blade_kill_tracker")
 end
 
 function modifier_item_frost_fair_blade:GetModifierPreAttack_BonusDamage()

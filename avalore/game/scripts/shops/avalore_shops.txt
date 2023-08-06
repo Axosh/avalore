@@ -83,6 +83,8 @@
 		"item"				"item_superior_hp_regen"
 		"item"				"item_avalore_lifesteal"
 		"item"				"item_adamant"
+		"item"				"item_glaive"
+		"item"				"item_bo"
 	}	
  
 	// Level 1 - Green Recipes

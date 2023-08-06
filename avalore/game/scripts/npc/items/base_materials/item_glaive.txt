@@ -1,0 +1,53 @@
+"DOTAItems"
+{
+    "item_glaive"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "3193"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "BaseClass"						"item_lua"            
+        "ScriptFile"                    "items/shop/base_materials/item_glaive.lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"                         "models/props_gameplay/red_box.vmdl"
+        "AbilityTextureName"            "base_materials/glaive"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        "ItemShopTags"                  "block"
+        "ItemQuality"                   "component"
+        //"ItemAliases"                   "gloves;cloth"
+
+        "ItemKillable"					                    "1"
+		"ItemSellable"					                    "1"
+		"ItemPurchasable"				                    "1"
+		"ItemDroppable"					                    "1"
+		"ItemShareability"				                    "ITEM_NOT_SHAREABLE"
+		"ItemStackable"					                    "0"
+		"ItemPermanent"					                    "0"
+
+        "ItemDisassembleRule"			                    "DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDeclarations"				                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        //"ItemSlot"                                          "feet"
+
+        "SideShop"                                          "0"
+        "SecretShop"					                    "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "item_slot"                                 "3" //HANDS
+            }
+            "02"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "damage_block"                              "10"
+            }
+        }
+    }
+}
