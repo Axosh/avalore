@@ -1,15 +1,40 @@
 "DOTAItems"
 {
-    "item_glaive"
+    "item_recipe_guandao"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3194"
+		"BaseClass"						"item_datadriven"
+		//"AbilityTextureName" 			"base_materials/recipe"
+        "AbilityTextureName" 			"items_01/guandao"
+		"Model"                         "models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_guandao"
+		// Recipe
+        "ItemRequirements"
+		{
+            "01"                        "item_glaive;item_bo"
+        }
+	}
+    "item_guandao"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "3193"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
+        "ID"                            "3195"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/base_materials/item_glaive.lua"
+        "ScriptFile"                    "items/shop/tier1/item_guandao.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
-        "AbilityTextureName"            "base_materials/glaive"
+        "AbilityTextureName" 			"items_01/guandao"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -41,12 +66,17 @@
             "01"
             {
                 "var_type"                                  "FIELD_INTEGER"
-                "item_slot"                                 "30" //MISC
+                "item_slot"                                 "2" //ACCESSORY
             }
             "02"
             {
                 "var_type"                                  "FIELD_INTEGER"
                 "damage_block"                              "10"
+            }
+            "03"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_range_melee"                         "150"
             }
         }
     }

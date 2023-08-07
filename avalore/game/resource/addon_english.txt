@@ -1233,7 +1233,7 @@
 		//"DOTA_Tooltip_Ability_item_scope_lore"							""
 
 		"DOTA_Tooltip_Ability_item_glaive"									"Glaive"
-		"DOTA_Tooltip_Ability_item_wooden_shield_description"				"<h1>Passive: Deflect</h1>Passively block %damage_block% per attack landed\n<h1>Slot: Misc</h1>Requires a misc slot"
+		"DOTA_Tooltip_Ability_item_glaive_description"						"<h1>Passive: Deflect</h1>Passively block %damage_block% per attack landed\n<h1>Slot: Misc</h1>Requires a misc slot"
 		//"DOTA_Tooltip_Ability_item_glaive_lore"								"Glaive"
 
 		// Base Materials
