@@ -6,10 +6,10 @@
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3193"       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.          
         "BaseClass"						"item_lua"            
-        "ScriptFile"                    "items/shop/base_materials/item_glaive.lua"
+        "ScriptFile"                    "items/shop/components/item_glaive.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"                         "models/props_gameplay/red_box.vmdl"
-        "AbilityTextureName"            "base_materials/glaive"
+        "AbilityTextureName"            "components/glaive"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------

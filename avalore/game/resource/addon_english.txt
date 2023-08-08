@@ -1229,7 +1229,7 @@
 		"DOTA_Tooltip_modifier_item_adamant_debuff_description"				"Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
 
 		"DOTA_Tooltip_Ability_item_bo"									"Bo"
-		"DOTA_Tooltip_Ability_item_scope_description"					"<h1>Passive: Polearm</h1>Provides +%bonus_range% for melee attacks<br><br><b>Melee Only</b>\n<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_bo_description"					"<h1>Passive: Polearm</h1>Provides +%bonus_range% for melee attacks<br><br><b>Melee Only</b>\n<h1>Slot: Accessory</h1>Requires the accessory slot"
 		//"DOTA_Tooltip_Ability_item_scope_lore"							""
 
 		"DOTA_Tooltip_Ability_item_glaive"									"Glaive"
