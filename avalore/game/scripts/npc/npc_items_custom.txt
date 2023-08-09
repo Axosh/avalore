@@ -92,6 +92,7 @@
 #base "items/tier1/item_seven_league_boots.txt"
 #base "items/tier1/item_helskor.txt"
 #base "items/tier1/item_recurve_bow.txt"
+#base "items/tier1/item_guandao.txt"
 
 // TIER 2 Items
 #base "items/tier2/item_andvaranaut.txt"

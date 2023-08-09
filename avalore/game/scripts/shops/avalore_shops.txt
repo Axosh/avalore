@@ -94,6 +94,7 @@
 		"item"				"item_seven_league_boots"
 		"item"				"item_helskor"
 		"item"				"item_recurve_bow"
+		"item"				"item_guandao"
 	}
  
 	// Level 2 - Blue Recipes
