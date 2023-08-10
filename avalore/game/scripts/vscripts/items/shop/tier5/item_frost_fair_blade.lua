@@ -2,7 +2,7 @@ item_frost_fair_blade = class({})
 
 LinkLuaModifier( "modifier_item_frost_fair_blade", "items/shop/tier5/item_frost_fair_blade.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_frost_fair_blade_debuff", "items/shop/tier5/item_frost_fair_blade.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_frost_fair_blade_kill_tracker", "items/shop/tier5/item_frost_fair_blade.lua", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier( "modifier_item_frost_fair_blade_kill_tracker", "items/shop/tier5/item_frost_fair_blade.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_frost_fair_blade:GetIntrinsicModifierName()
     return "modifier_item_frost_fair_blade"
@@ -19,8 +19,12 @@ function modifier_item_frost_fair_blade:IsDebuff() return false end
 function modifier_item_frost_fair_blade:IsPurgable() return false end
 function modifier_item_frost_fair_blade:RemoveOnDeath() return false end
 
+-- allow stacks
+function modifier_item_frost_fair_blade:GetAttributes()	return MODIFIER_ATTRIBUTE_MULTIPLE end
+
 function modifier_item_frost_fair_blade:DeclareFunctions()
-    return {    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    return {    MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
+                MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
                 MODIFIER_EVENT_ON_DEATH }
 end
 
@@ -28,18 +32,28 @@ function modifier_item_frost_fair_blade:OnCreated(event)
     self.item_ability = self:GetAbility()
     self.bonus_dmg = self.item_ability:GetSpecialValueFor("bonus_dmg")
     self.bonus_per_kill = self.item_ability:GetSpecialValueFor("bonus_per_kill")
+    self.damage_block = self.item_ability:GetSpecialValueFor("damage_block")
+    --self.parent = self:GetParent()
 
-    if IsServer() then
-        self.tracker_mod = self:GetCaster():AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_frost_fair_blade_kill_tracker", nil )
-        self.tracker_mod:SetStackCount(_G.frost_fair_stacks)
-    end
+    --if IsServer() then
+--        self.tracker_mod = self:GetCaster():AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_frost_fair_blade_kill_tracker", nil )
+       -- self.tracker_mod:SetStackCount(_G.frost_fair_stacks)
+    --end
 
-    -- make accessible on client side too
-    self.tracker_mod = self:GetCaster():FindModifierByName("modifier_item_frost_fair_blade_kill_tracker")
+    print("Stacks => " .. tostring(_G.frost_fair_stacks))
+    self:SetStackCount(_G.frost_fair_stacks)
+
+    -- if not IsServer() then return end
+    -- self.tracker_mod = self:GetParent():AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_item_frost_fair_blade_kill_tracker", {} )
+    -- self.tracker_mod:SetStackCount(_G.frost_fair_stacks)
 end
 
 function modifier_item_frost_fair_blade:GetModifierPreAttack_BonusDamage()
-    return self.bonus_dmg + (self.tracker_mod:GetStackCount() * self.bonus_per_kill)
+    return self.bonus_dmg + (self:GetStackCount() * self.bonus_per_kill)
+end
+
+function modifier_item_frost_fair_blade:GetModifierPhysical_ConstantBlock()
+	return self.damage_block
 end
 
 function modifier_item_frost_fair_blade:OnRemove()
@@ -108,7 +122,7 @@ function modifier_item_frost_fair_blade_debuff:OnCreated(kv)
     self.attackspeed_slow_max = self:GetAbility():GetSpecialValueFor("attackspeed_slow_max")
     self.movespeed_slow_max = self:GetAbility():GetSpecialValueFor("movespeed_slow_max")
     
-    self.tracker_mod = self:GetParent():FindModifierByName("modifier_item_frost_fair_blade_kill_tracker")
+    self.tracker_mod = self:GetParent():FindModifierByName("modifier_item_frost_fair_blade")
 
     if not IsServer() then return end
     
@@ -138,18 +152,18 @@ function modifier_item_frost_fair_blade_debuff:OnRemove()
     ParticleManager:DestroyParticle(self.slow_hit_particle, false);
 end
 
--- ===========================================
--- KILL TRACKER
--- ===========================================
+-- -- ===========================================
+-- -- KILL TRACKER
+-- -- ===========================================
 
-modifier_item_frost_fair_blade_kill_tracker = modifier_item_frost_fair_blade_kill_tracker or class({})
+-- modifier_item_frost_fair_blade_kill_tracker = modifier_item_frost_fair_blade_kill_tracker or class({})
 
-function modifier_item_frost_fair_blade_kill_tracker:IsHidden() return false end
-function modifier_item_frost_fair_blade_kill_tracker:IsDebuff() return true end
-function modifier_item_frost_fair_blade_kill_tracker:IsPurgable() return true end
---function modifier_item_frost_fair_blade_kill_tracker:RemoveOnDeath() return true end
+-- function modifier_item_frost_fair_blade_kill_tracker:IsHidden() return false end
+-- function modifier_item_frost_fair_blade_kill_tracker:IsDebuff() return true end
+-- function modifier_item_frost_fair_blade_kill_tracker:IsPurgable() return true end
+-- --function modifier_item_frost_fair_blade_kill_tracker:RemoveOnDeath() return true end
 
 
--- function modifier_item_frost_fair_blade_kill_tracker:OnCreated(kv)
+-- -- function modifier_item_frost_fair_blade_kill_tracker:OnCreated(kv)
 
--- end
+-- -- end
