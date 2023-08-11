@@ -38,6 +38,7 @@ Almost all others are via:
   - [Bracer](https://game-icons.net/1x1/delapouite/bracer.html)
   - [Gauntlet](https://game-icons.net/1x1/delapouite/gauntlet.html)
   - [Gloves](https://game-icons.net/1x1/delapouite/gloves.html)
+  - [Healing](https://game-icons.net/1x1/delapouite/healing.html)
   - [Leather armor](https://game-icons.net/1x1/delapouite/leather-armor.html)
   - [Leg armor](https://game-icons.net/1x1/delapouite/leg-armor.html)
   - [Light helm](https://game-icons.net/1x1/delapouite/light-helm.html)
