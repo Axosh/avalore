@@ -14,7 +14,7 @@ end
 
 modifier_item_frost_fair_blade = modifier_item_frost_fair_blade or class({})
 
-function modifier_item_frost_fair_blade:IsHidden() return true end
+function modifier_item_frost_fair_blade:IsHidden() return false end
 function modifier_item_frost_fair_blade:IsDebuff() return false end
 function modifier_item_frost_fair_blade:IsPurgable() return false end
 function modifier_item_frost_fair_blade:RemoveOnDeath() return false end
@@ -26,6 +26,10 @@ function modifier_item_frost_fair_blade:DeclareFunctions()
     return {    MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
                 MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
                 MODIFIER_EVENT_ON_DEATH }
+end
+
+function modifier_item_frost_fair_blade:GetTexture()
+    return "items/frost_fair_blade_orig"
 end
 
 function modifier_item_frost_fair_blade:OnCreated(event)
@@ -40,8 +44,10 @@ function modifier_item_frost_fair_blade:OnCreated(event)
        -- self.tracker_mod:SetStackCount(_G.frost_fair_stacks)
     --end
 
-    print("Stacks => " .. tostring(_G.frost_fair_stacks))
-    self:SetStackCount(_G.frost_fair_stacks)
+    if IsServer() then
+        print("Stacks => " .. tostring(_G.frost_fair_stacks))
+        self:SetStackCount(_G.frost_fair_stacks)
+    end
 
     -- if not IsServer() then return end
     -- self.tracker_mod = self:GetParent():AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_item_frost_fair_blade_kill_tracker", {} )
