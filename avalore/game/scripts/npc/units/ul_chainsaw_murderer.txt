@@ -1,0 +1,20 @@
+"DOTAUnits"
+{
+    "npc_avalore_ul_chainsaw_murderer"
+    {
+        // General
+        //----------------------------------------------------------------
+        "BaseClass"					"npc_dota_creature"
+        "Model"                     "models/heroes/pudge/pudge.vmdl"
+        "ModelScale"                "1.0"
+        "UnitLabel"                 "chainsaw_murderer"
+        "MinimapIcon"				"minimap_aghanim"
+        "MinimapIconSize"			"350"
+        "CanBeDominated"			"0"
+        "ConsideredHero"			"1"
+        "HasInventory"				"0"
+
+        // "AI"
+        "vscripts"                  "items/urban_legends/ai/ai_chainsaw_murderer.lua"
+    }
+}
