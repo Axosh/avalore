@@ -16,5 +16,64 @@
 
         // "AI"
         "vscripts"                  "items/urban_legends/ai/ai_chainsaw_murderer.lua"
+
+        // Abilities
+		//----------------------------------------------------------------
+
+        // Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// Physical protection.
+		"MagicalResistance"			"30"		// Magical protection.
+
+        // Movement
+		//----------------------------------------------------------------
+        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"400"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+        // Status
+        //----------------------------------------------------------------
+        "StatusHealth"		"2000"
+        "StatusHealthRegen"	"5.0"
+        "StatusMana"		"1500"
+        "StatusManaRegen"	"5"
+
+        // Attack
+        //----------------------------------------------------------------
+        "AttackCapabilities"	    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"	        "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"	        "150.0"
+        "AttackDamageMax"	        "150.0"
+        "AttackRate"		        "1.35"
+        "AttackAnimationPoint"	    "0.5"
+        "AttackAcquisitionRange"    "500"
+        "AttackRange"		        "150"
+
+        // Bounty
+        //----------------------------------------------------------------
+        "BountyGoldMin"		"250"
+        "BountyGoldMax"		"250"
+
+        // Bounds
+        //----------------------------------------------------------------
+        "BoundsHullName"	"DOTA_HULL_SIZE_HERO"
+        "RingRadius"		"70"
+
+        // Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Creature Data
+        //----------------------------------------------------------------
+        "Creature"
+        {
+            "DisableClumpingBehavior"	"1"
+            "AttachWearables"
+            {
+            }
+        }
     }
 }
