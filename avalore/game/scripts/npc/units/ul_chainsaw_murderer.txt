@@ -73,6 +73,7 @@
             "DisableClumpingBehavior"	"1"
             "AttachWearables"
             {
+                "Wearable1" { "ItemDef" "6226" } // Isatiable Bonesaw
             }
         }
     }
