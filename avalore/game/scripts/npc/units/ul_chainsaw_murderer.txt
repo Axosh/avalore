@@ -74,6 +74,7 @@
             "AttachWearables"
             {
                 "Wearable1" { "ItemDef" "6226" } // Isatiable Bonesaw
+                "Wearable2" { "ItemDef" "6298" } // Shoulder of the Black Death
             }
         }
     }
