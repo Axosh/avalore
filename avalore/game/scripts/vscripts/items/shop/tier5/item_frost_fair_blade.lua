@@ -25,6 +25,7 @@ function modifier_item_frost_fair_blade:GetAttributes()	return MODIFIER_ATTRIBUT
 function modifier_item_frost_fair_blade:DeclareFunctions()
     return {    MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
                 MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+                MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
                 MODIFIER_EVENT_ON_DEATH }
 end
 
@@ -37,6 +38,7 @@ function modifier_item_frost_fair_blade:OnCreated(event)
     self.bonus_dmg = self.item_ability:GetSpecialValueFor("bonus_dmg")
     self.bonus_per_kill = self.item_ability:GetSpecialValueFor("bonus_per_kill")
     self.damage_block = self.item_ability:GetSpecialValueFor("damage_block")
+    self.bonus_range_melee = self.item_ability:GetSpecialValueFor("bonus_range_melee")
     --self.parent = self:GetParent()
 
     --if IsServer() then
@@ -62,6 +64,12 @@ function modifier_item_frost_fair_blade:GetModifierPhysical_ConstantBlock()
 	return self.damage_block
 end
 
+function modifier_item_frost_fair_blade:GetModifierAttackRangeBonus()
+    if not self:GetParent():IsRangedAttacker() then
+        return self.bonus_range_melee
+    end
+end
+
 function modifier_item_frost_fair_blade:OnRemove()
     if not IsServer() then return end
     ParticleManager:DestroyParticle(self.slow_hit_particle, false);
@@ -81,11 +89,13 @@ function modifier_item_frost_fair_blade:OnDeath(params)
         and (not params.unit.IsReincarnating or not params.unit:IsReincarnating()) 
     ) then
         _G.frost_fair_stacks = _G.frost_fair_stacks + 1
-        self.tracker_mod:IncrementStackCount()
+        --self.tracker_mod:IncrementStackCount()
+        self:IncrementStackCount()
     end
 end
 
 function modifier_item_frost_fair_blade:OnOwnerDied(kv)
+    print("Owner Died")
     local hOwner = self:GetOwner()
 	
 	if not hOwner:IsRealHero() then

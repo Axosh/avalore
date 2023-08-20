@@ -25,7 +25,7 @@ end
 function modifier_item_guandao:OnCreated(event)
     self.item_ability = self:GetAbility()
     self.damage_block = self.item_ability:GetSpecialValueFor("damage_block")
-    self.bonus_range = self.item_ability:GetSpecialValueFor("bonus_range")
+    self.bonus_range_melee = self.item_ability:GetSpecialValueFor("bonus_range_melee")
 end
 
 function modifier_item_guandao:GetModifierPhysical_ConstantBlock()
@@ -34,6 +34,6 @@ end
 
 function modifier_item_guandao:GetModifierAttackRangeBonus()
     if not self:GetParent():IsRangedAttacker() then
-        return self.bonus_range
+        return self.bonus_range_melee
     end
 end

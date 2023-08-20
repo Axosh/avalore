@@ -8,7 +8,7 @@
 		"BaseClass"						"item_datadriven"
 		//"AbilityTextureName" 			"base_materials/recipe"
         "AbilityTextureName" 			"items_05/frost_fair_blade"
-		"Model"							"models/props_gameplay/red_box.vmdl"
+		"Model"							"models/props_gameplay/divine_rapier.vmdl"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -19,6 +19,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_frost_fair_blade"
+
+        "SideShop"                                          "0"
+        "SecretShop"					                    "1"
 		// Recipe
         "ItemRequirements"
 		{
@@ -119,6 +122,16 @@
             {
                 "var_type"                                  "FIELD_INTEGER"
                 "IsArtifact"                                "1"
+            }
+            "12"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "damage_block"                              "10"
+            }
+            "13"
+            {
+                "var_type"                                  "FIELD_INTEGER"
+                "bonus_range_melee"                         "150"
             }
         }
     }
