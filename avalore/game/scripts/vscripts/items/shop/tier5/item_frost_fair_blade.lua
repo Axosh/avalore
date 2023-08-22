@@ -8,6 +8,15 @@ function item_frost_fair_blade:GetIntrinsicModifierName()
     return "modifier_item_frost_fair_blade"
 end
 
+function item_frost_fair_blade:OnOwnerDied(kv)
+    print("Owner Died")
+    local hOwner = self:GetOwner()
+	
+	if hOwner:IsRealHero() and not hOwner:IsReincarnating() then
+        hOwner:DropItemAtPositionImmediate(self, hOwner:GetAbsOrigin())
+	end
+end
+
 -- ====================================
 -- INTRINSIC MOD
 -- ====================================
@@ -94,11 +103,11 @@ function modifier_item_frost_fair_blade:OnDeath(params)
     end
 
     -- if the actual item holder died and isn't rezzing, then drop it
-    if (params.unit == self:GetParent()
-        and params.unit:IsRealHero()
-        and not self:GetParent():IsReincarnating() ) then
-        self:GetParent():DropItem(self, true, true)
-    end
+    -- if (params.unit == self:GetParent()
+    --     and params.unit:IsRealHero()
+    --     and not self:GetParent():IsReincarnating() ) then
+    --     self:GetParent():DropItemAtPositionImmediate(self, self:GetParent():GetAbsOrigin())
+    -- end
 end
 
 -- function modifier_item_frost_fair_blade:OnOwnerDied(kv)
