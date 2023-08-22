@@ -92,21 +92,28 @@ function modifier_item_frost_fair_blade:OnDeath(params)
         --self.tracker_mod:IncrementStackCount()
         self:IncrementStackCount()
     end
+
+    -- if the actual item holder died and isn't rezzing, then drop it
+    if (params.unit == self:GetParent()
+        and params.unit:IsRealHero()
+        and not self:GetParent():IsReincarnating() ) then
+        self:GetParent():DropItem(self, true, true)
+    end
 end
 
-function modifier_item_frost_fair_blade:OnOwnerDied(kv)
-    print("Owner Died")
-    local hOwner = self:GetOwner()
+-- function modifier_item_frost_fair_blade:OnOwnerDied(kv)
+--     print("Owner Died")
+--     local hOwner = self:GetOwner()
 	
-	if not hOwner:IsRealHero() then
-		hOwner:DropItem(self, true, true)
-		return
-	end
+-- 	if not hOwner:IsRealHero() then
+-- 		hOwner:DropItem(self, true, true)
+-- 		return
+-- 	end
 	
-	if not hOwner:IsReincarnating() then
-		hOwner:DropItem(self, true, true)
-	end
-end
+-- 	if not hOwner:IsReincarnating() then
+-- 		hOwner:DropItem(self, true, true)
+-- 	end
+-- end
 
 -- ====================================
 -- DEBUFF MOD 
