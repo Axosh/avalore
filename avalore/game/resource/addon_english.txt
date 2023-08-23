@@ -1917,7 +1917,7 @@
 
 		"DOTA_Tooltip_Ability_item_recipe_frost_fair_blade"			"Frost Fair Blade"
 		"DOTA_Tooltip_Ability_item_frost_fair_blade"				"Frost Fair Blade"
-		"DOTA_Tooltip_Ability_item_frost_fair_blade_description"	"<h1>Passive: Blood Frost</h1><font color='#e03e2e'>Dropped on death, and cannot be destroyed.</font><br><br>Each hero kill gives an additional +%bonus_per_kill% damage, %movespeed_slow_per_stack% ms slow debuff (max of %movespeed_slow_max%), %attackspeed_slow_per_stack% as slow defbuff (max of %attackspeed_slow_max%). These stacks carry over between weilders.\n<h1>Slot: Accessory</h1>Requires the accessory slot"
+		"DOTA_Tooltip_Ability_item_frost_fair_blade_description"	"<h1>Passive: Blood Frost</h1><font color='#e03e2e'>Dropped on death, and cannot be destroyed.</font><br><br>Each hero kill gives an additional +%bonus_per_kill% damage, %movespeed_slow_per_stack% ms slow debuff (max of %movespeed_slow_max%), %attackspeed_slow_per_stack% as slow defbuff (max of %attackspeed_slow_max%). These stacks carry over between weilders.\n<h1>Passive: Deflect</h1>Passively block %damage_block% per attack landed\n<h1>Passive: Polearm</h1>Provides +%bonus_range_melee% for melee attacks<br><br><b>Melee Only</b>\n<h1>Slot: Accessory</h1>Requires the accessory slot"
 		"DOTA_Tooltip_Ability_item_frost_fair_blade_bonus_dmg"		"+$damage"
 		"DOTA_Tooltip_Ability_item_frost_fair_blade_movespeed_slow"		"%MOVESPEED SLOW: "
 		"DOTA_Tooltip_Ability_item_frost_fair_blade_attackspeed_slow"	"ATTACKSPEED SLOW: "
