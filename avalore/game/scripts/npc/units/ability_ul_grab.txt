@@ -5,7 +5,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/ul/ability_ul_grab.lua"
+		"ScriptFile"					"units/urban_legends/chainsaw_murderer/ability_ul_grab.lua"
 		"AbilityTextureName"			"ul/ul_grab"
 		
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"

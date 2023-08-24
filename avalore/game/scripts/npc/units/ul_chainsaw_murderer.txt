@@ -15,7 +15,7 @@
         "HasInventory"				"0"
 
         // "AI"
-        "vscripts"                  "items/urban_legends/ai/ai_chainsaw_murderer.lua"
+        "vscripts"                  "units/urban_legends/chainsaw_murderer/ai_chainsaw_murderer.lua"
 
         // Abilities
 		//----------------------------------------------------------------
