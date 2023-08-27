@@ -8,4 +8,5 @@ function Spawn( entityKeyValues )
     end
 
     thisEntity.isCarrying = false
+    
 end

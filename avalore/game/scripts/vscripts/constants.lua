@@ -188,6 +188,9 @@ ROUND4_SPAWNER_BOSS = "spawner_map_center"
 ROUND4_BOSS_UNIT = "npc_avalore_round4_boss"
 ROUND4_MELEE_CREEPS = "npc_avalore_round4_melee_creep"
 
+UL_TREE_RADI = "trigger_radi_tree"
+UL_TREE_DIRE = "trigger_dire_tree"
+
 -- ==================================
 -- SCORE RELATED
 -- ==================================

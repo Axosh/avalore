@@ -13,6 +13,8 @@
 
 #base "units/ability_ent_trample.txt"
 
+#base "units/abilty_ul_grab.txt"
+
 // Dota Heroes File
 
 #base "heroes/_shared/ability_avalore_attributes.txt"

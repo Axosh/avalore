@@ -16,6 +16,8 @@
 #base "units/merc_ent.txt"
 #base "units/merc_watch_tower.txt"
 
+#base "units/ul_chainsaw_murderer.txt"
+
 #base "heroes/zeus/avalore_unit_storm_cloud.txt"
 
 #base "heroes/gilgamesh/enkidu.txt"
