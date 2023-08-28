@@ -8,5 +8,10 @@ function Spawn( entityKeyValues )
     end
 
     thisEntity.isCarrying = false
-    
+
+    thisEntity:SetContextThink("ChainsawMurdererAIThink", ChainsawMurdererAIThink, 1)
+end
+
+function ChainsawMurdererAIThink( self )
+
 end
