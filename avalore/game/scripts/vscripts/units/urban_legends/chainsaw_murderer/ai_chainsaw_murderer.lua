@@ -21,4 +21,10 @@ function ChainsawMurdererAIThink( self )
 		thisEntity.FirstPass = false
 	end
 
+    if not self:IsAlive() then
+    	return
+    end
+	if GameRules:IsGamePaused() then
+		return 0.1
+	end
 end
