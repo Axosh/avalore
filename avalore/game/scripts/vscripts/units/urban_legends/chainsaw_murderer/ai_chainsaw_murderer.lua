@@ -19,6 +19,11 @@ function ChainsawMurdererAIThink( self )
     if thisEntity.FirstPass then
 		thisEntity.spawnLocation = thisEntity:GetOrigin() -- location still (0,0,0) when in Spawn function, so set it on first pass here
 		thisEntity.FirstPass = false
+        if IsOnRadiantSide(thisEntity:GetOrigin().x, thisEntity:GetOrigin().y) then
+            
+        else
+            
+        end
 	end
 
     if not self:IsAlive() then
