@@ -20,9 +20,9 @@ function ChainsawMurdererAIThink( self )
 		thisEntity.spawnLocation = thisEntity:GetOrigin() -- location still (0,0,0) when in Spawn function, so set it on first pass here
 		thisEntity.FirstPass = false
         if IsOnRadiantSide(thisEntity:GetOrigin().x, thisEntity:GetOrigin().y) then
-            
+            thisEntity.outpost = Score.entities.radi_outpost
         else
-            
+            thisEntity.outpost = Score.entities.dire_outpost
         end
 	end
 
