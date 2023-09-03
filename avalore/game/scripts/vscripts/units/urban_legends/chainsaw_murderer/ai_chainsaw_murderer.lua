@@ -3,7 +3,14 @@ require(REQ_AI_SHARED)
 
 UL_ACT_PATROL = 0
 UL_ACT_AGGRO = 1
-UL_ACT_CARRY = 2
+UL_ACT_DEAGGRO = 2
+UL_ACT_CARRY = 3
+
+AVALORE_UL_AGGRO_DUR = 9.0
+AVALORE_UL_DEAGGRO_DUR = 5.0
+
+UL_PATROL_TARG_HOOK = 1
+UL_PATROL_TARG_OUTPOST = 2
 
 function Spawn( entityKeyValues )
     if not IsServer() then return end
@@ -17,6 +24,7 @@ function Spawn( entityKeyValues )
     thisEntity.fTimeWeLostAggro = nil
     thisEntity.currentAction = 0
     thisEntity.hCurrTarget = nil
+    thisEntity.iCurrPatTarget = nil
     thisEntity.nAggroRange = thisEntity:GetAcquisitionRange()
 
     thisEntity:SetContextThink("ChainsawMurdererAIThink", ChainsawMurdererAIThink, 1)
@@ -39,6 +47,7 @@ function ChainsawMurdererAIThink( self )
         end
 
         thisEntity.currPatrolTarget = thisEntity.outpost
+        thisEntity.iCurrPatTarget = UL_PATROL_TARG_OUTPOST
 	end
 
     -- =================================================================
@@ -73,6 +82,47 @@ function ChainsawMurdererAIThink( self )
     end
 
     if thisEntity.currentAction == UL_ACT_AGGRO then
+        local curr_aggro_dur = GameRules:GetGameTime() - thisEntity.fTimeAggroStarted
+
+        -- if we've been aggro'd too long, lose it and go back to patrol
+        if curr_aggro_dur > AVALORE_UL_AGGRO_DUR then
+            thisEntity.fTimeWeLostAggro = GameRules:GetGameTime()
+            thisEntity.fTimeAggroStarted = nil
+            thisEntity.currentAction = UL_ACT_DEAGGRO
+        -- otherwise, try to grab our target
+        else
+
+        end
+
         
+    end
+
+    if thisEntity.currentAction == UL_ACT_DEAGGRO then
+        local curr_deaggro_dur = GameRules:GetGameTime() - thisEntity.fTimeWeLostAggro
+        if curr_aggro_dur > AVALORE_UL_DEAGGRO_DUR then
+            thisEntity.fTimeWeLostAggro = nil
+            thisEntity.currentAction = UL_ACT_PATROL
+        end
+    end
+
+    if (   thisEntity.currentAction == UL_ACT_DEAGGRO
+        or thisEntity.currentAction == UL_ACT_PATROL  ) then
+            -- see if we're at target location (within 200 radius)
+            if (thisEntity:GetAbsOrigin() - thisEntity.currPatrolTarget:GetAbsOrigin()):Length2D() < 200 then
+                if thisEntity.iCurrPatTarget == UL_PATROL_TARG_OUTPOST then
+                    thisEntity.iCurrPatTarget = UL_PATROL_TARG_HOOK
+                    thisEntity.currPatrolTarget = thisEntity.spawnLocation
+                else
+                    thisEntity.iCurrPatTarget = UL_PATROL_TARG_OUTPOST
+                    thisEntity.currPatrolTarget = thisEntity.outpost
+                end
+            end
+
+            -- move to target location
+            ExecuteOrderFromTable({
+				UnitIndex = thisEntity:entindex(),
+				OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+				Position = thisEntity.currPatrolTarget,
+			})
     end
 end
