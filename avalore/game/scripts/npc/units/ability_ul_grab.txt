@@ -19,7 +19,7 @@
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Batrider.FlamingLasso.Cast"
 
-		"HasScepterUpgrade"			"1"
+		
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

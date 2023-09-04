@@ -721,6 +721,11 @@ function CAvaloreGameMode:InitRound2()
 			end
 		end
 	end
+
+	-- create urban legends
+	
+	CreateUnitByName( ROUND2_URBAN_LEGEND, Entities:FindByName(nil, "trigger_radi_tree"):GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
+	CreateUnitByName( ROUND2_URBAN_LEGEND, Entities:FindByName(nil, "trigger_dire_tree"):GetOrigin(),        true, nil, nil, DOTA_TEAM_NEUTRALS )
 end
 
 function CAvaloreGameMode:InitRound3()

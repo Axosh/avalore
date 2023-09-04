@@ -173,6 +173,8 @@ OBJECTIVE_GEM_ITEM          = "item_avalore_summoning_gem"
 
 ROUND1_WISP_UNIT = "npc_avalore_quest_wisp"
 
+ROUND2_URBAN_LEGEND = "npc_avalore_ul_chainsaw_murderer"
+
 ROUND3_BOSS_UNIT = "npc_avalore_gem_boss"
 ROUND3_GEM_ACTIVATE_DIRE_SIDE = "trigger_dire_gem_activate" --radi bring theirs here
 ROUND3_GEM_ACTIVATE_RADI_SIDE = "trigger_radi_gem_activate" --dire bring theirs here

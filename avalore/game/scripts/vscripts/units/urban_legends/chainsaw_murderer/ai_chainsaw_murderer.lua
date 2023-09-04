@@ -66,6 +66,20 @@ function ChainsawMurdererAIThink( self )
     -- ACTIONS
     -- =================================================================
 
+    if thisEntity.currentAction == UL_ACT_CARRY then
+        -- make sure we're still carrying
+        if thisEntity:FindModifierByName("modifier_ul_grab_self") then
+            ExecuteOrderFromTable({
+				UnitIndex = thisEntity:entindex(),
+				OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+				Position = thisEntity.spawnLocation,
+			})
+            return 0.5
+        else
+            thisEntity.currentAction = UL_ACT_PATROL
+        end
+    end
+
     -- Look for Targets while walking between points
     if thisEntity.currentAction == UL_ACT_PATROL then
         -- check for targets
@@ -91,7 +105,27 @@ function ChainsawMurdererAIThink( self )
             thisEntity.currentAction = UL_ACT_DEAGGRO
         -- otherwise, try to grab our target
         else
+            -- close enough to grab?
+            local hVisibleEnemies = GetVisibleEnemiesNearby( thisEntity, hGrab:GetCastRange() )
+            if #hVisibleEnemies > 1 then
+                local hRandomEnemy = hVisibleEnemies[ RandomInt( 1, #hVisibleEnemies ) ]
+                CastGrab(hRandomEnemy)
+                -- see if grab succeeded
+                if thisEntity:FindModifierByName("modifier_ul_grab_self") then
+                    thisEntity.currentAction = UL_ACT_CARRY
+                end
+                return 1
+            end
 
+            -- can we hook?
+            local dirFacing = thisEntity.hCurrTarget:GetForwardVector()
+            local ms = thisEntity.hCurrTarget:GetMoveSpeedModifier(hRandomPlayer:GetBaseMoveSpeed(), false)
+            local guesstimateFuturePos = dirFacing * (ms * 2)
+            if hHook:IsCooldownReady() and hHook:IsFullyCastable() then
+                CastHook(thisEntity.hCurrTarget, guesstimateFuturePos)
+                hHook:RefundManaCost()
+                return 1
+            end
         end
 
         
@@ -124,5 +158,29 @@ function ChainsawMurdererAIThink( self )
 				OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
 				Position = thisEntity.currPatrolTarget,
 			})
+            return 0.5
     end
+    return 0.5
+end
+
+function CastGrab ( hTarget )
+    ExecuteOrderFromTable({
+		UnitIndex = thisEntity:entindex(),
+		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+		--Position = hTarget:GetOrigin(),
+		AbilityIndex = hGrab:entindex(),
+		TargetIndex = hTarget:GetEntityIndex(),
+		Queue = false,
+	})
+end
+
+function CastHook ( hTarget, position )
+    ExecuteOrderFromTable({
+		UnitIndex = thisEntity:entindex(),
+		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+		Position = position,
+		AbilityIndex = hHook:entindex(),
+		TargetIndex = hTarget:GetEntityIndex(),
+		Queue = false,
+	})
 end
