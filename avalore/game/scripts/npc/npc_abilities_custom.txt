@@ -13,7 +13,7 @@
 
 #base "units/ability_ent_trample.txt"
 
-#base "units/abilty_ul_grab.txt"
+#base "units/ability_ul_grab.txt"
 
 // Dota Heroes File
 
