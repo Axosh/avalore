@@ -34,6 +34,9 @@ function modifier_ul_grab_debuff:OnCreated(params)
 	self.vector				= self:GetParent():GetAbsOrigin() - self:GetCaster():GetAbsOrigin()
 	self.current_position	= self:GetCaster():GetAbsOrigin()
 
+	self.radi_tree = Entities:FindByName(nil, UL_TREE_RADI)
+	self.dire_tree = Entities:FindByName(nil, UL_TREE_DIRE)
+
 	self:GetParent():EmitSound("Hero_Batrider.FlamingLasso.Loop")
 	
 	self.lasso_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_flaming_lasso.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
