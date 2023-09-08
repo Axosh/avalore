@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_ul_grab_debuff",    "scripts/vscripts/units/urban_legends/chainsaw_murderer/ability_ul_grab.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ul_grab_self",    "scripts/vscripts/units/urban_legends/chainsaw_murderer/ability_ul_grab.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
 
 
 function ability_ul_grab:OnSpellStart()
@@ -7,11 +8,11 @@ function ability_ul_grab:OnSpellStart()
 	
 	if target:TriggerSpellAbsorb(self) then return end
 
-    target:AddNewModifier(self:GetCaster(), self, "modifier_ul_grab_debuff", {})
+    local target_mod = target:AddNewModifier(self:GetCaster(), self, "modifier_ul_grab_debuff", {})
 	
 	self:GetCaster():EmitSound("Hero_Batrider.FlamingLasso.Cast")
 
-    self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_ul_grab_self", {})
+    self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_ul_grab_self", { child_mod = target_mod })
 end
 
 -- ===============================================
@@ -88,8 +89,10 @@ modifier_ul_grab_self = modifier_ul_grab_self or class({})
 
 function modifier_ul_grab_self:IsPurgable()	return false end
 	
-function modifier_ul_grab_self:OnCreated()
+function modifier_ul_grab_self:OnCreated(kv)
 	self.dmg_to_drop	= self:GetAbility():GetSpecialValueFor("dmg_to_drop")
+	self.dmg_to_drop_remaining = self.dmg_to_drop
+	self.child_mod = kv.child_mod
 end
 
 function modifier_ul_grab_self:DeclareFunctions()
@@ -104,5 +107,25 @@ end
 function modifier_ul_grab_self:GetModifierTotal_ConstantBlock(kv)
 	if not IsServer() then return end
 
+	self.dmg_to_drop_remaining = self.dmg_to_drop_remaining - kv.damage
+
+	if self.dmg_to_drop_remaining <= 0 then
+		self.child_mod:Destroy()
+		self:Destroy()
+	end
+
 	return 0
+end
+
+function modifier_ul_grab_self:OnDestroy()
+	if not IsServer() then return end
+	
+	self:GetParent():StopSound("Hero_Batrider.FlamingLasso.Loop")
+	self:GetParent():EmitSound("Hero_Batrider.FlamingLasso.End")
+	self:GetParent():AddNewModifier(
+				self:GetParent(), -- player source
+				self, -- ability source
+				"modifier_avalore_stunned", -- modifier name
+				{ duration = 5.0 } -- kv
+			)
 end
