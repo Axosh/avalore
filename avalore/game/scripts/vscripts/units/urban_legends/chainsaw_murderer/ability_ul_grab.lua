@@ -1,3 +1,5 @@
+ability_ul_grab = ability_ul_grab or class({})
+
 LinkLuaModifier("modifier_ul_grab_debuff",    "scripts/vscripts/units/urban_legends/chainsaw_murderer/ability_ul_grab.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ul_grab_self",    "scripts/vscripts/units/urban_legends/chainsaw_murderer/ability_ul_grab.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier( "modifier_avalore_stunned", "modifiers/modifier_avalore_stunned", LUA_MODIFIER_MOTION_NONE )
