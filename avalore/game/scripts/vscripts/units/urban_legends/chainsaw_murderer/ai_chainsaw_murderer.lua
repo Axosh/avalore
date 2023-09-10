@@ -118,7 +118,7 @@ function ChainsawMurdererAIThink( self )
         -- otherwise, try to grab our target
         else
             -- close enough to grab?
-            local hVisibleEnemies = GetVisibleEnemiesNearby( thisEntity, hGrab:GetCastRange(thisEntity:GetAbsOrigin(), nil) )
+            local hVisibleEnemies = GetVisibleEnemyHeroesInRange( thisEntity, hGrab:GetCastRange(thisEntity:GetAbsOrigin(), nil) )
             if #hVisibleEnemies > 1 then
                 local hRandomEnemy = hVisibleEnemies[ RandomInt( 1, #hVisibleEnemies ) ]
                 print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Casting Grab on " .. hRandomEnemy:GetUnitName())
@@ -130,7 +130,7 @@ function ChainsawMurdererAIThink( self )
                 return 1
             else
                 -- can we hook?
-                local hVisibleEnemies = GetVisibleEnemiesNearby( thisEntity, hHook:GetCastRange(thisEntity:GetAbsOrigin(), nil) )
+                local hVisibleEnemies = GetVisibleEnemyHeroesInRange( thisEntity, hHook:GetCastRange(thisEntity:GetAbsOrigin(), nil) )
                 if #hVisibleEnemies > 1 then
                     local rand = RandomInt( 1, #hVisibleEnemies )
                     -- PrintTable(hVisibleEnemies)

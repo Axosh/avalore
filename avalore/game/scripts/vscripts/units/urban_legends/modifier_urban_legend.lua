@@ -1,0 +1,1 @@
+modifier_urban_legend = class({})
