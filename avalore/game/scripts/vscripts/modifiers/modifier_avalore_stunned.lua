@@ -44,11 +44,9 @@ end
 --------------------------------------------------------------------------------
 -- Status Effects
 function modifier_avalore_stunned:CheckState()
-	local state = {
+	return {
 		[MODIFIER_STATE_STUNNED] = true,
 	}
-
-	return state
 end
 
 --------------------------------------------------------------------------------
