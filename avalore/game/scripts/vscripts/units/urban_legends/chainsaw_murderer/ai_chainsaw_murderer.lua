@@ -1,6 +1,8 @@
 require("references")
 require(REQ_AI_SHARED)
 
+LinkLuaModifier( "modifier_urban_legend",  "units/urban_legends/modifier_urban_legend.lua",        LUA_MODIFIER_MOTION_NONE )
+
 UL_ACT_PATROL = 0
 UL_ACT_AGGRO = 1
 UL_ACT_DEAGGRO = 2
@@ -37,6 +39,7 @@ function ChainsawMurdererAIThink( self )
     -- =================================================================
     if thisEntity.FirstPass then
 		thisEntity.spawnLocation = thisEntity:GetOrigin() -- location still (0,0,0) when in Spawn function, so set it on first pass here
+        thisEntity:AddNewModifier(thisEntity, nil, "modifier_urban_legend", { })
 		thisEntity.FirstPass = false
         local midpoint
         local flag
