@@ -25,12 +25,17 @@ function Spawn( entityKeyValues )
     thisEntity.hCurrTarget = nil
     thisEntity.nAggroRange = thisEntity:GetAcquisitionRange()
 
-    thisEntity:SetContextThink("ChainsawMurdererAIThink", ChainsawMurdererAIThink, 1)
     hHook = thisEntity:FindAbilityByName("pudge_meat_hook")
+    hHook:SetLevel(4)
     hGrab = thisEntity:FindAbilityByName("ability_ul_grab")
+    hGrab:SetLevel(1)
+
+
     thisEntity.patrol_route = {}
     thisEntity.patrol_step = 1
     thisEntity.debug_side = "Radi"
+
+    thisEntity:SetContextThink("ChainsawMurdererAIThink", ChainsawMurdererAIThink, 1)
 end
 
 function ChainsawMurdererAIThink( self )
@@ -67,10 +72,11 @@ function ChainsawMurdererAIThink( self )
     -- WAIT
     -- =================================================================
 
-    if not self:IsAlive() then
-        thisEntity.currentAction = UL_ACT_PATROL
-    	return
-    end
+    -- with resdesign, they should never die
+    -- if not self:IsAlive() then
+    --     thisEntity.currentAction = UL_ACT_PATROL
+    --     return
+    -- end
 	if GameRules:IsGamePaused() then
 		return 0.1
 	end
