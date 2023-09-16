@@ -2,6 +2,7 @@ require("references")
 require(REQ_AI_SHARED)
 
 LinkLuaModifier( "modifier_urban_legend",  "units/urban_legends/modifier_urban_legend.lua",        LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_avalore_not_auto_attackable", "scripts/vscripts/modifiers/modifier_avalore_not_auto_attackable.lua", LUA_MODIFIER_MOTION_NONE )
 
 UL_ACT_PATROL = 0
 UL_ACT_AGGRO = 1
@@ -45,6 +46,7 @@ function ChainsawMurdererAIThink( self )
     if thisEntity.FirstPass then
 		thisEntity.spawnLocation = thisEntity:GetOrigin() -- location still (0,0,0) when in Spawn function, so set it on first pass here
         thisEntity:AddNewModifier(thisEntity, nil, "modifier_urban_legend", { })
+        thisEntity:AddNewModifier(thisEntity, nil, "modifier_avalore_not_auto_attackable", {})
 		thisEntity.FirstPass = false
         local midpoint
         local flag
@@ -52,11 +54,13 @@ function ChainsawMurdererAIThink( self )
         -- determine patrol route
         if IsOnRadiantSide(thisEntity:GetOrigin().x, thisEntity:GetOrigin().y) then
             thisEntity.outpost = Score.entities.radi_outpost
+            thisEntity.tree = Entities:FindByName(nil, "trigger_radi_tree")
             midpoint = Entities:FindByName(nil, "spawner_round4_radi")
             flag = Entities:FindByName(nil, "spawner_flag_c")
             gem = Entities:FindByName(nil, "trigger_radi_gem_activate")
         else
             thisEntity.outpost = Score.entities.dire_outpost
+            thisEntity.tree = Entities:FindByName(nil, "trigger_dire_tree")
             midpoint = Entities:FindByName(nil, "spawner_round4_dire")
             flag = Entities:FindByName(nil, "spawner_flag_d")
             gem = Entities:FindByName(nil, "trigger_dire_gem_activate")
@@ -84,10 +88,25 @@ function ChainsawMurdererAIThink( self )
     -- =================================================================
     -- ACTIONS
     -- =================================================================
+    -- double check this just in case
+    if thisEntity:FindModifierByName("modifier_ul_grab_self") then
+        thisEntity.currentAction = UL_ACT_CARRY
+    end
 
     if thisEntity.currentAction == UL_ACT_CARRY then
         -- make sure we're still carrying
         if thisEntity:FindModifierByName("modifier_ul_grab_self") then
+            -- -- did we make it to the tree?
+            -- if thisEntity:IsTouching(thisEntity.tree) then
+                
+            -- end
+            if (thisEntity:GetAbsOrigin() - thisEntity.tree:GetAbsOrigin()):Length2D() < 200 then
+                (thisEntity:FindModifierByName("modifier_ul_grab_self")):Complete()
+                thisEntity.currentAction = UL_ACT_PATROL
+                thisEntity.patrol_step = 1
+            end
+
+            print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Walking to Tree")
             ExecuteOrderFromTable({
 				UnitIndex = thisEntity:entindex(),
 				OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
@@ -127,36 +146,59 @@ function ChainsawMurdererAIThink( self )
         -- otherwise, try to grab our target
         else
             -- close enough to grab?
-            local hVisibleEnemies = GetVisibleEnemyHeroesInRange( thisEntity, hGrab:GetCastRange(thisEntity:GetAbsOrigin(), nil) )
-            if #hVisibleEnemies > 1 then
+            local hVisibleEnemies = GetVisibleEnemyHeroesInRangeForNeutrals( thisEntity, hGrab:GetCastRange(thisEntity:GetAbsOrigin(), nil) )
+            if #hVisibleEnemies > 0 then
+                print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Try Grab")
                 local hRandomEnemy = hVisibleEnemies[ RandomInt( 1, #hVisibleEnemies ) ]
-                print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Casting Grab on " .. hRandomEnemy:GetUnitName())
-                CastGrab(hRandomEnemy)
-                -- see if grab succeeded
-                if thisEntity:FindModifierByName("modifier_ul_grab_self") then
-                    thisEntity.currentAction = UL_ACT_CARRY
-                end
-                return 1
-            else
-                -- can we hook?
-                local hVisibleEnemies = GetVisibleEnemyHeroesInRange( thisEntity, hHook:GetCastRange(thisEntity:GetAbsOrigin(), nil) )
-                if #hVisibleEnemies > 1 then
-                    local rand = RandomInt( 1, #hVisibleEnemies )
-                    -- PrintTable(hVisibleEnemies)
-                    -- print("Rand Num = " .. tostring(rand))
-                    local hRandomEnemy = hVisibleEnemies[ rand ]
-                    print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Casting Hook on " .. hRandomEnemy:GetUnitName())
-                    local dirFacing = hRandomEnemy:GetForwardVector()
-                    local ms = hRandomEnemy:GetMoveSpeedModifier(hRandomEnemy:GetBaseMoveSpeed(), false)
-                    local guesstimateFuturePos = dirFacing * (ms * 2)
-                    if hHook:IsCooldownReady() and hHook:IsFullyCastable() then
-                        CastHook(hRandomEnemy, guesstimateFuturePos)
-                        hHook:RefundManaCost()
-                        
+                --PrintTable(hRandomEnemy)
+                if hGrab:IsCooldownReady() and hGrab:IsFullyCastable() and (not hRandomEnemy:FindModifierByName("modifier_ul_grab_debuff")) then
+                    print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Casting Grab on " .. hRandomEnemy:GetUnitName())
+                    CastGrab(hRandomEnemy)
+                    -- see if grab succeeded
+                    if thisEntity:FindModifierByName("modifier_ul_grab_self") then
+                        thisEntity.currentAction = UL_ACT_CARRY
+                        print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Carrying to Sacrifice Tree")
                     end
                     return 1
                 end
+            else
+                -- can we hook?
+                local hVisibleEnemies = GetVisibleEnemyHeroesInRangeForNeutrals( thisEntity, hHook:GetCastRange(thisEntity:GetAbsOrigin(), nil) )
+                if #hVisibleEnemies > 0 then
+                    print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Try Hook")
+                    local rand = RandomInt( 1, #hVisibleEnemies )
+                    --PrintTable(hVisibleEnemies)
+                    -- print("Rand Num = " .. tostring(rand))
+                    local hRandomEnemy = hVisibleEnemies[ rand ]
+                    print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Casting Hook on " .. hRandomEnemy:GetUnitName())
+                    -- print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Target At: ")
+                    --PrintVector(hRandomEnemy:GetAbsOrigin())
+                    local dirFacing = hRandomEnemy:GetForwardVector()
+                    local ms = hRandomEnemy:GetMoveSpeedModifier(hRandomEnemy:GetBaseMoveSpeed(), false)
+                    local guesstimateFuturePos = dirFacing * (ms * 2)
+                    -- print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Throwing Hook At: ")
+                    -- PrintVector(guesstimateFuturePos)
+                    if hHook:IsCooldownReady() and hHook:IsFullyCastable() then
+                        CastHook(hRandomEnemy, guesstimateFuturePos)
+                        hHook:RefundManaCost()
+                        return 1
+                    end
+                end
             end
+
+            -- if we made it this far without casting anything, then try to auto-attack
+            -- print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Auto-Attacking: ")
+            -- ExecuteOrderFromTable({
+			-- 	UnitIndex = thisEntity:entindex(),
+			-- 	OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+			-- 	TargetIndex = thisEntity.hCurrTarget:entindex(),
+			-- })
+            ExecuteOrderFromTable({
+                	UnitIndex = thisEntity:entindex(),
+                	OrderType = DOTA_UNIT_ORDER_MOVE_TO_TARGET,
+                	TargetIndex = thisEntity.hCurrTarget:entindex(),
+                })
+            return RandomFloat( 0.5, 1.5 )
         end
     end
 
@@ -208,12 +250,14 @@ function CastGrab ( hTarget )
 end
 
 function CastHook ( hTarget, position )
+    --print("Firing Hook")
+    --PrintVector(position)
     ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-		Position = position,
+		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+		Position = hTarget:GetOrigin() + position,
 		AbilityIndex = hHook:entindex(),
-		TargetIndex = hTarget:GetEntityIndex(),
+		--TargetIndex = hTarget:GetEntityIndex(),
 		Queue = false,
 	})
 end

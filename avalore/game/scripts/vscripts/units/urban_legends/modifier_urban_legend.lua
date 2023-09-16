@@ -2,6 +2,8 @@ LinkLuaModifier( "modifier_urban_legend_revive",  "units/urban_legends/modifier_
 
 modifier_urban_legend = class({})
 
+function modifier_urban_legend:IsHidden() return true end
+
 function modifier_urban_legend:DeclareFunctions()
     return { MODIFIER_EVENT_ON_TAKEDAMAGE }
 end

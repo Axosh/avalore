@@ -132,6 +132,9 @@ function Precache( context )
 	-- CREEPS
 	-- =============
 	PrecacheResource("particle_folder", "particles/creeps/lane_creeps", context)
+	-- Urban Legends
+	PrecacheResource("particle_folder", "particles/econ/items/pudge", context)
+	PrecacheResource("model_folder", "models/items/pudge", context)
 
 	-- =============
 	-- ITEMS

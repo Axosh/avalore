@@ -13,6 +13,7 @@
         "CanBeDominated"			"0"
         "ConsideredHero"			"1"
         "HasInventory"				"0"
+        "Level"						"20"
 
         // "AI"
         "vscripts"                  "units/urban_legends/chainsaw_murderer/ai_chainsaw_murderer.lua"
@@ -75,8 +76,12 @@
             "DisableClumpingBehavior"	"1"
             "AttachWearables"
             {
-                "Wearable1" { "ItemDef" "6226" } // Isatiable Bonesaw
-                "Wearable2" { "ItemDef" "6298" } // Shoulder of the Black Death
+                "Wearable1" { "ItemDef" "6226" } // offhand - Isatiable Bonesaw
+                //"Wearable2" { "ItemDef" "6298" } // Shoulder of the Black Death
+                "Wearable2" { "ItemDef" "6115" } // Shoulder - Pauldron Perch
+                "Wearable3" { "ItemDef" "6007" } // Head - Murder Mask
+                "Wearable4" { "ItemDef" "6458" } // Hook - Scortching Hook
+                "Wearable5" { "ItemDef" "6203" } // Arm - Armor of the Black Bird
             }
         }
     }
