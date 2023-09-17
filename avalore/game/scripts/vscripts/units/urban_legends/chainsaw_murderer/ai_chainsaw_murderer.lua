@@ -48,6 +48,7 @@ function ChainsawMurdererAIThink( self )
         thisEntity:AddNewModifier(thisEntity, nil, "modifier_urban_legend", { })
         thisEntity:AddNewModifier(thisEntity, nil, "modifier_avalore_not_auto_attackable", {})
 		thisEntity.FirstPass = false
+        thisEntity.lastOutpostAttempt = GameRules:GetGameTime()
         local midpoint
         local flag
         local gem
@@ -194,9 +195,9 @@ function ChainsawMurdererAIThink( self )
 			-- 	TargetIndex = thisEntity.hCurrTarget:entindex(),
 			-- })
             ExecuteOrderFromTable({
-                	UnitIndex = thisEntity:entindex(),
-                	OrderType = DOTA_UNIT_ORDER_MOVE_TO_TARGET,
-                	TargetIndex = thisEntity.hCurrTarget:entindex(),
+                UnitIndex = thisEntity:entindex(),
+                OrderType = DOTA_UNIT_ORDER_MOVE_TO_TARGET,
+                TargetIndex = thisEntity.hCurrTarget:entindex(),
                 })
             return RandomFloat( 0.5, 1.5 )
         end
@@ -213,6 +214,24 @@ function ChainsawMurdererAIThink( self )
 
     if (   thisEntity.currentAction == UL_ACT_DEAGGRO
         or thisEntity.currentAction == UL_ACT_PATROL  ) then
+            -- try to steal the outpost if near it
+            if ((GameRules:GetGameTime() - thisEntity.lastOutpostAttempt > 20) and
+                (thisEntity:GetAbsOrigin() - thisEntity.outpost:GetAbsOrigin()):Length2D() < 400 ) then
+
+                print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Trying to Steal Outpost")
+                -- ExecuteOrderFromTable({
+                --     UnitIndex = thisEntity:entindex(),
+                --     OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+                --     TargetIndex = thisEntity.outpost:entindex(),
+                --     --Position = thisEntity.outpost:GetAbsOrigin(),
+                -- })
+                ExecuteOrderFromTable({
+                    UnitIndex = thisEntity:entindex(),
+                    OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+                    TargetIndex = thisEntity.outpost:entindex(),
+                    --Position = thisEntity.outpost:GetAbsOrigin(),
+                })
+            end
             -- see if we're at target location (within 200 radius)
             if (thisEntity:GetAbsOrigin() - thisEntity.currPatrolTarget):Length2D() < 200 then
                 -- if we've gotten to the end of the route, reset it
