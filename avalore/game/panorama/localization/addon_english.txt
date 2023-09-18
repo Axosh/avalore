@@ -72,6 +72,8 @@
 
 	"AVALORE_Stash_Grab_All"						"Grab All In Stash"
 
+	"AVALORE_UL_Sacrifice_Player"					"You have been sacrificed!"							
+
 	// BUTTONS
 	"ControlBuilding"								"Control Building"
 }
