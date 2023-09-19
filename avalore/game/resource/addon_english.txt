@@ -242,6 +242,8 @@
 
 		"npc_avalore_ul_chainsaw_murderer"								"Chainsaw Murderer"		
 
+		"DOTA_Tooltip_Ability_ability_ul_grab"							"Grab"
+
 		// ===== ARCANERY ===== //
 		"building_arcanery"							"Arcanery"
 
