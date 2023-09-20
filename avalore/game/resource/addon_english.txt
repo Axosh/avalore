@@ -243,6 +243,7 @@
 		"npc_avalore_ul_chainsaw_murderer"								"Chainsaw Murderer"		
 
 		"DOTA_Tooltip_Ability_ability_ul_grab"							"Grab"
+		"DOTA_Tooltip_Ability_ability_ul_grab_description"				"Grabs target and drag them behind you. Only broken when caster has taken %dmg_to_drop%, reached the sacrificial tree, or "
 
 		// ===== ARCANERY ===== //
 		"building_arcanery"							"Arcanery"
