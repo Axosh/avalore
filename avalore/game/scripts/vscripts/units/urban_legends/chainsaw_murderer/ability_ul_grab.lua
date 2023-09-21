@@ -36,6 +36,7 @@ function modifier_ul_grab_debuff:OnCreated(params)
 	if not IsServer() then return end
 
 	self.drag_distance			= self:GetAbility():GetSpecialValueFor("drag_distance")
+	self.break_distance			= self:GetAbility():GetSpecialValueFor("break_distance")
 	self.interval			= FrameTime()
 	self.vector				= self:GetParent():GetAbsOrigin() - self:GetCaster():GetAbsOrigin()
 	self.current_position	= self:GetCaster():GetAbsOrigin()
@@ -61,7 +62,7 @@ function modifier_ul_grab_debuff:OnIntervalThink()
 	self.current_position	= self:GetCaster():GetAbsOrigin()
 
 	-- if we're super far away (problem, some sort of teleport) then break the chain
-	if (self:GetParent():GetAbsOrigin() - self:GetCaster():GetAbsOrigin()):Length2D() > (self.drag_distance * 2) then
+	if (self:GetParent():GetAbsOrigin() - self:GetCaster():GetAbsOrigin()):Length2D() > self.break_distance then
 		self:Destroy()
 	end
 	

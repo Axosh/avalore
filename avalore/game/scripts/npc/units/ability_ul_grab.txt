@@ -54,6 +54,11 @@
                 "var_type"				"FIELD_INTEGER"
                 "dmg_to_drop"           "750"
             }
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"break_distance"		"400"
+			}
 		}
 	}
 }
