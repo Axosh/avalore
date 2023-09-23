@@ -227,7 +227,7 @@ function ChainsawMurdererAIThink( self )
                 -- })
                 ExecuteOrderFromTable({
                     UnitIndex = thisEntity:entindex(),
-                    OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+                    OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
                     TargetIndex = thisEntity.outpost:entindex(),
                     --Position = thisEntity.outpost:GetAbsOrigin(),
                 })
