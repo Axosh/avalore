@@ -6,6 +6,19 @@
 		children = 
 		[
 			{
+				_class = "Skeleton"
+				children = 
+				[
+					{
+						_class = "Bone"
+						name = "cube"
+						origin = [ 0.0, 0.0, 0.0 ]
+						angles = [ -0.0, 90.0, 90.0 ]
+						do_not_discard = true
+					},
+				]
+			},
+			{
 				_class = "HitboxSetList"
 				children = 
 				[
@@ -15,15 +28,13 @@
 						children = 
 						[
 							{
-								_class = "HitboxCapsule"
-								name = "cube"
-								parent_bone = ""
+								_class = "Hitbox"
+								parent_bone = "Cube"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								radius = 63.857525
-								point0 = [ -10.533264, -5.97641, 307.818359 ]
-								point1 = [ -1.133629, -3.024246, -1.09288 ]
+								hitbox_mins = [ -50.0, -50.0, -68.460136 ]
+								hitbox_maxs = [ 50.0, 360.827118, 60.133076 ]
 							},
 						]
 					},
@@ -53,7 +64,6 @@
 					{
 						_class = "AnimFile"
 						name = "cube"
-						note = "Type note..."
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
