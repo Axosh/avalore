@@ -30,6 +30,8 @@ function Spawn( entityKeyValues )
     hHook:SetLevel(4)
     hGrab = thisEntity:FindAbilityByName("ability_ul_grab")
     hGrab:SetLevel(1)
+    hCapture = thisEntity:FindAbilityByName("ability_capture")
+    hCapture:SetLevel(1)
 
 
     thisEntity.patrol_route = {}
@@ -71,6 +73,12 @@ function ChainsawMurdererAIThink( self )
         thisEntity.patrol_route = {thisEntity.spawnLocation, midpoint:GetOrigin(), flag:GetOrigin(), gem:GetOrigin(), thisEntity.outpost:GetOrigin(), gem:GetOrigin(), flag:GetOrigin(), midpoint:GetOrigin()}
         PrintTable(thisEntity.patrol_route)
         thisEntity.currPatrolTarget = thisEntity.patrol_route[thisEntity.patrol_step]
+
+        --debug
+        -- print("Outpost has abilities: " .. tostring(thisEntity.outpost:GetAbilityCount()))
+        -- for i = 0, thisEntity.outpost:GetAbilityCount(), 1 do
+        --     print(tostring(i) .. " - " .. thisEntity.outpost:GetAbilityByIndex(i):GetName())
+        -- end
 	end
 
     -- =================================================================
@@ -85,6 +93,11 @@ function ChainsawMurdererAIThink( self )
 	if GameRules:IsGamePaused() then
 		return 0.1
 	end
+
+    -- don't interrupt channel
+    if thisEntity:IsChanneling() then
+        return 0.1
+    end
 
     -- =================================================================
     -- ACTIONS
@@ -219,18 +232,13 @@ function ChainsawMurdererAIThink( self )
                 (thisEntity:GetAbsOrigin() - thisEntity.outpost:GetAbsOrigin()):Length2D() < 400 ) then
 
                 print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Trying to Steal Outpost")
-                -- ExecuteOrderFromTable({
-                --     UnitIndex = thisEntity:entindex(),
-                --     OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-                --     TargetIndex = thisEntity.outpost:entindex(),
-                --     --Position = thisEntity.outpost:GetAbsOrigin(),
-                -- })
-                ExecuteOrderFromTable({
-                    UnitIndex = thisEntity:entindex(),
-                    OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-                    TargetIndex = thisEntity.outpost:entindex(),
-                    --Position = thisEntity.outpost:GetAbsOrigin(),
-                })
+                if thisEntity.outpost:GetTeam() == DOTA_TEAM_BADGUYS or thisEntity.outpost:GetTeam() == DOTA_TEAM_GOODGUYS then
+                    CastCapture( thisEntity.outpost )
+                else
+                    print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Skipping Outpost - Already Owned by Neutrals")
+                end
+                thisEntity.lastOutpostAttempt = GameRules:GetGameTime()
+                return 1.0
             end
             -- see if we're at target location (within 200 radius)
             if (thisEntity:GetAbsOrigin() - thisEntity.currPatrolTarget):Length2D() < 200 then
@@ -277,6 +285,16 @@ function CastHook ( hTarget, position )
 		Position = hTarget:GetOrigin() + position,
 		AbilityIndex = hHook:entindex(),
 		--TargetIndex = hTarget:GetEntityIndex(),
+		Queue = false,
+	})
+end
+
+function CastCapture ( hTarget )
+    ExecuteOrderFromTable({
+		UnitIndex = thisEntity:entindex(),
+		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+		AbilityIndex = hCapture:entindex(),
+		TargetIndex = hTarget:GetEntityIndex(),
 		Queue = false,
 	})
 end
