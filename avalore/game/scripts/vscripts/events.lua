@@ -279,6 +279,10 @@ function CAvaloreGameMode:OnEntityKilled(event)
 		end
 	end
 
+	if attackerEntity:GetUnitName() == "npc_avalore_ul_chainsaw_murderer" then
+		objectiveMsg = "AVALORE_UL_Sacrifice_Player"
+	end
+
 
 	if attackerEntity:IsRealHero() then
 		print("[Events] Killed Entity: " .. killedEntity:GetUnitName())
