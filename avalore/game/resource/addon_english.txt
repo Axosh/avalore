@@ -248,6 +248,9 @@
 		"DOTA_Tooltip_modifier_ul_grab_self"							"Carrying"
 		"DOTA_Tooltip_modifier_ul_grab_self_description"				"Must take %dMODIFIER_PROPERTY_TOOLTIP% to drop target"
 
+		"DOTA_Tooltip_modifier_ul_grab_debuff"							"Being Carried"
+		"DOTA_Tooltip_modifier_ul_grab_debuff_description"				"Completely immobilized until caster takes %dMODIFIER_PROPERTY_TOOLTIP% damage"
+
 		// ===== ARCANERY ===== //
 		"building_arcanery"							"Arcanery"
 

@@ -40,6 +40,7 @@ function modifier_ul_grab_debuff:OnCreated(params)
 	self.interval			= FrameTime()
 	self.vector				= self:GetParent():GetAbsOrigin() - self:GetCaster():GetAbsOrigin()
 	self.current_position	= self:GetCaster():GetAbsOrigin()
+	self.dmg_to_drop	= self:GetAbility():GetSpecialValueFor("dmg_to_drop")
 
 	-- so we don't get a cluster of lane creeps following
 	self.non_auto_attack_mod = self:GetParent():AddNewModifier(self, nil, "modifier_avalore_not_auto_attackable", {})
@@ -95,7 +96,11 @@ function modifier_ul_grab_debuff:CheckState()
 end
 
 function modifier_ul_grab_debuff:DeclareFunctions()
-	return { MODIFIER_PROPERTY_OVERRIDE_ANIMATION }
+	return { MODIFIER_PROPERTY_OVERRIDE_ANIMATION, MODIFIER_PROPERTY_TOOLTIP }
+end
+
+function modifier_ul_grab_debuff:OnTooltip()
+	return self.dmg_to_drop
 end
 
 function modifier_ul_grab_debuff:GetOverrideAnimation()
