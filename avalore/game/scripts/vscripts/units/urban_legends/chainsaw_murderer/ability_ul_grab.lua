@@ -108,6 +108,8 @@ end
 
 modifier_ul_grab_self = modifier_ul_grab_self or class({})
 
+function modifier_ul_grab_self:IsHidden() return false end
+
 function modifier_ul_grab_self:IsPurgable()	return false end
 	
 function modifier_ul_grab_self:OnCreated(kv)
@@ -127,11 +129,17 @@ function modifier_ul_grab_self:OnCreated(kv)
 end
 
 function modifier_ul_grab_self:DeclareFunctions()
-	return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION, MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK}
+	return { 	MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+				MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
+				MODIFIER_PROPERTY_TOOLTIP }
 end
 
 function modifier_ul_grab_self:GetOverrideAnimation()
 	return ACT_DOTA_LASSO_LOOP
+end
+
+function modifier_ul_grab_self:OnTooltip()
+	return self.dmg_to_drop_remaining
 end
 
 -- not actually doing any manipulation of this, just need to count how much damage until we drop
@@ -147,6 +155,7 @@ function modifier_ul_grab_self:GetModifierTotal_ConstantBlock(kv)
 
 	return 0
 end
+
 
 function modifier_ul_grab_self:OnIntervalThink()
 	if not IsServer() then return end

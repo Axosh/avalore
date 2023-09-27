@@ -245,6 +245,9 @@
 		"DOTA_Tooltip_Ability_ability_ul_grab"							"Grab"
 		"DOTA_Tooltip_Ability_ability_ul_grab_description"				"Grabs target and drag them behind you. Only broken when caster has taken %dmg_to_drop% damage, reached the sacrificial tree, or if there is %break_distance% units between caster and target."
 
+		"DOTA_Tooltip_modifier_ul_grab_self"							"Carrying"
+		"DOTA_Tooltip_modifier_ul_grab_self_description"				"Must take %dMODIFIER_PROPERTY_TOOLTIP% to drop target"
+
 		// ===== ARCANERY ===== //
 		"building_arcanery"							"Arcanery"
 
