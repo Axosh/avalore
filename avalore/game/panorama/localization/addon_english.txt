@@ -25,6 +25,18 @@
 													• Holding a Captured Outpost for 30 sec grants +1 point<br>
 													• Holding an Outpost longer than the other team at the end of the round grants +15 Points<br>
 													• Urban Legends roam the jungle and will try to sacrifice players and capture Outposts<br>
+													=========================<br>
+													Round 3 - Crossing of the Return Threshold<br>
+													=========================<br>
+													• The opposing side's ancient creeps drop a magic gem<br>
+													• Bring that gem to your team's island<br>
+													• Slay the Boss that spawns for +30 points<br>
+													=========================<br>
+													Round 4 - Survival
+													=========================<br>
+													• The Beast spawns in the center of the map and is worth +50 points<br>
+													• Two Towers on each side of The Pit prevent The Beast from taking damage<br>
+													• The Two Towers will continuously spawn Frozen Horde creeps that will overwhelm your lane creeps<br>
 													"
 
 
