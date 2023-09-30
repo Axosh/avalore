@@ -2,7 +2,7 @@
 {
 	"InstructionTitle"								"Avalore"
 	"InstructionsObjective"							"OBJECTIVE"
-	"InstructionsObjectiveText"						"The team with the most points in 40 minutes."
+	"InstructionsObjectiveText"						"The team with the most points in 40 minutes wins, or the first to take the other team's ancient wins."
 	"InstructionsHowToPlay"							"HOW TO PLAY"
 	"InstructionsLines"								"
 													=========================<br>
