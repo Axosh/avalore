@@ -70,6 +70,7 @@ Almost all others are via:
   - [Drink me](https://game-icons.net/1x1/lorc/drink-me.html)
   - [Drop](https://game-icons.net/1x1/lorc/drop.html)
   - [Dust cloud](https://game-icons.net/1x1/lorc/dust-cloud.html)
+  - [Fangs circle](https://game-icons.net/1x1/lorc/fangs-circle.html)
   - [Frozen orb](https://game-icons.net/1x1/lorc/frozen-orb.html)
   - [Gem chain](https://game-icons.net/1x1/lorc/gem-chain.html)
   - [Gem nacklace](https://game-icons.net/1x1/lorc/gem-necklace.html)
