@@ -89,6 +89,7 @@ Almost all others are via:
   - [Drop](https://game-icons.net/1x1/lorc/drop.html)
   - [Dust cloud](https://game-icons.net/1x1/lorc/dust-cloud.html)
   - [Fangs circle](https://game-icons.net/1x1/lorc/fangs-circle.html)
+  - [Fluffy trefoil](https://game-icons.net/1x1/lorc/fluffy-trefoil.html)
   - [Flying flag](https://game-icons.net/1x1/lorc/flying-flag.html)
   - [Frozen orb](https://game-icons.net/1x1/lorc/frozen-orb.html)
   - [Gem chain](https://game-icons.net/1x1/lorc/gem-chain.html)
