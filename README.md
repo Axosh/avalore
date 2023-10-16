@@ -92,6 +92,7 @@ Almost all others are via:
 - Icons by [Lorc](https://lorcblog.blogspot.com/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
   - [Arrowhead](https://game-icons.net/1x1/lorc/arrowhead.html)
   - [Arrow scope](https://game-icons.net/1x1/lorc/arrow-scope.html)
+  - [Auto repair](https://game-icons.net/1x1/lorc/auto-repair.html)
   - [Barefoot](https://game-icons.net/1x1/lorc/barefoot.html)
   - [Boots](https://game-icons.net/1x1/lorc/boots.html)
   - [Breastplate](https://game-icons.net/1x1/lorc/breastplate.html)
