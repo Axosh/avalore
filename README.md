@@ -158,6 +158,7 @@ Almost all others are via:
 - Icons by [sbed](http://opengameart.org/content/95-game-icons) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
   - [Fireflake](https://game-icons.net/1x1/sbed/fireflake.html)
   - [Regeneration](https://game-icons.net/1x1/sbed/regeneration.html)
+  - [Usable](https://game-icons.net/1x1/sbed/usable.html)
 - Icons by [Skoll](https://game-icons.net/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
   - [Pauldrons](https://game-icons.net/1x1/skoll/pauldrons.html)
 - [Viscious Speed](https://viscious-speed.deviantart.com/) under [CC0 PDD](https://creativecommons.org/publicdomain/zero/1.0/)
