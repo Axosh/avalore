@@ -130,6 +130,7 @@ Almost all others are via:
   - [Portal](https://game-icons.net/1x1/lorc/portal.html)
   - [Pyromaniac](https://game-icons.net/1x1/lorc/pyromaniac.html)
   - [Quick slash](https://game-icons.net/1x1/lorc/quick-slash.html)
+  - [Rally the troops](https://game-icons.net/1x1/lorc/rally-the-troops.html)
   - [Ribbon](https://game-icons.net/1x1/lorc/ribbon.html)
   - [Robe](https://game-icons.net/1x1/lorc/robe.html)
   - [Rock](https://game-icons.net/1x1/lorc/rock.html)
