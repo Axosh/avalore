@@ -120,6 +120,7 @@ Almost all others are via:
   - [Holy Grail](https://game-icons.net/1x1/lorc/holy-grail.html)
   - [Hood](https://game-icons.net/1x1/lorc/hood.html)
   - [Horned helmet](https://game-icons.net/1x1/lorc/horned-helm.html)
+  - [Imp](https://game-icons.net/1x1/lorc/imp.html)
   - [Lion](https://game-icons.net/1x1/lorc/lion.html)
   - [Magic shield](https://game-icons.net/1x1/lorc/magic-shield.html)
   - [Mailed fist](https://game-icons.net/1x1/lorc/mailed-fist.html)
