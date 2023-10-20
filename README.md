@@ -149,6 +149,7 @@ Almost all others are via:
   - [Square bottle](https://game-icons.net/1x1/lorc/square-bottle.html)
   - [Steeltoe boots](https://game-icons.net/1x1/lorc/steeltoe-boots.html)
   - [Stone tower](https://game-icons.net/1x1/lorc/stone-tower.html)
+  - [Strong](https://game-icons.net/1x1/lorc/strong.html)
   - [Sundial](https://game-icons.net/1x1/lorc/sundial.html)
   - [Sword wound](https://game-icons.net/1x1/lorc/sword-wound.html)
   - [Tread](https://game-icons.net/1x1/lorc/tread.html)
