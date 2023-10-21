@@ -28,19 +28,19 @@ function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp_index
         return
     end
 
-    --print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation => " .. tostring(location))
+    print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation => " .. tostring(location))
     local merc_camp = EntIndexToHScript(merc_camp_index)
     local team = merc_camp:GetCaster():GetTeamNumber()
     local lane = ""
 
     -- determine which merc camp this is
-    if merc_camp:GetAbsOrigin() ==  Vector(-7232, -5888, 256) then
+    if merc_camp:GetAbsOrigin() ==  Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_TOP]:GetAbsOrigin() then --Vector(-7232, -5888, 256) then
         lane = Constants.KEY_RADIANT_TOP
-    elseif merc_camp:GetAbsOrigin() ==  Vector(-5888, -7232, 256) then
+    elseif merc_camp:GetAbsOrigin() ==  Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_BOT]:GetAbsOrigin() then --Vector(-5888, -7232, 256) then
         lane = Constants.KEY_RADIANT_BOT
-    elseif merc_camp:GetAbsOrigin() ==  Vector(5888, 7232, 256) then
+    elseif merc_camp:GetAbsOrigin() ==  Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP]:GetAbsOrigin() then --Vector(5888, 7232, 256) then
         lane = GetAbsOrigin.KEY_DIRE_TOP
-    elseif merc_camp:GetAbsOrigin() ==  Vector(7232, 5888, 256) then
+    elseif merc_camp:GetAbsOrigin() ==  Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT]:GetAbsOrigin() then --Vector(7232, 5888, 256) then
         lane = Constants.KEY_DIRE_BOT
     else
         print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation => DOES NOT MATCH ANY MERC CAMP")
