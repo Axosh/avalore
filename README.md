@@ -35,6 +35,7 @@ Almost all others are via:
 - Icons by [Cathelineau](https://game-icons.net/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
   - [Carnyx](https://game-icons.net/1x1/cathelineau/carnyx.html)
   - [Medusa head](https://game-icons.net/1x1/cathelineau/medusa-head.html)
+  - [Swordman](https://game-icons.net/1x1/cathelineau/swordman.html)
   - [Torc](https://game-icons.net/1x1/cathelineau/torc.html)
 - Icons by [Dbh2ppa](https://commons.wikimedia.org/wiki/User_talk:Dbh2ppa) under Public Domain
   - [Aegishjalmr](https://en.wikipedia.org/wiki/Helm_of_Awe#/media/File:Aegishjalmr.svg)
