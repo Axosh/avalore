@@ -27,6 +27,9 @@ function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp_index
     if location and location == Vector(0,0,0) then
         return
     end
+    if Spawners.MercCamps == nil then
+        print("Spawners not initialized yet")
+    end
 
     print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation => " .. tostring(location))
     local merc_camp = EntIndexToHScript(merc_camp_index)

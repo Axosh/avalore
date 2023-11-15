@@ -82,6 +82,9 @@ function Precache( context )
 	PrecacheResource( "model", OBJECTIVE_FLAG_MODEL_D, context )
 	PrecacheResource( "model", OBJECTIVE_FLAG_MODEL_E, context )
 
+	-- ***************************************************
+	-- REMINDER: parity changes to addon_init.lua
+	-- ***************************************************
 	LinkLuaModifier( "modifier_unselectable", MODIFIER_UNSELECTABLE, LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_capturable", MODIFIER_CAPTURABLE, LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_invuln_tower_based", MODIFIER_INVULN_TOWER_BASED, LUA_MODIFIER_MOTION_NONE )

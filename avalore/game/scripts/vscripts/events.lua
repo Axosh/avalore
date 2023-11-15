@@ -13,6 +13,9 @@ require(REQ_CLASS_INV)
 require(REQ_LIB_TIMERS)
 --require("scripts/vscripts/modifiers/modifier_wearable")
 
+-- ***************************************************
+-- REMINDER: parity changes to addon_init.lua
+-- ***************************************************
 LinkLuaModifier( "modifier_inventory_manager", "scripts/vscripts/modifiers/modifier_inventory_manager", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_pregame_bubble", "scripts/vscripts/modifiers/modifier_pregame_bubble.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA_MODIFIER_MOTION_NONE )
@@ -310,6 +313,7 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	-- ==========================
 
 	if killedEntity:GetUnitName() == ROUND1_WISP_UNIT then
+		print("Wisp Killed")
 		--objectivePoints = 3
 		local skip_wisps = false -- used when end of round kills remaining wisps
 		local first_wisp = true--false
@@ -716,7 +720,8 @@ function CAvaloreGameMode:OnHeroFinishSpawn(event)
 		InventoryManager[hPlayerHero:GetPlayerOwnerID()] = inv
 		InventoryManager[hPlayerHero:GetPlayerOwnerID()]:Init(hPlayerHero:GetPlayerOwnerID())
 
-		hPlayerHero:AddNewModifier(hPlayerHero, nil, "modifier_inventory_manager", {inventory = inv})
+		--hPlayerHero:AddNewModifier(hPlayerHero, nil, "modifier_inventory_manager", {inventory = inv})
+		hPlayerHero:AddNewModifier(hPlayerHero, nil, "modifier_inventory_manager", {})
 
 		-- Init shared control of Merc Camps
 		-- print("---- Give Shared Control to Merc Camps ----")
