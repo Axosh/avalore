@@ -234,6 +234,9 @@ function CAvaloreGameMode:OnEntityKilled(event)
 	-- 	print("Player Died!")
 	-- end
 
+	--print(`[OnEntityKilled] {killedEntity} was slain by {attackerEntity}`)
+	--print("[OnEntityKilled] " .. killedEntity:GetUnitName() .. " was slain by " .. attackerEntity:GetUnitName())
+
 	-- used to navigate Score tables
 	if killedTeam == DOTA_TEAM_BADGUYS then
 		killedTeamString = "dire"

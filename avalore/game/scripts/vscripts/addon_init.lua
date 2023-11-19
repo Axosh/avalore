@@ -1,5 +1,6 @@
 -- load in stuff for client-side
 require("references")
+require("constants")
 
 if IsClient() then	-- Load clientside utility lib
 	require("client_extension")
@@ -23,7 +24,7 @@ if IsClient() then	-- Load clientside utility lib
 	-- ==========================================================
 	LinkLuaModifier( "modifier_inventory_manager", "scripts/vscripts/modifiers/modifier_inventory_manager", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_pregame_bubble", "scripts/vscripts/modifiers/modifier_pregame_bubble.lua", LUA_MODIFIER_MOTION_NONE )
-	-- LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( MODIFIER_ROUND1_WISP_REGEN, REF_MODIFIER_ROUND1_WISP_REGEN, LUA_MODIFIER_MOTION_NONE )
 
 	-- LinkLuaModifier( "modifier_avalore_obs_ward", "scripts/vscripts/modifiers/modifier_avalore_obs_ward", LUA_MODIFIER_MOTION_NONE )
 	-- LinkLuaModifier( "modifier_avalore_sent_ward", "scripts/vscripts/modifiers/modifier_avalore_sent_ward", LUA_MODIFIER_MOTION_NONE )
@@ -53,4 +54,7 @@ if IsClient() then	-- Load clientside utility lib
 
 	-- Elemental
 	LinkLuaModifier( "modifier_wet", "scripts/vscripts/modifiers/elemental_status/modifier_wet.lua", LUA_MODIFIER_MOTION_NONE )
+
+	-- From: quests
+	LinkLuaModifier( "modifier_quest_wisp", "scripts/vscripts/modifiers/modifier_quest_wisp.lua", LUA_MODIFIER_MOTION_NONE )
 end

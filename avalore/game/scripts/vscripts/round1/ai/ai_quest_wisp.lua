@@ -51,6 +51,7 @@ end
 function aiThink( self )
 	--print("Wisp aiThink()")
     if not self:IsAlive() then
+		--print("[aiThink] Wisp is dead")
     	return
     end
 	if GameRules:IsGamePaused() then

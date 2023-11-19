@@ -32,9 +32,14 @@ function modifier_quest_wisp:GetDisableHealing()
 end
 
 function modifier_quest_wisp:OnAttackLanded(params)
-	--print('Attack landed')
+    if not IsServer() then return end
+
     if params.target == self:GetParent() then
-        params.target:SetHealth(params.target:GetHealth() - 1)
+        if params.target:GetHealth() > 1 then
+            params.target:SetHealth(params.target:GetHealth() - 1)
+        else
+            params.target:Kill(nil, params.attacker)
+        end
     end
 end
 
