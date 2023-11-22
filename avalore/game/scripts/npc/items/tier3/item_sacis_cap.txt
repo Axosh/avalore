@@ -47,7 +47,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        //"ItemCost"                      "2075"
+        "ItemCost"                      "2200"
         "ItemShopTags"                  "teleport"
         "ItemQuality"                   "rare"
         "ItemAliases"                   "blink,dagger"
