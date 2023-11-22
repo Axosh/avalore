@@ -39,7 +39,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
+        "ItemCost"                      "500"
         "ItemShopTags"                  "invisibility"
         "ItemQuality"                   "component"
         "ItemAliases"                   "eos"

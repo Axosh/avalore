@@ -39,7 +39,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
+        "ItemCost"                      "200"
         "ItemShopTags"                  "block"
         "ItemQuality"                   "component"
         //"ItemAliases"                   "gloves;cloth"

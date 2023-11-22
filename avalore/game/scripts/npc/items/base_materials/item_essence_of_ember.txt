@@ -39,7 +39,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
+        "ItemCost"                      "250"
         "ItemShopTags"                  "slow"
         "ItemQuality"                   "component"
         "ItemAliases"                   "ember"

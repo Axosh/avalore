@@ -39,7 +39,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
+        "ItemCost"                      "250"
         "ItemShopTags"                  "hp,regen"
         "ItemQuality"                   "component"
         "ItemAliases"                   "regeneration,eor"

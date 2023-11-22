@@ -12,7 +12,7 @@
         "MaxLevel" 						"5"
 		"FightRecapLevel"				"1"
 
-		//"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
         //"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET" // | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"   
         "AbilityBehavior"                                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
         "AbilityUnitTargetType"                                 "DOTA_UNIT_TARGET_NONE"

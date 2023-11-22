@@ -39,7 +39,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
+        "ItemCost"                      "175"
         //"ItemShopTags"                  ""
         "ItemQuality"                   "component"
         "ItemAliases"                   "chest;agi"

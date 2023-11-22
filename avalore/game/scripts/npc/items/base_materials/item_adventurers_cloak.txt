@@ -39,7 +39,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
+        "ItemCost"                      "400"
         "ItemShopTags"                  "str;agi;int;armor"
         "ItemQuality"                   "component"
         "ItemAliases"                   "cloak"

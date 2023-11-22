@@ -36,6 +36,12 @@ function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp_index
     local team = merc_camp:GetCaster():GetTeamNumber()
     local lane = ""
 
+
+    if not merc_camp then
+        print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation => null")
+        return
+    end
+
     -- determine which merc camp this is
     if merc_camp:GetAbsOrigin() ==  Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_TOP]:GetAbsOrigin() then --Vector(-7232, -5888, 256) then
         lane = Constants.KEY_RADIANT_TOP
