@@ -428,9 +428,9 @@ function CAvaloreGameMode:OnEntityKilled(event)
 		end
 		local broadcast_obj =
 		{
-			msg = "objective_round3_part2_intro",
+			msg = "#objective_round3_part2_intro",
 			time = 10,
-			elaboration = "objective_round3_part2_elaboration"
+			elaboration = "#objective_round3_part2_elaboration"
 		}
 		CustomGameEventManager:Send_ServerToTeam(gem_broadcast_team, MESSAGE_EVENT_BROADCAST, broadcast_obj )
 	end
@@ -678,7 +678,8 @@ function IsAncientCreep(creep_name)
 	if (creep_name == "npc_dota_neutral_big_thunder_lizard" or
 		creep_name == "npc_dota_neutral_black_dragon" or
 		creep_name == "npc_dota_neutral_granite_golem" or
-		creep_name == "npc_dota_neutral_prowler_shaman"
+		creep_name == "npc_dota_neutral_prowler_shaman" or
+		creep_name == "npc_dota_neutral_ice_shaman"
 		) then
 			return true
 		end
