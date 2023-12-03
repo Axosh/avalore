@@ -70,7 +70,8 @@ function ChainsawMurdererAIThink( self )
             thisEntity.debug_side = "Dire"
         end
 
-        thisEntity.patrol_route = {thisEntity.spawnLocation, midpoint:GetOrigin(), flag:GetOrigin(), gem:GetOrigin(), thisEntity.outpost:GetOrigin(), gem:GetOrigin(), flag:GetOrigin(), midpoint:GetOrigin()}
+        --thisEntity.patrol_route = {thisEntity.spawnLocation, midpoint:GetOrigin(), flag:GetOrigin(), gem:GetOrigin(), thisEntity.outpost:GetOrigin(), gem:GetOrigin(), flag:GetOrigin(), midpoint:GetOrigin()}
+        thisEntity.patrol_route = {thisEntity.spawnLocation, flag:GetOrigin(), gem:GetOrigin(), thisEntity.outpost:GetOrigin(), gem:GetOrigin(), flag:GetOrigin() }
         PrintTable(thisEntity.patrol_route)
         thisEntity.currPatrolTarget = thisEntity.patrol_route[thisEntity.patrol_step]
 
@@ -139,7 +140,7 @@ function ChainsawMurdererAIThink( self )
         if #hVisiblePlayers > 0 then
             -- select target and make sure valid still
             local hRandomPlayer = hVisiblePlayers[ RandomInt( 1, #hVisiblePlayers ) ]
-            if hRandomPlayer ~= nil then
+            if hRandomPlayer ~= nil and not IsInRoshPit(hRandomPlayer) then
                 print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Aggro'd on " .. hRandomPlayer:GetUnitName())
                 thisEntity.currentAction = UL_ACT_AGGRO
                 thisEntity.fTimeAggroStarted = GameRules:GetGameTime()
@@ -157,6 +158,12 @@ function ChainsawMurdererAIThink( self )
             thisEntity.fTimeAggroStarted = nil
             thisEntity.currentAction = UL_ACT_DEAGGRO
             print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Deaggro")
+        -- don't go after units in the rosh pit
+        elseif IsInRoshPit(thisEntity.hCurrTarget) then
+            thisEntity.fTimeWeLostAggro = GameRules:GetGameTime()
+            thisEntity.fTimeAggroStarted = nil
+            thisEntity.currentAction = UL_ACT_PATROL
+            print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Lost Aggro (Roshing)")
         -- otherwise, try to grab our target
         else
             -- close enough to grab?
@@ -165,7 +172,7 @@ function ChainsawMurdererAIThink( self )
                 print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Try Grab")
                 local hRandomEnemy = hVisibleEnemies[ RandomInt( 1, #hVisibleEnemies ) ]
                 --PrintTable(hRandomEnemy)
-                if hGrab:IsCooldownReady() and hGrab:IsFullyCastable() and (not hRandomEnemy:FindModifierByName("modifier_ul_grab_debuff")) then
+                if hGrab:IsCooldownReady() and hGrab:IsFullyCastable() and (not hRandomEnemy:FindModifierByName("modifier_ul_grab_debuff")) and not IsInRoshPit(hRandomEnemy) then
                     print("[AI - Chainsaw Murderer - " .. thisEntity.debug_side .. "] Casting Grab on " .. hRandomEnemy:GetUnitName())
                     CastGrab(hRandomEnemy)
                     -- see if grab succeeded

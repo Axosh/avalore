@@ -460,3 +460,7 @@ function CalculateDistance(ent1, ent2)
 	local distance = (pos1 - pos2):Length2D()
 	return distance
 end
+
+function IsInRoshPit(ent)
+    return CalculateDistance(ent:GetAbsOrigin(), Vector(0, 0, 0)) < 800
+end
