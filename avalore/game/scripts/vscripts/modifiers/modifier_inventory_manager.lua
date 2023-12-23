@@ -37,15 +37,26 @@ function modifier_inventory_manager:OnIntervalThink()
     for inv_slot=0,8 do
         local item = hero:GetItemInSlot(inv_slot)
         if item then
+            --print("Curr Item - " .. item:GetName())
             local avalore_slot = item:GetSpecialValueFor("item_slot")
             if avalore_slot then
                 -- if regular item and not in right spot
                 if inv_slot < 6 and inv_slot ~= avalore_slot and avalore_slot ~= AVALORE_ITEM_SLOT_MISC then
+                    --print("Looking up item in slot " .. tostring(avalore_slot))
                     local item_tmp = hero:GetItemInSlot(avalore_slot)
+                    -- if item_tmp then 
+                    --     print("Lookup found " .. item_tmp:GetName())
+                    --     if not item_tmp:IsNull() then print("Not Null") end
+                    --     print("Should be in " .. tostring(item_tmp:GetSpecialValueFor("item_slot")))
+                    --     print("Looking at slot " .. tostring(inv_slot))
+                    --     if tostring(item_tmp:GetSpecialValueFor("item_slot")) == tostring(inv_slot) then print("In Same Slot") end
+                    -- end
                     -- make sure the item slot isn't filled (e.g. something combined in an odd way)
-                    if item_tmp and not item_tmp:IsNull() and item_tmp:GetSpecialValueFor("item_slot") == inv_slot then
+                    if item_tmp and (not item_tmp:IsNull()) and item_tmp:GetSpecialValueFor("item_slot") == avalore_slot then --== tostring(inv_slot) then
+                        --print("Slot Filled - Item " .. item:GetName() .. " in slot " .. tostring(inv_slot) .. " to take spot of " .. item_tmp:GetName() .. " in slot " .. tostring(avalore_slot))
                         move_to_stash_or_drop = true
                     else
+                        --print("Swap Possible - Moving Item " .. item:GetName() .. " in slot " .. tostring(inv_slot) .. " to slot " .. tostring(avalore_slot))
                         hero:SwapItems(inv_slot, avalore_slot)
                     end
                 -- if something is in the backpack that shouldn't be
@@ -75,6 +86,7 @@ function modifier_inventory_manager:OnIntervalThink()
 
         -- if we've got no valid options, try to move to the stash, otherwise drop it
         if move_to_stash_or_drop then
+            print("move_to_stash_or_drop == true")
             -- if hero is in range of shop, then just move it to the stash
             local moved_to_stash = false
             if hero:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
@@ -88,8 +100,8 @@ function modifier_inventory_manager:OnIntervalThink()
                 end
             end
             if not moved_to_stash then
-                hero:DropItemAtPositionImmediate(item, hero:GetOrigin())
                 print("Dropping item due to no space")
+                hero:DropItemAtPositionImmediate(item, hero:GetOrigin())
                 -- TODO: error message
             end
         end

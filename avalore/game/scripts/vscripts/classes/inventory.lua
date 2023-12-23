@@ -443,7 +443,11 @@ end
 function Inventory:RemoveFromMisc(item)
     print("Inventory:RemoveFromMisc(item) >> " .. item:GetName())
     for slot=AVALORE_ITEM_SLOT_MISC1,AVALORE_ITEM_SLOT_MISC3 do
-        if not self.slots[AVALORE_ITEM_SLOT_MISC][slot]:IsNull() and self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetName() == item:GetName() then
+        if (self.slots[AVALORE_ITEM_SLOT_MISC][slot]
+            and not self.slots[AVALORE_ITEM_SLOT_MISC][slot]:IsNull()
+            and not item:IsNull() 
+            and self.slots[AVALORE_ITEM_SLOT_MISC][slot]:GetName() == item:GetName()
+        ) then
             --self.slots[AVALORE_ITEM_SLOT_MISC][slot]   = (self.hero):AddItemByName("item_slot_misc")
             -- trying to fix a potential race condition
             if self.slots[AVALORE_ITEM_SLOT_MISC][slot]:IsSellable() then

@@ -90,16 +90,16 @@ function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp_index
     -- Merc Camp Vector ===>0.0029296875, 0.00146484375
     if merc_camp:GetAbsOrigin().x > 0.002 then
         lane = Constants.KEY_DIRE_BOT
-        print("Dire Top")
+        --print("Dire Top")
     elseif merc_camp:GetAbsOrigin().x < 0 then
         lane = Constants.KEY_DIRE_TOP
-        print("Dire Bot")
+        --print("Dire Bot")
     elseif merc_camp:GetAbsOrigin().x == 0 then
         lane = Constants.KEY_RADIANT_TOP
-        print("Radi Top")
+        --print("Radi Top")
     else
         lane = Constants.KEY_RADIANT_BOT
-        print("Radi Bot")
+        --print("Radi Bot")
     end
 
     if team == DOTA_TEAM_GOODGUYS then 
