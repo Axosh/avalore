@@ -435,7 +435,7 @@ function CAvaloreGameMode:ItemPurchased(event)
 	-- if event.itemname and event.itemname == "item_ambrosia" then
 		
 	-- end
-	-- local item = EntIndexToHScript( event.item_entindex )
+	--local item = EntIndexToHScript( event.item_entindex )
 	-- if item then
 	-- 	if (string.find(item:GetName(), "item_recipe")) then return end
 	-- 	print("CAvaloreGameMode:OnItemAdded(event)")
@@ -443,7 +443,7 @@ function CAvaloreGameMode:ItemPurchased(event)
     -- 	print("Item Slot: " .. item:GetItemSlot())
 		
 
-	-- 	local inventory = InventoryManager[event.inventory_player_id]
+	--local inventory = InventoryManager[event.inventory_player_id]
 	-- 	inventory:Add(item)
 	-- end
 end

@@ -15,7 +15,7 @@
         "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
         "FightRecapLevel"				"1"
         "AbilityTextureName"			"flying_dutchman"
-        "MaxLevel"						"4"
+        "MaxLevel"						"3"
         //"ScriptFile"				    "heroes/davy_jones/ability_flying_dutchman.lua"
 
         // Casting
@@ -30,7 +30,7 @@
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"				"80 40 20 0"
+        "AbilityManaCost"				"80 40 20"
 
         // Precache
         //-------------------------------------------------------------------------------------------------------------
@@ -48,7 +48,7 @@
             "01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"700 700 700 700"
+				"radius"				"700 700 700"
 			}
 			// "02"
 			// {
@@ -58,17 +58,17 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spirit_speed"			"500 500 500 500"
+				"spirit_speed"			"500 500 500"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"max_distance"			"2000 2000 2000 2000"
+				"max_distance"			"2000 2000 2000"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"give_up_distance"		"1200 1200 1200 1200"
+				"give_up_distance"		"1200 1200 1200"
 			}
 			"06"
 			{

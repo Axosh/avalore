@@ -1,6 +1,7 @@
 -- load in stuff for client-side
 require("references")
 require("constants")
+--require( "spawners" )
 
 if IsClient() then	-- Load clientside utility lib
 	require("client_extension")
@@ -57,4 +58,6 @@ if IsClient() then	-- Load clientside utility lib
 
 	-- From: quests
 	LinkLuaModifier( "modifier_quest_wisp", "scripts/vscripts/modifiers/modifier_quest_wisp.lua", LUA_MODIFIER_MOTION_NONE )
+
+	--Spawners:Init()
 end

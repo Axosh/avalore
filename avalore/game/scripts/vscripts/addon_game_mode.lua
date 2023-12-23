@@ -325,6 +325,9 @@ function CAvaloreGameMode:InitGameMode()
 	
 	-- Custom Mode Framework Inits
 	if not _G.not_init then
+		-- debugging
+		if IsClient() then print("Client Init of Spawners") end
+		if IsServer() then print("Server Init of Spawners") end
 		_G.not_init = false
 		Spawners:Init()
 		Score:Init()
@@ -760,7 +763,7 @@ function CAvaloreGameMode:InitRound4()
 	CustomGameEventManager:Send_ServerToAllClients( MESSAGE_EVENT_BROADCAST, broadcast_obj )
 
 	-- round 3 is over, so clear up any gems around (cleanup the boss too if not beat?)
-	if Score.round3.radi_gem_ref ~= nil then
+	if Score.round3.radi_gem_ref ~= nil and not Score.round3.radi_gem_drop_ref:IsNull() then
 		-- remove the physical container + the actual item
 		local hContainer = Score.round3.radi_gem_ref:GetContainer()
 		UTIL_Remove(hContainer)
@@ -770,7 +773,7 @@ function CAvaloreGameMode:InitRound4()
 		-- TODO: figure out how to remove the physical item if it was picked up and dropped
 	end
 
-	if Score.round3.dire_gem_ref ~= nil then
+	if Score.round3.dire_gem_ref ~= nil and not Score.round3.dire_gem_ref:IsNull() then
 		-- remove the physical container + the actual item
 		local hContainer = Score.round3.dire_gem_ref:GetContainer()
 		UTIL_Remove(hContainer)

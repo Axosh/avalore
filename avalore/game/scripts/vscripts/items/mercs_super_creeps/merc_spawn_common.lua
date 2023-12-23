@@ -22,14 +22,18 @@ end
 
 -- 
 function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp_index)
+    --if not IsServer() then return end
+    print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation ⇒ Start")
+    print("index = " .. tostring(merc_camp_index))
     -- this happens when someone tries to drag/drop an item in another inventory
     -- just throw the command out so it doesn't produce the error message
     if location and location == Vector(0,0,0) then
+        print("[DEBUG] invalid loc")
         return
     end
-    if Spawners.MercCamps == nil then
-        print("Spawners not initialized yet")
-    end
+    -- if Spawners.MercCamps == nil then
+    --     print("Spawners not initialized yet")
+    -- end
 
     print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation => " .. tostring(location))
     local merc_camp = EntIndexToHScript(merc_camp_index)
@@ -42,17 +46,60 @@ function MercSpawnCommon:Merc_CastFilterResultLocation(location, merc_camp_index
         return
     end
 
-    -- determine which merc camp this is
-    if merc_camp:GetAbsOrigin() ==  Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_TOP]:GetAbsOrigin() then --Vector(-7232, -5888, 256) then
-        lane = Constants.KEY_RADIANT_TOP
-    elseif merc_camp:GetAbsOrigin() ==  Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_BOT]:GetAbsOrigin() then --Vector(-5888, -7232, 256) then
-        lane = Constants.KEY_RADIANT_BOT
-    elseif merc_camp:GetAbsOrigin() ==  Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP]:GetAbsOrigin() then --Vector(5888, 7232, 256) then
-        lane = GetAbsOrigin.KEY_DIRE_TOP
-    elseif merc_camp:GetAbsOrigin() ==  Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT]:GetAbsOrigin() then --Vector(7232, 5888, 256) then
+    -- somewhere around a patch in late 2023, this all broke because of how client and server initialize
+    -- -- determine which merc camp this is
+    -- if merc_camp:GetAbsOrigin() ==  Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_TOP]:GetAbsOrigin() then --Vector(-7232, -5888, 256) then
+    --     lane = Constants.KEY_RADIANT_TOP
+    -- elseif merc_camp:GetAbsOrigin() ==  Spawners.MercCamps[DOTA_TEAM_GOODGUYS][Constants.KEY_RADIANT_BOT]:GetAbsOrigin() then --Vector(-5888, -7232, 256) then
+    --     lane = Constants.KEY_RADIANT_BOT
+    -- elseif merc_camp:GetAbsOrigin() ==  Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_TOP]:GetAbsOrigin() then --Vector(5888, 7232, 256) then
+    --     lane = GetAbsOrigin.KEY_DIRE_TOP
+    -- elseif merc_camp:GetAbsOrigin() ==  Spawners.MercCamps[DOTA_TEAM_BADGUYS][Constants.KEY_DIRE_BOT]:GetAbsOrigin() then --Vector(7232, 5888, 256) then
+    --     lane = Constants.KEY_DIRE_BOT
+    -- else
+    --     print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation => DOES NOT MATCH ANY MERC CAMP")
+    -- end
+
+    -- so now, just sort of ballpark it
+    --print("Unit? => " .. merc_camp:GetName())
+    --print("Parent? => " .. merc_camp:GetOwner():GetName())
+    print("Merc Camp Vector ===>" .. tostring(merc_camp:GetAbsOrigin().x) .. ", " .. tostring(merc_camp:GetAbsOrigin().y))
+    --PrintVector(merc_camp:GetAbsOrigin())
+    -- this didn't work => these are items/abilities so the abs origin seems to be relative to the parent container or something????
+    -- if merc_camp:GetAbsOrigin().y > 7000 then
+    --     lane = Constants.KEY_DIRE_TOP
+    --     print("Dire Top")
+    -- elseif merc_camp:GetAbsOrigin().y > 5000 then
+    --     lane = Constants.KEY_DIRE_BOT
+    --     print("Dire Bot")
+    -- elseif merc_camp:GetAbsOrigin().y > -6000 then
+    --     lane = Constants.KEY_RADIANT_TOP
+    --     print("Radi Top")
+    -- else
+    --     lane = Constants.KEY_RADIANT_BOT
+    --     print("Radi Bot")
+    -- end
+
+    -- Radi Bot
+    -- Merc Camp Vector ===>0.0009765625, -0.00048828125
+    -- Radi Top
+    -- Merc Camp Vector ===>0, 0
+    -- Dire Top
+    -- Merc Camp Vector ===>-0.001953125, -0.00244140625
+    -- Dire Bot
+    -- Merc Camp Vector ===>0.0029296875, 0.00146484375
+    if merc_camp:GetAbsOrigin().x > 0.002 then
         lane = Constants.KEY_DIRE_BOT
+        print("Dire Top")
+    elseif merc_camp:GetAbsOrigin().x < 0 then
+        lane = Constants.KEY_DIRE_TOP
+        print("Dire Bot")
+    elseif merc_camp:GetAbsOrigin().x == 0 then
+        lane = Constants.KEY_RADIANT_TOP
+        print("Radi Top")
     else
-        print("[DEBUG] MercSpawnCommon:Merc_CastFilterResultLocation => DOES NOT MATCH ANY MERC CAMP")
+        lane = Constants.KEY_RADIANT_BOT
+        print("Radi Bot")
     end
 
     if team == DOTA_TEAM_GOODGUYS then 
