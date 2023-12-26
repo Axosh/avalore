@@ -60,7 +60,7 @@ function modifier_inventory_manager:OnIntervalThink()
                         hero:SwapItems(inv_slot, avalore_slot)
                     end
                 -- if something is in the backpack that shouldn't be
-                elseif inv_slot > 5 and avalore_slot ~= AVALORE_ITEM_SLOT_MISC then
+                elseif inv_slot > 5 and avalore_slot ~= AVALORE_ITEM_SLOT_MISC and avalore_slot ~= AVALORE_ITEM_SLOT_NEUT then
                     hero:SwapItems(inv_slot, avalore_slot)
                 -- if something is in main that should be in backpack
                 elseif inv_slot < 6 and inv_slot ~= avalore_slot and avalore_slot == AVALORE_ITEM_SLOT_MISC then
@@ -70,7 +70,7 @@ function modifier_inventory_manager:OnIntervalThink()
                         if not item_tmp then
                             swap_target = swap_tmp
                             break
-                        elseif item_tmp:GetSpecialValueFor("item_slot") ~= AVALORE_ITEM_SLOT_MISC then
+                        elseif item_tmp:GetSpecialValueFor("item_slot") ~= AVALORE_ITEM_SLOT_MISC  then
                             swap_target = swap_tmp
                             break
                         end
