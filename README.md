@@ -1,5 +1,11 @@
-# avalore
-dota 2 mod
+# Avalore
+
+Dota 2 Mod/Arcade Game
+
+- Gameplay Intro: [Youtube - Avalore Alpha - Gameplay Introduction](https://youtu.be/rPmXk3dwi6E)
+- Game on Steak Workshop: [Steam Workshop - Avalore](https://steamcommunity.com/sharedfiles/filedetails/?id=2914437440)
+- Avalore Discord: [Discord - Avalore](https://discord.gg/ksj2TBc8)
+- Avalore Subreddit: [Reddit/r/Avalore](https://www.reddit.com/r/avalore)
 
 Check out the <a href="https://github.com/Axosh/avalore/wiki">github wiki</a> for more info.
 
